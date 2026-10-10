@@ -3,9 +3,9 @@
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
-// Färgton efter andel kvarvarande tid. Färgen glider hela tiden, utan
-// fasta steg: grönt, sedan snabbare mot skarpt orange och rött på slutet.
-const HUE_STOPS = [[1, 135], [0.6, 118], [0.35, 30], [0.1, 0], [0, 0]];
+// Färgton efter andel kvarvarande tid: grönt första fjärdedelen, rött sista
+// fjärdedelen och en jämn skala via gult och orange däremellan.
+const HUE_STOPS = [[1, 135], [0.75, 135], [0.25, 0], [0, 0]];
 
 function ringHue(part) {
   for (let i = 1; i < HUE_STOPS.length; i++) {
