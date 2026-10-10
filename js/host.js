@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { renderRing, ranks, scoreTracker } from './ui.js';
+import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
@@ -307,16 +307,13 @@ function renderPlayers() {
   const list = game.standings(state);
   const places = ranks(list);
   const rows = list.map((p, i) => {
-    let status = '';
-    if (round && round.phase === 'playing') {
-      status = game.hasAnsweredBoth(state, p.id) ? '<span class="tag good">Svarat</span>' : '<span class="tag">Väntar</span>';
-    } else if (round && round.phase === 'revealed' && round.results[p.id]) {
-      const r = round.results[p.id];
-      const labels = state.labels || game.DEFAULT_LABELS;
-      const tag = (ok, label) => `<span class="tag ${ok ? 'good' : 'bad'}">${esc(label)}</span>`;
-      status = tag(r.artist, labels.artist) + tag(r.title, labels.title)
-        + (r.bonus ? '<span class="tag bonus">Bonus</span>' : '') + ` <strong>+${r.points}</strong>`;
-    }
+    const status = round ? statusTags({
+      phase: round.phase,
+      progress: game.answeredFields(state, p.id),
+      result: round.results && round.results[p.id],
+      labels: state.labels || game.DEFAULT_LABELS,
+      esc,
+    }) : '';
     return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
       <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
       <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
@@ -344,7 +341,7 @@ function playLinks(song) {
 function reopenLinks(song) {
   const app = spotifyAppUrl(song);
   const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
-  return `<p class="muted small">Öppnades inte låten? Öppna den i ${
+  return `<p class="muted small reopen">Öppnades inte låten? Öppna den i ${
     app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
 }
 
@@ -366,7 +363,6 @@ function render() {
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
-      ${state.bonusMs ? `<p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>` : ''}
       <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
@@ -380,6 +376,7 @@ function render() {
         : '<button id="next" class="big huge">Nästa låt</button>'}`;
   }
   renderPlayers();
+  $('#game-settings-summary').textContent = settingsSummary(game.cleanSettings(state));
 }
 
 // ---- Start ----
