@@ -8,12 +8,37 @@ export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
 export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
 
+// Inställningar som spelledaren kan välja. Bonus 0 betyder ingen bonus.
+export const SETTING_CHOICES = {
+  roundMs: [30000, 45000, 60000, 90000, 120000],
+  bonusMs: [0, 10000, 15000, 20000, 30000],
+  winScore: [5, 10, 15, 20, 30],
+};
+export const DEFAULT_SETTINGS = { roundMs: ROUND_MS, bonusMs: BONUS_MS, winScore: WIN_SCORE };
+
+// Okända eller saknade värden ersätts med standardvärdet.
+export function cleanSettings(settings = {}) {
+  const clean = {};
+  for (const [key, choices] of Object.entries(SETTING_CHOICES)) {
+    const value = Number(settings && settings[key]);
+    clean[key] = choices.includes(value) ? value : DEFAULT_SETTINGS[key];
+  }
+  return clean;
+}
+
+// Ändras inte mitt i en låt, eftersom timern och bonusen räknas från dem.
+export function applySettings(state, settings) {
+  if (state.round && state.round.phase === 'playing') return false;
+  Object.assign(state, cleanSettings(settings));
+  return true;
+}
+
 export function normalize(text) {
   return (text || '').trim().toLocaleLowerCase('sv');
 }
 
 // labels: vad fälten heter i kategorin, till exempel Kompositör och Verk.
-export function createGame({ code, categoryId, playedIds = [], labels = DEFAULT_LABELS }) {
+export function createGame({ code, categoryId, playedIds = [], labels = DEFAULT_LABELS, settings }) {
   return {
     code,
     categoryId,
@@ -21,9 +46,7 @@ export function createGame({ code, categoryId, playedIds = [], labels = DEFAULT_
     playedIds: [...playedIds],
     roundNumber: 0,
     round: null,
-    roundMs: ROUND_MS,
-    bonusMs: BONUS_MS,
-    winScore: WIN_SCORE,
+    ...cleanSettings(settings),
     winners: null,
     labels: { ...labels },
   };
@@ -124,7 +147,7 @@ export function shouldReveal(state, now) {
 export function scoreAnswer(state, song, answer) {
   const artist = Boolean(answer && normalize(answer.artist) === normalize(song.artist));
   const title = Boolean(answer && normalize(answer.title) === normalize(song.title));
-  const fast = Boolean(answer && answer.changedAt !== null
+  const fast = Boolean(state.bonusMs > 0 && answer && answer.changedAt !== null
     && answer.changedAt - state.round.startedAt <= state.bonusMs);
   const bonus = artist && title && fast;
   return { artist, title, bonus, points: Number(artist) + Number(title) + Number(bonus) };
