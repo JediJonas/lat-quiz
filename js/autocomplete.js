@@ -1,5 +1,8 @@
 // Fält där svaret bara kan väljas ur en lista.
 // Förslag visas efter 3 tecken, i bokstavsordning.
+// Accenter och skiljetecken spelar ingen roll: "senorita" hittar "Señorita".
+
+import { compact } from './text.js';
 
 const MIN_CHARS = 3;
 const MAX_SHOWN = 50;
@@ -12,6 +15,7 @@ export function autocomplete(input, list, onChange) {
   input.after(box);
   input.setAttribute('autocomplete', 'off');
   let selected = '';
+  const keys = list.map(compact);
 
   function choose(value) {
     selected = value;
@@ -22,10 +26,10 @@ export function autocomplete(input, list, onChange) {
   }
 
   function render() {
-    const query = input.value.trim().toLocaleLowerCase('sv');
+    const query = compact(input.value);
     box.innerHTML = '';
     if (query.length < MIN_CHARS) { box.hidden = true; return; }
-    const hits = list.filter((item) => item.toLocaleLowerCase('sv').includes(query));
+    const hits = list.filter((item, i) => keys[i].includes(query));
     for (const item of hits.slice(0, MAX_SHOWN)) {
       const li = document.createElement('li');
       li.textContent = item;
