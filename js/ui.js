@@ -3,9 +3,9 @@
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
-// Färgton efter andel kvarvarande tid: grönt drygt halva tiden, en snabb
-// övergång till skarpt orange, och rött den sista tiondelen.
-const HUE_STOPS = [[1, 135], [0.45, 135], [0.35, 30], [0.2, 30], [0.1, 0], [0, 0]];
+// Färgton efter andel kvarvarande tid. Färgen glider hela tiden, utan
+// fasta steg: grönt, sedan snabbare mot skarpt orange och rött på slutet.
+const HUE_STOPS = [[1, 135], [0.6, 118], [0.35, 30], [0.1, 0], [0, 0]];
 
 function ringHue(part) {
   for (let i = 1; i < HUE_STOPS.length; i++) {
@@ -17,7 +17,7 @@ function ringHue(part) {
 }
 
 // Rund nedräkning: siffran i mitten och en ring som töms medurs
-// och skiftar från grönt via gult till rött.
+// och glider från grönt via orange till rött.
 export function renderRing(el, ms, totalMs, bonus) {
   if (!el.querySelector('svg')) {
     el.innerHTML = `<svg viewBox="0 0 120 120" aria-hidden="true">
@@ -29,8 +29,9 @@ export function renderRing(el, ms, totalMs, bonus) {
   // Negativ förskjutning gör att det tomma partiet växer medurs från klockan tolv.
   el.querySelector('.ring-bar').style.strokeDashoffset = -RING_LEN * (1 - part);
   const hue = Math.round(ringHue(part));
-  // Orange och rött i full mättnad så att de lyser, grönt något dämpat.
-  el.style.setProperty('--ring-color', hue > 60 ? `hsl(${hue} 80% 45%)` : `hsl(${hue} 100% 50%)`);
+  // Mättnad och ljushet följer med, så att orange och rött lyser starkare än grönt.
+  const warm = Math.min(1, Math.max(0, (135 - hue) / 105));
+  el.style.setProperty('--ring-color', `hsl(${hue} ${Math.round(80 + 20 * warm)}% ${Math.round(45 + 5 * warm)}%)`);
   el.querySelector('.ring-num').textContent = Math.ceil(ms / 1000);
   el.classList.toggle('bonus', bonus);
 }
