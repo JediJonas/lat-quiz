@@ -6,5 +6,6 @@
   { "id": "2000-tal", "name": "2000-talets hits", "file": "2000-tal.json" },
   { "id": "70-tal", "name": "70-talet", "file": "70-tal.json" },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" },
-  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json" }
+  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json" },
+  { "id": "filmmusik", "name": "Filmmusik och ledmotiv", "file": "filmmusik.json" }
 ]
