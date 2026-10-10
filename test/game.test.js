@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
-  shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs,
+  shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs, restart,
 } from '../js/game.js';
 
 const songs = [
@@ -116,4 +116,38 @@ test('poängställningen sorteras efter poäng och sedan namn', () => {
   submitAnswer(state, 'p2', 'artist', 'a-ha', 2000);
   reveal(state);
   assert.deepEqual(standings(state).map((p) => p.name), ['Bo', 'Anna']);
+});
+
+test('först till 10 poäng vinner, och sedan slumpas inga fler låtar', () => {
+  const many = Array.from({ length: 10 }, (_, i) => ({ id: 's' + i, artist: 'A' + i, title: 'T' + i, year: 1985 }));
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal' });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  addPlayer(state, { id: 'p2', name: 'Bo' });
+  let rounds = 0;
+  while (!state.winners) {
+    const song = nextSong(state, many, () => 0);
+    startRound(state, 0);
+    submitAnswer(state, 'p1', 'artist', song.artist, 1000);
+    submitAnswer(state, 'p1', 'title', song.title, 1000);
+    reveal(state);
+    rounds += 1;
+  }
+  assert.equal(rounds, 4); // 3 + 3 + 3 + 3 = 12 poäng
+  assert.deepEqual(state.winners, ['p1']);
+  assert.deepEqual(playerView(state, 'p2', 0).winners, ['Anna']);
+  assert.equal(nextSong(state, many), null);
+  restart(state);
+  assert.equal(state.players.p1.score, 0);
+  assert.equal(state.winners, null);
+  assert.ok(nextSong(state, many));
+});
+
+test('lika poäng över gränsen ger delad seger', () => {
+  const state = setup();
+  state.players.p1.score = 9;
+  state.players.p2.score = 9;
+  submitAnswer(state, 'p1', 'artist', 'a-ha', 20000);
+  submitAnswer(state, 'p2', 'artist', 'a-ha', 20000);
+  reveal(state);
+  assert.deepEqual(state.winners.sort(), ['p1', 'p2']);
 });

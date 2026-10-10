@@ -11,7 +11,7 @@ En webbapp för låtquiz med familj och vänner. Spelledaren spelar låtar i Spo
 3. Spelledaren trycker på **Nästa låt** och sedan på **Spela låten i Spotify**. Klicket startar en timer på 60 sekunder. Spelledaren stoppar låten själv efter ungefär 10 sekunder.
 4. Spelarna väljer artist och titel ur listan. Rätt svar visas när tiden är slut, eller när alla har svarat.
 
-Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt inom 15 sekunder.
+Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt inom 15 sekunder. Först till 10 poäng vinner.
 
 ## Filer
 

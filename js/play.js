@@ -79,7 +79,7 @@ function render() {
   $('#waiting').hidden = !(phase === 'waiting' || phase === 'ready');
   $('#waiting-text').textContent = phase === 'ready'
     ? `Låt ${round.number} startar snart …`
-    : 'Väntar på första låten …';
+    : `Väntar på första låten … Först till ${view.winScore} poäng vinner.`;
   $('#guess').hidden = phase !== 'playing';
   $('#result').hidden = phase !== 'revealed';
   fields.artist.disable(phase !== 'playing');
@@ -101,7 +101,8 @@ function render() {
         <li>${r.title ? '✅' : '❌'} Titel: ${esc(mine.title || '–')}</li>
         ${r.bonus ? '<li>⚡ Bonus för snabbt svar</li>' : ''}
       </ul>
-      <p class="points">+${r.points} poäng</p>`;
+      <p class="points">+${r.points} poäng</p>
+      ${view.winners ? `<div class="winner">🏆 ${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
   }
   renderStandings();
 }
