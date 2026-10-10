@@ -3,6 +3,19 @@
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
+// Färgton efter andel kvarvarande tid: grönt drygt halva tiden, en snabb
+// övergång till skarpt orange, och rött den sista tiondelen.
+const HUE_STOPS = [[1, 135], [0.45, 135], [0.35, 28], [0.2, 28], [0.1, 0], [0, 0]];
+
+function ringHue(part) {
+  for (let i = 1; i < HUE_STOPS.length; i++) {
+    const [p1, h1] = HUE_STOPS[i - 1];
+    const [p2, h2] = HUE_STOPS[i];
+    if (part >= p2) return h2 + (h1 - h2) * ((part - p2) / (p1 - p2));
+  }
+  return 0;
+}
+
 // Rund nedräkning: siffran i mitten och en ring som töms medurs
 // och skiftar från grönt via gult till rött.
 export function renderRing(el, ms, totalMs, bonus) {
@@ -15,7 +28,7 @@ export function renderRing(el, ms, totalMs, bonus) {
   const part = totalMs ? Math.max(0, Math.min(1, ms / totalMs)) : 0;
   // Negativ förskjutning gör att det tomma partiet växer medurs från klockan tolv.
   el.querySelector('.ring-bar').style.strokeDashoffset = -RING_LEN * (1 - part);
-  el.style.setProperty('--ring-hue', Math.round(120 * part));
+  el.style.setProperty('--ring-hue', Math.round(ringHue(part)));
   el.querySelector('.ring-num').textContent = Math.ceil(ms / 1000);
   el.classList.toggle('bonus', bonus);
 }
