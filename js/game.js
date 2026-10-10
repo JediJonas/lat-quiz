@@ -3,7 +3,7 @@
 // bytas (till exempel mot Firebase) utan att något här ändras.
 // Spelläget är ett vanligt objekt som går att spara som JSON.
 
-export const ROUND_MS = 30000;
+export const ROUND_MS = 60000;
 export const BONUS_MS = 15000;
 
 export function normalize(text) {
