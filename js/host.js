@@ -117,7 +117,22 @@ function startNetwork() {
     onDisconnect,
     onError: setNetStatus,
   });
-  ticker = setInterval(tick, 250);
+  ticker = startTicker(tick, 250);
+}
+
+// Webbläsare bromsar timers i flikar som inte syns, till exempel när spelledaren
+// har bytt till Spotify, ibland till en gång i minuten. En timer i en worker
+// bromsas inte lika hårt, så svaret visas i tid ändå.
+function startTicker(fn, ms) {
+  try {
+    const code = `setInterval(() => postMessage(0), ${ms});`;
+    const worker = new Worker(URL.createObjectURL(new Blob([code], { type: 'text/javascript' })));
+    worker.onmessage = fn;
+    return { stop: () => worker.terminate() };
+  } catch {
+    const id = setInterval(fn, ms);
+    return { stop: () => clearInterval(id) };
+  }
 }
 
 function setNetStatus(text) {
@@ -212,7 +227,7 @@ async function endGame() {
   if (!ok) return;
   storage(() => localStorage.removeItem(SAVE_KEY));
   if (net) net.destroy();
-  clearInterval(ticker);
+  if (ticker) ticker.stop();
   location.href = location.pathname + location.search;
 }
 
