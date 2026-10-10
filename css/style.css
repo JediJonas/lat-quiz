@@ -200,7 +200,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 
 /* Nedräkning */
 .ring { position: relative; width: 200px; height: 200px; margin: 8px auto 16px; }
-.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
 .ring circle { fill: none; stroke-width: 7; }
 .ring-track { stroke: var(--surface-2); }
 .ring { --ring-color: hsl(135 80% 45%); }
