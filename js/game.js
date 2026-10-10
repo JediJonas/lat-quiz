@@ -20,7 +20,9 @@ export const DEFAULT_SETTINGS = { roundMs: ROUND_MS, bonusMs: BONUS_MS, winScore
 export function cleanSettings(settings = {}) {
   const clean = {};
   for (const [key, choices] of Object.entries(SETTING_CHOICES)) {
-    const value = Number(settings && settings[key]);
+    const raw = settings ? settings[key] : undefined;
+    // null och tom text får inte bli 0, som betyder ingen bonus.
+    const value = raw == null || raw === '' ? NaN : Number(raw);
     clean[key] = choices.includes(value) ? value : DEFAULT_SETTINGS[key];
   }
   return clean;

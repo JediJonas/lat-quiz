@@ -198,8 +198,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
 .ring circle { fill: none; stroke-width: 7; }
 .ring-track { stroke: var(--surface-2); }
-.ring { --ring-hue: 120; --ring-light: 45%; }
-.ring-bar { stroke: hsl(var(--ring-hue) 75% var(--ring-light)); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear, stroke 0.25s linear; }
+.ring { --ring-color: hsl(135 80% 45%); }
+.ring-bar { stroke: var(--ring-color); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear, stroke 0.25s linear; }
 .ring-num {
   position: absolute;
   inset: 0;
@@ -378,8 +378,4 @@ button.danger:hover { filter: brightness(1.08); }
 @keyframes modal-in {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }
-}
-
-@media (prefers-color-scheme: dark) {
-  .ring { --ring-light: 55%; }
 }

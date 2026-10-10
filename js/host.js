@@ -237,6 +237,14 @@ function showSettings(current) {
         <button value="ok">Spara</button>
       </div>
     </form>`;
+  // En rullista skickar inte formuläret med Enter, så Enter sparar här.
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.tagName === 'SELECT') {
+      e.preventDefault();
+      e.stopPropagation(); // annars startar Enter även spelet
+      dialog.querySelector('[value=ok]').click();
+    }
+  });
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {
@@ -348,12 +356,12 @@ function render() {
 
   if (!round) {
     stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.
-      Låten öppnas i Spotify och timern startar. Stoppa låten efter ungefär 10 sekunder.</p>
+      Låten öppnas i Spotify och timern startar. Stoppa låten när tiden har gått ut.</p>
       <button id="next" class="big huge">Nästa låt</button>`;
   } else if (round.phase === 'ready') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <p>Klicka på knappen. Låten öppnas i Spotify och timern startar.
-      Stoppa låten efter ungefär 10 sekunder.</p>
+      Stoppa låten när tiden har gått ut.</p>
       ${playLinks(round.song)}`;
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
