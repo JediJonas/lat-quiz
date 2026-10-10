@@ -8,7 +8,7 @@
 // Svaren sparas i verktyg/.cache.json så att en ny körning går snabbt.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { pickWikidataTrack, artistMatches, titleMatches } from '../js/lookup.js';
+import { norm, pickWikidataTrack, artistMatches, titleMatches } from '../js/lookup.js';
 
 const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 const CACHE = new URL('./.cache.json', import.meta.url);
@@ -77,9 +77,78 @@ async function musicbrainz(song) {
   return null;
 }
 
+// Klassisk musik: verket hittas i Wikidata, som länkar till verket i MusicBrainz (P435).
+// Därifrån går vi ner till första satsen eller delen och tar en inspelning med Spotify-länk,
+// helst med en känd orkester.
+const CATALOG = /\b(K|KV|BWV|op|WoO|RV|Hob|D|S|HWV|TrV|L|BB)\.? ?[0-9IVX]/i;
+const FAMOUS = /philharmoni|symphony orchestra|symphonieorchester|karajan|academy of st|concertgebouw|pavarotti|domingo|callas/i;
+
+async function classicalWork(song) {
+  const query = `SELECT ?itemLabel ?mbw ?composerLabel WHERE {
+    SERVICE wikibase:mwapi {
+      bd:serviceParam wikibase:endpoint "www.wikidata.org";
+                      wikibase:api "EntitySearch";
+                      mwapi:search ${JSON.stringify(song.title)};
+                      mwapi:language "en";
+                      mwapi:limit "20".
+      ?item wikibase:apiOutputItem mwapi:item.
+    }
+    ?item wdt:P435 ?mbw.
+    ?item wdt:P86 ?composer.
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "en,mul". }
+  }`;
+  const data = await getJson('https://query.wikidata.org/sparql?' + new URLSearchParams({ query, format: 'json' }));
+  await sleep(1000);
+  const work = data.results.bindings.find((b) => artistMatches(song.artist, b.composerLabel.value));
+  if (!work) return null;
+  const mb = 'https://musicbrainz.org/ws/2/';
+  let id = work.mbw.value;
+  let exact = titleMatches(song.title, work.itemLabel.value);
+  for (let depth = 0; depth < 3; depth += 1) {
+    const full = await getJson(mb + `work/${id}?` + new URLSearchParams({ inc: 'work-rels', fmt: 'json' }));
+    await sleep(1100);
+    const parts = (full && full.relations || [])
+      .filter((r) => r.type === 'parts' && r.direction === 'forward')
+      .sort((a, b) => (a['ordering-key'] || 0) - (b['ordering-key'] || 0));
+    if (!parts.length) break;
+    // En del som delar ord med titeln, till exempel "Alla turca", går före första delen.
+    const words = norm(song.title).split(' ').filter((w) => w.length > 3);
+    const overlap = (part) => words.filter((w) => norm(part.work.title).split(' ').includes(w)).length;
+    const best = parts.reduce((a, b) => (overlap(b) > overlap(a) ? b : a), parts[0]);
+    // Ett utdrag som "Ode to Joy" får inte bli första satsen av hela symfonin.
+    if (!overlap(best) && !exact) return null;
+    if (overlap(best)) exact = true;
+    id = best.work.id;
+  }
+  let fallback = null;
+  for (let offset = 0; offset < 500; offset += 100) {
+    const page = await getJson(mb + 'recording?' + new URLSearchParams({ work: id, inc: 'url-rels+artist-credits', limit: '100', offset: String(offset), fmt: 'json' }));
+    await sleep(1100);
+    if (!page) break;
+    for (const r of page.recordings) {
+      const rel = (r.relations || []).find((x) => /open\.spotify\.com\/track\//.test(x.url && x.url.resource));
+      if (!rel || LIVE.test(r.disambiguation || '')) continue;
+      const hit = {
+        spotify: rel.url.resource.match(/track\/([A-Za-z0-9]{22})/)[1],
+        title: r.title,
+        performer: (r['artist-credit'] || []).map((c) => c.name).join(', '),
+      };
+      // Katalognummer eller "Verk: del" i titeln tyder på en klassisk utgåva och inte ett arrangemang.
+      const classicTitle = CATALOG.test(hit.title) || /\S: \S/.test(hit.title);
+      const rank = (classicTitle ? 2 : 0) + (FAMOUS.test(hit.performer) ? 1 : 0);
+      if (rank === 3) return hit;
+      if (!fallback || rank > fallback.rank) fallback = { ...hit, rank };
+    }
+    if (offset + 100 >= page['recording-count']) break;
+  }
+  return fallback && fallback.rank >= 1 ? fallback : null;
+}
+
 const [listPath, targetArg] = process.argv.slice(2);
 const list = JSON.parse(readFileSync(listPath, 'utf8'));
 const target = Number(targetArg) || 100;
+// Kategorier med kompositör i stället för artist söks som verk.
+const classical = Boolean(list.labels && /kompositör/i.test(list.labels.artist));
 const outPath = new URL(`../data/${list.file}`, import.meta.url);
 const existing = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')).filter((s) => s.spotifyId) : [];
 const have = new Set(existing.map((s) => s.id));
@@ -89,9 +158,11 @@ const missing = [];
 
 for (const song of list.songs.filter((s) => !have.has(s.id))) {
   if (existing.length + added.length >= target) break;
+  // "skip" i kandidatlistan betyder att Claude har underkänt träffen, till exempel ett arrangemang.
+  if (song.skip) { missing.push(song); console.log(`SKIP ${song.artist} – ${song.title}: ${song.skip}`); continue; }
   let hit = pickWikidataTrack(song, await wikidata(song.title));
   let source = 'Wikidata';
-  if (!hit) { hit = await musicbrainz(song); source = 'MusicBrainz'; }
+  if (!hit) { hit = await (classical ? classicalWork(song) : musicbrainz(song)); source = 'MusicBrainz'; }
   if (hit && !usedIds.has(hit.spotify)) {
     usedIds.add(hit.spotify);
     added.push({ ...song, spotifyId: hit.spotify });

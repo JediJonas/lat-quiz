@@ -365,7 +365,8 @@
    "id": "grieg-solveig-s-song",
    "artist": "Edvard Grieg",
    "title": "Solveig's Song",
-   "year": 1875
+   "year": 1875,
+   "skip": "träffen är ett potpurri"
   },
   {
    "id": "grieg-peer-gynt",
@@ -437,7 +438,8 @@
    "id": "schubert-ave-maria",
    "artist": "Franz Schubert",
    "title": "Ave Maria",
-   "year": 1825
+   "year": 1825,
+   "skip": "träffen är Disneys arrangemang"
   },
   {
    "id": "schubert-serenade",
@@ -761,7 +763,8 @@
    "id": "stravinsky-the-firebird",
    "artist": "Igor Stravinsky",
    "title": "The Firebird",
-   "year": 1910
+   "year": 1910,
+   "skip": "träffen är ett pianoarrangemang"
   },
   {
    "id": "mahler-adagietto",
@@ -773,7 +776,8 @@
    "id": "mahler-symphony-no-5",
    "artist": "Gustav Mahler",
    "title": "Symphony No. 5",
-   "year": 1902
+   "year": 1902,
+   "skip": "träffen börjar mitt i satsen"
   },
   {
    "id": "strauss-also-sprach-zarathustra",
@@ -1242,6 +1246,54 @@
    "artist": "Ennio Morricone",
    "title": "Gabriel's Oboe",
    "year": 1986
+  },
+  {
+   "id": "beethoven-egmont-overture",
+   "artist": "Ludwig van Beethoven",
+   "title": "Egmont Overture",
+   "year": 1810
+  },
+  {
+   "id": "mendelssohn-the-hebrides",
+   "artist": "Felix Mendelssohn",
+   "title": "The Hebrides",
+   "year": 1830
+  },
+  {
+   "id": "grieg-anitras-dance",
+   "artist": "Edvard Grieg",
+   "title": "Anitra's Dance",
+   "year": 1875
+  },
+  {
+   "id": "tchaikovsky-capriccio-italien",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Capriccio Italien",
+   "year": 1880
+  },
+  {
+   "id": "mozart-jupiter-symphony",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Jupiter Symphony",
+   "year": 1788
+  },
+  {
+   "id": "brahms-academic-festival-overture",
+   "artist": "Johannes Brahms",
+   "title": "Academic Festival Overture",
+   "year": 1880
+  },
+  {
+   "id": "rossini-semiramide",
+   "artist": "Gioachino Rossini",
+   "title": "Semiramide",
+   "year": 1823
+  },
+  {
+   "id": "weber-der-freischutz",
+   "artist": "Carl Maria von Weber",
+   "title": "Der Freischütz",
+   "year": 1821
   }
  ]
 }
