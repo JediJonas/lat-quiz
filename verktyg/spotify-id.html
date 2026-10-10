@@ -48,7 +48,7 @@
     let candidates = []; // kandidater som inte redan finns i kategorin
     const found = {}; // songId -> { id, accepted }
 
-    // Söker låtar med titeln i Wikidata och hämtar deras Spotify-ID (P2207) och artist (P175).
+    // Söker låtar med titeln i Wikidata och hämtar deras Spotify-ID (P2207) och artist (P175) eller kompositör (P86).
     async function wikidata(title) {
       const query = `SELECT ?itemLabel ?spotify ?performerLabel WHERE {
         SERVICE wikibase:mwapi {
@@ -60,7 +60,7 @@
           ?item wikibase:apiOutputItem mwapi:item.
         }
         ?item wdt:P2207 ?spotify.
-        OPTIONAL { ?item wdt:P175 ?performer. }
+        OPTIONAL { ?item wdt:P175|wdt:P86 ?performer. }
         SERVICE wikibase:label { bd:serviceParam wikibase:language "en,sv,mul". }
       }`;
       const res = await fetch('https://query.wikidata.org/sparql?' + new URLSearchParams({ query, format: 'json' }), {

@@ -145,7 +145,9 @@ async function startGame(categoryId, resumeState) {
     // Alla räknas som frånkopplade tills de hör av sig igen.
     for (const player of Object.values(state.players)) player.connected = false;
   } else {
-    state = game.createGame({ code: newCode(), categoryId: category.id, playedIds: loadPlayed(category.id) });
+    state = game.createGame({
+      code: newCode(), categoryId: category.id, playedIds: loadPlayed(category.id), labels: category.labels,
+    });
   }
   save();
   $('#setup').hidden = true;
@@ -243,7 +245,8 @@ function renderPlayers() {
       status = game.hasAnsweredBoth(state, p.id) ? '✅ Svarat' : '…';
     } else if (round && round.phase === 'revealed' && round.results[p.id]) {
       const r = round.results[p.id];
-      status = `${r.artist ? '✅' : '❌'} artist ${r.title ? '✅' : '❌'} titel`
+      const labels = state.labels || game.DEFAULT_LABELS;
+      status = `${r.artist ? '✅' : '❌'} ${labels.artist.toLowerCase()} ${r.title ? '✅' : '❌'} ${labels.title.toLowerCase()}`
         + (r.bonus ? ' ⚡ bonus' : '') + ` <strong>+${r.points}</strong>`;
     }
     return `<tr class="${p.connected ? '' : 'offline'}">

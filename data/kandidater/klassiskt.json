@@ -1,0 +1,1247 @@
+{
+ "id": "klassiskt",
+ "name": "Klassisk musik",
+ "file": "klassiskt.json",
+ "labels": {
+  "artist": "Kompositör",
+  "title": "Verk"
+ },
+ "songs": [
+  {
+   "id": "mozart-eine-kleine-nachtmusik",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Eine kleine Nachtmusik",
+   "year": 1787
+  },
+  {
+   "id": "beethoven-fur-elise",
+   "artist": "Ludwig van Beethoven",
+   "title": "Für Elise",
+   "year": 1810
+  },
+  {
+   "id": "beethoven-symphony-no-5",
+   "artist": "Ludwig van Beethoven",
+   "title": "Symphony No. 5",
+   "year": 1808
+  },
+  {
+   "id": "vivaldi-the-four-seasons",
+   "artist": "Antonio Vivaldi",
+   "title": "The Four Seasons",
+   "year": 1721
+  },
+  {
+   "id": "bach-toccata-and-fugue-in-d-minor",
+   "artist": "Johann Sebastian Bach",
+   "title": "Toccata and Fugue in D minor",
+   "year": 1708
+  },
+  {
+   "id": "tchaikovsky-swan-lake",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Swan Lake",
+   "year": 1876
+  },
+  {
+   "id": "tchaikovsky-the-nutcracker",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "The Nutcracker",
+   "year": 1892
+  },
+  {
+   "id": "grieg-in-the-hall-of-the-mountain-king",
+   "artist": "Edvard Grieg",
+   "title": "In the Hall of the Mountain King",
+   "year": 1875
+  },
+  {
+   "id": "grieg-morning-mood",
+   "artist": "Edvard Grieg",
+   "title": "Morning Mood",
+   "year": 1875
+  },
+  {
+   "id": "pachelbel-canon-in-d",
+   "artist": "Johann Pachelbel",
+   "title": "Canon in D",
+   "year": 1680
+  },
+  {
+   "id": "beethoven-moonlight-sonata",
+   "artist": "Ludwig van Beethoven",
+   "title": "Moonlight Sonata",
+   "year": 1801
+  },
+  {
+   "id": "beethoven-ode-to-joy",
+   "artist": "Ludwig van Beethoven",
+   "title": "Ode to Joy",
+   "year": 1824
+  },
+  {
+   "id": "mozart-rondo-alla-turca",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Rondo alla Turca",
+   "year": 1783
+  },
+  {
+   "id": "mozart-requiem",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Requiem",
+   "year": 1791
+  },
+  {
+   "id": "mozart-the-magic-flute",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "The Magic Flute",
+   "year": 1791
+  },
+  {
+   "id": "mozart-the-marriage-of-figaro",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "The Marriage of Figaro",
+   "year": 1786
+  },
+  {
+   "id": "mozart-symphony-no-40",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Symphony No. 40",
+   "year": 1788
+  },
+  {
+   "id": "ii-the-blue-danube",
+   "artist": "Johann Strauss II",
+   "title": "The Blue Danube",
+   "year": 1866
+  },
+  {
+   "id": "i-radetzky-march",
+   "artist": "Johann Strauss I",
+   "title": "Radetzky March",
+   "year": 1848
+  },
+  {
+   "id": "ravel-bolero",
+   "artist": "Maurice Ravel",
+   "title": "Boléro",
+   "year": 1928
+  },
+  {
+   "id": "debussy-clair-de-lune",
+   "artist": "Claude Debussy",
+   "title": "Clair de lune",
+   "year": 1905
+  },
+  {
+   "id": "satie-gymnopedies",
+   "artist": "Erik Satie",
+   "title": "Gymnopédies",
+   "year": 1888
+  },
+  {
+   "id": "orff-carmina-burana",
+   "artist": "Carl Orff",
+   "title": "Carmina Burana",
+   "year": 1936
+  },
+  {
+   "id": "wagner-ride-of-the-valkyries",
+   "artist": "Richard Wagner",
+   "title": "Ride of the Valkyries",
+   "year": 1856
+  },
+  {
+   "id": "wagner-bridal-chorus",
+   "artist": "Richard Wagner",
+   "title": "Bridal Chorus",
+   "year": 1850
+  },
+  {
+   "id": "mendelssohn-wedding-march",
+   "artist": "Felix Mendelssohn",
+   "title": "Wedding March",
+   "year": 1842
+  },
+  {
+   "id": "bizet-carmen",
+   "artist": "Georges Bizet",
+   "title": "Carmen",
+   "year": 1875
+  },
+  {
+   "id": "verdi-la-donna-e-mobile",
+   "artist": "Giuseppe Verdi",
+   "title": "La donna è mobile",
+   "year": 1851
+  },
+  {
+   "id": "verdi-anvil-chorus",
+   "artist": "Giuseppe Verdi",
+   "title": "Anvil Chorus",
+   "year": 1853
+  },
+  {
+   "id": "verdi-aida",
+   "artist": "Giuseppe Verdi",
+   "title": "Aida",
+   "year": 1871
+  },
+  {
+   "id": "verdi-requiem",
+   "artist": "Giuseppe Verdi",
+   "title": "Requiem",
+   "year": 1874
+  },
+  {
+   "id": "puccini-nessun-dorma",
+   "artist": "Giacomo Puccini",
+   "title": "Nessun dorma",
+   "year": 1926
+  },
+  {
+   "id": "puccini-o-mio-babbino-caro",
+   "artist": "Giacomo Puccini",
+   "title": "O mio babbino caro",
+   "year": 1918
+  },
+  {
+   "id": "rossini-william-tell-overture",
+   "artist": "Gioachino Rossini",
+   "title": "William Tell Overture",
+   "year": 1829
+  },
+  {
+   "id": "rossini-the-barber-of-seville",
+   "artist": "Gioachino Rossini",
+   "title": "The Barber of Seville",
+   "year": 1816
+  },
+  {
+   "id": "offenbach-can-can",
+   "artist": "Jacques Offenbach",
+   "title": "Can-can",
+   "year": 1858
+  },
+  {
+   "id": "offenbach-barcarolle",
+   "artist": "Jacques Offenbach",
+   "title": "Barcarolle",
+   "year": 1881
+  },
+  {
+   "id": "saint-saens-the-carnival-of-the-animals",
+   "artist": "Camille Saint-Saëns",
+   "title": "The Carnival of the Animals",
+   "year": 1886
+  },
+  {
+   "id": "saint-saens-danse-macabre",
+   "artist": "Camille Saint-Saëns",
+   "title": "Danse macabre",
+   "year": 1874
+  },
+  {
+   "id": "mussorgsky-pictures-at-an-exhibition",
+   "artist": "Modest Mussorgsky",
+   "title": "Pictures at an Exhibition",
+   "year": 1874
+  },
+  {
+   "id": "mussorgsky-night-on-bald-mountain",
+   "artist": "Modest Mussorgsky",
+   "title": "Night on Bald Mountain",
+   "year": 1867
+  },
+  {
+   "id": "rimsky-korsakov-flight-of-the-bumblebee",
+   "artist": "Nikolai Rimsky-Korsakov",
+   "title": "Flight of the Bumblebee",
+   "year": 1900
+  },
+  {
+   "id": "rimsky-korsakov-scheherazade",
+   "artist": "Nikolai Rimsky-Korsakov",
+   "title": "Scheherazade",
+   "year": 1888
+  },
+  {
+   "id": "khachaturian-sabre-dance",
+   "artist": "Aram Khachaturian",
+   "title": "Sabre Dance",
+   "year": 1942
+  },
+  {
+   "id": "prokofiev-peter-and-the-wolf",
+   "artist": "Sergei Prokofiev",
+   "title": "Peter and the Wolf",
+   "year": 1936
+  },
+  {
+   "id": "prokofiev-dance-of-the-knights",
+   "artist": "Sergei Prokofiev",
+   "title": "Dance of the Knights",
+   "year": 1935
+  },
+  {
+   "id": "rachmaninoff-piano-concerto-no-2",
+   "artist": "Sergei Rachmaninoff",
+   "title": "Piano Concerto No. 2",
+   "year": 1901
+  },
+  {
+   "id": "tchaikovsky-1812-overture",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "1812 Overture",
+   "year": 1880
+  },
+  {
+   "id": "tchaikovsky-piano-concerto-no-1",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Piano Concerto No. 1",
+   "year": 1875
+  },
+  {
+   "id": "tchaikovsky-sleeping-beauty",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Sleeping Beauty",
+   "year": 1889
+  },
+  {
+   "id": "tchaikovsky-dance-of-the-sugar-plum-fairy",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Dance of the Sugar Plum Fairy",
+   "year": 1892
+  },
+  {
+   "id": "tchaikovsky-waltz-of-the-flowers",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Waltz of the Flowers",
+   "year": 1892
+  },
+  {
+   "id": "dvorak-symphony-no-9",
+   "artist": "Antonín Dvořák",
+   "title": "Symphony No. 9",
+   "year": 1893
+  },
+  {
+   "id": "dvorak-humoresque",
+   "artist": "Antonín Dvořák",
+   "title": "Humoresque",
+   "year": 1894
+  },
+  {
+   "id": "dvorak-song-to-the-moon",
+   "artist": "Antonín Dvořák",
+   "title": "Song to the Moon",
+   "year": 1901
+  },
+  {
+   "id": "smetana-the-moldau",
+   "artist": "Bedřich Smetana",
+   "title": "The Moldau",
+   "year": 1874
+  },
+  {
+   "id": "sibelius-finlandia",
+   "artist": "Jean Sibelius",
+   "title": "Finlandia",
+   "year": 1899
+  },
+  {
+   "id": "sibelius-valse-triste",
+   "artist": "Jean Sibelius",
+   "title": "Valse triste",
+   "year": 1904
+  },
+  {
+   "id": "grieg-piano-concerto-in-a-minor",
+   "artist": "Edvard Grieg",
+   "title": "Piano Concerto in A minor",
+   "year": 1868
+  },
+  {
+   "id": "grieg-solveig-s-song",
+   "artist": "Edvard Grieg",
+   "title": "Solveig's Song",
+   "year": 1875
+  },
+  {
+   "id": "grieg-peer-gynt",
+   "artist": "Edvard Grieg",
+   "title": "Peer Gynt",
+   "year": 1875
+  },
+  {
+   "id": "brahms-hungarian-dance-no-5",
+   "artist": "Johannes Brahms",
+   "title": "Hungarian Dance No. 5",
+   "year": 1869
+  },
+  {
+   "id": "brahms-lullaby",
+   "artist": "Johannes Brahms",
+   "title": "Lullaby",
+   "year": 1868
+  },
+  {
+   "id": "chopin-nocturne-op-9-no-2",
+   "artist": "Frédéric Chopin",
+   "title": "Nocturne Op. 9 No. 2",
+   "year": 1832
+  },
+  {
+   "id": "chopin-minute-waltz",
+   "artist": "Frédéric Chopin",
+   "title": "Minute Waltz",
+   "year": 1847
+  },
+  {
+   "id": "chopin-funeral-march",
+   "artist": "Frédéric Chopin",
+   "title": "Funeral March",
+   "year": 1837
+  },
+  {
+   "id": "chopin-fantaisie-impromptu",
+   "artist": "Frédéric Chopin",
+   "title": "Fantaisie-Impromptu",
+   "year": 1834
+  },
+  {
+   "id": "chopin-revolutionary-etude",
+   "artist": "Frédéric Chopin",
+   "title": "Revolutionary Étude",
+   "year": 1831
+  },
+  {
+   "id": "liszt-hungarian-rhapsody-no-2",
+   "artist": "Franz Liszt",
+   "title": "Hungarian Rhapsody No. 2",
+   "year": 1847
+  },
+  {
+   "id": "liszt-la-campanella",
+   "artist": "Franz Liszt",
+   "title": "La campanella",
+   "year": 1851
+  },
+  {
+   "id": "liszt-liebestraum",
+   "artist": "Franz Liszt",
+   "title": "Liebestraum",
+   "year": 1850
+  },
+  {
+   "id": "schubert-ave-maria",
+   "artist": "Franz Schubert",
+   "title": "Ave Maria",
+   "year": 1825
+  },
+  {
+   "id": "schubert-serenade",
+   "artist": "Franz Schubert",
+   "title": "Serenade",
+   "year": 1828
+  },
+  {
+   "id": "schubert-the-trout",
+   "artist": "Franz Schubert",
+   "title": "The Trout",
+   "year": 1817
+  },
+  {
+   "id": "schubert-unfinished-symphony",
+   "artist": "Franz Schubert",
+   "title": "Unfinished Symphony",
+   "year": 1822
+  },
+  {
+   "id": "schumann-traumerei",
+   "artist": "Robert Schumann",
+   "title": "Träumerei",
+   "year": 1838
+  },
+  {
+   "id": "bach-air-on-the-g-string",
+   "artist": "Johann Sebastian Bach",
+   "title": "Air on the G String",
+   "year": 1730
+  },
+  {
+   "id": "bach-brandenburg-concertos",
+   "artist": "Johann Sebastian Bach",
+   "title": "Brandenburg Concertos",
+   "year": 1721
+  },
+  {
+   "id": "bach-jesu-joy-of-man-s-desiring",
+   "artist": "Johann Sebastian Bach",
+   "title": "Jesu, Joy of Man's Desiring",
+   "year": 1723
+  },
+  {
+   "id": "bach-cello-suite-no-1",
+   "artist": "Johann Sebastian Bach",
+   "title": "Cello Suite No. 1",
+   "year": 1720
+  },
+  {
+   "id": "bach-goldberg-variations",
+   "artist": "Johann Sebastian Bach",
+   "title": "Goldberg Variations",
+   "year": 1741
+  },
+  {
+   "id": "bach-st-matthew-passion",
+   "artist": "Johann Sebastian Bach",
+   "title": "St Matthew Passion",
+   "year": 1727
+  },
+  {
+   "id": "bach-christmas-oratorio",
+   "artist": "Johann Sebastian Bach",
+   "title": "Christmas Oratorio",
+   "year": 1734
+  },
+  {
+   "id": "bach-badinerie",
+   "artist": "Johann Sebastian Bach",
+   "title": "Badinerie",
+   "year": 1739
+  },
+  {
+   "id": "handel-hallelujah",
+   "artist": "George Frideric Handel",
+   "title": "Hallelujah",
+   "year": 1741
+  },
+  {
+   "id": "handel-messiah",
+   "artist": "George Frideric Handel",
+   "title": "Messiah",
+   "year": 1741
+  },
+  {
+   "id": "handel-water-music",
+   "artist": "George Frideric Handel",
+   "title": "Water Music",
+   "year": 1717
+  },
+  {
+   "id": "handel-music-for-the-royal-fireworks",
+   "artist": "George Frideric Handel",
+   "title": "Music for the Royal Fireworks",
+   "year": 1749
+  },
+  {
+   "id": "handel-zadok-the-priest",
+   "artist": "George Frideric Handel",
+   "title": "Zadok the Priest",
+   "year": 1727
+  },
+  {
+   "id": "handel-sarabande",
+   "artist": "George Frideric Handel",
+   "title": "Sarabande",
+   "year": 1733
+  },
+  {
+   "id": "handel-arrival-of-the-queen-of-sheba",
+   "artist": "George Frideric Handel",
+   "title": "Arrival of the Queen of Sheba",
+   "year": 1749
+  },
+  {
+   "id": "albinoni-adagio-in-g-minor",
+   "artist": "Tomaso Albinoni",
+   "title": "Adagio in G minor",
+   "year": 1958
+  },
+  {
+   "id": "purcell-dido-s-lament",
+   "artist": "Henry Purcell",
+   "title": "Dido's Lament",
+   "year": 1689
+  },
+  {
+   "id": "mouret-rondeau",
+   "artist": "Jean-Joseph Mouret",
+   "title": "Rondeau",
+   "year": 1729
+  },
+  {
+   "id": "charpentier-te-deum",
+   "artist": "Marc-Antoine Charpentier",
+   "title": "Te Deum",
+   "year": 1692
+  },
+  {
+   "id": "boccherini-minuet",
+   "artist": "Luigi Boccherini",
+   "title": "Minuet",
+   "year": 1771
+  },
+  {
+   "id": "haydn-surprise-symphony",
+   "artist": "Joseph Haydn",
+   "title": "Surprise Symphony",
+   "year": 1791
+  },
+  {
+   "id": "haydn-trumpet-concerto",
+   "artist": "Joseph Haydn",
+   "title": "Trumpet Concerto",
+   "year": 1796
+  },
+  {
+   "id": "haydn-the-creation",
+   "artist": "Joseph Haydn",
+   "title": "The Creation",
+   "year": 1798
+  },
+  {
+   "id": "beethoven-symphony-no-9",
+   "artist": "Ludwig van Beethoven",
+   "title": "Symphony No. 9",
+   "year": 1824
+  },
+  {
+   "id": "beethoven-pathetique-sonata",
+   "artist": "Ludwig van Beethoven",
+   "title": "Pathétique Sonata",
+   "year": 1798
+  },
+  {
+   "id": "beethoven-eroica",
+   "artist": "Ludwig van Beethoven",
+   "title": "Eroica",
+   "year": 1804
+  },
+  {
+   "id": "beethoven-pastoral-symphony",
+   "artist": "Ludwig van Beethoven",
+   "title": "Pastoral Symphony",
+   "year": 1808
+  },
+  {
+   "id": "beethoven-emperor-concerto",
+   "artist": "Ludwig van Beethoven",
+   "title": "Emperor Concerto",
+   "year": 1811
+  },
+  {
+   "id": "mozart-don-giovanni",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Don Giovanni",
+   "year": 1787
+  },
+  {
+   "id": "mozart-queen-of-the-night-aria",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Queen of the Night aria",
+   "year": 1791
+  },
+  {
+   "id": "mozart-clarinet-concerto",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Clarinet Concerto",
+   "year": 1791
+  },
+  {
+   "id": "mozart-piano-concerto-no-21",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Piano Concerto No. 21",
+   "year": 1785
+  },
+  {
+   "id": "mozart-lacrimosa",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Lacrimosa",
+   "year": 1791
+  },
+  {
+   "id": "mozart-ave-verum-corpus",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Ave verum corpus",
+   "year": 1791
+  },
+  {
+   "id": "holst-the-planets",
+   "artist": "Gustav Holst",
+   "title": "The Planets",
+   "year": 1916
+  },
+  {
+   "id": "holst-mars-the-bringer-of-war",
+   "artist": "Gustav Holst",
+   "title": "Mars, the Bringer of War",
+   "year": 1916
+  },
+  {
+   "id": "holst-jupiter-the-bringer-of-jollity",
+   "artist": "Gustav Holst",
+   "title": "Jupiter, the Bringer of Jollity",
+   "year": 1916
+  },
+  {
+   "id": "elgar-pomp-and-circumstance",
+   "artist": "Edward Elgar",
+   "title": "Pomp and Circumstance",
+   "year": 1901
+  },
+  {
+   "id": "elgar-nimrod",
+   "artist": "Edward Elgar",
+   "title": "Nimrod",
+   "year": 1899
+  },
+  {
+   "id": "elgar-salut-d-amour",
+   "artist": "Edward Elgar",
+   "title": "Salut d'Amour",
+   "year": 1888
+  },
+  {
+   "id": "elgar-enigma-variations",
+   "artist": "Edward Elgar",
+   "title": "Enigma Variations",
+   "year": 1899
+  },
+  {
+   "id": "barber-adagio-for-strings",
+   "artist": "Samuel Barber",
+   "title": "Adagio for Strings",
+   "year": 1936
+  },
+  {
+   "id": "gershwin-rhapsody-in-blue",
+   "artist": "George Gershwin",
+   "title": "Rhapsody in Blue",
+   "year": 1924
+  },
+  {
+   "id": "gershwin-summertime",
+   "artist": "George Gershwin",
+   "title": "Summertime",
+   "year": 1935
+  },
+  {
+   "id": "gershwin-an-american-in-paris",
+   "artist": "George Gershwin",
+   "title": "An American in Paris",
+   "year": 1928
+  },
+  {
+   "id": "copland-fanfare-for-the-common-man",
+   "artist": "Aaron Copland",
+   "title": "Fanfare for the Common Man",
+   "year": 1942
+  },
+  {
+   "id": "copland-appalachian-spring",
+   "artist": "Aaron Copland",
+   "title": "Appalachian Spring",
+   "year": 1944
+  },
+  {
+   "id": "bernstein-west-side-story",
+   "artist": "Leonard Bernstein",
+   "title": "West Side Story",
+   "year": 1957
+  },
+  {
+   "id": "stravinsky-the-rite-of-spring",
+   "artist": "Igor Stravinsky",
+   "title": "The Rite of Spring",
+   "year": 1913
+  },
+  {
+   "id": "stravinsky-the-firebird",
+   "artist": "Igor Stravinsky",
+   "title": "The Firebird",
+   "year": 1910
+  },
+  {
+   "id": "mahler-adagietto",
+   "artist": "Gustav Mahler",
+   "title": "Adagietto",
+   "year": 1902
+  },
+  {
+   "id": "mahler-symphony-no-5",
+   "artist": "Gustav Mahler",
+   "title": "Symphony No. 5",
+   "year": 1902
+  },
+  {
+   "id": "strauss-also-sprach-zarathustra",
+   "artist": "Richard Strauss",
+   "title": "Also sprach Zarathustra",
+   "year": 1896
+  },
+  {
+   "id": "wagner-tristan-und-isolde",
+   "artist": "Richard Wagner",
+   "title": "Tristan und Isolde",
+   "year": 1865
+  },
+  {
+   "id": "wagner-lohengrin",
+   "artist": "Richard Wagner",
+   "title": "Lohengrin",
+   "year": 1850
+  },
+  {
+   "id": "berlioz-symphonie-fantastique",
+   "artist": "Hector Berlioz",
+   "title": "Symphonie fantastique",
+   "year": 1830
+  },
+  {
+   "id": "delibes-flower-duet",
+   "artist": "Léo Delibes",
+   "title": "Flower Duet",
+   "year": 1883
+  },
+  {
+   "id": "gounod-ave-maria",
+   "artist": "Charles Gounod",
+   "title": "Ave Maria",
+   "year": 1853
+  },
+  {
+   "id": "faure-pavane",
+   "artist": "Gabriel Fauré",
+   "title": "Pavane",
+   "year": 1887
+  },
+  {
+   "id": "faure-requiem",
+   "artist": "Gabriel Fauré",
+   "title": "Requiem",
+   "year": 1890
+  },
+  {
+   "id": "debussy-prelude-to-the-afternoon-of-a-faun",
+   "artist": "Claude Debussy",
+   "title": "Prelude to the Afternoon of a Faun",
+   "year": 1894
+  },
+  {
+   "id": "debussy-la-mer",
+   "artist": "Claude Debussy",
+   "title": "La mer",
+   "year": 1905
+  },
+  {
+   "id": "debussy-arabesque-no-1",
+   "artist": "Claude Debussy",
+   "title": "Arabesque No. 1",
+   "year": 1891
+  },
+  {
+   "id": "ravel-pavane-for-a-dead-princess",
+   "artist": "Maurice Ravel",
+   "title": "Pavane for a Dead Princess",
+   "year": 1899
+  },
+  {
+   "id": "dukas-the-sorcerer-s-apprentice",
+   "artist": "Paul Dukas",
+   "title": "The Sorcerer's Apprentice",
+   "year": 1897
+  },
+  {
+   "id": "chabrier-espana",
+   "artist": "Emmanuel Chabrier",
+   "title": "España",
+   "year": 1883
+  },
+  {
+   "id": "massenet-meditation",
+   "artist": "Jules Massenet",
+   "title": "Méditation",
+   "year": 1894
+  },
+  {
+   "id": "bizet-habanera",
+   "artist": "Georges Bizet",
+   "title": "Habanera",
+   "year": 1875
+  },
+  {
+   "id": "bizet-toreador-song",
+   "artist": "Georges Bizet",
+   "title": "Toreador Song",
+   "year": 1875
+  },
+  {
+   "id": "bizet-l-arlesienne",
+   "artist": "Georges Bizet",
+   "title": "L'Arlésienne",
+   "year": 1872
+  },
+  {
+   "id": "leoncavallo-vesti-la-giubba",
+   "artist": "Ruggero Leoncavallo",
+   "title": "Vesti la giubba",
+   "year": 1892
+  },
+  {
+   "id": "mascagni-cavalleria-rusticana",
+   "artist": "Pietro Mascagni",
+   "title": "Cavalleria rusticana",
+   "year": 1890
+  },
+  {
+   "id": "puccini-la-boheme",
+   "artist": "Giacomo Puccini",
+   "title": "La bohème",
+   "year": 1896
+  },
+  {
+   "id": "puccini-madama-butterfly",
+   "artist": "Giacomo Puccini",
+   "title": "Madama Butterfly",
+   "year": 1904
+  },
+  {
+   "id": "puccini-tosca",
+   "artist": "Giacomo Puccini",
+   "title": "Tosca",
+   "year": 1900
+  },
+  {
+   "id": "verdi-la-traviata",
+   "artist": "Giuseppe Verdi",
+   "title": "La traviata",
+   "year": 1853
+  },
+  {
+   "id": "verdi-va-pensiero",
+   "artist": "Giuseppe Verdi",
+   "title": "Va, pensiero",
+   "year": 1842
+  },
+  {
+   "id": "rossini-la-gazza-ladra",
+   "artist": "Gioachino Rossini",
+   "title": "La gazza ladra",
+   "year": 1817
+  },
+  {
+   "id": "bellini-casta-diva",
+   "artist": "Vincenzo Bellini",
+   "title": "Casta diva",
+   "year": 1831
+  },
+  {
+   "id": "donizetti-una-furtiva-lagrima",
+   "artist": "Gaetano Donizetti",
+   "title": "Una furtiva lagrima",
+   "year": 1832
+  },
+  {
+   "id": "ii-die-fledermaus",
+   "artist": "Johann Strauss II",
+   "title": "Die Fledermaus",
+   "year": 1874
+  },
+  {
+   "id": "ii-tales-from-the-vienna-woods",
+   "artist": "Johann Strauss II",
+   "title": "Tales from the Vienna Woods",
+   "year": 1868
+  },
+  {
+   "id": "ii-emperor-waltz",
+   "artist": "Johann Strauss II",
+   "title": "Emperor Waltz",
+   "year": 1889
+  },
+  {
+   "id": "ii-tritsch-tratsch-polka",
+   "artist": "Johann Strauss II",
+   "title": "Tritsch-Tratsch-Polka",
+   "year": 1858
+  },
+  {
+   "id": "lehar-the-merry-widow",
+   "artist": "Franz Lehár",
+   "title": "The Merry Widow",
+   "year": 1905
+  },
+  {
+   "id": "suppe-light-cavalry-overture",
+   "artist": "Franz von Suppé",
+   "title": "Light Cavalry Overture",
+   "year": 1866
+  },
+  {
+   "id": "fucik-entrance-of-the-gladiators",
+   "artist": "Julius Fučík",
+   "title": "Entrance of the Gladiators",
+   "year": 1897
+  },
+  {
+   "id": "offenbach-orpheus-in-the-underworld",
+   "artist": "Jacques Offenbach",
+   "title": "Orpheus in the Underworld",
+   "year": 1858
+  },
+  {
+   "id": "rachmaninoff-rhapsody-on-a-theme-of-paganini",
+   "artist": "Sergei Rachmaninoff",
+   "title": "Rhapsody on a Theme of Paganini",
+   "year": 1934
+  },
+  {
+   "id": "rachmaninoff-prelude-in-c-sharp-minor",
+   "artist": "Sergei Rachmaninoff",
+   "title": "Prelude in C-sharp minor",
+   "year": 1892
+  },
+  {
+   "id": "rachmaninoff-vocalise",
+   "artist": "Sergei Rachmaninoff",
+   "title": "Vocalise",
+   "year": 1915
+  },
+  {
+   "id": "paganini-caprice-no-24",
+   "artist": "Niccolò Paganini",
+   "title": "Caprice No. 24",
+   "year": 1817
+  },
+  {
+   "id": "sarasate-zigeunerweisen",
+   "artist": "Pablo de Sarasate",
+   "title": "Zigeunerweisen",
+   "year": 1878
+  },
+  {
+   "id": "bruch-violin-concerto-no-1",
+   "artist": "Max Bruch",
+   "title": "Violin Concerto No. 1",
+   "year": 1866
+  },
+  {
+   "id": "mendelssohn-violin-concerto-in-e-minor",
+   "artist": "Felix Mendelssohn",
+   "title": "Violin Concerto in E minor",
+   "year": 1844
+  },
+  {
+   "id": "mendelssohn-a-midsummer-night-s-dream",
+   "artist": "Felix Mendelssohn",
+   "title": "A Midsummer Night's Dream",
+   "year": 1842
+  },
+  {
+   "id": "mendelssohn-spring-song",
+   "artist": "Felix Mendelssohn",
+   "title": "Spring Song",
+   "year": 1842
+  },
+  {
+   "id": "borodin-polovtsian-dances",
+   "artist": "Alexander Borodin",
+   "title": "Polovtsian Dances",
+   "year": 1890
+  },
+  {
+   "id": "tchaikovsky-symphony-no-6",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Symphony No. 6",
+   "year": 1893
+  },
+  {
+   "id": "tchaikovsky-romeo-and-juliet",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Romeo and Juliet",
+   "year": 1880
+  },
+  {
+   "id": "shostakovich-waltz-no-2",
+   "artist": "Dmitri Shostakovich",
+   "title": "Waltz No. 2",
+   "year": 1938
+  },
+  {
+   "id": "shostakovich-symphony-no-7",
+   "artist": "Dmitri Shostakovich",
+   "title": "Symphony No. 7",
+   "year": 1941
+  },
+  {
+   "id": "sibelius-karelia-suite",
+   "artist": "Jean Sibelius",
+   "title": "Karelia Suite",
+   "year": 1893
+  },
+  {
+   "id": "sibelius-violin-concerto",
+   "artist": "Jean Sibelius",
+   "title": "Violin Concerto",
+   "year": 1904
+  },
+  {
+   "id": "nielsen-aladdin",
+   "artist": "Carl Nielsen",
+   "title": "Aladdin",
+   "year": 1919
+  },
+  {
+   "id": "alfven-midsommarvaka",
+   "artist": "Hugo Alfvén",
+   "title": "Midsommarvaka",
+   "year": 1903
+  },
+  {
+   "id": "larsson-pastoralsvit",
+   "artist": "Lars-Erik Larsson",
+   "title": "Pastoralsvit",
+   "year": 1938
+  },
+  {
+   "id": "peterson-berger-frosoblomster",
+   "artist": "Wilhelm Peterson-Berger",
+   "title": "Frösöblomster",
+   "year": 1896
+  },
+  {
+   "id": "grieg-holberg-suite",
+   "artist": "Edvard Grieg",
+   "title": "Holberg Suite",
+   "year": 1884
+  },
+  {
+   "id": "grieg-wedding-day-at-troldhaugen",
+   "artist": "Edvard Grieg",
+   "title": "Wedding Day at Troldhaugen",
+   "year": 1896
+  },
+  {
+   "id": "bach-prelude-in-c-major",
+   "artist": "Johann Sebastian Bach",
+   "title": "Prelude in C major",
+   "year": 1722
+  },
+  {
+   "id": "beethoven-turkish-march",
+   "artist": "Ludwig van Beethoven",
+   "title": "Turkish March",
+   "year": 1811
+  },
+  {
+   "id": "vivaldi-gloria",
+   "artist": "Antonio Vivaldi",
+   "title": "Gloria",
+   "year": 1715
+  },
+  {
+   "id": "vivaldi-spring",
+   "artist": "Antonio Vivaldi",
+   "title": "Spring",
+   "year": 1721
+  },
+  {
+   "id": "vivaldi-winter",
+   "artist": "Antonio Vivaldi",
+   "title": "Winter",
+   "year": 1721
+  },
+  {
+   "id": "vivaldi-summer",
+   "artist": "Antonio Vivaldi",
+   "title": "Summer",
+   "year": 1721
+  },
+  {
+   "id": "tartini-devil-s-trill-sonata",
+   "artist": "Giuseppe Tartini",
+   "title": "Devil's Trill Sonata",
+   "year": 1749
+  },
+  {
+   "id": "corelli-christmas-concerto",
+   "artist": "Arcangelo Corelli",
+   "title": "Christmas Concerto",
+   "year": 1714
+  },
+  {
+   "id": "allegri-miserere",
+   "artist": "Gregorio Allegri",
+   "title": "Miserere",
+   "year": 1638
+  },
+  {
+   "id": "monteverdi-l-orfeo",
+   "artist": "Claudio Monteverdi",
+   "title": "L'Orfeo",
+   "year": 1607
+  },
+  {
+   "id": "mascagni-intermezzo",
+   "artist": "Pietro Mascagni",
+   "title": "Intermezzo",
+   "year": 1890
+  },
+  {
+   "id": "humperdinck-hansel-and-gretel",
+   "artist": "Engelbert Humperdinck",
+   "title": "Hansel and Gretel",
+   "year": 1893
+  },
+  {
+   "id": "dvorak-slavonic-dances",
+   "artist": "Antonín Dvořák",
+   "title": "Slavonic Dances",
+   "year": 1878
+  },
+  {
+   "id": "sullivan-the-mikado",
+   "artist": "Arthur Sullivan",
+   "title": "The Mikado",
+   "year": 1885
+  },
+  {
+   "id": "joplin-the-entertainer",
+   "artist": "Scott Joplin",
+   "title": "The Entertainer",
+   "year": 1902
+  },
+  {
+   "id": "joplin-maple-leaf-rag",
+   "artist": "Scott Joplin",
+   "title": "Maple Leaf Rag",
+   "year": 1899
+  },
+  {
+   "id": "glass-glassworks",
+   "artist": "Philip Glass",
+   "title": "Glassworks",
+   "year": 1982
+  },
+  {
+   "id": "part-spiegel-im-spiegel",
+   "artist": "Arvo Pärt",
+   "title": "Spiegel im Spiegel",
+   "year": 1978
+  },
+  {
+   "id": "jenkins-adiemus",
+   "artist": "Karl Jenkins",
+   "title": "Adiemus",
+   "year": 1995
+  },
+  {
+   "id": "morricone-gabriel-s-oboe",
+   "artist": "Ennio Morricone",
+   "title": "Gabriel's Oboe",
+   "year": 1986
+  }
+ ]
+}
