@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings,
+  cleanSettings, applySettings, changeCategory,
 } from '../js/game.js';
 
 const songs = [
@@ -223,4 +223,23 @@ test('rättningen godtar svar utan accenter och apostrofer', () => {
   submitAnswer(state, 'p1', 'title', 'Senorita', 2000);
   reveal(state);
   assert.equal(state.players.p1.score > 0, true);
+});
+
+test('kategorin kan bytas mellan låtarna men inte medan en låt pågår', () => {
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal', categoryName: '80-tal' });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  const klassiskt = { categoryId: 'klassiskt', categoryName: 'Klassisk musik', labels: { artist: 'Kompositör', title: 'Verk' } };
+  nextSong(state, songs, () => 0);
+  assert.equal(changeCategory(state, klassiskt), false);
+  startRound(state, 0);
+  assert.equal(changeCategory(state, klassiskt), false);
+  reveal(state);
+  state.players.p1.score = 3;
+  assert.equal(changeCategory(state, klassiskt), true);
+  assert.equal(state.categoryId, 'klassiskt');
+  assert.equal(state.players.p1.score, 3);
+  assert.deepEqual(state.playedIds, ['a']);
+  const view = playerView(state, 'p1', 0);
+  assert.equal(view.categoryName, 'Klassisk musik');
+  assert.equal(view.labels.artist, 'Kompositör');
 });

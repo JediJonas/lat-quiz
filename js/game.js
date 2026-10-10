@@ -55,6 +55,16 @@ export function createGame({ code, categoryId, categoryName = '', playedIds = []
   };
 }
 
+// Byter kategori i ett pågående spel. Poängen och spelade låtar finns kvar.
+// Går inte medan en låt pågår, eftersom låten hör till den gamla kategorin.
+export function changeCategory(state, { categoryId, categoryName = '', labels = DEFAULT_LABELS }) {
+  if (state.round && state.round.phase !== 'revealed') return false;
+  state.categoryId = categoryId;
+  state.categoryName = categoryName;
+  state.labels = { ...labels };
+  return true;
+}
+
 // Ny spelare, eller en spelare som ansluter igen med samma id.
 export function addPlayer(state, { id, name }) {
   const existing = state.players[id];

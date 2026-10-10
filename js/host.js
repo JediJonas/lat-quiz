@@ -238,12 +238,18 @@ const SETTING_FIELDS = [
 ];
 
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
-function showSettings(current) {
+// I ett pågående spel finns även kategorin med. Den returneras som categoryId.
+function showSettings(current, categories = null, categoryId = null) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
       <h2>Inställningar</h2>
+      ${categories ? `
+        <label for="setting-category">Kategori</label>
+        <select id="setting-category" name="categoryId">
+          ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
+        </select>` : ''}
       ${SETTING_FIELDS.map(({ key, label, text }) => `
         <label for="setting-${key}">${label}</label>
         <select id="setting-${key}" name="${key}">
@@ -267,8 +273,9 @@ function showSettings(current) {
   return new Promise((resolve) => {
     dialog.addEventListener('close', () => {
       const form = dialog.querySelector('form');
+      const values = Object.fromEntries(new FormData(form));
       resolve(dialog.returnValue === 'ok'
-        ? game.cleanSettings(Object.fromEntries(new FormData(form))) : null);
+        ? { ...game.cleanSettings(values), ...(categories ? { categoryId: values.categoryId } : {}) } : null);
       dialog.remove();
     }, { once: true });
   });
@@ -284,15 +291,31 @@ async function editSettings() {
     showAlert('Inställningarna kan ändras när svaret har visats.', { title: 'Låten pågår' });
     return;
   }
-  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings());
+  const categories = state ? await loadCategories() : null;
+  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id);
   if (!chosen) return;
-  saveSettings(chosen);
-  if (state) {
-    game.applySettings(state, chosen);
-    changed();
-  } else {
+  const { categoryId, ...settings } = chosen;
+  saveSettings(settings);
+  if (!state) {
     renderSetupSummary();
+    return;
   }
+  game.applySettings(state, settings);
+  if (categoryId && categoryId !== category.id) await switchCategory(categories.find((c) => c.id === categoryId));
+  changed();
+}
+
+// Poängen och spelade låtar finns kvar. Går inte medan en låt pågår, eftersom låten hör till den gamla kategorin.
+async function switchCategory(chosen) {
+  if (!chosen) return;
+  if (state.round && state.round.phase !== 'revealed') {
+    showAlert('Kategorin kan bytas när svaret har visats.', { title: 'Låten pågår' });
+    return;
+  }
+  const chosenSongs = await loadSongs(chosen);
+  if (!game.changeCategory(state, { categoryId: chosen.id, categoryName: chosen.name, labels: chosen.labels })) return;
+  category = chosen;
+  songs = chosenSongs;
 }
 
 function renderSetupSummary() {
