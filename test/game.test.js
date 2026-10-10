@@ -160,6 +160,12 @@ test('kategorins rubriker skickas till spelarna', () => {
   assert.equal(playerView(classical, 'p1', 0).labels.artist, 'Kompositör');
 });
 
+test('inställningar: utan sparade värden gäller standard, även för bonus', () => {
+  assert.deepEqual(cleanSettings(null), { roundMs: 60000, bonusMs: 15000, winScore: 10 });
+  assert.deepEqual(cleanSettings({ bonusMs: null }), { roundMs: 60000, bonusMs: 15000, winScore: 10 });
+  assert.deepEqual(cleanSettings({ bonusMs: '0' }).bonusMs, 0);
+});
+
 test('inställningar: okända värden ersätts med standard, bonus 0 betyder ingen bonus', () => {
   assert.deepEqual(cleanSettings({ roundMs: 45000, bonusMs: 7, winScore: '20' }),
     { roundMs: 45000, bonusMs: 15000, winScore: 20 });
