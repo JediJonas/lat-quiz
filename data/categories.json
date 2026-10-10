@@ -1,13 +1,13 @@
 [
-  { "id": "80-tal", "name": "80-talspop", "file": "80-tal.json" },
-  { "id": "2010-tal", "name": "2010-talet", "file": "2010-tal.json" },
-  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } },
-  { "id": "90-tal", "name": "90-talets hits", "file": "90-tal.json" },
-  { "id": "2000-tal", "name": "2000-talets hits", "file": "2000-tal.json" },
-  { "id": "70-tal", "name": "70-talet", "file": "70-tal.json" },
-  { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" },
+  { "id": "60-tal", "name": "60-tal", "file": "60-tal.json" },
+  { "id": "70-tal", "name": "70-tal", "file": "70-tal.json" },
+  { "id": "80-tal", "name": "80-tal", "file": "80-tal.json" },
+  { "id": "90-tal", "name": "90-tal", "file": "90-tal.json" },
+  { "id": "2000-tal", "name": "2000-tal", "file": "2000-tal.json" },
+  { "id": "2010-tal", "name": "2010-tal", "file": "2010-tal.json" },
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json" },
+  { "id": "melodifestivalen", "name": "Melodifestivalen och Eurovision", "file": "melodifestivalen.json" },
+  { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" },
   { "id": "filmmusik", "name": "Filmmusik och ledmotiv", "file": "filmmusik.json" },
-  { "id": "60-tal", "name": "60-talets klassiker", "file": "60-tal.json" },
-  { "id": "melodifestivalen", "name": "Melodifestivalen och Eurovision", "file": "melodifestivalen.json" }
+  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } }
 ]
