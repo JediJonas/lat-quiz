@@ -62,22 +62,22 @@ test('svar tas inte emot före start, efter tidens slut eller efter visat svar',
   nextSong(state, songs, () => 0);
   assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 500), false);
   startRound(state, 1000);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 31001), false);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 31000), true);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 61001), false);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 61000), true);
   reveal(state);
-  assert.equal(submitAnswer(state, 'p1', 'title', 'Take On Me', 31000), false);
+  assert.equal(submitAnswer(state, 'p1', 'title', 'Take On Me', 61000), false);
 });
 
 test('svaret visas när tiden är slut eller när alla anslutna har svarat', () => {
   const state = setup();
-  assert.equal(shouldReveal(state, 30999), false);
-  assert.equal(shouldReveal(state, 31000), true);
+  assert.equal(shouldReveal(state, 60999), false);
+  assert.equal(shouldReveal(state, 61000), true);
   submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
   submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
   assert.equal(shouldReveal(state, 3000), false);
   setConnected(state, 'p2', false);
   assert.equal(shouldReveal(state, 3000), true);
-  assert.equal(remainingMs(state, 3000), 28000);
+  assert.equal(remainingMs(state, 3000), 58000);
 });
 
 test('spelade låtar slumpas inte igen, och null när alla är spelade', () => {

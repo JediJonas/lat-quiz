@@ -31,6 +31,11 @@ export async function loadSuggestions() {
   };
 }
 
+// Öppnar låten direkt i Spotify-appen. Kräver att appen är installerad.
+export function spotifyAppUrl(song) {
+  return song.spotifyId ? 'spotify:track:' + song.spotifyId : null;
+}
+
 // Utan Spotify-ID öppnas en sökning, där spelledaren väljer översta träffen.
 export function spotifyUrl(song) {
   if (song.spotifyId) return 'https://open.spotify.com/track/' + song.spotifyId;
