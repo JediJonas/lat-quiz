@@ -1,0 +1,702 @@
+[
+ {
+  "id": "queen-the-show-must-go-on",
+  "artist": "Queen",
+  "title": "The Show Must Go On",
+  "year": 1991,
+  "spotifyId": "0LCWyLFPXIeg1CIC1NS712"
+ },
+ {
+  "id": "michael-jackson-earth-song",
+  "artist": "Michael Jackson",
+  "title": "Earth Song",
+  "year": 1995,
+  "spotifyId": "2pSccP1kWvZcc9V9vWTfBW"
+ },
+ {
+  "id": "the-cranberries-zombie",
+  "artist": "The Cranberries",
+  "title": "Zombie",
+  "year": 1994,
+  "spotifyId": "5kWY52e7A2dH11zFeu9nzK"
+ },
+ {
+  "id": "michael-jackson-you-are-not-alone",
+  "artist": "Michael Jackson",
+  "title": "You Are Not Alone",
+  "year": 1995,
+  "spotifyId": "3KtIVDOChQMVi3SxHc6RrK"
+ },
+ {
+  "id": "michael-jackson-they-don-t-care-about-us",
+  "artist": "Michael Jackson",
+  "title": "They Don't Care About Us",
+  "year": 1996,
+  "spotifyId": "3wuCCNCnBhJlwkIJTBZFiv"
+ },
+ {
+  "id": "metallica-nothing-else-matters",
+  "artist": "Metallica",
+  "title": "Nothing Else Matters",
+  "year": 1992,
+  "spotifyId": "2CtemffYhT0DJWcT1XW047"
+ },
+ {
+  "id": "metallica-enter-sandman",
+  "artist": "Metallica",
+  "title": "Enter Sandman",
+  "year": 1991,
+  "spotifyId": "1hKdDCpiI9mqz1jVHRKG0E"
+ },
+ {
+  "id": "coolio-gangsta-s-paradise",
+  "artist": "Coolio & L.V.",
+  "title": "Gangsta's Paradise",
+  "year": 1995,
+  "spotifyId": "3P2CQ3VbkRJilviCuOGZl4"
+ },
+ {
+  "id": "nirvana-come-as-you-are",
+  "artist": "Nirvana & Geneviève Racette",
+  "title": "Come as You Are",
+  "year": 1992,
+  "spotifyId": "4jw1Yqx1Z285p0Vu8F10q2"
+ },
+ {
+  "id": "r-e-m-losing-my-religion",
+  "artist": "R.E.M.",
+  "title": "Losing My Religion",
+  "year": 1991,
+  "spotifyId": "6bCPryuQjsts5cEybA3Nb5"
+ },
+ {
+  "id": "britney-spears-you-drive-me-crazy",
+  "artist": "Britney Spears",
+  "title": "(You Drive Me) Crazy",
+  "year": 1999,
+  "spotifyId": "06DRowADs4L9Udi4mRuOGf"
+ },
+ {
+  "id": "depeche-mode-enjoy-the-silence",
+  "artist": "Depeche Mode",
+  "title": "Enjoy the Silence",
+  "year": 1990,
+  "spotifyId": "6WK9dVrRABMkUXFLNlgWFh"
+ },
+ {
+  "id": "rammstein-du-hast",
+  "artist": "Rammstein",
+  "title": "Du hast",
+  "year": 1997,
+  "spotifyId": "5awDvzxWfd53SSrsRZ8pXO"
+ },
+ {
+  "id": "u2-one",
+  "artist": "U2",
+  "title": "One",
+  "year": 1992,
+  "spotifyId": "2zBirMmlQAIzHGLEfWkYT9"
+ },
+ {
+  "id": "blur-song-2",
+  "artist": "Blur",
+  "title": "Song 2",
+  "year": 1997,
+  "spotifyId": "1id6H6vcwSB9GGv9NXh5cl"
+ },
+ {
+  "id": "madonna-you-must-love-me",
+  "artist": "Madonna",
+  "title": "You Must Love Me",
+  "year": 1996,
+  "spotifyId": "0so93w0540zGQohxyf8Fdu"
+ },
+ {
+  "id": "green-day-basket-case",
+  "artist": "Green Day",
+  "title": "Basket Case",
+  "year": 1994,
+  "spotifyId": "3IVRacQwKGORqcxNEPMXlA"
+ },
+ {
+  "id": "metallica-until-it-sleeps",
+  "artist": "Metallica",
+  "title": "Until It Sleeps",
+  "year": 1996,
+  "spotifyId": "2Iv4HSoMX2fDeXFcOJWyWX"
+ },
+ {
+  "id": "madonna-ray-of-light",
+  "artist": "Madonna",
+  "title": "Ray of Light",
+  "year": 1998,
+  "spotifyId": "0vVchT7htyhheP8anAnLMR"
+ },
+ {
+  "id": "christina-aguilera-genie-in-a-bottle",
+  "artist": "Christina Aguilera",
+  "title": "Genie in a Bottle",
+  "year": 1999,
+  "spotifyId": "0E4nanfPDIz7QqUC2pxyt1"
+ },
+ {
+  "id": "britney-spears-sometimes",
+  "artist": "Britney Spears",
+  "title": "Sometimes",
+  "year": 1999,
+  "spotifyId": "29wNDxsBLNVsajwHGT9y3e"
+ },
+ {
+  "id": "madonna-secret",
+  "artist": "Madonna",
+  "title": "Secret",
+  "year": 1994,
+  "spotifyId": "0yv6BYFfviMImtUPwzEXQp"
+ },
+ {
+  "id": "nirvana-heart-shaped-box",
+  "artist": "Nirvana",
+  "title": "Heart-Shaped Box",
+  "year": 1993,
+  "spotifyId": "3oawNUge8pbjvHNaIXjyu2"
+ },
+ {
+  "id": "rammstein-engel",
+  "artist": "Rammstein",
+  "title": "Engel",
+  "year": 1997,
+  "spotifyId": "0xrkyEMkG4dVa5OMLQZOX8"
+ },
+ {
+  "id": "the-verve-bitter-sweet-symphony",
+  "artist": "The Verve",
+  "title": "Bitter Sweet Symphony",
+  "year": 1997,
+  "spotifyId": "57iDDD9N9tTWe75x6qhStw"
+ },
+ {
+  "id": "rage-against-the-machine-killing-in-the-name",
+  "artist": "Rage Against the Machine",
+  "title": "Killing in the Name",
+  "year": 1992,
+  "spotifyId": "3FUS56gKr9mVBmzvlnodlh"
+ },
+ {
+  "id": "metallica-sad-but-true",
+  "artist": "Metallica",
+  "title": "Sad but True",
+  "year": 1993,
+  "spotifyId": "5UaDi8KzCGJqFfVAOBfXhi"
+ },
+ {
+  "id": "whitney-houston-when-you-believe",
+  "artist": "Whitney Houston",
+  "title": "When You Believe",
+  "year": 1997,
+  "spotifyId": "2eGxZNPQVTWjXSKazFQOMg"
+ },
+ {
+  "id": "pearl-jam-jeremy",
+  "artist": "Pearl Jam",
+  "title": "Jeremy",
+  "year": 1992,
+  "spotifyId": "62nQ8UZVqR2RMvkJHkcO2o"
+ },
+ {
+  "id": "no-doubt-don-t-speak",
+  "artist": "No Doubt",
+  "title": "Don't Speak",
+  "year": 1996,
+  "spotifyId": "6urCAbunOQI4bLhmGpX7iS"
+ },
+ {
+  "id": "red-hot-chili-peppers-give-it-away",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Give It Away",
+  "year": 1991,
+  "spotifyId": "0uppYCG86ajpV2hSR3dJJ0"
+ },
+ {
+  "id": "oasis-live-forever",
+  "artist": "Oasis",
+  "title": "Live Forever",
+  "year": 1994,
+  "spotifyId": "5IfBLN9VPPJOwcKmAZhdXe"
+ },
+ {
+  "id": "red-hot-chili-peppers-under-the-bridge",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Under the Bridge",
+  "year": 1992,
+  "spotifyId": "3d9DChrdc6BOeFsbrZ3Is0"
+ },
+ {
+  "id": "eminem-my-name-is",
+  "artist": "Eminem",
+  "title": "My Name Is",
+  "year": 1999,
+  "spotifyId": "75IN3CtuZwTHTnZvYM4qnJ"
+ },
+ {
+  "id": "system-of-a-down-sugar",
+  "artist": "System of a Down",
+  "title": "Sugar",
+  "year": 1999,
+  "spotifyId": "31RTFPrB7wmYBhlkM2ILXG"
+ },
+ {
+  "id": "destiny-s-child-say-my-name",
+  "artist": "Destiny's Child",
+  "title": "Say My Name",
+  "year": 1999,
+  "spotifyId": "7H6ev70Weq6DdpZyyTmUXk"
+ },
+ {
+  "id": "dr-dre-still-d-r-e",
+  "artist": "Dr. Dre & Snoop Dogg",
+  "title": "Still D.R.E.",
+  "year": 1999,
+  "spotifyId": "503OTo2dSqe7qk76rgsbep"
+ },
+ {
+  "id": "kylie-minogue-confide-in-me",
+  "artist": "Kylie Minogue",
+  "title": "Confide in Me",
+  "year": 1994,
+  "spotifyId": "66uM35rIMAxzilFFAHcDU7"
+ },
+ {
+  "id": "jennifer-lopez-waiting-for-tonight",
+  "artist": "Jennifer Lopez",
+  "title": "Waiting for Tonight",
+  "year": 1999,
+  "spotifyId": "2EkCm7fXsJfEyD7v6uOloK"
+ },
+ {
+  "id": "red-hot-chili-peppers-scar-tissue",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Scar Tissue",
+  "year": 1999,
+  "spotifyId": "1G391cbiT3v3Cywg8T7DM1"
+ },
+ {
+  "id": "nirvana-pennyroyal-tea",
+  "artist": "Nirvana",
+  "title": "Pennyroyal Tea",
+  "year": 1994,
+  "spotifyId": "0oRxS5Hfo2cAfU2mlHYE8o"
+ },
+ {
+  "id": "marc-anthony-no-me-ames",
+  "artist": "Marc Anthony & Jennifer Lopez",
+  "title": "No Me Ames",
+  "year": 1999,
+  "spotifyId": "0eM0meWW6EwGDrWcByAZ6b"
+ },
+ {
+  "id": "green-day-longview",
+  "artist": "Green Day",
+  "title": "Longview",
+  "year": 1994,
+  "spotifyId": "0r0Xx1SuWFwb9QQAh7tIdO"
+ },
+ {
+  "id": "enigma-sadeness",
+  "artist": "Enigma & Sandra",
+  "title": "Sadeness",
+  "year": 1990,
+  "spotifyId": "3MVm36ouM56jbP5rORxbVy"
+ },
+ {
+  "id": "kylie-minogue-better-the-devil-you-know",
+  "artist": "Kylie Minogue",
+  "title": "Better the Devil You Know",
+  "year": 1990,
+  "spotifyId": "30wgVYurkR22DkbCKRMy5C"
+ },
+ {
+  "id": "nightwish-the-carpenter",
+  "artist": "Nightwish & Children of Bodom",
+  "title": "The Carpenter",
+  "year": 1997,
+  "spotifyId": "4XraCMzmof2FVsczM5T0ai"
+ },
+ {
+  "id": "rob-thomas-smooth",
+  "artist": "Rob Thomas & Santana",
+  "title": "Smooth",
+  "year": 1999,
+  "spotifyId": "5YAffwDOmZ4qW0xknGzxEM"
+ },
+ {
+  "id": "green-day-when-i-come-around",
+  "artist": "Green Day",
+  "title": "When I Come Around",
+  "year": 1995,
+  "spotifyId": "1Dr1fXbc2IxaK1Mu8P8Khz"
+ },
+ {
+  "id": "alanis-morissette-ironic",
+  "artist": "Alanis Morissette",
+  "title": "Ironic",
+  "year": 1996,
+  "spotifyId": "0YrqlzPliyMZJ3IN8HbKbW"
+ },
+ {
+  "id": "ol-dirty-bastard-fantasy",
+  "artist": "Ol' Dirty Bastard",
+  "title": "Fantasy",
+  "year": 1995,
+  "spotifyId": "1IMWrhSDUDmaZqnG2PdWAQ"
+ },
+ {
+  "id": "beck-loser",
+  "artist": "Beck",
+  "title": "Loser",
+  "year": 1994,
+  "spotifyId": "5NTZM8YYeKM2YsGSffVIge"
+ },
+ {
+  "id": "iron-maiden-be-quick-or-be-dead",
+  "artist": "Iron Maiden",
+  "title": "Be Quick or Be Dead",
+  "year": 1992,
+  "spotifyId": "7xa3dJQMzBVzsrZ81tNcHP"
+ },
+ {
+  "id": "the-rolling-stones-anybody-seen-my-baby",
+  "artist": "The Rolling Stones",
+  "title": "Anybody Seen My Baby?",
+  "year": 1997,
+  "spotifyId": "4MhlFfh4pa2rONBQmh6RpH"
+ },
+ {
+  "id": "foo-fighters-everlong",
+  "artist": "Foo Fighters",
+  "title": "Everlong",
+  "year": 1997,
+  "spotifyId": "5UWwZ5lm5PKu6eKsHAGxOk"
+ },
+ {
+  "id": "bruce-springsteen-streets-of-philadelphia",
+  "artist": "Bruce Springsteen",
+  "title": "Streets of Philadelphia",
+  "year": 1994,
+  "spotifyId": "5Nj8kBJdpJJ4I9wxQyp8JH"
+ },
+ {
+  "id": "guns-n-roses-estranged",
+  "artist": "Guns N' Roses",
+  "title": "Estranged",
+  "year": 1994,
+  "spotifyId": "3s03nrUInN3NAVjQtmnS0O"
+ },
+ {
+  "id": "system-of-a-down-spiders",
+  "artist": "System of a Down",
+  "title": "Spiders",
+  "year": 1999,
+  "spotifyId": "4vAHXnJ5YWLq5hbIVzZS1h"
+ },
+ {
+  "id": "seal-kiss-from-a-rose",
+  "artist": "Seal",
+  "title": "Kiss from a Rose",
+  "year": 1994,
+  "spotifyId": "0AKcA69xtIVPhse3R5INg2"
+ },
+ {
+  "id": "christina-aguilera-what-a-girl-wants",
+  "artist": "Christina Aguilera",
+  "title": "What a Girl Wants",
+  "year": 1999,
+  "spotifyId": "11mwFrKvLXCbcVGNxffGyP"
+ },
+ {
+  "id": "robert-miles-children",
+  "artist": "Robert Miles",
+  "title": "Children",
+  "year": 1995,
+  "spotifyId": "4ypF2ciZ4VtYDS8oEp6h4i"
+ },
+ {
+  "id": "elizabeth-fraser-teardrop",
+  "artist": "Elizabeth Fraser & Massive Attack",
+  "title": "Teardrop",
+  "year": 1998,
+  "spotifyId": "67Hna13dNDkZvBpTXRIaOJ"
+ },
+ {
+  "id": "smash-mouth-all-star",
+  "artist": "Smash Mouth",
+  "title": "All Star",
+  "year": 1999,
+  "spotifyId": "19fm0eNKTeg1JbHCHwPhLe"
+ },
+ {
+  "id": "ednaswap-torn",
+  "artist": "Ednaswap",
+  "title": "Torn",
+  "year": 1995,
+  "spotifyId": "0KDaN0HL3TcJVTbXlQCEsS"
+ },
+ {
+  "id": "the-offspring-pretty-fly-for-a-white-guy",
+  "artist": "The Offspring",
+  "title": "Pretty Fly (for a White Guy)",
+  "year": 1998,
+  "spotifyId": "3SFXsFpeGmBTtQvKiwYMDA"
+ },
+ {
+  "id": "the-cure-friday-i-m-in-love",
+  "artist": "The Cure",
+  "title": "Friday I'm in Love",
+  "year": 1992,
+  "spotifyId": "4QlzkaRHtU8gAdwqjWmO8n"
+ },
+ {
+  "id": "the-prodigy-smack-my-bitch-up",
+  "artist": "The Prodigy",
+  "title": "Smack My Bitch Up",
+  "year": 1997,
+  "spotifyId": "1JzwR1X7JfMXdN1jaxR528"
+ },
+ {
+  "id": "aerosmith-crazy",
+  "artist": "Aerosmith",
+  "title": "Crazy",
+  "year": 1994,
+  "spotifyId": "3QwuR2BuGsW4bC3P3cnpIN"
+ },
+ {
+  "id": "pearl-jam-alive",
+  "artist": "Pearl Jam",
+  "title": "Alive",
+  "year": 1991,
+  "spotifyId": "1L94M3KIu7QluZe63g64rv"
+ },
+ {
+  "id": "coldplay-brothers-sisters",
+  "artist": "Coldplay",
+  "title": "Brothers & Sisters",
+  "year": 1999,
+  "spotifyId": "6BMIgTmZAihjW5MKEo7gvV"
+ },
+ {
+  "id": "goo-goo-dolls-iris",
+  "artist": "Goo Goo Dolls",
+  "title": "Iris",
+  "year": 1998,
+  "spotifyId": "2mtVxf50BYsKNtQoz8sfzm"
+ },
+ {
+  "id": "spice-girls-2-become-1",
+  "artist": "Spice Girls",
+  "title": "2 Become 1",
+  "year": 1996,
+  "spotifyId": "0kc7dzvvcdQKWads7SaCbw"
+ },
+ {
+  "id": "the-smashing-pumpkins-1979",
+  "artist": "The Smashing Pumpkins",
+  "title": "1979",
+  "year": 1996,
+  "spotifyId": "3h5zik31hTTat9jmpCZZNC"
+ },
+ {
+  "id": "iron-maiden-bring-your-daughter-to-the-slaughter",
+  "artist": "Iron Maiden",
+  "title": "Bring Your Daughter... to the Slaughter",
+  "year": 1990,
+  "spotifyId": "40j3GW7l0R4EM12fHqNqM2"
+ },
+ {
+  "id": "destiny-s-child-bills-bills",
+  "artist": "Destiny's Child",
+  "title": "Bills, Bills",
+  "year": 1999,
+  "spotifyId": "1Qh60splxL2eFkttC08AgQ"
+ },
+ {
+  "id": "tlc-waterfalls",
+  "artist": "TLC",
+  "title": "Waterfalls",
+  "year": 1995,
+  "spotifyId": "0DEvEbv90r6Ex9h9KpaJus"
+ },
+ {
+  "id": "depeche-mode-walking-in-my-shoes",
+  "artist": "Depeche Mode",
+  "title": "Walking in My Shoes",
+  "year": 1993,
+  "spotifyId": "4lXEE71fm0o3YXhpKhbnzO"
+ },
+ {
+  "id": "nightwish-sleeping-sun-four-ballads-of-the-eclipse",
+  "artist": "Nightwish",
+  "title": "Sleeping Sun (Four Ballads of the Eclipse)",
+  "year": 1999,
+  "spotifyId": "79SGEmBSzCKi3JMDykd8ZF"
+ },
+ {
+  "id": "oasis-supersonic",
+  "artist": "Oasis",
+  "title": "Supersonic",
+  "year": 1994,
+  "spotifyId": "01Ox3uPKBqENtiWNlVaRdD"
+ },
+ {
+  "id": "bryan-adams-please-forgive-me",
+  "artist": "Bryan Adams",
+  "title": "Please Forgive Me",
+  "year": 1993,
+  "spotifyId": "0POfS30Fom0Tu9hbEWZXVg"
+ },
+ {
+  "id": "daft-punk-around-the-world",
+  "artist": "Daft Punk",
+  "title": "Around the World",
+  "year": 1997,
+  "spotifyId": "1pKYYY0dkg23sQQXi0Q5zN"
+ },
+ {
+  "id": "da-brat-heartbreaker",
+  "artist": "Da Brat",
+  "title": "Heartbreaker",
+  "year": 1999,
+  "spotifyId": "2HM5J4WkBzvAc0cUQU12S3"
+ },
+ {
+  "id": "crash-test-dummies-mmm-mmm-mmm-mmm",
+  "artist": "Crash Test Dummies",
+  "title": "Mmm Mmm Mmm Mmm",
+  "year": 1993,
+  "spotifyId": "31v2AQlx4pDI7kmnLxBkem"
+ },
+ {
+  "id": "spice-girls-who-do-you-think-you-are",
+  "artist": "Spice Girls",
+  "title": "Who Do You Think You Are",
+  "year": 1997,
+  "spotifyId": "11QnBsjuWlMHbC62We6F3r"
+ },
+ {
+  "id": "spice-girls-say-you-ll-be-there",
+  "artist": "Spice Girls",
+  "title": "Say You'll Be There",
+  "year": 1996,
+  "spotifyId": "2daljWYp1ls5CAkYftvTeo"
+ },
+ {
+  "id": "foo-fighters-learn-to-fly",
+  "artist": "Foo Fighters",
+  "title": "Learn to Fly",
+  "year": 1999,
+  "spotifyId": "5OQsiBsky2k2kDKy2bX2eT"
+ },
+ {
+  "id": "depeche-mode-policy-of-truth",
+  "artist": "Depeche Mode",
+  "title": "Policy of Truth",
+  "year": 1990,
+  "spotifyId": "3KFQFmTeHEXhzBNG7iFXYH"
+ },
+ {
+  "id": "r-e-m-man-on-the-moon",
+  "artist": "R.E.M.",
+  "title": "Man on the Moon",
+  "year": 1992,
+  "spotifyId": "4jLv3tDBu8ww2R07DvL12s"
+ },
+ {
+  "id": "red-hot-chili-peppers-around-the-world",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Around the World",
+  "year": 1999,
+  "spotifyId": "0aGQHMr7bc23Y9Ts84ffop"
+ },
+ {
+  "id": "alice-in-chains-would",
+  "artist": "Alice in Chains",
+  "title": "Would?",
+  "year": 1992,
+  "spotifyId": "60efz9dsKvdsKxjXizj9r2"
+ },
+ {
+  "id": "nirvana-on-a-plain",
+  "artist": "Nirvana",
+  "title": "On a Plain",
+  "year": 1991,
+  "spotifyId": "4PvPoT47fABUMGfkMcJOWv"
+ },
+ {
+  "id": "stardust-music-sounds-better-with-you",
+  "artist": "Stardust",
+  "title": "Music Sounds Better with You",
+  "year": 1998,
+  "spotifyId": "1mv4lh1rW1K6xhxhJmEezy"
+ },
+ {
+  "id": "marilyn-manson-the-beautiful-people",
+  "artist": "Marilyn Manson",
+  "title": "The Beautiful People",
+  "year": 1996,
+  "spotifyId": "2aIB1CdRRG7YLBu9hNw9nR"
+ },
+ {
+  "id": "seal-crazy",
+  "artist": "Seal",
+  "title": "Crazy",
+  "year": 1990,
+  "spotifyId": "2F9jMklOJOl65znIH4kc8C"
+ },
+ {
+  "id": "the-prodigy-breathe",
+  "artist": "The Prodigy",
+  "title": "Breathe",
+  "year": 1996,
+  "spotifyId": "0Ja4hLKiUSw01E01pJ1yGr"
+ },
+ {
+  "id": "iron-maiden-lord-of-the-flies",
+  "artist": "Iron Maiden",
+  "title": "Lord of the Flies",
+  "year": 1995,
+  "spotifyId": "64UzowAmV21rzFJpJFb5AM"
+ },
+ {
+  "id": "korn-freak-on-a-leash",
+  "artist": "Korn",
+  "title": "Freak on a Leash",
+  "year": 1999,
+  "spotifyId": "2xxMCCFva1GRQAYl2rlrpM"
+ },
+ {
+  "id": "u2-mysterious-ways",
+  "artist": "U2",
+  "title": "Mysterious Ways",
+  "year": 1991,
+  "spotifyId": "4DGePNkVwPsNg9tghsuGwg"
+ },
+ {
+  "id": "enrique-iglesias-bailamos",
+  "artist": "Enrique Iglesias",
+  "title": "Bailamos",
+  "year": 1999,
+  "spotifyId": "2bbeNsFmjZqdoDhjLsKNWe"
+ },
+ {
+  "id": "aerosmith-amazing",
+  "artist": "Aerosmith",
+  "title": "Amazing",
+  "year": 1993,
+  "spotifyId": "4sjewq2HyPY7QECdCctCey"
+ },
+ {
+  "id": "guns-n-roses-patience",
+  "artist": "Guns N' Roses",
+  "title": "Patience",
+  "year": 1991,
+  "spotifyId": "1OEoNpiyqBghuEUaT6Je6U"
+ }
+]
