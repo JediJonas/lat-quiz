@@ -1,0 +1,1483 @@
+{
+ "id": "melodifestivalen",
+ "name": "Melodifestivalen och Eurovision",
+ "file": "melodifestivalen.json",
+ "songs": [
+  {
+   "id": "loreen-euphoria",
+   "artist": "Loreen",
+   "title": "Euphoria",
+   "year": 2012
+  },
+  {
+   "id": "netta-barzilai-toy",
+   "artist": "Netta Barzilai",
+   "title": "Toy",
+   "year": 2018
+  },
+  {
+   "id": "dara-bangaranga",
+   "artist": "Dara",
+   "title": "Bangaranga",
+   "year": 2026
+  },
+  {
+   "id": "duncan-laurence-arcade",
+   "artist": "Duncan Laurence",
+   "title": "Arcade",
+   "year": 2019
+  },
+  {
+   "id": "maneskin-zitti-e-buoni",
+   "artist": "Måneskin",
+   "title": "Zitti e buoni",
+   "year": 2021
+  },
+  {
+   "id": "loreen-tattoo",
+   "artist": "Loreen",
+   "title": "Tattoo",
+   "year": 2023
+  },
+  {
+   "id": "nemo-the-code",
+   "artist": "Nemo",
+   "title": "The Code",
+   "year": 2024
+  },
+  {
+   "id": "jj-wasted-love",
+   "artist": "JJ",
+   "title": "Wasted Love",
+   "year": 2025
+  },
+  {
+   "id": "tommy-cash-espresso-macchiato",
+   "artist": "Tommy Cash",
+   "title": "Espresso Macchiato",
+   "year": 2025
+  },
+  {
+   "id": "eric-saade-popular",
+   "artist": "Eric Saade",
+   "title": "Popular",
+   "year": 2011
+  },
+  {
+   "id": "vicky-leandros-l-amour-est-bleu",
+   "artist": "Vicky Leandros",
+   "title": "L'amour est bleu",
+   "year": 1967
+  },
+  {
+   "id": "kaarija-cha-cha-cha",
+   "artist": "Käärijä",
+   "title": "Cha Cha Cha",
+   "year": 2023
+  },
+  {
+   "id": "erika-vikman-ich-komme",
+   "artist": "Erika Vikman",
+   "title": "Ich komme",
+   "year": 2025
+  },
+  {
+   "id": "rosa-linn-snap",
+   "artist": "Rosa Linn",
+   "title": "Snap",
+   "year": 2022
+  },
+  {
+   "id": "kaj-bara-bada-bastu",
+   "artist": "KAJ",
+   "title": "Bara bada bastu",
+   "year": 2025
+  },
+  {
+   "id": "baby-lasagna-rim-tim-tagi-dim",
+   "artist": "Baby Lasagna",
+   "title": "Rim Tim Tagi Dim",
+   "year": 2024
+  },
+  {
+   "id": "louane-emera-maman",
+   "artist": "Louane Emera",
+   "title": "Maman",
+   "year": 2025
+  },
+  {
+   "id": "shkodra-elektronike-zjerm",
+   "artist": "Shkodra Elektronike",
+   "title": "Zjerm",
+   "year": 2025
+  },
+  {
+   "id": "bilal-hassani-roi",
+   "artist": "Bilal Hassani",
+   "title": "Roi",
+   "year": 2019
+  },
+  {
+   "id": "hatari-hatri-mun-sigra",
+   "artist": "Hatari",
+   "title": "Hatrið mun sigra",
+   "year": 2019
+  },
+  {
+   "id": "serhat-say-na-na-na",
+   "artist": "Serhat",
+   "title": "Say Na Na Na",
+   "year": 2019
+  },
+  {
+   "id": "angelina-mango-la-noia",
+   "artist": "Angelina Mango",
+   "title": "La noia",
+   "year": 2024
+  },
+  {
+   "id": "joost-klein-europapa",
+   "artist": "Joost Klein",
+   "title": "Europapa",
+   "year": 2024
+  },
+  {
+   "id": "klavdia-asteromata",
+   "artist": "Klavdia",
+   "title": "Asteromata",
+   "year": 2025
+  },
+  {
+   "id": "lindita-halimi-world",
+   "artist": "Lindita Halimi",
+   "title": "World",
+   "year": 2017
+  },
+  {
+   "id": "alma-requiem",
+   "artist": "Alma",
+   "title": "Requiem",
+   "year": 2017
+  },
+  {
+   "id": "go-a-shum",
+   "artist": "Go_A",
+   "title": "Shum",
+   "year": 2021
+  },
+  {
+   "id": "gagnamagni-10-years",
+   "artist": "Gagnamagnið & Daði Freyr Pétursson",
+   "title": "10 Years",
+   "year": 2021
+  },
+  {
+   "id": "blanco-brividi",
+   "artist": "Blanco & Mahmood",
+   "title": "Brividi",
+   "year": 2022
+  },
+  {
+   "id": "elina-born-goodbye-to-yesterday",
+   "artist": "Elina Born",
+   "title": "Goodbye to Yesterday",
+   "year": 2015
+  },
+  {
+   "id": "alyona-alyona-teresa-maria",
+   "artist": "Alyona Alyona & Jerry Heil",
+   "title": "Teresa & Maria",
+   "year": 2024
+  },
+  {
+   "id": "marcus-martinus-unforgettable",
+   "artist": "Marcus & Martinus",
+   "title": "Unforgettable",
+   "year": 2024
+  },
+  {
+   "id": "klemen-slakonja-how-much-time-do-we-have-left",
+   "artist": "Klemen Slakonja",
+   "title": "How Much Time Do We Have Left",
+   "year": 2025
+  },
+  {
+   "id": "emmy-laika-party",
+   "artist": "Emmy",
+   "title": "Laika Party",
+   "year": 2025
+  },
+  {
+   "id": "mamagama-run-with-u",
+   "artist": "Mamagama",
+   "title": "Run with U",
+   "year": 2025
+  },
+  {
+   "id": "aidan-cassar-bella",
+   "artist": "Aidan Cassar",
+   "title": "Bella",
+   "year": 2026
+  },
+  {
+   "id": "sal-da-vinci-per-sempre-si",
+   "artist": "Sal Da Vinci",
+   "title": "Per sempre sì",
+   "year": 2026
+  },
+  {
+   "id": "jonida-maliqi-ktheju-tokes",
+   "artist": "Jonida Maliqi",
+   "title": "Ktheju tokës",
+   "year": 2019
+  },
+  {
+   "id": "lake-malawi-friend-of-a-friend",
+   "artist": "Lake Malawi",
+   "title": "Friend of a Friend",
+   "year": 2019
+  },
+  {
+   "id": "gjon-s-tears-tout-l-univers",
+   "artist": "Gjon's Tears",
+   "title": "Tout l'univers",
+   "year": 2021
+  },
+  {
+   "id": "the-roop-discoteque",
+   "artist": "The Roop",
+   "title": "Discoteque",
+   "year": 2021
+  },
+  {
+   "id": "sam-ryder-space-man",
+   "artist": "Sam Ryder",
+   "title": "Space Man",
+   "year": 2022
+  },
+  {
+   "id": "noa-kirel-unicorn",
+   "artist": "Noa Kirel",
+   "title": "Unicorn",
+   "year": 2023
+  },
+  {
+   "id": "yuval-raphael-new-day-will-rise",
+   "artist": "Yuval Raphael",
+   "title": "New Day Will Rise",
+   "year": 2025
+  },
+  {
+   "id": "sissal-hallucination",
+   "artist": "Sissal",
+   "title": "Hallucination",
+   "year": 2025
+  },
+  {
+   "id": "nina-zizic-dobrodosli",
+   "artist": "Nina Žižić",
+   "title": "Dobrodošli",
+   "year": 2025
+  },
+  {
+   "id": "laura-thorn-la-poupee-monte-le-son",
+   "artist": "Laura Thorn",
+   "title": "La poupée monte le son",
+   "year": 2025
+  },
+  {
+   "id": "red-sebastian-strobe-lights",
+   "artist": "Red Sebastian",
+   "title": "Strobe Lights",
+   "year": 2025
+  },
+  {
+   "id": "miriana-conte-serving",
+   "artist": "Miriana Conte",
+   "title": "Serving",
+   "year": 2025
+  },
+  {
+   "id": "gabry-ponte-tutta-l-italia",
+   "artist": "Gabry Ponte",
+   "title": "Tutta l'Italia",
+   "year": 2025
+  },
+  {
+   "id": "vb-roa",
+   "artist": "Væb",
+   "title": "Róa",
+   "year": 2025
+  },
+  {
+   "id": "lelek-andromeda-lelek-song",
+   "artist": "Lelek",
+   "title": "Andromeda (Lelek song)",
+   "year": 2026
+  },
+  {
+   "id": "alexandra-capitanescu-choke-me",
+   "artist": "Alexandra Căpitănescu",
+   "title": "Choke Me",
+   "year": 2026
+  },
+  {
+   "id": "victor-crone-storm",
+   "artist": "Victor Crone",
+   "title": "Storm",
+   "year": 2019
+  },
+  {
+   "id": "barei-say-yay",
+   "artist": "Barei",
+   "title": "Say Yay!",
+   "year": 2016
+  },
+  {
+   "id": "senhit-adrenalina",
+   "artist": "Senhit",
+   "title": "Adrenalina",
+   "year": 2021
+  },
+  {
+   "id": "barbara-pravi-voila",
+   "artist": "Barbara Pravi",
+   "title": "Voilà",
+   "year": 2021
+  },
+  {
+   "id": "cornelia-jakobs-hold-me-closer",
+   "artist": "Cornelia Jakobs & Magnus Carlsson",
+   "title": "Hold Me Closer",
+   "year": 2022
+  },
+  {
+   "id": "marco-mengoni-due-vite",
+   "artist": "Marco Mengoni",
+   "title": "Due vite",
+   "year": 2023
+  },
+  {
+   "id": "tali-golergant-fighter",
+   "artist": "Tali Golergant",
+   "title": "Fighter",
+   "year": 2024
+  },
+  {
+   "id": "olly-alexander-dizzy",
+   "artist": "Olly Alexander",
+   "title": "Dizzy",
+   "year": 2024
+  },
+  {
+   "id": "eden-golan-hurricane",
+   "artist": "Eden Golan",
+   "title": "Hurricane",
+   "year": 2024
+  },
+  {
+   "id": "ladaniva-jako",
+   "artist": "Ladaniva",
+   "title": "Jako",
+   "year": 2024
+  },
+  {
+   "id": "zoe-me-voyage",
+   "artist": "Zoë Më",
+   "title": "Voyage",
+   "year": 2025
+  },
+  {
+   "id": "theo-evan-shh",
+   "artist": "Theo Evan",
+   "title": "Shh",
+   "year": 2025
+  },
+  {
+   "id": "katarsis-tavo-akys",
+   "artist": "Katarsis",
+   "title": "Tavo akys",
+   "year": 2025
+  },
+  {
+   "id": "parg-survivor",
+   "artist": "Parg",
+   "title": "Survivor",
+   "year": 2025
+  },
+  {
+   "id": "go-jo-milkshake-man",
+   "artist": "Go-Jo",
+   "title": "Milkshake Man",
+   "year": 2025
+  },
+  {
+   "id": "abor-tynna-baller",
+   "artist": "Abor & Tynna",
+   "title": "Baller",
+   "year": 2025
+  },
+  {
+   "id": "tamara-zivkovic-nova-zora",
+   "artist": "Tamara Živković",
+   "title": "Nova zora",
+   "year": 2026
+  },
+  {
+   "id": "felicia-eriksson-my-system",
+   "artist": "Felicia Eriksson",
+   "title": "My System",
+   "year": 2026
+  },
+  {
+   "id": "mariam-shengelia-freedom",
+   "artist": "Mariam Shengelia",
+   "title": "Freedom",
+   "year": 2025
+  },
+  {
+   "id": "katerine-duska-better-love",
+   "artist": "Katerine Duska",
+   "title": "Better Love",
+   "year": 2019
+  },
+  {
+   "id": "srbuk-walking-out",
+   "artist": "Srbuk",
+   "title": "Walking Out",
+   "year": 2019
+  },
+  {
+   "id": "amir-j-ai-cherche",
+   "artist": "Amir",
+   "title": "J'ai cherché",
+   "year": 2016
+  },
+  {
+   "id": "alex-florea-yodel-it",
+   "artist": "Alex Florea & Ilinca",
+   "title": "Yodel It!",
+   "year": 2017
+  },
+  {
+   "id": "cesar-sampson-nobody-but-you",
+   "artist": "Cesár Sampson",
+   "title": "Nobody but You",
+   "year": 2018
+  },
+  {
+   "id": "madame-monsieur-mercy",
+   "artist": "Madame Monsieur",
+   "title": "Mercy",
+   "year": 2018
+  },
+  {
+   "id": "loic-nottet-rhythm-inside",
+   "artist": "Loïc Nottet",
+   "title": "Rhythm Inside",
+   "year": 2015
+  },
+  {
+   "id": "zlata-ognevich-gravity",
+   "artist": "Zlata Ognevich",
+   "title": "Gravity",
+   "year": 2013
+  },
+  {
+   "id": "tvorchi-heart-of-steel",
+   "artist": "Tvorchi",
+   "title": "Heart of Steel",
+   "year": 2023
+  },
+  {
+   "id": "salena-who-the-hell-is-edgar",
+   "artist": "Salena & Teya & Salena",
+   "title": "Who the Hell Is Edgar?",
+   "year": 2023
+  },
+  {
+   "id": "luke-black-samo-mi-se-spava",
+   "artist": "Luke Black",
+   "title": "Samo mi se spava",
+   "year": 2023
+  },
+  {
+   "id": "bambie-thug-doomsday-blue",
+   "artist": "Bambie Thug",
+   "title": "Doomsday Blue",
+   "year": 2024
+  },
+  {
+   "id": "gate-ulveham",
+   "artist": "Gåte",
+   "title": "Ulveham",
+   "year": 2024
+  },
+  {
+   "id": "teemu-keisteri-no-rules",
+   "artist": "Teemu Keisteri & Henri Piispanen",
+   "title": "No Rules!",
+   "year": 2024
+  },
+  {
+   "id": "marko-bosnjak-poison-cake",
+   "artist": "Marko Bošnjak",
+   "title": "Poison Cake",
+   "year": 2025
+  },
+  {
+   "id": "melody-esa-diva",
+   "artist": "Melody",
+   "title": "Esa diva",
+   "year": 2025
+  },
+  {
+   "id": "ziferblat-bird-of-pray",
+   "artist": "Ziferblat",
+   "title": "Bird of Pray",
+   "year": 2025
+  },
+  {
+   "id": "tautumeitas-bur-man-laimi",
+   "artist": "Tautumeitas",
+   "title": "Bur man laimi",
+   "year": 2025
+  },
+  {
+   "id": "lucio-corsi-volevo-essere-un-duro",
+   "artist": "Lucio Corsi",
+   "title": "Volevo essere un duro",
+   "year": 2025
+  },
+  {
+   "id": "kyle-alessandro-lighter",
+   "artist": "Kyle Alessandro",
+   "title": "Lighter",
+   "year": 2025
+  },
+  {
+   "id": "adonxs-kiss-kiss-goodbye",
+   "artist": "Adonxs",
+   "title": "Kiss Kiss Goodbye",
+   "year": 2025
+  },
+  {
+   "id": "claude-c-est-la-vie",
+   "artist": "Claude",
+   "title": "C'est la vie",
+   "year": 2025
+  },
+  {
+   "id": "antigoni-buxton-jalla",
+   "artist": "Antigoni Buxton",
+   "title": "Jalla",
+   "year": 2026
+  },
+  {
+   "id": "noam-bettan-michelle",
+   "artist": "Noam Bettan",
+   "title": "Michelle",
+   "year": 2026
+  },
+  {
+   "id": "lavina-kraj-mene",
+   "artist": "Lavina",
+   "title": "Kraj mene",
+   "year": 2026
+  },
+  {
+   "id": "mariya-yaremchuk-tick-tock",
+   "artist": "Mariya Yaremchuk",
+   "title": "Tick-Tock",
+   "year": 2014
+  },
+  {
+   "id": "freddie-pioneer",
+   "artist": "Freddie",
+   "title": "Pioneer",
+   "year": 2016
+  },
+  {
+   "id": "norma-john-blackbird",
+   "artist": "Norma John",
+   "title": "Blackbird",
+   "year": 2017
+  },
+  {
+   "id": "triana-park-line",
+   "artist": "Triana Park",
+   "title": "Line",
+   "year": 2017
+  },
+  {
+   "id": "manizha-russian-woman",
+   "artist": "Manizha",
+   "title": "Russian Woman",
+   "year": 2021
+  },
+  {
+   "id": "destiny-chukunyere-je-me-casse",
+   "artist": "Destiny Chukunyere",
+   "title": "Je me casse",
+   "year": 2021
+  },
+  {
+   "id": "blind-channel-dark-side",
+   "artist": "Blind Channel",
+   "title": "Dark Side",
+   "year": 2021
+  },
+  {
+   "id": "tusse-voices",
+   "artist": "Tusse",
+   "title": "Voices",
+   "year": 2021
+  },
+  {
+   "id": "jendrik-sigwart-i-don-t-feel-hate",
+   "artist": "Jendrik Sigwart",
+   "title": "I Don't Feel Hate",
+   "year": 2021
+  },
+  {
+   "id": "aurela-gace-feel-the-passion",
+   "artist": "Aurela Gaçe",
+   "title": "Feel the Passion",
+   "year": 2011
+  },
+  {
+   "id": "blanca-paloma-eaea",
+   "artist": "Blanca Paloma",
+   "title": "Eaea",
+   "year": 2023
+  },
+  {
+   "id": "joker-out-carpe-diem",
+   "artist": "Joker Out",
+   "title": "Carpe Diem",
+   "year": 2023
+  },
+  {
+   "id": "alessandra-mele-queen-of-kings",
+   "artist": "Alessandra Mele",
+   "title": "Queen of Kings",
+   "year": 2023
+  },
+  {
+   "id": "slimane-mon-amour",
+   "artist": "Slimane",
+   "title": "Mon amour",
+   "year": 2024
+  },
+  {
+   "id": "nebulossa-zorra",
+   "artist": "Nebulossa",
+   "title": "Zorra",
+   "year": 2024
+  },
+  {
+   "id": "silvester-belt-luktelk",
+   "artist": "Silvester Belt",
+   "title": "Luktelk",
+   "year": 2024
+  },
+  {
+   "id": "marina-satti-zari",
+   "artist": "Marina Satti",
+   "title": "Zari",
+   "year": 2024
+  },
+  {
+   "id": "iolanda-grito",
+   "artist": "Iolanda",
+   "title": "Grito",
+   "year": 2024
+  },
+  {
+   "id": "princ-od-vranje-mila",
+   "artist": "Princ od Vranje",
+   "title": "Mila",
+   "year": 2025
+  },
+  {
+   "id": "napa-deslocado",
+   "artist": "NAPA",
+   "title": "Deslocado",
+   "year": 2025
+  },
+  {
+   "id": "justyna-steczkowska-gaja",
+   "artist": "Justyna Steczkowska",
+   "title": "Gaja",
+   "year": 2025
+  },
+  {
+   "id": "viktoria-leleka-ridnym",
+   "artist": "Viktoria Leléka",
+   "title": "Ridnym",
+   "year": 2026
+  },
+  {
+   "id": "benjamin-gedeon-tanzschein",
+   "artist": "Benjamin Gedeon",
+   "title": "Tanzschein",
+   "year": 2026
+  },
+  {
+   "id": "john-lundvik-too-late-for-love",
+   "artist": "John Lundvik",
+   "title": "Too Late for Love",
+   "year": 2019
+  },
+  {
+   "id": "hovi-star-made-of-stars",
+   "artist": "Hovi Star",
+   "title": "Made of Stars",
+   "year": 2016
+  },
+  {
+   "id": "lucie-jones-never-give-up-on-you",
+   "artist": "Lucie Jones",
+   "title": "Never Give Up on You",
+   "year": 2017
+  },
+  {
+   "id": "omar-naber-on-my-way",
+   "artist": "Omar Naber",
+   "title": "On My Way",
+   "year": 2017
+  },
+  {
+   "id": "o-torvald-time",
+   "artist": "O.Torvald",
+   "title": "Time",
+   "year": 2017
+  },
+  {
+   "id": "melovin-under-the-ladder",
+   "artist": "Mélovin",
+   "title": "Under the Ladder",
+   "year": 2018
+  },
+  {
+   "id": "elena-tsagkrinou-el-diablo",
+   "artist": "Elena Tsagkrinou",
+   "title": "El Diablo",
+   "year": 2021
+  },
+  {
+   "id": "s10-de-diepte",
+   "artist": "S10",
+   "title": "De diepte",
+   "year": 2022
+  },
+  {
+   "id": "gagnamagni-think-about-things",
+   "artist": "Gagnamagnið",
+   "title": "Think About Things",
+   "year": 2020
+  },
+  {
+   "id": "little-big-uno",
+   "artist": "Little Big",
+   "title": "Uno",
+   "year": 2020
+  },
+  {
+   "id": "olena-topolia-sweet-people",
+   "artist": "Olena Topolia",
+   "title": "Sweet People",
+   "year": 2010
+  },
+  {
+   "id": "mae-muller-i-wrote-a-song",
+   "artist": "Mae Muller",
+   "title": "I Wrote a Song",
+   "year": 2023
+  },
+  {
+   "id": "isaak-always-on-the-run",
+   "artist": "Isaak",
+   "title": "Always on the Run",
+   "year": 2024
+  },
+  {
+   "id": "megara-11-11",
+   "artist": "Megara",
+   "title": "11:11",
+   "year": 2024
+  },
+  {
+   "id": "saba-sand",
+   "artist": "Saba",
+   "title": "Sand",
+   "year": 2024
+  },
+  {
+   "id": "remember-monday-what-the-hell-just-happened",
+   "artist": "Remember Monday",
+   "title": "What the Hell Just Happened?",
+   "year": 2025
+  },
+  {
+   "id": "sam-battle-eins-zwei-drei",
+   "artist": "Sam Battle",
+   "title": "Eins, Zwei, Drei",
+   "year": 2026
+  },
+  {
+   "id": "eneda-tarifa-fairytale",
+   "artist": "Eneda Tarifa",
+   "title": "Fairytale",
+   "year": 2016
+  },
+  {
+   "id": "tako-gachechiladze-keep-the-faith",
+   "artist": "Tako Gachechiladze",
+   "title": "Keep the Faith",
+   "year": 2017
+  },
+  {
+   "id": "tix-fallen-angel",
+   "artist": "Tix",
+   "title": "Fallen Angel",
+   "year": 2021
+  },
+  {
+   "id": "amanda-tenfjord-die-together",
+   "artist": "Amanda Tenfjord",
+   "title": "Die Together",
+   "year": 2022
+  },
+  {
+   "id": "elhaida-dani-i-m-alive",
+   "artist": "Elhaida Dani",
+   "title": "I'm Alive",
+   "year": 2015
+  },
+  {
+   "id": "valentina-monetta-the-social-network-song",
+   "artist": "Valentina Monetta",
+   "title": "The Social Network Song",
+   "year": 2012
+  },
+  {
+   "id": "blanka-solo",
+   "artist": "Blanka",
+   "title": "Solo",
+   "year": 2023
+  },
+  {
+   "id": "brunette-future-lover",
+   "artist": "Brunette",
+   "title": "Future Lover",
+   "year": 2023
+  },
+  {
+   "id": "luna-the-tower",
+   "artist": "Luna",
+   "title": "The Tower",
+   "year": 2024
+  },
+  {
+   "id": "kaleen-we-will-rave",
+   "artist": "Kaleen",
+   "title": "We Will Rave",
+   "year": 2024
+  },
+  {
+   "id": "senhit-superstar",
+   "artist": "Senhit",
+   "title": "Superstar",
+   "year": 2026
+  },
+  {
+   "id": "ester-peony-on-a-sunday",
+   "artist": "Ester Peony",
+   "title": "On a Sunday",
+   "year": 2019
+  },
+  {
+   "id": "kallay-saunders-running",
+   "artist": "Kállay Saunders",
+   "title": "Running",
+   "year": 2014
+  },
+  {
+   "id": "carl-espen-silent-storm",
+   "artist": "Carl Espen",
+   "title": "Silent Storm",
+   "year": 2014
+  },
+  {
+   "id": "axel-hirsoux-mother",
+   "artist": "Axel Hirsoux",
+   "title": "Mother",
+   "year": 2014
+  },
+  {
+   "id": "malik-harris-rockstars",
+   "artist": "Malik Harris",
+   "title": "Rockstars",
+   "year": 2022
+  },
+  {
+   "id": "nadav-guedj-golden-boy",
+   "artist": "Nadav Guedj",
+   "title": "Golden Boy",
+   "year": 2015
+  },
+  {
+   "id": "cezar-it-s-my-life",
+   "artist": "Cezar",
+   "title": "It's My Life",
+   "year": 2013
+  },
+  {
+   "id": "reiley-breaking-my-heart",
+   "artist": "Reiley",
+   "title": "Breaking My Heart",
+   "year": 2023
+  },
+  {
+   "id": "pasha-parfeni-soarele-si-luna",
+   "artist": "Pasha Parfeni",
+   "title": "Soarele şi Luna",
+   "year": 2023
+  },
+  {
+   "id": "iru-khechanovi-echo",
+   "artist": "Iru Khechanovi",
+   "title": "Echo",
+   "year": 2023
+  },
+  {
+   "id": "aiko-pedestal",
+   "artist": "Aiko",
+   "title": "Pedestal",
+   "year": 2024
+  },
+  {
+   "id": "the-mamas-move",
+   "artist": "The Mamas",
+   "title": "Move",
+   "year": 2020
+  },
+  {
+   "id": "cliff-richard-power-to-all-our-friends",
+   "artist": "Cliff Richard",
+   "title": "Power to All Our Friends",
+   "year": 1973
+  },
+  {
+   "id": "saara-aalto-monsters",
+   "artist": "Saara Aalto",
+   "title": "Monsters",
+   "year": 2018
+  },
+  {
+   "id": "dion-cooper-burning-daylight",
+   "artist": "Dion Cooper & Mia Nicolai",
+   "title": "Burning Daylight",
+   "year": 2023
+  },
+  {
+   "id": "andrew-lambrou-break-a-broken-heart",
+   "artist": "Andrew Lambrou",
+   "title": "Break a Broken Heart",
+   "year": 2023
+  },
+  {
+   "id": "turalturanx-tell-me-more",
+   "artist": "TuralTuranX",
+   "title": "Tell Me More",
+   "year": 2023
+  },
+  {
+   "id": "sarah-bonnici-loop",
+   "artist": "Sarah Bonnici",
+   "title": "Loop",
+   "year": 2024
+  },
+  {
+   "id": "sandhja-sing-it-away",
+   "artist": "Sandhja",
+   "title": "Sing It Away",
+   "year": 2016
+  },
+  {
+   "id": "laura-groeseneken-a-matter-of-time",
+   "artist": "Laura Groeseneken",
+   "title": "A Matter of Time",
+   "year": 2018
+  },
+  {
+   "id": "ari-olafsson-our-choice",
+   "artist": "Ari Ólafsson",
+   "title": "Our Choice",
+   "year": 2018
+  },
+  {
+   "id": "equinox-bones",
+   "artist": "Equinox",
+   "title": "Bones",
+   "year": 2018
+  },
+  {
+   "id": "gigliola-cinquetti-si",
+   "artist": "Gigliola Cinquetti",
+   "title": "Sì",
+   "year": 1974
+  },
+  {
+   "id": "montaigne-don-t-break-me",
+   "artist": "Montaigne",
+   "title": "Don't Break Me",
+   "year": 2020
+  },
+  {
+   "id": "hooverphonic-release-me",
+   "artist": "Hooverphonic",
+   "title": "Release Me",
+   "year": 2020
+  },
+  {
+   "id": "andre-without-your-love",
+   "artist": "André",
+   "title": "Without Your Love",
+   "year": 2006
+  },
+  {
+   "id": "theodor-andrei-d-g-t-off-and-on",
+   "artist": "Theodor Andrei",
+   "title": "D.G.T. (Off and On)",
+   "year": 2023
+  },
+  {
+   "id": "lord-of-the-lost-blood-glitter",
+   "artist": "Lord of the Lost",
+   "title": "Blood & Glitter",
+   "year": 2023
+  },
+  {
+   "id": "aksel-kankaanranta-looking-back",
+   "artist": "Aksel Kankaanranta",
+   "title": "Looking Back",
+   "year": 2020
+  },
+  {
+   "id": "anita-skorgan-casanova",
+   "artist": "Anita Skorgan",
+   "title": "Casanova",
+   "year": 1977
+  },
+  {
+   "id": "tommy-seebach-disco-tango",
+   "artist": "Tommy Seebach",
+   "title": "Disco Tango",
+   "year": 1979
+  },
+  {
+   "id": "leonor-andrade-ha-um-mar-que-nos-separa",
+   "artist": "Leonor Andrade",
+   "title": "Há um mar que nos separa",
+   "year": 2015
+  },
+  {
+   "id": "maruv-siren-song",
+   "artist": "Maruv",
+   "title": "Siren Song",
+   "year": 2019
+  },
+  {
+   "id": "the-new-seekers-beg-steal-or-borrow",
+   "artist": "The New Seekers",
+   "title": "Beg, Steal or Borrow",
+   "year": 1972
+  },
+  {
+   "id": "the-shadows-let-me-be-the-one",
+   "artist": "The Shadows",
+   "title": "Let Me Be the One",
+   "year": 1975
+  },
+  {
+   "id": "claudia-pascoal-portugal-in-the-eurovision-song-contest-2018",
+   "artist": "Cláudia Pascoal",
+   "title": "Portugal in the Eurovision Song Contest 2018",
+   "year": 2018
+  },
+  {
+   "id": "guildo-horn-guildo-hat-euch-lieb",
+   "artist": "Guildo Horn",
+   "title": "Guildo hat euch lieb!",
+   "year": 1998
+  },
+  {
+   "id": "alsou-solo",
+   "artist": "Alsou",
+   "title": "Solo",
+   "year": 2000
+  },
+  {
+   "id": "ace-wilder-busy-doin-nothin",
+   "artist": "Ace Wilder",
+   "title": "Busy Doin' Nothin'",
+   "year": 2014
+  },
+  {
+   "id": "schmetterlinge-boom-boom-boomerang",
+   "artist": "Schmetterlinge",
+   "title": "Boom Boom Boomerang",
+   "year": 1977
+  },
+  {
+   "id": "lara-fabian-croire",
+   "artist": "Lara Fabian",
+   "title": "Croire",
+   "year": 1988
+  },
+  {
+   "id": "duo-datz-kan",
+   "artist": "Duo Datz",
+   "title": "Kan",
+   "year": 1991
+  },
+  {
+   "id": "hakol-over-habibi-halayla",
+   "artist": "Hakol Over Habibi",
+   "title": "Halayla",
+   "year": 1981
+  },
+  {
+   "id": "seija-simola-anna-rakkaudelle-tilaisuus",
+   "artist": "Seija Simola",
+   "title": "Anna Rakkaudelle Tilaisuus",
+   "year": 1978
+  },
+  {
+   "id": "riki-sorsa-reggae-ok",
+   "artist": "Riki Sorsa",
+   "title": "Reggae OK",
+   "year": 1981
+  },
+  {
+   "id": "mike-tramp-boom-boom",
+   "artist": "Mike Tramp",
+   "title": "Boom Boom",
+   "year": 1978
+  },
+  {
+   "id": "bjorn-skifs-det-blir-alltid-varre-framat-natten",
+   "artist": "Björn Skifs",
+   "title": "Det blir alltid värre framåt natten",
+   "year": 1978
+  },
+  {
+   "id": "jean-vallee-l-amour-ca-fait-chanter-la-vie",
+   "artist": "Jean Vallée",
+   "title": "L'Amour ça fait chanter la vie",
+   "year": 1978
+  },
+  {
+   "id": "ana-guerra-lo-malo",
+   "artist": "Ana Guerra & Aitana",
+   "title": "Lo Malo",
+   "year": 2018
+  },
+  {
+   "id": "isabelle-aubret-la-source",
+   "artist": "Isabelle Aubret",
+   "title": "La source",
+   "year": 1968
+  },
+  {
+   "id": "mans-zelmerlow-revolution",
+   "artist": "Måns Zelmerlöw",
+   "title": "Revolution",
+   "year": 2025
+  },
+  {
+   "id": "adam-woods-where-you-are-savezan",
+   "artist": "Adam Woods & Oscar Christiansson",
+   "title": "Where You Are (Sávežan)",
+   "year": 2023
+  },
+  {
+   "id": "anna-bergendahl-higher-power",
+   "artist": "Anna Bergendahl",
+   "title": "Higher Power",
+   "year": 2022
+  },
+  {
+   "id": "kirka-hengaillaan",
+   "artist": "Kirka",
+   "title": "Hengaillaan",
+   "year": 1984
+  },
+  {
+   "id": "christine-minier-les-mots-d-amour-n-ont-pas-de-dimanche",
+   "artist": "Christine Minier",
+   "title": "Les Mots d'amour n'ont pas de dimanche",
+   "year": 1987
+  },
+  {
+   "id": "malene-mortensen-denmark-in-the-eurovision-song-contest-2002",
+   "artist": "Malene Mortensen",
+   "title": "Denmark in the Eurovision Song Contest 2002",
+   "year": 2002
+  },
+  {
+   "id": "john-lundvik-voice-of-the-silent",
+   "artist": "John Lundvik",
+   "title": "Voice of the Silent",
+   "year": 2025
+  },
+  {
+   "id": "maja-ivarsson-kamikaze-life",
+   "artist": "Maja Ivarsson",
+   "title": "Kamikaze Life",
+   "year": 2025
+  },
+  {
+   "id": "klara-hammarstrom-on-and-on-and-on",
+   "artist": "Klara Hammarström",
+   "title": "On and On and On",
+   "year": 2025
+  },
+  {
+   "id": "dolly-style-yihaa",
+   "artist": "Dolly Style",
+   "title": "Yihaa",
+   "year": 2025
+  },
+  {
+   "id": "tone-sekelius-rhythm-of-my-show",
+   "artist": "Tone Sekelius",
+   "title": "Rhythm of My Show",
+   "year": 2023
+  },
+  {
+   "id": "victor-crone-diamonds",
+   "artist": "Victor Crone",
+   "title": "Diamonds",
+   "year": 2023
+  },
+  {
+   "id": "oscar-zia-human",
+   "artist": "Oscar Zia",
+   "title": "Human",
+   "year": 2016
+  },
+  {
+   "id": "robin-bengtsson-take-a-chance",
+   "artist": "Robin Bengtsson",
+   "title": "Take a Chance",
+   "year": 2020
+  },
+  {
+   "id": "orup-upp-over-mina-oron",
+   "artist": "Orup",
+   "title": "Upp över mina öron",
+   "year": 1989
+  },
+  {
+   "id": "steps-something-in-your-eyes",
+   "artist": "Steps & Magnus Carlsson",
+   "title": "Something in Your Eyes",
+   "year": 2011
+  },
+  {
+   "id": "vikingarna-100",
+   "artist": "Vikingarna & Lotta Engberg",
+   "title": "100%",
+   "year": 1988
+  },
+  {
+   "id": "meira-omar-hush-hush",
+   "artist": "Meira Omar",
+   "title": "Hush Hush",
+   "year": 2025
+  },
+  {
+   "id": "erik-segerstedt-show-me-what-love-is",
+   "artist": "Erik Segerstedt",
+   "title": "Show Me What Love Is",
+   "year": 2025
+  },
+  {
+   "id": "annika-wickihalder-life-again",
+   "artist": "Annika Wickihalder",
+   "title": "Life Again",
+   "year": 2025
+  },
+  {
+   "id": "saga-ludvigsson-hate-you-so-much",
+   "artist": "Saga Ludvigsson",
+   "title": "Hate You So Much",
+   "year": 2025
+  },
+  {
+   "id": "scarlet-sweet-n-psycho",
+   "artist": "SCARLET",
+   "title": "Sweet n’ Psycho",
+   "year": 2025
+  },
+  {
+   "id": "elov-beny-raggen-gar",
+   "artist": "Elov & Beny",
+   "title": "Raggen går",
+   "year": 2023
+  },
+  {
+   "id": "jill-johnson-crazy-in-love",
+   "artist": "Jill Johnson & Lisa Ekdahl",
+   "title": "Crazy in Love",
+   "year": 2003
+  },
+  {
+   "id": "true-blue-jorden-ar-din",
+   "artist": "True Blue",
+   "title": "Jorden är din",
+   "year": 1989
+  },
+  {
+   "id": "linnea-henriksson-den-kanslan",
+   "artist": "Linnea Henriksson",
+   "title": "Den känslan",
+   "year": 2025
+  },
+  {
+   "id": "loulou-lamotte-inga-sorger",
+   "artist": "Loulou Lamotte",
+   "title": "Inga sorger",
+   "year": 2023
+  },
+  {
+   "id": "rejhan-haunted",
+   "artist": "Rejhan",
+   "title": "Haunted",
+   "year": 2023
+  },
+  {
+   "id": "eva-rydberg-lange-leve-livet",
+   "artist": "Eva Rydberg & Ewa Roos",
+   "title": "Länge leve livet",
+   "year": 2023
+  },
+  {
+   "id": "lys-assia-refrain-arrivederci-roma",
+   "artist": "Lys Assia",
+   "title": "Refrain / Arrivederci, Roma",
+   "year": 1956
+  },
+  {
+   "id": "adrian-maceus-var-forsta-gang",
+   "artist": "Adrian Macéus",
+   "title": "Vår första gång",
+   "year": 2025
+  },
+  {
+   "id": "pa-modou-badjie-upp-i-luften",
+   "artist": "Pa Modou Badjie & Albin Johnsén",
+   "title": "Upp i luften",
+   "year": 2025
+  },
+  {
+   "id": "nomi-tales-funniest-thing",
+   "artist": "Nomi Tales",
+   "title": "Funniest Thing",
+   "year": 2025
+  },
+  {
+   "id": "schlagerz-don-juan",
+   "artist": "Schlagerz",
+   "title": "Don Juan",
+   "year": 2025
+  },
+  {
+   "id": "fredrik-lundman-the-heart-of-a-swedish-cowboy",
+   "artist": "Fredrik Lundman",
+   "title": "The Heart of a Swedish Cowboy",
+   "year": 2025
+  },
+  {
+   "id": "kaliffa-karlsson-salute",
+   "artist": "Kaliffa Karlsson",
+   "title": "Salute",
+   "year": 2025
+  },
+  {
+   "id": "greczula-believe-me",
+   "artist": "Greczula",
+   "title": "Believe Me",
+   "year": 2025
+  },
+  {
+   "id": "malou-prytz-24k-gold",
+   "artist": "Malou Prytz",
+   "title": "24K Gold",
+   "year": 2025
+  },
+  {
+   "id": "bjorn-holmgren-radda-mig",
+   "artist": "Björn Holmgren",
+   "title": "Rädda mig",
+   "year": 2025
+  },
+  {
+   "id": "angelino-markenhorn-teardrops",
+   "artist": "Angelino Markenhorn",
+   "title": "Teardrops",
+   "year": 2025
+  },
+  {
+   "id": "andreas-lundstedt-vicious",
+   "artist": "Andreas Lundstedt",
+   "title": "Vicious",
+   "year": 2025
+  },
+  {
+   "id": "ella-tiritiello-bara-du-ar-dar",
+   "artist": "Ella Tiritiello",
+   "title": "Bara du är där",
+   "year": 2025
+  },
+  {
+   "id": "tennessee-tears-yours",
+   "artist": "Tennessee Tears",
+   "title": "Yours",
+   "year": 2025
+  },
+  {
+   "id": "amena-do-good-be-better",
+   "artist": "AmenA",
+   "title": "Do Good Be Better",
+   "year": 2025
+  },
+  {
+   "id": "arvingarna-ring-baby-ring",
+   "artist": "Arvingarna",
+   "title": "Ring baby ring",
+   "year": 2025
+  },
+  {
+   "id": "arwin-this-dream-of-mine",
+   "artist": "Arwin",
+   "title": "This Dream of Mine",
+   "year": 2025
+  },
+  {
+   "id": "victoria-silvstedt-love-it",
+   "artist": "Victoria Silvstedt",
+   "title": "Love It!",
+   "year": 2025
+  },
+  {
+   "id": "vilhelm-buchaus-i-m-yours",
+   "artist": "Vilhelm Buchaus",
+   "title": "I'm Yours",
+   "year": 2025
+  }
+ ]
+}

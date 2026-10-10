@@ -1,0 +1,611 @@
+[
+ {
+  "id": "loreen-euphoria",
+  "artist": "Loreen",
+  "title": "Euphoria",
+  "year": 2012,
+  "spotifyId": "1xN7BpTAWnZkuSLOtRP6Qc"
+ },
+ {
+  "id": "netta-barzilai-toy",
+  "artist": "Netta Barzilai",
+  "title": "Toy",
+  "year": 2018,
+  "spotifyId": "7vuTcvFnvlqWlWb4u60nvY"
+ },
+ {
+  "id": "dara-bangaranga",
+  "artist": "Dara",
+  "title": "Bangaranga",
+  "year": 2026,
+  "spotifyId": "6SvlfrQYzUsW5UQUpUpy26"
+ },
+ {
+  "id": "duncan-laurence-arcade",
+  "artist": "Duncan Laurence",
+  "title": "Arcade",
+  "year": 2019,
+  "spotifyId": "2no4D4hvxBGfxyQH6CVPPA"
+ },
+ {
+  "id": "loreen-tattoo",
+  "artist": "Loreen",
+  "title": "Tattoo",
+  "year": 2023,
+  "spotifyId": "1DmW5Ep6ywYwxc2HMT5BG6"
+ },
+ {
+  "id": "nemo-the-code",
+  "artist": "Nemo",
+  "title": "The Code",
+  "year": 2024,
+  "spotifyId": "2eKkLkQcKRINUndAxUdGkH"
+ },
+ {
+  "id": "jj-wasted-love",
+  "artist": "JJ",
+  "title": "Wasted Love",
+  "year": 2025,
+  "spotifyId": "0VmezvtEZRX6aCVn8ekIk5"
+ },
+ {
+  "id": "kaarija-cha-cha-cha",
+  "artist": "Käärijä",
+  "title": "Cha Cha Cha",
+  "year": 2023,
+  "spotifyId": "5RX8T3EoTuXcybAxe6oPAw"
+ },
+ {
+  "id": "rosa-linn-snap",
+  "artist": "Rosa Linn",
+  "title": "Snap",
+  "year": 2022,
+  "spotifyId": "5hx7w26Zi3zafMgvMTUqF6"
+ },
+ {
+  "id": "kaj-bara-bada-bastu",
+  "artist": "KAJ",
+  "title": "Bara bada bastu",
+  "year": 2025,
+  "spotifyId": "2gThkoApt6B7ajBWZRLAVv"
+ },
+ {
+  "id": "baby-lasagna-rim-tim-tagi-dim",
+  "artist": "Baby Lasagna",
+  "title": "Rim Tim Tagi Dim",
+  "year": 2024,
+  "spotifyId": "5TswDbxMnxptgFTf6ZxvXQ"
+ },
+ {
+  "id": "louane-emera-maman",
+  "artist": "Louane Emera",
+  "title": "Maman",
+  "year": 2025,
+  "spotifyId": "1FsIoCTWHx6lB0f3PgYdtz"
+ },
+ {
+  "id": "shkodra-elektronike-zjerm",
+  "artist": "Shkodra Elektronike",
+  "title": "Zjerm",
+  "year": 2025,
+  "spotifyId": "7FusudwwfrooeT6csJ0nEt"
+ },
+ {
+  "id": "angelina-mango-la-noia",
+  "artist": "Angelina Mango",
+  "title": "La noia",
+  "year": 2024,
+  "spotifyId": "49R1F3rIdSzuPk7AcHi6d1"
+ },
+ {
+  "id": "joost-klein-europapa",
+  "artist": "Joost Klein",
+  "title": "Europapa",
+  "year": 2024,
+  "spotifyId": "0uHrMbMv3c78398pIANDqR"
+ },
+ {
+  "id": "klavdia-asteromata",
+  "artist": "Klavdia",
+  "title": "Asteromata",
+  "year": 2025,
+  "spotifyId": "2aE2SRm4QraCuDBNnBsRIz"
+ },
+ {
+  "id": "gagnamagni-10-years",
+  "artist": "Gagnamagnið & Daði Freyr Pétursson",
+  "title": "10 Years",
+  "year": 2021,
+  "spotifyId": "2wxvW9II2IMhqSme5YC9n3"
+ },
+ {
+  "id": "blanco-brividi",
+  "artist": "Blanco & Mahmood",
+  "title": "Brividi",
+  "year": 2022,
+  "spotifyId": "73R0XeyT6Lvlcte2mGonAu"
+ },
+ {
+  "id": "alyona-alyona-teresa-maria",
+  "artist": "Alyona Alyona & Jerry Heil",
+  "title": "Teresa & Maria",
+  "year": 2024,
+  "spotifyId": "7n3Czk07KugPQOWuqCHDmF"
+ },
+ {
+  "id": "marcus-martinus-unforgettable",
+  "artist": "Marcus & Martinus",
+  "title": "Unforgettable",
+  "year": 2024,
+  "spotifyId": "5L8C1PZGCpZf8STcN79H5j"
+ },
+ {
+  "id": "emmy-laika-party",
+  "artist": "Emmy",
+  "title": "Laika Party",
+  "year": 2025,
+  "spotifyId": "0jlWCSJPOXCLmyjevM2p5U"
+ },
+ {
+  "id": "aidan-cassar-bella",
+  "artist": "Aidan Cassar",
+  "title": "Bella",
+  "year": 2026,
+  "spotifyId": "6xMZVKtQ76THTiJBntzmwz"
+ },
+ {
+  "id": "sal-da-vinci-per-sempre-si",
+  "artist": "Sal Da Vinci",
+  "title": "Per sempre sì",
+  "year": 2026,
+  "spotifyId": "5W1mx7Oeg2HxmASrth1nTt"
+ },
+ {
+  "id": "sam-ryder-space-man",
+  "artist": "Sam Ryder",
+  "title": "Space Man",
+  "year": 2022,
+  "spotifyId": "0cbfXpHhDdlK8wsysXzCO7"
+ },
+ {
+  "id": "laura-thorn-la-poupee-monte-le-son",
+  "artist": "Laura Thorn",
+  "title": "La poupée monte le son",
+  "year": 2025,
+  "spotifyId": "6IabIimt88FcZu80dunXWA"
+ },
+ {
+  "id": "red-sebastian-strobe-lights",
+  "artist": "Red Sebastian",
+  "title": "Strobe Lights",
+  "year": 2025,
+  "spotifyId": "0Tx2AeVKiYQjk8u9p4j6kV"
+ },
+ {
+  "id": "miriana-conte-serving",
+  "artist": "Miriana Conte",
+  "title": "Serving",
+  "year": 2025,
+  "spotifyId": "2lide7NEaVQGRtiHm61uCW"
+ },
+ {
+  "id": "vb-roa",
+  "artist": "Væb",
+  "title": "Róa",
+  "year": 2025,
+  "spotifyId": "1YnOwWvV1bQevRqJMCbYJz"
+ },
+ {
+  "id": "lelek-andromeda-lelek-song",
+  "artist": "Lelek",
+  "title": "Andromeda (Lelek song)",
+  "year": 2026,
+  "spotifyId": "3bTsAnErZrtBoUfORcTDTo"
+ },
+ {
+  "id": "olly-alexander-dizzy",
+  "artist": "Olly Alexander",
+  "title": "Dizzy",
+  "year": 2024,
+  "spotifyId": "1wsaWuGryDEecesQFsVLH2"
+ },
+ {
+  "id": "ladaniva-jako",
+  "artist": "Ladaniva",
+  "title": "Jako",
+  "year": 2024,
+  "spotifyId": "2MiEtw8UquKvxOwu47oTMu"
+ },
+ {
+  "id": "theo-evan-shh",
+  "artist": "Theo Evan",
+  "title": "Shh",
+  "year": 2025,
+  "spotifyId": "3mwqwFYIrO8hE3YBN8gk14"
+ },
+ {
+  "id": "felicia-eriksson-my-system",
+  "artist": "Felicia Eriksson",
+  "title": "My System",
+  "year": 2026,
+  "spotifyId": "1XmLPHkuv95o5NUodggzfv"
+ },
+ {
+  "id": "katerine-duska-better-love",
+  "artist": "Katerine Duska",
+  "title": "Better Love",
+  "year": 2019,
+  "spotifyId": "0QvJ5pNWlnMiLIxr7M6t3N"
+ },
+ {
+  "id": "amir-j-ai-cherche",
+  "artist": "Amir",
+  "title": "J'ai cherché",
+  "year": 2016,
+  "spotifyId": "1lzRxwbdl86iJlYMz48KoD"
+ },
+ {
+  "id": "madame-monsieur-mercy",
+  "artist": "Madame Monsieur",
+  "title": "Mercy",
+  "year": 2018,
+  "spotifyId": "7rLMCVdhWfUqjKMjPBzlCq"
+ },
+ {
+  "id": "zlata-ognevich-gravity",
+  "artist": "Zlata Ognevich",
+  "title": "Gravity",
+  "year": 2013,
+  "spotifyId": "0d3CHhMj2veGNsFJ8bpeT2"
+ },
+ {
+  "id": "salena-who-the-hell-is-edgar",
+  "artist": "Salena & Teya & Salena",
+  "title": "Who the Hell Is Edgar?",
+  "year": 2023,
+  "spotifyId": "3gUC7tGDPVLOq42vvTUVdI"
+ },
+ {
+  "id": "luke-black-samo-mi-se-spava",
+  "artist": "Luke Black",
+  "title": "Samo mi se spava",
+  "year": 2023,
+  "spotifyId": "7wLxoyWoClSUAlKGjaefQn"
+ },
+ {
+  "id": "bambie-thug-doomsday-blue",
+  "artist": "Bambie Thug",
+  "title": "Doomsday Blue",
+  "year": 2024,
+  "spotifyId": "7qiEoVlFjb3KaytT2zgK1g"
+ },
+ {
+  "id": "kyle-alessandro-lighter",
+  "artist": "Kyle Alessandro",
+  "title": "Lighter",
+  "year": 2025,
+  "spotifyId": "0AMoopn68aGAAaJ9qFXPnX"
+ },
+ {
+  "id": "adonxs-kiss-kiss-goodbye",
+  "artist": "Adonxs",
+  "title": "Kiss Kiss Goodbye",
+  "year": 2025,
+  "spotifyId": "2ceIi1kJxozE30OURIMkfN"
+ },
+ {
+  "id": "antigoni-buxton-jalla",
+  "artist": "Antigoni Buxton",
+  "title": "Jalla",
+  "year": 2026,
+  "spotifyId": "1h2xmg6pH7r5pr2prKmWGc"
+ },
+ {
+  "id": "lavina-kraj-mene",
+  "artist": "Lavina",
+  "title": "Kraj mene",
+  "year": 2026,
+  "spotifyId": "3cnVAUGWZcXNqojO8PfYOu"
+ },
+ {
+  "id": "mariya-yaremchuk-tick-tock",
+  "artist": "Mariya Yaremchuk",
+  "title": "Tick-Tock",
+  "year": 2014,
+  "spotifyId": "4kIheg2ykamUNNrSxL7t56"
+ },
+ {
+  "id": "blanca-paloma-eaea",
+  "artist": "Blanca Paloma",
+  "title": "Eaea",
+  "year": 2023,
+  "spotifyId": "1NzoDUn5bLqpS36GD00Smi"
+ },
+ {
+  "id": "joker-out-carpe-diem",
+  "artist": "Joker Out",
+  "title": "Carpe Diem",
+  "year": 2023,
+  "spotifyId": "14ibwN44PVKuvEqLiaNkKu"
+ },
+ {
+  "id": "alessandra-mele-queen-of-kings",
+  "artist": "Alessandra Mele",
+  "title": "Queen of Kings",
+  "year": 2023,
+  "spotifyId": "4ebXNGjHybOHB5LYDomdom"
+ },
+ {
+  "id": "nebulossa-zorra",
+  "artist": "Nebulossa",
+  "title": "Zorra",
+  "year": 2024,
+  "spotifyId": "4ypCNolz6aRYZPO3UOGp8Z"
+ },
+ {
+  "id": "silvester-belt-luktelk",
+  "artist": "Silvester Belt",
+  "title": "Luktelk",
+  "year": 2024,
+  "spotifyId": "15V97MEQ8aP8CMoJuOfCKe"
+ },
+ {
+  "id": "iolanda-grito",
+  "artist": "Iolanda",
+  "title": "Grito",
+  "year": 2024,
+  "spotifyId": "1MJqdZY2srI7SVxLO6fJ1s"
+ },
+ {
+  "id": "justyna-steczkowska-gaja",
+  "artist": "Justyna Steczkowska",
+  "title": "Gaja",
+  "year": 2025,
+  "spotifyId": "2tTpcgfEjfOGU5kGmht6yA"
+ },
+ {
+  "id": "viktoria-leleka-ridnym",
+  "artist": "Viktoria Leléka",
+  "title": "Ridnym",
+  "year": 2026,
+  "spotifyId": "52IlNxHUoQ3ZZyw9atSGVN"
+ },
+ {
+  "id": "elena-tsagkrinou-el-diablo",
+  "artist": "Elena Tsagkrinou",
+  "title": "El Diablo",
+  "year": 2021,
+  "spotifyId": "0DGduxy7YSuqXm272C2LM6"
+ },
+ {
+  "id": "gagnamagni-think-about-things",
+  "artist": "Gagnamagnið",
+  "title": "Think About Things",
+  "year": 2020,
+  "spotifyId": "6RV6IjazF35seR5ThpDPbM"
+ },
+ {
+  "id": "olena-topolia-sweet-people",
+  "artist": "Olena Topolia",
+  "title": "Sweet People",
+  "year": 2010,
+  "spotifyId": "7CJ8kE34MpQpL8jZUazdPt"
+ },
+ {
+  "id": "mae-muller-i-wrote-a-song",
+  "artist": "Mae Muller",
+  "title": "I Wrote a Song",
+  "year": 2023,
+  "spotifyId": "7JTww9J0sqx8tqm872Nsnu"
+ },
+ {
+  "id": "megara-11-11",
+  "artist": "Megara",
+  "title": "11:11",
+  "year": 2024,
+  "spotifyId": "6XIerJ9V7H9byQFRZiqyCv"
+ },
+ {
+  "id": "remember-monday-what-the-hell-just-happened",
+  "artist": "Remember Monday",
+  "title": "What the Hell Just Happened?",
+  "year": 2025,
+  "spotifyId": "0z64zsYHTmiTyddbFJ1S6y"
+ },
+ {
+  "id": "sam-battle-eins-zwei-drei",
+  "artist": "Sam Battle",
+  "title": "Eins, Zwei, Drei",
+  "year": 2026,
+  "spotifyId": "26xlJAlQoCMbnAWd0sGCQf"
+ },
+ {
+  "id": "elhaida-dani-i-m-alive",
+  "artist": "Elhaida Dani",
+  "title": "I'm Alive",
+  "year": 2015,
+  "spotifyId": "37Iemq844Q9wKENnwbFtWe"
+ },
+ {
+  "id": "valentina-monetta-the-social-network-song",
+  "artist": "Valentina Monetta",
+  "title": "The Social Network Song",
+  "year": 2012,
+  "spotifyId": "0Vzs9Npd4fvkRi3utSF2E3"
+ },
+ {
+  "id": "brunette-future-lover",
+  "artist": "Brunette",
+  "title": "Future Lover",
+  "year": 2023,
+  "spotifyId": "3MKTciJfDAJjO0SjFZQsVx"
+ },
+ {
+  "id": "luna-the-tower",
+  "artist": "Luna",
+  "title": "The Tower",
+  "year": 2024,
+  "spotifyId": "4IUMSDTVvUellFQ7RxI3kZ"
+ },
+ {
+  "id": "senhit-superstar",
+  "artist": "Senhit",
+  "title": "Superstar",
+  "year": 2026,
+  "spotifyId": "5fYAsg12ms7UkZLtEmS4J6"
+ },
+ {
+  "id": "ester-peony-on-a-sunday",
+  "artist": "Ester Peony",
+  "title": "On a Sunday",
+  "year": 2019,
+  "spotifyId": "67gDqPeyqOo3DKICrz5Y8Y"
+ },
+ {
+  "id": "cezar-it-s-my-life",
+  "artist": "Cezar",
+  "title": "It's My Life",
+  "year": 2013,
+  "spotifyId": "1RCLwB4gj44JWKtjn0Kwok"
+ },
+ {
+  "id": "pasha-parfeni-soarele-si-luna",
+  "artist": "Pasha Parfeni",
+  "title": "Soarele şi Luna",
+  "year": 2023,
+  "spotifyId": "6SO3p9lb1qiPMN1e7iHAjv"
+ },
+ {
+  "id": "iru-khechanovi-echo",
+  "artist": "Iru Khechanovi",
+  "title": "Echo",
+  "year": 2023,
+  "spotifyId": "6Dw7BShqIiGPq69VEQ2hpd"
+ },
+ {
+  "id": "aiko-pedestal",
+  "artist": "Aiko",
+  "title": "Pedestal",
+  "year": 2024,
+  "spotifyId": "3GNmo4ljOTnd8k6VKug1Ut"
+ },
+ {
+  "id": "cliff-richard-power-to-all-our-friends",
+  "artist": "Cliff Richard",
+  "title": "Power to All Our Friends",
+  "year": 1973,
+  "spotifyId": "5Nq0Axfe30gVlhmWCChY5M"
+ },
+ {
+  "id": "andrew-lambrou-break-a-broken-heart",
+  "artist": "Andrew Lambrou",
+  "title": "Break a Broken Heart",
+  "year": 2023,
+  "spotifyId": "5dRAJ9UsR0qyMMKnonWewz"
+ },
+ {
+  "id": "turalturanx-tell-me-more",
+  "artist": "TuralTuranX",
+  "title": "Tell Me More",
+  "year": 2023,
+  "spotifyId": "2pXSRhFrsoG57v4tZ36ogu"
+ },
+ {
+  "id": "sarah-bonnici-loop",
+  "artist": "Sarah Bonnici",
+  "title": "Loop",
+  "year": 2024,
+  "spotifyId": "3DlWvRuHXQ3iQicBauinOd"
+ },
+ {
+  "id": "laura-groeseneken-a-matter-of-time",
+  "artist": "Laura Groeseneken",
+  "title": "A Matter of Time",
+  "year": 2018,
+  "spotifyId": "2776nsJOmk3psqGSocg6lK"
+ },
+ {
+  "id": "equinox-bones",
+  "artist": "Equinox",
+  "title": "Bones",
+  "year": 2018,
+  "spotifyId": "39qWzdNJSioJzfemhwXtDw"
+ },
+ {
+  "id": "montaigne-don-t-break-me",
+  "artist": "Montaigne",
+  "title": "Don't Break Me",
+  "year": 2020,
+  "spotifyId": "6m5AwSncp7jlXRYhs4cwOT"
+ },
+ {
+  "id": "theodor-andrei-d-g-t-off-and-on",
+  "artist": "Theodor Andrei",
+  "title": "D.G.T. (Off and On)",
+  "year": 2023,
+  "spotifyId": "3gv3bOnIkZfyBVze4qKsUK"
+ },
+ {
+  "id": "ana-guerra-lo-malo",
+  "artist": "Ana Guerra & Aitana",
+  "title": "Lo Malo",
+  "year": 2018,
+  "spotifyId": "4bGHNqmWxf9VdZRVtY86DQ"
+ },
+ {
+  "id": "adam-woods-where-you-are-savezan",
+  "artist": "Adam Woods & Oscar Christiansson",
+  "title": "Where You Are (Sávežan)",
+  "year": 2023,
+  "spotifyId": "55bIL3KHXOGN6UTsUp4oFU"
+ },
+ {
+  "id": "john-lundvik-voice-of-the-silent",
+  "artist": "John Lundvik",
+  "title": "Voice of the Silent",
+  "year": 2025,
+  "spotifyId": "4E0st5Y809Aro5GG7oEzas"
+ },
+ {
+  "id": "saga-ludvigsson-hate-you-so-much",
+  "artist": "Saga Ludvigsson",
+  "title": "Hate You So Much",
+  "year": 2025,
+  "spotifyId": "3zqr8gsLOdlRehxOD3pZpe"
+ },
+ {
+  "id": "scarlet-sweet-n-psycho",
+  "artist": "SCARLET",
+  "title": "Sweet n’ Psycho",
+  "year": 2025,
+  "spotifyId": "0uftNXcnHZdbmddDJtLk5c"
+ },
+ {
+  "id": "jill-johnson-crazy-in-love",
+  "artist": "Jill Johnson & Lisa Ekdahl",
+  "title": "Crazy in Love",
+  "year": 2003,
+  "spotifyId": "3M1MbdMOc0MMD9oxsscdtw"
+ },
+ {
+  "id": "pa-modou-badjie-upp-i-luften",
+  "artist": "Pa Modou Badjie & Albin Johnsén",
+  "title": "Upp i luften",
+  "year": 2025,
+  "spotifyId": "2NerJk09enIxsE8DlVjRrT"
+ },
+ {
+  "id": "greczula-believe-me",
+  "artist": "Greczula",
+  "title": "Believe Me",
+  "year": 2025,
+  "spotifyId": "6IVW19O8wdfNSRzwy5rHD2"
+ },
+ {
+  "id": "vilhelm-buchaus-i-m-yours",
+  "artist": "Vilhelm Buchaus",
+  "title": "I'm Yours",
+  "year": 2025,
+  "spotifyId": "2LbZzonnjQzdNUPWzg8Vrw"
+ }
+]
