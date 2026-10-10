@@ -113,9 +113,28 @@ function join(name, code) {
   me = { playerId, name, code };
   storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify(me)));
   $('#join').hidden = true;
+  $('#join-error').hidden = true;
   $('#lobby').hidden = false;
   $('#me').textContent = `${name} · spel ${code}`;
-  net = createClient(code, { onOpen, onMessage, onStatus });
+  net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
+}
+
+// Koden är fel eller spelet är avslutat: tillbaka till sidan där man anger kod.
+function onNotFound() {
+  const code = me.code;
+  net.destroy();
+  net = null;
+  view = null;
+  storage(() => localStorage.removeItem(SAVE_KEY));
+  const params = new URLSearchParams(location.search);
+  params.delete('kod');
+  const query = params.toString();
+  history.replaceState(null, '', location.pathname + (query ? '?' + query : ''));
+  $('#code-input').value = '';
+  $('#join-error').textContent = `Det finns inget aktivt spel med koden ${code}. Kontrollera koden och försök igen.`;
+  $('#join-error').hidden = false;
+  $('#lobby').hidden = true;
+  $('#join').hidden = false;
 }
 
 async function init() {
@@ -132,23 +151,22 @@ async function init() {
   $('#code-input').value = code;
   if (saved) $('#name-input').value = saved.name;
 
-  // Samma spel som förra gången: anslut direkt, till exempel efter omladdning.
-  if (saved && code && saved.code === code) {
-    join(saved.name, code);
-    return;
-  }
-
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#name-input').value.trim().slice(0, 20);
     const joinCode = $('#code-input').value.trim().toUpperCase();
     if (!name || joinCode.length !== 4) return;
-    if (!params.get('kod')) {
-      params.set('kod', joinCode);
-      history.replaceState(null, '', '?' + params.toString());
-    }
+    const query = new URLSearchParams(location.search);
+    query.set('kod', joinCode);
+    history.replaceState(null, '', '?' + query.toString());
     join(name, joinCode);
   });
+
+  // Samma spel som förra gången: anslut direkt, till exempel efter omladdning.
+  if (saved && code && saved.code === code) {
+    join(saved.name, code);
+    return;
+  }
   $('#join').hidden = false;
 }
 
