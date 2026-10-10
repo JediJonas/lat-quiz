@@ -162,7 +162,24 @@ function nextSong() {
     alert('Alla låtar i kategorin är spelade. Nollställ spelade låtar för att börja om.');
     return;
   }
+  // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
+  game.startRound(state, Date.now());
   changed();
+  openSpotify(song);
+}
+
+// Måste anropas direkt från klicket, annars kan webbläsaren stoppa öppnandet.
+function openSpotify(song) {
+  const app = spotifyAppUrl(song);
+  if (!app) {
+    window.open(spotifyUrl(song), '_blank', 'noopener');
+    return;
+  }
+  const link = document.createElement('a');
+  link.href = app;
+  document.body.append(link);
+  link.click();
+  link.remove();
 }
 
 function winnerNames() {
@@ -251,6 +268,14 @@ function playLinks(song) {
     <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
 }
 
+// Om Spotify inte öppnades av sig själv. Timern går redan.
+function reopenLinks(song) {
+  const app = spotifyAppUrl(song);
+  const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
+  return `<p class="muted small">Öppnades inte låten? Öppna den i ${
+    app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
+}
+
 function render() {
   const round = state.round;
   const left = game.unplayedSongs(state, songs).length;
@@ -258,7 +283,8 @@ function render() {
   const stage = $('#stage');
 
   if (!round) {
-    stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.</p>
+    stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.
+      Låten öppnas i Spotify och timern startar. Stoppa låten efter ungefär 10 sekunder.</p>
       <button id="next" class="big">Nästa låt</button>`;
   } else if (round.phase === 'ready') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
@@ -269,7 +295,8 @@ function render() {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="timer"></div>
       <p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>
-      <button id="reveal" class="secondary">Visa svar nu</button>`;
+      <button id="reveal" class="secondary">Visa svar nu</button>
+      ${reopenLinks(round.song)}`;
     renderTimer();
   } else {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
