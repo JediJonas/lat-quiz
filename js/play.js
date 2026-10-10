@@ -72,10 +72,7 @@ function playerStatus(id) {
   if (!round) return '';
   return statusTags({
     phase: round.phase,
-    // Egna svar syns direkt, utan att vänta på att spelledaren skickar tillbaka dem.
-    progress: round.phase === 'playing' && id === me.playerId
-      ? { artist: Boolean(local.artist), title: Boolean(local.title) }
-      : round.progress && round.progress[id],
+    progress: round.progress && round.progress[id],
     result: round.results && round.results[id],
     labels: view.labels,
     esc,
