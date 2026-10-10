@@ -51,3 +51,11 @@ Så tas en kategori fram:
 En kategori kan döpa om fälten med `labels`, till exempel Kompositör och Verk för klassisk musik. Verktyget matchar då mot kompositören i Wikidata.
 
 Sidan körs i en vanlig webbläsare, till exempel via GitHub Pages. Låtar som saknas i Wikidata kan fyllas i för hand med en Spotify-länk.
+
+Claude kan också göra hela uppslagningen själv, utan att någon kör sidan:
+
+```
+node verktyg/hamta-id.mjs data/kandidater/<kategori>.json 100
+```
+
+Skriptet söker först i Wikidata och sedan bland inspelningar i MusicBrainz som har en Spotify-länk. Klassiska verk hittas via verket i MusicBrainz, och första satsen eller den del som titeln nämner väljs, helst med en känd orkester. Claude går igenom träffarna och markerar fel inspelningar med `"skip"` i kandidatlistan, så att de blir lockbeten i stället. Det kräver att miljön når query.wikidata.org och musicbrainz.org.
