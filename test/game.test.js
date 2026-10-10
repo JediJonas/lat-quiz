@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs, restart,
+  cleanSettings, applySettings,
 } from '../js/game.js';
 
 const songs = [
@@ -157,4 +158,22 @@ test('kategorins rubriker skickas till spelarna', () => {
   assert.deepEqual(playerView(plain, 'p1', 0).labels, { artist: 'Artist', title: 'Titel' });
   const classical = createGame({ code: 'ABCD', categoryId: 'klassiskt', labels: { artist: 'Kompositör', title: 'Verk' } });
   assert.equal(playerView(classical, 'p1', 0).labels.artist, 'Kompositör');
+});
+
+test('inställningar: okända värden ersätts med standard, bonus 0 betyder ingen bonus', () => {
+  assert.deepEqual(cleanSettings({ roundMs: 45000, bonusMs: 7, winScore: '20' }),
+    { roundMs: 45000, bonusMs: 15000, winScore: 20 });
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal', settings: { bonusMs: 0, winScore: 5 } });
+  assert.equal(state.winScore, 5);
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  nextSong(state, songs, () => 0);
+  startRound(state, 1000);
+  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
+  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  assert.equal(applySettings(state, { roundMs: 30000 }), false, 'ändras inte mitt i en låt');
+  reveal(state);
+  assert.deepEqual(state.round.results.p1, { artist: true, title: true, bonus: false, points: 2 });
+  assert.equal(applySettings(state, { roundMs: 30000, bonusMs: 10000, winScore: 15 }), true);
+  assert.equal(state.roundMs, 30000);
+  assert.equal(state.winScore, 15);
 });

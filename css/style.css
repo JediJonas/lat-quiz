@@ -347,6 +347,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .host .ring { width: 240px; height: 240px; }
 .host .ring-num { font-size: 5rem; }
 .actions { margin-top: 24px; }
+.settings-link { margin-top: 8px; }
+.settings-link .small { display: block; margin-top: 4px; }
+.modal.settings label:first-of-type { margin-top: 8px; }
+.modal.settings .modal-actions { margin-top: 24px; }
 
 @media (max-width: 760px) {
   .host { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }

@@ -63,7 +63,7 @@ function renderTimer() {
   const el = $('#timer');
   if (!view || !view.round || view.round.phase !== 'playing') return;
   const ms = Math.max(0, deadline - Date.now());
-  renderRing(el, ms, view.round.roundMs, view.round.roundMs - ms <= view.round.bonusMs);
+  renderRing(el, ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
 }
 
 function renderStandings() {

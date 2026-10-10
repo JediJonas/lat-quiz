@@ -6,6 +6,7 @@ import { showAlert, showConfirm } from './dialog.js';
 import { renderRing, ranks, scoreTracker } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
+const SETTINGS_KEY = 'latquiz-settings';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -43,6 +44,15 @@ function loadSaved() {
   const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
   if (!saved || Date.now() - saved.savedAt > SAVE_MAX_AGE_MS) return null;
   return saved.state;
+}
+
+// Senast valda inställningar används när nästa spel skapas.
+function loadSettings() {
+  return game.cleanSettings(storage(() => JSON.parse(localStorage.getItem(SETTINGS_KEY)), {}));
+}
+
+function saveSettings(settings) {
+  storage(() => localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)));
 }
 
 function newCode() {
@@ -150,6 +160,7 @@ async function startGame(categoryId, resumeState) {
   } else {
     state = game.createGame({
       code: newCode(), categoryId: category.id, playedIds: loadPlayed(category.id), labels: category.labels,
+      settings: loadSettings(),
     });
   }
   save();
@@ -224,6 +235,69 @@ async function resetPlayed() {
   changed();
 }
 
+const SETTING_FIELDS = [
+  { key: 'roundMs', label: 'Betänketid', text: (v) => `${v / 1000} sekunder` },
+  { key: 'bonusMs', label: 'Bonus för snabbt svar', text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
+  { key: 'winScore', label: 'Poänggräns', text: (v) => `Först till ${v} poäng` },
+];
+
+// Returnerar de valda inställningarna, eller null om spelledaren avbryter.
+function showSettings(current) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'modal settings';
+  dialog.innerHTML = `
+    <form method="dialog">
+      <h2>Inställningar</h2>
+      ${SETTING_FIELDS.map(({ key, label, text }) => `
+        <label for="setting-${key}">${label}</label>
+        <select id="setting-${key}" name="${key}">
+          ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
+        </select>`).join('')}
+      <div class="modal-actions">
+        <button value="cancel" class="secondary">Avbryt</button>
+        <button value="ok">Spara</button>
+      </div>
+    </form>`;
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close('cancel');
+  });
+  document.body.append(dialog);
+  dialog.showModal();
+  return new Promise((resolve) => {
+    dialog.addEventListener('close', () => {
+      const form = dialog.querySelector('form');
+      resolve(dialog.returnValue === 'ok'
+        ? game.cleanSettings(Object.fromEntries(new FormData(form))) : null);
+      dialog.remove();
+    }, { once: true });
+  });
+}
+
+function settingsSummary(s) {
+  return [`${s.roundMs / 1000} s betänketid`, s.bonusMs ? `bonus inom ${s.bonusMs / 1000} s` : 'ingen bonus',
+    `först till ${s.winScore} poäng`].join(' · ');
+}
+
+async function editSettings() {
+  if (state && state.round && state.round.phase === 'playing') {
+    showAlert('Inställningarna kan ändras när svaret har visats.', { title: 'Låten pågår' });
+    return;
+  }
+  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings());
+  if (!chosen) return;
+  saveSettings(chosen);
+  if (state) {
+    game.applySettings(state, chosen);
+    changed();
+  } else {
+    renderSetupSummary();
+  }
+}
+
+function renderSetupSummary() {
+  $('#settings-summary').textContent = settingsSummary(loadSettings());
+}
+
 // ---- Visning ----
 
 function showJoinInfo() {
@@ -241,7 +315,7 @@ function renderTimer() {
   const el = $('#timer');
   if (!el) return;
   const ms = game.remainingMs(state, Date.now());
-  renderRing(el, ms, state.roundMs, state.roundMs - ms <= state.bonusMs);
+  renderRing(el, ms, state.roundMs, state.bonusMs > 0 && state.roundMs - ms <= state.bonusMs);
 }
 
 function renderPlayers() {
@@ -308,7 +382,7 @@ function render() {
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
-      <p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>
+      ${state.bonusMs ? `<p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>` : ''}
       <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
@@ -334,6 +408,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
   else if (id === 'reset-played') resetPlayed();
+  else if (id === 'settings' || id === 'game-settings') editSettings();
 });
 
 // Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
@@ -358,6 +433,7 @@ async function init() {
   $('#category-select').innerHTML = categories
     .map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
   $('#create').addEventListener('click', () => startGame($('#category-select').value));
+  renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');
