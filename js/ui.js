@@ -3,7 +3,8 @@
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
-// Rund nedräkning: siffran i mitten och en ring som krymper.
+// Rund nedräkning: siffran i mitten och en ring som töms medurs
+// och skiftar från grönt via gult till rött.
 export function renderRing(el, ms, totalMs, bonus) {
   if (!el.querySelector('svg')) {
     el.innerHTML = `<svg viewBox="0 0 120 120" aria-hidden="true">
@@ -12,7 +13,9 @@ export function renderRing(el, ms, totalMs, bonus) {
       </svg><span class="ring-num"></span>`;
   }
   const part = totalMs ? Math.max(0, Math.min(1, ms / totalMs)) : 0;
-  el.querySelector('.ring-bar').style.strokeDashoffset = RING_LEN * (1 - part);
+  // Negativ förskjutning gör att det tomma partiet växer medurs från klockan tolv.
+  el.querySelector('.ring-bar').style.strokeDashoffset = -RING_LEN * (1 - part);
+  el.style.setProperty('--ring-hue', Math.round(120 * part));
   el.querySelector('.ring-num').textContent = Math.ceil(ms / 1000);
   el.classList.toggle('bonus', bonus);
 }

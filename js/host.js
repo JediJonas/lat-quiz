@@ -237,9 +237,6 @@ function showSettings(current) {
         <button value="ok">Spara</button>
       </div>
     </form>`;
-  dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) dialog.close('cancel');
-  });
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {
