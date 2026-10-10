@@ -1,0 +1,422 @@
+[
+ {
+  "id": "a-ha-take-on-me",
+  "artist": "a-ha",
+  "title": "Take On Me",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "michael-jackson-billie-jean",
+  "artist": "Michael Jackson",
+  "title": "Billie Jean",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "madonna-like-a-virgin",
+  "artist": "Madonna",
+  "title": "Like a Virgin",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "cyndi-lauper-girls-just-want-to-have-fun",
+  "artist": "Cyndi Lauper",
+  "title": "Girls Just Want to Have Fun",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "wham-wake-me-up-before-you-go-go",
+  "artist": "Wham!",
+  "title": "Wake Me Up Before You Go-Go",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "toto-africa",
+  "artist": "Toto",
+  "title": "Africa",
+  "year": 1982,
+  "spotifyId": null
+ },
+ {
+  "id": "europe-the-final-countdown",
+  "artist": "Europe",
+  "title": "The Final Countdown",
+  "year": 1986,
+  "spotifyId": null
+ },
+ {
+  "id": "roxette-the-look",
+  "artist": "Roxette",
+  "title": "The Look",
+  "year": 1989,
+  "spotifyId": null
+ },
+ {
+  "id": "whitney-houston-i-wanna-dance-with-somebody-who-loves-me",
+  "artist": "Whitney Houston",
+  "title": "I Wanna Dance with Somebody (Who Loves Me)",
+  "year": 1987,
+  "spotifyId": null
+ },
+ {
+  "id": "prince-purple-rain",
+  "artist": "Prince",
+  "title": "Purple Rain",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "tears-for-fears-everybody-wants-to-rule-the-world",
+  "artist": "Tears for Fears",
+  "title": "Everybody Wants to Rule the World",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "duran-duran-hungry-like-the-wolf",
+  "artist": "Duran Duran",
+  "title": "Hungry Like the Wolf",
+  "year": 1982,
+  "spotifyId": null
+ },
+ {
+  "id": "culture-club-karma-chameleon",
+  "artist": "Culture Club",
+  "title": "Karma Chameleon",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "rick-astley-never-gonna-give-you-up",
+  "artist": "Rick Astley",
+  "title": "Never Gonna Give You Up",
+  "year": 1987,
+  "spotifyId": null
+ },
+ {
+  "id": "bon-jovi-livin-on-a-prayer",
+  "artist": "Bon Jovi",
+  "title": "Livin' on a Prayer",
+  "year": 1986,
+  "spotifyId": null
+ },
+ {
+  "id": "survivor-eye-of-the-tiger",
+  "artist": "Survivor",
+  "title": "Eye of the Tiger",
+  "year": 1982,
+  "spotifyId": null
+ },
+ {
+  "id": "queen-radio-ga-ga",
+  "artist": "Queen",
+  "title": "Radio Ga Ga",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "the-police-every-breath-you-take",
+  "artist": "The Police",
+  "title": "Every Breath You Take",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "eurythmics-sweet-dreams-are-made-of-this",
+  "artist": "Eurythmics",
+  "title": "Sweet Dreams (Are Made of This)",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "phil-collins-in-the-air-tonight",
+  "artist": "Phil Collins",
+  "title": "In the Air Tonight",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "bonnie-tyler-total-eclipse-of-the-heart",
+  "artist": "Bonnie Tyler",
+  "title": "Total Eclipse of the Heart",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "dexys-midnight-runners-come-on-eileen",
+  "artist": "Dexys Midnight Runners",
+  "title": "Come On Eileen",
+  "year": 1982,
+  "spotifyId": null
+ },
+ {
+  "id": "kim-wilde-kids-in-america",
+  "artist": "Kim Wilde",
+  "title": "Kids in America",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "simple-minds-don-t-you-forget-about-me",
+  "artist": "Simple Minds",
+  "title": "Don't You (Forget About Me)",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "spandau-ballet-true",
+  "artist": "Spandau Ballet",
+  "title": "True",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "lionel-richie-all-night-long-all-night",
+  "artist": "Lionel Richie",
+  "title": "All Night Long (All Night)",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "kenny-loggins-footloose",
+  "artist": "Kenny Loggins",
+  "title": "Footloose",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "irene-cara-flashdance-what-a-feeling",
+  "artist": "Irene Cara",
+  "title": "Flashdance... What a Feeling",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "pet-shop-boys-west-end-girls",
+  "artist": "Pet Shop Boys",
+  "title": "West End Girls",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "depeche-mode-just-can-t-get-enough",
+  "artist": "Depeche Mode",
+  "title": "Just Can't Get Enough",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "soft-cell-tainted-love",
+  "artist": "Soft Cell",
+  "title": "Tainted Love",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "the-human-league-don-t-you-want-me",
+  "artist": "The Human League",
+  "title": "Don't You Want Me",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "wham-last-christmas",
+  "artist": "Wham!",
+  "title": "Last Christmas",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "george-michael-faith",
+  "artist": "George Michael",
+  "title": "Faith",
+  "year": 1987,
+  "spotifyId": null
+ },
+ {
+  "id": "madonna-like-a-prayer",
+  "artist": "Madonna",
+  "title": "Like a Prayer",
+  "year": 1989,
+  "spotifyId": null
+ },
+ {
+  "id": "michael-jackson-beat-it",
+  "artist": "Michael Jackson",
+  "title": "Beat It",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "michael-jackson-thriller",
+  "artist": "Michael Jackson",
+  "title": "Thriller",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "belinda-carlisle-heaven-is-a-place-on-earth",
+  "artist": "Belinda Carlisle",
+  "title": "Heaven Is a Place on Earth",
+  "year": 1987,
+  "spotifyId": null
+ },
+ {
+  "id": "starship-nothing-s-gonna-stop-us-now",
+  "artist": "Starship",
+  "title": "Nothing's Gonna Stop Us Now",
+  "year": 1987,
+  "spotifyId": null
+ },
+ {
+  "id": "bananarama-venus",
+  "artist": "Bananarama",
+  "title": "Venus",
+  "year": 1986,
+  "spotifyId": null
+ },
+ {
+  "id": "dead-or-alive-you-spin-me-round-like-a-record",
+  "artist": "Dead or Alive",
+  "title": "You Spin Me Round (Like a Record)",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "falco-rock-me-amadeus",
+  "artist": "Falco",
+  "title": "Rock Me Amadeus",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "nena-99-luftballons",
+  "artist": "Nena",
+  "title": "99 Luftballons",
+  "year": 1983,
+  "spotifyId": null
+ },
+ {
+  "id": "laura-branigan-self-control",
+  "artist": "Laura Branigan",
+  "title": "Self Control",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "billy-idol-white-wedding",
+  "artist": "Billy Idol",
+  "title": "White Wedding",
+  "year": 1982,
+  "spotifyId": null
+ },
+ {
+  "id": "stevie-wonder-i-just-called-to-say-i-love-you",
+  "artist": "Stevie Wonder",
+  "title": "I Just Called to Say I Love You",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "huey-lewis-and-the-news-the-power-of-love",
+  "artist": "Huey Lewis and the News",
+  "title": "The Power of Love",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "mr-mister-broken-wings",
+  "artist": "Mr. Mister",
+  "title": "Broken Wings",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "roxette-listen-to-your-heart",
+  "artist": "Roxette",
+  "title": "Listen to Your Heart",
+  "year": 1988,
+  "spotifyId": null
+ },
+ {
+  "id": "tina-turner-what-s-love-got-to-do-with-it",
+  "artist": "Tina Turner",
+  "title": "What's Love Got to Do with It",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "bryan-adams-summer-of-69",
+  "artist": "Bryan Adams",
+  "title": "Summer of '69",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "paul-young-every-time-you-go-away",
+  "artist": "Paul Young",
+  "title": "Every Time You Go Away",
+  "year": 1985,
+  "spotifyId": null
+ },
+ {
+  "id": "fine-young-cannibals-she-drives-me-crazy",
+  "artist": "Fine Young Cannibals",
+  "title": "She Drives Me Crazy",
+  "year": 1988,
+  "spotifyId": null
+ },
+ {
+  "id": "kylie-minogue-i-should-be-so-lucky",
+  "artist": "Kylie Minogue",
+  "title": "I Should Be So Lucky",
+  "year": 1987,
+  "spotifyId": null
+ },
+ {
+  "id": "rick-astley-together-forever",
+  "artist": "Rick Astley",
+  "title": "Together Forever",
+  "year": 1988,
+  "spotifyId": null
+ },
+ {
+  "id": "men-at-work-down-under",
+  "artist": "Men at Work",
+  "title": "Down Under",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "joan-jett-the-blackhearts-i-love-rock-n-roll",
+  "artist": "Joan Jett & the Blackhearts",
+  "title": "I Love Rock 'n' Roll",
+  "year": 1981,
+  "spotifyId": null
+ },
+ {
+  "id": "the-bangles-walk-like-an-egyptian",
+  "artist": "The Bangles",
+  "title": "Walk Like an Egyptian",
+  "year": 1986,
+  "spotifyId": null
+ },
+ {
+  "id": "modern-talking-you-re-my-heart-you-re-my-soul",
+  "artist": "Modern Talking",
+  "title": "You're My Heart, You're My Soul",
+  "year": 1984,
+  "spotifyId": null
+ },
+ {
+  "id": "alphaville-forever-young",
+  "artist": "Alphaville",
+  "title": "Forever Young",
+  "year": 1984,
+  "spotifyId": null
+ }
+]
