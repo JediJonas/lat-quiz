@@ -1,0 +1,702 @@
+[
+ {
+  "id": "nirvana-smells-like-teen-spirit",
+  "artist": "Nirvana & Krist Novoselic",
+  "title": "Smells Like Teen Spirit",
+  "year": 1991,
+  "spotifyId": "1f3yAtsJtY87CTmM8RLnxf"
+ },
+ {
+  "id": "celine-dion-my-heart-will-go-on",
+  "artist": "Céline Dion & James Horner",
+  "title": "My Heart Will Go On",
+  "year": 1997,
+  "spotifyId": "7F1yVPuJ4xRdrDvf8OL0HF"
+ },
+ {
+  "id": "freshlyground-waka-waka-this-time-for-africa",
+  "artist": "Freshlyground & Golden Sounds",
+  "title": "Waka Waka (This Time for Africa)",
+  "year": 2010,
+  "spotifyId": "2Cd9iWfcOpGDHLz6tVA3G4"
+ },
+ {
+  "id": "richard-rodgers-you-ll-never-walk-alone",
+  "artist": "Richard Rodgers & Barbra Streisand",
+  "title": "You'll Never Walk Alone",
+  "year": 1945,
+  "spotifyId": "6UYn6KCvvuPX7rCvXZGiYq"
+ },
+ {
+  "id": "michael-jackson-bad",
+  "artist": "Michael Jackson",
+  "title": "Bad",
+  "year": 1987,
+  "spotifyId": "2gSNBigeWMVtY3QBIvPAEc"
+ },
+ {
+  "id": "trombo-combo-the-final-countdown",
+  "artist": "Trombo Combo & Europe",
+  "title": "The Final Countdown",
+  "year": 1986,
+  "spotifyId": "498SE5YbgSuUgXKKe7BaA5"
+ },
+ {
+  "id": "adele-set-fire-to-the-rain",
+  "artist": "Adele & Fraser T. Smith",
+  "title": "Set Fire to the Rain",
+  "year": 2011,
+  "spotifyId": "3di5hcvxxciiqwMH1jarhY"
+ },
+ {
+  "id": "freddie-perren-i-will-survive",
+  "artist": "Freddie Perren & Dino Fekaris",
+  "title": "I Will Survive",
+  "year": 1978,
+  "spotifyId": "3GrRw1IyYWtcWukBDiSk9o"
+ },
+ {
+  "id": "taylor-swift-bad-blood",
+  "artist": "Taylor Swift",
+  "title": "Bad Blood",
+  "year": 2015,
+  "spotifyId": "6xsEAm6w9oMQYYg3jkEkMT"
+ },
+ {
+  "id": "black-eyed-peas-boom-boom-pow",
+  "artist": "Black Eyed Peas",
+  "title": "Boom Boom Pow",
+  "year": 2009,
+  "spotifyId": "5MeZ3VxmtSv1O8PcekvLTn"
+ },
+ {
+  "id": "bryan-adams-everything-i-do-i-do-it-for-you",
+  "artist": "Bryan Adams & Mutt Lange",
+  "title": "(Everything I Do) I Do It for You",
+  "year": 1991,
+  "spotifyId": "6eBK3edMW7bEzecF1eCezc"
+ },
+ {
+  "id": "guns-n-roses-welcome-to-the-jungle",
+  "artist": "Guns N' Roses & Izzy Stradlin",
+  "title": "Welcome to the Jungle",
+  "year": 1987,
+  "spotifyId": "0G21yYKMZoHa30cYVi1iA8"
+ },
+ {
+  "id": "pete-townshend-baba-o-riley",
+  "artist": "Pete Townshend & The Who",
+  "title": "Baba O'Riley",
+  "year": 1971,
+  "spotifyId": "3dscWkmLIUkZgTii9W5R9F"
+ },
+ {
+  "id": "nat-king-cole-smile",
+  "artist": "Nat King Cole & Petula Clark",
+  "title": "Smile",
+  "year": 1954,
+  "spotifyId": "30It6U4fDUFrHxXDNXzmjc"
+ },
+ {
+  "id": "led-zeppelin-immigrant-song",
+  "artist": "Led Zeppelin & Jimmy Page",
+  "title": "Immigrant Song",
+  "year": 1970,
+  "spotifyId": "2G7woUgHMt6QBU7esQ5rsL"
+ },
+ {
+  "id": "the-rembrandts-i-ll-be-there-for-you",
+  "artist": "The Rembrandts",
+  "title": "I'll Be There for You",
+  "year": 1995,
+  "spotifyId": "15tHagkk8z306XkyOHqiip"
+ },
+ {
+  "id": "doris-day-que-sera-sera",
+  "artist": "Doris Day & Kikki Danielsson",
+  "title": "Qué Será, Será",
+  "year": 1956,
+  "spotifyId": "3Dnv944x31XU4FFMlkfnWN"
+ },
+ {
+  "id": "daniel-wayne-sermon-believer",
+  "artist": "Daniel Wayne Sermón & Ben McKee",
+  "title": "Believer",
+  "year": 2017,
+  "spotifyId": "15bWckhU6MlGQ0or1GFWtn"
+ },
+ {
+  "id": "sam-smith-writing-s-on-the-wall",
+  "artist": "Sam Smith & Jimmy Napes",
+  "title": "Writing's on the Wall",
+  "year": 2015,
+  "spotifyId": "0plM0BSc7dty0EHmFjsnj7"
+ },
+ {
+  "id": "peabo-bryson-a-whole-new-world",
+  "artist": "Peabo Bryson & Alan Menken",
+  "title": "A Whole New World",
+  "year": 1992,
+  "spotifyId": "4biuE0gvdD3GpAryIdgVx8"
+ },
+ {
+  "id": "diane-warren-i-don-t-want-to-miss-a-thing",
+  "artist": "Diane Warren & Aerosmith",
+  "title": "I Don't Want to Miss a Thing",
+  "year": 1998,
+  "spotifyId": "2gYo5RNzC9ygAh4yeizypt"
+ },
+ {
+  "id": "roland-orzabal-everybody-wants-to-rule-the-world",
+  "artist": "Roland Orzabal & Chris Hughes",
+  "title": "Everybody Wants to Rule the World",
+  "year": 1985,
+  "spotifyId": "3S1tTwSKIZgf4QGltFyCxM"
+ },
+ {
+  "id": "leigh-harline-when-you-wish-upon-a-star",
+  "artist": "Leigh Harline & Susan Boyle",
+  "title": "When You Wish Upon A Star",
+  "year": 1940,
+  "spotifyId": "1B2ctf6rfVDfXAlemRKgoE"
+ },
+ {
+  "id": "carole-king-you-ve-got-a-friend",
+  "artist": "Carole King & James Taylor",
+  "title": "You've Got a Friend",
+  "year": 1971,
+  "spotifyId": "4onjozRAQJofrLj12zJZeP"
+ },
+ {
+  "id": "enrique-iglesias-bailando",
+  "artist": "Enrique Iglesias & Gente de Zona",
+  "title": "Bailando",
+  "year": 2014,
+  "spotifyId": "32lm3769IRfcnrQV11LO4E"
+ },
+ {
+  "id": "elton-john-circle-of-life",
+  "artist": "Elton John & Jocelyn Bernadette Smith",
+  "title": "Circle of Life",
+  "year": 1994,
+  "spotifyId": "5A93cfO3z1UgUaXQaSkfBh"
+ },
+ {
+  "id": "johnny-mandel-suicide-is-painless",
+  "artist": "Johnny Mandel & Henry Mancini",
+  "title": "Suicide Is Painless",
+  "year": 1970,
+  "spotifyId": "2tUZVeZXhniWSuHx8mBkbq"
+ },
+ {
+  "id": "john-williams-the-imperial-march",
+  "artist": "John Williams & London Symphony Orchestra",
+  "title": "The Imperial March",
+  "year": 1980,
+  "spotifyId": "0YzCpkmDovKewUQovwcjPQ"
+ },
+ {
+  "id": "celine-dion-beauty-and-the-beast",
+  "artist": "Céline Dion & Emma Thompson",
+  "title": "Beauty and the Beast",
+  "year": 1991,
+  "spotifyId": "2rJFFUEl1LURkV0b0OARXx"
+ },
+ {
+  "id": "dick-dale-misirlou",
+  "artist": "Dick Dale",
+  "title": "Misirlou",
+  "year": 1962,
+  "spotifyId": "2csVtq15gaThr54AiwC8mU"
+ },
+ {
+  "id": "lou-reed-perfect-day",
+  "artist": "Lou Reed",
+  "title": "Perfect Day",
+  "year": 1972,
+  "spotifyId": "4TOMI010Sd4ZAX4aZ5TS85"
+ },
+ {
+  "id": "colin-hay-down-under",
+  "artist": "Colin Hay & Ron Strykert",
+  "title": "Down Under",
+  "year": 1980,
+  "spotifyId": "5WjiWc4bmV3U96abuiAqYa"
+ },
+ {
+  "id": "the-beatles-good-morning-good-morning",
+  "artist": "The Beatles & John Lennon",
+  "title": "Good Morning Good Morning",
+  "year": 1967,
+  "spotifyId": "0ms3Eay3tRafE9yOiSS3Km"
+ },
+ {
+  "id": "michael-stipe-everybody-hurts",
+  "artist": "Michael Stipe & Peter Buck",
+  "title": "Everybody Hurts",
+  "year": 1992,
+  "spotifyId": "6PypGyiu0Y2lCDBN1XZEnP"
+ },
+ {
+  "id": "yoasobi-idol",
+  "artist": "Yoasobi & Ayase",
+  "title": "Idol",
+  "year": 2023,
+  "spotifyId": "1hAloWiinXLPQUJxrJReb1"
+ },
+ {
+  "id": "t-a-t-u-all-the-things-she-said",
+  "artist": "t.A.T.u.",
+  "title": "All the Things She Said",
+  "year": 2002,
+  "spotifyId": "6aXV0nnKGYkm9vkhAuUfEi"
+ },
+ {
+  "id": "david-bowie-let-s-dance",
+  "artist": "David Bowie",
+  "title": "Let's Dance",
+  "year": 1983,
+  "spotifyId": "6D6T3DYycIqTn6EPsrKd4z"
+ },
+ {
+  "id": "ray-parker-jr-ghostbusters",
+  "artist": "Ray Parker Jr.",
+  "title": "Ghostbusters",
+  "year": 1983,
+  "spotifyId": "31ZT4RfHwSGPFKcA2a8VSK"
+ },
+ {
+  "id": "paul-mccartney-good-night",
+  "artist": "Paul McCartney & John Lennon",
+  "title": "Good Night",
+  "year": 1968,
+  "spotifyId": "5wckd2xhB7aUdxczI6iaNd"
+ },
+ {
+  "id": "alan-menken-colors-of-the-wind",
+  "artist": "Alan Menken & Judy Kuhn",
+  "title": "Colors of the Wind",
+  "year": 1995,
+  "spotifyId": "7LMR72jSS3TC9MKRiQ3LEx"
+ },
+ {
+  "id": "guy-sigsworth-crazy",
+  "artist": "Guy Sigsworth & Seal",
+  "title": "Crazy",
+  "year": 1990,
+  "spotifyId": "2F9jMklOJOl65znIH4kc8C"
+ },
+ {
+  "id": "duran-duran-a-view-to-a-kill",
+  "artist": "Duran Duran & John Barry",
+  "title": "A View to a Kill",
+  "year": 1985,
+  "spotifyId": "475SHdBY9E2Xddd56pBY6l"
+ },
+ {
+  "id": "one-direction-one-way-or-another-teenage-kicks",
+  "artist": "One Direction",
+  "title": "One Way or Another (Teenage Kicks)",
+  "year": 2013,
+  "spotifyId": "6Aq1kQQEU69pYtF0OKrZU6"
+ },
+ {
+  "id": "chris-cornell-you-know-my-name",
+  "artist": "Chris Cornell",
+  "title": "You Know My Name",
+  "year": 2006,
+  "spotifyId": "4hlCSHbPK0bC6BkxuNHCFd"
+ },
+ {
+  "id": "lin-manuel-miranda-we-don-t-talk-about-bruno",
+  "artist": "Lin-Manuel Miranda & Nikka Costa",
+  "title": "We Don't Talk About Bruno",
+  "year": 2021,
+  "spotifyId": "3fYwdlIVtJlYJTvHYrt7ev"
+ },
+ {
+  "id": "the-who-won-t-get-fooled-again",
+  "artist": "The Who & Pete Townshend",
+  "title": "Won't Get Fooled Again",
+  "year": 1971,
+  "spotifyId": "7lyXM3GaxxW1YnnPm37vcH"
+ },
+ {
+  "id": "olivia-newton-john-hopelessly-devoted-to-you",
+  "artist": "Olivia Newton-John & Jill Johnson",
+  "title": "Hopelessly Devoted to You",
+  "year": 1978,
+  "spotifyId": "5BUq9bdtsm3LWw5laJeJ4R"
+ },
+ {
+  "id": "dr-alban-it-s-my-life",
+  "artist": "Dr. Alban",
+  "title": "It's My Life",
+  "year": 1992,
+  "spotifyId": "6HdM7gzXVgcpepv276raog"
+ },
+ {
+  "id": "the-smashing-pumpkins-bullet-with-butterfly-wings",
+  "artist": "The Smashing Pumpkins",
+  "title": "Bullet with Butterfly Wings",
+  "year": 1995,
+  "spotifyId": "2itcYu5GSP50cfgY2Un2Ak"
+ },
+ {
+  "id": "cookin-on-3-burners-this-girl",
+  "artist": "Cookin' on 3 Burners & Kungs",
+  "title": "This Girl",
+  "year": 2016,
+  "spotifyId": "1A8j067qyiNwQnZT0bzUpZ"
+ },
+ {
+  "id": "ray-evans-mona-lisa",
+  "artist": "Ray Evans & Jay Livingston",
+  "title": "Mona Lisa",
+  "year": 1950,
+  "spotifyId": "3ijsbl1KxhEQHeRg8NnWYC"
+ },
+ {
+  "id": "nat-king-cole-tea-for-two",
+  "artist": "Nat King Cole & Vincent Youmans",
+  "title": "Tea for Two",
+  "year": 1924,
+  "spotifyId": "0kBo2DD7QhF1XnPJ3oVLIl"
+ },
+ {
+  "id": "fred-astaire-the-way-you-look-tonight",
+  "artist": "Fred Astaire & Jerome Kern",
+  "title": "The Way You Look Tonight",
+  "year": 1936,
+  "spotifyId": "0Uhb7AFgq8ydDInthPXROg"
+ },
+ {
+  "id": "garbage-the-world-is-not-enough",
+  "artist": "Garbage",
+  "title": "The World Is Not Enough",
+  "year": 1999,
+  "spotifyId": "5wpSllGrccKj75Bj7e51Kj"
+ },
+ {
+  "id": "jack-white-another-way-to-die",
+  "artist": "Jack White",
+  "title": "Another Way to Die",
+  "year": 2008,
+  "spotifyId": "01bMpqmvH031R417l3AQTA"
+ },
+ {
+  "id": "tina-turner-goldeneye",
+  "artist": "Tina Turner & The Edge",
+  "title": "GoldenEye",
+  "year": 1995,
+  "spotifyId": "528QhCT2v3HgD71RmrSUNW"
+ },
+ {
+  "id": "barbra-streisand-evergreen-love-theme-from-a-star-is-born",
+  "artist": "Barbra Streisand & Carola Häggkvist",
+  "title": "Evergreen (Love Theme from A Star Is Born)",
+  "year": 1976,
+  "spotifyId": "5SuEUz1orwSwkfqgFlJUHG"
+ },
+ {
+  "id": "daft-punk-robot-rock",
+  "artist": "Daft Punk",
+  "title": "Robot Rock",
+  "year": 2005,
+  "spotifyId": "0BEDdX7TWPEt1gWnbVbHdN"
+ },
+ {
+  "id": "kenshi-yonezu-kick-back",
+  "artist": "Kenshi Yonezu",
+  "title": "Kick Back",
+  "year": 2022,
+  "spotifyId": "3khEEPRyBeOUabbmOPJzAG"
+ },
+ {
+  "id": "stromae-l-enfer",
+  "artist": "Stromae",
+  "title": "L'enfer",
+  "year": 2022,
+  "spotifyId": "7bp3zmEvpHLa0h32nhDUkB"
+ },
+ {
+  "id": "franco-battiato-i-treni-di-tozeur",
+  "artist": "Franco Battiato & Alice",
+  "title": "I treni di Tozeur",
+  "year": 1984,
+  "spotifyId": "2OkRBVQG1BNwp7Xd4CemwS"
+ },
+ {
+  "id": "sheena-easton-for-your-eyes-only",
+  "artist": "Sheena Easton & Bill Conti",
+  "title": "For Your Eyes Only",
+  "year": 1981,
+  "spotifyId": "1GV9Y26nudM1EsaSDxYxoV"
+ },
+ {
+  "id": "elton-john-i-m-gonna-love-me-again",
+  "artist": "Elton John",
+  "title": "(I'm Gonna) Love Me Again",
+  "year": 2019,
+  "spotifyId": "1q8lLOgfciaGLwXCvOpH6w"
+ },
+ {
+  "id": "shirley-bassey-goldfinger",
+  "artist": "Shirley Bassey & Anthony Newley",
+  "title": "Goldfinger",
+  "year": 1964,
+  "spotifyId": "6ATunTBDuVTPAb3k33Fmlv"
+ },
+ {
+  "id": "enya-wild-child",
+  "artist": "Enya",
+  "title": "Wild Child",
+  "year": 2001,
+  "spotifyId": "4MJ4El9vcKHOQT2RNIhrh2"
+ },
+ {
+  "id": "peter-schilling-major-tom-vollig-losgelost",
+  "artist": "Peter Schilling",
+  "title": "Major Tom (Völlig losgelöst)",
+  "year": 1982,
+  "spotifyId": "63tlPQ5JpR50ilZVdISFGc"
+ },
+ {
+  "id": "claris-connect",
+  "artist": "ClariS & Shō Watanabe",
+  "title": "Connect",
+  "year": 2011,
+  "spotifyId": "6O7dVp1w20oN5dUjGVytoQ"
+ },
+ {
+  "id": "sepultura-roots-bloody-roots",
+  "artist": "Sepultura",
+  "title": "Roots Bloody Roots",
+  "year": 1996,
+  "spotifyId": "6ursmCnbc9oDRGa2yHKkoZ"
+ },
+ {
+  "id": "harry-m-woods-try-a-little-tenderness",
+  "artist": "Harry M. Woods & Bing Crosby",
+  "title": "Try a Little Tenderness",
+  "year": 1932,
+  "spotifyId": "00uodubOkiZDz1KNZToukZ"
+ },
+ {
+  "id": "sammy-fain-once-upon-a-dream",
+  "artist": "Sammy Fain & Jack Lawrence",
+  "title": "Once Upon a Dream",
+  "year": 1958,
+  "spotifyId": "2ICShtbvydDZ4SHaBTAo62"
+ },
+ {
+  "id": "alex-kapranos-this-fire",
+  "artist": "Alex Kapranos & Nick McCarthy",
+  "title": "This Fire",
+  "year": 2004,
+  "spotifyId": "3Obu3jvFSfgLF3pSbi64Vj"
+ },
+ {
+  "id": "nat-king-cole-l-o-v-e",
+  "artist": "Nat King Cole & Bert Kaempfert",
+  "title": "L-O-V-E",
+  "year": 1964,
+  "spotifyId": "7E3rc13GL2I5wA6CIFXaxs"
+ },
+ {
+  "id": "alan-menken-i-see-the-light",
+  "artist": "Alan Menken & Zachary Levi",
+  "title": "I See the Light",
+  "year": 2010,
+  "spotifyId": "6klpXs2uAjagnZMFkt4qkl"
+ },
+ {
+  "id": "fred-karlin-for-all-we-know",
+  "artist": "Fred Karlin & The Carpenters",
+  "title": "For All We Know",
+  "year": 1971,
+  "spotifyId": "5llfFWv1tH61nENrsjg3KZ"
+ },
+ {
+  "id": "angela-aki-tegami",
+  "artist": "Angela Aki",
+  "title": "Tegami",
+  "year": 2008,
+  "spotifyId": "7E8VZzVBR1STB3KiM4dE1N"
+ },
+ {
+  "id": "julie-andrews-i-could-have-danced-all-night",
+  "artist": "Julie Andrews & Frederick Loewe",
+  "title": "I Could Have Danced All Night",
+  "year": 1956,
+  "spotifyId": "3uD0bqsbZC8kZozmHmwi49"
+ },
+ {
+  "id": "gen-hoshino-koi",
+  "artist": "Gen Hoshino",
+  "title": "Koi",
+  "year": 2016,
+  "spotifyId": "0dQHVhTZlbT2S7vq6pM0t7"
+ },
+ {
+  "id": "jason-segel-man-or-muppet",
+  "artist": "Jason Segel & Bill Barretta",
+  "title": "Man or Muppet",
+  "year": 2011,
+  "spotifyId": "1JyG5yuwpN0VIi4wbqvDfB"
+ },
+ {
+  "id": "lin-manuel-miranda-dos-oruguitas",
+  "artist": "Lin-Manuel Miranda & Sebastián Yatra",
+  "title": "Dos Oruguitas",
+  "year": 2021,
+  "spotifyId": "28bGjwGBtOYXHEC1sQCxIm"
+ },
+ {
+  "id": "lin-manuel-miranda-surface-pressure",
+  "artist": "Lin-Manuel Miranda & Jessica Darrow",
+  "title": "Surface Pressure",
+  "year": 2021,
+  "spotifyId": "760jhRscwGbIIe1m1IIQpU"
+ },
+ {
+  "id": "abc-the-look-of-love",
+  "artist": "ABC & Martin Fry",
+  "title": "The Look of Love",
+  "year": 1982,
+  "spotifyId": "6HvUtPLqkP0t6zd6YNdWby"
+ },
+ {
+  "id": "bryan-adams-here-i-am",
+  "artist": "Bryan Adams & Hans Zimmer",
+  "title": "Here I Am",
+  "year": 2002,
+  "spotifyId": "3L9A9wurlV4eFYaVU1jcNl"
+ },
+ {
+  "id": "angelo-badalamenti-falling",
+  "artist": "Angelo Badalamenti & Julee Cruise",
+  "title": "Falling",
+  "year": 1990,
+  "spotifyId": "31CYUJj5f9lbQ0Qqm9PzK5"
+ },
+ {
+  "id": "joan-jett-i-hate-myself-for-loving-you",
+  "artist": "Joan Jett",
+  "title": "I Hate Myself for Loving You",
+  "year": 1988,
+  "spotifyId": "2HXixVqzzm9rEUIMAWzshl"
+ },
+ {
+  "id": "donna-summer-last-dance",
+  "artist": "Donna Summer",
+  "title": "Last Dance",
+  "year": 1978,
+  "spotifyId": "7yjCgSGmFuguq7CzwySbdY"
+ },
+ {
+  "id": "gladys-knight-licence-to-kill",
+  "artist": "Gladys Knight",
+  "title": "Licence to Kill",
+  "year": 1989,
+  "spotifyId": "2ytwDkF0RLOi6qL2uJ2cQG"
+ },
+ {
+  "id": "the-white-stripes-we-re-going-to-be-friends",
+  "artist": "The White Stripes",
+  "title": "We're Going to Be Friends",
+  "year": 2002,
+  "spotifyId": "13lZDbwonGhOflQLQIfdtZ"
+ },
+ {
+  "id": "earth-wind-fire-shining-star",
+  "artist": "Earth, Wind & Fire",
+  "title": "Shining Star",
+  "year": 1975,
+  "spotifyId": "1yPpmwl4WYbyrIIGXnVtJD"
+ },
+ {
+  "id": "saint-motel-my-type",
+  "artist": "Saint Motel",
+  "title": "My Type",
+  "year": 2014,
+  "spotifyId": "3xrF5tutGz77V5k261uRWP"
+ },
+ {
+  "id": "tommy-heavenly6-pray",
+  "artist": "Tommy heavenly6",
+  "title": "Pray",
+  "year": 2006,
+  "spotifyId": "5DBOBP2zmNUXSOzb7Syywd"
+ },
+ {
+  "id": "naomi-campbell-la-la-la-love-song",
+  "artist": "Naomi Campbell & Toshinobu Kubota",
+  "title": "La La La Love Song",
+  "year": 1996,
+  "spotifyId": "02YYIhcnIdYcAtRafFSqOU"
+ },
+ {
+  "id": "cliff-richard-the-young-ones",
+  "artist": "Cliff Richard & The Shadows",
+  "title": "The Young Ones",
+  "year": 1962,
+  "spotifyId": "0oOeSzS9m2ytkfcgCez5zW"
+ },
+ {
+  "id": "angele-bruxelles-je-t-aime",
+  "artist": "Angèle",
+  "title": "Bruxelles je t'aime",
+  "year": 2021,
+  "spotifyId": "0iqk44gA8PaId0Fwa6eesN"
+ },
+ {
+  "id": "sid-v-i-p",
+  "artist": "SID",
+  "title": "V.I.P",
+  "year": 2012,
+  "spotifyId": "7vPYlQIJfiJlnNaC8173yC"
+ },
+ {
+  "id": "lin-manuel-miranda-the-family-madrigal",
+  "artist": "Lin-Manuel Miranda & Olga Merediz",
+  "title": "The Family Madrigal",
+  "year": 2021,
+  "spotifyId": "4b1yxSdlumA8N4fEk4UOZp"
+ },
+ {
+  "id": "kanako-ito-hacking-to-the-gate",
+  "artist": "Kanako Itō",
+  "title": "Hacking to the Gate",
+  "year": 2011,
+  "spotifyId": "6lpkzNkXnPgSkEOANO7nsD"
+ },
+ {
+  "id": "jay-ungar-ashokan-farewell",
+  "artist": "Jay Ungar",
+  "title": "Ashokan Farewell",
+  "year": 1990,
+  "spotifyId": "2VjV3PRfThNjqmQg2Y8g4j"
+ },
+ {
+  "id": "tom-tykwer-zu-asche-zu-staub",
+  "artist": "Tom Tykwer & Mario Kamien",
+  "title": "Zu Asche, zu Staub",
+  "year": 2016,
+  "spotifyId": "6ZiDY2EFo9XdUSJ6euw1Vm"
+ },
+ {
+  "id": "john-barry-all-time-high",
+  "artist": "John Barry & Rita Coolidge",
+  "title": "All Time High",
+  "year": 1983,
+  "spotifyId": "0E1D3QK82MNX1ELoWwckdf"
+ },
+ {
+  "id": "choucho-dreamriser",
+  "artist": "ChouCho & Rino",
+  "title": "DreamRiser",
+  "year": 2012,
+  "spotifyId": "0RyPikZQOEEOHezJzCR7ss"
+ }
+]
