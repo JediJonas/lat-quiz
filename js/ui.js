@@ -42,7 +42,7 @@ export function renderRing(el, ms, totalMs, bonus) {
 export function statusTags({ phase, progress, result, labels, esc, points = true }) {
   const tag = (cls, label) => `<span class="tag ${cls}">${esc(label)}</span>`;
   if (phase === 'playing' && progress) {
-    return tag(progress.artist ? 'good' : '', labels.artist) + tag(progress.title ? 'good' : '', labels.title);
+    return tag(progress.artist ? 'answered' : '', labels.artist) + tag(progress.title ? 'answered' : '', labels.title);
   }
   if (phase === 'revealed' && result) {
     return tag(result.artist ? 'good' : 'bad', labels.artist) + tag(result.title ? 'good' : 'bad', labels.title)
