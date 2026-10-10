@@ -1,0 +1,4207 @@
+{
+ "id": "60-tal",
+ "name": "60-talets klassiker",
+ "file": "60-tal.json",
+ "songs": [
+  {
+   "id": "the-sandpipers-guantanamera",
+   "artist": "The Sandpipers",
+   "title": "Guantanamera",
+   "year": 1966
+  },
+  {
+   "id": "the-rolling-stones-paint-it-black",
+   "artist": "The Rolling Stones",
+   "title": "Paint It Black",
+   "year": 1966
+  },
+  {
+   "id": "david-bowie-space-oddity",
+   "artist": "David Bowie",
+   "title": "Space Oddity",
+   "year": 1969
+  },
+  {
+   "id": "plastic-ono-band-give-peace-a-chance",
+   "artist": "Plastic Ono Band",
+   "title": "Give Peace a Chance",
+   "year": 1969
+  },
+  {
+   "id": "pink-floyd-arnold-layne",
+   "artist": "Pink Floyd",
+   "title": "Arnold Layne",
+   "year": 1967
+  },
+  {
+   "id": "france-gall-poupee-de-cire-poupee-de-son",
+   "artist": "France Gall",
+   "title": "Poupée de cire, poupée de son",
+   "year": 1965
+  },
+  {
+   "id": "the-beach-boys-good-vibrations",
+   "artist": "The Beach Boys",
+   "title": "Good Vibrations",
+   "year": 1966
+  },
+  {
+   "id": "the-doors-break-on-through",
+   "artist": "The Doors",
+   "title": "Break On Through",
+   "year": 1967
+  },
+  {
+   "id": "jacqueline-boyer-tom-pillibi",
+   "artist": "Jacqueline Boyer",
+   "title": "Tom Pillibi",
+   "year": 1960
+  },
+  {
+   "id": "elvis-presley-la-paloma",
+   "artist": "Elvis Presley",
+   "title": "La Paloma",
+   "year": 1962
+  },
+  {
+   "id": "the-doors-touch-me",
+   "artist": "The Doors",
+   "title": "Touch Me",
+   "year": 1968
+  },
+  {
+   "id": "grethe-and-jrgen-ingmann-dansevise",
+   "artist": "Grethe and Jørgen Ingmann",
+   "title": "Dansevise",
+   "year": 1963
+  },
+  {
+   "id": "lenny-kuhr-de-troubadour",
+   "artist": "Lenny Kuhr",
+   "title": "De troubadour",
+   "year": 1969
+  },
+  {
+   "id": "otis-redding-sittin-on-the-dock-of-the-bay",
+   "artist": "Otis Redding",
+   "title": "(Sittin' On) The Dock of the Bay",
+   "year": 1968
+  },
+  {
+   "id": "the-ronettes-be-my-baby",
+   "artist": "The Ronettes",
+   "title": "Be My Baby",
+   "year": 1963
+  },
+  {
+   "id": "nizza-thobi-jerusalem-of-gold",
+   "artist": "Nizza Thobi & Shuli Natan",
+   "title": "Jerusalem of Gold",
+   "year": 1967
+  },
+  {
+   "id": "the-doors-people-are-strange",
+   "artist": "The Doors",
+   "title": "People Are Strange",
+   "year": 1967
+  },
+  {
+   "id": "the-beatles-if-i-fell",
+   "artist": "The Beatles",
+   "title": "If I Fell",
+   "year": 1964
+  },
+  {
+   "id": "otis-redding-respect",
+   "artist": "Otis Redding",
+   "title": "Respect",
+   "year": 1965
+  },
+  {
+   "id": "the-kinks-you-really-got-me",
+   "artist": "The Kinks",
+   "title": "You Really Got Me",
+   "year": 1964
+  },
+  {
+   "id": "chubby-checker-let-s-twist-again",
+   "artist": "Chubby Checker",
+   "title": "Let's Twist Again",
+   "year": 1961
+  },
+  {
+   "id": "the-doors-love-me-two-times",
+   "artist": "The Doors",
+   "title": "Love Me Two Times",
+   "year": 1967
+  },
+  {
+   "id": "elvis-presley-marie-s-the-name-his-latest-flame",
+   "artist": "Elvis Presley",
+   "title": "(Marie's the Name) His Latest Flame",
+   "year": 1961
+  },
+  {
+   "id": "muddy-waters-you-shook-me",
+   "artist": "Muddy Waters",
+   "title": "You Shook Me",
+   "year": 1962
+  },
+  {
+   "id": "the-beach-boys-california-girls",
+   "artist": "The Beach Boys",
+   "title": "California Girls",
+   "year": 1965
+  },
+  {
+   "id": "dionne-warwick-walk-on-by",
+   "artist": "Dionne Warwick",
+   "title": "Walk On By",
+   "year": 1964
+  },
+  {
+   "id": "the-byrds-eight-miles-high",
+   "artist": "The Byrds",
+   "title": "Eight Miles High",
+   "year": 1966
+  },
+  {
+   "id": "james-brown-i-got-you-i-feel-good",
+   "artist": "James Brown & The Famous Flames",
+   "title": "I Got You (I Feel Good)",
+   "year": 1965
+  },
+  {
+   "id": "roy-orbison-oh-pretty-woman",
+   "artist": "Roy Orbison & Tonix",
+   "title": "Oh, Pretty Woman",
+   "year": 1964
+  },
+  {
+   "id": "the-righteous-brothers-you-ve-lost-that-lovin-feelin",
+   "artist": "The Righteous Brothers & Carola Häggkvist",
+   "title": "You've Lost That Lovin' Feelin'",
+   "year": 1964
+  },
+  {
+   "id": "peter-paul-and-mary-if-i-had-a-hammer",
+   "artist": "Peter, Paul and Mary",
+   "title": "If I Had a Hammer",
+   "year": 1962
+  },
+  {
+   "id": "giulia-de-mutiis-mah-na-mah-na",
+   "artist": "Giulia De Mutiis & Piero Umiliani",
+   "title": "Mah Nà Mah Nà",
+   "year": 1968
+  },
+  {
+   "id": "elvis-presley-a-little-less-conversation",
+   "artist": "Elvis Presley",
+   "title": "A Little Less Conversation",
+   "year": 1968
+  },
+  {
+   "id": "peter-paul-and-mary-puff-the-magic-dragon",
+   "artist": "Peter, Paul and Mary",
+   "title": "Puff, the Magic Dragon",
+   "year": 1963
+  },
+  {
+   "id": "plastic-ono-band-cold-turkey",
+   "artist": "Plastic Ono Band",
+   "title": "Cold Turkey",
+   "year": 1969
+  },
+  {
+   "id": "cliff-richard-congratulations",
+   "artist": "Cliff Richard",
+   "title": "Congratulations",
+   "year": 1968
+  },
+  {
+   "id": "rod-stewart-the-first-cut-is-the-deepest",
+   "artist": "Rod Stewart & P. P. Arnold",
+   "title": "The First Cut Is the Deepest",
+   "year": 1967
+  },
+  {
+   "id": "buffalo-springfield-for-what-it-s-worth",
+   "artist": "Buffalo Springfield",
+   "title": "For What It's Worth",
+   "year": 1967
+  },
+  {
+   "id": "dionne-warwick-i-say-a-little-prayer",
+   "artist": "Dionne Warwick",
+   "title": "I Say a Little Prayer",
+   "year": 1967
+  },
+  {
+   "id": "the-5th-dimension-aquarius-let-the-sunshine-in",
+   "artist": "The 5th Dimension",
+   "title": "Aquarius/Let the Sunshine In",
+   "year": 1969
+  },
+  {
+   "id": "cream-sunshine-of-your-love",
+   "artist": "Cream",
+   "title": "Sunshine of Your Love",
+   "year": 1968
+  },
+  {
+   "id": "aretha-franklin-you-make-me-feel-like-a-natural-woman",
+   "artist": "Aretha Franklin",
+   "title": "(You Make Me Feel Like) A Natural Woman",
+   "year": 1967
+  },
+  {
+   "id": "james-brown-it-s-a-man-s-man-s-man-s-world",
+   "artist": "James Brown",
+   "title": "It's a Man's Man's Man's World",
+   "year": 1966
+  },
+  {
+   "id": "gianni-magni-el-biscella",
+   "artist": "Gianni Magni & Giovanni D'Anzi",
+   "title": "El Biscella",
+   "year": 1969
+  },
+  {
+   "id": "van-morrison-brown-eyed-girl",
+   "artist": "Van Morrison",
+   "title": "Brown Eyed Girl",
+   "year": 1967
+  },
+  {
+   "id": "nancy-sinatra-summer-wine",
+   "artist": "Nancy Sinatra & Lee Hazlewood",
+   "title": "Summer Wine",
+   "year": 1966
+  },
+  {
+   "id": "the-troggs-wild-thing",
+   "artist": "The Troggs",
+   "title": "Wild Thing",
+   "year": 1966
+  },
+  {
+   "id": "the-band-the-night-they-drove-old-dixie-down",
+   "artist": "The Band",
+   "title": "The Night They Drove Old Dixie Down",
+   "year": 1969
+  },
+  {
+   "id": "bobby-hebb-sunny",
+   "artist": "Bobby Hebb",
+   "title": "Sunny",
+   "year": 1966
+  },
+  {
+   "id": "the-beach-boys-help-me-rhonda",
+   "artist": "The Beach Boys",
+   "title": "Help Me, Rhonda",
+   "year": 1965
+  },
+  {
+   "id": "aretha-franklin-think",
+   "artist": "Aretha Franklin",
+   "title": "Think",
+   "year": 1968
+  },
+  {
+   "id": "the-kinks-waterloo-sunset",
+   "artist": "The Kinks",
+   "title": "Waterloo Sunset",
+   "year": 1967
+  },
+  {
+   "id": "the-everly-brothers-crying-in-the-rain",
+   "artist": "The Everly Brothers",
+   "title": "Crying in the Rain",
+   "year": 1961
+  },
+  {
+   "id": "the-beach-boys-heroes-and-villains",
+   "artist": "The Beach Boys",
+   "title": "Heroes and Villains",
+   "year": 1967
+  },
+  {
+   "id": "eddie-floyd-knock-on-wood",
+   "artist": "Eddie Floyd",
+   "title": "Knock on Wood",
+   "year": 1966
+  },
+  {
+   "id": "the-yardbirds-for-your-love",
+   "artist": "The Yardbirds",
+   "title": "For Your Love",
+   "year": 1965
+  },
+  {
+   "id": "tommy-james-the-shondells-i-think-we-re-alone-now",
+   "artist": "Tommy James & the Shondells",
+   "title": "I Think We're Alone Now",
+   "year": 1967
+  },
+  {
+   "id": "elvis-presley-bossa-nova-baby",
+   "artist": "Elvis Presley",
+   "title": "Bossa Nova Baby",
+   "year": 1963
+  },
+  {
+   "id": "canned-heat-on-the-road-again",
+   "artist": "Canned Heat",
+   "title": "On the Road Again",
+   "year": 1968
+  },
+  {
+   "id": "lesley-gore-you-don-t-own-me",
+   "artist": "Lesley Gore",
+   "title": "You Don't Own Me",
+   "year": 1963
+  },
+  {
+   "id": "howlin-wolf-back-door-man",
+   "artist": "Howlin' Wolf",
+   "title": "Back Door Man",
+   "year": 1961
+  },
+  {
+   "id": "will-i-am-do-re-mi",
+   "artist": "will.i.am & Fergie",
+   "title": "Do-Re-Mi",
+   "year": 1961
+  },
+  {
+   "id": "the-rolling-stones-out-of-time",
+   "artist": "The Rolling Stones & Chris Farlowe",
+   "title": "Out of Time",
+   "year": 1966
+  },
+  {
+   "id": "love-affair-everlasting-love",
+   "artist": "Love Affair & Robert Knight",
+   "title": "Everlasting Love",
+   "year": 1967
+  },
+  {
+   "id": "the-rolling-stones-have-you-seen-your-mother-baby-standing-in-the-shadow",
+   "artist": "The Rolling Stones",
+   "title": "Have You Seen Your Mother, Baby, Standing in the Shadow?",
+   "year": 1966
+  },
+  {
+   "id": "the-applejacks-like-dreamers-do",
+   "artist": "The Applejacks",
+   "title": "Like Dreamers Do",
+   "year": 1964
+  },
+  {
+   "id": "booker-t-the-m-g-s-green-onions",
+   "artist": "Booker T. & the M.G.'s",
+   "title": "Green Onions",
+   "year": 1962
+  },
+  {
+   "id": "cream-white-room",
+   "artist": "Cream",
+   "title": "White Room",
+   "year": 1968
+  },
+  {
+   "id": "los-bravos-black-is-black",
+   "artist": "Los Bravos",
+   "title": "Black Is Black",
+   "year": 1966
+  },
+  {
+   "id": "susan-boyle-oh-happy-day",
+   "artist": "Susan Boyle & Edwin Hawkins",
+   "title": "Oh Happy Day",
+   "year": 1967
+  },
+  {
+   "id": "the-kinks-all-day-and-all-of-the-night",
+   "artist": "The Kinks",
+   "title": "All Day and All of the Night",
+   "year": 1964
+  },
+  {
+   "id": "louis-armstrong-hello-dolly",
+   "artist": "Louis Armstrong",
+   "title": "Hello, Dolly!",
+   "year": 1964
+  },
+  {
+   "id": "the-supremes-baby-love",
+   "artist": "The Supremes",
+   "title": "Baby Love",
+   "year": 1964
+  },
+  {
+   "id": "bill-wyman-in-another-land",
+   "artist": "Bill Wyman",
+   "title": "In Another Land",
+   "year": 1967
+  },
+  {
+   "id": "status-quo-pictures-of-matchstick-men",
+   "artist": "Status Quo",
+   "title": "Pictures of Matchstick Men",
+   "year": 1968
+  },
+  {
+   "id": "the-animals-boom-boom",
+   "artist": "The Animals & John Lee Hooker",
+   "title": "Boom Boom",
+   "year": 1962
+  },
+  {
+   "id": "the-temptations-ain-t-too-proud-to-beg",
+   "artist": "The Temptations",
+   "title": "Ain't Too Proud to Beg",
+   "year": 1966
+  },
+  {
+   "id": "the-kinks-dead-end-street",
+   "artist": "The Kinks",
+   "title": "Dead End Street",
+   "year": 1966
+  },
+  {
+   "id": "the-spencer-davis-group-gimme-some-lovin",
+   "artist": "The Spencer Davis Group",
+   "title": "Gimme Some Lovin'",
+   "year": 1966
+  },
+  {
+   "id": "frankie-valli-the-sun-ain-t-gonna-shine-anymore",
+   "artist": "Frankie Valli",
+   "title": "The Sun Ain't Gonna Shine (Anymore)",
+   "year": 1965
+  },
+  {
+   "id": "peggy-march-i-will-follow-him",
+   "artist": "Peggy March",
+   "title": "I Will Follow Him",
+   "year": 1963
+  },
+  {
+   "id": "the-allisons-are-you-sure",
+   "artist": "The Allisons",
+   "title": "Are You Sure?",
+   "year": 1961
+  },
+  {
+   "id": "the-zombies-time-of-the-season",
+   "artist": "The Zombies",
+   "title": "Time of the Season",
+   "year": 1968
+  },
+  {
+   "id": "the-shangri-las-remember-walking-in-the-sand",
+   "artist": "The Shangri-Las",
+   "title": "Remember (Walking in the Sand)",
+   "year": 1964
+  },
+  {
+   "id": "gilbert-becaud-nathalie",
+   "artist": "Gilbert Bécaud",
+   "title": "Nathalie",
+   "year": 1964
+  },
+  {
+   "id": "the-crystals-da-doo-ron-ron",
+   "artist": "The Crystals",
+   "title": "Da Doo Ron Ron",
+   "year": 1963
+  },
+  {
+   "id": "adriano-celentano-il-ragazzo-della-via-gluck",
+   "artist": "Adriano Celentano",
+   "title": "Il ragazzo della via Gluck",
+   "year": 1966
+  },
+  {
+   "id": "marcy-playground-a-groovy-kind-of-love",
+   "artist": "Marcy Playground",
+   "title": "A Groovy Kind of Love",
+   "year": 1965
+  },
+  {
+   "id": "gerry-and-the-pacemakers-ferry-cross-the-mersey",
+   "artist": "Gerry and the Pacemakers",
+   "title": "Ferry Cross the Mersey",
+   "year": 1964
+  },
+  {
+   "id": "brian-wilson-caroline-no",
+   "artist": "Brian Wilson",
+   "title": "Caroline, No",
+   "year": 1966
+  },
+  {
+   "id": "solomon-burke-everybody-needs-somebody-to-love",
+   "artist": "Solomon Burke",
+   "title": "Everybody Needs Somebody to Love",
+   "year": 1964
+  },
+  {
+   "id": "aretha-franklin-chain-of-fools",
+   "artist": "Aretha Franklin",
+   "title": "Chain of Fools",
+   "year": 1967
+  },
+  {
+   "id": "bobby-vinton-mr-lonely",
+   "artist": "Bobby Vinton",
+   "title": "Mr. Lonely",
+   "year": 1964
+  },
+  {
+   "id": "donovan-hurdy-gurdy-man",
+   "artist": "Donovan",
+   "title": "Hurdy Gurdy Man",
+   "year": 1968
+  },
+  {
+   "id": "ramones-surfin-bird",
+   "artist": "Ramones & The Trashmen",
+   "title": "Surfin' Bird",
+   "year": 1963
+  },
+  {
+   "id": "eric-clapton-after-midnight",
+   "artist": "Eric Clapton & J.J. Cale",
+   "title": "After Midnight",
+   "year": 1966
+  },
+  {
+   "id": "thunderclap-newman-something-in-the-air",
+   "artist": "Thunderclap Newman",
+   "title": "Something in the Air",
+   "year": 1969
+  },
+  {
+   "id": "fleetwood-mac-oh-well",
+   "artist": "Fleetwood Mac",
+   "title": "Oh Well",
+   "year": 1969
+  },
+  {
+   "id": "etta-james-something-s-got-a-hold-on-me",
+   "artist": "Etta James",
+   "title": "Something's Got a Hold on Me",
+   "year": 1962
+  },
+  {
+   "id": "paola-del-medico-blue-bayou",
+   "artist": "Paola del Medico & Roy Orbison",
+   "title": "Blue Bayou",
+   "year": 1963
+  },
+  {
+   "id": "ian-sylvia-four-strong-winds",
+   "artist": "Ian & Sylvia",
+   "title": "Four Strong Winds",
+   "year": 1963
+  },
+  {
+   "id": "the-everly-brothers-cathy-s-clown",
+   "artist": "The Everly Brothers",
+   "title": "Cathy's Clown",
+   "year": 1960
+  },
+  {
+   "id": "engelbert-humperdinck-the-last-waltz",
+   "artist": "Engelbert Humperdinck",
+   "title": "The Last Waltz",
+   "year": 1967
+  },
+  {
+   "id": "the-singing-nun-dominique",
+   "artist": "The Singing Nun",
+   "title": "Dominique",
+   "year": 1963
+  },
+  {
+   "id": "louis-armstrong-we-have-all-the-time-in-the-world",
+   "artist": "Louis Armstrong",
+   "title": "We Have All the Time in the World",
+   "year": 1969
+  },
+  {
+   "id": "siw-malmkvist-alla-andra-far-varann",
+   "artist": "Siw Malmkvist & Östen Warnerbring",
+   "title": "Alla andra får varann",
+   "year": 1960
+  },
+  {
+   "id": "rudi-carrell-wat-een-geluk",
+   "artist": "Rudi Carrell",
+   "title": "Wat een geluk",
+   "year": 1960
+  },
+  {
+   "id": "the-supremes-stop-in-the-name-of-love",
+   "artist": "The Supremes",
+   "title": "Stop! In the Name of Love",
+   "year": 1965
+  },
+  {
+   "id": "the-jimi-hendrix-experience-crosstown-traffic",
+   "artist": "The Jimi Hendrix Experience",
+   "title": "Crosstown Traffic",
+   "year": 1968
+  },
+  {
+   "id": "bobbie-gentry-ode-to-billie-joe",
+   "artist": "Bobbie Gentry",
+   "title": "Ode to Billie Joe",
+   "year": 1967
+  },
+  {
+   "id": "shirley-bassey-goldfinger",
+   "artist": "Shirley Bassey",
+   "title": "Goldfinger",
+   "year": 1964
+  },
+  {
+   "id": "david-bowie-liza-jane",
+   "artist": "David Bowie",
+   "title": "Liza Jane",
+   "year": 1964
+  },
+  {
+   "id": "ray-peterson-tell-laura-i-love-her",
+   "artist": "Ray Peterson",
+   "title": "Tell Laura I Love Her",
+   "year": 1960
+  },
+  {
+   "id": "the-monkees-last-train-to-clarksville",
+   "artist": "The Monkees",
+   "title": "Last Train to Clarksville",
+   "year": 1966
+  },
+  {
+   "id": "the-velvet-underground-white-light-white-heat",
+   "artist": "The Velvet Underground",
+   "title": "White Light/White Heat",
+   "year": 1968
+  },
+  {
+   "id": "david-bowie-love-you-till-tuesday",
+   "artist": "David Bowie",
+   "title": "Love You till Tuesday",
+   "year": 1967
+  },
+  {
+   "id": "deep-purple-kentucky-woman",
+   "artist": "Deep Purple & Neil Diamond",
+   "title": "Kentucky Woman",
+   "year": 1967
+  },
+  {
+   "id": "aqua-roses-are-red",
+   "artist": "Aqua & Bobby Vinton",
+   "title": "Roses Are Red",
+   "year": 1962
+  },
+  {
+   "id": "ben-e-king-spanish-harlem",
+   "artist": "Ben E. King",
+   "title": "Spanish Harlem",
+   "year": 1960
+  },
+  {
+   "id": "bob-dylan-i-threw-it-all-away",
+   "artist": "Bob Dylan",
+   "title": "I Threw It All Away",
+   "year": 1969
+  },
+  {
+   "id": "syd-barrett-octopus",
+   "artist": "Syd Barrett",
+   "title": "Octopus",
+   "year": 1969
+  },
+  {
+   "id": "fleetwood-mac-albatross",
+   "artist": "Fleetwood Mac",
+   "title": "Albatross",
+   "year": 1968
+  },
+  {
+   "id": "neil-sedaka-breaking-up-is-hard-to-do",
+   "artist": "Neil Sedaka",
+   "title": "Breaking Up Is Hard to Do",
+   "year": 1962
+  },
+  {
+   "id": "the-five-du-tones-shake-a-tail-feather",
+   "artist": "The Five Du-Tones",
+   "title": "Shake a Tail Feather",
+   "year": 1963
+  },
+  {
+   "id": "crow-evil-woman",
+   "artist": "Crow",
+   "title": "Evil Woman",
+   "year": 1969
+  },
+  {
+   "id": "the-drifters-under-the-boardwalk",
+   "artist": "The Drifters",
+   "title": "Under the Boardwalk",
+   "year": 1964
+  },
+  {
+   "id": "big-mama-thornton-ball-n-chain",
+   "artist": "Big Mama Thornton",
+   "title": "Ball 'n' Chain",
+   "year": 1968
+  },
+  {
+   "id": "chris-kenner-land-of-a-thousand-dances",
+   "artist": "Chris Kenner",
+   "title": "Land of a Thousand Dances",
+   "year": 1962
+  },
+  {
+   "id": "betty-curtis-al-di-la",
+   "artist": "Betty Curtis",
+   "title": "Al di là",
+   "year": 1962
+  },
+  {
+   "id": "marion-rung-tipi-tii",
+   "artist": "Marion Rung",
+   "title": "Tipi-tii",
+   "year": 1962
+  },
+  {
+   "id": "mary-hopkin-goodbye",
+   "artist": "Mary Hopkin",
+   "title": "Goodbye",
+   "year": 1969
+  },
+  {
+   "id": "sonny-cher-the-beat-goes-on",
+   "artist": "Sonny & Cher",
+   "title": "The Beat Goes On",
+   "year": 1967
+  },
+  {
+   "id": "fud-leclerc-mon-amour-pour-toi",
+   "artist": "Fud Leclerc",
+   "title": "Mon amour pour toi",
+   "year": 1960
+  },
+  {
+   "id": "bob-dylan-tonight-i-ll-be-staying-here-with-you",
+   "artist": "Bob Dylan",
+   "title": "Tonight I'll Be Staying Here with You",
+   "year": 1969
+  },
+  {
+   "id": "tony-joe-white-polk-salad-annie",
+   "artist": "Tony Joe White",
+   "title": "Polk Salad Annie",
+   "year": 1969
+  },
+  {
+   "id": "the-beatles-komm-gib-mir-deine-hand-sie-liebt-dich",
+   "artist": "The Beatles",
+   "title": "Komm, gib mir deine Hand / Sie liebt dich",
+   "year": 1964
+  },
+  {
+   "id": "cornelia-froboess-zwei-kleine-italiener",
+   "artist": "Cornelia Froboess",
+   "title": "Zwei kleine Italiener",
+   "year": 1962
+  },
+  {
+   "id": "crosby-stills-nash-suite-judy-blue-eyes",
+   "artist": "Crosby, Stills & Nash",
+   "title": "Suite: Judy Blue Eyes",
+   "year": 1969
+  },
+  {
+   "id": "brigitte-bardot-la-madrague",
+   "artist": "Brigitte Bardot",
+   "title": "La Madrague",
+   "year": 1963
+  },
+  {
+   "id": "the-crazy-world-of-arthur-brown-fire",
+   "artist": "The Crazy World of Arthur Brown",
+   "title": "Fire",
+   "year": 1968
+  },
+  {
+   "id": "dalida-zorbas",
+   "artist": "Dalida & Mikis Theodorakis",
+   "title": "Zorbas",
+   "year": 1965
+  },
+  {
+   "id": "nat-king-cole-l-o-v-e",
+   "artist": "Nat King Cole",
+   "title": "L-O-V-E",
+   "year": 1964
+  },
+  {
+   "id": "chuck-berry-promised-land",
+   "artist": "Chuck Berry",
+   "title": "Promised Land",
+   "year": 1964
+  },
+  {
+   "id": "david-bowie-rubber-band",
+   "artist": "David Bowie",
+   "title": "Rubber Band",
+   "year": 1966
+  },
+  {
+   "id": "dave-davies-death-of-a-clown",
+   "artist": "Dave Davies",
+   "title": "Death of a Clown",
+   "year": 1967
+  },
+  {
+   "id": "renato-rascel-romantica",
+   "artist": "Renato Rascel & Tony Dallara",
+   "title": "Romantica",
+   "year": 1960
+  },
+  {
+   "id": "anita-bryant-paper-roses",
+   "artist": "Anita Bryant",
+   "title": "Paper Roses",
+   "year": 1960
+  },
+  {
+   "id": "the-miracles-going-to-a-go-go",
+   "artist": "The Miracles",
+   "title": "Going to a Go-Go",
+   "year": 1965
+  },
+  {
+   "id": "the-beatles-if-you-love-me",
+   "artist": "The Beatles & Tony Sheridan",
+   "title": "If You Love Me",
+   "year": 1964
+  },
+  {
+   "id": "genesis-the-silent-sun",
+   "artist": "Genesis",
+   "title": "The Silent Sun",
+   "year": 1968
+  },
+  {
+   "id": "the-who-boris-the-spider",
+   "artist": "The Who",
+   "title": "Boris the Spider",
+   "year": 1966
+  },
+  {
+   "id": "lale-andersen-einmal-sehen-wir-uns-wieder",
+   "artist": "Lale Andersen",
+   "title": "Einmal sehen wir uns wieder",
+   "year": 1961
+  },
+  {
+   "id": "dionne-warwick-do-you-know-the-way-to-san-jose",
+   "artist": "Dionne Warwick",
+   "title": "Do You Know the Way to San Jose",
+   "year": 1968
+  },
+  {
+   "id": "the-ronettes-baby-i-love-you",
+   "artist": "The Ronettes",
+   "title": "Baby, I Love You",
+   "year": 1963
+  },
+  {
+   "id": "status-quo-ice-in-the-sun",
+   "artist": "Status Quo",
+   "title": "Ice in the Sun",
+   "year": 1968
+  },
+  {
+   "id": "petula-clark-this-is-my-song",
+   "artist": "Petula Clark",
+   "title": "This Is My Song",
+   "year": 1967
+  },
+  {
+   "id": "salvatore-adamo-inch-allah",
+   "artist": "Salvatore Adamo",
+   "title": "Inch'Allah",
+   "year": 1967
+  },
+  {
+   "id": "bobby-bland-i-pity-the-fool",
+   "artist": "Bobby Bland",
+   "title": "I Pity the Fool",
+   "year": 1965
+  },
+  {
+   "id": "bobby-vee-take-good-care-of-my-baby",
+   "artist": "Bobby Vee & Smokie",
+   "title": "Take Good Care of My Baby",
+   "year": 1961
+  },
+  {
+   "id": "tommy-tucker-hi-heel-sneakers",
+   "artist": "Tommy Tucker",
+   "title": "Hi-Heel Sneakers",
+   "year": 1964
+  },
+  {
+   "id": "dusty-springfield-goin-back",
+   "artist": "Dusty Springfield & Larry Lurex",
+   "title": "Goin' Back",
+   "year": 1966
+  },
+  {
+   "id": "bob-earl-harlem-shuffle",
+   "artist": "Bob & Earl",
+   "title": "Harlem Shuffle",
+   "year": 1963
+  },
+  {
+   "id": "steppenwolf-magic-carpet-ride",
+   "artist": "Steppenwolf",
+   "title": "Magic Carpet Ride",
+   "year": 1968
+  },
+  {
+   "id": "esther-ofarim-cinderella-rockefella",
+   "artist": "Esther Ofarim",
+   "title": "Cinderella Rockefella",
+   "year": 1968
+  },
+  {
+   "id": "harry-winter-du-hast-mich-so-fasziniert",
+   "artist": "Harry Winter",
+   "title": "Du hast mich so fasziniert",
+   "year": 1960
+  },
+  {
+   "id": "domenico-modugno-addio-addio",
+   "artist": "Domenico Modugno & Claudio Villa",
+   "title": "Addio, addio",
+   "year": 1962
+  },
+  {
+   "id": "clarence-frogman-henry-i-don-t-know-why-but-i-do",
+   "artist": "Clarence \"Frogman\" Henry",
+   "title": "(I Don't Know Why) But I Do",
+   "year": 1961
+  },
+  {
+   "id": "and-the-mysterians-96-tears",
+   "artist": "? and the Mysterians",
+   "title": "96 Tears",
+   "year": 1966
+  },
+  {
+   "id": "cilla-black-love-of-the-loved",
+   "artist": "Cilla Black",
+   "title": "Love of the Loved",
+   "year": 1963
+  },
+  {
+   "id": "joey-dee-and-the-starliters-peppermint-twist",
+   "artist": "Joey Dee and the Starliters",
+   "title": "Peppermint Twist",
+   "year": 1961
+  },
+  {
+   "id": "wilbert-harrison-let-s-stick-together",
+   "artist": "Wilbert Harrison",
+   "title": "Let's Stick Together",
+   "year": 1962
+  },
+  {
+   "id": "little-eva-keep-your-hands-off-my-baby",
+   "artist": "Little Eva",
+   "title": "Keep Your Hands Off My Baby",
+   "year": 1962
+  },
+  {
+   "id": "the-drifters-up-on-the-roof",
+   "artist": "The Drifters",
+   "title": "Up on the Roof",
+   "year": 1962
+  },
+  {
+   "id": "martha-and-the-vandellas-nowhere-to-run",
+   "artist": "Martha and the Vandellas",
+   "title": "Nowhere to Run",
+   "year": 1965
+  },
+  {
+   "id": "solomon-burke-cry-to-me",
+   "artist": "Solomon Burke",
+   "title": "Cry to Me",
+   "year": 1962
+  },
+  {
+   "id": "neil-young-mr-soul",
+   "artist": "Neil Young & Buffalo Springfield",
+   "title": "Mr. Soul",
+   "year": 1967
+  },
+  {
+   "id": "louis-prima-i-wan-na-be-like-you",
+   "artist": "Louis Prima",
+   "title": "I Wan'na Be Like You",
+   "year": 1967
+  },
+  {
+   "id": "inge-bruck-anouschka",
+   "artist": "Inge Brück",
+   "title": "Anouschka",
+   "year": 1967
+  },
+  {
+   "id": "camillo-felgen-petit-bonhomme",
+   "artist": "Camillo Felgen",
+   "title": "Petit bonhomme",
+   "year": 1962
+  },
+  {
+   "id": "the-who-a-quick-one-while-he-s-away",
+   "artist": "The Who",
+   "title": "A Quick One, While He's Away",
+   "year": 1966
+  },
+  {
+   "id": "arthur-conley-sweet-soul-music",
+   "artist": "Arthur Conley",
+   "title": "Sweet Soul Music",
+   "year": 1967
+  },
+  {
+   "id": "anneke-gronloh-jij-bent-mijn-leven",
+   "artist": "Anneke Grönloh",
+   "title": "Jij bent mijn leven",
+   "year": 1964
+  },
+  {
+   "id": "ronnie-carroll-ring-a-ding-girl",
+   "artist": "Ronnie Carroll",
+   "title": "Ring-A-Ding Girl",
+   "year": 1962
+  },
+  {
+   "id": "the-animals-we-gotta-get-out-of-this-place",
+   "artist": "The Animals",
+   "title": "We Gotta Get out of This Place",
+   "year": 1965
+  },
+  {
+   "id": "the-four-seasons-silence-is-golden",
+   "artist": "The Four Seasons",
+   "title": "Silence Is Golden",
+   "year": 1967
+  },
+  {
+   "id": "dionne-warwick-wishin-and-hopin",
+   "artist": "Dionne Warwick",
+   "title": "Wishin' and Hopin'",
+   "year": 1963
+  },
+  {
+   "id": "arthur-alexander-soldier-of-love-lay-down-your-arms",
+   "artist": "Arthur Alexander",
+   "title": "Soldier of Love (Lay Down Your Arms)",
+   "year": 1962
+  },
+  {
+   "id": "wayne-cochran-last-kiss",
+   "artist": "Wayne Cochran & Pearl Jam",
+   "title": "Last Kiss",
+   "year": 1961
+  },
+  {
+   "id": "morning-musume-morning-musume-no-hyokkori-hyotanjima",
+   "artist": "Morning Musume",
+   "title": "Morning Musume no Hyokkori Hyōtanjima",
+   "year": 1964
+  },
+  {
+   "id": "blondie-denis",
+   "artist": "Blondie",
+   "title": "Denis",
+   "year": 1963
+  },
+  {
+   "id": "bob-dylan-the-death-of-emmett-till",
+   "artist": "Bob Dylan",
+   "title": "The Death of Emmett Till",
+   "year": 1963
+  },
+  {
+   "id": "fud-leclerc-ton-nom",
+   "artist": "Fud Leclerc",
+   "title": "Ton nom",
+   "year": 1962
+  },
+  {
+   "id": "stevie-wonder-shoo-be-doo-be-doo-da-day",
+   "artist": "Stevie Wonder",
+   "title": "Shoo-Be-Doo-Be-Doo-Da-Day",
+   "year": 1968
+  },
+  {
+   "id": "stevie-wonder-fingertips",
+   "artist": "Stevie Wonder",
+   "title": "Fingertips",
+   "year": 1963
+  },
+  {
+   "id": "james-brown-papa-s-got-a-brand-new-bag",
+   "artist": "James Brown",
+   "title": "Papa's Got a Brand New Bag",
+   "year": 1965
+  },
+  {
+   "id": "sandie-shaw-there-s-always-something-there-to-remind-me",
+   "artist": "Sandie Shaw",
+   "title": "(There's) Always Something There to Remind Me",
+   "year": 1964
+  },
+  {
+   "id": "lulu-to-sir-with-love",
+   "artist": "Lulu",
+   "title": "To Sir with Love",
+   "year": 1967
+  },
+  {
+   "id": "sam-the-sham-wooly-bully",
+   "artist": "Sam the Sham",
+   "title": "Wooly Bully",
+   "year": 1965
+  },
+  {
+   "id": "donovan-jennifer-juniper",
+   "artist": "Donovan",
+   "title": "Jennifer Juniper",
+   "year": 1968
+  },
+  {
+   "id": "howlin-wolf-killing-floor",
+   "artist": "Howlin' Wolf & Jimi Hendrix",
+   "title": "Killing Floor",
+   "year": 1965
+  },
+  {
+   "id": "desmond-dekker-israelites",
+   "artist": "Desmond Dekker",
+   "title": "Israelites",
+   "year": 1969
+  },
+  {
+   "id": "the-hollies-bus-stop",
+   "artist": "The Hollies",
+   "title": "Bus Stop",
+   "year": 1966
+  },
+  {
+   "id": "the-left-banke-walk-away-renee",
+   "artist": "The Left Banke",
+   "title": "Walk Away Renée",
+   "year": 1966
+  },
+  {
+   "id": "the-shadows-wonderful-land",
+   "artist": "The Shadows",
+   "title": "Wonderful Land",
+   "year": 1962
+  },
+  {
+   "id": "jeff-beck-beck-s-bolero",
+   "artist": "Jeff Beck",
+   "title": "Beck's Bolero",
+   "year": 1967
+  },
+  {
+   "id": "nino-tempo-april-stevens-deep-purple",
+   "artist": "Nino Tempo & April Stevens",
+   "title": "Deep Purple",
+   "year": 1963
+  },
+  {
+   "id": "barbra-streisand-people",
+   "artist": "Barbra Streisand",
+   "title": "People",
+   "year": 1964
+  },
+  {
+   "id": "the-jackson-5-big-boy",
+   "artist": "The Jackson 5",
+   "title": "Big Boy",
+   "year": 1968
+  },
+  {
+   "id": "the-lovin-spoonful-do-you-believe-in-magic",
+   "artist": "The Lovin' Spoonful",
+   "title": "Do You Believe in Magic",
+   "year": 1965
+  },
+  {
+   "id": "the-rascals-mustang-sally",
+   "artist": "The Rascals & Wilson Pickett",
+   "title": "Mustang Sally",
+   "year": 1966
+  },
+  {
+   "id": "ray-charles-unchain-my-heart",
+   "artist": "Ray Charles",
+   "title": "Unchain My Heart",
+   "year": 1961
+  },
+  {
+   "id": "the-seekers-georgy-girl",
+   "artist": "The Seekers",
+   "title": "Georgy Girl",
+   "year": 1967
+  },
+  {
+   "id": "canned-heat-going-up-the-country",
+   "artist": "Canned Heat",
+   "title": "Going Up the Country",
+   "year": 1968
+  },
+  {
+   "id": "matt-monro-born-free",
+   "artist": "Matt Monro",
+   "title": "Born Free",
+   "year": 1966
+  },
+  {
+   "id": "the-band-up-on-cripple-creek",
+   "artist": "The Band",
+   "title": "Up on Cripple Creek",
+   "year": 1969
+  },
+  {
+   "id": "de-spelbrekers-katinka",
+   "artist": "De Spelbrekers",
+   "title": "Katinka",
+   "year": 1962
+  },
+  {
+   "id": "siw-malmkvist-primaballerina",
+   "artist": "Siw Malmkvist",
+   "title": "Primaballerina",
+   "year": 1969
+  },
+  {
+   "id": "dion-dimucci-abraham-martin-and-john",
+   "artist": "Dion DiMucci",
+   "title": "Abraham, Martin and John",
+   "year": 1968
+  },
+  {
+   "id": "the-four-seasons-bye-bye-baby",
+   "artist": "The Four Seasons",
+   "title": "Bye Bye Baby",
+   "year": 1965
+  },
+  {
+   "id": "the-byrds-so-you-want-to-be-a-rock-n-roll-star",
+   "artist": "The Byrds",
+   "title": "So You Want to Be a Rock 'n' Roll Star",
+   "year": 1967
+  },
+  {
+   "id": "wilson-pickett-in-the-midnight-hour",
+   "artist": "Wilson Pickett",
+   "title": "In the Midnight Hour",
+   "year": 1965
+  },
+  {
+   "id": "james-brown-say-it-loud-i-m-black-and-i-m-proud",
+   "artist": "James Brown",
+   "title": "Say It Loud – I'm Black and I'm Proud",
+   "year": 1968
+  },
+  {
+   "id": "herman-s-hermits-there-s-a-kind-of-hush",
+   "artist": "Herman's Hermits",
+   "title": "There's a Kind of Hush",
+   "year": 1967
+  },
+  {
+   "id": "jimmy-ruffin-what-becomes-of-the-brokenhearted",
+   "artist": "Jimmy Ruffin",
+   "title": "What Becomes of the Brokenhearted",
+   "year": 1966
+  },
+  {
+   "id": "john-leyton-johnny-remember-me",
+   "artist": "John Leyton",
+   "title": "Johnny Remember Me",
+   "year": 1961
+  },
+  {
+   "id": "georges-moustaki-le-meteque",
+   "artist": "Georges Moustaki",
+   "title": "Le Métèque",
+   "year": 1969
+  },
+  {
+   "id": "nora-nova-man-gewohnt-sich-so-schnell-an-das-schone",
+   "artist": "Nora Nova",
+   "title": "Man gewöhnt sich so schnell an das Schöne",
+   "year": 1964
+  },
+  {
+   "id": "jeannie-c-riley-harper-valley-pta",
+   "artist": "Jeannie C. Riley",
+   "title": "Harper Valley PTA",
+   "year": 1968
+  },
+  {
+   "id": "neil-young-i-ve-been-waiting-for-you",
+   "artist": "Neil Young & David Bowie",
+   "title": "I've Been Waiting for You",
+   "year": 1968
+  },
+  {
+   "id": "donovan-colours",
+   "artist": "Donovan",
+   "title": "Colours",
+   "year": 1965
+  },
+  {
+   "id": "kelly-rowland-heart-and-soul",
+   "artist": "Kelly Rowland & Larry Clinton",
+   "title": "Heart and Soul",
+   "year": 1961
+  },
+  {
+   "id": "shaggy-oh-carolina",
+   "artist": "Shaggy",
+   "title": "Oh Carolina",
+   "year": 1960
+  },
+  {
+   "id": "fats-domino-walking-to-new-orleans",
+   "artist": "Fats Domino",
+   "title": "Walking to New Orleans",
+   "year": 1960
+  },
+  {
+   "id": "kirsti-sparboe-dukkemann",
+   "artist": "Kirsti Sparboe",
+   "title": "Dukkemann",
+   "year": 1967
+  },
+  {
+   "id": "hugues-aufray-des-que-le-printemps-revient",
+   "artist": "Hugues Aufray",
+   "title": "Dès que le printemps revient",
+   "year": 1964
+  },
+  {
+   "id": "tiny-tim-juanita-banana",
+   "artist": "Tiny Tim",
+   "title": "Juanita Banana",
+   "year": 1966
+  },
+  {
+   "id": "arne-bendiksen-spiral",
+   "artist": "Arne Bendiksen",
+   "title": "Spiral",
+   "year": 1964
+  },
+  {
+   "id": "matt-monro-i-love-the-little-things",
+   "artist": "Matt Monro",
+   "title": "I Love the Little Things",
+   "year": 1964
+  },
+  {
+   "id": "the-animals-san-franciscan-nights",
+   "artist": "The Animals",
+   "title": "San Franciscan Nights",
+   "year": 1967
+  },
+  {
+   "id": "claudio-villa-non-andare-piu-lontano",
+   "artist": "Claudio Villa",
+   "title": "Non andare più lontano",
+   "year": 1967
+  },
+  {
+   "id": "lasse-martenson-laiskotellen",
+   "artist": "Lasse Mårtenson",
+   "title": "Laiskotellen",
+   "year": 1964
+  },
+  {
+   "id": "fredi-varjoon-suojaan",
+   "artist": "Fredi",
+   "title": "Varjoon – suojaan",
+   "year": 1967
+  },
+  {
+   "id": "sylvie-vartan-la-plus-belle-pour-aller-danser",
+   "artist": "Sylvie Vartan",
+   "title": "La plus belle pour aller danser",
+   "year": 1964
+  },
+  {
+   "id": "patty-pravo-la-bambola",
+   "artist": "Patty Pravo",
+   "title": "La bambola",
+   "year": 1968
+  },
+  {
+   "id": "lado-leskovar-vse-roze-sveta",
+   "artist": "Lado Leskovar",
+   "title": "Vse rože sveta",
+   "year": 1967
+  },
+  {
+   "id": "peter-and-gordon-woman",
+   "artist": "Peter and Gordon",
+   "title": "Woman",
+   "year": 1966
+  },
+  {
+   "id": "chuck-berry-let-it-rock",
+   "artist": "Chuck Berry",
+   "title": "Let It Rock",
+   "year": 1960
+  },
+  {
+   "id": "aretha-franklin-i-never-loved-a-man-the-way-i-love-you",
+   "artist": "Aretha Franklin",
+   "title": "I Never Loved a Man (The Way I Love You)",
+   "year": 1967
+  },
+  {
+   "id": "robert-cogoi-pres-de-ma-riviere",
+   "artist": "Robert Cogoi",
+   "title": "Près de ma rivière",
+   "year": 1964
+  },
+  {
+   "id": "dave-dee-dozy-beaky-mick-tich-the-legend-of-xanadu",
+   "artist": "Dave Dee, Dozy, Beaky, Mick & Tich",
+   "title": "The Legend of Xanadu",
+   "year": 1968
+  },
+  {
+   "id": "small-faces-itchycoo-park",
+   "artist": "Small Faces",
+   "title": "Itchycoo Park",
+   "year": 1967
+  },
+  {
+   "id": "george-baker-selection-little-green-bag",
+   "artist": "George Baker Selection",
+   "title": "Little Green Bag",
+   "year": 1969
+  },
+  {
+   "id": "the-electric-prunes-i-had-too-much-to-dream-last-night",
+   "artist": "The Electric Prunes",
+   "title": "I Had Too Much to Dream (Last Night)",
+   "year": 1966
+  },
+  {
+   "id": "the-surfaris-wipe-out",
+   "artist": "The Surfaris",
+   "title": "Wipe Out",
+   "year": 1963
+  },
+  {
+   "id": "roy-orbison-it-s-over",
+   "artist": "Roy Orbison",
+   "title": "It's Over",
+   "year": 1964
+  },
+  {
+   "id": "the-moody-blues-ride-my-see-saw",
+   "artist": "The Moody Blues",
+   "title": "Ride My See-Saw",
+   "year": 1968
+  },
+  {
+   "id": "maurice-williams-and-the-zodiacs-stay",
+   "artist": "Maurice Williams and the Zodiacs",
+   "title": "Stay",
+   "year": 1960
+  },
+  {
+   "id": "neil-young-the-loner",
+   "artist": "Neil Young",
+   "title": "The Loner",
+   "year": 1969
+  },
+  {
+   "id": "the-mccoys-hang-on-sloopy",
+   "artist": "The McCoys",
+   "title": "Hang On Sloopy",
+   "year": 1965
+  },
+  {
+   "id": "crosby-stills-nash-marrakesh-express",
+   "artist": "Crosby, Stills & Nash",
+   "title": "Marrakesh Express",
+   "year": 1969
+  },
+  {
+   "id": "bobby-solo-una-lacrima-sul-viso",
+   "artist": "Bobby Solo",
+   "title": "Una lacrima sul viso",
+   "year": 1964
+  },
+  {
+   "id": "greetje-kauffeld-wat-een-dag",
+   "artist": "Greetje Kauffeld",
+   "title": "Wat een dag",
+   "year": 1961
+  },
+  {
+   "id": "the-miracles-ooo-baby-baby",
+   "artist": "The Miracles",
+   "title": "Ooo Baby Baby",
+   "year": 1965
+  },
+  {
+   "id": "benny-spellman-fortune-teller",
+   "artist": "Benny Spellman",
+   "title": "Fortune Teller",
+   "year": 1962
+  },
+  {
+   "id": "spooky-tooth-better-by-you-better-than-me",
+   "artist": "Spooky Tooth",
+   "title": "Better By You, Better Than Me",
+   "year": 1969
+  },
+  {
+   "id": "the-troggs-with-a-girl-like-you",
+   "artist": "The Troggs",
+   "title": "With a Girl Like You",
+   "year": 1966
+  },
+  {
+   "id": "cream-wrapping-paper",
+   "artist": "Cream",
+   "title": "Wrapping Paper",
+   "year": 1966
+  },
+  {
+   "id": "stevie-wonder-i-was-made-to-love-her",
+   "artist": "Stevie Wonder",
+   "title": "I Was Made to Love Her",
+   "year": 1967
+  },
+  {
+   "id": "julie-rogers-la-novia",
+   "artist": "Julie Rogers & Antonio Prieto",
+   "title": "La novia",
+   "year": 1961
+  },
+  {
+   "id": "jethro-tull-living-in-the-past",
+   "artist": "Jethro Tull",
+   "title": "Living in the Past",
+   "year": 1969
+  },
+  {
+   "id": "bobby-vee-the-night-has-a-thousand-eyes",
+   "artist": "Bobby Vee",
+   "title": "The Night Has a Thousand Eyes",
+   "year": 1962
+  },
+  {
+   "id": "status-quo-are-you-growing-tired-of-my-love",
+   "artist": "Status Quo",
+   "title": "Are You Growing Tired of My Love",
+   "year": 1969
+  },
+  {
+   "id": "bruce-channel-hey-baby",
+   "artist": "Bruce Channel",
+   "title": "Hey! Baby",
+   "year": 1961
+  },
+  {
+   "id": "bob-crewe-music-to-watch-girls-by",
+   "artist": "Bob Crewe",
+   "title": "Music to Watch Girls By",
+   "year": 1966
+  },
+  {
+   "id": "bob-benny-september-gouden-roos",
+   "artist": "Bob Benny",
+   "title": "September, gouden roos",
+   "year": 1961
+  },
+  {
+   "id": "steam-na-na-hey-hey-kiss-him-goodbye",
+   "artist": "Steam",
+   "title": "Na Na Hey Hey Kiss Him Goodbye",
+   "year": 1969
+  },
+  {
+   "id": "the-ventures-walk-don-t-run",
+   "artist": "The Ventures",
+   "title": "Walk, Don't Run",
+   "year": 1960
+  },
+  {
+   "id": "bert-kaempfert-wunderland-by-nacht",
+   "artist": "Bert Kaempfert",
+   "title": "Wunderland by Nacht",
+   "year": 1960
+  },
+  {
+   "id": "stevie-wonder-for-once-in-my-life",
+   "artist": "Stevie Wonder",
+   "title": "For Once in My Life",
+   "year": 1968
+  },
+  {
+   "id": "nina-simone-ain-t-got-no-i-got-life",
+   "artist": "Nina Simone",
+   "title": "Ain't Got No, I Got Life",
+   "year": 1968
+  },
+  {
+   "id": "the-moody-blues-go-now",
+   "artist": "The Moody Blues & Bessie Banks",
+   "title": "Go Now",
+   "year": 1964
+  },
+  {
+   "id": "annie-palmen-een-speeldoos",
+   "artist": "Annie Palmen",
+   "title": "Een speeldoos",
+   "year": 1963
+  },
+  {
+   "id": "chuck-berry-i-m-talking-about-you",
+   "artist": "Chuck Berry",
+   "title": "I'm Talking About You",
+   "year": 1961
+  },
+  {
+   "id": "conny-vandenbos-t-is-genoeg",
+   "artist": "Conny Vandenbos",
+   "title": "'t Is Genoeg",
+   "year": 1965
+  },
+  {
+   "id": "andy-stewart-donald-where-s-your-troosers",
+   "artist": "Andy Stewart",
+   "title": "Donald Where's Your Troosers?",
+   "year": 1960
+  },
+  {
+   "id": "herb-alpert-a-banda",
+   "artist": "Herb Alpert",
+   "title": "A Banda",
+   "year": 1967
+  },
+  {
+   "id": "osamu-minagawa-kuroneko-no-tango",
+   "artist": "Osamu Minagawa",
+   "title": "Kuroneko no Tango",
+   "year": 1969
+  },
+  {
+   "id": "freddie-and-the-dreamers-i-m-telling-you-now",
+   "artist": "Freddie and the Dreamers",
+   "title": "I'm Telling You Now",
+   "year": 1963
+  },
+  {
+   "id": "louis-neefs-ik-heb-zorgen",
+   "artist": "Louis Neefs",
+   "title": "Ik heb zorgen",
+   "year": 1967
+  },
+  {
+   "id": "doris-troy-just-one-look",
+   "artist": "Doris Troy",
+   "title": "Just One Look",
+   "year": 1963
+  },
+  {
+   "id": "jan-and-dean-dead-man-s-curve",
+   "artist": "Jan and Dean",
+   "title": "Dead Man's Curve",
+   "year": 1964
+  },
+  {
+   "id": "johnny-tillotson-poetry-in-motion",
+   "artist": "Johnny Tillotson",
+   "title": "Poetry in Motion",
+   "year": 1960
+  },
+  {
+   "id": "the-mamas-the-papas-i-saw-her-again",
+   "artist": "The Mamas & the Papas",
+   "title": "I Saw Her Again",
+   "year": 1966
+  },
+  {
+   "id": "the-ronettes-walking-in-the-rain",
+   "artist": "The Ronettes",
+   "title": "Walking in the Rain",
+   "year": 1964
+  },
+  {
+   "id": "sam-cooke-twistin-the-night-away",
+   "artist": "Sam Cooke",
+   "title": "Twistin' the Night Away",
+   "year": 1962
+  },
+  {
+   "id": "the-animals-it-s-my-life",
+   "artist": "The Animals",
+   "title": "It's My Life",
+   "year": 1965
+  },
+  {
+   "id": "the-yardbirds-heart-full-of-soul",
+   "artist": "The Yardbirds",
+   "title": "Heart Full of Soul",
+   "year": 1965
+  },
+  {
+   "id": "conchita-bautista-estando-contigo",
+   "artist": "Conchita Bautista",
+   "title": "Estando contigo",
+   "year": 1961
+  },
+  {
+   "id": "the-chiffons-he-s-so-fine",
+   "artist": "The Chiffons",
+   "title": "He's So Fine",
+   "year": 1962
+  },
+  {
+   "id": "the-crystals-he-s-a-rebel",
+   "artist": "The Crystals",
+   "title": "He's a Rebel",
+   "year": 1962
+  },
+  {
+   "id": "manfred-mann-ha-ha-said-the-clown",
+   "artist": "Manfred Mann",
+   "title": "Ha! Ha! Said the Clown",
+   "year": 1967
+  },
+  {
+   "id": "jimmy-fontana-il-mondo",
+   "artist": "Jimmy Fontana",
+   "title": "Il mondo",
+   "year": 1965
+  },
+  {
+   "id": "donovan-there-is-a-mountain",
+   "artist": "Donovan",
+   "title": "There Is a Mountain",
+   "year": 1967
+  },
+  {
+   "id": "john-fred-judy-in-disguise-with-glasses",
+   "artist": "John Fred",
+   "title": "Judy in Disguise (With Glasses)",
+   "year": 1967
+  },
+  {
+   "id": "strawberry-alarm-clock-incense-and-peppermints",
+   "artist": "Strawberry Alarm Clock",
+   "title": "Incense and Peppermints",
+   "year": 1967
+  },
+  {
+   "id": "the-chantays-pipeline",
+   "artist": "The Chantays",
+   "title": "Pipeline",
+   "year": 1962
+  },
+  {
+   "id": "herman-s-hermits-mrs-brown-you-ve-got-a-lovely-daughter",
+   "artist": "Herman's Hermits",
+   "title": "Mrs. Brown, You've Got a Lovely Daughter",
+   "year": 1965
+  },
+  {
+   "id": "dave-berry-this-strange-effect",
+   "artist": "Dave Berry",
+   "title": "This Strange Effect",
+   "year": 1965
+  },
+  {
+   "id": "garnet-mimms-cry-baby",
+   "artist": "Garnet Mimms",
+   "title": "Cry Baby",
+   "year": 1963
+  },
+  {
+   "id": "four-tops-standing-in-the-shadows-of-love",
+   "artist": "Four Tops",
+   "title": "Standing in the Shadows of Love",
+   "year": 1966
+  },
+  {
+   "id": "luigi-tenco-ciao-amore-ciao",
+   "artist": "Luigi Tenco",
+   "title": "Ciao amore, ciao",
+   "year": 1967
+  },
+  {
+   "id": "herve-vilard-capri-c-est-fini",
+   "artist": "Hervé Vilard",
+   "title": "Capri c'est fini",
+   "year": 1965
+  },
+  {
+   "id": "los-tnt-caracola",
+   "artist": "Los TNT",
+   "title": "Caracola",
+   "year": 1964
+  },
+  {
+   "id": "antonio-calvario-oracao",
+   "artist": "António Calvário",
+   "title": "Oração",
+   "year": 1964
+  },
+  {
+   "id": "petula-clark-my-love",
+   "artist": "Petula Clark",
+   "title": "My Love",
+   "year": 1965
+  },
+  {
+   "id": "tom-jones-help-yourself",
+   "artist": "Tom Jones & Dino",
+   "title": "Help Yourself",
+   "year": 1968
+  },
+  {
+   "id": "eddy-arnold-make-the-world-go-away",
+   "artist": "Eddy Arnold",
+   "title": "Make the World Go Away",
+   "year": 1966
+  },
+  {
+   "id": "romuald-figuier-ou-sont-elles-passees",
+   "artist": "Romuald Figuier",
+   "title": "Où sont-elles passées",
+   "year": 1964
+  },
+  {
+   "id": "ben-e-king-i-who-have-nothing",
+   "artist": "Ben E. King",
+   "title": "I (Who Have Nothing)",
+   "year": 1963
+  },
+  {
+   "id": "charles-aznavour-la-mamma",
+   "artist": "Charles Aznavour & Corry Brokken",
+   "title": "La mamma",
+   "year": 1963
+  },
+  {
+   "id": "rachel-le-chant-de-mallory",
+   "artist": "Rachel",
+   "title": "Le Chant de Mallory",
+   "year": 1964
+  },
+  {
+   "id": "kui-lee-i-ll-remember-you",
+   "artist": "Kui Lee",
+   "title": "I'll Remember You",
+   "year": 1966
+  },
+  {
+   "id": "sean-dunphy-if-i-could-choose",
+   "artist": "Sean Dunphy",
+   "title": "If I Could Choose",
+   "year": 1967
+  },
+  {
+   "id": "johnny-darrell-ruby-don-t-take-your-love-to-town",
+   "artist": "Johnny Darrell",
+   "title": "Ruby, Don't Take Your Love to Town",
+   "year": 1967
+  },
+  {
+   "id": "manfred-mann-pretty-flamingo",
+   "artist": "Manfred Mann",
+   "title": "Pretty Flamingo",
+   "year": 1966
+  },
+  {
+   "id": "geraldine-gogly-quel-cur-vas-tu-briser",
+   "artist": "Géraldine Gogly",
+   "title": "Quel cœur vas-tu briser?",
+   "year": 1967
+  },
+  {
+   "id": "therese-steinmetz-ring-dinge-ding",
+   "artist": "Thérèse Steinmetz",
+   "title": "Ring-dinge-ding",
+   "year": 1967
+  },
+  {
+   "id": "bjrn-tidmand-sangen-om-dig",
+   "artist": "Bjørn Tidmand",
+   "title": "Sangen om dig",
+   "year": 1964
+  },
+  {
+   "id": "noelle-cordier-il-doit-faire-beau-la-bas",
+   "artist": "Noëlle Cordier",
+   "title": "Il doit faire beau là-bas",
+   "year": 1967
+  },
+  {
+   "id": "cliff-richard-marianne",
+   "artist": "Cliff Richard",
+   "title": "Marianne",
+   "year": 1968
+  },
+  {
+   "id": "anita-traversi-i-miei-pensieri",
+   "artist": "Anita Traversi",
+   "title": "I miei pensieri",
+   "year": 1964
+  },
+  {
+   "id": "caterina-caselli-nessuno-mi-puo-giudicare",
+   "artist": "Caterina Caselli & Gene Pitney",
+   "title": "Nessuno mi può giudicare",
+   "year": 1966
+  },
+  {
+   "id": "jean-paul-mauric-printemps-avril-carillonne",
+   "artist": "Jean-Paul Mauric",
+   "title": "Printemps, avril carillonne",
+   "year": 1961
+  },
+  {
+   "id": "bobby-goldsboro-honey",
+   "artist": "Bobby Goldsboro",
+   "title": "Honey",
+   "year": 1968
+  },
+  {
+   "id": "sylvie-vartan-la-maritza",
+   "artist": "Sylvie Vartan",
+   "title": "La Maritza",
+   "year": 1968
+  },
+  {
+   "id": "c-c-catch-nothing-but-a-heartache",
+   "artist": "C. C. Catch",
+   "title": "Nothing But a Heartache",
+   "year": 1968
+  },
+  {
+   "id": "cliff-richard-bachelor-boy",
+   "artist": "Cliff Richard & The Shadows",
+   "title": "Bachelor Boy",
+   "year": 1962
+  },
+  {
+   "id": "brenda-holloway-every-little-bit-hurts",
+   "artist": "Brenda Holloway",
+   "title": "Every Little Bit Hurts",
+   "year": 1964
+  },
+  {
+   "id": "ned-miller-from-a-jack-to-a-king",
+   "artist": "Ned Miller",
+   "title": "From a Jack to a King",
+   "year": 1962
+  },
+  {
+   "id": "the-isley-brothers-this-old-heart-of-mine-is-weak-for-you",
+   "artist": "The Isley Brothers",
+   "title": "This Old Heart of Mine (Is Weak for You)",
+   "year": 1966
+  },
+  {
+   "id": "small-faces-sha-la-la-la-lee",
+   "artist": "Small Faces",
+   "title": "Sha-La-La-La-Lee",
+   "year": 1966
+  },
+  {
+   "id": "leo-sayer-more-than-i-can-say",
+   "artist": "Leo Sayer",
+   "title": "More Than I Can Say",
+   "year": 1960
+  },
+  {
+   "id": "the-byrds-5d-fifth-dimension",
+   "artist": "The Byrds",
+   "title": "5D (Fifth Dimension)",
+   "year": 1966
+  },
+  {
+   "id": "the-byrds-set-you-free-this-time",
+   "artist": "The Byrds",
+   "title": "Set You Free This Time",
+   "year": 1966
+  },
+  {
+   "id": "tommy-james-the-shondells-hanky-panky",
+   "artist": "Tommy James & the Shondells",
+   "title": "Hanky Panky",
+   "year": 1966
+  },
+  {
+   "id": "aphrodite-s-child-it-s-five-o-clock",
+   "artist": "Aphrodite's Child",
+   "title": "It's Five O'Clock",
+   "year": 1969
+  },
+  {
+   "id": "jacques-raymond-waarom",
+   "artist": "Jacques Raymond",
+   "title": "Waarom?",
+   "year": 1963
+  },
+  {
+   "id": "lize-marke-als-het-weer-lente-is",
+   "artist": "Lize Marke",
+   "title": "Als het weer lente is",
+   "year": 1965
+  },
+  {
+   "id": "bonzo-dog-doo-dah-band-i-m-the-urban-spaceman",
+   "artist": "Bonzo Dog Doo-Dah Band",
+   "title": "I'm the Urban Spaceman",
+   "year": 1968
+  },
+  {
+   "id": "herman-s-hermits-i-m-henery-the-eighth-i-am",
+   "artist": "Herman's Hermits",
+   "title": "I'm Henery the Eighth, I Am",
+   "year": 1965
+  },
+  {
+   "id": "claude-lombard-quand-tu-reviendras",
+   "artist": "Claude Lombard",
+   "title": "Quand tu reviendras",
+   "year": 1968
+  },
+  {
+   "id": "tonia-un-peu-de-poivre-un-peu-de-sel",
+   "artist": "Tonia",
+   "title": "Un peu de poivre, un peu de sel",
+   "year": 1966
+  },
+  {
+   "id": "the-temptations-get-ready",
+   "artist": "The Temptations",
+   "title": "Get Ready",
+   "year": 1966
+  },
+  {
+   "id": "the-lovin-spoonful-daydream",
+   "artist": "The Lovin' Spoonful",
+   "title": "Daydream",
+   "year": 1966
+  },
+  {
+   "id": "the-migil-five-mockin-bird-hill",
+   "artist": "The Migil Five",
+   "title": "Mockin' Bird Hill",
+   "year": 1964
+  },
+  {
+   "id": "the-supremes-forever-came-today",
+   "artist": "The Supremes",
+   "title": "Forever Came Today",
+   "year": 1968
+  },
+  {
+   "id": "bob-gibson-all-my-trials",
+   "artist": "Bob Gibson",
+   "title": "All My Trials",
+   "year": 1964
+  },
+  {
+   "id": "louis-neefs-jennifer-jennings",
+   "artist": "Louis Neefs",
+   "title": "Jennifer Jennings",
+   "year": 1969
+  },
+  {
+   "id": "the-temptations-i-know-i-m-losing-you",
+   "artist": "The Temptations",
+   "title": "(I Know) I'm Losing You",
+   "year": 1966
+  },
+  {
+   "id": "the-temptations-the-way-you-do-the-things-you-do",
+   "artist": "The Temptations",
+   "title": "The Way You Do the Things You Do",
+   "year": 1964
+  },
+  {
+   "id": "small-faces-tin-soldier",
+   "artist": "Small Faces",
+   "title": "Tin Soldier",
+   "year": 1967
+  },
+  {
+   "id": "the-supremes-the-happening",
+   "artist": "The Supremes",
+   "title": "The Happening",
+   "year": 1967
+  },
+  {
+   "id": "salt-n-pepa-whatta-man",
+   "artist": "Salt-N-Pepa & En Vogue",
+   "title": "Whatta Man",
+   "year": 1968
+  },
+  {
+   "id": "bobby-vinton-roses-are-red-my-love",
+   "artist": "Bobby Vinton",
+   "title": "Roses Are Red (My Love)",
+   "year": 1962
+  },
+  {
+   "id": "tom-jones-what-s-new-pussycat",
+   "artist": "Tom Jones",
+   "title": "What's New Pussycat?",
+   "year": 1965
+  },
+  {
+   "id": "cream-swlabr",
+   "artist": "Cream",
+   "title": "SWLABR",
+   "year": 1968
+  },
+  {
+   "id": "ray-charles-crying-time",
+   "artist": "Ray Charles",
+   "title": "Crying Time",
+   "year": 1966
+  },
+  {
+   "id": "napoleon-xiv-they-re-coming-to-take-me-away-ha-haaa",
+   "artist": "Napoleon XIV",
+   "title": "They're Coming to Take Me Away, Ha-Haaa!",
+   "year": 1966
+  },
+  {
+   "id": "ray-charles-i-don-t-need-no-doctor",
+   "artist": "Ray Charles",
+   "title": "I Don't Need No Doctor",
+   "year": 1966
+  },
+  {
+   "id": "nancy-sinatra-you-only-live-twice",
+   "artist": "Nancy Sinatra",
+   "title": "You Only Live Twice",
+   "year": 1967
+  },
+  {
+   "id": "paul-paula-hey-paula",
+   "artist": "Paul & Paula",
+   "title": "Hey Paula",
+   "year": 1962
+  },
+  {
+   "id": "the-drifters-this-magic-moment",
+   "artist": "The Drifters",
+   "title": "This Magic Moment",
+   "year": 1960
+  },
+  {
+   "id": "count-five-psychotic-reaction",
+   "artist": "Count Five",
+   "title": "Psychotic Reaction",
+   "year": 1966
+  },
+  {
+   "id": "sue-thompson-sad-movies-make-me-cry",
+   "artist": "Sue Thompson",
+   "title": "Sad Movies (Make Me Cry)",
+   "year": 1961
+  },
+  {
+   "id": "jan-and-dean-surf-city",
+   "artist": "Jan and Dean",
+   "title": "Surf City",
+   "year": 1963
+  },
+  {
+   "id": "wallace-collection-daydream",
+   "artist": "Wallace Collection",
+   "title": "Daydream",
+   "year": 1969
+  },
+  {
+   "id": "sam-dave-hold-on-i-m-comin",
+   "artist": "Sam & Dave",
+   "title": "Hold On, I'm Comin'",
+   "year": 1966
+  },
+  {
+   "id": "traffic-hole-in-my-shoe",
+   "artist": "Traffic",
+   "title": "Hole in My Shoe",
+   "year": 1967
+  },
+  {
+   "id": "the-mamas-the-papas-creeque-alley",
+   "artist": "The Mamas & the Papas",
+   "title": "Creeque Alley",
+   "year": 1967
+  },
+  {
+   "id": "tommy-roe-dizzy",
+   "artist": "Tommy Roe",
+   "title": "Dizzy",
+   "year": 1969
+  },
+  {
+   "id": "neal-hefti-batman-theme",
+   "artist": "Neal Hefti",
+   "title": "Batman Theme",
+   "year": 1966
+  },
+  {
+   "id": "roger-mcguinn-ballad-of-easy-rider",
+   "artist": "Roger McGuinn",
+   "title": "Ballad of Easy Rider",
+   "year": 1969
+  },
+  {
+   "id": "petula-clark-don-t-sleep-in-the-subway",
+   "artist": "Petula Clark",
+   "title": "Don't Sleep in the Subway",
+   "year": 1967
+  },
+  {
+   "id": "the-specials-a-message-to-you-rudy",
+   "artist": "The Specials & Dandy Livingstone",
+   "title": "A Message to You, Rudy",
+   "year": 1967
+  },
+  {
+   "id": "milly-scott-fernando-en-filippo",
+   "artist": "Milly Scott",
+   "title": "Fernando en Filippo",
+   "year": 1966
+  },
+  {
+   "id": "lee-hazlewood-some-velvet-morning",
+   "artist": "Lee Hazlewood & Nancy Sinatra",
+   "title": "Some Velvet Morning",
+   "year": 1967
+  },
+  {
+   "id": "the-move-blackberry-way",
+   "artist": "The Move",
+   "title": "Blackberry Way",
+   "year": 1968
+  },
+  {
+   "id": "peter-and-gordon-i-go-to-pieces",
+   "artist": "Peter and Gordon",
+   "title": "I Go to Pieces",
+   "year": 1964
+  },
+  {
+   "id": "the-fourmost-i-m-in-love",
+   "artist": "The Fourmost",
+   "title": "I'm in Love",
+   "year": 1963
+  },
+  {
+   "id": "hugh-masekela-grazing-in-the-grass",
+   "artist": "Hugh Masekela",
+   "title": "Grazing in the Grass",
+   "year": 1968
+  },
+  {
+   "id": "chris-andrews-yesterday-man",
+   "artist": "Chris Andrews",
+   "title": "Yesterday Man",
+   "year": 1965
+  },
+  {
+   "id": "fleetwood-mac-man-of-the-world",
+   "artist": "Fleetwood Mac",
+   "title": "Man of the World",
+   "year": 1969
+  },
+  {
+   "id": "the-drifters-on-broadway",
+   "artist": "The Drifters",
+   "title": "On Broadway",
+   "year": 1963
+  },
+  {
+   "id": "the-hollies-i-can-t-let-go",
+   "artist": "The Hollies",
+   "title": "I Can't Let Go",
+   "year": 1966
+  },
+  {
+   "id": "the-isley-brothers-that-lady",
+   "artist": "The Isley Brothers",
+   "title": "That Lady",
+   "year": 1964
+  },
+  {
+   "id": "the-association-along-comes-mary",
+   "artist": "The Association",
+   "title": "Along Comes Mary",
+   "year": 1966
+  },
+  {
+   "id": "the-chiffons-one-fine-day",
+   "artist": "The Chiffons",
+   "title": "One Fine Day",
+   "year": 1963
+  },
+  {
+   "id": "patsy-cline-i-fall-to-pieces",
+   "artist": "Patsy Cline",
+   "title": "I Fall to Pieces",
+   "year": 1961
+  },
+  {
+   "id": "sly-and-the-family-stone-i-want-to-take-you-higher",
+   "artist": "Sly and the Family Stone",
+   "title": "I Want to Take You Higher",
+   "year": 1969
+  },
+  {
+   "id": "the-hollies-sorry-suzanne",
+   "artist": "The Hollies",
+   "title": "Sorry Suzanne",
+   "year": 1969
+  },
+  {
+   "id": "marcos-valle-summer-samba",
+   "artist": "Marcos Valle",
+   "title": "Summer Samba",
+   "year": 1966
+  },
+  {
+   "id": "max-frost-and-the-troopers-shape-of-things-to-come",
+   "artist": "Max Frost and the Troopers",
+   "title": "Shape of Things to Come",
+   "year": 1968
+  },
+  {
+   "id": "johnny-rivers-secret-agent-man",
+   "artist": "Johnny Rivers",
+   "title": "Secret Agent Man",
+   "year": 1966
+  },
+  {
+   "id": "peter-and-gordon-i-don-t-want-to-see-you-again",
+   "artist": "Peter and Gordon",
+   "title": "I Don't Want to See You Again",
+   "year": 1964
+  },
+  {
+   "id": "jack-smith-i-was-kaiser-bill-s-batman",
+   "artist": "Jack Smith",
+   "title": "I Was Kaiser Bill's Batman",
+   "year": 1967
+  },
+  {
+   "id": "ronnie-tober-morgen",
+   "artist": "Ronnie Tober",
+   "title": "Morgen",
+   "year": 1968
+  },
+  {
+   "id": "the-rascals-groovin",
+   "artist": "The Rascals",
+   "title": "Groovin'",
+   "year": 1967
+  },
+  {
+   "id": "wanda-jackson-let-s-have-a-party",
+   "artist": "Wanda Jackson",
+   "title": "Let's Have a Party",
+   "year": 1960
+  },
+  {
+   "id": "robin-gibb-saved-by-the-bell",
+   "artist": "Robin Gibb",
+   "title": "Saved by the Bell",
+   "year": 1969
+  },
+  {
+   "id": "fats-domino-my-girl-josephine",
+   "artist": "Fats Domino",
+   "title": "My Girl Josephine",
+   "year": 1960
+  },
+  {
+   "id": "chubby-checker-pony-time",
+   "artist": "Chubby Checker",
+   "title": "Pony Time",
+   "year": 1961
+  },
+  {
+   "id": "the-seekers-i-ll-never-find-another-you",
+   "artist": "The Seekers",
+   "title": "I'll Never Find Another You",
+   "year": 1964
+  },
+  {
+   "id": "archie-bell-the-drells-tighten-up",
+   "artist": "Archie Bell & the Drells",
+   "title": "Tighten Up",
+   "year": 1968
+  },
+  {
+   "id": "jimmy-makulis-sehnsucht",
+   "artist": "Jimmy Makulis",
+   "title": "Sehnsucht",
+   "year": 1961
+  },
+  {
+   "id": "sly-and-the-family-stone-hot-fun-in-the-summertime",
+   "artist": "Sly and the Family Stone",
+   "title": "Hot Fun in the Summertime",
+   "year": 1969
+  },
+  {
+   "id": "the-four-seasons-sherry",
+   "artist": "The Four Seasons",
+   "title": "Sherry",
+   "year": 1962
+  },
+  {
+   "id": "tommy-roe-sheila",
+   "artist": "Tommy Roe",
+   "title": "Sheila",
+   "year": 1962
+  },
+  {
+   "id": "chris-montez-let-s-dance",
+   "artist": "Chris Montez",
+   "title": "Let's Dance",
+   "year": 1962
+  },
+  {
+   "id": "the-who-postcard",
+   "artist": "The Who",
+   "title": "Postcard",
+   "year": 1969
+  },
+  {
+   "id": "the-lovin-spoonful-you-didn-t-have-to-be-so-nice",
+   "artist": "The Lovin' Spoonful",
+   "title": "You Didn't Have to Be So Nice",
+   "year": 1965
+  },
+  {
+   "id": "sam-the-sham-li-l-red-riding-hood",
+   "artist": "Sam the Sham",
+   "title": "Li'l Red Riding Hood",
+   "year": 1966
+  },
+  {
+   "id": "rufus-thomas-walking-the-dog",
+   "artist": "Rufus Thomas",
+   "title": "Walking the Dog",
+   "year": 1963
+  },
+  {
+   "id": "jarkko-laura-kuin-silloin-ennen",
+   "artist": "Jarkko & Laura",
+   "title": "Kuin silloin ennen",
+   "year": 1969
+  },
+  {
+   "id": "chris-farlowe-think",
+   "artist": "Chris Farlowe",
+   "title": "Think",
+   "year": 1966
+  },
+  {
+   "id": "the-four-seasons-working-my-way-back-to-you",
+   "artist": "The Four Seasons",
+   "title": "Working My Way Back to You",
+   "year": 1966
+  },
+  {
+   "id": "miguel-rios-a-song-of-joy",
+   "artist": "Miguel Ríos",
+   "title": "A Song of Joy",
+   "year": 1969
+  },
+  {
+   "id": "bob-marley-judge-not",
+   "artist": "Bob Marley",
+   "title": "Judge Not",
+   "year": 1962
+  },
+  {
+   "id": "john-mayall-the-bluesbreakers-crawling-up-a-hill",
+   "artist": "John Mayall & the Bluesbreakers",
+   "title": "Crawling up a Hill",
+   "year": 1964
+  },
+  {
+   "id": "simone-de-oliveira-desfolhada-portuguesa",
+   "artist": "Simone de Oliveira",
+   "title": "Desfolhada portuguesa",
+   "year": 1969
+  },
+  {
+   "id": "minouche-barelli-boum-badaboum",
+   "artist": "Minouche Barelli",
+   "title": "Boum-Badaboum",
+   "year": 1967
+  },
+  {
+   "id": "jacques-brel-jacky",
+   "artist": "Jacques Brel",
+   "title": "Jacky",
+   "year": 1966
+  },
+  {
+   "id": "osborne-brothers-rocky-top",
+   "artist": "Osborne Brothers",
+   "title": "Rocky Top",
+   "year": 1967
+  },
+  {
+   "id": "the-string-a-longs-wheels",
+   "artist": "The String-A-Longs",
+   "title": "Wheels",
+   "year": 1960
+  },
+  {
+   "id": "glen-campbell-galveston",
+   "artist": "Glen Campbell",
+   "title": "Galveston",
+   "year": 1969
+  },
+  {
+   "id": "eagles-seven-bridges-road",
+   "artist": "Eagles & Steve Young",
+   "title": "Seven Bridges Road",
+   "year": 1969
+  },
+  {
+   "id": "raphael-hablemos-del-amor",
+   "artist": "Raphael",
+   "title": "Hablemos del amor",
+   "year": 1967
+  },
+  {
+   "id": "the-shadows-f-b-i",
+   "artist": "The Shadows",
+   "title": "F.B.I.",
+   "year": 1961
+  },
+  {
+   "id": "gerry-and-the-pacemakers-i-ll-be-there",
+   "artist": "Gerry and the Pacemakers",
+   "title": "I'll Be There",
+   "year": 1965
+  },
+  {
+   "id": "bobby-darin-things",
+   "artist": "Bobby Darin",
+   "title": "Things",
+   "year": 1962
+  },
+  {
+   "id": "mina-se-telefonando",
+   "artist": "Mina",
+   "title": "Se telefonando",
+   "year": 1966
+  },
+  {
+   "id": "small-faces-all-or-nothing",
+   "artist": "Small Faces",
+   "title": "All or Nothing",
+   "year": 1966
+  },
+  {
+   "id": "o-v-wright-that-s-how-strong-my-love-is",
+   "artist": "O. V. Wright",
+   "title": "That's How Strong My Love Is",
+   "year": 1964
+  },
+  {
+   "id": "sly-and-the-family-stone-thank-you-falettinme-be-mice-elf-agin",
+   "artist": "Sly and the Family Stone",
+   "title": "Thank You (Falettinme Be Mice Elf Agin)",
+   "year": 1969
+  },
+  {
+   "id": "ohio-express-yummy-yummy-yummy",
+   "artist": "Ohio Express",
+   "title": "Yummy Yummy Yummy",
+   "year": 1968
+  },
+  {
+   "id": "marie-laforet-ivan-boris-et-moi",
+   "artist": "Marie Laforêt",
+   "title": "Ivan, Boris et moi",
+   "year": 1967
+  },
+  {
+   "id": "the-peanuts-koi-no-vacance",
+   "artist": "The Peanuts",
+   "title": "Koi no Vacance",
+   "year": 1963
+  },
+  {
+   "id": "frankie-laine-you-gave-me-a-mountain",
+   "artist": "Frankie Laine",
+   "title": "You Gave Me a Mountain",
+   "year": 1969
+  },
+  {
+   "id": "gerry-and-the-pacemakers-i-like-it",
+   "artist": "Gerry and the Pacemakers",
+   "title": "I Like It",
+   "year": 1963
+  },
+  {
+   "id": "connie-francis-i-m-gonna-be-warm-this-winter",
+   "artist": "Connie Francis",
+   "title": "I'm Gonna Be Warm This Winter",
+   "year": 1962
+  },
+  {
+   "id": "lorne-greene-ringo",
+   "artist": "Lorne Greene",
+   "title": "Ringo",
+   "year": 1964
+  },
+  {
+   "id": "johnny-hallyday-pour-moi-la-vie-va-commencer",
+   "artist": "Johnny Hallyday",
+   "title": "Pour moi la vie va commencer",
+   "year": 1963
+  },
+  {
+   "id": "blues-magoos-we-ain-t-got-nothin-yet",
+   "artist": "Blues Magoos",
+   "title": "(We Ain't Got) Nothin' Yet",
+   "year": 1966
+  },
+  {
+   "id": "billy-walker-i-d-like-to-be-in-charlie-s-shoes",
+   "artist": "Billy Walker",
+   "title": "(I'd Like to Be In) Charlie's Shoes",
+   "year": 1962
+  },
+  {
+   "id": "grateful-dead-dark-star",
+   "artist": "Grateful Dead",
+   "title": "Dark Star",
+   "year": 1968
+  },
+  {
+   "id": "the-honeycombs-have-i-the-right",
+   "artist": "The Honeycombs",
+   "title": "Have I the Right?",
+   "year": 1964
+  },
+  {
+   "id": "edwin-starr-twenty-five-miles",
+   "artist": "Edwin Starr",
+   "title": "Twenty-Five Miles",
+   "year": 1969
+  },
+  {
+   "id": "bo-diddley-you-can-t-judge-a-book-by-the-cover",
+   "artist": "Bo Diddley",
+   "title": "You Can't Judge a Book by the Cover",
+   "year": 1962
+  },
+  {
+   "id": "georgie-fame-and-the-blue-flames-yeh-yeh",
+   "artist": "Georgie Fame and the Blue Flames",
+   "title": "Yeh Yeh",
+   "year": 1964
+  },
+  {
+   "id": "the-statler-brothers-flowers-on-the-wall",
+   "artist": "The Statler Brothers",
+   "title": "Flowers on the Wall",
+   "year": 1965
+  },
+  {
+   "id": "bobby-vee-rubber-ball",
+   "artist": "Bobby Vee",
+   "title": "Rubber Ball",
+   "year": 1960
+  },
+  {
+   "id": "barry-mann-who-put-the-bomp-in-the-bomp-bomp-bomp",
+   "artist": "Barry Mann",
+   "title": "Who Put the Bomp (in the Bomp, Bomp, Bomp)",
+   "year": 1961
+  },
+  {
+   "id": "the-mothers-of-invention-my-guitar-wants-to-kill-your-mama",
+   "artist": "The Mothers of Invention",
+   "title": "My Guitar Wants to Kill Your Mama",
+   "year": 1969
+  },
+  {
+   "id": "the-coasters-little-egypt-ying-yang",
+   "artist": "The Coasters",
+   "title": "Little Egypt (Ying-Yang)",
+   "year": 1961
+  },
+  {
+   "id": "the-lettermen-chanson-d-amour",
+   "artist": "The Lettermen",
+   "title": "Chanson D'Amour",
+   "year": 1966
+  },
+  {
+   "id": "ike-tina-turner-a-fool-in-love",
+   "artist": "Ike & Tina Turner",
+   "title": "A Fool in Love",
+   "year": 1960
+  },
+  {
+   "id": "dave-berry-the-crying-game",
+   "artist": "Dave Berry",
+   "title": "The Crying Game",
+   "year": 1964
+  },
+  {
+   "id": "the-13th-floor-elevators-you-re-gonna-miss-me",
+   "artist": "The 13th Floor Elevators",
+   "title": "You're Gonna Miss Me",
+   "year": 1966
+  },
+  {
+   "id": "ike-tina-turner-it-s-gonna-work-out-fine",
+   "artist": "Ike & Tina Turner",
+   "title": "It's Gonna Work Out Fine",
+   "year": 1961
+  },
+  {
+   "id": "paul-anka-puppy-love",
+   "artist": "Paul Anka",
+   "title": "Puppy Love",
+   "year": 1960
+  },
+  {
+   "id": "neil-diamond-brother-love-s-travelling-salvation-show",
+   "artist": "Neil Diamond",
+   "title": "Brother Love's Travelling Salvation Show",
+   "year": 1969
+  },
+  {
+   "id": "the-foundations-baby-now-that-i-ve-found-you",
+   "artist": "The Foundations",
+   "title": "Baby Now That I've Found You",
+   "year": 1967
+  },
+  {
+   "id": "mina-un-buco-nella-sabbia-se-mi-compri-un-gelato",
+   "artist": "Mina",
+   "title": "Un buco nella sabbia / Se mi compri un gelato",
+   "year": 1964
+  },
+  {
+   "id": "barbara-lewis-baby-i-m-yours",
+   "artist": "Barbara Lewis",
+   "title": "Baby I'm Yours",
+   "year": 1965
+  },
+  {
+   "id": "the-hollies-look-through-any-window",
+   "artist": "The Hollies",
+   "title": "Look Through Any Window",
+   "year": 1965
+  },
+  {
+   "id": "the-american-breed-bend-me-shape-me",
+   "artist": "The American Breed",
+   "title": "Bend Me, Shape Me",
+   "year": 1967
+  },
+  {
+   "id": "shelley-fabares-johnny-angel",
+   "artist": "Shelley Fabares",
+   "title": "Johnny Angel",
+   "year": 1962
+  },
+  {
+   "id": "the-yardbirds-evil-hearted-you",
+   "artist": "The Yardbirds",
+   "title": "Evil Hearted You",
+   "year": 1965
+  },
+  {
+   "id": "the-moody-blues-voices-in-the-sky",
+   "artist": "The Moody Blues",
+   "title": "Voices in the Sky",
+   "year": 1968
+  },
+  {
+   "id": "herman-s-hermits-i-m-into-something-good",
+   "artist": "Herman's Hermits",
+   "title": "I'm into Something Good",
+   "year": 1964
+  },
+  {
+   "id": "sly-and-the-family-stone-dance-to-the-music",
+   "artist": "Sly and the Family Stone",
+   "title": "Dance to the Music",
+   "year": 1968
+  },
+  {
+   "id": "cliff-richard-please-don-t-tease",
+   "artist": "Cliff Richard & The Shadows",
+   "title": "Please Don't Tease",
+   "year": 1960
+  },
+  {
+   "id": "the-yardbirds-happenings-ten-years-time-ago",
+   "artist": "The Yardbirds",
+   "title": "Happenings Ten Years Time Ago",
+   "year": 1966
+  },
+  {
+   "id": "benny-spellman-lipstick-traces-on-a-cigarette",
+   "artist": "Benny Spellman",
+   "title": "Lipstick Traces (on a Cigarette)",
+   "year": 1962
+  },
+  {
+   "id": "gene-pitney-i-m-gonna-be-strong",
+   "artist": "Gene Pitney",
+   "title": "I'm Gonna Be Strong",
+   "year": 1964
+  },
+  {
+   "id": "three-dog-night-one",
+   "artist": "Three Dog Night & Harry Nilsson",
+   "title": "One",
+   "year": 1968
+  },
+  {
+   "id": "traffic-paper-sun",
+   "artist": "Traffic",
+   "title": "Paper Sun",
+   "year": 1967
+  },
+  {
+   "id": "the-new-vaudeville-band-winchester-cathedral",
+   "artist": "The New Vaudeville Band",
+   "title": "Winchester Cathedral",
+   "year": 1966
+  },
+  {
+   "id": "the-easybeats-bring-a-little-lovin",
+   "artist": "The Easybeats",
+   "title": "Bring a Little Lovin'",
+   "year": 1968
+  },
+  {
+   "id": "helen-shapiro-walkin-back-to-happiness",
+   "artist": "Helen Shapiro",
+   "title": "Walkin' Back to Happiness",
+   "year": 1961
+  },
+  {
+   "id": "the-angels-my-boyfriend-s-back",
+   "artist": "The Angels",
+   "title": "My Boyfriend's Back",
+   "year": 1963
+  },
+  {
+   "id": "nat-king-cole-ramblin-rose",
+   "artist": "Nat King Cole",
+   "title": "Ramblin' Rose",
+   "year": 1962
+  },
+  {
+   "id": "the-lemon-pipers-green-tambourine",
+   "artist": "The Lemon Pipers",
+   "title": "Green Tambourine",
+   "year": 1967
+  },
+  {
+   "id": "gene-pitney-something-s-gotten-hold-of-my-heart",
+   "artist": "Gene Pitney & Guys 'n' Dolls",
+   "title": "Something's Gotten Hold of My Heart",
+   "year": 1967
+  },
+  {
+   "id": "the-royal-guardsmen-snoopy-vs-the-red-baron",
+   "artist": "The Royal Guardsmen",
+   "title": "Snoopy vs. the Red Baron",
+   "year": 1966
+  },
+  {
+   "id": "the-move-flowers-in-the-rain",
+   "artist": "The Move",
+   "title": "Flowers in the Rain",
+   "year": 1967
+  },
+  {
+   "id": "the-shirelles-tonight-s-the-night",
+   "artist": "The Shirelles",
+   "title": "Tonight's the Night",
+   "year": 1960
+  },
+  {
+   "id": "david-rose-the-stripper",
+   "artist": "David Rose",
+   "title": "The Stripper",
+   "year": 1962
+  },
+  {
+   "id": "chris-farlowe-handbags-and-gladrags",
+   "artist": "Chris Farlowe",
+   "title": "Handbags and Gladrags",
+   "year": 1967
+  },
+  {
+   "id": "waylon-jennings-only-daddy-that-ll-walk-the-line",
+   "artist": "Waylon Jennings",
+   "title": "Only Daddy That'll Walk the Line",
+   "year": 1968
+  },
+  {
+   "id": "cher-you-better-sit-down-kids",
+   "artist": "Cher",
+   "title": "You Better Sit Down Kids",
+   "year": 1967
+  },
+  {
+   "id": "the-shadows-the-young-ones",
+   "artist": "The Shadows & Cliff Richard",
+   "title": "The Young Ones",
+   "year": 1962
+  },
+  {
+   "id": "the-rascals-people-got-to-be-free",
+   "artist": "The Rascals",
+   "title": "People Got to Be Free",
+   "year": 1968
+  },
+  {
+   "id": "pinky-killers-koi-no-kisetsu",
+   "artist": "Pinky & Killers",
+   "title": "Koi no Kisetsu",
+   "year": 1968
+  },
+  {
+   "id": "shirley-ellis-the-name-game",
+   "artist": "Shirley Ellis",
+   "title": "The Name Game",
+   "year": 1965
+  },
+  {
+   "id": "elmore-james-shake-your-moneymaker",
+   "artist": "Elmore James",
+   "title": "Shake Your Moneymaker",
+   "year": 1961
+  },
+  {
+   "id": "mary-wells-my-guy",
+   "artist": "Mary Wells",
+   "title": "My Guy",
+   "year": 1964
+  },
+  {
+   "id": "alice-cooper-reflected",
+   "artist": "Alice Cooper",
+   "title": "Reflected",
+   "year": 1969
+  },
+  {
+   "id": "dave-dudley-six-days-on-the-road",
+   "artist": "Dave Dudley",
+   "title": "Six Days on the Road",
+   "year": 1963
+  },
+  {
+   "id": "james-carr-the-dark-end-of-the-street",
+   "artist": "James Carr & You Got My Mind Messed Up",
+   "title": "The Dark End of the Street",
+   "year": 1967
+  },
+  {
+   "id": "jan-and-dean-the-little-old-lady-from-pasadena",
+   "artist": "Jan and Dean",
+   "title": "The Little Old Lady from Pasadena",
+   "year": 1964
+  },
+  {
+   "id": "lou-christie-lightnin-strikes",
+   "artist": "Lou Christie",
+   "title": "Lightnin' Strikes",
+   "year": 1965
+  },
+  {
+   "id": "ronnie-carroll-say-wonderful-things",
+   "artist": "Ronnie Carroll",
+   "title": "Say Wonderful Things",
+   "year": 1963
+  },
+  {
+   "id": "ray-charles-let-s-go-get-stoned",
+   "artist": "Ray Charles",
+   "title": "Let's Go Get Stoned",
+   "year": 1966
+  },
+  {
+   "id": "gene-pitney-twenty-four-hours-from-tulsa",
+   "artist": "Gene Pitney",
+   "title": "Twenty Four Hours from Tulsa",
+   "year": 1963
+  },
+  {
+   "id": "the-high-numbers-zoot-suit-i-m-the-face",
+   "artist": "The High Numbers",
+   "title": "Zoot Suit / I'm the Face",
+   "year": 1964
+  },
+  {
+   "id": "the-troggs-i-can-t-control-myself",
+   "artist": "The Troggs",
+   "title": "I Can't Control Myself",
+   "year": 1966
+  },
+  {
+   "id": "the-seeds-pushin-too-hard",
+   "artist": "The Seeds",
+   "title": "Pushin' Too Hard",
+   "year": 1965
+  },
+  {
+   "id": "the-shirelles-soldier-boy",
+   "artist": "The Shirelles",
+   "title": "Soldier Boy",
+   "year": 1962
+  },
+  {
+   "id": "eddie-cochran-three-steps-to-heaven",
+   "artist": "Eddie Cochran",
+   "title": "Three Steps to Heaven",
+   "year": 1960
+  },
+  {
+   "id": "twice-as-much-sittin-on-a-fence",
+   "artist": "Twice as Much",
+   "title": "Sittin' on a Fence",
+   "year": 1966
+  },
+  {
+   "id": "chuck-berry-reelin-and-rockin",
+   "artist": "Chuck Berry",
+   "title": "Reelin' and Rockin'",
+   "year": 1965
+  },
+  {
+   "id": "mina-renato-eclisse-twist",
+   "artist": "Mina",
+   "title": "Renato / Eclisse twist",
+   "year": 1962
+  },
+  {
+   "id": "armando-manzanero-adoro",
+   "artist": "Armando Manzanero",
+   "title": "Adoro",
+   "year": 1969
+  },
+  {
+   "id": "los-hermanos-rigual-cuando-calienta-el-sol",
+   "artist": "Los Hermanos Rigual",
+   "title": "Cuando calienta el sol",
+   "year": 1961
+  },
+  {
+   "id": "the-lovin-spoonful-rain-on-the-roof",
+   "artist": "The Lovin' Spoonful",
+   "title": "Rain on the Roof",
+   "year": 1966
+  },
+  {
+   "id": "irma-thomas-breakaway",
+   "artist": "Irma Thomas & Tracey Ullman",
+   "title": "Breakaway",
+   "year": 1964
+  },
+  {
+   "id": "pascal-danel-kilimandjaro",
+   "artist": "Pascal Danel",
+   "title": "Kilimandjaro",
+   "year": 1966
+  },
+  {
+   "id": "otis-redding-mr-pitiful",
+   "artist": "Otis Redding & Steve Cropper",
+   "title": "Mr. Pitiful",
+   "year": 1965
+  },
+  {
+   "id": "solomon-burke-down-in-the-valley",
+   "artist": "Solomon Burke",
+   "title": "Down in the Valley",
+   "year": 1964
+  },
+  {
+   "id": "enaut-elorrieta-nire-aitaren-etxea-defendituko-dut",
+   "artist": "Eñaut Elorrieta",
+   "title": "Nire aitaren etxea defendituko dut",
+   "year": 1964
+  },
+  {
+   "id": "paul-revere-and-the-raiders-louie-go-home",
+   "artist": "Paul Revere and the Raiders",
+   "title": "Louie Go Home",
+   "year": 1964
+  },
+  {
+   "id": "mike-love-gettin-hungry",
+   "artist": "Mike Love & Brian Wilson",
+   "title": "Gettin' Hungry",
+   "year": 1967
+  },
+  {
+   "id": "janis-ian-society-s-child",
+   "artist": "Janis Ian & Spooky Tooth",
+   "title": "Society's Child",
+   "year": 1966
+  },
+  {
+   "id": "paul-revere-and-the-raiders-just-like-me",
+   "artist": "Paul Revere and the Raiders",
+   "title": "Just Like Me",
+   "year": 1965
+  },
+  {
+   "id": "roy-black-ganz-in-wei",
+   "artist": "Roy Black",
+   "title": "Ganz in Weiß",
+   "year": 1966
+  },
+  {
+   "id": "chet-atkins-one-mint-julep",
+   "artist": "Chet Atkins",
+   "title": "One Mint Julep",
+   "year": 1961
+  },
+  {
+   "id": "bobby-bare-detroit-city",
+   "artist": "Bobby Bare",
+   "title": "Detroit City",
+   "year": 1963
+  },
+  {
+   "id": "burl-ives-a-little-bitty-tear",
+   "artist": "Burl Ives",
+   "title": "A Little Bitty Tear",
+   "year": 1961
+  },
+  {
+   "id": "soul-brothers-six-some-kind-of-wonderful",
+   "artist": "Soul Brothers Six",
+   "title": "Some Kind of Wonderful",
+   "year": 1967
+  },
+  {
+   "id": "howlin-wolf-wang-dang-doodle",
+   "artist": "Howlin' Wolf",
+   "title": "Wang Dang Doodle",
+   "year": 1965
+  },
+  {
+   "id": "phil-ochs-there-but-for-fortune",
+   "artist": "Phil Ochs",
+   "title": "There but for Fortune",
+   "year": 1965
+  },
+  {
+   "id": "the-rolling-stones-blue-turns-to-grey",
+   "artist": "The Rolling Stones",
+   "title": "Blue Turns to Grey",
+   "year": 1966
+  },
+  {
+   "id": "fontella-bass-rescue-me",
+   "artist": "Fontella Bass",
+   "title": "Rescue Me",
+   "year": 1965
+  },
+  {
+   "id": "martha-and-the-vandellas-you-ve-been-in-love-too-long",
+   "artist": "Martha and the Vandellas",
+   "title": "You've Been in Love Too Long",
+   "year": 1965
+  },
+  {
+   "id": "the-cousins-kili-watch",
+   "artist": "The Cousins",
+   "title": "Kili Watch",
+   "year": 1961
+  },
+  {
+   "id": "deep-purple-emmaretta",
+   "artist": "Deep Purple",
+   "title": "Emmaretta",
+   "year": 1969
+  },
+  {
+   "id": "the-hollywood-argyles-alley-oop",
+   "artist": "The Hollywood Argyles",
+   "title": "Alley Oop",
+   "year": 1960
+  },
+  {
+   "id": "buffalo-springfield-expecting-to-fly",
+   "artist": "Buffalo Springfield",
+   "title": "Expecting to Fly",
+   "year": 1967
+  },
+  {
+   "id": "martha-and-the-vandellas-honey-chile",
+   "artist": "Martha and the Vandellas",
+   "title": "Honey Chile",
+   "year": 1967
+  },
+  {
+   "id": "soft-machine-love-makes-sweet-music",
+   "artist": "Soft Machine",
+   "title": "Love Makes Sweet Music",
+   "year": 1967
+  },
+  {
+   "id": "status-quo-black-veils-of-melancholy",
+   "artist": "Status Quo",
+   "title": "Black Veils of Melancholy",
+   "year": 1968
+  },
+  {
+   "id": "the-casuals-jesamine",
+   "artist": "The Casuals",
+   "title": "Jesamine",
+   "year": 1968
+  },
+  {
+   "id": "the-scaffold-lily-the-pink",
+   "artist": "The Scaffold",
+   "title": "Lily the Pink",
+   "year": 1968
+  },
+  {
+   "id": "simon-dupree-and-the-big-sound-kites",
+   "artist": "Simon Dupree and the Big Sound",
+   "title": "Kites",
+   "year": 1967
+  },
+  {
+   "id": "sonny-boy-williamson-ii-help-me",
+   "artist": "Sonny Boy Williamson II",
+   "title": "Help Me",
+   "year": 1963
+  },
+  {
+   "id": "the-miracles-the-love-i-saw-in-you-was-just-a-mirage",
+   "artist": "The Miracles",
+   "title": "The Love I Saw in You Was Just a Mirage",
+   "year": 1967
+  },
+  {
+   "id": "paul-revere-and-the-raiders-indian-reservation",
+   "artist": "Paul Revere and the Raiders",
+   "title": "Indian Reservation",
+   "year": 1968
+  },
+  {
+   "id": "dave-dee-dozy-beaky-mick-tich-zabadak",
+   "artist": "Dave Dee, Dozy, Beaky, Mick & Tich",
+   "title": "Zabadak",
+   "year": 1967
+  },
+  {
+   "id": "the-moody-blues-a-simple-game",
+   "artist": "The Moody Blues",
+   "title": "A Simple Game",
+   "year": 1968
+  },
+  {
+   "id": "merle-haggard-okie-from-muskogee",
+   "artist": "Merle Haggard",
+   "title": "Okie from Muskogee",
+   "year": 1969
+  },
+  {
+   "id": "aaron-neville-tell-it-like-it-is",
+   "artist": "Aaron Neville",
+   "title": "Tell It Like It Is",
+   "year": 1966
+  },
+  {
+   "id": "freddie-and-the-dreamers-i-understand-just-how-you-feel",
+   "artist": "Freddie and the Dreamers",
+   "title": "I Understand (Just How You Feel)",
+   "year": 1964
+  },
+  {
+   "id": "mina-fiesta-brasiliana",
+   "artist": "Mina",
+   "title": "Fiesta Brasiliana",
+   "year": 1962
+  },
+  {
+   "id": "del-shannon-keep-searchin-we-ll-follow-the-sun",
+   "artist": "Del Shannon",
+   "title": "Keep Searchin' (We'll Follow the Sun)",
+   "year": 1964
+  },
+  {
+   "id": "four-tops-shake-me-wake-me-when-it-s-over",
+   "artist": "Four Tops",
+   "title": "Shake Me, Wake Me (When It's Over)",
+   "year": 1966
+  },
+  {
+   "id": "bob-moore-mexico",
+   "artist": "Bob Moore",
+   "title": "Mexico",
+   "year": 1961
+  },
+  {
+   "id": "ben-e-king-don-t-play-that-song-you-lied",
+   "artist": "Ben E. King",
+   "title": "Don't Play That Song (You Lied)",
+   "year": 1962
+  },
+  {
+   "id": "the-electric-prunes-get-me-to-the-world-on-time",
+   "artist": "The Electric Prunes",
+   "title": "Get Me to the World on Time",
+   "year": 1967
+  },
+  {
+   "id": "andy-williams-happy-heart",
+   "artist": "Andy Williams",
+   "title": "Happy Heart",
+   "year": 1969
+  },
+  {
+   "id": "elton-john-i-ve-been-loving-you",
+   "artist": "Elton John",
+   "title": "I've Been Loving You",
+   "year": 1968
+  },
+  {
+   "id": "the-miracles-come-round-here-i-m-the-one-you-need",
+   "artist": "The Miracles",
+   "title": "(Come 'Round Here) I'm the One You Need",
+   "year": 1966
+  },
+  {
+   "id": "eden-kane-well-i-ask-you",
+   "artist": "Eden Kane",
+   "title": "Well I Ask You",
+   "year": 1961
+  },
+  {
+   "id": "hibari-misora-makkana-taiyo",
+   "artist": "Hibari Misora",
+   "title": "Makkana Taiyō",
+   "year": 1967
+  },
+  {
+   "id": "cilla-black-it-s-for-you",
+   "artist": "Cilla Black",
+   "title": "It's for You",
+   "year": 1964
+  },
+  {
+   "id": "sachi-tainaka-choucoune",
+   "artist": "Sachi Tainaka",
+   "title": "Choucoune",
+   "year": 1961
+  },
+  {
+   "id": "mario-tessuto-lisa-dagli-occhi-blu",
+   "artist": "Mario Tessuto",
+   "title": "Lisa dagli occhi blu",
+   "year": 1969
+  },
+  {
+   "id": "bert-kaempfert-a-swingin-safari",
+   "artist": "Bert Kaempfert",
+   "title": "A Swingin' Safari",
+   "year": 1962
+  },
+  {
+   "id": "freddy-cannon-palisades-park",
+   "artist": "Freddy Cannon",
+   "title": "Palisades Park",
+   "year": 1962
+  },
+  {
+   "id": "neil-diamond-cherry-cherry",
+   "artist": "Neil Diamond",
+   "title": "Cherry, Cherry",
+   "year": 1966
+  },
+  {
+   "id": "the-dave-clark-five-catch-us-if-you-can",
+   "artist": "The Dave Clark Five",
+   "title": "Catch Us If You Can",
+   "year": 1965
+  },
+  {
+   "id": "the-association-cherish",
+   "artist": "The Association",
+   "title": "Cherish",
+   "year": 1966
+  },
+  {
+   "id": "marvin-gaye-ain-t-nothing-like-the-real-thing",
+   "artist": "Marvin Gaye & Tammi Terrell",
+   "title": "Ain't Nothing Like the Real Thing",
+   "year": 1968
+  },
+  {
+   "id": "bo-diddley-road-runner",
+   "artist": "Bo Diddley",
+   "title": "Road Runner",
+   "year": 1963
+  },
+  {
+   "id": "jimmy-dean-big-bad-john",
+   "artist": "Jimmy Dean",
+   "title": "Big Bad John",
+   "year": 1961
+  },
+  {
+   "id": "unit-4-2-concrete-and-clay",
+   "artist": "Unit 4 + 2",
+   "title": "Concrete and Clay",
+   "year": 1965
+  },
+  {
+   "id": "the-capitols-cool-jerk",
+   "artist": "The Capitols",
+   "title": "Cool Jerk",
+   "year": 1966
+  },
+  {
+   "id": "marvin-gaye-can-i-get-a-witness",
+   "artist": "Marvin Gaye",
+   "title": "Can I Get a Witness",
+   "year": 1963
+  },
+  {
+   "id": "rolf-harris-tie-me-kangaroo-down-sport",
+   "artist": "Rolf Harris",
+   "title": "Tie Me Kangaroo Down, Sport",
+   "year": 1960
+  },
+  {
+   "id": "the-foundations-build-me-up-buttercup",
+   "artist": "The Foundations",
+   "title": "Build Me Up Buttercup",
+   "year": 1968
+  },
+  {
+   "id": "eddie-cochran-cut-across-shorty",
+   "artist": "Eddie Cochran",
+   "title": "Cut Across Shorty",
+   "year": 1960
+  },
+  {
+   "id": "barbara-lewis-hello-stranger",
+   "artist": "Barbara Lewis",
+   "title": "Hello Stranger",
+   "year": 1963
+  },
+  {
+   "id": "the-shadows-foot-tapper",
+   "artist": "The Shadows",
+   "title": "Foot Tapper",
+   "year": 1963
+  },
+  {
+   "id": "chicago-beginnings",
+   "artist": "Chicago",
+   "title": "Beginnings",
+   "year": 1969
+  },
+  {
+   "id": "amen-corner-gin-house-blues",
+   "artist": "Amen Corner",
+   "title": "Gin House Blues",
+   "year": 1967
+  },
+  {
+   "id": "the-delfonics-la-la-means-i-love-you",
+   "artist": "The Delfonics",
+   "title": "La-La (Means I Love You)",
+   "year": 1968
+  },
+  {
+   "id": "helen-shapiro-don-t-treat-me-like-a-child",
+   "artist": "Helen Shapiro",
+   "title": "Don't Treat Me Like a Child",
+   "year": 1961
+  },
+  {
+   "id": "blood-sweat-tears-and-when-i-die",
+   "artist": "Blood, Sweat & Tears",
+   "title": "And When I Die",
+   "year": 1969
+  },
+  {
+   "id": "mark-lindsay-arizona",
+   "artist": "Mark Lindsay",
+   "title": "Arizona",
+   "year": 1969
+  },
+  {
+   "id": "the-seeds-can-t-seem-to-make-you-mine",
+   "artist": "The Seeds",
+   "title": "Can't Seem to Make You Mine",
+   "year": 1967
+  },
+  {
+   "id": "allan-sherman-hello-muddah-hello-fadduh-a-letter-from-camp",
+   "artist": "Allan Sherman",
+   "title": "Hello Muddah, Hello Fadduh (A Letter from Camp)",
+   "year": 1963
+  },
+  {
+   "id": "martha-and-the-vandellas-jimmy-mack",
+   "artist": "Martha and the Vandellas",
+   "title": "Jimmy Mack",
+   "year": 1967
+  },
+  {
+   "id": "marvin-gaye-you-re-all-i-need-to-get-by",
+   "artist": "Marvin Gaye & Tammi Terrell",
+   "title": "You're All I Need to Get By",
+   "year": 1968
+  },
+  {
+   "id": "santana-evil-ways",
+   "artist": "Santana",
+   "title": "Evil Ways",
+   "year": 1969
+  },
+  {
+   "id": "bobby-pickett-monster-mash",
+   "artist": "Bobby Pickett",
+   "title": "Monster Mash",
+   "year": 1962
+  },
+  {
+   "id": "petula-clark-a-sign-of-the-times",
+   "artist": "Petula Clark",
+   "title": "A Sign of the Times",
+   "year": 1966
+  },
+  {
+   "id": "lonnie-donegan-i-ll-never-fall-in-love-again",
+   "artist": "Lonnie Donegan",
+   "title": "I'll Never Fall in Love Again",
+   "year": 1962
+  },
+  {
+   "id": "captain-beefheart-electricity",
+   "artist": "Captain Beefheart",
+   "title": "Electricity",
+   "year": 1967
+  },
+  {
+   "id": "manfred-mann-sha-la-la",
+   "artist": "Manfred Mann",
+   "title": "Sha La La",
+   "year": 1964
+  },
+  {
+   "id": "the-monkees-a-little-bit-me-a-little-bit-you",
+   "artist": "The Monkees",
+   "title": "A Little Bit Me, a Little Bit You",
+   "year": 1967
+  },
+  {
+   "id": "the-toys-a-lover-s-concerto",
+   "artist": "The Toys",
+   "title": "A Lover's Concerto",
+   "year": 1965
+  },
+  {
+   "id": "billy-j-kramer-i-ll-keep-you-satisfied",
+   "artist": "Billy J. Kramer",
+   "title": "I'll Keep You Satisfied",
+   "year": 1963
+  },
+  {
+   "id": "the-monkees-theme-from-the-monkees",
+   "artist": "The Monkees",
+   "title": "(Theme From) The Monkees",
+   "year": 1967
+  },
+  {
+   "id": "ike-tina-turner-i-idolize-you",
+   "artist": "Ike & Tina Turner",
+   "title": "I Idolize You",
+   "year": 1961
+  },
+  {
+   "id": "loretta-lynn-blue-kentucky-girl",
+   "artist": "Loretta Lynn",
+   "title": "Blue Kentucky Girl",
+   "year": 1965
+  },
+  {
+   "id": "brenda-lee-all-alone-am-i",
+   "artist": "Brenda Lee",
+   "title": "All Alone Am I",
+   "year": 1962
+  },
+  {
+   "id": "dale-houston-i-m-leaving-it-up-to-you",
+   "artist": "Dale Houston",
+   "title": "I'm Leaving It Up to You",
+   "year": 1963
+  },
+  {
+   "id": "love-7-and-7-is",
+   "artist": "Love",
+   "title": "7 and 7 Is",
+   "year": 1966
+  },
+  {
+   "id": "jimmy-soul-if-you-wanna-be-happy",
+   "artist": "Jimmy Soul",
+   "title": "If You Wanna Be Happy",
+   "year": 1963
+  },
+  {
+   "id": "marvin-gaye-little-darling-i-need-you",
+   "artist": "Marvin Gaye",
+   "title": "Little Darling (I Need You)",
+   "year": 1966
+  },
+  {
+   "id": "manuela-monsieur-dupont",
+   "artist": "Manuela & Sandie Shaw",
+   "title": "Monsieur Dupont",
+   "year": 1967
+  },
+  {
+   "id": "leapy-lee-little-arrows",
+   "artist": "Leapy Lee",
+   "title": "Little Arrows",
+   "year": 1968
+  },
+  {
+   "id": "sam-dave-when-something-is-wrong-with-my-baby",
+   "artist": "Sam & Dave",
+   "title": "When Something Is Wrong with My Baby",
+   "year": 1967
+  },
+  {
+   "id": "the-monkees-pleasant-valley-sunday",
+   "artist": "The Monkees",
+   "title": "Pleasant Valley Sunday",
+   "year": 1967
+  },
+  {
+   "id": "the-fortunes-here-it-comes-again",
+   "artist": "The Fortunes",
+   "title": "Here It Comes Again",
+   "year": 1965
+  },
+  {
+   "id": "the-music-explosion-little-bit-o-soul",
+   "artist": "The Music Explosion",
+   "title": "Little Bit O' Soul",
+   "year": 1967
+  },
+  {
+   "id": "keith-west-excerpt-from-a-teenage-opera",
+   "artist": "Keith West",
+   "title": "Excerpt from A Teenage Opera",
+   "year": 1967
+  },
+  {
+   "id": "dusty-springfield-i-close-my-eyes-and-count-to-ten",
+   "artist": "Dusty Springfield",
+   "title": "I Close My Eyes and Count to Ten",
+   "year": 1968
+  },
+  {
+   "id": "tammy-wynette-my-elusive-dreams",
+   "artist": "Tammy Wynette & David Houston",
+   "title": "My Elusive Dreams",
+   "year": 1967
+  },
+  {
+   "id": "the-association-never-my-love",
+   "artist": "The Association",
+   "title": "Never My Love",
+   "year": 1967
+  },
+  {
+   "id": "heinz-burt-just-like-eddie",
+   "artist": "Heinz Burt",
+   "title": "Just Like Eddie",
+   "year": 1963
+  },
+  {
+   "id": "tomorrow-my-white-bicycle",
+   "artist": "Tomorrow",
+   "title": "My White Bicycle",
+   "year": 1967
+  },
+  {
+   "id": "sonny-james-a-world-of-our-own",
+   "artist": "Sonny James",
+   "title": "A World of Our Own",
+   "year": 1968
+  },
+  {
+   "id": "bobby-lewis-tossin-and-turnin",
+   "artist": "Bobby Lewis",
+   "title": "Tossin' and Turnin'",
+   "year": 1961
+  },
+  {
+   "id": "village-singers-amairo-no-kami-no-otome",
+   "artist": "Village Singers & Hitomi Shimatani",
+   "title": "Amairo no Kami no Otome",
+   "year": 1966
+  },
+  {
+   "id": "jerry-butler-make-it-easy-on-yourself",
+   "artist": "Jerry Butler",
+   "title": "Make It Easy on Yourself",
+   "year": 1962
+  },
+  {
+   "id": "little-johnny-taylor-part-time-love",
+   "artist": "Little Johnny Taylor",
+   "title": "Part Time Love",
+   "year": 1963
+  },
+  {
+   "id": "sam-cooke-good-times",
+   "artist": "Sam Cooke",
+   "title": "Good Times",
+   "year": 1964
+  },
+  {
+   "id": "the-rooftop-singers-walk-right-in",
+   "artist": "The Rooftop Singers",
+   "title": "Walk Right In",
+   "year": 1962
+  },
+  {
+   "id": "the-delfonics-ready-or-not-here-i-come",
+   "artist": "The Delfonics",
+   "title": "Ready or Not Here I Come",
+   "year": 1968
+  },
+  {
+   "id": "the-everly-brothers-walk-right-back",
+   "artist": "The Everly Brothers",
+   "title": "Walk Right Back",
+   "year": 1961
+  },
+  {
+   "id": "the-move-fire-brigade",
+   "artist": "The Move",
+   "title": "Fire Brigade",
+   "year": 1968
+  },
+  {
+   "id": "diane-renay-navy-blue",
+   "artist": "Diane Renay",
+   "title": "Navy Blue",
+   "year": 1964
+  },
+  {
+   "id": "the-marvelettes-the-hunter-gets-captured-by-the-game",
+   "artist": "The Marvelettes",
+   "title": "The Hunter Gets Captured by the Game",
+   "year": 1966
+  },
+  {
+   "id": "brook-benton-rainy-night-in-georgia",
+   "artist": "Brook Benton",
+   "title": "Rainy Night in Georgia",
+   "year": 1969
+  },
+  {
+   "id": "spanky-and-our-gang-sunday-mornin",
+   "artist": "Spanky and Our Gang",
+   "title": "Sunday Mornin'",
+   "year": 1967
+  },
+  {
+   "id": "humble-pie-natural-born-bugie",
+   "artist": "Humble Pie",
+   "title": "Natural Born Bugie",
+   "year": 1969
+  },
+  {
+   "id": "billy-joe-royal-i-knew-you-when",
+   "artist": "Billy Joe Royal",
+   "title": "I Knew You When",
+   "year": 1965
+  },
+  {
+   "id": "the-mamas-the-papas-twelve-thirty-young-girls-are-coming-to-the-canyon",
+   "artist": "The Mamas & the Papas",
+   "title": "Twelve Thirty (Young Girls Are Coming to the Canyon)",
+   "year": 1967
+  },
+  {
+   "id": "jethro-tull-sunshine-day",
+   "artist": "Jethro Tull",
+   "title": "Sunshine Day",
+   "year": 1968
+  },
+  {
+   "id": "cher-where-do-you-go",
+   "artist": "Cher",
+   "title": "Where Do You Go",
+   "year": 1966
+  },
+  {
+   "id": "dave-dee-dozy-beaky-mick-tich-hold-tight",
+   "artist": "Dave Dee, Dozy, Beaky, Mick & Tich",
+   "title": "Hold Tight!",
+   "year": 1966
+  },
+  {
+   "id": "bobby-bland-turn-on-your-love-light",
+   "artist": "Bobby Bland",
+   "title": "Turn On Your Love Light",
+   "year": 1961
+  },
+  {
+   "id": "henry-mancini-love-theme-from-romeo-and-juliet",
+   "artist": "Henry Mancini",
+   "title": "Love Theme from Romeo and Juliet",
+   "year": 1969
+  },
+  {
+   "id": "johnny-cash-the-one-on-the-right-is-on-the-left",
+   "artist": "Johnny Cash",
+   "title": "The One on the Right Is on the Left",
+   "year": 1966
+  },
+  {
+   "id": "the-attack-hi-ho-silver-lining",
+   "artist": "The Attack",
+   "title": "Hi Ho Silver Lining",
+   "year": 1967
+  },
+  {
+   "id": "the-fortunes-you-ve-got-your-troubles",
+   "artist": "The Fortunes",
+   "title": "You've Got Your Troubles",
+   "year": 1965
+  },
+  {
+   "id": "johnny-cash-understand-your-man",
+   "artist": "Johnny Cash",
+   "title": "Understand Your Man",
+   "year": 1964
+  },
+  {
+   "id": "chubby-checker-limbo-rock",
+   "artist": "Chubby Checker",
+   "title": "Limbo Rock",
+   "year": 1962
+  },
+  {
+   "id": "ricky-nelson-young-world",
+   "artist": "Ricky Nelson",
+   "title": "Young World",
+   "year": 1962
+  },
+  {
+   "id": "shinichi-mori-minatomachi-blues",
+   "artist": "Shinichi Mori",
+   "title": "Minatomachi Blues",
+   "year": 1969
+  },
+  {
+   "id": "eddie-holman-hey-there-lonely-girl",
+   "artist": "Eddie Holman",
+   "title": "Hey There Lonely Girl",
+   "year": 1969
+  },
+  {
+   "id": "gary-u-s-bonds-quarter-to-three",
+   "artist": "Gary U.S. Bonds",
+   "title": "Quarter to Three",
+   "year": 1961
+  },
+  {
+   "id": "the-fireballs-sugar-shack",
+   "artist": "The Fireballs",
+   "title": "Sugar Shack",
+   "year": 1963
+  },
+  {
+   "id": "kiyoko-suizenji-365-step-s-march",
+   "artist": "Kiyoko Suizenji",
+   "title": "365 step's march",
+   "year": 1968
+  },
+  {
+   "id": "the-gentrys-keep-on-dancing",
+   "artist": "The Gentrys",
+   "title": "Keep On Dancing",
+   "year": 1965
+  },
+  {
+   "id": "dick-dale-let-s-go-trippin",
+   "artist": "Dick Dale",
+   "title": "Let's Go Trippin'",
+   "year": 1961
+  },
+  {
+   "id": "the-flower-pot-men-let-s-go-to-san-francisco",
+   "artist": "The Flower Pot Men",
+   "title": "Let's Go to San Francisco",
+   "year": 1967
+  },
+  {
+   "id": "the-village-stompers-washington-square",
+   "artist": "The Village Stompers",
+   "title": "Washington Square",
+   "year": 1963
+  },
+  {
+   "id": "slade-wild-winds-are-blowing",
+   "artist": "Slade",
+   "title": "Wild Winds Are Blowing",
+   "year": 1969
+  },
+  {
+   "id": "sonny-james-take-good-care-of-her",
+   "artist": "Sonny James",
+   "title": "Take Good Care of Her",
+   "year": 1961
+  },
+  {
+   "id": "gary-puckett-the-union-gap-woman-woman",
+   "artist": "Gary Puckett & The Union Gap",
+   "title": "Woman, Woman",
+   "year": 1967
+  },
+  {
+   "id": "jerry-lee-lewis-what-s-made-milwaukee-famous-has-made-a-loser-out-of-me",
+   "artist": "Jerry Lee Lewis",
+   "title": "What's Made Milwaukee Famous (Has Made a Loser Out of Me)",
+   "year": 1968
+  },
+  {
+   "id": "willie-cobbs-you-don-t-love-me",
+   "artist": "Willie Cobbs",
+   "title": "You Don't Love Me",
+   "year": 1960
+  },
+  {
+   "id": "roy-head-treat-her-right",
+   "artist": "Roy Head",
+   "title": "Treat Her Right",
+   "year": 1965
+  },
+  {
+   "id": "we-five-you-were-on-my-mind",
+   "artist": "We Five",
+   "title": "You Were on My Mind",
+   "year": 1965
+  },
+  {
+   "id": "classics-iv-stormy",
+   "artist": "Classics IV",
+   "title": "Stormy",
+   "year": 1968
+  },
+  {
+   "id": "the-tremeloes-even-the-bad-times-are-good",
+   "artist": "The Tremeloes",
+   "title": "Even the bad times are good",
+   "year": 1967
+  },
+  {
+   "id": "the-beatles-love-me-do-p-s-i-love-you",
+   "artist": "The Beatles",
+   "title": "Love Me Do / P.S. I Love You",
+   "year": 1962
+  },
+  {
+   "id": "the-real-milli-vanilli-keep-on-running",
+   "artist": "The Real Milli Vanilli & Milli Vanilli",
+   "title": "Keep On Running",
+   "year": 1965
+  },
+  {
+   "id": "jim-reeves-welcome-to-my-world",
+   "artist": "Jim Reeves",
+   "title": "Welcome to My World",
+   "year": 1964
+  },
+  {
+   "id": "anni-frid-lyngstad-harlig-ar-var-jord",
+   "artist": "Anni-Frid Lyngstad",
+   "title": "Härlig Är Vår Jord",
+   "year": 1969
+  },
+  {
+   "id": "jerry-lee-lewis-another-place-another-time",
+   "artist": "Jerry Lee Lewis",
+   "title": "Another Place, Another Time",
+   "year": 1968
+  },
+  {
+   "id": "the-grass-roots-balla-linda",
+   "artist": "The Grass Roots",
+   "title": "Balla Linda",
+   "year": 1968
+  },
+  {
+   "id": "malvina-reynolds-morningtown-ride",
+   "artist": "Malvina Reynolds",
+   "title": "Morningtown Ride",
+   "year": 1966
+  },
+  {
+   "id": "fairport-convention-meet-on-the-ledge",
+   "artist": "Fairport Convention",
+   "title": "Meet on the Ledge",
+   "year": 1968
+  },
+  {
+   "id": "tommy-mcclennan-crosscut-saw",
+   "artist": "Tommy McClennan",
+   "title": "Crosscut Saw",
+   "year": 1967
+  },
+  {
+   "id": "little-tony-cuore-matto",
+   "artist": "Little Tony",
+   "title": "Cuore matto",
+   "year": 1967
+  },
+  {
+   "id": "dave-dee-dozy-beaky-mick-tich-bend-it",
+   "artist": "Dave Dee, Dozy, Beaky, Mick & Tich",
+   "title": "Bend it",
+   "year": 1966
+  },
+  {
+   "id": "jacques-dutronc-et-moi-et-moi-et-moi",
+   "artist": "Jacques Dutronc",
+   "title": "Et moi, et moi, et moi",
+   "year": 1966
+  },
+  {
+   "id": "jacques-dutronc-j-aime-les-filles",
+   "artist": "Jacques Dutronc",
+   "title": "J'aime les filles",
+   "year": 1967
+  },
+  {
+   "id": "johnny-hallyday-tes-tendres-annees",
+   "artist": "Johnny Hallyday",
+   "title": "Tes tendres années",
+   "year": 1963
+  },
+  {
+   "id": "jacques-dutronc-les-cactus",
+   "artist": "Jacques Dutronc",
+   "title": "Les Cactus",
+   "year": 1967
+  },
+  {
+   "id": "jacques-dutronc-les-play-boys",
+   "artist": "Jacques Dutronc",
+   "title": "Les play boys",
+   "year": 1966
+  },
+  {
+   "id": "jacques-brel-au-suivant",
+   "artist": "Jacques Brel",
+   "title": "Au suivant",
+   "year": 1964
+  },
+  {
+   "id": "janis-joplin-down-on-me",
+   "artist": "Janis Joplin",
+   "title": "Down on Me",
+   "year": 1967
+  },
+  {
+   "id": "the-remains-don-t-look-back",
+   "artist": "The Remains",
+   "title": "Don't Look Back",
+   "year": 1966
+  },
+  {
+   "id": "bob-lind-elusive-butterfly",
+   "artist": "Bob Lind",
+   "title": "Elusive Butterfly",
+   "year": 1965
+  },
+  {
+   "id": "phil-ochs-draft-dodger-rag",
+   "artist": "Phil Ochs",
+   "title": "Draft Dodger Rag",
+   "year": 1966
+  },
+  {
+   "id": "leon-ashley-laura",
+   "artist": "Leon Ashley",
+   "title": "Laura",
+   "year": 1967
+  },
+  {
+   "id": "jessica-andersson-long-live-love",
+   "artist": "Jessica Andersson & Sandie Shaw",
+   "title": "Long Live Love",
+   "year": 1965
+  }
+ ]
+}
