@@ -1,0 +1,702 @@
+[
+ {
+  "id": "queen-somebody-to-love",
+  "artist": "Queen",
+  "title": "Somebody to Love",
+  "year": 1976,
+  "spotifyId": "251aFD82kJ2eCfvozNQB6b"
+ },
+ {
+  "id": "queen-killer-queen",
+  "artist": "Queen",
+  "title": "Killer Queen",
+  "year": 1973,
+  "spotifyId": "2FfX5MDUYVkg4MkvrB5eev"
+ },
+ {
+  "id": "queen-you-re-my-best-friend",
+  "artist": "Queen",
+  "title": "You're My Best Friend",
+  "year": 1976,
+  "spotifyId": "5NpLjebPN2sTg5TYT3jEqq"
+ },
+ {
+  "id": "abba-mamma-mia",
+  "artist": "ABBA",
+  "title": "Mamma Mia",
+  "year": 1975,
+  "spotifyId": "6ZGR4XGx4tiVyPoWSGgiFq"
+ },
+ {
+  "id": "michael-jackson-ben",
+  "artist": "Michael Jackson",
+  "title": "Ben",
+  "year": 1972,
+  "spotifyId": "0ZFqB9g2FujbmMSrjqsL3j"
+ },
+ {
+  "id": "the-jackson-5-i-ll-be-there",
+  "artist": "The Jackson 5",
+  "title": "I'll Be There",
+  "year": 1970,
+  "spotifyId": "1ceaAYlQHDHI0s1lVNAoUP"
+ },
+ {
+  "id": "pink-floyd-have-a-cigar",
+  "artist": "Pink Floyd & Roy Harper",
+  "title": "Have a Cigar",
+  "year": 1973,
+  "spotifyId": "1lygXidK6jEvwzsia3NEad"
+ },
+ {
+  "id": "queen-liar",
+  "artist": "Queen",
+  "title": "Liar",
+  "year": 1973,
+  "spotifyId": "6wSIhcotMYMwAwcO21uZCl"
+ },
+ {
+  "id": "lynyrd-skynyrd-free-bird",
+  "artist": "Lynyrd Skynyrd",
+  "title": "Free Bird",
+  "year": 1974,
+  "spotifyId": "5EWPGh7jbTNO2wakv8LjUI"
+ },
+ {
+  "id": "led-zeppelin-immigrant-song",
+  "artist": "Led Zeppelin",
+  "title": "Immigrant Song",
+  "year": 1970,
+  "spotifyId": "2G7woUgHMt6QBU7esQ5rsL"
+ },
+ {
+  "id": "aerosmith-dream-on",
+  "artist": "Aerosmith",
+  "title": "Dream On",
+  "year": 1973,
+  "spotifyId": "1f12TjKd4AriHUtzzn9OXy"
+ },
+ {
+  "id": "elton-john-tiny-dancer",
+  "artist": "Elton John",
+  "title": "Tiny Dancer",
+  "year": 1972,
+  "spotifyId": "2TVxnKdb3tqe1nhQWwwZCO"
+ },
+ {
+  "id": "eric-clapton-wonderful-tonight",
+  "artist": "Eric Clapton",
+  "title": "Wonderful Tonight",
+  "year": 1977,
+  "spotifyId": "1W6eWbydmdSlz7n4RKz3bZ"
+ },
+ {
+  "id": "bob-marley-the-wailers-i-shot-the-sheriff",
+  "artist": "Bob Marley & The Wailers",
+  "title": "I Shot the Sheriff",
+  "year": 1973,
+  "spotifyId": "60e5PcqGmlVFQ0HHgUagCJ"
+ },
+ {
+  "id": "ahmad-jamal-suicide-is-painless",
+  "artist": "Ahmad Jamal & Johnny Mandel",
+  "title": "Suicide Is Painless",
+  "year": 1970,
+  "spotifyId": "2tUZVeZXhniWSuHx8mBkbq"
+ },
+ {
+  "id": "the-rolling-stones-brown-sugar",
+  "artist": "The Rolling Stones",
+  "title": "Brown Sugar",
+  "year": 1971,
+  "spotifyId": "32hWC0QvDyf4kcxutOIGuj"
+ },
+ {
+  "id": "billy-joel-piano-man",
+  "artist": "Billy Joel",
+  "title": "Piano Man",
+  "year": 1973,
+  "spotifyId": "70C4NyhjD5OZUMzvWZ3njJ"
+ },
+ {
+  "id": "the-jackson-5-abc",
+  "artist": "The Jackson 5",
+  "title": "ABC",
+  "year": 1970,
+  "spotifyId": "6z1t237CaXitMg1i7oGooE"
+ },
+ {
+  "id": "led-zeppelin-rock-and-roll",
+  "artist": "Led Zeppelin",
+  "title": "Rock and Roll",
+  "year": 1972,
+  "spotifyId": "4PRGxHpCpF2yoOHYKQIEwD"
+ },
+ {
+  "id": "stevie-wonder-superstition",
+  "artist": "Stevie Wonder",
+  "title": "Superstition",
+  "year": 1972,
+  "spotifyId": "1h2xVEoJORqrg71HocgqXd"
+ },
+ {
+  "id": "black-sabbath-children-of-the-grave",
+  "artist": "Black Sabbath",
+  "title": "Children of the Grave",
+  "year": 1971,
+  "spotifyId": "3ZuVfQriS93y6ofwbIf7lp"
+ },
+ {
+  "id": "elton-john-don-t-go-breaking-my-heart",
+  "artist": "Elton John & Kiki Dee",
+  "title": "Don't Go Breaking My Heart",
+  "year": 1976,
+  "spotifyId": "3ZrPmiJe4Zi3JcSanLDVWX"
+ },
+ {
+  "id": "donna-summer-hot-stuff",
+  "artist": "Donna Summer",
+  "title": "Hot Stuff",
+  "year": 1979,
+  "spotifyId": "2zMJN9JvDlvGP4jB03l1Bz"
+ },
+ {
+  "id": "marvin-gaye-what-s-going-on",
+  "artist": "Marvin Gaye",
+  "title": "What's Going On",
+  "year": 1971,
+  "spotifyId": "4L91WHgbve1OURlKicThQ0"
+ },
+ {
+  "id": "the-doors-roadhouse-blues",
+  "artist": "The Doors",
+  "title": "Roadhouse Blues",
+  "year": 1970,
+  "spotifyId": "5ILpNfKpRr7UWyJfk6UTHf"
+ },
+ {
+  "id": "the-sugarhill-gang-rapper-s-delight",
+  "artist": "The Sugarhill Gang",
+  "title": "Rapper's Delight",
+  "year": 1979,
+  "spotifyId": "0SuljSk7P2A75vqXuMCyvi"
+ },
+ {
+  "id": "david-bowie-rebel-rebel",
+  "artist": "David Bowie",
+  "title": "Rebel Rebel",
+  "year": 1974,
+  "spotifyId": "2EC9IJj7g0mN1Q5VrZkiYY"
+ },
+ {
+  "id": "michael-jackson-happy",
+  "artist": "Michael Jackson",
+  "title": "Happy",
+  "year": 1973,
+  "spotifyId": "0pXueggTBJadQNb2KlD1T7"
+ },
+ {
+  "id": "blue-oyster-cult-don-t-fear-the-reaper",
+  "artist": "Blue Öyster Cult",
+  "title": "(Don't Fear) The Reaper",
+  "year": 1976,
+  "spotifyId": "3G3PQdcOUZTCgvhvfNGfbv"
+ },
+ {
+  "id": "iggy-pop-the-passenger",
+  "artist": "Iggy Pop",
+  "title": "The Passenger",
+  "year": 1977,
+  "spotifyId": "15BQ7vEDv2LJuh8TxWIhtd"
+ },
+ {
+  "id": "gerry-rafferty-baker-street",
+  "artist": "Gerry Rafferty",
+  "title": "Baker Street",
+  "year": 1978,
+  "spotifyId": "0eady1ff8YgWQY7bSYt7Fk"
+ },
+ {
+  "id": "paul-mccartney-maybe-i-m-amazed",
+  "artist": "Paul McCartney",
+  "title": "Maybe I'm Amazed",
+  "year": 1977,
+  "spotifyId": "1Qa0Y05al633fG8f9Peytc"
+ },
+ {
+  "id": "chaka-khan-i-m-every-woman",
+  "artist": "Chaka Khan",
+  "title": "I'm Every Woman",
+  "year": 1978,
+  "spotifyId": "1oFiPGBafH9Woo9AMwgBSl"
+ },
+ {
+  "id": "david-bowie-changes",
+  "artist": "David Bowie",
+  "title": "Changes",
+  "year": 1972,
+  "spotifyId": "0LrwgdLsFaWh9VXIjBRe8t"
+ },
+ {
+  "id": "thin-lizzy-the-boys-are-back-in-town",
+  "artist": "Thin Lizzy",
+  "title": "The Boys Are Back in Town",
+  "year": 1976,
+  "spotifyId": "43DeSV93pJPT4lCZaWZ6b1"
+ },
+ {
+  "id": "the-jackson-5-the-love-you-save",
+  "artist": "The Jackson 5",
+  "title": "The Love You Save",
+  "year": 1970,
+  "spotifyId": "3VlrkNbaDfjxhkqHe0gLXh"
+ },
+ {
+  "id": "diana-ross-theme-from-mahogany-do-you-know-where-you-re-going-to",
+  "artist": "Diana Ross",
+  "title": "Theme from Mahogany (Do You Know Where You're Going To)",
+  "year": 1975,
+  "spotifyId": "71172lOfLBvDv1fOf63J8C"
+ },
+ {
+  "id": "fleetwood-mac-rhiannon",
+  "artist": "Fleetwood Mac",
+  "title": "Rhiannon",
+  "year": 1976,
+  "spotifyId": "05oETzWbd4SI33qK2gbJfR"
+ },
+ {
+  "id": "stevie-wonder-sir-duke",
+  "artist": "Stevie Wonder",
+  "title": "Sir Duke",
+  "year": 1977,
+  "spotifyId": "2udw7RDkldLFIPG9WYdVtT"
+ },
+ {
+  "id": "kansas-carry-on-wayward-son",
+  "artist": "Kansas",
+  "title": "Carry On Wayward Son",
+  "year": 1976,
+  "spotifyId": "4DMKwE2E2iYDKY01C335Uw"
+ },
+ {
+  "id": "george-harrison-give-me-love-give-me-peace-on-earth",
+  "artist": "George Harrison",
+  "title": "Give Me Love (Give Me Peace on Earth)",
+  "year": 1973,
+  "spotifyId": "5GoStO9PhqGgVFrJwdGu5G"
+ },
+ {
+  "id": "the-police-message-in-a-bottle",
+  "artist": "The Police",
+  "title": "Message in a Bottle",
+  "year": 1979,
+  "spotifyId": "1oYYd2gnWZYrt89EBXdFiO"
+ },
+ {
+  "id": "eagles-take-it-easy",
+  "artist": "Eagles",
+  "title": "Take It Easy",
+  "year": 1972,
+  "spotifyId": "4yugZvBYaoREkJKtbG08Qr"
+ },
+ {
+  "id": "susan-boyle-mull-of-kintyre",
+  "artist": "Susan Boyle & Wings",
+  "title": "Mull of Kintyre",
+  "year": 1977,
+  "spotifyId": "66LLeoZCN2JXf4hMZW9uqy"
+ },
+ {
+  "id": "stevie-wonder-isn-t-she-lovely",
+  "artist": "Stevie Wonder",
+  "title": "Isn't She Lovely",
+  "year": 1976,
+  "spotifyId": "6RANU8AS5ICU5PEHh8BYtH"
+ },
+ {
+  "id": "michael-jackson-just-a-little-bit-of-you",
+  "artist": "Michael Jackson",
+  "title": "Just a Little Bit of You",
+  "year": 1975,
+  "spotifyId": "3Mo6boBCg65i0eLmDKEWdk"
+ },
+ {
+  "id": "wings-silly-love-songs",
+  "artist": "Wings",
+  "title": "Silly Love Songs",
+  "year": 1976,
+  "spotifyId": "7CqtjUzv9Bfw1zmVyXMrrt"
+ },
+ {
+  "id": "james-last-the-lonely-shepherd",
+  "artist": "James Last & Gheorghe Zamfir",
+  "title": "The Lonely Shepherd",
+  "year": 1977,
+  "spotifyId": "3OQEVjVEQ6CvfAJ6XhTs6c"
+ },
+ {
+  "id": "chic-good-times",
+  "artist": "Chic",
+  "title": "Good Times",
+  "year": 1979,
+  "spotifyId": "0G3fbPbE1vGeABDEZF0jeG"
+ },
+ {
+  "id": "black-sabbath-sabbath-bloody-sabbath",
+  "artist": "Black Sabbath",
+  "title": "Sabbath Bloody Sabbath",
+  "year": 1973,
+  "spotifyId": "2CzKVfVA9U7OKbIpAVPZOk"
+ },
+ {
+  "id": "the-cure-boys-don-t-cry",
+  "artist": "The Cure",
+  "title": "Boys Don't Cry",
+  "year": 1979,
+  "spotifyId": "0C2eEsMBj78CLkHNJPjohc"
+ },
+ {
+  "id": "the-police-can-t-stand-losing-you",
+  "artist": "The Police",
+  "title": "Can't Stand Losing You",
+  "year": 1978,
+  "spotifyId": "6DjKJgwe9c90Bd2iya0fre"
+ },
+ {
+  "id": "kiss-rock-and-roll-all-nite",
+  "artist": "Kiss",
+  "title": "Rock and Roll All Nite",
+  "year": 1975,
+  "spotifyId": "1Buwv1iql0YsxftE5LHIgq"
+ },
+ {
+  "id": "alice-cooper-i-m-eighteen",
+  "artist": "Alice Cooper",
+  "title": "I'm Eighteen",
+  "year": 1970,
+  "spotifyId": "3YU9X8ryOR20beT7wOlDIJ"
+ },
+ {
+  "id": "cliff-richard-power-to-all-our-friends",
+  "artist": "Cliff Richard",
+  "title": "Power to All Our Friends",
+  "year": 1973,
+  "spotifyId": "5Nq0Axfe30gVlhmWCChY5M"
+ },
+ {
+  "id": "the-rolling-stones-out-of-time",
+  "artist": "The Rolling Stones & Chris Farlowe",
+  "title": "Out of Time",
+  "year": 1975,
+  "spotifyId": "5RFYhFsx88Ged9UNmv5ORj"
+ },
+ {
+  "id": "monty-python-the-lumberjack-song",
+  "artist": "Monty Python",
+  "title": "The Lumberjack Song",
+  "year": 1975,
+  "spotifyId": "0MUZgqDmLtFaXVJyZYK5ml"
+ },
+ {
+  "id": "eagles-tequila-sunrise",
+  "artist": "Eagles",
+  "title": "Tequila Sunrise",
+  "year": 1973,
+  "spotifyId": "1WYokrkFOb9TFVuTrmxTTt"
+ },
+ {
+  "id": "billy-paul-me-and-mrs-jones",
+  "artist": "Billy Paul",
+  "title": "Me and Mrs. Jones",
+  "year": 1972,
+  "spotifyId": "5z9NjWB7C6XuO0C0bKn3DL"
+ },
+ {
+  "id": "donna-summer-love-to-love-you-baby",
+  "artist": "Donna Summer",
+  "title": "Love to Love You Baby",
+  "year": 1975,
+  "spotifyId": "3hCAdFA8uWIzi7kUBGmJ9f"
+ },
+ {
+  "id": "gilbert-o-sullivan-alone-again-naturally",
+  "artist": "Gilbert O'Sullivan",
+  "title": "Alone Again (Naturally)",
+  "year": 1972,
+  "spotifyId": "1BCaraQHgpBkDniJxt9y93"
+ },
+ {
+  "id": "carole-king-it-s-too-late",
+  "artist": "Carole King & Gloria Estefan",
+  "title": "It's Too Late",
+  "year": 1971,
+  "spotifyId": "12q3V8ShACq2PSWINMc2rC"
+ },
+ {
+  "id": "joni-mitchell-woodstock",
+  "artist": "Joni Mitchell & Crosby, Stills & Nash",
+  "title": "Woodstock",
+  "year": 1970,
+  "spotifyId": "18o4mqgG9RmPAD8aItmvkO"
+ },
+ {
+  "id": "carola-haggkvist-evergreen-love-theme-from-a-star-is-born",
+  "artist": "Carola Häggkvist & Barbra Streisand",
+  "title": "Evergreen (Love Theme from A Star Is Born)",
+  "year": 1976,
+  "spotifyId": "5SuEUz1orwSwkfqgFlJUHG"
+ },
+ {
+  "id": "the-sweet-the-ballroom-blitz",
+  "artist": "The Sweet",
+  "title": "The Ballroom Blitz",
+  "year": 1975,
+  "spotifyId": "3vkjiMiSzCAi0G4AaWbkaM"
+ },
+ {
+  "id": "black-sabbath-into-the-void",
+  "artist": "Black Sabbath",
+  "title": "Into the Void",
+  "year": 1971,
+  "spotifyId": "4chUb38ZUuvL1OST3aa063"
+ },
+ {
+  "id": "skids-the-saints-are-coming",
+  "artist": "Skids",
+  "title": "The Saints Are Coming",
+  "year": 1978,
+  "spotifyId": "0uerOeRCBEfO6yeYMZ2QIR"
+ },
+ {
+  "id": "george-mccrae-rock-your-baby",
+  "artist": "George McCrae",
+  "title": "Rock Your Baby",
+  "year": 1974,
+  "spotifyId": "0iYtGebtnGzemwehimWusQ"
+ },
+ {
+  "id": "kraftwerk-radioactivity",
+  "artist": "Kraftwerk",
+  "title": "Radioactivity",
+  "year": 1975,
+  "spotifyId": "1tguw6eK2WU9DLZdpTgdLU"
+ },
+ {
+  "id": "bruce-springsteen-blinded-by-the-light",
+  "artist": "Bruce Springsteen",
+  "title": "Blinded by the Light",
+  "year": 1973,
+  "spotifyId": "1VyDQtfhX6gqhWTGU7Oe8X"
+ },
+ {
+  "id": "focus-hocus-pocus",
+  "artist": "Focus",
+  "title": "Hocus Pocus",
+  "year": 1973,
+  "spotifyId": "2uzyiRdvfNI5WxUiItv1y9"
+ },
+ {
+  "id": "kiss-strutter",
+  "artist": "Kiss",
+  "title": "Strutter",
+  "year": 1974,
+  "spotifyId": "1qW9V4VHBtrns0YE9LOSk6"
+ },
+ {
+  "id": "ac-dc-rock-n-roll-damnation",
+  "artist": "AC/DC",
+  "title": "Rock 'n' Roll Damnation",
+  "year": 1978,
+  "spotifyId": "2308VPPaMh7Q3AX1Zap99A"
+ },
+ {
+  "id": "ohio-players-love-rollercoaster",
+  "artist": "Ohio Players",
+  "title": "Love Rollercoaster",
+  "year": 1975,
+  "spotifyId": "1zSQdv2KnZVYSOJzrcdh2L"
+ },
+ {
+  "id": "wings-listen-to-what-the-man-said",
+  "artist": "Wings",
+  "title": "Listen to What the Man Said",
+  "year": 1975,
+  "spotifyId": "5OFCht1efyntnsbKmOS63u"
+ },
+ {
+  "id": "kiss-hard-luck-woman",
+  "artist": "Kiss",
+  "title": "Hard Luck Woman",
+  "year": 1976,
+  "spotifyId": "5jL43CzksBQ1F8PBFVgPAh"
+ },
+ {
+  "id": "the-carpenters-we-ve-only-just-begun",
+  "artist": "The Carpenters",
+  "title": "We've Only Just Begun",
+  "year": 1970,
+  "spotifyId": "3m167vBQI5YLK0a1m6L6Y1"
+ },
+ {
+  "id": "aerosmith-sweet-emotion",
+  "artist": "Aerosmith",
+  "title": "Sweet Emotion",
+  "year": 1975,
+  "spotifyId": "6Q8MVZbQHD8oTJyQ6tujxx"
+ },
+ {
+  "id": "the-police-walking-on-the-moon",
+  "artist": "The Police",
+  "title": "Walking on the Moon",
+  "year": 1979,
+  "spotifyId": "62uLNJgVZaFiEiKV4LpoYJ"
+ },
+ {
+  "id": "rose-royce-car-wash",
+  "artist": "Rose Royce",
+  "title": "Car Wash",
+  "year": 1976,
+  "spotifyId": "0KDXRSNotSqW3QeA12PQy2"
+ },
+ {
+  "id": "black-sabbath-neon-knights",
+  "artist": "Black Sabbath",
+  "title": "Neon Knights",
+  "year": 1970,
+  "spotifyId": "7r2QK941qra9MDQIllJdZs"
+ },
+ {
+  "id": "barbra-streisand-you-don-t-bring-me-flowers",
+  "artist": "Barbra Streisand & Neil Diamond",
+  "title": "You Don't Bring Me Flowers",
+  "year": 1978,
+  "spotifyId": "2qwwwJRYqWjoS832s9x3Es"
+ },
+ {
+  "id": "the-communards-never-can-say-goodbye",
+  "artist": "The Communards & Gloria Gaynor",
+  "title": "Never Can Say Goodbye",
+  "year": 1971,
+  "spotifyId": "09SyJxVYFMJzjxQQ0Mb8cL"
+ },
+ {
+  "id": "ac-dc-touch-too-much",
+  "artist": "AC/DC",
+  "title": "Touch Too Much",
+  "year": 1979,
+  "spotifyId": "2j0zExWFB0PowLOeoZosjK"
+ },
+ {
+  "id": "genesis-the-carpet-crawlers",
+  "artist": "Genesis",
+  "title": "The Carpet Crawlers",
+  "year": 1975,
+  "spotifyId": "2aBV5K1gEQd8ffHDqHvXrs"
+ },
+ {
+  "id": "stealers-wheel-stuck-in-the-middle-with-you",
+  "artist": "Stealers Wheel",
+  "title": "Stuck in the Middle with You",
+  "year": 1973,
+  "spotifyId": "1b7LMtXCXGc2EwOIplI35z"
+ },
+ {
+  "id": "talking-heads-psycho-killer",
+  "artist": "Talking Heads",
+  "title": "Psycho Killer",
+  "year": 1977,
+  "spotifyId": "1i6N76fftMZhijOzFQ5ZtL"
+ },
+ {
+  "id": "the-doobie-brothers-what-a-fool-believes",
+  "artist": "The Doobie Brothers",
+  "title": "What a Fool Believes",
+  "year": 1979,
+  "spotifyId": "3994DR2nbuNoDu6au1CfyY"
+ },
+ {
+  "id": "harry-chapin-cat-s-in-the-cradle",
+  "artist": "Harry Chapin",
+  "title": "Cat's in the Cradle",
+  "year": 1974,
+  "spotifyId": "2obblQ6tcePeOEVJV6nEGD"
+ },
+ {
+  "id": "francis-cabrel-je-l-aime-a-mourir",
+  "artist": "Francis Cabrel",
+  "title": "Je l'aime à mourir",
+  "year": 1979,
+  "spotifyId": "40U2kuipBVRrReD32J2lmO"
+ },
+ {
+  "id": "sparks-this-town-ain-t-big-enough-for-both-of-us",
+  "artist": "Sparks",
+  "title": "This Town Ain't Big Enough for Both of Us",
+  "year": 1974,
+  "spotifyId": "7ovzFRyWwC7EpBGqfc73Rj"
+ },
+ {
+  "id": "the-sweet-fox-on-the-run",
+  "artist": "The Sweet",
+  "title": "Fox on the Run",
+  "year": 1975,
+  "spotifyId": "510t9BEDEHAoXaYaMpiS0z"
+ },
+ {
+  "id": "marvin-gaye-let-s-get-it-on",
+  "artist": "Marvin Gaye",
+  "title": "Let's Get It On",
+  "year": 1973,
+  "spotifyId": "3e5nLtwx5e3YE1tbT1MEKk"
+ },
+ {
+  "id": "john-williams-star-wars",
+  "artist": "John Williams",
+  "title": "Star Wars",
+  "year": 1977,
+  "spotifyId": "4aKAbknumzZGQq12xtJGC0"
+ },
+ {
+  "id": "olivia-newton-john-let-me-be-there",
+  "artist": "Olivia Newton-John",
+  "title": "Let Me Be There",
+  "year": 1974,
+  "spotifyId": "0E4HRDc8ReRr7Fy59eW2bX"
+ },
+ {
+  "id": "genesis-follow-you-follow-me",
+  "artist": "Genesis",
+  "title": "Follow You Follow Me",
+  "year": 1978,
+  "spotifyId": "0iwWlM8PNfwilQbsKUYFcS"
+ },
+ {
+  "id": "golden-earring-radar-love",
+  "artist": "Golden Earring",
+  "title": "Radar Love",
+  "year": 1973,
+  "spotifyId": "0jtADUFNlBlEQd1NXeBksm"
+ },
+ {
+  "id": "harold-melvin-the-blue-notes-if-you-don-t-know-me-by-now",
+  "artist": "Harold Melvin & the Blue Notes",
+  "title": "If You Don't Know Me by Now",
+  "year": 1972,
+  "spotifyId": "11Y5pOhc9SU4GkTSlGjxCR"
+ },
+ {
+  "id": "bruce-springsteen-spirit-in-the-night",
+  "artist": "Bruce Springsteen",
+  "title": "Spirit in the Night",
+  "year": 1973,
+  "spotifyId": "2D9YnxyNwj7qqA1JLyKYPR"
+ },
+ {
+  "id": "anita-ward-ring-my-bell",
+  "artist": "Anita Ward",
+  "title": "Ring My Bell",
+  "year": 1979,
+  "spotifyId": "2BEArHIJsI5fxYEpCZv2sF"
+ }
+]
