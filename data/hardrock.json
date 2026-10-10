@@ -1,0 +1,702 @@
+[
+ {
+  "id": "michael-jackson-beat-it",
+  "artist": "Michael Jackson",
+  "title": "Beat It",
+  "year": 1983,
+  "spotifyId": "0vAZAAtJptSeLLP4NUXNY4"
+ },
+ {
+  "id": "queen-the-show-must-go-on",
+  "artist": "Queen",
+  "title": "The Show Must Go On",
+  "year": 1991,
+  "spotifyId": "0LCWyLFPXIeg1CIC1NS712"
+ },
+ {
+  "id": "queen-another-one-bites-the-dust",
+  "artist": "Queen",
+  "title": "Another One Bites the Dust",
+  "year": 1980,
+  "spotifyId": "5vdp5UmvTsnMEMESIF2Ym7"
+ },
+ {
+  "id": "queen-i-want-it-all",
+  "artist": "Queen",
+  "title": "I Want It All",
+  "year": 1989,
+  "spotifyId": "2htmMitogin6NMGABye6YG"
+ },
+ {
+  "id": "michael-jackson-they-don-t-care-about-us",
+  "artist": "Michael Jackson",
+  "title": "They Don't Care About Us",
+  "year": 1996,
+  "spotifyId": "3wuCCNCnBhJlwkIJTBZFiv"
+ },
+ {
+  "id": "metallica-enter-sandman",
+  "artist": "Metallica",
+  "title": "Enter Sandman",
+  "year": 1991,
+  "spotifyId": "1hKdDCpiI9mqz1jVHRKG0E"
+ },
+ {
+  "id": "kimbra-somebody-that-i-used-to-know",
+  "artist": "Kimbra & Three Days Grace",
+  "title": "Somebody That I Used to Know",
+  "year": 2011,
+  "spotifyId": "1qDrWA6lyx8cLECdZE7TV7"
+ },
+ {
+  "id": "metallica-fade-to-black",
+  "artist": "Metallica",
+  "title": "Fade to Black",
+  "year": 1984,
+  "spotifyId": "0dqGfCMAGyDgpUAgLNOjWd"
+ },
+ {
+  "id": "metallica-until-it-sleeps",
+  "artist": "Metallica",
+  "title": "Until It Sleeps",
+  "year": 1996,
+  "spotifyId": "2Iv4HSoMX2fDeXFcOJWyWX"
+ },
+ {
+  "id": "lynyrd-skynyrd-free-bird",
+  "artist": "Lynyrd Skynyrd",
+  "title": "Free Bird",
+  "year": 1974,
+  "spotifyId": "5EWPGh7jbTNO2wakv8LjUI"
+ },
+ {
+  "id": "bon-jovi-livin-on-a-prayer",
+  "artist": "Bon Jovi",
+  "title": "Livin' on a Prayer",
+  "year": 1986,
+  "spotifyId": "0ee1DiZF94NSqqpG0XHUzH"
+ },
+ {
+  "id": "led-zeppelin-immigrant-song",
+  "artist": "Led Zeppelin",
+  "title": "Immigrant Song",
+  "year": 1970,
+  "spotifyId": "2G7woUgHMt6QBU7esQ5rsL"
+ },
+ {
+  "id": "iron-maiden-run-to-the-hills",
+  "artist": "Iron Maiden",
+  "title": "Run to the Hills",
+  "year": 1982,
+  "spotifyId": "4Zc7TCHzuNwL0AFBlyLdyr"
+ },
+ {
+  "id": "iron-maiden-the-trooper",
+  "artist": "Iron Maiden",
+  "title": "The Trooper",
+  "year": 1983,
+  "spotifyId": "3JlZD0amss9ftlE836VKx5"
+ },
+ {
+  "id": "ac-dc-hells-bells",
+  "artist": "AC/DC",
+  "title": "Hells Bells",
+  "year": 1980,
+  "spotifyId": "2P884dqfjksDMSzUZksfrS"
+ },
+ {
+  "id": "iron-maiden-2-minutes-to-midnight",
+  "artist": "Iron Maiden",
+  "title": "2 Minutes to Midnight",
+  "year": 1984,
+  "spotifyId": "2SrVGpjv0mqCR6j9EZPSm2"
+ },
+ {
+  "id": "iron-maiden-wasted-years",
+  "artist": "Iron Maiden",
+  "title": "Wasted Years",
+  "year": 1986,
+  "spotifyId": "1HM7Vp84E4SMzdrZONg6bH"
+ },
+ {
+  "id": "def-leppard-pour-some-sugar-on-me",
+  "artist": "Def Leppard",
+  "title": "Pour Some Sugar on Me",
+  "year": 1987,
+  "spotifyId": "1aZLIbKEdsyqxyD6iNcrbA"
+ },
+ {
+  "id": "ac-dc-back-in-black",
+  "artist": "AC/DC",
+  "title": "Back in Black",
+  "year": 1981,
+  "spotifyId": "08mG3Y1vljYA6bvDt4Wqkj"
+ },
+ {
+  "id": "led-zeppelin-rock-and-roll",
+  "artist": "Led Zeppelin",
+  "title": "Rock and Roll",
+  "year": 1972,
+  "spotifyId": "4PRGxHpCpF2yoOHYKQIEwD"
+ },
+ {
+  "id": "guns-n-roses-estranged",
+  "artist": "Guns N' Roses",
+  "title": "Estranged",
+  "year": 1994,
+  "spotifyId": "3s03nrUInN3NAVjQtmnS0O"
+ },
+ {
+  "id": "bon-jovi-you-give-love-a-bad-name",
+  "artist": "Bon Jovi",
+  "title": "You Give Love a Bad Name",
+  "year": 1986,
+  "spotifyId": "0rmGAIH9LNJewFw7nKzZnc"
+ },
+ {
+  "id": "bon-jovi-runaway",
+  "artist": "Bon Jovi",
+  "title": "Runaway",
+  "year": 1983,
+  "spotifyId": "0X1sqQ652p1sceKM2nJlIJ"
+ },
+ {
+  "id": "motorhead-ace-of-spades",
+  "artist": "Motörhead",
+  "title": "Ace of Spades",
+  "year": 1980,
+  "spotifyId": "6EPRKhUOdiFSQwGBRBbvsZ"
+ },
+ {
+  "id": "foo-fighters-the-pretender",
+  "artist": "Foo Fighters",
+  "title": "The Pretender",
+  "year": 2007,
+  "spotifyId": "7x8dCjCr0x6x2lXKujYD34"
+ },
+ {
+  "id": "lavina-kraj-mene",
+  "artist": "Lavina",
+  "title": "Kraj mene",
+  "year": 2026,
+  "spotifyId": "3cnVAUGWZcXNqojO8PfYOu"
+ },
+ {
+  "id": "bon-jovi-i-ll-be-there-for-you",
+  "artist": "Bon Jovi",
+  "title": "I'll Be There for You",
+  "year": 1989,
+  "spotifyId": "67YIAxlMlfSNmbnt83zGKh"
+ },
+ {
+  "id": "guns-n-roses-it-s-so-easy",
+  "artist": "Guns N' Roses",
+  "title": "It's So Easy",
+  "year": 1987,
+  "spotifyId": "2WVWmSXw34CnnUBcR24jcZ"
+ },
+ {
+  "id": "thin-lizzy-the-boys-are-back-in-town",
+  "artist": "Thin Lizzy",
+  "title": "The Boys Are Back in Town",
+  "year": 1976,
+  "spotifyId": "43DeSV93pJPT4lCZaWZ6b1"
+ },
+ {
+  "id": "eminem-berzerk",
+  "artist": "Eminem",
+  "title": "Berzerk",
+  "year": 2013,
+  "spotifyId": "07CFyqCp3ScKIrZQLDd48J"
+ },
+ {
+  "id": "ozzy-osbourne-mr-crowley",
+  "artist": "Ozzy Osbourne",
+  "title": "Mr. Crowley",
+  "year": 1980,
+  "spotifyId": "2ov8L95QD25TLpZAZPYWXL"
+ },
+ {
+  "id": "system-of-a-down-hypnotize",
+  "artist": "System of a Down",
+  "title": "Hypnotize",
+  "year": 2005,
+  "spotifyId": "16gpk3oHK8Ela7QbRNGjJd"
+ },
+ {
+  "id": "led-zeppelin-trampled-under-foot",
+  "artist": "Led Zeppelin",
+  "title": "Trampled Under Foot",
+  "year": 1975,
+  "spotifyId": "2g7iUTiLRue30KAXnesFgt"
+ },
+ {
+  "id": "aerosmith-amazing",
+  "artist": "Aerosmith",
+  "title": "Amazing",
+  "year": 1993,
+  "spotifyId": "4sjewq2HyPY7QECdCctCey"
+ },
+ {
+  "id": "guns-n-roses-yesterdays",
+  "artist": "Guns N' Roses",
+  "title": "Yesterdays",
+  "year": 1992,
+  "spotifyId": "11VGhd5i7deLL0YB0ayicY"
+ },
+ {
+  "id": "billy-idol-rebel-yell",
+  "artist": "Billy Idol",
+  "title": "Rebel Yell",
+  "year": 1984,
+  "spotifyId": "4TIJ7zSBNejpoIPaWpWRKc"
+ },
+ {
+  "id": "skid-row-18-and-life",
+  "artist": "Skid Row",
+  "title": "18 and Life",
+  "year": 1989,
+  "spotifyId": "0qgrrDnUUhyxpxbBznUnzg"
+ },
+ {
+  "id": "black-sabbath-sabbath-bloody-sabbath",
+  "artist": "Black Sabbath",
+  "title": "Sabbath Bloody Sabbath",
+  "year": 1973,
+  "spotifyId": "2CzKVfVA9U7OKbIpAVPZOk"
+ },
+ {
+  "id": "zz-top-gimme-all-your-lovin",
+  "artist": "ZZ Top",
+  "title": "Gimme All Your Lovin'",
+  "year": 1983,
+  "spotifyId": "4vTjzqtWV7tc8r5RAX2e2R"
+ },
+ {
+  "id": "aerosmith-love-in-an-elevator",
+  "artist": "Aerosmith",
+  "title": "Love in an Elevator",
+  "year": 1989,
+  "spotifyId": "1l6DV8qhmCdgOKLSAFzPOe"
+ },
+ {
+  "id": "elton-john-the-bitch-is-back",
+  "artist": "Elton John",
+  "title": "The Bitch Is Back",
+  "year": 1974,
+  "spotifyId": "40tnCfx2mTtHozyaRDcYC5"
+ },
+ {
+  "id": "kiss-rock-and-roll-all-nite",
+  "artist": "Kiss",
+  "title": "Rock and Roll All Nite",
+  "year": 1975,
+  "spotifyId": "1Buwv1iql0YsxftE5LHIgq"
+ },
+ {
+  "id": "alice-cooper-i-m-eighteen",
+  "artist": "Alice Cooper",
+  "title": "I'm Eighteen",
+  "year": 1970,
+  "spotifyId": "3YU9X8ryOR20beT7wOlDIJ"
+ },
+ {
+  "id": "whitesnake-here-i-go-again",
+  "artist": "Whitesnake",
+  "title": "Here I Go Again",
+  "year": 1982,
+  "spotifyId": "6Nd6ntkzr4t8o1FKPGOSMt"
+ },
+ {
+  "id": "aerosmith-jaded",
+  "artist": "Aerosmith",
+  "title": "Jaded",
+  "year": 2000,
+  "spotifyId": "3RdRYya2FRazuFlmeaYPnQ"
+ },
+ {
+  "id": "poison-every-rose-has-its-thorn",
+  "artist": "Poison",
+  "title": "Every Rose Has Its Thorn",
+  "year": 1988,
+  "spotifyId": "43GS3mtezoIFiuIZCLLiDY"
+ },
+ {
+  "id": "aerosmith-livin-on-the-edge",
+  "artist": "Aerosmith",
+  "title": "Livin' on the Edge",
+  "year": 1993,
+  "spotifyId": "6KqyaZhHvnIJNVbl7q4QIP"
+ },
+ {
+  "id": "black-sabbath-into-the-void",
+  "artist": "Black Sabbath",
+  "title": "Into the Void",
+  "year": 1971,
+  "spotifyId": "4chUb38ZUuvL1OST3aa063"
+ },
+ {
+  "id": "ozzy-osbourne-mama-i-m-coming-home",
+  "artist": "Ozzy Osbourne",
+  "title": "Mama, I'm Coming Home",
+  "year": 1991,
+  "spotifyId": "0S3gpZzlT9Hb7CCSV2owX7"
+ },
+ {
+  "id": "pantera-cemetery-gates",
+  "artist": "Pantera",
+  "title": "Cemetery Gates",
+  "year": 1990,
+  "spotifyId": "4vJr55lngvhSM8WIh9CjQc"
+ },
+ {
+  "id": "black-sabbath-neon-knights",
+  "artist": "Black Sabbath",
+  "title": "Neon Knights",
+  "year": 1970,
+  "spotifyId": "7r2QK941qra9MDQIllJdZs"
+ },
+ {
+  "id": "babymetal-headbangeeeeerrrrr",
+  "artist": "Babymetal",
+  "title": "Headbangeeeeerrrrr!!!!!",
+  "year": 2012,
+  "spotifyId": "10aksQNPKyp3PnVvEY4FMe"
+ },
+ {
+  "id": "babymetal-ijime-dame-zettai",
+  "artist": "Babymetal",
+  "title": "Ijime, Dame, Zettai",
+  "year": 2013,
+  "spotifyId": "14kftrUAV4BWqIDUvmFeD2"
+ },
+ {
+  "id": "babymetal-megitsune",
+  "artist": "Babymetal",
+  "title": "Megitsune",
+  "year": 2013,
+  "spotifyId": "1CQ42f6Q8cPXVxfOIBCl7t"
+ },
+ {
+  "id": "whitesnake-is-this-love",
+  "artist": "Whitesnake",
+  "title": "Is This Love",
+  "year": 1987,
+  "spotifyId": "3pHpV3pa96s4vuBP7sQq0V"
+ },
+ {
+  "id": "katy-perry-hummingbird-heartbeat",
+  "artist": "Katy Perry",
+  "title": "Hummingbird Heartbeat",
+  "year": 2012,
+  "spotifyId": "1uM6OE2RizZJBzbZ4NqfaQ"
+ },
+ {
+  "id": "kiss-strutter",
+  "artist": "Kiss",
+  "title": "Strutter",
+  "year": 1974,
+  "spotifyId": "1qW9V4VHBtrns0YE9LOSk6"
+ },
+ {
+  "id": "def-leppard-animal",
+  "artist": "Def Leppard",
+  "title": "Animal",
+  "year": 1987,
+  "spotifyId": "4qjscZh4jfhkpcQG4ZQfi2"
+ },
+ {
+  "id": "maneskin-i-wanna-be-your-slave",
+  "artist": "Måneskin",
+  "title": "I Wanna Be Your Slave",
+  "year": 2021,
+  "spotifyId": "4pt5fDVTg5GhEvEtlz9dKk"
+ },
+ {
+  "id": "motley-crue-home-sweet-home",
+  "artist": "Mötley Crüe",
+  "title": "Home Sweet Home",
+  "year": 1985,
+  "spotifyId": "2T9Pco5PVzA9U4icwlQkp4"
+ },
+ {
+  "id": "europe-rock-the-night",
+  "artist": "Europe",
+  "title": "Rock the Night",
+  "year": 1985,
+  "spotifyId": "4UQsy5ht5ZjSuKAL5Q7GBR"
+ },
+ {
+  "id": "kiss-god-gave-rock-n-roll-to-you-ii",
+  "artist": "Kiss",
+  "title": "God Gave Rock 'N' Roll to You II",
+  "year": 1991,
+  "spotifyId": "0awpbUi269kJbiukaK8XSA"
+ },
+ {
+  "id": "judas-priest-painkiller",
+  "artist": "Judas Priest",
+  "title": "Painkiller",
+  "year": 1990,
+  "spotifyId": "0L7zm6afBEtrNKo6C6Gj08"
+ },
+ {
+  "id": "manic-street-preachers-motorcycle-emptiness",
+  "artist": "Manic Street Preachers",
+  "title": "Motorcycle Emptiness",
+  "year": 1992,
+  "spotifyId": "5ibELGcXGqX5x9TWFeNPxY"
+ },
+ {
+  "id": "black-sabbath-n-i-b",
+  "artist": "Black Sabbath",
+  "title": "N.I.B.",
+  "year": 2000,
+  "spotifyId": "3XclwoQxz4p6Dl7VUf90KW"
+ },
+ {
+  "id": "def-leppard-photograph",
+  "artist": "Def Leppard",
+  "title": "Photograph",
+  "year": 1983,
+  "spotifyId": "18URo35acNKRTHfEdjTcGn"
+ },
+ {
+  "id": "nickelback-burn-it-to-the-ground",
+  "artist": "Nickelback",
+  "title": "Burn It to the Ground",
+  "year": 2009,
+  "spotifyId": "3B8NyX2Wyl3rNSQ5goyTOX"
+ },
+ {
+  "id": "queens-of-the-stone-age-no-one-knows",
+  "artist": "Queens of the Stone Age",
+  "title": "No One Knows",
+  "year": 2002,
+  "spotifyId": "6y20BV5L33R8YXM0YuI38N"
+ },
+ {
+  "id": "billy-idol-white-wedding",
+  "artist": "Billy Idol",
+  "title": "White Wedding",
+  "year": 1982,
+  "spotifyId": "1gzIbdFnGJ226LTl0Cn2SX"
+ },
+ {
+  "id": "judas-priest-living-after-midnight",
+  "artist": "Judas Priest",
+  "title": "Living After Midnight",
+  "year": 1980,
+  "spotifyId": "0IXpUl1fn2QZcBavfuq0H4"
+ },
+ {
+  "id": "pantera-hollow",
+  "artist": "Pantera",
+  "title": "Hollow",
+  "year": 1992,
+  "spotifyId": "1lM1ZHTvfKi5CMRjsZ4Sg9"
+ },
+ {
+  "id": "ozzy-osbourne-no-more-tears",
+  "artist": "Ozzy Osbourne",
+  "title": "No More Tears",
+  "year": 1991,
+  "spotifyId": "7w6PJe5KBPyvuRYxFkPssC"
+ },
+ {
+  "id": "van-halen-runnin-with-the-devil",
+  "artist": "Van Halen",
+  "title": "Runnin' with the Devil",
+  "year": 1978,
+  "spotifyId": "1WbMAxHieH1wOCg5WVav9n"
+ },
+ {
+  "id": "sepultura-roots-bloody-roots",
+  "artist": "Sepultura",
+  "title": "Roots Bloody Roots",
+  "year": 1996,
+  "spotifyId": "6ursmCnbc9oDRGa2yHKkoZ"
+ },
+ {
+  "id": "alice-in-chains-bleed-the-freak",
+  "artist": "Alice in Chains",
+  "title": "Bleed the Freak",
+  "year": 1991,
+  "spotifyId": "60l2m3BD5VY0HSc3xmSpPI"
+ },
+ {
+  "id": "slipknot-the-negative-one",
+  "artist": "Slipknot",
+  "title": "The Negative One",
+  "year": 2014,
+  "spotifyId": "1xn6RBUCgZBYyaNRaqeVWP"
+ },
+ {
+  "id": "babymetal-doki-doki-morning",
+  "artist": "Babymetal",
+  "title": "Doki Doki Morning",
+  "year": 2011,
+  "spotifyId": "1XxgpRtYbcGKgyfjDY4qrI"
+ },
+ {
+  "id": "deep-purple-kentucky-woman",
+  "artist": "Deep Purple & Neil Diamond",
+  "title": "Kentucky Woman",
+  "year": 1967,
+  "spotifyId": "3rI5e4tFTlWEwJi4TjLeGT"
+ },
+ {
+  "id": "golden-earring-radar-love",
+  "artist": "Golden Earring",
+  "title": "Radar Love",
+  "year": 1973,
+  "spotifyId": "0jtADUFNlBlEQd1NXeBksm"
+ },
+ {
+  "id": "van-halen-hot-for-teacher",
+  "artist": "Van Halen",
+  "title": "Hot for Teacher",
+  "year": 1984,
+  "spotifyId": "0MZmEMfLVAcFIvyoBiV2EU"
+ },
+ {
+  "id": "scorpions-big-city-nights",
+  "artist": "Scorpions",
+  "title": "Big City Nights",
+  "year": 1984,
+  "spotifyId": "0lts4KdrQAks3PlKN71dZ9"
+ },
+ {
+  "id": "alice-in-chains-check-my-brain",
+  "artist": "Alice in Chains",
+  "title": "Check My Brain",
+  "year": 2009,
+  "spotifyId": "0Fl8ciGpmcUezzgaSKvysd"
+ },
+ {
+  "id": "alice-cooper-bed-of-nails",
+  "artist": "Alice Cooper",
+  "title": "Bed of Nails",
+  "year": 1989,
+  "spotifyId": "5XeT9fYCeg1jYithrEni7v"
+ },
+ {
+  "id": "accept-fast-as-a-shark",
+  "artist": "Accept",
+  "title": "Fast as a Shark",
+  "year": 1982,
+  "spotifyId": "204523f9MSgEfc0oDJycNS"
+ },
+ {
+  "id": "queens-of-the-stone-age-sick-sick-sick",
+  "artist": "Queens of the Stone Age",
+  "title": "Sick, Sick, Sick",
+  "year": 2007,
+  "spotifyId": "198LilxRB1b6n1jfw4WoMh"
+ },
+ {
+  "id": "stratovarius-eagleheart",
+  "artist": "Stratovarius",
+  "title": "Eagleheart",
+  "year": 2002,
+  "spotifyId": "0wC8UdkflVFiR95fL55Uzd"
+ },
+ {
+  "id": "queens-of-the-stone-age-3-s-7-s",
+  "artist": "Queens of the Stone Age",
+  "title": "3's & 7's",
+  "year": 2007,
+  "spotifyId": "44JEbGi3NxptsEuxDNGiAR"
+ },
+ {
+  "id": "helloween-dr-stein",
+  "artist": "Helloween",
+  "title": "Dr. Stein",
+  "year": 1988,
+  "spotifyId": "12pcxqPOWbBv9T82Z9lRMp"
+ },
+ {
+  "id": "skid-row-youth-gone-wild",
+  "artist": "Skid Row",
+  "title": "Youth Gone Wild",
+  "year": 1989,
+  "spotifyId": "1jF5Id0OPFU1Mae8BEUF5u"
+ },
+ {
+  "id": "judas-priest-turbo-lover",
+  "artist": "Judas Priest",
+  "title": "Turbo Lover",
+  "year": 1986,
+  "spotifyId": "1i5yWGXgtFABa0czv2pbZH"
+ },
+ {
+  "id": "bullet-for-my-valentine-your-betrayal",
+  "artist": "Bullet for My Valentine",
+  "title": "Your Betrayal",
+  "year": 2010,
+  "spotifyId": "4PPQzCMd5E7yG63A3NCLRi"
+ },
+ {
+  "id": "alice-in-chains-fear-the-voices",
+  "artist": "Alice in Chains",
+  "title": "Fear the Voices",
+  "year": 1999,
+  "spotifyId": "46V6ClSTW70NQbhaD9N39x"
+ },
+ {
+  "id": "zz-top-doubleback",
+  "artist": "ZZ Top",
+  "title": "Doubleback",
+  "year": 1990,
+  "spotifyId": "1HzKnn2IQEYEgaQqAB2aim"
+ },
+ {
+  "id": "foo-fighters-low",
+  "artist": "Foo Fighters",
+  "title": "Low",
+  "year": 2003,
+  "spotifyId": "3j8ja2Hq824OaRqIENJPTH"
+ },
+ {
+  "id": "thin-lizzy-jailbreak",
+  "artist": "Thin Lizzy",
+  "title": "Jailbreak",
+  "year": 1976,
+  "spotifyId": "4qbiCq2xkNPyojuZFeNeqx"
+ },
+ {
+  "id": "mike-oldfield-shadow-on-the-wall",
+  "artist": "Mike Oldfield",
+  "title": "Shadow on the Wall",
+  "year": 1983,
+  "spotifyId": "4R5dJUADOn8FqPen4Dv1nJ"
+ },
+ {
+  "id": "zz-top-got-me-under-pressure",
+  "artist": "ZZ Top",
+  "title": "Got Me Under Pressure",
+  "year": 1983,
+  "spotifyId": "2iPaJ8M9N1YZEyOcuxElrQ"
+ },
+ {
+  "id": "skid-row-i-remember-you",
+  "artist": "Skid Row",
+  "title": "I Remember You",
+  "year": 1989,
+  "spotifyId": "4ZpXHlV2vQVfPXUvbDSZ92"
+ },
+ {
+  "id": "europe-cherokee",
+  "artist": "Europe",
+  "title": "Cherokee",
+  "year": 1987,
+  "spotifyId": "6Q5msXoJZe69wBdSH35uTs"
+ },
+ {
+  "id": "stratovarius-s-o-s",
+  "artist": "Stratovarius",
+  "title": "S.O.S.",
+  "year": 1998,
+  "spotifyId": "2YiGsIvV2bF73JcMsjF784"
+ }
+]
