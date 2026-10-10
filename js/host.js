@@ -275,10 +275,10 @@ function playLinks(song) {
   const app = spotifyAppUrl(song);
   const web = esc(spotifyUrl(song));
   if (!app) {
-    return `<a id="play" class="button big huge" href="${web}" target="_blank" rel="noopener">Spela låten i Spotify<kbd>Enter</kbd></a>
+    return `<a id="play" class="button big huge" href="${web}" target="_blank" rel="noopener">Spela låten i Spotify</a>
       <p class="muted small">Länken öppnar en sökning i Spotify. Välj översta träffen.</p>`;
   }
-  return `<a id="play" class="button big huge" href="${esc(app)}">Spela låten i Spotify-appen<kbd>Enter</kbd></a>
+  return `<a id="play" class="button big huge" href="${esc(app)}">Spela låten i Spotify-appen</a>
     <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
 }
 
@@ -299,7 +299,7 @@ function render() {
   if (!round) {
     stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.
       Låten öppnas i Spotify och timern startar. Stoppa låten efter ungefär 10 sekunder.</p>
-      <button id="next" class="big huge">Nästa låt<kbd>Enter</kbd></button>`;
+      <button id="next" class="big huge">Nästa låt</button>`;
   } else if (round.phase === 'ready') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <p>Klicka på knappen. Låten öppnas i Spotify och timern startar.
@@ -309,7 +309,7 @@ function render() {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
       <p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>
-      <button id="reveal" class="secondary">Visa svar nu<kbd>Enter</kbd></button>
+      <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
   } else {
@@ -318,8 +318,8 @@ function render() {
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
       ${state.winners
         ? `<div class="winner">${esc(winnerNames())} vinner!</div>
-           <button id="restart" class="big huge">Ny match med samma spelare<kbd>Enter</kbd></button>`
-        : '<button id="next" class="big huge">Nästa låt<kbd>Enter</kbd></button>'}`;
+           <button id="restart" class="big huge">Ny match med samma spelare</button>`
+        : '<button id="next" class="big huge">Nästa låt</button>'}`;
   }
   renderPlayers();
 }

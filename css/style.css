@@ -158,22 +158,6 @@ button.link:hover { color: var(--text); text-decoration: underline; }
   margin: 16px 0;
 }
 
-kbd {
-  margin-left: 10px;
-  padding: 2px 7px;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 0.7rem;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  vertical-align: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  color: inherit;
-  opacity: 0.85;
-}
-.secondary kbd { background: var(--surface-2); color: var(--muted); }
-
 /* Etiketter */
 .tag {
   display: inline-block;

@@ -18,13 +18,8 @@ function open({ title, message, okText = 'OK', cancelText = null, danger = false
   dialog.querySelector('p').textContent = message;
   const ok = dialog.querySelector('.ok');
   ok.textContent = okText;
-  ok.insertAdjacentHTML('beforeend', '<kbd>Enter</kbd>');
   if (danger) ok.classList.add('danger');
-  if (cancelText) {
-    const cancel = dialog.querySelector('[value=cancel]');
-    cancel.textContent = cancelText;
-    cancel.insertAdjacentHTML('beforeend', '<kbd>Esc</kbd>');
-  }
+  if (cancelText) dialog.querySelector('[value=cancel]').textContent = cancelText;
 
   // Klick på bakgrunden stänger som Avbryt.
   dialog.addEventListener('click', (e) => {
