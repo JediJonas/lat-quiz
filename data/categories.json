@@ -1,5 +1,6 @@
 [
   { "id": "80-tal", "name": "80-talspop", "file": "80-tal.json" },
   { "id": "2010-tal", "name": "2010-talet", "file": "2010-tal.json" },
-  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } }
+  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } },
+  { "id": "2000-tal", "name": "2000-talets hits", "file": "2000-tal.json" }
 ]
