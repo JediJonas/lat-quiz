@@ -260,8 +260,8 @@ function showSettings(current) {
 }
 
 function settingsSummary(s) {
-  return [`${s.roundMs / 1000} s betänketid`, s.bonusMs ? `bonus inom ${s.bonusMs / 1000} s` : 'ingen bonus',
-    `först till ${s.winScore} poäng`].join(' · ');
+  return [`Tid ${s.roundMs / 1000} s`, s.bonusMs ? `Bonus ${s.bonusMs / 1000} s` : 'Ingen bonus',
+    `Först till ${s.winScore}`].join(' · ');
 }
 
 async function editSettings() {
