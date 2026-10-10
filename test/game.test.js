@@ -122,7 +122,7 @@ test('spelarna ser vilka fält alla har fyllt i, och allas rättning efteråt', 
   assert.equal(playing.results, null);
   reveal(state);
   const revealed = playerView(state, 'p2', 2000).round;
-  assert.equal(revealed.progress, null);
+  assert.deepEqual(revealed.progress.p2, { artist: false, title: false });
   assert.deepEqual(revealed.results.p1, state.round.results.p1);
 });
 
