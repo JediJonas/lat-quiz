@@ -45,7 +45,9 @@ export function statusTags({ phase, progress, result, labels, esc, points = true
     return tag(progress.artist ? 'answered' : '', labels.artist) + tag(progress.title ? 'answered' : '', labels.title);
   }
   if (phase === 'revealed' && result) {
-    return tag(result.artist ? 'good' : 'bad', labels.artist) + tag(result.title ? 'good' : 'bad', labels.title)
+    // Grått för fält som inte besvarades, rött bara för fel svar.
+    const graded = (field) => (result[field] ? 'good' : progress && !progress[field] ? '' : 'bad');
+    return tag(graded('artist'), labels.artist) + tag(graded('title'), labels.title)
       + (result.bonus ? tag('bonus', 'Bonus') : '') + (points ? ` <strong>+${result.points}</strong>` : '');
   }
   return '';
