@@ -1,9 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { baseTitle, pickItunesTrack, spotifyFromOdesli } from '../js/lookup.js';
+import { baseTitle, pickWikidataTrack, parseSpotifyId } from '../js/lookup.js';
 
 const song = { artist: 'a-ha', title: 'Take On Me' };
-const track = (o) => ({ kind: 'song', artistName: 'a-ha', trackName: 'Take On Me', collectionName: 'Hunting High and Low', releaseDate: '1985-06-01', ...o });
 
 test('tillägg som remaster och version tas bort från titeln', () => {
   assert.equal(baseTitle('Take On Me (2015 Remaster)'), 'take on me');
@@ -11,28 +10,24 @@ test('tillägg som remaster och version tas bort från titeln', () => {
   assert.equal(baseTitle("Livin' on a Prayer"), 'livin on a prayer');
 });
 
-test('originalet väljs före live, karaoke och senare utgåvor', () => {
-  const picked = pickItunesTrack(song, [
-    track({ trackName: 'Take On Me (Live)', releaseDate: '1980-01-01' }),
-    track({ artistName: 'Karaoke Hits', collectionName: 'Karaoke 80s', releaseDate: '1970-01-01' }),
-    track({ trackName: 'Take On Me (2015 Remaster)', collectionName: 'Best Of', releaseDate: '2015-01-01' }),
-    track({ trackViewUrl: 'original' }),
-    track({ trackName: 'Take On Me', artistName: 'Weezer', releaseDate: '1984-01-01' }),
-  ]);
-  assert.equal(picked.trackViewUrl, 'original');
+test('träffen från Wikidata måste ha rätt artist och titel', () => {
+  const rows = [
+    { title: 'Take On Me', performer: 'Weezer', spotify: 'weezer' },
+    { title: 'Take Me On', performer: 'a-ha', spotify: 'fel-titel' },
+    { title: 'Take On Me', performer: 'a-ha', spotify: 'ratt' },
+  ];
+  assert.equal(pickWikidataTrack(song, rows).spotify, 'ratt');
+  assert.equal(pickWikidataTrack(song, rows.slice(0, 2)), null);
+  assert.equal(pickWikidataTrack({ artist: 'Wham!', title: 'Last Christmas' },
+    [{ title: 'Last Christmas', performer: 'Wham!', spotify: 'x' }]).spotify, 'x');
 });
 
-test('ingen träff när artist eller titel inte stämmer', () => {
-  assert.equal(pickItunesTrack(song, [track({ artistName: 'Europe' }), track({ trackName: 'The Sun Always Shines on T.V.' })]), null);
-});
-
-test('Spotify-träffen kontrolleras mot artist och titel', () => {
-  const data = (artistName, title) => ({
-    linksByPlatform: { spotify: { entityUniqueId: 'SPOTIFY_SONG::abc', url: 'https://open.spotify.com/track/abc' } },
-    entitiesByUniqueId: { 'SPOTIFY_SONG::abc': { id: 'abc', artistName, title } },
-  });
-  assert.equal(spotifyFromOdesli(song, data('a-ha', 'Take On Me - 2017 Remaster')).status, 'ok');
-  assert.equal(spotifyFromOdesli(song, data('a-ha', 'Take On Me')).id, 'abc');
-  assert.equal(spotifyFromOdesli(song, data('Weezer', 'Take On Me')).status, 'osäker');
-  assert.equal(spotifyFromOdesli(song, { linksByPlatform: {} }).status, 'saknas');
+test('Spotify-ID läses ur länk, URI och bart ID', () => {
+  const id = '2WfaOiMkCvy7F5fcp2zZ8L';
+  assert.equal(parseSpotifyId(`https://open.spotify.com/track/${id}?si=abc123`), id);
+  assert.equal(parseSpotifyId(`https://open.spotify.com/intl-sv/track/${id}`), id);
+  assert.equal(parseSpotifyId(`spotify:track:${id}`), id);
+  assert.equal(parseSpotifyId(id), id);
+  assert.equal(parseSpotifyId('https://open.spotify.com/album/kort'), null);
+  assert.equal(parseSpotifyId(''), null);
 });

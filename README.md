@@ -42,4 +42,4 @@ npm test
 
 ## Spotify-ID
 
-`verktyg/spotify-id.html` slår upp Spotify-ID för låtarna i en kategori. Den söker hos iTunes och översätter via Song.link, som tillåter ungefär 10 anrop i minuten. Sidan körs i en vanlig webbläsare, till exempel via GitHub Pages, och laddar ner en uppdaterad JSON-fil som ersätter filen i `data/`. Låtar utan ID får en sökning i Spotify i stället.
+`verktyg/spotify-id.html` slår upp Spotify-ID för låtarna i en kategori. Den hämtar ID:n från Wikidata, och låtar som saknas där kan fyllas i för hand med en Spotify-länk. Sidan körs i en vanlig webbläsare, till exempel via GitHub Pages, och laddar ner en uppdaterad JSON-fil som ersätter filen i `data/`. Låtar utan ID får en sökning i Spotify i stället.

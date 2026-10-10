@@ -1,8 +1,6 @@
 // Matchning för uppslagningsverktyget (verktyg/spotify-id.html).
 // Funktionerna här gör inga anrop, så de kan testas utan nätverk.
 
-const UNWANTED = /\b(live|karaoke|instrumental|remix|mix|cover|tribute|acoustic|akustisk|demo|re-?recorded|sped up|slowed|made famous|in the style)\b/i;
-
 export function norm(text) {
   return (text || '')
     .toLocaleLowerCase('sv')
@@ -33,33 +31,20 @@ export function titleMatches(wanted, found) {
   return Boolean(a && b) && (a === b || b.startsWith(a + ' ') || a.startsWith(b + ' '));
 }
 
-// Väljer bästa träffen från iTunes: rätt artist och titel, inga live- eller
-// karaokeversioner, och den äldsta utgåvan, som oftast är originalet.
-export function pickItunesTrack(song, results) {
-  const candidates = results.filter((r) => r.kind === 'song'
-    && artistMatches(song.artist, r.artistName)
-    && titleMatches(song.title, r.trackName)
-    && !UNWANTED.test(r.trackName.replace(song.title, ''))
-    && !UNWANTED.test(r.collectionName || ''));
-  candidates.sort((a, b) => {
-    const exactA = baseTitle(a.trackName) === baseTitle(song.title) ? 0 : 1;
-    const exactB = baseTitle(b.trackName) === baseTitle(song.title) ? 0 : 1;
-    return exactA - exactB || String(a.releaseDate).localeCompare(String(b.releaseDate));
+// Väljer en träff från Wikidata där både artist och titel stämmer.
+// rows: [{ title, performer, spotify }]
+export function pickWikidataTrack(song, rows) {
+  const hits = rows.filter((r) => artistMatches(song.artist, r.performer) && titleMatches(song.title, r.title));
+  hits.sort((a, b) => {
+    const exactA = baseTitle(a.title) === baseTitle(song.title) ? 0 : 1;
+    const exactB = baseTitle(b.title) === baseTitle(song.title) ? 0 : 1;
+    return exactA - exactB;
   });
-  return candidates[0] || null;
+  return hits[0] || null;
 }
 
-// Plockar ut Spotify-låten ur ett svar från Odesli och kontrollerar att den stämmer.
-export function spotifyFromOdesli(song, data) {
-  const link = data && data.linksByPlatform && data.linksByPlatform.spotify;
-  if (!link) return { status: 'saknas' };
-  const entity = data.entitiesByUniqueId[link.entityUniqueId];
-  const id = entity ? entity.id : link.url.split('/track/')[1];
-  if (!entity) return { status: 'osäker', id, note: 'Ingen titel att jämföra med' };
-  const ok = artistMatches(song.artist, entity.artistName) && titleMatches(song.title, entity.title);
-  return {
-    status: ok ? 'ok' : 'osäker',
-    id,
-    note: `${entity.artistName} – ${entity.title}`,
-  };
+// Läser ut ett Spotify-ID ur en länk, en URI eller ett bart ID.
+export function parseSpotifyId(text) {
+  const match = String(text || '').trim().match(/(?:^|track[/:])([A-Za-z0-9]{22})(?:[?#].*)?$/);
+  return match ? match[1] : null;
 }
