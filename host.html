@@ -10,11 +10,13 @@
   <p id="net-status" class="net-status" hidden></p>
 
   <main id="setup" class="narrow">
-    <h1>🎵 Nytt spel</h1>
+    <h1>Nytt spel</h1>
     <label for="category-select">Kategori</label>
     <select id="category-select"></select>
     <button id="create" class="big">Skapa spel</button>
     <div id="resume" hidden><button class="secondary"></button></div>
+    <p class="settings-link"><button id="settings" class="link">Inställningar</button>
+      <span id="settings-summary" class="muted small"></span></p>
   </main>
 
   <main id="game" class="host" hidden>
@@ -29,7 +31,7 @@
       <h3>Poäng</h3>
       <div id="players"></div>
       <p class="actions">
-        <button id="reset-played" class="link">Nollställ spelade låtar</button>
+        <button id="game-settings" class="link">Inställningar</button>
         <button id="end" class="link">Avsluta spelet</button>
       </p>
     </section>
