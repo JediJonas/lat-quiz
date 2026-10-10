@@ -2,5 +2,6 @@
   { "id": "80-tal", "name": "80-talspop", "file": "80-tal.json" },
   { "id": "2010-tal", "name": "2010-talet", "file": "2010-tal.json" },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } },
-  { "id": "90-tal", "name": "90-talets hits", "file": "90-tal.json" }
+  { "id": "90-tal", "name": "90-talets hits", "file": "90-tal.json" },
+  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json" }
 ]
