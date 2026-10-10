@@ -249,349 +249,195 @@
   "artist": "Madonna",
   "title": "Material Girl",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "7bkyXSi4GtVfD7itZRUR3e"
  },
  {
   "id": "madonna-papa-don-t-preach",
   "artist": "Madonna",
   "title": "Papa Don't Preach",
   "year": 1986,
-  "spotifyId": null
- },
- {
-  "id": "michael-jackson-bad",
-  "artist": "Michael Jackson",
-  "title": "Bad",
-  "year": 1987,
-  "spotifyId": null
- },
- {
-  "id": "michael-jackson-smooth-criminal",
-  "artist": "Michael Jackson",
-  "title": "Smooth Criminal",
-  "year": 1987,
-  "spotifyId": null
- },
- {
-  "id": "prince-when-doves-cry",
-  "artist": "Prince",
-  "title": "When Doves Cry",
-  "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "prince-kiss",
-  "artist": "Prince",
-  "title": "Kiss",
-  "year": 1986,
-  "spotifyId": null
+  "spotifyId": "6A8OnjnpShshNpcqWtZRjr"
  },
  {
   "id": "whitney-houston-how-will-i-know",
   "artist": "Whitney Houston",
   "title": "How Will I Know",
   "year": 1985,
-  "spotifyId": null
- },
- {
-  "id": "a-ha-the-sun-always-shines-on-t-v",
-  "artist": "a-ha",
-  "title": "The Sun Always Shines on T.V.",
-  "year": 1985,
-  "spotifyId": null
+  "spotifyId": "5tdKaKLnC4SgtDZ6RlWeal"
  },
  {
   "id": "roxette-dangerous",
   "artist": "Roxette",
   "title": "Dangerous",
   "year": 1989,
-  "spotifyId": null
- },
- {
-  "id": "europe-carrie",
-  "artist": "Europe",
-  "title": "Carrie",
-  "year": 1987,
-  "spotifyId": null
+  "spotifyId": "7LwsqxyIqOCF9vbdHmdIvT"
  },
  {
   "id": "queen-i-want-to-break-free",
   "artist": "Queen",
   "title": "I Want to Break Free",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "1MsBRSbt5dqJSw3RxXtvCM"
  },
  {
   "id": "queen-another-one-bites-the-dust",
   "artist": "Queen",
   "title": "Another One Bites the Dust",
   "year": 1980,
-  "spotifyId": null
- },
- {
-  "id": "duran-duran-rio",
-  "artist": "Duran Duran",
-  "title": "Rio",
-  "year": 1982,
-  "spotifyId": null
- },
- {
-  "id": "tears-for-fears-shout",
-  "artist": "Tears for Fears",
-  "title": "Shout",
-  "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "wham-club-tropicana",
-  "artist": "Wham!",
-  "title": "Club Tropicana",
-  "year": 1983,
-  "spotifyId": null
+  "spotifyId": "5vdp5UmvTsnMEMESIF2Ym7"
  },
  {
   "id": "george-michael-careless-whisper",
   "artist": "George Michael",
   "title": "Careless Whisper",
   "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "phil-collins-another-day-in-paradise",
-  "artist": "Phil Collins",
-  "title": "Another Day in Paradise",
-  "year": 1989,
-  "spotifyId": null
+  "spotifyId": "6KsgCYcZKPcBRDNGhiZWRR"
  },
  {
   "id": "genesis-invisible-touch",
   "artist": "Genesis",
   "title": "Invisible Touch",
   "year": 1986,
-  "spotifyId": null
+  "spotifyId": "480dDrqG7LO6qDaphHeXlM"
  },
  {
   "id": "pet-shop-boys-it-s-a-sin",
   "artist": "Pet Shop Boys",
   "title": "It's a Sin",
   "year": 1987,
-  "spotifyId": null
+  "spotifyId": "6IDHh3FcwLVcG5NsmpQgg2"
  },
  {
   "id": "depeche-mode-personal-jesus",
   "artist": "Depeche Mode",
   "title": "Personal Jesus",
   "year": 1989,
-  "spotifyId": null
+  "spotifyId": "2wUlYDGGXlSvm2NkGj0Qio"
  },
  {
   "id": "eurythmics-here-comes-the-rain-again",
   "artist": "Eurythmics",
   "title": "Here Comes the Rain Again",
   "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "bon-jovi-you-give-love-a-bad-name",
-  "artist": "Bon Jovi",
-  "title": "You Give Love a Bad Name",
-  "year": 1986,
-  "spotifyId": null
+  "spotifyId": "2HJ0irMgolBlOGk29m8Gu1"
  },
  {
   "id": "cyndi-lauper-time-after-time",
   "artist": "Cyndi Lauper",
   "title": "Time After Time",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "7o9uu2GDtVDr9nsR7ZRN73"
  },
  {
   "id": "lionel-richie-hello",
   "artist": "Lionel Richie",
   "title": "Hello",
   "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "u2-with-or-without-you",
-  "artist": "U2",
-  "title": "With or Without You",
-  "year": 1987,
-  "spotifyId": null
+  "spotifyId": "1b16zIZIdL2LIMfDiANwIk"
  },
  {
   "id": "dire-straits-money-for-nothing",
   "artist": "Dire Straits",
   "title": "Money for Nothing",
   "year": 1985,
-  "spotifyId": null
+  "spotifyId": "4nFNJmjfgBF7jwv2oBC45b"
  },
  {
   "id": "david-bowie-let-s-dance",
   "artist": "David Bowie",
   "title": "Let's Dance",
   "year": 1983,
-  "spotifyId": null
+  "spotifyId": "4cVHMHgmWgudD399ZdhQ3L"
  },
  {
   "id": "elton-john-i-m-still-standing",
   "artist": "Elton John",
   "title": "I'm Still Standing",
   "year": 1983,
-  "spotifyId": null
+  "spotifyId": "0lzpfrTARexLFXEACKSXTh"
  },
  {
   "id": "bruce-springsteen-dancing-in-the-dark",
   "artist": "Bruce Springsteen",
   "title": "Dancing in the Dark",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "7FwBtcecmlpc1sLySPXeGE"
  },
  {
   "id": "journey-don-t-stop-believin",
   "artist": "Journey",
   "title": "Don't Stop Believin'",
   "year": 1981,
-  "spotifyId": null
+  "spotifyId": "4bHsxqR3GMrXTxEPLuK5ue"
  },
  {
   "id": "van-halen-jump",
   "artist": "Van Halen",
   "title": "Jump",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "7N3PAbqfTjSEU1edb2tY8j"
  },
  {
   "id": "foreigner-i-want-to-know-what-love-is",
   "artist": "Foreigner",
   "title": "I Want to Know What Love Is",
   "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "blondie-call-me",
-  "artist": "Blondie",
-  "title": "Call Me",
-  "year": 1980,
-  "spotifyId": null
- },
- {
-  "id": "hall-oates-maneater",
-  "artist": "Hall & Oates",
-  "title": "Maneater",
-  "year": 1982,
-  "spotifyId": null
+  "spotifyId": "1JLn8RhQzHz3qDqsChcmBl"
  },
  {
   "id": "kool-the-gang-celebration",
   "artist": "Kool & the Gang",
   "title": "Celebration",
   "year": 1980,
-  "spotifyId": null
- },
- {
-  "id": "frankie-goes-to-hollywood-relax",
-  "artist": "Frankie Goes to Hollywood",
-  "title": "Relax",
-  "year": 1983,
-  "spotifyId": null
+  "spotifyId": "3K7Q9PHUWPTaknlbFPThn2"
  },
  {
   "id": "bronski-beat-smalltown-boy",
   "artist": "Bronski Beat",
   "title": "Smalltown Boy",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "5vmRQ3zELMLUQPo2FLQ76x"
  },
  {
   "id": "kate-bush-running-up-that-hill-a-deal-with-god",
   "artist": "Kate Bush",
   "title": "Running Up That Hill (A Deal with God)",
   "year": 1985,
-  "spotifyId": null
+  "spotifyId": "1TOme860eWLYhQCkSPpXmE"
  },
  {
   "id": "peter-gabriel-sledgehammer",
   "artist": "Peter Gabriel",
   "title": "Sledgehammer",
   "year": 1986,
-  "spotifyId": null
- },
- {
-  "id": "robert-palmer-addicted-to-love",
-  "artist": "Robert Palmer",
-  "title": "Addicted to Love",
-  "year": 1985,
-  "spotifyId": null
- },
- {
-  "id": "berlin-take-my-breath-away",
-  "artist": "Berlin",
-  "title": "Take My Breath Away",
-  "year": 1986,
-  "spotifyId": null
+  "spotifyId": "2CfavwjTJrKGxy9fiU4otq"
  },
  {
   "id": "murray-head-one-night-in-bangkok",
   "artist": "Murray Head",
   "title": "One Night in Bangkok",
   "year": 1984,
-  "spotifyId": null
+  "spotifyId": "5wVdSEMA07lEBY0T0fd76M"
  },
  {
   "id": "opus-live-is-life",
   "artist": "Opus",
   "title": "Live Is Life",
   "year": 1985,
-  "spotifyId": null
- },
- {
-  "id": "limahl-never-ending-story",
-  "artist": "Limahl",
-  "title": "Never Ending Story",
-  "year": 1984,
-  "spotifyId": null
+  "spotifyId": "7hkOgKKybgawYUcrkZD3wV"
  },
  {
   "id": "ray-parker-jr-ghostbusters",
   "artist": "Ray Parker Jr.",
   "title": "Ghostbusters",
   "year": 1984,
-  "spotifyId": null
- },
- {
-  "id": "billy-ocean-caribbean-queen-no-more-love-on-the-run",
-  "artist": "Billy Ocean",
-  "title": "Caribbean Queen (No More Love on the Run)",
-  "year": 1984,
-  "spotifyId": null
+  "spotifyId": "0phGofl3ppS5Itk1zM9eKa"
  },
  {
   "id": "the-pointer-sisters-i-m-so-excited",
   "artist": "The Pointer Sisters",
   "title": "I'm So Excited",
   "year": 1982,
-  "spotifyId": null
- },
- {
-  "id": "olivia-newton-john-physical",
-  "artist": "Olivia Newton-John",
-  "title": "Physical",
-  "year": 1981,
-  "spotifyId": null
- },
- {
-  "id": "kim-carnes-bette-davis-eyes",
-  "artist": "Kim Carnes",
-  "title": "Bette Davis Eyes",
-  "year": 1981,
-  "spotifyId": null
- },
- {
-  "id": "rick-springfield-jessie-s-girl",
-  "artist": "Rick Springfield",
-  "title": "Jessie's Girl",
-  "year": 1981,
-  "spotifyId": null
+  "spotifyId": "1ot6jEe4w4hYnsOPjd3xKQ"
  }
 ]
