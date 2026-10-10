@@ -171,7 +171,7 @@ button.link:hover { color: var(--text); text-decoration: underline; }
   vertical-align: 1px;
 }
 .tag.good { background: var(--good-soft); color: var(--good); }
-.tag.bad { background: var(--bad-soft); color: var(--bad); text-decoration: line-through; }
+.tag.bad { background: var(--bad-soft); color: var(--bad); }
 .tag.bonus { background: var(--bonus-soft); color: var(--bonus); }
 
 /* Poängtabell */
