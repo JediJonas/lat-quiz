@@ -171,7 +171,7 @@ button.link:hover { color: var(--text); text-decoration: underline; }
   vertical-align: 1px;
 }
 .tag.good { background: var(--good-soft); color: var(--good); }
-.tag.bad { background: var(--bad-soft); color: var(--bad); text-decoration: line-through; }
+.tag.bad { background: var(--bad-soft); color: var(--bad); }
 .tag.bonus { background: var(--bonus-soft); color: var(--bonus); }
 
 /* Poängtabell */
@@ -210,6 +210,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
 }
+.mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
+.mid-ring circle { stroke-width: 8; }
+.mid-ring .ring-num { font-size: 2.8rem; }
+td.name .status { margin-top: 4px; font-weight: 400; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -346,6 +350,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .host .ring { width: 240px; height: 240px; }
 .host .ring-num { font-size: 5rem; }
 .actions { margin-top: 24px; }
+.game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 12px; }
+.game-head p { margin: 0; }
+#game-settings-summary { text-align: right; }
+.reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-link { margin-top: 8px; }
 .settings-link .small { display: block; margin-top: 4px; }
 .modal.settings label:first-of-type { margin-top: 8px; }

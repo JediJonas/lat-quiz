@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { renderRing, ranks, scoreTracker } from './ui.js';
+import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 
 const SAVE_KEY = 'latquiz-player';
 const $ = (sel) => document.querySelector(sel);
@@ -66,11 +66,24 @@ function renderTimer() {
   renderRing(el, ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
 }
 
+function playerStatus(id) {
+  const round = view.round;
+  if (!round) return '';
+  const tags = statusTags({
+    phase: round.phase,
+    progress: round.progress && round.progress[id],
+    result: round.results && round.results[id],
+    labels: view.labels,
+    esc,
+  });
+  return tags ? `<div class="status">${tags}</div>` : '';
+}
+
 function renderStandings() {
   const places = ranks(view.standings);
   const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
     <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
-    <td class="name">${esc(p.name)}${view.answered.includes(p.id) && view.round && view.round.phase === 'playing' ? ' <span class="tag good">Svarat</span>' : ''}</td>
+    <td class="name">${esc(p.name)}${playerStatus(p.id)}</td>
     <td class="score">${p.score}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }

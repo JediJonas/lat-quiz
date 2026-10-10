@@ -27,13 +27,28 @@ export function renderRing(el, ms, totalMs, bonus) {
   }
   const part = totalMs ? Math.max(0, Math.min(1, ms / totalMs)) : 0;
   // Negativ förskjutning gör att det tomma partiet växer medurs från klockan tolv.
-  el.querySelector('.ring-bar').style.strokeDashoffset = -RING_LEN * (1 - part);
+  // Med enhet, eftersom Safari kan strunta i ett unitless värde.
+  el.querySelector('.ring-bar').style.strokeDashoffset = `${-RING_LEN * (1 - part)}px`;
   const hue = Math.round(ringHue(part));
   // Mättnad och ljushet följer med, så att orange och rött lyser starkare än grönt.
   const warm = Math.min(1, Math.max(0, (135 - hue) / 105));
   el.style.setProperty('--ring-color', `hsl(${hue} ${Math.round(80 + 20 * warm)}% ${Math.round(45 + 5 * warm)}%)`);
   el.querySelector('.ring-num').textContent = Math.ceil(ms / 1000);
   el.classList.toggle('bonus', bonus);
+}
+
+// Etiketter för en spelares läge i omgången, samma för spelledare och spelare.
+// progress: { artist, title } medan låten spelas. result: rättning när svaret visas.
+export function statusTags({ phase, progress, result, labels, esc }) {
+  const tag = (cls, label) => `<span class="tag ${cls}">${esc(label)}</span>`;
+  if (phase === 'playing' && progress) {
+    return tag(progress.artist ? 'good' : '', labels.artist) + tag(progress.title ? 'good' : '', labels.title);
+  }
+  if (phase === 'revealed' && result) {
+    return tag(result.artist ? 'good' : 'bad', labels.artist) + tag(result.title ? 'good' : 'bad', labels.title)
+      + (result.bonus ? tag('bonus', 'Bonus') : '') + ` <strong>+${result.points}</strong>`;
+  }
+  return '';
 }
 
 // Placering med delad plats vid lika poäng. Listan ska vara sorterad.
