@@ -165,6 +165,15 @@ function nextSong() {
   changed();
 }
 
+function winnerNames() {
+  return state.winners.map((id) => state.players[id].name).join(' och ');
+}
+
+function restart() {
+  game.restart(state);
+  changed();
+}
+
 function startRound() {
   if (game.startRound(state, Date.now())) changed();
 }
@@ -249,7 +258,7 @@ function render() {
   const stage = $('#stage');
 
   if (!round) {
-    stage.innerHTML = `<p>Vänta tills alla har anslutit och tryck sedan på Nästa låt.</p>
+    stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.</p>
       <button id="next" class="big">Nästa låt</button>`;
   } else if (round.phase === 'ready') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
@@ -266,7 +275,10 @@ function render() {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div class="answer"><div class="title">${esc(round.song.title)}</div>
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
-      <button id="next" class="big">Nästa låt</button>`;
+      ${state.winners
+        ? `<div class="winner">🏆 ${esc(winnerNames())} vinner!</div>
+           <button id="restart" class="big">Ny match med samma spelare</button>`
+        : '<button id="next" class="big">Nästa låt</button>'}`;
   }
   renderPlayers();
 }
@@ -279,6 +291,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'play' || id === 'play-web') startRound(); // länken öppnas som vanligt
   else if (id === 'reveal') revealNow();
   else if (id === 'end') endGame();
+  else if (id === 'restart') restart();
   else if (id === 'reset-played') resetPlayed();
 });
 

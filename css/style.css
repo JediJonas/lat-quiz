@@ -118,6 +118,7 @@ tr.me td { font-weight: 700; }
 .answer .artist { font-size: 1.2rem; color: var(--muted); }
 .mine { list-style: none; padding: 0; }
 .points { font-size: 1.5rem; font-weight: 800; text-align: center; margin: 0; }
+.winner { font-size: 2rem; font-weight: 800; text-align: center; margin: 16px 0; color: var(--bonus); }
 
 .ac { position: relative; }
 .suggestions {
