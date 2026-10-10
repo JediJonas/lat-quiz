@@ -279,6 +279,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 
 /* Spelarens rubrikrad */
 .player-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--muted); }
+.player-head .who { display: flex; flex-direction: column; min-width: 0; }
+.player-head .who strong { color: var(--text); font-size: 1rem; }
+.player-head .who strong:empty { display: none; }
+#me { font-size: 0.82rem; }
 .conn {
   display: inline-flex;
   align-items: center;

@@ -41,6 +41,7 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type !== 'state') return;
   view = msg.view;
+  $('#category-name').textContent = view.categoryName || '';
   const round = view.round;
   if (round && round.number !== roundNumber) {
     roundNumber = round.number;
