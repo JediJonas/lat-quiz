@@ -26,9 +26,9 @@ export function renderRing(el, ms, totalMs, bonus) {
       </svg><span class="ring-num"></span>`;
   }
   const part = totalMs ? Math.max(0, Math.min(1, ms / totalMs)) : 0;
-  // Negativ förskjutning gör att det tomma partiet växer medurs från klockan tolv.
-  // Med enhet, eftersom Safari kan strunta i ett unitless värde.
-  el.querySelector('.ring-bar').style.strokeDashoffset = `${-RING_LEN * (1 - part)}px`;
+  // Positiv förskjutning fungerar i alla webbläsare (Safari på iPhone ritade den
+  // negativa fel). Ringen är spegelvänd i CSS så att det tomma partiet växer medurs.
+  el.querySelector('.ring-bar').style.strokeDashoffset = `${RING_LEN * (1 - part)}px`;
   const hue = Math.round(ringHue(part));
   // Mättnad och ljushet följer med, så att orange och rött lyser starkare än grönt.
   const warm = Math.min(1, Math.max(0, (135 - hue) / 105));
@@ -39,14 +39,14 @@ export function renderRing(el, ms, totalMs, bonus) {
 
 // Etiketter för en spelares läge i omgången, samma för spelledare och spelare.
 // progress: { artist, title } medan låten spelas. result: rättning när svaret visas.
-export function statusTags({ phase, progress, result, labels, esc }) {
+export function statusTags({ phase, progress, result, labels, esc, points = true }) {
   const tag = (cls, label) => `<span class="tag ${cls}">${esc(label)}</span>`;
   if (phase === 'playing' && progress) {
-    return tag(progress.artist ? 'good' : '', labels.artist) + tag(progress.title ? 'good' : '', labels.title);
+    return tag(progress.artist ? 'answered' : '', labels.artist) + tag(progress.title ? 'answered' : '', labels.title);
   }
   if (phase === 'revealed' && result) {
     return tag(result.artist ? 'good' : 'bad', labels.artist) + tag(result.title ? 'good' : 'bad', labels.title)
-      + (result.bonus ? tag('bonus', 'Bonus') : '') + ` <strong>+${result.points}</strong>`;
+      + (result.bonus ? tag('bonus', 'Bonus') : '') + (points ? ` <strong>+${result.points}</strong>` : '');
   }
   return '';
 }

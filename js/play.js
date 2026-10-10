@@ -69,21 +69,22 @@ function renderTimer() {
 function playerStatus(id) {
   const round = view.round;
   if (!round) return '';
-  const tags = statusTags({
+  return statusTags({
     phase: round.phase,
     progress: round.progress && round.progress[id],
     result: round.results && round.results[id],
     labels: view.labels,
     esc,
+    points: false,
   });
-  return tags ? `<div class="status">${tags}</div>` : '';
 }
 
 function renderStandings() {
   const places = ranks(view.standings);
   const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
     <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
-    <td class="name">${esc(p.name)}${playerStatus(p.id)}</td>
+    <td class="name">${esc(p.name)}</td>
+    <td class="status">${playerStatus(p.id)}</td>
     <td class="score">${p.score}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
