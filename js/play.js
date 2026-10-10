@@ -84,11 +84,13 @@ function render() {
   $('#result').hidden = phase !== 'revealed';
   fields.artist.disable(phase !== 'playing');
   fields.title.disable(phase !== 'playing');
+  $('label[for=artist]').textContent = view.labels.artist;
+  $('label[for=title]').textContent = view.labels.title;
 
   if (phase === 'playing') {
     $('#round-title').textContent = `Låt ${round.number}`;
     const done = local.artist && local.title;
-    $('#sent').textContent = done ? 'Båda svaren är valda. Du kan ändra dem tills tiden är slut.' : 'Välj artist och titel ur listan.';
+    $('#sent').textContent = done ? 'Båda svaren är valda. Du kan ändra dem tills tiden är slut.' : `Välj ${view.labels.artist.toLowerCase()} och ${view.labels.title.toLowerCase()} ur listan.`;
     renderTimer();
   } else if (phase === 'revealed') {
     const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
@@ -97,8 +99,8 @@ function render() {
       <div class="answer"><div class="title">${esc(round.song.title)}</div>
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
       <ul class="mine">
-        <li>${r.artist ? '✅' : '❌'} Artist: ${esc(mine.artist || '–')}</li>
-        <li>${r.title ? '✅' : '❌'} Titel: ${esc(mine.title || '–')}</li>
+        <li>${r.artist ? '✅' : '❌'} ${esc(view.labels.artist)}: ${esc(mine.artist || '–')}</li>
+        <li>${r.title ? '✅' : '❌'} ${esc(view.labels.title)}: ${esc(mine.title || '–')}</li>
         ${r.bonus ? '<li>⚡ Bonus för snabbt svar</li>' : ''}
       </ul>
       <p class="points">+${r.points} poäng</p>

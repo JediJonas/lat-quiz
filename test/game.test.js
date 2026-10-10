@@ -151,3 +151,10 @@ test('lika poäng över gränsen ger delad seger', () => {
   reveal(state);
   assert.deepEqual(state.winners.sort(), ['p1', 'p2']);
 });
+
+test('kategorins rubriker skickas till spelarna', () => {
+  const plain = createGame({ code: 'ABCD', categoryId: '80-tal' });
+  assert.deepEqual(playerView(plain, 'p1', 0).labels, { artist: 'Artist', title: 'Titel' });
+  const classical = createGame({ code: 'ABCD', categoryId: 'klassiskt', labels: { artist: 'Kompositör', title: 'Verk' } });
+  assert.equal(playerView(classical, 'p1', 0).labels.artist, 'Kompositör');
+});

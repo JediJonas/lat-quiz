@@ -6,12 +6,14 @@
 export const ROUND_MS = 60000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
+export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
 
 export function normalize(text) {
   return (text || '').trim().toLocaleLowerCase('sv');
 }
 
-export function createGame({ code, categoryId, playedIds = [] }) {
+// labels: vad fälten heter i kategorin, till exempel Kompositör och Verk.
+export function createGame({ code, categoryId, playedIds = [], labels = DEFAULT_LABELS }) {
   return {
     code,
     categoryId,
@@ -23,6 +25,7 @@ export function createGame({ code, categoryId, playedIds = [] }) {
     bonusMs: BONUS_MS,
     winScore: WIN_SCORE,
     winners: null,
+    labels: { ...labels },
   };
 }
 
@@ -175,6 +178,7 @@ export function playerView(state, playerId, now) {
     answered: round ? Object.keys(state.players).filter((id) => hasAnsweredBoth(state, id)) : [],
     winScore: state.winScore || WIN_SCORE,
     winners: state.winners ? state.winners.map((id) => state.players[id].name) : null,
+    labels: state.labels || DEFAULT_LABELS,
     round: null,
   };
   if (round) {
