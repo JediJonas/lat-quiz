@@ -1,0 +1,1111 @@
+{
+ "id": "80-tal",
+ "name": "80-talspop",
+ "file": "80-tal.json",
+ "songs": [
+  {
+   "id": "madonna-holiday",
+   "artist": "Madonna",
+   "title": "Holiday",
+   "year": 1983
+  },
+  {
+   "id": "madonna-la-isla-bonita",
+   "artist": "Madonna",
+   "title": "La Isla Bonita",
+   "year": 1987
+  },
+  {
+   "id": "madonna-into-the-groove",
+   "artist": "Madonna",
+   "title": "Into the Groove",
+   "year": 1985
+  },
+  {
+   "id": "madonna-open-your-heart",
+   "artist": "Madonna",
+   "title": "Open Your Heart",
+   "year": 1986
+  },
+  {
+   "id": "madonna-lucky-star",
+   "artist": "Madonna",
+   "title": "Lucky Star",
+   "year": 1984
+  },
+  {
+   "id": "michael-jackson-wanna-be-startin-somethin",
+   "artist": "Michael Jackson",
+   "title": "Wanna Be Startin' Somethin'",
+   "year": 1983
+  },
+  {
+   "id": "michael-jackson-man-in-the-mirror",
+   "artist": "Michael Jackson",
+   "title": "Man in the Mirror",
+   "year": 1988
+  },
+  {
+   "id": "michael-jackson-the-way-you-make-me-feel",
+   "artist": "Michael Jackson",
+   "title": "The Way You Make Me Feel",
+   "year": 1987
+  },
+  {
+   "id": "whitney-houston-greatest-love-of-all",
+   "artist": "Whitney Houston",
+   "title": "Greatest Love of All",
+   "year": 1985
+  },
+  {
+   "id": "whitney-houston-saving-all-my-love-for-you",
+   "artist": "Whitney Houston",
+   "title": "Saving All My Love for You",
+   "year": 1985
+  },
+  {
+   "id": "whitney-houston-so-emotional",
+   "artist": "Whitney Houston",
+   "title": "So Emotional",
+   "year": 1987
+  },
+  {
+   "id": "cyndi-lauper-true-colors",
+   "artist": "Cyndi Lauper",
+   "title": "True Colors",
+   "year": 1986
+  },
+  {
+   "id": "cyndi-lauper-she-bop",
+   "artist": "Cyndi Lauper",
+   "title": "She Bop",
+   "year": 1984
+  },
+  {
+   "id": "wham-freedom",
+   "artist": "Wham!",
+   "title": "Freedom",
+   "year": 1984
+  },
+  {
+   "id": "wham-i-m-your-man",
+   "artist": "Wham!",
+   "title": "I'm Your Man",
+   "year": 1985
+  },
+  {
+   "id": "wham-everything-she-wants",
+   "artist": "Wham!",
+   "title": "Everything She Wants",
+   "year": 1984
+  },
+  {
+   "id": "george-michael-father-figure",
+   "artist": "George Michael",
+   "title": "Father Figure",
+   "year": 1987
+  },
+  {
+   "id": "george-michael-i-want-your-sex",
+   "artist": "George Michael",
+   "title": "I Want Your Sex",
+   "year": 1987
+  },
+  {
+   "id": "a-ha-hunting-high-and-low",
+   "artist": "a-ha",
+   "title": "Hunting High and Low",
+   "year": 1985
+  },
+  {
+   "id": "a-ha-cry-wolf",
+   "artist": "a-ha",
+   "title": "Cry Wolf",
+   "year": 1986
+  },
+  {
+   "id": "a-ha-stay-on-these-roads",
+   "artist": "a-ha",
+   "title": "Stay on These Roads",
+   "year": 1988
+  },
+  {
+   "id": "europe-rock-the-night",
+   "artist": "Europe",
+   "title": "Rock the Night",
+   "year": 1985
+  },
+  {
+   "id": "roxette-dressed-for-success",
+   "artist": "Roxette",
+   "title": "Dressed for Success",
+   "year": 1988
+  },
+  {
+   "id": "roxette-it-must-have-been-love",
+   "artist": "Roxette",
+   "title": "It Must Have Been Love",
+   "year": 1987
+  },
+  {
+   "id": "pet-shop-boys-always-on-my-mind",
+   "artist": "Pet Shop Boys",
+   "title": "Always on My Mind",
+   "year": 1987
+  },
+  {
+   "id": "pet-shop-boys-heart",
+   "artist": "Pet Shop Boys",
+   "title": "Heart",
+   "year": 1988
+  },
+  {
+   "id": "pet-shop-boys-opportunities-let-s-make-lots-of-money",
+   "artist": "Pet Shop Boys",
+   "title": "Opportunities (Let's Make Lots of Money)",
+   "year": 1985
+  },
+  {
+   "id": "depeche-mode-people-are-people",
+   "artist": "Depeche Mode",
+   "title": "People Are People",
+   "year": 1984
+  },
+  {
+   "id": "depeche-mode-never-let-me-down-again",
+   "artist": "Depeche Mode",
+   "title": "Never Let Me Down Again",
+   "year": 1987
+  },
+  {
+   "id": "eurythmics-there-must-be-an-angel-playing-with-my-heart",
+   "artist": "Eurythmics",
+   "title": "There Must Be an Angel (Playing with My Heart)",
+   "year": 1985
+  },
+  {
+   "id": "eurythmics-love-is-a-stranger",
+   "artist": "Eurythmics",
+   "title": "Love Is a Stranger",
+   "year": 1982
+  },
+  {
+   "id": "tina-turner-the-best",
+   "artist": "Tina Turner",
+   "title": "The Best",
+   "year": 1989
+  },
+  {
+   "id": "tina-turner-private-dancer",
+   "artist": "Tina Turner",
+   "title": "Private Dancer",
+   "year": 1984
+  },
+  {
+   "id": "tina-turner-we-don-t-need-another-hero-thunderdome",
+   "artist": "Tina Turner",
+   "title": "We Don't Need Another Hero (Thunderdome)",
+   "year": 1985
+  },
+  {
+   "id": "lionel-richie-say-you-say-me",
+   "artist": "Lionel Richie",
+   "title": "Say You, Say Me",
+   "year": 1985
+  },
+  {
+   "id": "lionel-richie-dancing-on-the-ceiling",
+   "artist": "Lionel Richie",
+   "title": "Dancing on the Ceiling",
+   "year": 1986
+  },
+  {
+   "id": "phil-collins-sussudio",
+   "artist": "Phil Collins",
+   "title": "Sussudio",
+   "year": 1985
+  },
+  {
+   "id": "phil-collins-you-can-t-hurry-love",
+   "artist": "Phil Collins",
+   "title": "You Can't Hurry Love",
+   "year": 1982
+  },
+  {
+   "id": "genesis-land-of-confusion",
+   "artist": "Genesis",
+   "title": "Land of Confusion",
+   "year": 1986
+  },
+  {
+   "id": "genesis-mama",
+   "artist": "Genesis",
+   "title": "Mama",
+   "year": 1983
+  },
+  {
+   "id": "bryan-adams-run-to-you",
+   "artist": "Bryan Adams",
+   "title": "Run to You",
+   "year": 1984
+  },
+  {
+   "id": "bryan-adams-heaven",
+   "artist": "Bryan Adams",
+   "title": "Heaven",
+   "year": 1984
+  },
+  {
+   "id": "kylie-minogue-the-loco-motion",
+   "artist": "Kylie Minogue",
+   "title": "The Loco-Motion",
+   "year": 1987
+  },
+  {
+   "id": "kylie-minogue-hand-on-your-heart",
+   "artist": "Kylie Minogue",
+   "title": "Hand on Your Heart",
+   "year": 1989
+  },
+  {
+   "id": "kylie-minogue-je-ne-sais-pas-pourquoi",
+   "artist": "Kylie Minogue",
+   "title": "Je ne sais pas pourquoi",
+   "year": 1988
+  },
+  {
+   "id": "rick-astley-whenever-you-need-somebody",
+   "artist": "Rick Astley",
+   "title": "Whenever You Need Somebody",
+   "year": 1987
+  },
+  {
+   "id": "bananarama-cruel-summer",
+   "artist": "Bananarama",
+   "title": "Cruel Summer",
+   "year": 1983
+  },
+  {
+   "id": "bananarama-i-heard-a-rumour",
+   "artist": "Bananarama",
+   "title": "I Heard a Rumour",
+   "year": 1987
+  },
+  {
+   "id": "baltimora-tarzan-boy",
+   "artist": "Baltimora",
+   "title": "Tarzan Boy",
+   "year": 1985
+  },
+  {
+   "id": "modern-talking-cheri-cheri-lady",
+   "artist": "Modern Talking",
+   "title": "Cheri Cheri Lady",
+   "year": 1985
+  },
+  {
+   "id": "modern-talking-brother-louie",
+   "artist": "Modern Talking",
+   "title": "Brother Louie",
+   "year": 1986
+  },
+  {
+   "id": "kim-wilde-you-keep-me-hangin-on",
+   "artist": "Kim Wilde",
+   "title": "You Keep Me Hangin' On",
+   "year": 1986
+  },
+  {
+   "id": "kim-wilde-cambodia",
+   "artist": "Kim Wilde",
+   "title": "Cambodia",
+   "year": 1981
+  },
+  {
+   "id": "nena-irgendwie-irgendwo-irgendwann",
+   "artist": "Nena",
+   "title": "Irgendwie, irgendwo, irgendwann",
+   "year": 1984
+  },
+  {
+   "id": "falco-jeanny",
+   "artist": "Falco",
+   "title": "Jeanny",
+   "year": 1985
+  },
+  {
+   "id": "alphaville-big-in-japan",
+   "artist": "Alphaville",
+   "title": "Big in Japan",
+   "year": 1984
+  },
+  {
+   "id": "opus-flyin-high",
+   "artist": "Opus",
+   "title": "Flyin' High",
+   "year": 1985
+  },
+  {
+   "id": "bonnie-tyler-holding-out-for-a-hero",
+   "artist": "Bonnie Tyler",
+   "title": "Holding Out for a Hero",
+   "year": 1984
+  },
+  {
+   "id": "laura-branigan-gloria",
+   "artist": "Laura Branigan",
+   "title": "Gloria",
+   "year": 1982
+  },
+  {
+   "id": "pat-benatar-love-is-a-battlefield",
+   "artist": "Pat Benatar",
+   "title": "Love Is a Battlefield",
+   "year": 1983
+  },
+  {
+   "id": "pat-benatar-hit-me-with-your-best-shot",
+   "artist": "Pat Benatar",
+   "title": "Hit Me with Your Best Shot",
+   "year": 1980
+  },
+  {
+   "id": "heart-alone",
+   "artist": "Heart",
+   "title": "Alone",
+   "year": 1987
+  },
+  {
+   "id": "heart-these-dreams",
+   "artist": "Heart",
+   "title": "These Dreams",
+   "year": 1985
+  },
+  {
+   "id": "the-bangles-eternal-flame",
+   "artist": "The Bangles",
+   "title": "Eternal Flame",
+   "year": 1989
+  },
+  {
+   "id": "the-bangles-manic-monday",
+   "artist": "The Bangles",
+   "title": "Manic Monday",
+   "year": 1986
+  },
+  {
+   "id": "level-42-lessons-in-love",
+   "artist": "Level 42",
+   "title": "Lessons in Love",
+   "year": 1986
+  },
+  {
+   "id": "simply-red-holding-back-the-years",
+   "artist": "Simply Red",
+   "title": "Holding Back the Years",
+   "year": 1985
+  },
+  {
+   "id": "simply-red-if-you-don-t-know-me-by-now",
+   "artist": "Simply Red",
+   "title": "If You Don't Know Me by Now",
+   "year": 1989
+  },
+  {
+   "id": "wet-wet-wet-wishing-i-was-lucky",
+   "artist": "Wet Wet Wet",
+   "title": "Wishing I Was Lucky",
+   "year": 1987
+  },
+  {
+   "id": "t-pau-china-in-your-hand",
+   "artist": "T'Pau",
+   "title": "China in Your Hand",
+   "year": 1987
+  },
+  {
+   "id": "erasure-a-little-respect",
+   "artist": "Erasure",
+   "title": "A Little Respect",
+   "year": 1988
+  },
+  {
+   "id": "erasure-sometimes",
+   "artist": "Erasure",
+   "title": "Sometimes",
+   "year": 1986
+  },
+  {
+   "id": "yazoo-only-you",
+   "artist": "Yazoo",
+   "title": "Only You",
+   "year": 1982
+  },
+  {
+   "id": "yazoo-don-t-go",
+   "artist": "Yazoo",
+   "title": "Don't Go",
+   "year": 1982
+  },
+  {
+   "id": "new-order-blue-monday",
+   "artist": "New Order",
+   "title": "Blue Monday",
+   "year": 1983
+  },
+  {
+   "id": "the-human-league-human",
+   "artist": "The Human League",
+   "title": "Human",
+   "year": 1986
+  },
+  {
+   "id": "omd-enola-gay",
+   "artist": "OMD",
+   "title": "Enola Gay",
+   "year": 1980
+  },
+  {
+   "id": "orchestral-manoeuvres-in-the-dark-if-you-leave",
+   "artist": "Orchestral Manoeuvres in the Dark",
+   "title": "If You Leave",
+   "year": 1986
+  },
+  {
+   "id": "ultravox-vienna",
+   "artist": "Ultravox",
+   "title": "Vienna",
+   "year": 1981
+  },
+  {
+   "id": "talk-talk-it-s-my-life",
+   "artist": "Talk Talk",
+   "title": "It's My Life",
+   "year": 1984
+  },
+  {
+   "id": "talk-talk-such-a-shame",
+   "artist": "Talk Talk",
+   "title": "Such a Shame",
+   "year": 1984
+  },
+  {
+   "id": "nik-kershaw-wouldn-t-it-be-good",
+   "artist": "Nik Kershaw",
+   "title": "Wouldn't It Be Good",
+   "year": 1984
+  },
+  {
+   "id": "nik-kershaw-the-riddle",
+   "artist": "Nik Kershaw",
+   "title": "The Riddle",
+   "year": 1984
+  },
+  {
+   "id": "howard-jones-what-is-love",
+   "artist": "Howard Jones",
+   "title": "What Is Love?",
+   "year": 1983
+  },
+  {
+   "id": "thompson-twins-hold-me-now",
+   "artist": "Thompson Twins",
+   "title": "Hold Me Now",
+   "year": 1983
+  },
+  {
+   "id": "a-flock-of-seagulls-i-ran-so-far-away",
+   "artist": "A Flock of Seagulls",
+   "title": "I Ran (So Far Away)",
+   "year": 1982
+  },
+  {
+   "id": "tears-for-fears-mad-world",
+   "artist": "Tears for Fears",
+   "title": "Mad World",
+   "year": 1982
+  },
+  {
+   "id": "spandau-ballet-gold",
+   "artist": "Spandau Ballet",
+   "title": "Gold",
+   "year": 1983
+  },
+  {
+   "id": "duran-duran-the-reflex",
+   "artist": "Duran Duran",
+   "title": "The Reflex",
+   "year": 1984
+  },
+  {
+   "id": "culture-club-do-you-really-want-to-hurt-me",
+   "artist": "Culture Club",
+   "title": "Do You Really Want to Hurt Me",
+   "year": 1982
+  },
+  {
+   "id": "boy-george-everything-i-own",
+   "artist": "Boy George",
+   "title": "Everything I Own",
+   "year": 1987
+  },
+  {
+   "id": "wham-young-guns-go-for-it",
+   "artist": "Wham!",
+   "title": "Young Guns (Go for It!)",
+   "year": 1982
+  },
+  {
+   "id": "paul-young-wherever-i-lay-my-hat-that-s-my-home",
+   "artist": "Paul Young",
+   "title": "Wherever I Lay My Hat (That's My Home)",
+   "year": 1983
+  },
+  {
+   "id": "tiffany-i-think-we-re-alone-now",
+   "artist": "Tiffany",
+   "title": "I Think We're Alone Now",
+   "year": 1987
+  },
+  {
+   "id": "debbie-gibson-only-in-my-dreams",
+   "artist": "Debbie Gibson",
+   "title": "Only in My Dreams",
+   "year": 1987
+  },
+  {
+   "id": "belinda-carlisle-circle-in-the-sand",
+   "artist": "Belinda Carlisle",
+   "title": "Circle in the Sand",
+   "year": 1988
+  },
+  {
+   "id": "belinda-carlisle-leave-a-light-on",
+   "artist": "Belinda Carlisle",
+   "title": "Leave a Light On",
+   "year": 1989
+  },
+  {
+   "id": "cutting-crew-i-just-died-in-your-arms",
+   "artist": "Cutting Crew",
+   "title": "(I Just) Died in Your Arms",
+   "year": 1986
+  },
+  {
+   "id": "survivor-burning-heart",
+   "artist": "Survivor",
+   "title": "Burning Heart",
+   "year": 1985
+  },
+  {
+   "id": "kenny-loggins-danger-zone",
+   "artist": "Kenny Loggins",
+   "title": "Danger Zone",
+   "year": 1986
+  },
+  {
+   "id": "starship-we-built-this-city",
+   "artist": "Starship",
+   "title": "We Built This City",
+   "year": 1985
+  },
+  {
+   "id": "huey-lewis-and-the-news-hip-to-be-square",
+   "artist": "Huey Lewis and the News",
+   "title": "Hip to Be Square",
+   "year": 1986
+  },
+  {
+   "id": "toto-rosanna",
+   "artist": "Toto",
+   "title": "Rosanna",
+   "year": 1982
+  },
+  {
+   "id": "journey-separate-ways-worlds-apart",
+   "artist": "Journey",
+   "title": "Separate Ways (Worlds Apart)",
+   "year": 1983
+  },
+  {
+   "id": "foreigner-waiting-for-a-girl-like-you",
+   "artist": "Foreigner",
+   "title": "Waiting for a Girl Like You",
+   "year": 1981
+  },
+  {
+   "id": "reo-speedwagon-keep-on-loving-you",
+   "artist": "REO Speedwagon",
+   "title": "Keep On Loving You",
+   "year": 1980
+  },
+  {
+   "id": "chicago-hard-to-say-i-m-sorry",
+   "artist": "Chicago",
+   "title": "Hard to Say I'm Sorry",
+   "year": 1982
+  },
+  {
+   "id": "kenny-loggins-i-m-alright",
+   "artist": "Kenny Loggins",
+   "title": "I'm Alright",
+   "year": 1980
+  },
+  {
+   "id": "billy-joel-uptown-girl",
+   "artist": "Billy Joel",
+   "title": "Uptown Girl",
+   "year": 1983
+  },
+  {
+   "id": "billy-joel-we-didn-t-start-the-fire",
+   "artist": "Billy Joel",
+   "title": "We Didn't Start the Fire",
+   "year": 1989
+  },
+  {
+   "id": "elton-john-nikita",
+   "artist": "Elton John",
+   "title": "Nikita",
+   "year": 1985
+  },
+  {
+   "id": "elton-john-sad-songs-say-so-much",
+   "artist": "Elton John",
+   "title": "Sad Songs (Say So Much)",
+   "year": 1984
+  },
+  {
+   "id": "paul-mccartney-michael-jackson-say-say-say",
+   "artist": "Paul McCartney & Michael Jackson",
+   "title": "Say Say Say",
+   "year": 1983
+  },
+  {
+   "id": "stevie-wonder-part-time-lover",
+   "artist": "Stevie Wonder",
+   "title": "Part-Time Lover",
+   "year": 1985
+  },
+  {
+   "id": "kool-the-gang-cherish",
+   "artist": "Kool & the Gang",
+   "title": "Cherish",
+   "year": 1985
+  },
+  {
+   "id": "billy-ocean-when-the-going-gets-tough-the-tough-get-going",
+   "artist": "Billy Ocean",
+   "title": "When the Going Gets Tough, the Tough Get Going",
+   "year": 1985
+  },
+  {
+   "id": "lisa-stansfield-all-around-the-world",
+   "artist": "Lisa Stansfield",
+   "title": "All Around the World",
+   "year": 1989
+  },
+  {
+   "id": "neneh-cherry-buffalo-stance",
+   "artist": "Neneh Cherry",
+   "title": "Buffalo Stance",
+   "year": 1988
+  },
+  {
+   "id": "bobby-mcferrin-don-t-worry-be-happy",
+   "artist": "Bobby McFerrin",
+   "title": "Don't Worry, Be Happy",
+   "year": 1988
+  },
+  {
+   "id": "ub40-red-red-wine",
+   "artist": "UB40",
+   "title": "Red Red Wine",
+   "year": 1983
+  },
+  {
+   "id": "madness-our-house",
+   "artist": "Madness",
+   "title": "Our House",
+   "year": 1982
+  },
+  {
+   "id": "the-cure-just-like-heaven",
+   "artist": "The Cure",
+   "title": "Just Like Heaven",
+   "year": 1987
+  },
+  {
+   "id": "inxs-need-you-tonight",
+   "artist": "INXS",
+   "title": "Need You Tonight",
+   "year": 1987
+  },
+  {
+   "id": "crowded-house-don-t-dream-it-s-over",
+   "artist": "Crowded House",
+   "title": "Don't Dream It's Over",
+   "year": 1986
+  },
+  {
+   "id": "bruce-hornsby-and-the-range-the-way-it-is",
+   "artist": "Bruce Hornsby and the Range",
+   "title": "The Way It Is",
+   "year": 1986
+  },
+  {
+   "id": "steve-winwood-higher-love",
+   "artist": "Steve Winwood",
+   "title": "Higher Love",
+   "year": 1986
+  },
+  {
+   "id": "kate-bush-babooshka",
+   "artist": "Kate Bush",
+   "title": "Babooshka",
+   "year": 1980
+  },
+  {
+   "id": "europe-superstitious",
+   "artist": "Europe",
+   "title": "Superstitious",
+   "year": 1988
+  },
+  {
+   "id": "jennifer-rush-the-power-of-love",
+   "artist": "Jennifer Rush",
+   "title": "The Power of Love",
+   "year": 1984
+  },
+  {
+   "id": "chris-de-burgh-the-lady-in-red",
+   "artist": "Chris de Burgh",
+   "title": "The Lady in Red",
+   "year": 1986
+  },
+  {
+   "id": "dead-or-alive-brand-new-lover",
+   "artist": "Dead or Alive",
+   "title": "Brand New Lover",
+   "year": 1986
+  },
+  {
+   "id": "frankie-goes-to-hollywood-two-tribes",
+   "artist": "Frankie Goes to Hollywood",
+   "title": "Two Tribes",
+   "year": 1984
+  },
+  {
+   "id": "bronski-beat-why",
+   "artist": "Bronski Beat",
+   "title": "Why?",
+   "year": 1984
+  },
+  {
+   "id": "fleetwood-mac-everywhere",
+   "artist": "Fleetwood Mac",
+   "title": "Everywhere",
+   "year": 1987
+  },
+  {
+   "id": "fleetwood-mac-little-lies",
+   "artist": "Fleetwood Mac",
+   "title": "Little Lies",
+   "year": 1987
+  },
+  {
+   "id": "michael-sembello-maniac",
+   "artist": "Michael Sembello",
+   "title": "Maniac",
+   "year": 1983
+  },
+  {
+   "id": "the-weather-girls-it-s-raining-men",
+   "artist": "The Weather Girls",
+   "title": "It's Raining Men",
+   "year": 1982
+  },
+  {
+   "id": "gloria-estefan-conga",
+   "artist": "Gloria Estefan",
+   "title": "Conga",
+   "year": 1985
+  },
+  {
+   "id": "janet-jackson-when-i-think-of-you",
+   "artist": "Janet Jackson",
+   "title": "When I Think of You",
+   "year": 1986
+  },
+  {
+   "id": "janet-jackson-nasty",
+   "artist": "Janet Jackson",
+   "title": "Nasty",
+   "year": 1986
+  },
+  {
+   "id": "paula-abdul-straight-up",
+   "artist": "Paula Abdul",
+   "title": "Straight Up",
+   "year": 1988
+  },
+  {
+   "id": "bobby-brown-my-prerogative",
+   "artist": "Bobby Brown",
+   "title": "My Prerogative",
+   "year": 1988
+  },
+  {
+   "id": "terence-trent-d-arby-wishing-well",
+   "artist": "Terence Trent D'Arby",
+   "title": "Wishing Well",
+   "year": 1987
+  },
+  {
+   "id": "simple-minds-alive-and-kicking",
+   "artist": "Simple Minds",
+   "title": "Alive and Kicking",
+   "year": 1985
+  },
+  {
+   "id": "dire-straits-walk-of-life",
+   "artist": "Dire Straits",
+   "title": "Walk of Life",
+   "year": 1985
+  },
+  {
+   "id": "queen-a-kind-of-magic",
+   "artist": "Queen",
+   "title": "A Kind of Magic",
+   "year": 1986
+  },
+  {
+   "id": "queen-under-pressure",
+   "artist": "Queen",
+   "title": "Under Pressure",
+   "year": 1981
+  },
+  {
+   "id": "david-bowie-china-girl",
+   "artist": "David Bowie",
+   "title": "China Girl",
+   "year": 1983
+  },
+  {
+   "id": "tracy-chapman-fast-car",
+   "artist": "Tracy Chapman",
+   "title": "Fast Car",
+   "year": 1988
+  },
+  {
+   "id": "suzanne-vega-tom-s-diner",
+   "artist": "Suzanne Vega",
+   "title": "Tom's Diner",
+   "year": 1987
+  },
+  {
+   "id": "jason-donovan-too-many-broken-hearts",
+   "artist": "Jason Donovan",
+   "title": "Too Many Broken Hearts",
+   "year": 1989
+  },
+  {
+   "id": "kylie-minogue-jason-donovan-especially-for-you",
+   "artist": "Kylie Minogue & Jason Donovan",
+   "title": "Especially for You",
+   "year": 1988
+  },
+  {
+   "id": "mel-kim-respectable",
+   "artist": "Mel & Kim",
+   "title": "Respectable",
+   "year": 1987
+  },
+  {
+   "id": "sonia-you-ll-never-stop-me-loving-you",
+   "artist": "Sonia",
+   "title": "You'll Never Stop Me Loving You",
+   "year": 1989
+  },
+  {
+   "id": "sabrina-boys-summertime-love",
+   "artist": "Sabrina",
+   "title": "Boys (Summertime Love)",
+   "year": 1987
+  },
+  {
+   "id": "samantha-fox-touch-me-i-want-your-body",
+   "artist": "Samantha Fox",
+   "title": "Touch Me (I Want Your Body)",
+   "year": 1986
+  },
+  {
+   "id": "spagna-call-me",
+   "artist": "Spagna",
+   "title": "Call Me",
+   "year": 1987
+  },
+  {
+   "id": "ryan-paris-dolce-vita",
+   "artist": "Ryan Paris",
+   "title": "Dolce Vita",
+   "year": 1983
+  },
+  {
+   "id": "den-harrow-future-brain",
+   "artist": "Den Harrow",
+   "title": "Future Brain",
+   "year": 1985
+  },
+  {
+   "id": "c-c-catch-i-can-lose-my-heart-tonight",
+   "artist": "C.C. Catch",
+   "title": "I Can Lose My Heart Tonight",
+   "year": 1985
+  },
+  {
+   "id": "sandra-maria-magdalena",
+   "artist": "Sandra",
+   "title": "Maria Magdalena",
+   "year": 1985
+  },
+  {
+   "id": "sandra-in-the-heat-of-the-night",
+   "artist": "Sandra",
+   "title": "In the Heat of the Night",
+   "year": 1985
+  },
+  {
+   "id": "go-west-we-close-our-eyes",
+   "artist": "Go West",
+   "title": "We Close Our Eyes",
+   "year": 1985
+  },
+  {
+   "id": "climie-fisher-love-changes-everything",
+   "artist": "Climie Fisher",
+   "title": "Love Changes (Everything)",
+   "year": 1987
+  },
+  {
+   "id": "johnny-hates-jazz-shattered-dreams",
+   "artist": "Johnny Hates Jazz",
+   "title": "Shattered Dreams",
+   "year": 1987
+  },
+  {
+   "id": "curiosity-killed-the-cat-down-to-earth",
+   "artist": "Curiosity Killed the Cat",
+   "title": "Down to Earth",
+   "year": 1986
+  },
+  {
+   "id": "living-in-a-box-living-in-a-box",
+   "artist": "Living in a Box",
+   "title": "Living in a Box",
+   "year": 1987
+  },
+  {
+   "id": "visage-fade-to-grey",
+   "artist": "Visage",
+   "title": "Fade to Grey",
+   "year": 1980
+  },
+  {
+   "id": "kajagoogoo-too-shy",
+   "artist": "Kajagoogoo",
+   "title": "Too Shy",
+   "year": 1983
+  },
+  {
+   "id": "wang-chung-everybody-have-fun-tonight",
+   "artist": "Wang Chung",
+   "title": "Everybody Have Fun Tonight",
+   "year": 1986
+  },
+  {
+   "id": "men-without-hats-the-safety-dance",
+   "artist": "Men Without Hats",
+   "title": "The Safety Dance",
+   "year": 1982
+  },
+  {
+   "id": "glenn-frey-the-heat-is-on",
+   "artist": "Glenn Frey",
+   "title": "The Heat Is On",
+   "year": 1984
+  },
+  {
+   "id": "yazz-the-only-way-is-up",
+   "artist": "Yazz",
+   "title": "The Only Way Is Up",
+   "year": 1988
+  },
+  {
+   "id": "corey-hart-sunglasses-at-night",
+   "artist": "Corey Hart",
+   "title": "Sunglasses at Night",
+   "year": 1984
+  },
+  {
+   "id": "desireless-voyage-voyage",
+   "artist": "Desireless",
+   "title": "Voyage, voyage",
+   "year": 1986
+  },
+  {
+   "id": "mike-oldfield-moonlight-shadow",
+   "artist": "Mike Oldfield",
+   "title": "Moonlight Shadow",
+   "year": 1983
+  },
+  {
+   "id": "bros-when-will-i-be-famous",
+   "artist": "Bros",
+   "title": "When Will I Be Famous?",
+   "year": 1987
+  },
+  {
+   "id": "sinitta-so-macho",
+   "artist": "Sinitta",
+   "title": "So Macho",
+   "year": 1985
+  },
+  {
+   "id": "jimmy-somerville-you-make-me-feel-mighty-real",
+   "artist": "Jimmy Somerville",
+   "title": "You Make Me Feel (Mighty Real)",
+   "year": 1989
+  },
+  {
+   "id": "the-communards-don-t-leave-me-this-way",
+   "artist": "The Communards",
+   "title": "Don't Leave Me This Way",
+   "year": 1986
+  },
+  {
+   "id": "swing-out-sister-breakout",
+   "artist": "Swing Out Sister",
+   "title": "Breakout",
+   "year": 1986
+  },
+  {
+   "id": "deniece-williams-let-s-hear-it-for-the-boy",
+   "artist": "Deniece Williams",
+   "title": "Let's Hear It for the Boy",
+   "year": 1984
+  },
+  {
+   "id": "miami-sound-machine-dr-beat",
+   "artist": "Miami Sound Machine",
+   "title": "Dr. Beat",
+   "year": 1984
+  },
+  {
+   "id": "vanessa-paradis-joe-le-taxi",
+   "artist": "Vanessa Paradis",
+   "title": "Joe le taxi",
+   "year": 1987
+  }
+ ]
+}

@@ -1,0 +1,1267 @@
+{
+ "id": "2010-tal",
+ "name": "2010-talet",
+ "file": "2010-tal.json",
+ "songs": [
+  {
+   "id": "adele-rolling-in-the-deep",
+   "artist": "Adele",
+   "title": "Rolling in the Deep",
+   "year": 2010
+  },
+  {
+   "id": "adele-someone-like-you",
+   "artist": "Adele",
+   "title": "Someone Like You",
+   "year": 2011
+  },
+  {
+   "id": "adele-hello",
+   "artist": "Adele",
+   "title": "Hello",
+   "year": 2015
+  },
+  {
+   "id": "adele-skyfall",
+   "artist": "Adele",
+   "title": "Skyfall",
+   "year": 2012
+  },
+  {
+   "id": "avicii-wake-me-up",
+   "artist": "Avicii",
+   "title": "Wake Me Up",
+   "year": 2013
+  },
+  {
+   "id": "avicii-levels",
+   "artist": "Avicii",
+   "title": "Levels",
+   "year": 2011
+  },
+  {
+   "id": "avicii-hey-brother",
+   "artist": "Avicii",
+   "title": "Hey Brother",
+   "year": 2013
+  },
+  {
+   "id": "avicii-the-nights",
+   "artist": "Avicii",
+   "title": "The Nights",
+   "year": 2014
+  },
+  {
+   "id": "avicii-waiting-for-love",
+   "artist": "Avicii",
+   "title": "Waiting for Love",
+   "year": 2015
+  },
+  {
+   "id": "pharrell-williams-happy",
+   "artist": "Pharrell Williams",
+   "title": "Happy",
+   "year": 2013
+  },
+  {
+   "id": "mark-ronson-uptown-funk",
+   "artist": "Mark Ronson",
+   "title": "Uptown Funk",
+   "year": 2014
+  },
+  {
+   "id": "ed-sheeran-shape-of-you",
+   "artist": "Ed Sheeran",
+   "title": "Shape of You",
+   "year": 2017
+  },
+  {
+   "id": "ed-sheeran-thinking-out-loud",
+   "artist": "Ed Sheeran",
+   "title": "Thinking Out Loud",
+   "year": 2014
+  },
+  {
+   "id": "ed-sheeran-perfect",
+   "artist": "Ed Sheeran",
+   "title": "Perfect",
+   "year": 2017
+  },
+  {
+   "id": "ed-sheeran-castle-on-the-hill",
+   "artist": "Ed Sheeran",
+   "title": "Castle on the Hill",
+   "year": 2017
+  },
+  {
+   "id": "ed-sheeran-the-a-team",
+   "artist": "Ed Sheeran",
+   "title": "The A Team",
+   "year": 2011
+  },
+  {
+   "id": "ed-sheeran-photograph",
+   "artist": "Ed Sheeran",
+   "title": "Photograph",
+   "year": 2014
+  },
+  {
+   "id": "taylor-swift-shake-it-off",
+   "artist": "Taylor Swift",
+   "title": "Shake It Off",
+   "year": 2014
+  },
+  {
+   "id": "taylor-swift-blank-space",
+   "artist": "Taylor Swift",
+   "title": "Blank Space",
+   "year": 2014
+  },
+  {
+   "id": "taylor-swift-bad-blood",
+   "artist": "Taylor Swift",
+   "title": "Bad Blood",
+   "year": 2015
+  },
+  {
+   "id": "taylor-swift-we-are-never-ever-getting-back-together",
+   "artist": "Taylor Swift",
+   "title": "We Are Never Ever Getting Back Together",
+   "year": 2012
+  },
+  {
+   "id": "taylor-swift-style",
+   "artist": "Taylor Swift",
+   "title": "Style",
+   "year": 2014
+  },
+  {
+   "id": "bruno-mars-just-the-way-you-are",
+   "artist": "Bruno Mars",
+   "title": "Just the Way You Are",
+   "year": 2010
+  },
+  {
+   "id": "bruno-mars-locked-out-of-heaven",
+   "artist": "Bruno Mars",
+   "title": "Locked Out of Heaven",
+   "year": 2012
+  },
+  {
+   "id": "bruno-mars-grenade",
+   "artist": "Bruno Mars",
+   "title": "Grenade",
+   "year": 2010
+  },
+  {
+   "id": "bruno-mars-when-i-was-your-man",
+   "artist": "Bruno Mars",
+   "title": "When I Was Your Man",
+   "year": 2013
+  },
+  {
+   "id": "bruno-mars-24k-magic",
+   "artist": "Bruno Mars",
+   "title": "24K Magic",
+   "year": 2016
+  },
+  {
+   "id": "bruno-mars-that-s-what-i-like",
+   "artist": "Bruno Mars",
+   "title": "That's What I Like",
+   "year": 2016
+  },
+  {
+   "id": "katy-perry-firework",
+   "artist": "Katy Perry",
+   "title": "Firework",
+   "year": 2010
+  },
+  {
+   "id": "katy-perry-roar",
+   "artist": "Katy Perry",
+   "title": "Roar",
+   "year": 2013
+  },
+  {
+   "id": "katy-perry-california-gurls",
+   "artist": "Katy Perry",
+   "title": "California Gurls",
+   "year": 2010
+  },
+  {
+   "id": "katy-perry-teenage-dream",
+   "artist": "Katy Perry",
+   "title": "Teenage Dream",
+   "year": 2010
+  },
+  {
+   "id": "katy-perry-dark-horse",
+   "artist": "Katy Perry",
+   "title": "Dark Horse",
+   "year": 2013
+  },
+  {
+   "id": "lady-gaga-born-this-way",
+   "artist": "Lady Gaga",
+   "title": "Born This Way",
+   "year": 2011
+  },
+  {
+   "id": "lady-gaga-shallow",
+   "artist": "Lady Gaga",
+   "title": "Shallow",
+   "year": 2018
+  },
+  {
+   "id": "lady-gaga-telephone",
+   "artist": "Lady Gaga",
+   "title": "Telephone",
+   "year": 2010
+  },
+  {
+   "id": "rihanna-diamonds",
+   "artist": "Rihanna",
+   "title": "Diamonds",
+   "year": 2012
+  },
+  {
+   "id": "rihanna-we-found-love",
+   "artist": "Rihanna",
+   "title": "We Found Love",
+   "year": 2011
+  },
+  {
+   "id": "rihanna-only-girl-in-the-world",
+   "artist": "Rihanna",
+   "title": "Only Girl (In the World)",
+   "year": 2010
+  },
+  {
+   "id": "rihanna-work",
+   "artist": "Rihanna",
+   "title": "Work",
+   "year": 2016
+  },
+  {
+   "id": "gotye-somebody-that-i-used-to-know",
+   "artist": "Gotye",
+   "title": "Somebody That I Used to Know",
+   "year": 2011
+  },
+  {
+   "id": "carly-rae-jepsen-call-me-maybe",
+   "artist": "Carly Rae Jepsen",
+   "title": "Call Me Maybe",
+   "year": 2012
+  },
+  {
+   "id": "psy-gangnam-style",
+   "artist": "PSY",
+   "title": "Gangnam Style",
+   "year": 2012
+  },
+  {
+   "id": "daft-punk-get-lucky",
+   "artist": "Daft Punk",
+   "title": "Get Lucky",
+   "year": 2013
+  },
+  {
+   "id": "robin-thicke-blurred-lines",
+   "artist": "Robin Thicke",
+   "title": "Blurred Lines",
+   "year": 2013
+  },
+  {
+   "id": "imagine-dragons-radioactive",
+   "artist": "Imagine Dragons",
+   "title": "Radioactive",
+   "year": 2012
+  },
+  {
+   "id": "imagine-dragons-demons",
+   "artist": "Imagine Dragons",
+   "title": "Demons",
+   "year": 2013
+  },
+  {
+   "id": "imagine-dragons-believer",
+   "artist": "Imagine Dragons",
+   "title": "Believer",
+   "year": 2017
+  },
+  {
+   "id": "imagine-dragons-thunder",
+   "artist": "Imagine Dragons",
+   "title": "Thunder",
+   "year": 2017
+  },
+  {
+   "id": "coldplay-paradise",
+   "artist": "Coldplay",
+   "title": "Paradise",
+   "year": 2011
+  },
+  {
+   "id": "coldplay-a-sky-full-of-stars",
+   "artist": "Coldplay",
+   "title": "A Sky Full of Stars",
+   "year": 2014
+  },
+  {
+   "id": "coldplay-hymn-for-the-weekend",
+   "artist": "Coldplay",
+   "title": "Hymn for the Weekend",
+   "year": 2016
+  },
+  {
+   "id": "coldplay-something-just-like-this",
+   "artist": "Coldplay",
+   "title": "Something Just Like This",
+   "year": 2017
+  },
+  {
+   "id": "maroon-5-moves-like-jagger",
+   "artist": "Maroon 5",
+   "title": "Moves like Jagger",
+   "year": 2011
+  },
+  {
+   "id": "maroon-5-payphone",
+   "artist": "Maroon 5",
+   "title": "Payphone",
+   "year": 2012
+  },
+  {
+   "id": "maroon-5-sugar",
+   "artist": "Maroon 5",
+   "title": "Sugar",
+   "year": 2015
+  },
+  {
+   "id": "maroon-5-girls-like-you",
+   "artist": "Maroon 5",
+   "title": "Girls Like You",
+   "year": 2018
+  },
+  {
+   "id": "maroon-5-memories",
+   "artist": "Maroon 5",
+   "title": "Memories",
+   "year": 2019
+  },
+  {
+   "id": "justin-bieber-sorry",
+   "artist": "Justin Bieber",
+   "title": "Sorry",
+   "year": 2015
+  },
+  {
+   "id": "justin-bieber-love-yourself",
+   "artist": "Justin Bieber",
+   "title": "Love Yourself",
+   "year": 2015
+  },
+  {
+   "id": "justin-bieber-what-do-you-mean",
+   "artist": "Justin Bieber",
+   "title": "What Do You Mean?",
+   "year": 2015
+  },
+  {
+   "id": "justin-bieber-baby",
+   "artist": "Justin Bieber",
+   "title": "Baby",
+   "year": 2010
+  },
+  {
+   "id": "luis-fonsi-despacito",
+   "artist": "Luis Fonsi",
+   "title": "Despacito",
+   "year": 2017
+  },
+  {
+   "id": "the-weeknd-blinding-lights",
+   "artist": "The Weeknd",
+   "title": "Blinding Lights",
+   "year": 2019
+  },
+  {
+   "id": "the-weeknd-can-t-feel-my-face",
+   "artist": "The Weeknd",
+   "title": "Can't Feel My Face",
+   "year": 2015
+  },
+  {
+   "id": "the-weeknd-starboy",
+   "artist": "The Weeknd",
+   "title": "Starboy",
+   "year": 2016
+  },
+  {
+   "id": "the-weeknd-the-hills",
+   "artist": "The Weeknd",
+   "title": "The Hills",
+   "year": 2015
+  },
+  {
+   "id": "billie-eilish-bad-guy",
+   "artist": "Billie Eilish",
+   "title": "Bad Guy",
+   "year": 2019
+  },
+  {
+   "id": "billie-eilish-ocean-eyes",
+   "artist": "Billie Eilish",
+   "title": "Ocean Eyes",
+   "year": 2016
+  },
+  {
+   "id": "lewis-capaldi-someone-you-loved",
+   "artist": "Lewis Capaldi",
+   "title": "Someone You Loved",
+   "year": 2018
+  },
+  {
+   "id": "dua-lipa-new-rules",
+   "artist": "Dua Lipa",
+   "title": "New Rules",
+   "year": 2017
+  },
+  {
+   "id": "dua-lipa-idgaf",
+   "artist": "Dua Lipa",
+   "title": "IDGAF",
+   "year": 2017
+  },
+  {
+   "id": "dua-lipa-don-t-start-now",
+   "artist": "Dua Lipa",
+   "title": "Don't Start Now",
+   "year": 2019
+  },
+  {
+   "id": "sam-smith-stay-with-me",
+   "artist": "Sam Smith",
+   "title": "Stay with Me",
+   "year": 2014
+  },
+  {
+   "id": "sam-smith-too-good-at-goodbyes",
+   "artist": "Sam Smith",
+   "title": "Too Good at Goodbyes",
+   "year": 2017
+  },
+  {
+   "id": "sia-chandelier",
+   "artist": "Sia",
+   "title": "Chandelier",
+   "year": 2014
+  },
+  {
+   "id": "sia-cheap-thrills",
+   "artist": "Sia",
+   "title": "Cheap Thrills",
+   "year": 2016
+  },
+  {
+   "id": "david-guetta-titanium",
+   "artist": "David Guetta",
+   "title": "Titanium",
+   "year": 2011
+  },
+  {
+   "id": "david-guetta-without-you",
+   "artist": "David Guetta",
+   "title": "Without You",
+   "year": 2011
+  },
+  {
+   "id": "calvin-harris-summer",
+   "artist": "Calvin Harris",
+   "title": "Summer",
+   "year": 2014
+  },
+  {
+   "id": "calvin-harris-this-is-what-you-came-for",
+   "artist": "Calvin Harris",
+   "title": "This Is What You Came For",
+   "year": 2016
+  },
+  {
+   "id": "calvin-harris-feel-so-close",
+   "artist": "Calvin Harris",
+   "title": "Feel So Close",
+   "year": 2011
+  },
+  {
+   "id": "the-chainsmokers-closer",
+   "artist": "The Chainsmokers",
+   "title": "Closer",
+   "year": 2016
+  },
+  {
+   "id": "the-chainsmokers-don-t-let-me-down",
+   "artist": "The Chainsmokers",
+   "title": "Don't Let Me Down",
+   "year": 2016
+  },
+  {
+   "id": "swedish-house-mafia-don-t-you-worry-child",
+   "artist": "Swedish House Mafia",
+   "title": "Don't You Worry Child",
+   "year": 2012
+  },
+  {
+   "id": "swedish-house-mafia-save-the-world",
+   "artist": "Swedish House Mafia",
+   "title": "Save the World",
+   "year": 2011
+  },
+  {
+   "id": "icona-pop-i-love-it",
+   "artist": "Icona Pop",
+   "title": "I Love It",
+   "year": 2012
+  },
+  {
+   "id": "robyn-dancing-on-my-own",
+   "artist": "Robyn",
+   "title": "Dancing on My Own",
+   "year": 2010
+  },
+  {
+   "id": "zara-larsson-lush-life",
+   "artist": "Zara Larsson",
+   "title": "Lush Life",
+   "year": 2015
+  },
+  {
+   "id": "zara-larsson-never-forget-you",
+   "artist": "Zara Larsson",
+   "title": "Never Forget You",
+   "year": 2015
+  },
+  {
+   "id": "tove-lo-habits-stay-high",
+   "artist": "Tove Lo",
+   "title": "Habits (Stay High)",
+   "year": 2013
+  },
+  {
+   "id": "loreen-euphoria",
+   "artist": "Loreen",
+   "title": "Euphoria",
+   "year": 2012
+  },
+  {
+   "id": "mans-zelmerlow-heroes",
+   "artist": "Måns Zelmerlöw",
+   "title": "Heroes",
+   "year": 2015
+  },
+  {
+   "id": "kygo-firestone",
+   "artist": "Kygo",
+   "title": "Firestone",
+   "year": 2014
+  },
+  {
+   "id": "kygo-stole-the-show",
+   "artist": "Kygo",
+   "title": "Stole the Show",
+   "year": 2015
+  },
+  {
+   "id": "alan-walker-faded",
+   "artist": "Alan Walker",
+   "title": "Faded",
+   "year": 2015
+  },
+  {
+   "id": "lukas-graham-7-years",
+   "artist": "Lukas Graham",
+   "title": "7 Years",
+   "year": 2015
+  },
+  {
+   "id": "onerepublic-counting-stars",
+   "artist": "OneRepublic",
+   "title": "Counting Stars",
+   "year": 2013
+  },
+  {
+   "id": "fun-we-are-young",
+   "artist": "fun.",
+   "title": "We Are Young",
+   "year": 2011
+  },
+  {
+   "id": "fun-some-nights",
+   "artist": "fun.",
+   "title": "Some Nights",
+   "year": 2012
+  },
+  {
+   "id": "foster-the-people-pumped-up-kicks",
+   "artist": "Foster the People",
+   "title": "Pumped Up Kicks",
+   "year": 2010
+  },
+  {
+   "id": "macklemore-ryan-lewis-thrift-shop",
+   "artist": "Macklemore & Ryan Lewis",
+   "title": "Thrift Shop",
+   "year": 2012
+  },
+  {
+   "id": "macklemore-ryan-lewis-can-t-hold-us",
+   "artist": "Macklemore & Ryan Lewis",
+   "title": "Can't Hold Us",
+   "year": 2011
+  },
+  {
+   "id": "meghan-trainor-all-about-that-bass",
+   "artist": "Meghan Trainor",
+   "title": "All About That Bass",
+   "year": 2014
+  },
+  {
+   "id": "hozier-take-me-to-church",
+   "artist": "Hozier",
+   "title": "Take Me to Church",
+   "year": 2013
+  },
+  {
+   "id": "john-legend-all-of-me",
+   "artist": "John Legend",
+   "title": "All of Me",
+   "year": 2013
+  },
+  {
+   "id": "lorde-royals",
+   "artist": "Lorde",
+   "title": "Royals",
+   "year": 2013
+  },
+  {
+   "id": "lorde-green-light",
+   "artist": "Lorde",
+   "title": "Green Light",
+   "year": 2017
+  },
+  {
+   "id": "lana-del-rey-video-games",
+   "artist": "Lana Del Rey",
+   "title": "Video Games",
+   "year": 2011
+  },
+  {
+   "id": "lana-del-rey-summertime-sadness",
+   "artist": "Lana Del Rey",
+   "title": "Summertime Sadness",
+   "year": 2012
+  },
+  {
+   "id": "florence-and-the-machine-shake-it-out",
+   "artist": "Florence and the Machine",
+   "title": "Shake It Out",
+   "year": 2011
+  },
+  {
+   "id": "mumford-sons-i-will-wait",
+   "artist": "Mumford & Sons",
+   "title": "I Will Wait",
+   "year": 2012
+  },
+  {
+   "id": "of-monsters-and-men-little-talks",
+   "artist": "Of Monsters and Men",
+   "title": "Little Talks",
+   "year": 2011
+  },
+  {
+   "id": "the-lumineers-ho-hey",
+   "artist": "The Lumineers",
+   "title": "Ho Hey",
+   "year": 2012
+  },
+  {
+   "id": "passenger-let-her-go",
+   "artist": "Passenger",
+   "title": "Let Her Go",
+   "year": 2012
+  },
+  {
+   "id": "james-bay-hold-back-the-river",
+   "artist": "James Bay",
+   "title": "Hold Back the River",
+   "year": 2014
+  },
+  {
+   "id": "george-ezra-budapest",
+   "artist": "George Ezra",
+   "title": "Budapest",
+   "year": 2014
+  },
+  {
+   "id": "george-ezra-shotgun",
+   "artist": "George Ezra",
+   "title": "Shotgun",
+   "year": 2018
+  },
+  {
+   "id": "rag-n-bone-man-human",
+   "artist": "Rag'n'Bone Man",
+   "title": "Human",
+   "year": 2016
+  },
+  {
+   "id": "ellie-goulding-love-me-like-you-do",
+   "artist": "Ellie Goulding",
+   "title": "Love Me like You Do",
+   "year": 2015
+  },
+  {
+   "id": "ellie-goulding-burn",
+   "artist": "Ellie Goulding",
+   "title": "Burn",
+   "year": 2013
+  },
+  {
+   "id": "clean-bandit-rather-be",
+   "artist": "Clean Bandit",
+   "title": "Rather Be",
+   "year": 2014
+  },
+  {
+   "id": "clean-bandit-rockabye",
+   "artist": "Clean Bandit",
+   "title": "Rockabye",
+   "year": 2016
+  },
+  {
+   "id": "rita-ora-anywhere",
+   "artist": "Rita Ora",
+   "title": "Anywhere",
+   "year": 2017
+  },
+  {
+   "id": "jessie-j-price-tag",
+   "artist": "Jessie J",
+   "title": "Price Tag",
+   "year": 2011
+  },
+  {
+   "id": "jessie-j-bang-bang",
+   "artist": "Jessie J",
+   "title": "Bang Bang",
+   "year": 2014
+  },
+  {
+   "id": "ariana-grande-thank-u-next",
+   "artist": "Ariana Grande",
+   "title": "Thank U, Next",
+   "year": 2018
+  },
+  {
+   "id": "ariana-grande-problem",
+   "artist": "Ariana Grande",
+   "title": "Problem",
+   "year": 2014
+  },
+  {
+   "id": "ariana-grande-7-rings",
+   "artist": "Ariana Grande",
+   "title": "7 Rings",
+   "year": 2019
+  },
+  {
+   "id": "ariana-grande-no-tears-left-to-cry",
+   "artist": "Ariana Grande",
+   "title": "No Tears Left to Cry",
+   "year": 2018
+  },
+  {
+   "id": "shawn-mendes-stitches",
+   "artist": "Shawn Mendes",
+   "title": "Stitches",
+   "year": 2015
+  },
+  {
+   "id": "shawn-mendes-treat-you-better",
+   "artist": "Shawn Mendes",
+   "title": "Treat You Better",
+   "year": 2016
+  },
+  {
+   "id": "shawn-mendes-senorita",
+   "artist": "Shawn Mendes",
+   "title": "Señorita",
+   "year": 2019
+  },
+  {
+   "id": "camila-cabello-havana",
+   "artist": "Camila Cabello",
+   "title": "Havana",
+   "year": 2017
+  },
+  {
+   "id": "selena-gomez-lose-you-to-love-me",
+   "artist": "Selena Gomez",
+   "title": "Lose You to Love Me",
+   "year": 2019
+  },
+  {
+   "id": "selena-gomez-come-get-it",
+   "artist": "Selena Gomez",
+   "title": "Come & Get It",
+   "year": 2013
+  },
+  {
+   "id": "miley-cyrus-wrecking-ball",
+   "artist": "Miley Cyrus",
+   "title": "Wrecking Ball",
+   "year": 2013
+  },
+  {
+   "id": "demi-lovato-sorry-not-sorry",
+   "artist": "Demi Lovato",
+   "title": "Sorry Not Sorry",
+   "year": 2017
+  },
+  {
+   "id": "charlie-puth-attention",
+   "artist": "Charlie Puth",
+   "title": "Attention",
+   "year": 2017
+  },
+  {
+   "id": "post-malone-circles",
+   "artist": "Post Malone",
+   "title": "Circles",
+   "year": 2019
+  },
+  {
+   "id": "post-malone-sunflower",
+   "artist": "Post Malone",
+   "title": "Sunflower",
+   "year": 2018
+  },
+  {
+   "id": "post-malone-rockstar",
+   "artist": "Post Malone",
+   "title": "Rockstar",
+   "year": 2017
+  },
+  {
+   "id": "drake-hotline-bling",
+   "artist": "Drake",
+   "title": "Hotline Bling",
+   "year": 2015
+  },
+  {
+   "id": "drake-one-dance",
+   "artist": "Drake",
+   "title": "One Dance",
+   "year": 2016
+  },
+  {
+   "id": "drake-god-s-plan",
+   "artist": "Drake",
+   "title": "God's Plan",
+   "year": 2018
+  },
+  {
+   "id": "kendrick-lamar-humble",
+   "artist": "Kendrick Lamar",
+   "title": "Humble",
+   "year": 2017
+  },
+  {
+   "id": "childish-gambino-this-is-america",
+   "artist": "Childish Gambino",
+   "title": "This Is America",
+   "year": 2018
+  },
+  {
+   "id": "lil-nas-x-old-town-road",
+   "artist": "Lil Nas X",
+   "title": "Old Town Road",
+   "year": 2019
+  },
+  {
+   "id": "pink-just-give-me-a-reason",
+   "artist": "Pink",
+   "title": "Just Give Me a Reason",
+   "year": 2012
+  },
+  {
+   "id": "pink-try",
+   "artist": "Pink",
+   "title": "Try",
+   "year": 2012
+  },
+  {
+   "id": "pink-what-about-us",
+   "artist": "Pink",
+   "title": "What About Us",
+   "year": 2017
+  },
+  {
+   "id": "flo-rida-whistle",
+   "artist": "Flo Rida",
+   "title": "Whistle",
+   "year": 2012
+  },
+  {
+   "id": "flo-rida-good-feeling",
+   "artist": "Flo Rida",
+   "title": "Good Feeling",
+   "year": 2011
+  },
+  {
+   "id": "pitbull-timber",
+   "artist": "Pitbull",
+   "title": "Timber",
+   "year": 2013
+  },
+  {
+   "id": "pitbull-give-me-everything",
+   "artist": "Pitbull",
+   "title": "Give Me Everything",
+   "year": 2011
+  },
+  {
+   "id": "lmfao-party-rock-anthem",
+   "artist": "LMFAO",
+   "title": "Party Rock Anthem",
+   "year": 2011
+  },
+  {
+   "id": "lmfao-sexy-and-i-know-it",
+   "artist": "LMFAO",
+   "title": "Sexy and I Know It",
+   "year": 2011
+  },
+  {
+   "id": "black-eyed-peas-the-time-dirty-bit",
+   "artist": "Black Eyed Peas",
+   "title": "The Time (Dirty Bit)",
+   "year": 2010
+  },
+  {
+   "id": "nicki-minaj-super-bass",
+   "artist": "Nicki Minaj",
+   "title": "Super Bass",
+   "year": 2011
+  },
+  {
+   "id": "nicki-minaj-starships",
+   "artist": "Nicki Minaj",
+   "title": "Starships",
+   "year": 2012
+  },
+  {
+   "id": "beyonce-run-the-world-girls",
+   "artist": "Beyoncé",
+   "title": "Run the World (Girls)",
+   "year": 2011
+  },
+  {
+   "id": "beyonce-drunk-in-love",
+   "artist": "Beyoncé",
+   "title": "Drunk in Love",
+   "year": 2013
+  },
+  {
+   "id": "twenty-one-pilots-stressed-out",
+   "artist": "Twenty One Pilots",
+   "title": "Stressed Out",
+   "year": 2015
+  },
+  {
+   "id": "twenty-one-pilots-heathens",
+   "artist": "Twenty One Pilots",
+   "title": "Heathens",
+   "year": 2016
+  },
+  {
+   "id": "arctic-monkeys-do-i-wanna-know",
+   "artist": "Arctic Monkeys",
+   "title": "Do I Wanna Know?",
+   "year": 2013
+  },
+  {
+   "id": "arctic-monkeys-r-u-mine",
+   "artist": "Arctic Monkeys",
+   "title": "R U Mine?",
+   "year": 2012
+  },
+  {
+   "id": "the-black-keys-lonely-boy",
+   "artist": "The Black Keys",
+   "title": "Lonely Boy",
+   "year": 2011
+  },
+  {
+   "id": "portugal-the-man-feel-it-still",
+   "artist": "Portugal. The Man",
+   "title": "Feel It Still",
+   "year": 2017
+  },
+  {
+   "id": "major-lazer-lean-on",
+   "artist": "Major Lazer",
+   "title": "Lean On",
+   "year": 2015
+  },
+  {
+   "id": "dj-snake-taki-taki",
+   "artist": "DJ Snake",
+   "title": "Taki Taki",
+   "year": 2018
+  },
+  {
+   "id": "marshmello-happier",
+   "artist": "Marshmello",
+   "title": "Happier",
+   "year": 2018
+  },
+  {
+   "id": "zedd-clarity",
+   "artist": "Zedd",
+   "title": "Clarity",
+   "year": 2012
+  },
+  {
+   "id": "zedd-the-middle",
+   "artist": "Zedd",
+   "title": "The Middle",
+   "year": 2018
+  },
+  {
+   "id": "avicii-without-you",
+   "artist": "Avicii",
+   "title": "Without You",
+   "year": 2017
+  },
+  {
+   "id": "avicii-sos",
+   "artist": "Avicii",
+   "title": "SOS",
+   "year": 2019
+  },
+  {
+   "id": "martin-garrix-animals",
+   "artist": "Martin Garrix",
+   "title": "Animals",
+   "year": 2013
+  },
+  {
+   "id": "robin-schulz-prayer-in-c",
+   "artist": "Robin Schulz",
+   "title": "Prayer in C",
+   "year": 2014
+  },
+  {
+   "id": "lost-frequencies-are-you-with-me",
+   "artist": "Lost Frequencies",
+   "title": "Are You with Me",
+   "year": 2014
+  },
+  {
+   "id": "felix-jaehn-ain-t-nobody-loves-me-better",
+   "artist": "Felix Jaehn",
+   "title": "Ain't Nobody (Loves Me Better)",
+   "year": 2015
+  },
+  {
+   "id": "mike-posner-i-took-a-pill-in-ibiza",
+   "artist": "Mike Posner",
+   "title": "I Took a Pill in Ibiza",
+   "year": 2015
+  },
+  {
+   "id": "kungs-this-girl",
+   "artist": "Kungs",
+   "title": "This Girl",
+   "year": 2016
+  },
+  {
+   "id": "omi-cheerleader",
+   "artist": "OMI",
+   "title": "Cheerleader",
+   "year": 2014
+  },
+  {
+   "id": "magic-rude",
+   "artist": "Magic!",
+   "title": "Rude",
+   "year": 2013
+  },
+  {
+   "id": "jason-derulo-want-to-want-me",
+   "artist": "Jason Derulo",
+   "title": "Want to Want Me",
+   "year": 2015
+  },
+  {
+   "id": "jason-derulo-talk-dirty",
+   "artist": "Jason Derulo",
+   "title": "Talk Dirty",
+   "year": 2013
+  },
+  {
+   "id": "wiz-khalifa-see-you-again",
+   "artist": "Wiz Khalifa",
+   "title": "See You Again",
+   "year": 2015
+  },
+  {
+   "id": "bastille-pompeii",
+   "artist": "Bastille",
+   "title": "Pompeii",
+   "year": 2013
+  },
+  {
+   "id": "little-mix-shout-out-to-my-ex",
+   "artist": "Little Mix",
+   "title": "Shout Out to My Ex",
+   "year": 2016
+  },
+  {
+   "id": "one-direction-what-makes-you-beautiful",
+   "artist": "One Direction",
+   "title": "What Makes You Beautiful",
+   "year": 2011
+  },
+  {
+   "id": "one-direction-story-of-my-life",
+   "artist": "One Direction",
+   "title": "Story of My Life",
+   "year": 2013
+  },
+  {
+   "id": "harry-styles-sign-of-the-times",
+   "artist": "Harry Styles",
+   "title": "Sign of the Times",
+   "year": 2017
+  },
+  {
+   "id": "harry-styles-watermelon-sugar",
+   "artist": "Harry Styles",
+   "title": "Watermelon Sugar",
+   "year": 2019
+  },
+  {
+   "id": "niall-horan-slow-hands",
+   "artist": "Niall Horan",
+   "title": "Slow Hands",
+   "year": 2017
+  },
+  {
+   "id": "halsey-without-me",
+   "artist": "Halsey",
+   "title": "Without Me",
+   "year": 2018
+  },
+  {
+   "id": "khalid-young-dumb-broke",
+   "artist": "Khalid",
+   "title": "Young Dumb & Broke",
+   "year": 2017
+  },
+  {
+   "id": "tones-and-i-dance-monkey",
+   "artist": "Tones and I",
+   "title": "Dance Monkey",
+   "year": 2019
+  },
+  {
+   "id": "benjamin-ingrosso-dance-you-off",
+   "artist": "Benjamin Ingrosso",
+   "title": "Dance You Off",
+   "year": 2018
+  },
+  {
+   "id": "molly-sanden-freak",
+   "artist": "Molly Sandén",
+   "title": "Freak",
+   "year": 2016
+  },
+  {
+   "id": "laleh-some-die-young",
+   "artist": "Laleh",
+   "title": "Some Die Young",
+   "year": 2012
+  },
+  {
+   "id": "veronica-maggio-jag-kommer",
+   "artist": "Veronica Maggio",
+   "title": "Jag kommer",
+   "year": 2011
+  },
+  {
+   "id": "hakan-hellstrom-det-kommer-aldrig-va-over-for-mig",
+   "artist": "Håkan Hellström",
+   "title": "Det kommer aldrig va över för mig",
+   "year": 2016
+  },
+  {
+   "id": "miriam-bryant-push-play",
+   "artist": "Miriam Bryant",
+   "title": "Push Play",
+   "year": 2013
+  },
+  {
+   "id": "first-aid-kit-emmylou",
+   "artist": "First Aid Kit",
+   "title": "Emmylou",
+   "year": 2012
+  },
+  {
+   "id": "mohombi-bumpy-ride",
+   "artist": "Mohombi",
+   "title": "Bumpy Ride",
+   "year": 2010
+  },
+  {
+   "id": "lykke-li-i-follow-rivers",
+   "artist": "Lykke Li",
+   "title": "I Follow Rivers",
+   "year": 2011
+  },
+  {
+   "id": "darin-ta-mig-tillbaka",
+   "artist": "Darin",
+   "title": "Ta mig tillbaka",
+   "year": 2015
+  },
+  {
+   "id": "petra-marklund-handerna-mot-himlen",
+   "artist": "Petra Marklund",
+   "title": "Händerna mot himlen",
+   "year": 2012
+  },
+  {
+   "id": "frans-if-i-were-sorry",
+   "artist": "Frans",
+   "title": "If I Were Sorry",
+   "year": 2016
+  },
+  {
+   "id": "robin-bengtsson-i-can-t-go-on",
+   "artist": "Robin Bengtsson",
+   "title": "I Can't Go On",
+   "year": 2017
+  },
+  {
+   "id": "john-de-sohn-long-time",
+   "artist": "John de Sohn",
+   "title": "Long Time",
+   "year": 2013
+  }
+ ]
+}
