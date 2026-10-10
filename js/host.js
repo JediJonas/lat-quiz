@@ -363,7 +363,6 @@ function render() {
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
-      <p class="muted round-settings">${settingsSummary(game.cleanSettings(state))}</p>
       <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
@@ -377,6 +376,7 @@ function render() {
         : '<button id="next" class="big huge">Nästa låt</button>'}`;
   }
   renderPlayers();
+  $('#game-settings-summary').textContent = settingsSummary(game.cleanSettings(state));
 }
 
 // ---- Start ----
