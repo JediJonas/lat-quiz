@@ -107,13 +107,11 @@ function render() {
 
   if (phase === 'playing') {
     $('#round-title').textContent = `Låt ${round.number}`;
-    const done = local.artist && local.title;
-    $('#sent').textContent = done ? 'Båda svaren är valda. Du kan ändra dem tills tiden är slut.' : `Välj ${view.labels.artist.toLowerCase()} och ${view.labels.title.toLowerCase()} ur listan.`;
     renderTimer();
   } else if (phase === 'revealed') {
     const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
     const mine = round.answer || { artist: '', title: '' };
-    $('#result').innerHTML = `<h2>Låt ${round.number}</h2>
+    $('#result').innerHTML = `<h2 class="round-label">Låt ${round.number}</h2>
       <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
       <ul class="mine">

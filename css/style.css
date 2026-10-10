@@ -215,6 +215,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
 }
+.round-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; }
 .mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
 .mid-ring circle { stroke-width: 8; }
 .mid-ring .ring-num { font-size: 2.8rem; }
