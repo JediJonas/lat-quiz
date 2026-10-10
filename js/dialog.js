@@ -21,10 +21,6 @@ function open({ title, message, okText = 'OK', cancelText = null, danger = false
   if (danger) ok.classList.add('danger');
   if (cancelText) dialog.querySelector('[value=cancel]').textContent = cancelText;
 
-  // Klick på bakgrunden stänger som Avbryt.
-  dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) dialog.close('cancel');
-  });
 
   document.body.append(dialog);
   dialog.showModal();
