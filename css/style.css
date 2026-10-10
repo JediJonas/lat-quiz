@@ -351,6 +351,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .settings-link .small { display: block; margin-top: 4px; }
 .modal.settings label:first-of-type { margin-top: 8px; }
 .modal.settings .modal-actions { margin-top: 24px; }
+.modal.settings::backdrop { background: var(--bg, #f5f5f7); backdrop-filter: none; }
 
 @media (max-width: 760px) {
   .host { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
