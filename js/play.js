@@ -76,14 +76,15 @@ function playerStatus(id) {
     labels: view.labels,
     esc,
   });
-  return tags ? `<div class="status">${tags}</div>` : '';
+  return tags;
 }
 
 function renderStandings() {
   const places = ranks(view.standings);
   const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
     <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
-    <td class="name">${esc(p.name)}${playerStatus(p.id)}</td>
+    <td class="name">${esc(p.name)}</td>
+    <td class="status">${playerStatus(p.id)}</td>
     <td class="score">${p.score}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
