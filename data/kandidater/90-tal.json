@@ -1,0 +1,1327 @@
+{
+ "id": "90-tal",
+ "name": "90-talets hits",
+ "file": "90-tal.json",
+ "songs": [
+  {
+   "id": "queen-the-show-must-go-on",
+   "artist": "Queen",
+   "title": "The Show Must Go On",
+   "year": 1991
+  },
+  {
+   "id": "michael-jackson-earth-song",
+   "artist": "Michael Jackson",
+   "title": "Earth Song",
+   "year": 1995
+  },
+  {
+   "id": "the-cranberries-zombie",
+   "artist": "The Cranberries",
+   "title": "Zombie",
+   "year": 1994
+  },
+  {
+   "id": "michael-jackson-you-are-not-alone",
+   "artist": "Michael Jackson",
+   "title": "You Are Not Alone",
+   "year": 1995
+  },
+  {
+   "id": "michael-jackson-they-don-t-care-about-us",
+   "artist": "Michael Jackson",
+   "title": "They Don't Care About Us",
+   "year": 1996
+  },
+  {
+   "id": "metallica-nothing-else-matters",
+   "artist": "Metallica",
+   "title": "Nothing Else Matters",
+   "year": 1992
+  },
+  {
+   "id": "queen-innuendo",
+   "artist": "Queen",
+   "title": "Innuendo",
+   "year": 1991
+  },
+  {
+   "id": "metallica-enter-sandman",
+   "artist": "Metallica",
+   "title": "Enter Sandman",
+   "year": 1991
+  },
+  {
+   "id": "coolio-gangsta-s-paradise",
+   "artist": "Coolio & L.V.",
+   "title": "Gangsta's Paradise",
+   "year": 1995
+  },
+  {
+   "id": "nirvana-come-as-you-are",
+   "artist": "Nirvana & Geneviève Racette",
+   "title": "Come as You Are",
+   "year": 1992
+  },
+  {
+   "id": "r-e-m-losing-my-religion",
+   "artist": "R.E.M.",
+   "title": "Losing My Religion",
+   "year": 1991
+  },
+  {
+   "id": "britney-spears-you-drive-me-crazy",
+   "artist": "Britney Spears",
+   "title": "(You Drive Me) Crazy",
+   "year": 1999
+  },
+  {
+   "id": "queen-headlong",
+   "artist": "Queen",
+   "title": "Headlong",
+   "year": 1991
+  },
+  {
+   "id": "queen-i-m-going-slightly-mad",
+   "artist": "Queen",
+   "title": "I'm Going Slightly Mad",
+   "year": 1991
+  },
+  {
+   "id": "michael-jackson-history-ghosts",
+   "artist": "Michael Jackson",
+   "title": "HIStory/Ghosts",
+   "year": 1997
+  },
+  {
+   "id": "depeche-mode-enjoy-the-silence",
+   "artist": "Depeche Mode",
+   "title": "Enjoy the Silence",
+   "year": 1990
+  },
+  {
+   "id": "rammstein-du-hast",
+   "artist": "Rammstein",
+   "title": "Du hast",
+   "year": 1997
+  },
+  {
+   "id": "andrea-bocelli-con-te-partiro",
+   "artist": "Andrea Bocelli",
+   "title": "Con te partirò",
+   "year": 1995
+  },
+  {
+   "id": "britney-spears-born-to-make-you-happy",
+   "artist": "Britney Spears",
+   "title": "Born to Make You Happy",
+   "year": 1999
+  },
+  {
+   "id": "u2-one",
+   "artist": "U2",
+   "title": "One",
+   "year": 1992
+  },
+  {
+   "id": "blur-song-2",
+   "artist": "Blur",
+   "title": "Song 2",
+   "year": 1997
+  },
+  {
+   "id": "kylie-minogue-where-the-wild-roses-grow",
+   "artist": "Kylie Minogue & Nick Cave and the Bad Seeds",
+   "title": "Where the Wild Roses Grow",
+   "year": 1995
+  },
+  {
+   "id": "madonna-you-must-love-me",
+   "artist": "Madonna",
+   "title": "You Must Love Me",
+   "year": 1996
+  },
+  {
+   "id": "green-day-basket-case",
+   "artist": "Green Day",
+   "title": "Basket Case",
+   "year": 1994
+  },
+  {
+   "id": "metallica-until-it-sleeps",
+   "artist": "Metallica",
+   "title": "Until It Sleeps",
+   "year": 1996
+  },
+  {
+   "id": "madonna-ray-of-light",
+   "artist": "Madonna",
+   "title": "Ray of Light",
+   "year": 1998
+  },
+  {
+   "id": "christina-aguilera-genie-in-a-bottle",
+   "artist": "Christina Aguilera",
+   "title": "Genie in a Bottle",
+   "year": 1999
+  },
+  {
+   "id": "sinead-o-connor-nothing-compares-2-u",
+   "artist": "Sinéad O'Connor",
+   "title": "Nothing Compares 2 U",
+   "year": 1990
+  },
+  {
+   "id": "britney-spears-from-the-bottom-of-my-broken-heart",
+   "artist": "Britney Spears",
+   "title": "From the Bottom of My Broken Heart",
+   "year": 1999
+  },
+  {
+   "id": "britney-spears-sometimes",
+   "artist": "Britney Spears",
+   "title": "Sometimes",
+   "year": 1999
+  },
+  {
+   "id": "madonna-secret",
+   "artist": "Madonna",
+   "title": "Secret",
+   "year": 1994
+  },
+  {
+   "id": "nirvana-heart-shaped-box",
+   "artist": "Nirvana",
+   "title": "Heart-Shaped Box",
+   "year": 1993
+  },
+  {
+   "id": "rammstein-engel",
+   "artist": "Rammstein",
+   "title": "Engel",
+   "year": 1997
+  },
+  {
+   "id": "the-verve-bitter-sweet-symphony",
+   "artist": "The Verve",
+   "title": "Bitter Sweet Symphony",
+   "year": 1997
+  },
+  {
+   "id": "rage-against-the-machine-killing-in-the-name",
+   "artist": "Rage Against the Machine",
+   "title": "Killing in the Name",
+   "year": 1992
+  },
+  {
+   "id": "metallica-sad-but-true",
+   "artist": "Metallica",
+   "title": "Sad but True",
+   "year": 1993
+  },
+  {
+   "id": "whitney-houston-when-you-believe",
+   "artist": "Whitney Houston",
+   "title": "When You Believe",
+   "year": 1997
+  },
+  {
+   "id": "pearl-jam-jeremy",
+   "artist": "Pearl Jam",
+   "title": "Jeremy",
+   "year": 1992
+  },
+  {
+   "id": "ac-dc-thunderstruck",
+   "artist": "AC/DC",
+   "title": "Thunderstruck",
+   "year": 1990
+  },
+  {
+   "id": "eiffel-65-blue-da-ba-dee",
+   "artist": "Eiffel 65",
+   "title": "Blue (Da Ba Dee)",
+   "year": 1998
+  },
+  {
+   "id": "no-doubt-don-t-speak",
+   "artist": "No Doubt",
+   "title": "Don't Speak",
+   "year": 1996
+  },
+  {
+   "id": "red-hot-chili-peppers-give-it-away",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Give It Away",
+   "year": 1991
+  },
+  {
+   "id": "madonna-hanky-panky",
+   "artist": "Madonna",
+   "title": "Hanky Panky",
+   "year": 1990
+  },
+  {
+   "id": "rammstein-du-riechst-so-gut",
+   "artist": "Rammstein",
+   "title": "Du riechst so gut",
+   "year": 1995
+  },
+  {
+   "id": "oasis-live-forever",
+   "artist": "Oasis",
+   "title": "Live Forever",
+   "year": 1994
+  },
+  {
+   "id": "red-hot-chili-peppers-under-the-bridge",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Under the Bridge",
+   "year": 1992
+  },
+  {
+   "id": "rammstein-seemann",
+   "artist": "Rammstein",
+   "title": "Seemann",
+   "year": 1996
+  },
+  {
+   "id": "boyz-ii-men-one-sweet-day",
+   "artist": "Boyz II Men",
+   "title": "One Sweet Day",
+   "year": 1995
+  },
+  {
+   "id": "eminem-my-name-is",
+   "artist": "Eminem",
+   "title": "My Name Is",
+   "year": 1999
+  },
+  {
+   "id": "haddaway-what-is-love",
+   "artist": "Haddaway",
+   "title": "What Is Love",
+   "year": 1992
+  },
+  {
+   "id": "system-of-a-down-sugar",
+   "artist": "System of a Down",
+   "title": "Sugar",
+   "year": 1999
+  },
+  {
+   "id": "phil-collins-you-ll-be-in-my-heart",
+   "artist": "Phil Collins",
+   "title": "You'll Be in My Heart",
+   "year": 1999
+  },
+  {
+   "id": "destiny-s-child-say-my-name",
+   "artist": "Destiny's Child",
+   "title": "Say My Name",
+   "year": 1999
+  },
+  {
+   "id": "dr-dre-still-d-r-e",
+   "artist": "Dr. Dre & Snoop Dogg",
+   "title": "Still D.R.E.",
+   "year": 1999
+  },
+  {
+   "id": "kylie-minogue-confide-in-me",
+   "artist": "Kylie Minogue",
+   "title": "Confide in Me",
+   "year": 1994
+  },
+  {
+   "id": "jennifer-lopez-waiting-for-tonight",
+   "artist": "Jennifer Lopez",
+   "title": "Waiting for Tonight",
+   "year": 1999
+  },
+  {
+   "id": "whitney-houston-i-have-nothing",
+   "artist": "Whitney Houston",
+   "title": "I Have Nothing",
+   "year": 1993
+  },
+  {
+   "id": "red-hot-chili-peppers-scar-tissue",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Scar Tissue",
+   "year": 1999
+  },
+  {
+   "id": "nirvana-pennyroyal-tea",
+   "artist": "Nirvana",
+   "title": "Pennyroyal Tea",
+   "year": 1994
+  },
+  {
+   "id": "tupac-shakur-hit-em-up",
+   "artist": "Tupac Shakur & Outlawz",
+   "title": "Hit 'Em Up",
+   "year": 1996
+  },
+  {
+   "id": "marc-anthony-no-me-ames",
+   "artist": "Marc Anthony & Jennifer Lopez",
+   "title": "No Me Ames",
+   "year": 1999
+  },
+  {
+   "id": "green-day-longview",
+   "artist": "Green Day",
+   "title": "Longview",
+   "year": 1994
+  },
+  {
+   "id": "enigma-sadeness",
+   "artist": "Enigma & Sandra",
+   "title": "Sadeness",
+   "year": 1990
+  },
+  {
+   "id": "kylie-minogue-word-is-out",
+   "artist": "Kylie Minogue",
+   "title": "Word Is Out",
+   "year": 1991
+  },
+  {
+   "id": "kylie-minogue-better-the-devil-you-know",
+   "artist": "Kylie Minogue",
+   "title": "Better the Devil You Know",
+   "year": 1990
+  },
+  {
+   "id": "nightwish-the-carpenter",
+   "artist": "Nightwish & Children of Bodom",
+   "title": "The Carpenter",
+   "year": 1997
+  },
+  {
+   "id": "rob-thomas-smooth",
+   "artist": "Rob Thomas & Santana",
+   "title": "Smooth",
+   "year": 1999
+  },
+  {
+   "id": "green-day-when-i-come-around",
+   "artist": "Green Day",
+   "title": "When I Come Around",
+   "year": 1995
+  },
+  {
+   "id": "alanis-morissette-ironic",
+   "artist": "Alanis Morissette",
+   "title": "Ironic",
+   "year": 1996
+  },
+  {
+   "id": "ol-dirty-bastard-fantasy",
+   "artist": "Ol' Dirty Bastard",
+   "title": "Fantasy",
+   "year": 1995
+  },
+  {
+   "id": "beck-loser",
+   "artist": "Beck",
+   "title": "Loser",
+   "year": 1994
+  },
+  {
+   "id": "iron-maiden-be-quick-or-be-dead",
+   "artist": "Iron Maiden",
+   "title": "Be Quick or Be Dead",
+   "year": 1992
+  },
+  {
+   "id": "the-rolling-stones-anybody-seen-my-baby",
+   "artist": "The Rolling Stones",
+   "title": "Anybody Seen My Baby?",
+   "year": 1997
+  },
+  {
+   "id": "foo-fighters-everlong",
+   "artist": "Foo Fighters",
+   "title": "Everlong",
+   "year": 1997
+  },
+  {
+   "id": "bruce-springsteen-streets-of-philadelphia",
+   "artist": "Bruce Springsteen",
+   "title": "Streets of Philadelphia",
+   "year": 1994
+  },
+  {
+   "id": "guns-n-roses-estranged",
+   "artist": "Guns N' Roses",
+   "title": "Estranged",
+   "year": 1994
+  },
+  {
+   "id": "system-of-a-down-spiders",
+   "artist": "System of a Down",
+   "title": "Spiders",
+   "year": 1999
+  },
+  {
+   "id": "seal-kiss-from-a-rose",
+   "artist": "Seal",
+   "title": "Kiss from a Rose",
+   "year": 1994
+  },
+  {
+   "id": "christina-aguilera-what-a-girl-wants",
+   "artist": "Christina Aguilera",
+   "title": "What a Girl Wants",
+   "year": 1999
+  },
+  {
+   "id": "robert-miles-children",
+   "artist": "Robert Miles",
+   "title": "Children",
+   "year": 1995
+  },
+  {
+   "id": "elizabeth-fraser-teardrop",
+   "artist": "Elizabeth Fraser & Massive Attack",
+   "title": "Teardrop",
+   "year": 1998
+  },
+  {
+   "id": "elton-john-candle-in-the-wind-1997",
+   "artist": "Elton John",
+   "title": "Candle in the Wind 1997",
+   "year": 1997
+  },
+  {
+   "id": "smash-mouth-all-star",
+   "artist": "Smash Mouth",
+   "title": "All Star",
+   "year": 1999
+  },
+  {
+   "id": "ednaswap-torn",
+   "artist": "Ednaswap",
+   "title": "Torn",
+   "year": 1995
+  },
+  {
+   "id": "the-offspring-pretty-fly-for-a-white-guy",
+   "artist": "The Offspring",
+   "title": "Pretty Fly (for a White Guy)",
+   "year": 1998
+  },
+  {
+   "id": "the-cure-friday-i-m-in-love",
+   "artist": "The Cure",
+   "title": "Friday I'm in Love",
+   "year": 1992
+  },
+  {
+   "id": "the-prodigy-smack-my-bitch-up",
+   "artist": "The Prodigy",
+   "title": "Smack My Bitch Up",
+   "year": 1997
+  },
+  {
+   "id": "slipknot-wait-and-bleed",
+   "artist": "Slipknot",
+   "title": "Wait and Bleed",
+   "year": 1999
+  },
+  {
+   "id": "aerosmith-crazy",
+   "artist": "Aerosmith",
+   "title": "Crazy",
+   "year": 1994
+  },
+  {
+   "id": "pearl-jam-alive",
+   "artist": "Pearl Jam",
+   "title": "Alive",
+   "year": 1991
+  },
+  {
+   "id": "coldplay-brothers-sisters",
+   "artist": "Coldplay",
+   "title": "Brothers & Sisters",
+   "year": 1999
+  },
+  {
+   "id": "goo-goo-dolls-iris",
+   "artist": "Goo Goo Dolls",
+   "title": "Iris",
+   "year": 1998
+  },
+  {
+   "id": "spice-girls-2-become-1",
+   "artist": "Spice Girls",
+   "title": "2 Become 1",
+   "year": 1996
+  },
+  {
+   "id": "the-smashing-pumpkins-1979",
+   "artist": "The Smashing Pumpkins",
+   "title": "1979",
+   "year": 1996
+  },
+  {
+   "id": "iron-maiden-bring-your-daughter-to-the-slaughter",
+   "artist": "Iron Maiden",
+   "title": "Bring Your Daughter... to the Slaughter",
+   "year": 1990
+  },
+  {
+   "id": "eminem-guilty-conscience",
+   "artist": "Eminem & Dr. Dre",
+   "title": "Guilty Conscience",
+   "year": 1999
+  },
+  {
+   "id": "destiny-s-child-bills-bills",
+   "artist": "Destiny's Child",
+   "title": "Bills, Bills",
+   "year": 1999
+  },
+  {
+   "id": "darude-sandstorm",
+   "artist": "Darude",
+   "title": "Sandstorm",
+   "year": 1999
+  },
+  {
+   "id": "hanson-mmmbop",
+   "artist": "Hanson",
+   "title": "MMMBop",
+   "year": 1997
+  },
+  {
+   "id": "tlc-waterfalls",
+   "artist": "TLC",
+   "title": "Waterfalls",
+   "year": 1995
+  },
+  {
+   "id": "depeche-mode-walking-in-my-shoes",
+   "artist": "Depeche Mode",
+   "title": "Walking in My Shoes",
+   "year": 1993
+  },
+  {
+   "id": "nightwish-sleeping-sun-four-ballads-of-the-eclipse",
+   "artist": "Nightwish",
+   "title": "Sleeping Sun (Four Ballads of the Eclipse)",
+   "year": 1999
+  },
+  {
+   "id": "george-michael-freedom-90",
+   "artist": "George Michael",
+   "title": "Freedom! '90",
+   "year": 1990
+  },
+  {
+   "id": "the-offspring-self-esteem",
+   "artist": "The Offspring",
+   "title": "Self Esteem",
+   "year": 1994
+  },
+  {
+   "id": "oasis-supersonic",
+   "artist": "Oasis",
+   "title": "Supersonic",
+   "year": 1994
+  },
+  {
+   "id": "bryan-adams-please-forgive-me",
+   "artist": "Bryan Adams",
+   "title": "Please Forgive Me",
+   "year": 1993
+  },
+  {
+   "id": "daft-punk-around-the-world",
+   "artist": "Daft Punk",
+   "title": "Around the World",
+   "year": 1997
+  },
+  {
+   "id": "westlife-swear-it-again",
+   "artist": "Westlife",
+   "title": "Swear It Again",
+   "year": 1999
+  },
+  {
+   "id": "da-brat-heartbreaker",
+   "artist": "Da Brat",
+   "title": "Heartbreaker",
+   "year": 1999
+  },
+  {
+   "id": "crash-test-dummies-mmm-mmm-mmm-mmm",
+   "artist": "Crash Test Dummies",
+   "title": "Mmm Mmm Mmm Mmm",
+   "year": 1993
+  },
+  {
+   "id": "eddie-murphy-whatzupwitu",
+   "artist": "Eddie Murphy & Michael Jackson",
+   "title": "Whatzupwitu",
+   "year": 1993
+  },
+  {
+   "id": "slipknot-spit-it-out",
+   "artist": "Slipknot",
+   "title": "Spit It Out",
+   "year": 1999
+  },
+  {
+   "id": "spice-girls-who-do-you-think-you-are",
+   "artist": "Spice Girls",
+   "title": "Who Do You Think You Are",
+   "year": 1997
+  },
+  {
+   "id": "spice-girls-viva-forever",
+   "artist": "Spice Girls",
+   "title": "Viva Forever",
+   "year": 1998
+  },
+  {
+   "id": "spice-girls-say-you-ll-be-there",
+   "artist": "Spice Girls",
+   "title": "Say You'll Be There",
+   "year": 1996
+  },
+  {
+   "id": "foo-fighters-learn-to-fly",
+   "artist": "Foo Fighters",
+   "title": "Learn to Fly",
+   "year": 1999
+  },
+  {
+   "id": "depeche-mode-condemnation",
+   "artist": "Depeche Mode",
+   "title": "Condemnation",
+   "year": 1993
+  },
+  {
+   "id": "depeche-mode-policy-of-truth",
+   "artist": "Depeche Mode",
+   "title": "Policy of Truth",
+   "year": 1990
+  },
+  {
+   "id": "r-e-m-man-on-the-moon",
+   "artist": "R.E.M.",
+   "title": "Man on the Moon",
+   "year": 1992
+  },
+  {
+   "id": "mr-president-coco-jamboo",
+   "artist": "Mr. President",
+   "title": "Coco Jamboo",
+   "year": 1996
+  },
+  {
+   "id": "tupac-shakur-changes",
+   "artist": "Tupac Shakur",
+   "title": "Changes",
+   "year": 1998
+  },
+  {
+   "id": "red-hot-chili-peppers-around-the-world",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Around the World",
+   "year": 1999
+  },
+  {
+   "id": "bomfunk-mc-s-freestyler",
+   "artist": "Bomfunk MC's",
+   "title": "Freestyler",
+   "year": 1999
+  },
+  {
+   "id": "alice-in-chains-would",
+   "artist": "Alice in Chains",
+   "title": "Would?",
+   "year": 1992
+  },
+  {
+   "id": "nirvana-on-a-plain",
+   "artist": "Nirvana",
+   "title": "On a Plain",
+   "year": 1991
+  },
+  {
+   "id": "stardust-music-sounds-better-with-you",
+   "artist": "Stardust",
+   "title": "Music Sounds Better with You",
+   "year": 1998
+  },
+  {
+   "id": "marilyn-manson-the-beautiful-people",
+   "artist": "Marilyn Manson",
+   "title": "The Beautiful People",
+   "year": 1996
+  },
+  {
+   "id": "seal-crazy",
+   "artist": "Seal",
+   "title": "Crazy",
+   "year": 1990
+  },
+  {
+   "id": "yoko-takahashi-a-cruel-angel-s-thesis",
+   "artist": "Yoko Takahashi",
+   "title": "A Cruel Angel's Thesis",
+   "year": 1995
+  },
+  {
+   "id": "the-prodigy-breathe",
+   "artist": "The Prodigy",
+   "title": "Breathe",
+   "year": 1996
+  },
+  {
+   "id": "janet-jackson-that-s-the-way-love-goes",
+   "artist": "Janet Jackson",
+   "title": "That's the Way Love Goes",
+   "year": 1993
+  },
+  {
+   "id": "iron-maiden-lord-of-the-flies",
+   "artist": "Iron Maiden",
+   "title": "Lord of the Flies",
+   "year": 1995
+  },
+  {
+   "id": "green-day-welcome-to-paradise",
+   "artist": "Green Day",
+   "title": "Welcome to Paradise",
+   "year": 1994
+  },
+  {
+   "id": "eminem-just-don-t-give-a-fuck",
+   "artist": "Eminem",
+   "title": "Just Don't Give a Fuck",
+   "year": 1998
+  },
+  {
+   "id": "janet-jackson-love-will-never-do-without-you",
+   "artist": "Janet Jackson",
+   "title": "Love Will Never Do (Without You)",
+   "year": 1990
+  },
+  {
+   "id": "korn-freak-on-a-leash",
+   "artist": "Korn",
+   "title": "Freak on a Leash",
+   "year": 1999
+  },
+  {
+   "id": "iron-maiden-futureal",
+   "artist": "Iron Maiden",
+   "title": "Futureal",
+   "year": 1998
+  },
+  {
+   "id": "u2-mysterious-ways",
+   "artist": "U2",
+   "title": "Mysterious Ways",
+   "year": 1991
+  },
+  {
+   "id": "enrique-iglesias-bailamos",
+   "artist": "Enrique Iglesias",
+   "title": "Bailamos",
+   "year": 1999
+  },
+  {
+   "id": "aerosmith-amazing",
+   "artist": "Aerosmith",
+   "title": "Amazing",
+   "year": 1993
+  },
+  {
+   "id": "phil-collins-i-wish-it-would-rain-down",
+   "artist": "Phil Collins",
+   "title": "I Wish It Would Rain Down",
+   "year": 1990
+  },
+  {
+   "id": "paula-abdul-rush-rush",
+   "artist": "Paula Abdul",
+   "title": "Rush Rush",
+   "year": 1991
+  },
+  {
+   "id": "right-said-fred-i-m-too-sexy",
+   "artist": "Right Said Fred",
+   "title": "I'm Too Sexy",
+   "year": 1991
+  },
+  {
+   "id": "guns-n-roses-patience",
+   "artist": "Guns N' Roses",
+   "title": "Patience",
+   "year": 1991
+  },
+  {
+   "id": "enigma-return-to-innocence",
+   "artist": "Enigma",
+   "title": "Return to Innocence",
+   "year": 1994
+  },
+  {
+   "id": "aerosmith-cryin",
+   "artist": "Aerosmith",
+   "title": "Cryin'",
+   "year": 1993
+  },
+  {
+   "id": "backstreet-boys-quit-playing-games-with-my-heart",
+   "artist": "Backstreet Boys",
+   "title": "Quit Playing Games (With My Heart)",
+   "year": 1996
+  },
+  {
+   "id": "backstreet-boys-show-me-the-meaning-of-being-lonely",
+   "artist": "Backstreet Boys",
+   "title": "Show Me the Meaning of Being Lonely",
+   "year": 1999
+  },
+  {
+   "id": "nightwish-sacrament-of-wilderness",
+   "artist": "Nightwish",
+   "title": "Sacrament of Wilderness",
+   "year": 1998
+  },
+  {
+   "id": "tupac-shakur-dear-mama",
+   "artist": "Tupac Shakur",
+   "title": "Dear Mama",
+   "year": 1995
+  },
+  {
+   "id": "u2-hold-me-thrill-me-kiss-me-kill-me",
+   "artist": "U2",
+   "title": "Hold Me, Thrill Me, Kiss Me, Kill Me",
+   "year": 1995
+  },
+  {
+   "id": "tupac-shakur-brenda-s-got-a-baby",
+   "artist": "Tupac Shakur",
+   "title": "Brenda's Got a Baby",
+   "year": 1991
+  },
+  {
+   "id": "the-offspring-the-kids-aren-t-alright",
+   "artist": "The Offspring",
+   "title": "The Kids Aren't Alright",
+   "year": 1999
+  },
+  {
+   "id": "soundgarden-spoonman",
+   "artist": "Soundgarden",
+   "title": "Spoonman",
+   "year": 1994
+  },
+  {
+   "id": "pearl-jam-even-flow",
+   "artist": "Pearl Jam",
+   "title": "Even Flow",
+   "year": 1992
+  },
+  {
+   "id": "nine-inch-nails-closer",
+   "artist": "Nine Inch Nails",
+   "title": "Closer",
+   "year": 1994
+  },
+  {
+   "id": "robbie-williams-millennium",
+   "artist": "Robbie Williams",
+   "title": "Millennium",
+   "year": 1998
+  },
+  {
+   "id": "janet-jackson-i-get-lonely",
+   "artist": "Janet Jackson",
+   "title": "I Get Lonely",
+   "year": 1998
+  },
+  {
+   "id": "guns-n-roses-yesterdays",
+   "artist": "Guns N' Roses",
+   "title": "Yesterdays",
+   "year": 1992
+  },
+  {
+   "id": "janet-jackson-if",
+   "artist": "Janet Jackson",
+   "title": "If",
+   "year": 1993
+  },
+  {
+   "id": "u2-the-fly",
+   "artist": "U2",
+   "title": "The Fly",
+   "year": 1991
+  },
+  {
+   "id": "alanis-morissette-you-oughta-know",
+   "artist": "Alanis Morissette",
+   "title": "You Oughta Know",
+   "year": 1995
+  },
+  {
+   "id": "the-offspring-all-i-want",
+   "artist": "The Offspring",
+   "title": "All I Want",
+   "year": 1997
+  },
+  {
+   "id": "robbie-williams-let-me-entertain-you",
+   "artist": "Robbie Williams",
+   "title": "Let Me Entertain You",
+   "year": 1998
+  },
+  {
+   "id": "bjork-all-is-full-of-love",
+   "artist": "Björk",
+   "title": "All Is Full of Love",
+   "year": 1999
+  },
+  {
+   "id": "bjork-human-behaviour",
+   "artist": "Björk",
+   "title": "Human Behaviour",
+   "year": 1993
+  },
+  {
+   "id": "the-smashing-pumpkins-today",
+   "artist": "The Smashing Pumpkins",
+   "title": "Today",
+   "year": 1993
+  },
+  {
+   "id": "pearl-jam-oceans",
+   "artist": "Pearl Jam",
+   "title": "Oceans",
+   "year": 1992
+  },
+  {
+   "id": "blur-coffee-tv",
+   "artist": "Blur",
+   "title": "Coffee & TV",
+   "year": 1999
+  },
+  {
+   "id": "destiny-s-child-get-on-the-bus",
+   "artist": "Destiny's Child",
+   "title": "Get on the Bus",
+   "year": 1999
+  },
+  {
+   "id": "nine-inch-nails-the-perfect-drug",
+   "artist": "Nine Inch Nails",
+   "title": "The Perfect Drug",
+   "year": 1997
+  },
+  {
+   "id": "bloodhound-gang-the-bad-touch",
+   "artist": "Bloodhound Gang",
+   "title": "The Bad Touch",
+   "year": 1999
+  },
+  {
+   "id": "randy-newman-you-ve-got-a-friend-in-me",
+   "artist": "Randy Newman & Lyle Lovett",
+   "title": "You've Got a Friend in Me",
+   "year": 1995
+  },
+  {
+   "id": "savage-garden-to-the-moon-and-back",
+   "artist": "Savage Garden",
+   "title": "To the Moon and Back",
+   "year": 1996
+  },
+  {
+   "id": "bjork-venus-as-a-boy",
+   "artist": "Björk",
+   "title": "Venus as a Boy",
+   "year": 1993
+  },
+  {
+   "id": "snap-rhythm-is-a-dancer",
+   "artist": "Snap!",
+   "title": "Rhythm Is a Dancer",
+   "year": 1992
+  },
+  {
+   "id": "scooter-hyper-hyper",
+   "artist": "Scooter",
+   "title": "Hyper Hyper",
+   "year": 1994
+  },
+  {
+   "id": "oasis-some-might-say",
+   "artist": "Oasis",
+   "title": "Some Might Say",
+   "year": 1995
+  },
+  {
+   "id": "enya-caribbean-blue",
+   "artist": "Enya",
+   "title": "Caribbean Blue",
+   "year": 1991
+  },
+  {
+   "id": "tori-amos-cornflake-girl",
+   "artist": "Tori Amos",
+   "title": "Cornflake Girl",
+   "year": 1994
+  },
+  {
+   "id": "daft-punk-da-funk",
+   "artist": "Daft Punk",
+   "title": "Da Funk",
+   "year": 1997
+  },
+  {
+   "id": "all-4-one-i-turn-to-you",
+   "artist": "All-4-One",
+   "title": "I Turn to You",
+   "year": 1997
+  },
+  {
+   "id": "dr-dre-nuthin-but-a-g-thang",
+   "artist": "Dr. Dre",
+   "title": "Nuthin' but a 'G' Thang",
+   "year": 1993
+  },
+  {
+   "id": "faith-no-more-epic",
+   "artist": "Faith No More",
+   "title": "Epic",
+   "year": 1990
+  },
+  {
+   "id": "oasis-whatever",
+   "artist": "Oasis",
+   "title": "Whatever",
+   "year": 1994
+  },
+  {
+   "id": "blur-tender",
+   "artist": "Blur",
+   "title": "Tender",
+   "year": 1999
+  },
+  {
+   "id": "pink-there-you-go",
+   "artist": "Pink",
+   "title": "There You Go",
+   "year": 1999
+  },
+  {
+   "id": "massive-attack-unfinished-sympathy",
+   "artist": "Massive Attack",
+   "title": "Unfinished Sympathy",
+   "year": 1991
+  },
+  {
+   "id": "aphex-twin-windowlicker",
+   "artist": "Aphex Twin",
+   "title": "Windowlicker",
+   "year": 1999
+  },
+  {
+   "id": "celtic-woman-fields-of-gold",
+   "artist": "Celtic Woman & Sting",
+   "title": "Fields of Gold",
+   "year": 1993
+  },
+  {
+   "id": "extreme-more-than-words",
+   "artist": "Extreme",
+   "title": "More Than Words",
+   "year": 1991
+  },
+  {
+   "id": "dr-alban-it-s-my-life",
+   "artist": "Dr. Alban",
+   "title": "It's My Life",
+   "year": 1992
+  },
+  {
+   "id": "rage-against-the-machine-bulls-on-parade",
+   "artist": "Rage Against the Machine",
+   "title": "Bulls on Parade",
+   "year": 1996
+  },
+  {
+   "id": "sash-ecuador",
+   "artist": "SASH! & Adrian Rodriguez",
+   "title": "Ecuador",
+   "year": 1997
+  },
+  {
+   "id": "vangelis-conquest-of-paradise",
+   "artist": "Vangelis",
+   "title": "Conquest of Paradise",
+   "year": 1992
+  },
+  {
+   "id": "foo-fighters-my-hero",
+   "artist": "Foo Fighters",
+   "title": "My Hero",
+   "year": 1998
+  },
+  {
+   "id": "the-smashing-pumpkins-thirty-three",
+   "artist": "The Smashing Pumpkins",
+   "title": "Thirty-Three",
+   "year": 1996
+  },
+  {
+   "id": "the-cranberries-linger",
+   "artist": "The Cranberries",
+   "title": "Linger",
+   "year": 1993
+  },
+  {
+   "id": "destiny-s-child-no-no-no",
+   "artist": "Destiny's Child",
+   "title": "No, No, No",
+   "year": 1997
+  },
+  {
+   "id": "alice-deejay-better-off-alone",
+   "artist": "Alice DeeJay",
+   "title": "Better Off Alone",
+   "year": 1999
+  },
+  {
+   "id": "the-smashing-pumpkins-bullet-with-butterfly-wings",
+   "artist": "The Smashing Pumpkins",
+   "title": "Bullet with Butterfly Wings",
+   "year": 1995
+  },
+  {
+   "id": "the-prodigy-out-of-space",
+   "artist": "The Prodigy",
+   "title": "Out of Space",
+   "year": 1992
+  },
+  {
+   "id": "kate-pierson-shiny-happy-people",
+   "artist": "Kate Pierson & R.E.M.",
+   "title": "Shiny Happy People",
+   "year": 1991
+  },
+  {
+   "id": "112-i-ll-be-missing-you",
+   "artist": "112 & Faith Evans",
+   "title": "I'll Be Missing You",
+   "year": 1997
+  },
+  {
+   "id": "savage-garden-truly-madly-deeply",
+   "artist": "Savage Garden",
+   "title": "Truly Madly Deeply",
+   "year": 1997
+  },
+  {
+   "id": "westlife-flying-without-wings",
+   "artist": "Westlife",
+   "title": "Flying Without Wings",
+   "year": 1999
+  },
+  {
+   "id": "vanilla-ice-ice-ice-baby",
+   "artist": "Vanilla Ice",
+   "title": "Ice Ice Baby",
+   "year": 1990
+  },
+  {
+   "id": "rage-against-the-machine-bombtrack",
+   "artist": "Rage Against the Machine",
+   "title": "Bombtrack",
+   "year": 1993
+  },
+  {
+   "id": "bryan-adams-have-you-ever-really-loved-a-woman",
+   "artist": "Bryan Adams",
+   "title": "Have You Ever Really Loved a Woman?",
+   "year": 1995
+  },
+  {
+   "id": "backstreet-boys-we-ve-got-it-goin-on",
+   "artist": "Backstreet Boys",
+   "title": "We've Got It Goin' On",
+   "year": 1996
+  },
+  {
+   "id": "sting-if-i-ever-lose-my-faith-in-you",
+   "artist": "Sting",
+   "title": "If I Ever Lose My Faith in You",
+   "year": 1993
+  },
+  {
+   "id": "gala-freed-from-desire",
+   "artist": "Gala",
+   "title": "Freed from Desire",
+   "year": 1996
+  },
+  {
+   "id": "foo-fighters-this-is-a-call",
+   "artist": "Foo Fighters",
+   "title": "This Is a Call",
+   "year": 1995
+  },
+  {
+   "id": "whitney-houston-my-love-is-your-love",
+   "artist": "Whitney Houston",
+   "title": "My Love Is Your Love",
+   "year": 1999
+  },
+  {
+   "id": "eros-ramazzotti-cose-della-vita",
+   "artist": "Eros Ramazzotti",
+   "title": "Cose della vita",
+   "year": 1993
+  },
+  {
+   "id": "weezer-buddy-holly",
+   "artist": "Weezer",
+   "title": "Buddy Holly",
+   "year": 1994
+  },
+  {
+   "id": "3t-why",
+   "artist": "3T & Michael Jackson",
+   "title": "Why",
+   "year": 1996
+  },
+  {
+   "id": "aqua-turn-back-time",
+   "artist": "Aqua",
+   "title": "Turn Back Time",
+   "year": 1998
+  },
+  {
+   "id": "leann-rimes-can-t-fight-the-moonlight",
+   "artist": "LeAnn Rimes",
+   "title": "Can't Fight the Moonlight",
+   "year": 1999
+  },
+  {
+   "id": "ac-dc-big-gun",
+   "artist": "AC/DC",
+   "title": "Big Gun",
+   "year": 1993
+  }
+ ]
+}
