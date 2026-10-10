@@ -337,6 +337,14 @@ function playLinks(song) {
     <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
 }
 
+// Om Spotify inte öppnades av sig själv. Timern går redan.
+function reopenLinks(song) {
+  const app = spotifyAppUrl(song);
+  const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
+  return `<p class="muted small reopen">Öppnades inte låten? Öppna den i ${
+    app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
+}
+
 function render() {
   const round = state.round;
   const left = game.unplayedSongs(state, songs).length;
@@ -356,7 +364,8 @@ function render() {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
       <p class="muted round-settings">${settingsSummary(game.cleanSettings(state))}</p>
-      <button id="reveal" class="secondary">Visa svar nu</button>`;
+      <button id="reveal" class="secondary">Visa svar nu</button>
+      ${reopenLinks(round.song)}`;
     renderTimer();
   } else {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>

@@ -351,6 +351,7 @@ td.name .status { margin-top: 4px; font-weight: 400; }
 .host .ring-num { font-size: 5rem; }
 .actions { margin-top: 24px; }
 .round-settings { text-align: center; }
+.reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-link { margin-top: 8px; }
 .settings-link .small { display: block; margin-top: 4px; }
 .modal.settings label:first-of-type { margin-top: 8px; }
