@@ -1,7 +1,7 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
-import { loadCategories, loadSongs, spotifyUrl } from './data.js';
+import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
@@ -230,6 +230,18 @@ function renderPlayers() {
     : '<p class="muted">Inga spelare ännu. Be dem skanna QR-koden.</p>';
 }
 
+// Med Spotify-ID öppnas låten i appen, med webbspelaren som reserv.
+function playLinks(song) {
+  const app = spotifyAppUrl(song);
+  const web = esc(spotifyUrl(song));
+  if (!app) {
+    return `<a id="play" class="button big" href="${web}" target="_blank" rel="noopener">▶ Spela låten i Spotify</a>
+      <p class="muted small">Länken öppnar en sökning i Spotify. Välj översta träffen.</p>`;
+  }
+  return `<a id="play" class="button big" href="${esc(app)}">▶ Spela låten i Spotify-appen</a>
+    <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
+}
+
 function render() {
   const round = state.round;
   const left = game.unplayedSongs(state, songs).length;
@@ -243,8 +255,7 @@ function render() {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <p>Klicka på knappen. Låten öppnas i Spotify och timern startar.
       Stoppa låten efter ungefär 10 sekunder.</p>
-      <a id="play" class="button big" href="${esc(spotifyUrl(round.song))}" target="_blank" rel="noopener">▶ Spela låten i Spotify</a>
-      ${round.song.spotifyId ? '' : '<p class="muted small">Länken öppnar en sökning i Spotify. Välj översta träffen.</p>'}`;
+      ${playLinks(round.song)}`;
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="timer"></div>
@@ -265,7 +276,7 @@ function render() {
 document.addEventListener('click', (e) => {
   const id = e.target.closest('[id]')?.id;
   if (id === 'next') nextSong();
-  else if (id === 'play') startRound(); // länken öppnas som vanligt i en ny flik
+  else if (id === 'play' || id === 'play-web') startRound(); // länken öppnas som vanligt
   else if (id === 'reveal') revealNow();
   else if (id === 'end') endGame();
   else if (id === 'reset-played') resetPlayed();
