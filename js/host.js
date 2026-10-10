@@ -2,6 +2,7 @@
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
+import { showAlert, showConfirm } from './dialog.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
@@ -161,7 +162,7 @@ function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
   const song = game.nextSong(state, songs);
   if (!song) {
-    alert('Alla låtar i kategorin är spelade. Nollställ spelade låtar för att börja om.');
+    showAlert('Nollställ spelade låtar för att börja om.', { title: 'Alla låtar är spelade' });
     return;
   }
   // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
@@ -201,16 +202,22 @@ function revealNow() {
   if (game.reveal(state)) changed();
 }
 
-function endGame() {
-  if (!confirm('Avsluta spelet? Poängen försvinner.')) return;
+async function endGame() {
+  const ok = await showConfirm('Poängen försvinner och spelarna kopplas bort.', {
+    title: 'Avsluta spelet?', okText: 'Avsluta', danger: true,
+  });
+  if (!ok) return;
   storage(() => localStorage.removeItem(SAVE_KEY));
   if (net) net.destroy();
   clearInterval(ticker);
   location.href = location.pathname + location.search;
 }
 
-function resetPlayed() {
-  if (!confirm('Nollställ listan över spelade låtar i den här kategorin?')) return;
+async function resetPlayed() {
+  const ok = await showConfirm('Alla låtar i kategorin kan spelas igen.', {
+    title: 'Nollställ spelade låtar?', okText: 'Nollställ',
+  });
+  if (!ok) return;
   state.playedIds = [];
   changed();
 }
