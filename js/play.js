@@ -2,6 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
+import { renderRing, ranks, scoreTracker } from './ui.js';
 
 const SAVE_KEY = 'latquiz-player';
 const $ = (sel) => document.querySelector(sel);
@@ -14,6 +15,7 @@ let roundNumber = null;
 let deadline = 0;
 const local = { artist: '', title: '' };
 let fields = null;
+const scoreChanged = scoreTracker();
 
 function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
@@ -61,13 +63,14 @@ function renderTimer() {
   const el = $('#timer');
   if (!view || !view.round || view.round.phase !== 'playing') return;
   const ms = Math.max(0, deadline - Date.now());
-  el.textContent = Math.ceil(ms / 1000);
-  el.classList.toggle('bonus', view.round.roundMs - ms <= view.round.bonusMs);
+  renderRing(el, ms, view.round.roundMs, view.round.roundMs - ms <= view.round.bonusMs);
 }
 
 function renderStandings() {
-  const rows = view.standings.map((p) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'}">
-    <td>${esc(p.name)}${view.answered.includes(p.id) && view.round && view.round.phase === 'playing' ? ' ✅' : ''}</td>
+  const places = ranks(view.standings);
+  const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
+    <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
+    <td class="name">${esc(p.name)}${view.answered.includes(p.id) && view.round && view.round.phase === 'playing' ? ' <span class="tag good">Svarat</span>' : ''}</td>
     <td class="score">${p.score}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
@@ -96,15 +99,15 @@ function render() {
     const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
     const mine = round.answer || { artist: '', title: '' };
     $('#result').innerHTML = `<h2>Låt ${round.number}</h2>
-      <div class="answer"><div class="title">${esc(round.song.title)}</div>
+      <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
       <ul class="mine">
-        <li>${r.artist ? '✅' : '❌'} ${esc(view.labels.artist)}: ${esc(mine.artist || '–')}</li>
-        <li>${r.title ? '✅' : '❌'} ${esc(view.labels.title)}: ${esc(mine.title || '–')}</li>
-        ${r.bonus ? '<li>⚡ Bonus för snabbt svar</li>' : ''}
+        <li class="${r.artist ? 'right' : 'wrong'}"><span>${esc(view.labels.artist)}</span>${esc(mine.artist || '–')}</li>
+        <li class="${r.title ? 'right' : 'wrong'}"><span>${esc(view.labels.title)}</span>${esc(mine.title || '–')}</li>
+        ${r.bonus ? '<li class="right bonus"><span>Bonus</span>Snabbt svar</li>' : ''}
       </ul>
       <p class="points">+${r.points} poäng</p>
-      ${view.winners ? `<div class="winner">🏆 ${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
+      ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
   }
   renderStandings();
 }

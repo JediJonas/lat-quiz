@@ -2,6 +2,8 @@
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
+import { showAlert, showConfirm } from './dialog.js';
+import { renderRing, ranks, scoreTracker } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
@@ -16,6 +18,7 @@ let category = null;
 let net = null;
 const connToPlayer = new Map();
 let ticker = null;
+const scoreChanged = scoreTracker();
 
 function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
@@ -161,7 +164,7 @@ function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
   const song = game.nextSong(state, songs);
   if (!song) {
-    alert('Alla låtar i kategorin är spelade. Nollställ spelade låtar för att börja om.');
+    showAlert('Nollställ spelade låtar för att börja om.', { title: 'Alla låtar är spelade' });
     return;
   }
   // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
@@ -201,16 +204,22 @@ function revealNow() {
   if (game.reveal(state)) changed();
 }
 
-function endGame() {
-  if (!confirm('Avsluta spelet? Poängen försvinner.')) return;
+async function endGame() {
+  const ok = await showConfirm('Poängen försvinner och spelarna kopplas bort.', {
+    title: 'Avsluta spelet?', okText: 'Avsluta', danger: true,
+  });
+  if (!ok) return;
   storage(() => localStorage.removeItem(SAVE_KEY));
   if (net) net.destroy();
   clearInterval(ticker);
   location.href = location.pathname + location.search;
 }
 
-function resetPlayed() {
-  if (!confirm('Nollställ listan över spelade låtar i den här kategorin?')) return;
+async function resetPlayed() {
+  const ok = await showConfirm('Alla låtar i kategorin kan spelas igen.', {
+    title: 'Nollställ spelade låtar?', okText: 'Nollställ',
+  });
+  if (!ok) return;
   state.playedIds = [];
   changed();
 }
@@ -232,25 +241,27 @@ function renderTimer() {
   const el = $('#timer');
   if (!el) return;
   const ms = game.remainingMs(state, Date.now());
-  el.textContent = Math.ceil(ms / 1000);
-  const elapsed = state.roundMs - ms;
-  el.classList.toggle('bonus', elapsed <= state.bonusMs);
+  renderRing(el, ms, state.roundMs, state.roundMs - ms <= state.bonusMs);
 }
 
 function renderPlayers() {
   const round = state.round;
-  const rows = game.standings(state).map((p) => {
+  const list = game.standings(state);
+  const places = ranks(list);
+  const rows = list.map((p, i) => {
     let status = '';
     if (round && round.phase === 'playing') {
-      status = game.hasAnsweredBoth(state, p.id) ? '✅ Svarat' : '…';
+      status = game.hasAnsweredBoth(state, p.id) ? '<span class="tag good">Svarat</span>' : '<span class="tag">Väntar</span>';
     } else if (round && round.phase === 'revealed' && round.results[p.id]) {
       const r = round.results[p.id];
       const labels = state.labels || game.DEFAULT_LABELS;
-      status = `${r.artist ? '✅' : '❌'} ${labels.artist.toLowerCase()} ${r.title ? '✅' : '❌'} ${labels.title.toLowerCase()}`
-        + (r.bonus ? ' ⚡ bonus' : '') + ` <strong>+${r.points}</strong>`;
+      const tag = (ok, label) => `<span class="tag ${ok ? 'good' : 'bad'}">${esc(label)}</span>`;
+      status = tag(r.artist, labels.artist) + tag(r.title, labels.title)
+        + (r.bonus ? '<span class="tag bonus">Bonus</span>' : '') + ` <strong>+${r.points}</strong>`;
     }
-    return `<tr class="${p.connected ? '' : 'offline'}">
-      <td>${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
+    return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
+      <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
+      <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
       <td class="status">${status}</td>
       <td class="score">${p.score}</td></tr>`;
   });
@@ -264,10 +275,10 @@ function playLinks(song) {
   const app = spotifyAppUrl(song);
   const web = esc(spotifyUrl(song));
   if (!app) {
-    return `<a id="play" class="button big" href="${web}" target="_blank" rel="noopener">▶ Spela låten i Spotify</a>
+    return `<a id="play" class="button big huge" href="${web}" target="_blank" rel="noopener">Spela låten i Spotify</a>
       <p class="muted small">Länken öppnar en sökning i Spotify. Välj översta träffen.</p>`;
   }
-  return `<a id="play" class="button big" href="${esc(app)}">▶ Spela låten i Spotify-appen</a>
+  return `<a id="play" class="button big huge" href="${esc(app)}">Spela låten i Spotify-appen</a>
     <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
 }
 
@@ -288,7 +299,7 @@ function render() {
   if (!round) {
     stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.
       Låten öppnas i Spotify och timern startar. Stoppa låten efter ungefär 10 sekunder.</p>
-      <button id="next" class="big">Nästa låt</button>`;
+      <button id="next" class="big huge">Nästa låt</button>`;
   } else if (round.phase === 'ready') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <p>Klicka på knappen. Låten öppnas i Spotify och timern startar.
@@ -296,19 +307,19 @@ function render() {
       ${playLinks(round.song)}`;
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
-      <div id="timer" class="timer"></div>
+      <div id="timer" class="ring"></div>
       <p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>
       <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
   } else {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
-      <div class="answer"><div class="title">${esc(round.song.title)}</div>
+      <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
       ${state.winners
-        ? `<div class="winner">🏆 ${esc(winnerNames())} vinner!</div>
-           <button id="restart" class="big">Ny match med samma spelare</button>`
-        : '<button id="next" class="big">Nästa låt</button>'}`;
+        ? `<div class="winner">${esc(winnerNames())} vinner!</div>
+           <button id="restart" class="big huge">Ny match med samma spelare</button>`
+        : '<button id="next" class="big huge">Nästa låt</button>'}`;
   }
   renderPlayers();
 }
@@ -323,6 +334,19 @@ document.addEventListener('click', (e) => {
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
   else if (id === 'reset-played') resetPlayed();
+});
+
+// Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
+const ENTER_TARGETS = ['#create', '#next', '#play', '#reveal', '#restart'];
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' || e.repeat || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  if (document.querySelector('dialog[open]')) return; // modalen sköter sig själv
+  if (e.target.closest('button, a, input, textarea')) return; // fokuserade knappar och länkar trycks redan
+  const target = ENTER_TARGETS.map((sel) => $(sel)).find((el) => el && el.offsetParent);
+  if (!target) return;
+  e.preventDefault();
+  target.click();
 });
 
 window.addEventListener('beforeunload', (e) => {
