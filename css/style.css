@@ -350,8 +350,9 @@ td.name .status { margin-top: 4px; font-weight: 400; }
 .host .ring { width: 240px; height: 240px; }
 .host .ring-num { font-size: 5rem; }
 .actions { margin-top: 24px; }
-#game-settings { margin-right: 8px; }
-#game-settings-summary { margin-right: 20px; }
+.game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 12px; }
+.game-head p { margin: 0; }
+#game-settings-summary { text-align: right; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-link { margin-top: 8px; }
 .settings-link .small { display: block; margin-top: 4px; }
