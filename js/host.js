@@ -341,7 +341,7 @@ function playLinks(song) {
 function reopenLinks(song) {
   const app = spotifyAppUrl(song);
   const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
-  return `<p class="muted small">Öppnades inte låten? Öppna den i ${
+  return `<p class="muted small reopen">Öppnades inte låten? Öppna den i ${
     app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
 }
 
@@ -363,7 +363,7 @@ function render() {
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
-      ${state.bonusMs ? `<p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>` : ''}
+      <p class="muted round-settings">${settingsSummary(game.cleanSettings(state))}</p>
       <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
