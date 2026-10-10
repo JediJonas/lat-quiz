@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Låtquiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="narrow">
+    <section id="join" hidden>
+      <h1>🎵 Gå med</h1>
+      <form id="join-form">
+        <label for="name-input">Ditt namn</label>
+        <input id="name-input" maxlength="20" required autocomplete="nickname">
+        <label for="code-input">Kod</label>
+        <input id="code-input" maxlength="4" required autocapitalize="characters" class="code-input">
+        <button class="big">Gå med</button>
+      </form>
+    </section>
+
+    <section id="lobby" hidden>
+      <header class="player-head">
+        <span id="me"></span>
+        <span id="conn" class="conn connecting">Ansluter …</span>
+      </header>
+
+      <div id="waiting" class="card"><p id="waiting-text">Väntar på första låten …</p></div>
+
+      <div id="guess" class="card" hidden>
+        <div class="round-head"><h2 id="round-title"></h2><div id="timer" class="timer small-timer"></div></div>
+        <label for="artist">Artist</label>
+        <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
+        <label for="title">Titel</label>
+        <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
+        <p id="sent" class="muted small"></p>
+      </div>
+
+      <div id="result" class="card" hidden></div>
+
+      <h3>Poäng</h3>
+      <div id="standings"></div>
+    </section>
+  </main>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script type="module" src="js/play.js"></script>
+</body>
+</html>

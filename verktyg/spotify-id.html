@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Låtquiz – Spotify-ID</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    main { max-width: 1000px; margin: 0 auto; }
+    td { font-size: 0.9rem; vertical-align: top; }
+    .ok { color: var(--good); }
+    .bad { color: var(--bad); }
+    .warn { color: var(--bonus); }
+    .row-actions { white-space: nowrap; }
+    .controls { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+    .controls > * { flex: 1; min-width: 180px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Spotify-ID</h1>
+    <p>Verktyget söker upp varje låt hos iTunes och översätter den till ett Spotify-ID via Song.link.
+      Song.link tillåter ungefär 10 anrop i minuten, så det tar några minuter per kategori.
+      Låt fliken vara öppen medan det pågår.</p>
+    <div class="controls">
+      <div><label for="cat">Kategori</label><select id="cat"></select></div>
+      <div><label><input type="checkbox" id="redo" style="width:auto"> Sök även låtar som redan har ID</label></div>
+      <button id="start">Starta</button>
+    </div>
+    <p id="progress" class="muted"></p>
+    <table><thead><tr><th>Låt</th><th>Resultat</th><th>Spotify</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+    <h2>Klart</h2>
+    <p>Gröna låtar och de du har bockat för sparas. Ladda ner filen och skicka den till Claude i projektet.</p>
+    <button id="download" class="secondary">Ladda ner JSON-fil</button>
+  </main>
+
+  <script type="module">
+    import { pickItunesTrack, spotifyFromOdesli } from '../js/lookup.js';
+
+    const ODESLI_DELAY_MS = 7000;
+    const $ = (sel) => document.querySelector(sel);
+    const esc = (t) => String(t).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    let category = null;
+    let songs = [];
+    const found = {}; // songId -> { id, accepted }
+
+    function itunesSearch(term) {
+      // iTunes stöder JSONP, vilket undviker problem med CORS.
+      return new Promise((resolve, reject) => {
+        const cb = 'itunes_' + Math.random().toString(36).slice(2);
+        const script = document.createElement('script');
+        const timer = setTimeout(() => { cleanup(); reject(new Error('iTunes svarade inte')); }, 15000);
+        function cleanup() { clearTimeout(timer); delete window[cb]; script.remove(); }
+        window[cb] = (data) => { cleanup(); resolve(data.results || []); };
+        script.onerror = () => { cleanup(); reject(new Error('iTunes gick inte att nå')); };
+        script.src = 'https://itunes.apple.com/search?' + new URLSearchParams({
+          term, entity: 'song', limit: '25', country: 'SE', callback: cb,
+        });
+        document.head.append(script);
+      });
+    }
+
+    async function odesli(url) {
+      for (let attempt = 0; attempt < 4; attempt++) {
+        const res = await fetch('https://api.song.link/v1-alpha.1/links?' + new URLSearchParams({ url, userCountry: 'SE' }));
+        if (res.status === 429) { setProgress('Song.link vill att vi väntar en minut …'); await sleep(61000); continue; }
+        if (!res.ok) throw new Error('Song.link svarade ' + res.status);
+        return res.json();
+      }
+      throw new Error('Song.link svarade inte efter flera försök');
+    }
+
+    function setProgress(text) { $('#progress').textContent = text; }
+
+    function setRow(song, html, spotifyId, status) {
+      const tr = document.getElementById('row-' + song.id);
+      tr.children[1].innerHTML = html;
+      tr.children[2].innerHTML = spotifyId
+        ? `<a href="https://open.spotify.com/track/${esc(spotifyId)}" target="_blank" rel="noopener">${esc(spotifyId)}</a>` : '';
+      tr.children[3].innerHTML = status === 'osäker'
+        ? `<label class="row-actions"><input type="checkbox" style="width:auto" data-song="${esc(song.id)}"> Använd</label>` : '';
+    }
+
+    async function run() {
+      $('#start').disabled = true;
+      const redo = $('#redo').checked;
+      const todo = songs.filter((s) => redo || !s.spotifyId);
+      let done = 0;
+      for (const song of todo) {
+        done += 1;
+        setProgress(`${done} av ${todo.length}: ${song.artist} – ${song.title}`);
+        try {
+          const results = await itunesSearch(`${song.artist} ${song.title}`);
+          const track = pickItunesTrack(song, results);
+          if (!track) { setRow(song, '<span class="bad">Hittades inte hos iTunes</span>'); continue; }
+          const result = spotifyFromOdesli(song, await odesli(track.trackViewUrl));
+          if (result.status === 'ok') {
+            found[song.id] = { id: result.id, accepted: true };
+            setRow(song, `<span class="ok">OK</span> <span class="muted">${esc(result.note)}</span>`, result.id, 'ok');
+          } else if (result.status === 'osäker') {
+            found[song.id] = { id: result.id, accepted: false };
+            setRow(song, `<span class="warn">Osäker:</span> ${esc(result.note)}. Kontrollera länken.`, result.id, 'osäker');
+          } else {
+            setRow(song, '<span class="bad">Finns inte på Spotify enligt Song.link</span>');
+          }
+        } catch (err) {
+          setRow(song, `<span class="bad">${esc(err.message)}</span>`);
+        }
+        await sleep(ODESLI_DELAY_MS);
+      }
+      const ok = Object.values(found).filter((f) => f.accepted).length;
+      setProgress(`Klart. ${ok} säkra träffar av ${todo.length}. Bocka för de osäkra som stämmer och ladda ner filen.`);
+      $('#start').disabled = false;
+    }
+
+    function download() {
+      for (const box of document.querySelectorAll('input[data-song]')) {
+        if (found[box.dataset.song]) found[box.dataset.song].accepted = box.checked;
+      }
+      const updated = songs.map((s) => {
+        const f = found[s.id];
+        return f && f.accepted ? { ...s, spotifyId: f.id } : s;
+      });
+      const blob = new Blob([JSON.stringify(updated, null, 1) + '\n'], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = category.file;
+      a.click();
+    }
+
+    async function loadCategory() {
+      const categories = await (await fetch('../data/categories.json', { cache: 'no-cache' })).json();
+      category = categories.find((c) => c.id === $('#cat').value) || categories[0];
+      songs = await (await fetch('../data/' + category.file, { cache: 'no-cache' })).json();
+      $('#rows').innerHTML = songs.map((s) => `<tr id="row-${esc(s.id)}">
+        <td>${esc(s.artist)} – ${esc(s.title)} (${s.year})</td>
+        <td class="muted">${s.spotifyId ? 'Har redan ID' : ''}</td>
+        <td>${s.spotifyId ? `<a href="https://open.spotify.com/track/${esc(s.spotifyId)}" target="_blank" rel="noopener">${esc(s.spotifyId)}</a>` : ''}</td><td></td></tr>`).join('');
+      setProgress(`${songs.length} låtar, varav ${songs.filter((s) => !s.spotifyId).length} utan ID.`);
+    }
+
+    const categories = await (await fetch('../data/categories.json', { cache: 'no-cache' })).json();
+    $('#cat').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+    $('#cat').addEventListener('change', loadCategory);
+    $('#start').addEventListener('click', run);
+    $('#download').addEventListener('click', download);
+    await loadCategory();
+  </script>
+</body>
+</html>

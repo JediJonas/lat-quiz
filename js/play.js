@@ -1,0 +1,156 @@
+// Spelarvyn i mobilen.
+import { createClient } from './net.js';
+import { loadSuggestions } from './data.js';
+import { autocomplete } from './autocomplete.js';
+
+const SAVE_KEY = 'latquiz-player';
+const $ = (sel) => document.querySelector(sel);
+const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+
+let me = null; // { playerId, name, code }
+let net = null;
+let view = null;
+let roundNumber = null;
+let deadline = 0;
+const local = { artist: '', title: '' };
+let fields = null;
+
+function storage(fn, fallback) {
+  try { return fn(); } catch { return fallback; }
+}
+
+function newId() {
+  return (crypto.randomUUID && crypto.randomUUID()) || String(Math.random()).slice(2) + Date.now();
+}
+
+function sendAnswer(field) {
+  if (net) net.send({ type: 'answer', field, value: local[field] });
+}
+
+function onOpen() {
+  net.send({ type: 'hello', playerId: me.playerId, name: me.name });
+  // Svar som valdes medan anslutningen var nere skickas nu.
+  if (view && view.round && view.round.phase === 'playing') {
+    sendAnswer('artist');
+    sendAnswer('title');
+  }
+}
+
+function onMessage(msg) {
+  if (msg.type !== 'state') return;
+  view = msg.view;
+  const round = view.round;
+  if (round && round.number !== roundNumber) {
+    roundNumber = round.number;
+    local.artist = round.answer ? round.answer.artist : '';
+    local.title = round.answer ? round.answer.title : '';
+    fields.artist.set(local.artist);
+    fields.title.set(local.title);
+  }
+  deadline = round && round.phase === 'playing' ? Date.now() + round.remainingMs : 0;
+  render();
+}
+
+function onStatus(status) {
+  const el = $('#conn');
+  el.className = 'conn ' + status;
+  el.textContent = { connecting: 'Ansluter …', connected: 'Ansluten', offline: 'Frånkopplad, försöker igen …' }[status];
+}
+
+function renderTimer() {
+  const el = $('#timer');
+  if (!view || !view.round || view.round.phase !== 'playing') return;
+  const ms = Math.max(0, deadline - Date.now());
+  el.textContent = Math.ceil(ms / 1000);
+  el.classList.toggle('bonus', view.round.roundMs - ms <= view.round.bonusMs);
+}
+
+function renderStandings() {
+  const rows = view.standings.map((p) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'}">
+    <td>${esc(p.name)}${view.answered.includes(p.id) && view.round && view.round.phase === 'playing' ? ' ✅' : ''}</td>
+    <td class="score">${p.score}</td></tr>`);
+  $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
+}
+
+function render() {
+  if (!view) return;
+  const round = view.round;
+  const phase = round ? round.phase : 'waiting';
+  $('#waiting').hidden = !(phase === 'waiting' || phase === 'ready');
+  $('#waiting-text').textContent = phase === 'ready'
+    ? `Låt ${round.number} startar snart …`
+    : 'Väntar på första låten …';
+  $('#guess').hidden = phase !== 'playing';
+  $('#result').hidden = phase !== 'revealed';
+  fields.artist.disable(phase !== 'playing');
+  fields.title.disable(phase !== 'playing');
+
+  if (phase === 'playing') {
+    $('#round-title').textContent = `Låt ${round.number}`;
+    const done = local.artist && local.title;
+    $('#sent').textContent = done ? 'Båda svaren är valda. Du kan ändra dem tills tiden är slut.' : 'Välj artist och titel ur listan.';
+    renderTimer();
+  } else if (phase === 'revealed') {
+    const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
+    const mine = round.answer || { artist: '', title: '' };
+    $('#result').innerHTML = `<h2>Låt ${round.number}</h2>
+      <div class="answer"><div class="title">${esc(round.song.title)}</div>
+      <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
+      <ul class="mine">
+        <li>${r.artist ? '✅' : '❌'} Artist: ${esc(mine.artist || '–')}</li>
+        <li>${r.title ? '✅' : '❌'} Titel: ${esc(mine.title || '–')}</li>
+        ${r.bonus ? '<li>⚡ Bonus för snabbt svar</li>' : ''}
+      </ul>
+      <p class="points">+${r.points} poäng</p>`;
+  }
+  renderStandings();
+}
+
+function join(name, code) {
+  const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
+  const playerId = saved && saved.code === code ? saved.playerId : newId();
+  me = { playerId, name, code };
+  storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify(me)));
+  $('#join').hidden = true;
+  $('#lobby').hidden = false;
+  $('#me').textContent = `${name} · spel ${code}`;
+  net = createClient(code, { onOpen, onMessage, onStatus });
+}
+
+async function init() {
+  const suggestions = await loadSuggestions();
+  fields = {
+    artist: autocomplete($('#artist'), suggestions.artists, (v) => { local.artist = v; sendAnswer('artist'); render(); }),
+    title: autocomplete($('#title'), suggestions.titles, (v) => { local.title = v; sendAnswer('title'); render(); }),
+  };
+  setInterval(renderTimer, 250);
+
+  const params = new URLSearchParams(location.search);
+  const code = (params.get('kod') || '').toUpperCase();
+  const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
+  $('#code-input').value = code;
+  if (saved) $('#name-input').value = saved.name;
+
+  // Samma spel som förra gången: anslut direkt, till exempel efter omladdning.
+  if (saved && code && saved.code === code) {
+    join(saved.name, code);
+    return;
+  }
+
+  $('#join-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('#name-input').value.trim().slice(0, 20);
+    const joinCode = $('#code-input').value.trim().toUpperCase();
+    if (!name || joinCode.length !== 4) return;
+    if (!params.get('kod')) {
+      params.set('kod', joinCode);
+      history.replaceState(null, '', '?' + params.toString());
+    }
+    join(name, joinCode);
+  });
+  $('#join').hidden = false;
+}
+
+init().catch((err) => {
+  document.body.insertAdjacentHTML('afterbegin', `<p class="error">${esc(err.message)}</p>`);
+});

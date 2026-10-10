@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Låtquiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="narrow">
+    <h1>🎵 Låtquiz</h1>
+    <p>Gissa artist och titel efter de första sekunderna av en låt.</p>
+    <a class="button big" href="play.html">Gå med i ett spel</a>
+    <a class="button secondary" href="host.html">Starta ett spel som spelledare</a>
+    <p class="muted small">Spelledaren använder en dator med Spotify. Spelarna använder sina mobiler.</p>
+  </main>
+  <script>
+    // Följ med eventuella testparametrar, till exempel en lokal PeerJS-server.
+    for (const a of document.querySelectorAll('a')) a.search = location.search;
+  </script>
+</body>
+</html>

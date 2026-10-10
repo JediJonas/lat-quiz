@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Låtquiz – spelledare</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <p id="net-status" class="net-status" hidden></p>
+
+  <main id="setup" class="narrow">
+    <h1>🎵 Nytt spel</h1>
+    <label for="category-select">Kategori</label>
+    <select id="category-select"></select>
+    <button id="create" class="big">Skapa spel</button>
+    <div id="resume" hidden><button class="secondary"></button></div>
+  </main>
+
+  <main id="game" class="host" hidden>
+    <section class="join-info">
+      <div id="qr" class="qr"></div>
+      <p>Skanna eller gå till<br><a id="join-url" target="_blank" rel="noopener"></a></p>
+      <p>Kod: <span id="code" class="code"></span></p>
+    </section>
+    <section class="main-col">
+      <p id="category" class="muted"></p>
+      <div id="stage" class="stage"></div>
+      <h3>Poäng</h3>
+      <div id="players"></div>
+      <p class="actions">
+        <button id="reset-played" class="link">Nollställ spelade låtar</button>
+        <button id="end" class="link">Avsluta spelet</button>
+      </p>
+    </section>
+  </main>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="vendor/qrcode.js"></script>
+  <script type="module" src="js/host.js"></script>
+</body>
+</html>
