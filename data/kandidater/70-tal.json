@@ -1,0 +1,1807 @@
+{
+ "id": "70-tal",
+ "name": "70-talet",
+ "file": "70-tal.json",
+ "songs": [
+  {
+   "id": "queen-somebody-to-love",
+   "artist": "Queen",
+   "title": "Somebody to Love",
+   "year": 1976
+  },
+  {
+   "id": "queen-killer-queen",
+   "artist": "Queen",
+   "title": "Killer Queen",
+   "year": 1973
+  },
+  {
+   "id": "queen-you-re-my-best-friend",
+   "artist": "Queen",
+   "title": "You're My Best Friend",
+   "year": 1976
+  },
+  {
+   "id": "abba-mamma-mia",
+   "artist": "ABBA",
+   "title": "Mamma Mia",
+   "year": 1975
+  },
+  {
+   "id": "michael-jackson-ben",
+   "artist": "Michael Jackson",
+   "title": "Ben",
+   "year": 1972
+  },
+  {
+   "id": "the-doors-riders-on-the-storm",
+   "artist": "The Doors",
+   "title": "Riders on the Storm",
+   "year": 1971
+  },
+  {
+   "id": "the-jackson-5-i-ll-be-there",
+   "artist": "The Jackson 5",
+   "title": "I'll Be There",
+   "year": 1970
+  },
+  {
+   "id": "pink-floyd-have-a-cigar",
+   "artist": "Pink Floyd & Roy Harper",
+   "title": "Have a Cigar",
+   "year": 1973
+  },
+  {
+   "id": "queen-liar",
+   "artist": "Queen",
+   "title": "Liar",
+   "year": 1973
+  },
+  {
+   "id": "lynyrd-skynyrd-free-bird",
+   "artist": "Lynyrd Skynyrd",
+   "title": "Free Bird",
+   "year": 1974
+  },
+  {
+   "id": "john-lennon-working-class-hero",
+   "artist": "John Lennon",
+   "title": "Working Class Hero",
+   "year": 1970
+  },
+  {
+   "id": "led-zeppelin-immigrant-song",
+   "artist": "Led Zeppelin",
+   "title": "Immigrant Song",
+   "year": 1970
+  },
+  {
+   "id": "don-mclean-vincent",
+   "artist": "Don McLean",
+   "title": "Vincent",
+   "year": 1971
+  },
+  {
+   "id": "aerosmith-dream-on",
+   "artist": "Aerosmith",
+   "title": "Dream On",
+   "year": 1973
+  },
+  {
+   "id": "sex-pistols-anarchy-in-the-u-k",
+   "artist": "Sex Pistols",
+   "title": "Anarchy in the U.K.",
+   "year": 1976
+  },
+  {
+   "id": "pink-floyd-one-of-these-days",
+   "artist": "Pink Floyd",
+   "title": "One of These Days",
+   "year": 1971
+  },
+  {
+   "id": "boney-m-ma-baker",
+   "artist": "Boney M.",
+   "title": "Ma Baker",
+   "year": 1977
+  },
+  {
+   "id": "david-bowie-starman",
+   "artist": "David Bowie",
+   "title": "Starman",
+   "year": 1972
+  },
+  {
+   "id": "toto-hold-the-line",
+   "artist": "Toto",
+   "title": "Hold the Line",
+   "year": 1978
+  },
+  {
+   "id": "elton-john-tiny-dancer",
+   "artist": "Elton John",
+   "title": "Tiny Dancer",
+   "year": 1972
+  },
+  {
+   "id": "eric-carmen-all-by-myself",
+   "artist": "Eric Carmen",
+   "title": "All by Myself",
+   "year": 1975
+  },
+  {
+   "id": "eruption-one-way-ticket",
+   "artist": "Eruption",
+   "title": "One Way Ticket",
+   "year": 1979
+  },
+  {
+   "id": "led-zeppelin-d-yer-mak-er",
+   "artist": "Led Zeppelin",
+   "title": "D'yer Mak'er",
+   "year": 1973
+  },
+  {
+   "id": "eric-clapton-wonderful-tonight",
+   "artist": "Eric Clapton",
+   "title": "Wonderful Tonight",
+   "year": 1977
+  },
+  {
+   "id": "bob-marley-the-wailers-i-shot-the-sheriff",
+   "artist": "Bob Marley & The Wailers",
+   "title": "I Shot the Sheriff",
+   "year": 1973
+  },
+  {
+   "id": "ahmad-jamal-suicide-is-painless",
+   "artist": "Ahmad Jamal & Johnny Mandel",
+   "title": "Suicide Is Painless",
+   "year": 1970
+  },
+  {
+   "id": "kim-carnes-bette-davis-eyes",
+   "artist": "Kim Carnes",
+   "title": "Bette Davis Eyes",
+   "year": 1974
+  },
+  {
+   "id": "the-rolling-stones-brown-sugar",
+   "artist": "The Rolling Stones",
+   "title": "Brown Sugar",
+   "year": 1971
+  },
+  {
+   "id": "elton-john-goodbye-yellow-brick-road",
+   "artist": "Elton John",
+   "title": "Goodbye Yellow Brick Road",
+   "year": 1973
+  },
+  {
+   "id": "billy-joel-piano-man",
+   "artist": "Billy Joel",
+   "title": "Piano Man",
+   "year": 1973
+  },
+  {
+   "id": "the-jackson-5-abc",
+   "artist": "The Jackson 5",
+   "title": "ABC",
+   "year": 1970
+  },
+  {
+   "id": "led-zeppelin-rock-and-roll",
+   "artist": "Led Zeppelin",
+   "title": "Rock and Roll",
+   "year": 1972
+  },
+  {
+   "id": "stevie-wonder-superstition",
+   "artist": "Stevie Wonder",
+   "title": "Superstition",
+   "year": 1972
+  },
+  {
+   "id": "black-sabbath-children-of-the-grave",
+   "artist": "Black Sabbath",
+   "title": "Children of the Grave",
+   "year": 1971
+  },
+  {
+   "id": "elton-john-don-t-go-breaking-my-heart",
+   "artist": "Elton John & Kiki Dee",
+   "title": "Don't Go Breaking My Heart",
+   "year": 1976
+  },
+  {
+   "id": "yes-roundabout",
+   "artist": "Yes",
+   "title": "Roundabout",
+   "year": 1972
+  },
+  {
+   "id": "donna-summer-hot-stuff",
+   "artist": "Donna Summer",
+   "title": "Hot Stuff",
+   "year": 1979
+  },
+  {
+   "id": "marvin-gaye-what-s-going-on",
+   "artist": "Marvin Gaye",
+   "title": "What's Going On",
+   "year": 1971
+  },
+  {
+   "id": "the-doors-roadhouse-blues",
+   "artist": "The Doors",
+   "title": "Roadhouse Blues",
+   "year": 1970
+  },
+  {
+   "id": "the-sugarhill-gang-rapper-s-delight",
+   "artist": "The Sugarhill Gang",
+   "title": "Rapper's Delight",
+   "year": 1979
+  },
+  {
+   "id": "bob-dylan-hurricane",
+   "artist": "Bob Dylan",
+   "title": "Hurricane",
+   "year": 1975
+  },
+  {
+   "id": "supertramp-the-logical-song",
+   "artist": "Supertramp",
+   "title": "The Logical Song",
+   "year": 1979
+  },
+  {
+   "id": "the-doors-l-a-woman",
+   "artist": "The Doors",
+   "title": "L.A. Woman",
+   "year": 1971
+  },
+  {
+   "id": "david-bowie-rebel-rebel",
+   "artist": "David Bowie",
+   "title": "Rebel Rebel",
+   "year": 1974
+  },
+  {
+   "id": "michael-jackson-happy",
+   "artist": "Michael Jackson",
+   "title": "Happy",
+   "year": 1973
+  },
+  {
+   "id": "bill-withers-lean-on-me",
+   "artist": "Bill Withers",
+   "title": "Lean on Me",
+   "year": 1972
+  },
+  {
+   "id": "mungo-jerry-in-the-summertime",
+   "artist": "Mungo Jerry",
+   "title": "In the Summertime",
+   "year": 1970
+  },
+  {
+   "id": "adriano-celentano-prisencolinensinainciusol",
+   "artist": "Adriano Celentano",
+   "title": "Prisencolinensinainciusol",
+   "year": 1972
+  },
+  {
+   "id": "pink-floyd-free-four",
+   "artist": "Pink Floyd",
+   "title": "Free Four",
+   "year": 1972
+  },
+  {
+   "id": "blue-oyster-cult-don-t-fear-the-reaper",
+   "artist": "Blue Öyster Cult",
+   "title": "(Don't Fear) The Reaper",
+   "year": 1976
+  },
+  {
+   "id": "iggy-pop-the-passenger",
+   "artist": "Iggy Pop",
+   "title": "The Passenger",
+   "year": 1977
+  },
+  {
+   "id": "gerry-rafferty-baker-street",
+   "artist": "Gerry Rafferty",
+   "title": "Baker Street",
+   "year": 1978
+  },
+  {
+   "id": "paul-mccartney-maybe-i-m-amazed",
+   "artist": "Paul McCartney",
+   "title": "Maybe I'm Amazed",
+   "year": 1977
+  },
+  {
+   "id": "david-bowie-fame",
+   "artist": "David Bowie",
+   "title": "Fame",
+   "year": 1975
+  },
+  {
+   "id": "chaka-khan-i-m-every-woman",
+   "artist": "Chaka Khan",
+   "title": "I'm Every Woman",
+   "year": 1978
+  },
+  {
+   "id": "david-bowie-changes",
+   "artist": "David Bowie",
+   "title": "Changes",
+   "year": 1972
+  },
+  {
+   "id": "elton-john-crocodile-rock",
+   "artist": "Elton John",
+   "title": "Crocodile Rock",
+   "year": 1972
+  },
+  {
+   "id": "led-zeppelin-over-the-hills-and-far-away",
+   "artist": "Led Zeppelin",
+   "title": "Over the Hills and Far Away",
+   "year": 1973
+  },
+  {
+   "id": "the-rolling-stones-miss-you",
+   "artist": "The Rolling Stones",
+   "title": "Miss You",
+   "year": 1978
+  },
+  {
+   "id": "the-kinks-lola",
+   "artist": "The Kinks",
+   "title": "Lola",
+   "year": 1970
+  },
+  {
+   "id": "thin-lizzy-the-boys-are-back-in-town",
+   "artist": "Thin Lizzy",
+   "title": "The Boys Are Back in Town",
+   "year": 1976
+  },
+  {
+   "id": "pink-floyd-seamus",
+   "artist": "Pink Floyd",
+   "title": "Seamus",
+   "year": 1971
+  },
+  {
+   "id": "bob-seger-turn-the-page",
+   "artist": "Bob Seger",
+   "title": "Turn the Page",
+   "year": 1973
+  },
+  {
+   "id": "deep-purple-strange-kind-of-woman",
+   "artist": "Deep Purple",
+   "title": "Strange Kind of Woman",
+   "year": 1971
+  },
+  {
+   "id": "ac-dc-dirty-deeds-done-dirt-cheap",
+   "artist": "AC/DC",
+   "title": "Dirty Deeds Done Dirt Cheap",
+   "year": 1976
+  },
+  {
+   "id": "the-doors-love-her-madly",
+   "artist": "The Doors",
+   "title": "Love Her Madly",
+   "year": 1971
+  },
+  {
+   "id": "the-jackson-5-the-love-you-save",
+   "artist": "The Jackson 5",
+   "title": "The Love You Save",
+   "year": 1970
+  },
+  {
+   "id": "diana-ross-theme-from-mahogany-do-you-know-where-you-re-going-to",
+   "artist": "Diana Ross",
+   "title": "Theme from Mahogany (Do You Know Where You're Going To)",
+   "year": 1975
+  },
+  {
+   "id": "fleetwood-mac-rhiannon",
+   "artist": "Fleetwood Mac",
+   "title": "Rhiannon",
+   "year": 1976
+  },
+  {
+   "id": "bee-gees-tragedy",
+   "artist": "Bee Gees",
+   "title": "Tragedy",
+   "year": 1979
+  },
+  {
+   "id": "chairmen-of-the-board-give-me-just-a-little-more-time",
+   "artist": "Chairmen of the Board",
+   "title": "Give Me Just a Little More Time",
+   "year": 1970
+  },
+  {
+   "id": "john-lennon-power-to-the-people",
+   "artist": "John Lennon & Plastic Ono Band",
+   "title": "Power to the People",
+   "year": 1971
+  },
+  {
+   "id": "stevie-wonder-sir-duke",
+   "artist": "Stevie Wonder",
+   "title": "Sir Duke",
+   "year": 1977
+  },
+  {
+   "id": "samantha-sang-emotion",
+   "artist": "Samantha Sang",
+   "title": "Emotion",
+   "year": 1977
+  },
+  {
+   "id": "kansas-carry-on-wayward-son",
+   "artist": "Kansas",
+   "title": "Carry On Wayward Son",
+   "year": 1976
+  },
+  {
+   "id": "george-harrison-give-me-love-give-me-peace-on-earth",
+   "artist": "George Harrison",
+   "title": "Give Me Love (Give Me Peace on Earth)",
+   "year": 1973
+  },
+  {
+   "id": "john-lennon-whatever-gets-you-thru-the-night",
+   "artist": "John Lennon",
+   "title": "Whatever Gets You thru the Night",
+   "year": 1974
+  },
+  {
+   "id": "billy-joel-honesty",
+   "artist": "Billy Joel",
+   "title": "Honesty",
+   "year": 1979
+  },
+  {
+   "id": "the-police-message-in-a-bottle",
+   "artist": "The Police",
+   "title": "Message in a Bottle",
+   "year": 1979
+  },
+  {
+   "id": "eagles-take-it-easy",
+   "artist": "Eagles",
+   "title": "Take It Easy",
+   "year": 1972
+  },
+  {
+   "id": "chris-norman-stumblin-in",
+   "artist": "Chris Norman & Suzi Quatro",
+   "title": "Stumblin' In",
+   "year": 1978
+  },
+  {
+   "id": "miki-matsubara-mayonaka-no-doorstay-with-me",
+   "artist": "Miki Matsubara",
+   "title": "Mayonaka no Door〜Stay With Me",
+   "year": 1979
+  },
+  {
+   "id": "neil-young-hey-hey-my-my-into-the-black",
+   "artist": "Neil Young & Crazy Horse",
+   "title": "Hey Hey, My My (Into the Black)",
+   "year": 1979
+  },
+  {
+   "id": "the-jackson-5-shake-your-body",
+   "artist": "The Jackson 5",
+   "title": "Shake Your Body",
+   "year": 1979
+  },
+  {
+   "id": "deep-purple-burn",
+   "artist": "Deep Purple",
+   "title": "Burn",
+   "year": 1973
+  },
+  {
+   "id": "susan-boyle-mull-of-kintyre",
+   "artist": "Susan Boyle & Wings",
+   "title": "Mull of Kintyre",
+   "year": 1977
+  },
+  {
+   "id": "stevie-wonder-isn-t-she-lovely",
+   "artist": "Stevie Wonder",
+   "title": "Isn't She Lovely",
+   "year": 1976
+  },
+  {
+   "id": "michael-jackson-just-a-little-bit-of-you",
+   "artist": "Michael Jackson",
+   "title": "Just a Little Bit of You",
+   "year": 1975
+  },
+  {
+   "id": "sex-pistols-pretty-vacant",
+   "artist": "Sex Pistols",
+   "title": "Pretty Vacant",
+   "year": 1977
+  },
+  {
+   "id": "wings-silly-love-songs",
+   "artist": "Wings",
+   "title": "Silly Love Songs",
+   "year": 1976
+  },
+  {
+   "id": "paul-mccartney-another-day",
+   "artist": "Paul McCartney",
+   "title": "Another Day",
+   "year": 1971
+  },
+  {
+   "id": "james-last-the-lonely-shepherd",
+   "artist": "James Last & Gheorghe Zamfir",
+   "title": "The Lonely Shepherd",
+   "year": 1977
+  },
+  {
+   "id": "stevie-wonder-you-are-the-sunshine-of-my-life",
+   "artist": "Stevie Wonder",
+   "title": "You Are the Sunshine of My Life",
+   "year": 1973
+  },
+  {
+   "id": "janis-joplin-mercedes-benz",
+   "artist": "Janis Joplin",
+   "title": "Mercedes Benz",
+   "year": 1970
+  },
+  {
+   "id": "bee-gees-too-much-heaven",
+   "artist": "Bee Gees",
+   "title": "Too Much Heaven",
+   "year": 1978
+  },
+  {
+   "id": "paul-mccartney-uncle-albert-admiral-halsey",
+   "artist": "Paul McCartney & Linda McCartney",
+   "title": "Uncle Albert/Admiral Halsey",
+   "year": 1971
+  },
+  {
+   "id": "t-rex-20th-century-boy",
+   "artist": "T. Rex",
+   "title": "20th Century Boy",
+   "year": 1973
+  },
+  {
+   "id": "john-lennon-woman-is-the-nigger-of-the-world",
+   "artist": "John Lennon",
+   "title": "Woman Is the Nigger of the World",
+   "year": 1972
+  },
+  {
+   "id": "supertramp-breakfast-in-america",
+   "artist": "Supertramp",
+   "title": "Breakfast in America",
+   "year": 1979
+  },
+  {
+   "id": "leo-sayer-when-i-need-you",
+   "artist": "Leo Sayer",
+   "title": "When I Need You",
+   "year": 1977
+  },
+  {
+   "id": "heart-barracuda",
+   "artist": "Heart",
+   "title": "Barracuda",
+   "year": 1977
+  },
+  {
+   "id": "james-brown-get-up-sex-machine",
+   "artist": "James Brown",
+   "title": "Get Up Sex Machine",
+   "year": 1970
+  },
+  {
+   "id": "dire-straits-lady-writer",
+   "artist": "Dire Straits",
+   "title": "Lady Writer",
+   "year": 1979
+  },
+  {
+   "id": "barbra-streisand-the-way-we-were",
+   "artist": "Barbra Streisand & Carola Häggkvist",
+   "title": "The Way We Were",
+   "year": 1974
+  },
+  {
+   "id": "ringo-starr-photograph",
+   "artist": "Ringo Starr",
+   "title": "Photograph",
+   "year": 1973
+  },
+  {
+   "id": "chic-good-times",
+   "artist": "Chic",
+   "title": "Good Times",
+   "year": 1979
+  },
+  {
+   "id": "michael-jackson-we-re-almost-there",
+   "artist": "Michael Jackson",
+   "title": "We're Almost There",
+   "year": 1975
+  },
+  {
+   "id": "neil-young-like-a-hurricane",
+   "artist": "Neil Young & Crazy Horse",
+   "title": "Like a Hurricane",
+   "year": 1977
+  },
+  {
+   "id": "black-sabbath-sabbath-bloody-sabbath",
+   "artist": "Black Sabbath",
+   "title": "Sabbath Bloody Sabbath",
+   "year": 1973
+  },
+  {
+   "id": "uriah-heep-lady-in-black",
+   "artist": "Uriah Heep",
+   "title": "Lady in Black",
+   "year": 1971
+  },
+  {
+   "id": "the-cure-boys-don-t-cry",
+   "artist": "The Cure",
+   "title": "Boys Don't Cry",
+   "year": 1979
+  },
+  {
+   "id": "the-police-can-t-stand-losing-you",
+   "artist": "The Police",
+   "title": "Can't Stand Losing You",
+   "year": 1978
+  },
+  {
+   "id": "free-all-right-now",
+   "artist": "Free",
+   "title": "All Right Now",
+   "year": 1970
+  },
+  {
+   "id": "george-harrison-bangla-desh",
+   "artist": "George Harrison",
+   "title": "Bangla Desh",
+   "year": 1971
+  },
+  {
+   "id": "kiss-rock-and-roll-all-nite",
+   "artist": "Kiss",
+   "title": "Rock and Roll All Nite",
+   "year": 1975
+  },
+  {
+   "id": "alice-cooper-i-m-eighteen",
+   "artist": "Alice Cooper",
+   "title": "I'm Eighteen",
+   "year": 1970
+  },
+  {
+   "id": "the-rolling-stones-fool-to-cry",
+   "artist": "The Rolling Stones",
+   "title": "Fool to Cry",
+   "year": 1976
+  },
+  {
+   "id": "bob-dylan-tangled-up-in-blue",
+   "artist": "Bob Dylan",
+   "title": "Tangled Up in Blue",
+   "year": 1975
+  },
+  {
+   "id": "neil-young-old-man",
+   "artist": "Neil Young",
+   "title": "Old Man",
+   "year": 1972
+  },
+  {
+   "id": "bob-dylan-forever-young",
+   "artist": "Bob Dylan",
+   "title": "Forever Young",
+   "year": 1979
+  },
+  {
+   "id": "bob-marley-the-wailers-get-up-stand-up",
+   "artist": "Bob Marley & The Wailers",
+   "title": "Get Up, Stand Up",
+   "year": 1973
+  },
+  {
+   "id": "cliff-richard-power-to-all-our-friends",
+   "artist": "Cliff Richard",
+   "title": "Power to All Our Friends",
+   "year": 1973
+  },
+  {
+   "id": "the-rolling-stones-out-of-time",
+   "artist": "The Rolling Stones & Chris Farlowe",
+   "title": "Out of Time",
+   "year": 1975
+  },
+  {
+   "id": "monty-python-the-lumberjack-song",
+   "artist": "Monty Python",
+   "title": "The Lumberjack Song",
+   "year": 1975
+  },
+  {
+   "id": "slade-cum-on-feel-the-noize",
+   "artist": "Slade",
+   "title": "Cum on Feel the Noize",
+   "year": 1973
+  },
+  {
+   "id": "chelsea-f-c-blue-is-the-colour",
+   "artist": "Chelsea F.C.",
+   "title": "Blue Is the Colour",
+   "year": 1972
+  },
+  {
+   "id": "elvis-presley-my-boy",
+   "artist": "Elvis Presley",
+   "title": "My Boy",
+   "year": 1975
+  },
+  {
+   "id": "supertramp-give-a-little-bit",
+   "artist": "Supertramp",
+   "title": "Give a Little Bit",
+   "year": 1977
+  },
+  {
+   "id": "kiss-sure-know-something",
+   "artist": "Kiss",
+   "title": "Sure Know Something",
+   "year": 1979
+  },
+  {
+   "id": "johnny-burnette-you-re-sixteen",
+   "artist": "Johnny Burnette",
+   "title": "You're Sixteen",
+   "year": 1973
+  },
+  {
+   "id": "eagles-tequila-sunrise",
+   "artist": "Eagles",
+   "title": "Tequila Sunrise",
+   "year": 1973
+  },
+  {
+   "id": "billy-paul-me-and-mrs-jones",
+   "artist": "Billy Paul",
+   "title": "Me and Mrs. Jones",
+   "year": 1972
+  },
+  {
+   "id": "donna-summer-love-to-love-you-baby",
+   "artist": "Donna Summer",
+   "title": "Love to Love You Baby",
+   "year": 1975
+  },
+  {
+   "id": "gilbert-o-sullivan-alone-again-naturally",
+   "artist": "Gilbert O'Sullivan",
+   "title": "Alone Again (Naturally)",
+   "year": 1972
+  },
+  {
+   "id": "uriah-heep-july-morning",
+   "artist": "Uriah Heep",
+   "title": "July Morning",
+   "year": 1971
+  },
+  {
+   "id": "supertramp-take-the-long-way-home",
+   "artist": "Supertramp",
+   "title": "Take the Long Way Home",
+   "year": 1979
+  },
+  {
+   "id": "carole-king-it-s-too-late",
+   "artist": "Carole King & Gloria Estefan",
+   "title": "It's Too Late",
+   "year": 1971
+  },
+  {
+   "id": "joni-mitchell-woodstock",
+   "artist": "Joni Mitchell & Crosby, Stills & Nash",
+   "title": "Woodstock",
+   "year": 1970
+  },
+  {
+   "id": "the-beach-boys-cotton-fields",
+   "artist": "The Beach Boys",
+   "title": "Cotton Fields",
+   "year": 1970
+  },
+  {
+   "id": "joe-dassin-et-si-tu-nexistais-pas",
+   "artist": "Joe Dassin",
+   "title": "Et si tu n’existais pas",
+   "year": 1975
+  },
+  {
+   "id": "carola-haggkvist-evergreen-love-theme-from-a-star-is-born",
+   "artist": "Carola Häggkvist & Barbra Streisand",
+   "title": "Evergreen (Love Theme from A Star Is Born)",
+   "year": 1976
+  },
+  {
+   "id": "eagles-heartache-tonight",
+   "artist": "Eagles",
+   "title": "Heartache Tonight",
+   "year": 1979
+  },
+  {
+   "id": "the-sweet-the-ballroom-blitz",
+   "artist": "The Sweet",
+   "title": "The Ballroom Blitz",
+   "year": 1975
+  },
+  {
+   "id": "frank-zappa-bobby-brown",
+   "artist": "Frank Zappa",
+   "title": "Bobby Brown",
+   "year": 1979
+  },
+  {
+   "id": "black-sabbath-into-the-void",
+   "artist": "Black Sabbath",
+   "title": "Into the Void",
+   "year": 1971
+  },
+  {
+   "id": "skids-the-saints-are-coming",
+   "artist": "Skids",
+   "title": "The Saints Are Coming",
+   "year": 1978
+  },
+  {
+   "id": "george-mccrae-rock-your-baby",
+   "artist": "George McCrae",
+   "title": "Rock Your Baby",
+   "year": 1974
+  },
+  {
+   "id": "linda-mccartney-the-back-seat-of-my-car",
+   "artist": "Linda McCartney & Paul McCartney",
+   "title": "The Back Seat of My Car",
+   "year": 1971
+  },
+  {
+   "id": "the-guess-who-american-woman",
+   "artist": "The Guess Who",
+   "title": "American Woman",
+   "year": 1970
+  },
+  {
+   "id": "kraftwerk-radioactivity",
+   "artist": "Kraftwerk",
+   "title": "Radioactivity",
+   "year": 1975
+  },
+  {
+   "id": "ike-tina-turner-nutbush-city-limits",
+   "artist": "Ike & Tina Turner",
+   "title": "Nutbush City Limits",
+   "year": 1973
+  },
+  {
+   "id": "ringo-starr-it-don-t-come-easy",
+   "artist": "Ringo Starr",
+   "title": "It Don't Come Easy",
+   "year": 1971
+  },
+  {
+   "id": "bruce-springsteen-blinded-by-the-light",
+   "artist": "Bruce Springsteen",
+   "title": "Blinded by the Light",
+   "year": 1973
+  },
+  {
+   "id": "focus-hocus-pocus",
+   "artist": "Focus",
+   "title": "Hocus Pocus",
+   "year": 1973
+  },
+  {
+   "id": "wings-mrs-vandebilt",
+   "artist": "Wings",
+   "title": "Mrs Vandebilt",
+   "year": 1974
+  },
+  {
+   "id": "kiss-strutter",
+   "artist": "Kiss",
+   "title": "Strutter",
+   "year": 1974
+  },
+  {
+   "id": "ac-dc-rock-n-roll-damnation",
+   "artist": "AC/DC",
+   "title": "Rock 'n' Roll Damnation",
+   "year": 1978
+  },
+  {
+   "id": "ohio-players-love-rollercoaster",
+   "artist": "Ohio Players",
+   "title": "Love Rollercoaster",
+   "year": 1975
+  },
+  {
+   "id": "ramones-i-wanna-be-sedated",
+   "artist": "Ramones",
+   "title": "I Wanna Be Sedated",
+   "year": 1979
+  },
+  {
+   "id": "wings-listen-to-what-the-man-said",
+   "artist": "Wings",
+   "title": "Listen to What the Man Said",
+   "year": 1975
+  },
+  {
+   "id": "kiss-hard-luck-woman",
+   "artist": "Kiss",
+   "title": "Hard Luck Woman",
+   "year": 1976
+  },
+  {
+   "id": "paul-mccartney-eat-at-home",
+   "artist": "Paul McCartney & Linda McCartney",
+   "title": "Eat at Home",
+   "year": 1971
+  },
+  {
+   "id": "the-carpenters-we-ve-only-just-begun",
+   "artist": "The Carpenters",
+   "title": "We've Only Just Begun",
+   "year": 1970
+  },
+  {
+   "id": "aerosmith-sweet-emotion",
+   "artist": "Aerosmith",
+   "title": "Sweet Emotion",
+   "year": 1975
+  },
+  {
+   "id": "wings-give-ireland-back-to-the-irish",
+   "artist": "Wings",
+   "title": "Give Ireland Back to the Irish",
+   "year": 1972
+  },
+  {
+   "id": "the-police-walking-on-the-moon",
+   "artist": "The Police",
+   "title": "Walking on the Moon",
+   "year": 1979
+  },
+  {
+   "id": "marvin-gaye-i-want-you",
+   "artist": "Marvin Gaye",
+   "title": "I Want You",
+   "year": 1976
+  },
+  {
+   "id": "rose-royce-car-wash",
+   "artist": "Rose Royce",
+   "title": "Car Wash",
+   "year": 1976
+  },
+  {
+   "id": "kc-and-the-sunshine-band-that-s-the-way-i-like-it",
+   "artist": "KC and the Sunshine Band",
+   "title": "That's the Way (I Like It)",
+   "year": 1975
+  },
+  {
+   "id": "black-sabbath-neon-knights",
+   "artist": "Black Sabbath",
+   "title": "Neon Knights",
+   "year": 1970
+  },
+  {
+   "id": "kumiko-osugi-doraemon-no-uta",
+   "artist": "Kumiko Ōsugi",
+   "title": "Doraemon no Uta",
+   "year": 1979
+  },
+  {
+   "id": "steely-dan-reelin-in-the-years",
+   "artist": "Steely Dan",
+   "title": "Reelin' In the Years",
+   "year": 1973
+  },
+  {
+   "id": "minnie-riperton-lovin-you",
+   "artist": "Minnie Riperton",
+   "title": "Lovin' You",
+   "year": 1975
+  },
+  {
+   "id": "t-rex-hot-love",
+   "artist": "T. Rex",
+   "title": "Hot Love",
+   "year": 1971
+  },
+  {
+   "id": "kc-and-the-sunshine-band-shake-shake-shake-shake-your-booty",
+   "artist": "KC and the Sunshine Band",
+   "title": "(Shake, Shake, Shake) Shake Your Booty",
+   "year": 1976
+  },
+  {
+   "id": "deep-purple-fireball",
+   "artist": "Deep Purple",
+   "title": "Fireball",
+   "year": 1971
+  },
+  {
+   "id": "billy-joel-my-life",
+   "artist": "Billy Joel",
+   "title": "My Life",
+   "year": 1978
+  },
+  {
+   "id": "bob-dylan-gotta-serve-somebody",
+   "artist": "Bob Dylan",
+   "title": "Gotta Serve Somebody",
+   "year": 1979
+  },
+  {
+   "id": "johnny-cash-man-in-black",
+   "artist": "Johnny Cash",
+   "title": "Man in Black",
+   "year": 1971
+  },
+  {
+   "id": "barbra-streisand-you-don-t-bring-me-flowers",
+   "artist": "Barbra Streisand & Neil Diamond",
+   "title": "You Don't Bring Me Flowers",
+   "year": 1978
+  },
+  {
+   "id": "crosby-stills-nash-ohio",
+   "artist": "Crosby, Stills & Nash",
+   "title": "Ohio",
+   "year": 1970
+  },
+  {
+   "id": "elvis-presley-kentucky-rain",
+   "artist": "Elvis Presley",
+   "title": "Kentucky Rain",
+   "year": 1970
+  },
+  {
+   "id": "eagles-best-of-my-love",
+   "artist": "Eagles",
+   "title": "Best of My Love",
+   "year": 1974
+  },
+  {
+   "id": "george-harrison-you",
+   "artist": "George Harrison",
+   "title": "You",
+   "year": 1975
+  },
+  {
+   "id": "the-communards-never-can-say-goodbye",
+   "artist": "The Communards & Gloria Gaynor",
+   "title": "Never Can Say Goodbye",
+   "year": 1971
+  },
+  {
+   "id": "ac-dc-touch-too-much",
+   "artist": "AC/DC",
+   "title": "Touch Too Much",
+   "year": 1979
+  },
+  {
+   "id": "kofia-leve-palestina",
+   "artist": "Kofia",
+   "title": "Leve Palestina",
+   "year": 1978
+  },
+  {
+   "id": "genesis-the-carpet-crawlers",
+   "artist": "Genesis",
+   "title": "The Carpet Crawlers",
+   "year": 1975
+  },
+  {
+   "id": "stealers-wheel-stuck-in-the-middle-with-you",
+   "artist": "Stealers Wheel",
+   "title": "Stuck in the Middle with You",
+   "year": 1973
+  },
+  {
+   "id": "village-people-in-the-navy",
+   "artist": "Village People",
+   "title": "In the Navy",
+   "year": 1979
+  },
+  {
+   "id": "talking-heads-psycho-killer",
+   "artist": "Talking Heads",
+   "title": "Psycho Killer",
+   "year": 1977
+  },
+  {
+   "id": "sex-pistols-holidays-in-the-sun",
+   "artist": "Sex Pistols",
+   "title": "Holidays in the Sun",
+   "year": 1977
+  },
+  {
+   "id": "the-doobie-brothers-what-a-fool-believes",
+   "artist": "The Doobie Brothers",
+   "title": "What a Fool Believes",
+   "year": 1979
+  },
+  {
+   "id": "steve-miller-band-the-joker",
+   "artist": "Steve Miller Band",
+   "title": "The Joker",
+   "year": 1973
+  },
+  {
+   "id": "the-rubettes-sugar-baby-love",
+   "artist": "The Rubettes",
+   "title": "Sugar Baby Love",
+   "year": 1974
+  },
+  {
+   "id": "harry-chapin-cat-s-in-the-cradle",
+   "artist": "Harry Chapin",
+   "title": "Cat's in the Cradle",
+   "year": 1974
+  },
+  {
+   "id": "francis-cabrel-je-l-aime-a-mourir",
+   "artist": "Francis Cabrel",
+   "title": "Je l'aime à mourir",
+   "year": 1979
+  },
+  {
+   "id": "chicago-25-or-6-to-4",
+   "artist": "Chicago",
+   "title": "25 or 6 to 4",
+   "year": 1970
+  },
+  {
+   "id": "gary-numan-cars",
+   "artist": "Gary Numan",
+   "title": "Cars",
+   "year": 1979
+  },
+  {
+   "id": "the-sweet-action",
+   "artist": "The Sweet",
+   "title": "Action",
+   "year": 1975
+  },
+  {
+   "id": "sparks-this-town-ain-t-big-enough-for-both-of-us",
+   "artist": "Sparks",
+   "title": "This Town Ain't Big Enough for Both of Us",
+   "year": 1974
+  },
+  {
+   "id": "the-sweet-fox-on-the-run",
+   "artist": "The Sweet",
+   "title": "Fox on the Run",
+   "year": 1975
+  },
+  {
+   "id": "elvis-presley-the-wonder-of-you",
+   "artist": "Elvis Presley",
+   "title": "The Wonder of You",
+   "year": 1970
+  },
+  {
+   "id": "cher-gypsys-tramps-thieves",
+   "artist": "Cher",
+   "title": "Gypsys, Tramps & Thieves",
+   "year": 1971
+  },
+  {
+   "id": "steely-dan-rikki-don-t-lose-that-number",
+   "artist": "Steely Dan",
+   "title": "Rikki Don't Lose That Number",
+   "year": 1974
+  },
+  {
+   "id": "billy-joel-she-s-always-a-woman",
+   "artist": "Billy Joel",
+   "title": "She's Always a Woman",
+   "year": 1977
+  },
+  {
+   "id": "bill-withers-lovely-day",
+   "artist": "Bill Withers",
+   "title": "Lovely Day",
+   "year": 1977
+  },
+  {
+   "id": "falco-do-it-again",
+   "artist": "Falco & Steely Dan",
+   "title": "Do It Again",
+   "year": 1972
+  },
+  {
+   "id": "marvin-gaye-let-s-get-it-on",
+   "artist": "Marvin Gaye",
+   "title": "Let's Get It On",
+   "year": 1973
+  },
+  {
+   "id": "john-williams-star-wars",
+   "artist": "John Williams",
+   "title": "Star Wars",
+   "year": 1977
+  },
+  {
+   "id": "patrick-hernandez-born-to-be-alive",
+   "artist": "Patrick Hernandez",
+   "title": "Born to Be Alive",
+   "year": 1978
+  },
+  {
+   "id": "blondie-dreaming",
+   "artist": "Blondie",
+   "title": "Dreaming",
+   "year": 1979
+  },
+  {
+   "id": "willie-nelson-blue-eyes-crying-in-the-rain",
+   "artist": "Willie Nelson",
+   "title": "Blue Eyes Crying in the Rain",
+   "year": 1975
+  },
+  {
+   "id": "ringo-starr-back-off-boogaloo",
+   "artist": "Ringo Starr",
+   "title": "Back Off Boogaloo",
+   "year": 1972
+  },
+  {
+   "id": "eric-clapton-lay-down-sally",
+   "artist": "Eric Clapton",
+   "title": "Lay Down Sally",
+   "year": 1977
+  },
+  {
+   "id": "john-fogerty-rockin-all-over-the-world",
+   "artist": "John Fogerty",
+   "title": "Rockin' All Over the World",
+   "year": 1975
+  },
+  {
+   "id": "yes-and-you-and-i",
+   "artist": "Yes",
+   "title": "And You and I",
+   "year": 1972
+  },
+  {
+   "id": "yellow-magic-orchestra-behind-the-mask",
+   "artist": "Yellow Magic Orchestra",
+   "title": "Behind the Mask",
+   "year": 1978
+  },
+  {
+   "id": "olivia-newton-john-let-me-be-there",
+   "artist": "Olivia Newton-John",
+   "title": "Let Me Be There",
+   "year": 1974
+  },
+  {
+   "id": "george-harrison-crackerbox-palace",
+   "artist": "George Harrison",
+   "title": "Crackerbox Palace",
+   "year": 1977
+  },
+  {
+   "id": "suzi-quatro-can-the-can",
+   "artist": "Suzi Quatro",
+   "title": "Can the Can",
+   "year": 1973
+  },
+  {
+   "id": "the-cure-jumping-someone-else-s-train",
+   "artist": "The Cure",
+   "title": "Jumping Someone Else's Train",
+   "year": 1979
+  },
+  {
+   "id": "genesis-follow-you-follow-me",
+   "artist": "Genesis",
+   "title": "Follow You Follow Me",
+   "year": 1978
+  },
+  {
+   "id": "bee-gees-nights-on-broadway",
+   "artist": "Bee Gees",
+   "title": "Nights on Broadway",
+   "year": 1975
+  },
+  {
+   "id": "bruce-springsteen-badlands",
+   "artist": "Bruce Springsteen",
+   "title": "Badlands",
+   "year": 1978
+  },
+  {
+   "id": "golden-earring-radar-love",
+   "artist": "Golden Earring",
+   "title": "Radar Love",
+   "year": 1973
+  },
+  {
+   "id": "akai-tori-tsubasa-wo-kudasai",
+   "artist": "Akai Tori",
+   "title": "Tsubasa wo Kudasai",
+   "year": 1971
+  },
+  {
+   "id": "blondie-hanging-on-the-telephone",
+   "artist": "Blondie",
+   "title": "Hanging on the Telephone",
+   "year": 1978
+  },
+  {
+   "id": "paul-simon-50-ways-to-leave-your-lover",
+   "artist": "Paul Simon",
+   "title": "50 Ways to Leave Your Lover",
+   "year": 1975
+  },
+  {
+   "id": "harold-melvin-the-blue-notes-if-you-don-t-know-me-by-now",
+   "artist": "Harold Melvin & the Blue Notes",
+   "title": "If You Don't Know Me by Now",
+   "year": 1972
+  },
+  {
+   "id": "ann-peebles-i-can-t-stand-the-rain",
+   "artist": "Ann Peebles",
+   "title": "I Can't Stand the Rain",
+   "year": 1973
+  },
+  {
+   "id": "m-pop-muzik",
+   "artist": "M",
+   "title": "Pop Muzik",
+   "year": 1979
+  },
+  {
+   "id": "ennio-morricone-here-s-to-you",
+   "artist": "Ennio Morricone & Joan Baez",
+   "title": "Here's to You",
+   "year": 1971
+  },
+  {
+   "id": "bruce-springsteen-spirit-in-the-night",
+   "artist": "Bruce Springsteen",
+   "title": "Spirit in the Night",
+   "year": 1973
+  },
+  {
+   "id": "ringo-starr-beaucoups-of-blues",
+   "artist": "Ringo Starr",
+   "title": "Beaucoups of Blues",
+   "year": 1970
+  },
+  {
+   "id": "anita-ward-ring-my-bell",
+   "artist": "Anita Ward",
+   "title": "Ring My Bell",
+   "year": 1979
+  },
+  {
+   "id": "carl-anderson-knock-knock-who-s-there",
+   "artist": "Carl Anderson & Gloria Loring",
+   "title": "Knock, Knock Who's There?",
+   "year": 1970
+  },
+  {
+   "id": "the-who-love-reign-o-er-me",
+   "artist": "The Who",
+   "title": "Love, Reign o'er Me",
+   "year": 1973
+  },
+  {
+   "id": "van-halen-runnin-with-the-devil",
+   "artist": "Van Halen",
+   "title": "Runnin' with the Devil",
+   "year": 1978
+  },
+  {
+   "id": "joe-cocker-you-can-leave-your-hat-on",
+   "artist": "Joe Cocker & Randy Newman",
+   "title": "You Can Leave Your Hat On",
+   "year": 1972
+  },
+  {
+   "id": "badfinger-baby-blue",
+   "artist": "Badfinger",
+   "title": "Baby Blue",
+   "year": 1972
+  },
+  {
+   "id": "earth-wind-fire-boogie-wonderland",
+   "artist": "Earth, Wind & Fire & The Emotions",
+   "title": "Boogie Wonderland",
+   "year": 1979
+  },
+  {
+   "id": "electric-light-orchestra-sweet-talkin-woman",
+   "artist": "Electric Light Orchestra",
+   "title": "Sweet Talkin' Woman",
+   "year": 1978
+  },
+  {
+   "id": "creedence-clearwater-revival-sweet-hitch-hiker",
+   "artist": "Creedence Clearwater Revival",
+   "title": "Sweet Hitch-Hiker",
+   "year": 1971
+  },
+  {
+   "id": "bob-seger-we-ve-got-tonite",
+   "artist": "Bob Seger & Jeanette Biedermann",
+   "title": "We've Got Tonite",
+   "year": 1978
+  },
+  {
+   "id": "tubeway-army-are-friends-electric",
+   "artist": "Tubeway Army",
+   "title": "Are 'Friends' Electric?",
+   "year": 1979
+  },
+  {
+   "id": "cheap-trick-i-want-you-to-want-me",
+   "artist": "Cheap Trick",
+   "title": "I Want You to Want Me",
+   "year": 1977
+  },
+  {
+   "id": "mouth-macneal-i-see-a-star",
+   "artist": "Mouth & MacNeal",
+   "title": "I See a Star",
+   "year": 1974
+  },
+  {
+   "id": "the-b-52-s-rock-lobster",
+   "artist": "The B-52's",
+   "title": "Rock Lobster",
+   "year": 1978
+  },
+  {
+   "id": "steve-miller-band-fly-like-an-eagle",
+   "artist": "Steve Miller Band",
+   "title": "Fly Like an Eagle",
+   "year": 1976
+  },
+  {
+   "id": "anita-skorgan-casanova",
+   "artist": "Anita Skorgan",
+   "title": "Casanova",
+   "year": 1977
+  },
+  {
+   "id": "al-bano-romina-power-we-ll-live-it-all-again",
+   "artist": "Al Bano & Romina Power",
+   "title": "We'll Live It All Again",
+   "year": 1976
+  },
+  {
+   "id": "barry-manilow-could-it-be-magic",
+   "artist": "Barry Manilow",
+   "title": "Could It Be Magic",
+   "year": 1975
+  },
+  {
+   "id": "the-trammps-shout",
+   "artist": "The Trammps & The Isley Brothers",
+   "title": "Shout",
+   "year": 1974
+  },
+  {
+   "id": "ac-dc-jailbreak",
+   "artist": "AC/DC",
+   "title": "Jailbreak",
+   "year": 1976
+  },
+  {
+   "id": "village-people-macho-man",
+   "artist": "Village People",
+   "title": "Macho Man",
+   "year": 1978
+  },
+  {
+   "id": "t-rex-telegram-sam",
+   "artist": "T. Rex",
+   "title": "Telegram Sam",
+   "year": 1972
+  },
+  {
+   "id": "sly-and-the-family-stone-family-affair",
+   "artist": "Sly and the Family Stone",
+   "title": "Family Affair",
+   "year": 1971
+  },
+  {
+   "id": "orchestral-manoeuvres-in-the-dark-electricity",
+   "artist": "Orchestral Manoeuvres in the Dark",
+   "title": "Electricity",
+   "year": 1979
+  },
+  {
+   "id": "genesis-many-too-many",
+   "artist": "Genesis",
+   "title": "Many Too Many",
+   "year": 1978
+  },
+  {
+   "id": "t-rex-children-of-the-revolution",
+   "artist": "T. Rex",
+   "title": "Children of the Revolution",
+   "year": 1972
+  },
+  {
+   "id": "zz-top-tush",
+   "artist": "ZZ Top",
+   "title": "Tush",
+   "year": 1975
+  },
+  {
+   "id": "the-cars-my-best-friend-s-girl",
+   "artist": "The Cars",
+   "title": "My Best Friend's Girl",
+   "year": 1978
+  },
+  {
+   "id": "slade-far-far-away",
+   "artist": "Slade",
+   "title": "Far Far Away",
+   "year": 1974
+  },
+  {
+   "id": "peter-frampton-baby-i-love-your-way",
+   "artist": "Peter Frampton",
+   "title": "Baby, I Love Your Way",
+   "year": 1975
+  },
+  {
+   "id": "the-allman-brothers-band-ramblin-man",
+   "artist": "The Allman Brothers Band",
+   "title": "Ramblin' Man",
+   "year": 1973
+  },
+  {
+   "id": "average-white-band-pick-up-the-pieces",
+   "artist": "Average White Band",
+   "title": "Pick Up the Pieces",
+   "year": 1974
+  },
+  {
+   "id": "olivia-newton-john-if-you-love-me-let-me-know",
+   "artist": "Olivia Newton-John",
+   "title": "If You Love Me (Let Me Know)",
+   "year": 1974
+  },
+  {
+   "id": "donna-summer-bad-girls",
+   "artist": "Donna Summer",
+   "title": "Bad Girls",
+   "year": 1979
+  },
+  {
+   "id": "electric-light-orchestra-can-t-get-it-out-of-my-head",
+   "artist": "Electric Light Orchestra",
+   "title": "Can't Get It Out of My Head",
+   "year": 1974
+  },
+  {
+   "id": "electric-light-orchestra-livin-thing",
+   "artist": "Electric Light Orchestra",
+   "title": "Livin' Thing",
+   "year": 1976
+  },
+  {
+   "id": "crazy-horse-i-don-t-want-to-talk-about-it",
+   "artist": "Crazy Horse",
+   "title": "I Don't Want to Talk About It",
+   "year": 1971
+  },
+  {
+   "id": "umberto-tozzi-ti-amo",
+   "artist": "Umberto Tozzi",
+   "title": "Ti amo",
+   "year": 1977
+  },
+  {
+   "id": "nicolette-larson-lotta-love",
+   "artist": "Nicolette Larson & Neil Young",
+   "title": "Lotta Love",
+   "year": 1978
+  },
+  {
+   "id": "thin-lizzy-jailbreak",
+   "artist": "Thin Lizzy",
+   "title": "Jailbreak",
+   "year": 1976
+  },
+  {
+   "id": "the-kinks-celluloid-heroes",
+   "artist": "The Kinks",
+   "title": "Celluloid Heroes",
+   "year": 1972
+  },
+  {
+   "id": "baccara-parlez-vous-francais",
+   "artist": "Baccara",
+   "title": "Parlez-vous français?",
+   "year": 1978
+  },
+  {
+   "id": "cher-take-me-home",
+   "artist": "Cher",
+   "title": "Take Me Home",
+   "year": 1979
+  },
+  {
+   "id": "cliff-richard-we-don-t-talk-anymore",
+   "artist": "Cliff Richard",
+   "title": "We Don't Talk Anymore",
+   "year": 1979
+  },
+  {
+   "id": "heart-crazy-on-you",
+   "artist": "Heart",
+   "title": "Crazy on You",
+   "year": 1976
+  },
+  {
+   "id": "benito-di-paula-charlie-brown",
+   "artist": "Benito di Paula",
+   "title": "Charlie Brown",
+   "year": 1974
+  },
+  {
+   "id": "status-quo-down-down",
+   "artist": "Status Quo",
+   "title": "Down Down",
+   "year": 1974
+  },
+  {
+   "id": "aerosmith-back-in-the-saddle",
+   "artist": "Aerosmith",
+   "title": "Back in the Saddle",
+   "year": 1977
+  },
+  {
+   "id": "freddie-aguilar-anak",
+   "artist": "Freddie Aguilar",
+   "title": "Anak",
+   "year": 1978
+  },
+  {
+   "id": "uriah-heep-easy-livin",
+   "artist": "Uriah Heep",
+   "title": "Easy Livin'",
+   "year": 1972
+  },
+  {
+   "id": "blondie-union-city-blue",
+   "artist": "Blondie",
+   "title": "Union City Blue",
+   "year": 1979
+  },
+  {
+   "id": "serge-lama-je-suis-malade",
+   "artist": "Serge Lama",
+   "title": "Je suis malade",
+   "year": 1973
+  },
+  {
+   "id": "roberta-flack-the-closer-i-get-to-you",
+   "artist": "Roberta Flack & Donny Hathaway",
+   "title": "The Closer I Get to You",
+   "year": 1978
+  },
+  {
+   "id": "aerosmith-last-child",
+   "artist": "Aerosmith",
+   "title": "Last Child",
+   "year": 1976
+  },
+  {
+   "id": "jim-croce-time-in-a-bottle",
+   "artist": "Jim Croce",
+   "title": "Time in a Bottle",
+   "year": 1973
+  },
+  {
+   "id": "genesis-the-knife",
+   "artist": "Genesis",
+   "title": "The Knife",
+   "year": 1971
+  },
+  {
+   "id": "ramones-rock-n-roll-high-school",
+   "artist": "Ramones",
+   "title": "Rock 'n' Roll High School",
+   "year": 1979
+  },
+  {
+   "id": "clodagh-rodgers-jack-in-the-box",
+   "artist": "Clodagh Rodgers",
+   "title": "Jack in the Box",
+   "year": 1971
+  },
+  {
+   "id": "toto-georgy-porgy",
+   "artist": "Toto",
+   "title": "Georgy Porgy",
+   "year": 1979
+  },
+  {
+   "id": "elvis-presley-an-american-trilogy",
+   "artist": "Elvis Presley",
+   "title": "An American Trilogy",
+   "year": 1972
+  },
+  {
+   "id": "the-clash-tommy-gun",
+   "artist": "The Clash",
+   "title": "Tommy Gun",
+   "year": 1978
+  },
+  {
+   "id": "the-clash-complete-control",
+   "artist": "The Clash",
+   "title": "Complete Control",
+   "year": 1977
+  },
+  {
+   "id": "labi-siffre-it-must-be-love",
+   "artist": "Labi Siffre",
+   "title": "It Must Be Love",
+   "year": 1971
+  },
+  {
+   "id": "the-carpenters-for-all-we-know",
+   "artist": "The Carpenters",
+   "title": "For All We Know",
+   "year": 1971
+  },
+  {
+   "id": "electric-light-orchestra-turn-to-stone",
+   "artist": "Electric Light Orchestra",
+   "title": "Turn to Stone",
+   "year": 1977
+  }
+ ]
+}

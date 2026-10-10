@@ -3,6 +3,8 @@
 // bytas (till exempel mot Firebase) utan att något här ändras.
 // Spelläget är ett vanligt objekt som går att spara som JSON.
 
+import { normalize } from './text.js';
+
 export const ROUND_MS = 60000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
@@ -35,15 +37,14 @@ export function applySettings(state, settings) {
   return true;
 }
 
-export function normalize(text) {
-  return (text || '').trim().toLocaleLowerCase('sv');
-}
+export { normalize };
 
 // labels: vad fälten heter i kategorin, till exempel Kompositör och Verk.
-export function createGame({ code, categoryId, playedIds = [], labels = DEFAULT_LABELS, settings }) {
+export function createGame({ code, categoryId, categoryName = '', playedIds = [], labels = DEFAULT_LABELS, settings }) {
   return {
     code,
     categoryId,
+    categoryName,
     players: {},
     playedIds: [...playedIds],
     roundNumber: 0,
@@ -129,6 +130,12 @@ export function submitAnswer(state, playerId, field, value, now) {
   return true;
 }
 
+// Vilka fält en spelare har fyllt i under omgången, utan själva svaren.
+export function answeredFields(state, playerId) {
+  const answer = state.round && state.round.answers[playerId];
+  return { artist: Boolean(answer && answer.artist), title: Boolean(answer && answer.title) };
+}
+
 export function hasAnsweredBoth(state, playerId) {
   const answer = state.round && state.round.answers[playerId];
   return Boolean(answer && answer.artist && answer.title);
@@ -199,6 +206,7 @@ export function playerView(state, playerId, now) {
   const round = state.round;
   const view = {
     code: state.code,
+    categoryName: state.categoryName || '',
     standings: standings(state),
     answered: round ? Object.keys(state.players).filter((id) => hasAnsweredBoth(state, id)) : [],
     winScore: state.winScore || WIN_SCORE,
@@ -218,6 +226,9 @@ export function playerView(state, playerId, now) {
         ? { artist: round.song.artist, title: round.song.title, year: round.song.year }
         : null,
       result: round.results ? round.results[playerId] || null : null,
+      // Alla spelares läge: vilka fält som är ifyllda, och rätt och fel när svaret visas.
+      progress: Object.fromEntries(Object.keys(state.players).map((id) => [id, answeredFields(state, id)])),
+      results: round.results || null,
     };
   }
   return view;
