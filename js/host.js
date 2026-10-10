@@ -2,7 +2,7 @@
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
-import { showAlert, showConfirm } from './dialog.js';
+import { showConfirm } from './dialog.js';
 import { renderRing, ranks, scoreTracker } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
@@ -24,19 +24,8 @@ function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
 }
 
-function playedKey(categoryId) {
-  return 'latquiz-played-' + categoryId;
-}
-
-function loadPlayed(categoryId) {
-  return storage(() => JSON.parse(localStorage.getItem(playedKey(categoryId))) || [], []);
-}
-
 function save() {
-  storage(() => {
-    localStorage.setItem(SAVE_KEY, JSON.stringify({ state, savedAt: Date.now() }));
-    localStorage.setItem(playedKey(state.categoryId), JSON.stringify(state.playedIds));
-  });
+  storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify({ state, savedAt: Date.now() })));
 }
 
 function loadSaved() {
@@ -149,7 +138,7 @@ async function startGame(categoryId, resumeState) {
     for (const player of Object.values(state.players)) player.connected = false;
   } else {
     state = game.createGame({
-      code: newCode(), categoryId: category.id, playedIds: loadPlayed(category.id), labels: category.labels,
+      code: newCode(), categoryId: category.id, labels: category.labels,
     });
   }
   save();
@@ -162,11 +151,10 @@ async function startGame(categoryId, resumeState) {
 
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
+  // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
+  if (game.unplayedSongs(state, songs).length === 0) state.playedIds = [];
   const song = game.nextSong(state, songs);
-  if (!song) {
-    showAlert('Nollställ spelade låtar för att börja om.', { title: 'Alla låtar är spelade' });
-    return;
-  }
+  if (!song) return;
   // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
   game.startRound(state, Date.now());
   changed();
@@ -213,15 +201,6 @@ async function endGame() {
   if (net) net.destroy();
   clearInterval(ticker);
   location.href = location.pathname + location.search;
-}
-
-async function resetPlayed() {
-  const ok = await showConfirm('Alla låtar i kategorin kan spelas igen.', {
-    title: 'Nollställ spelade låtar?', okText: 'Nollställ',
-  });
-  if (!ok) return;
-  state.playedIds = [];
-  changed();
 }
 
 // ---- Visning ----
@@ -333,7 +312,6 @@ document.addEventListener('click', (e) => {
   else if (id === 'reveal') revealNow();
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
-  else if (id === 'reset-played') resetPlayed();
 });
 
 // Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
