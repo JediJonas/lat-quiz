@@ -39,14 +39,14 @@ export function renderRing(el, ms, totalMs, bonus) {
 
 // Etiketter för en spelares läge i omgången, samma för spelledare och spelare.
 // progress: { artist, title } medan låten spelas. result: rättning när svaret visas.
-export function statusTags({ phase, progress, result, labels, esc }) {
+export function statusTags({ phase, progress, result, labels, esc, points = true }) {
   const tag = (cls, label) => `<span class="tag ${cls}">${esc(label)}</span>`;
   if (phase === 'playing' && progress) {
     return tag(progress.artist ? 'good' : '', labels.artist) + tag(progress.title ? 'good' : '', labels.title);
   }
   if (phase === 'revealed' && result) {
     return tag(result.artist ? 'good' : 'bad', labels.artist) + tag(result.title ? 'good' : 'bad', labels.title)
-      + (result.bonus ? tag('bonus', 'Bonus') : '') + ` <strong>+${result.points}</strong>`;
+      + (result.bonus ? tag('bonus', 'Bonus') : '') + (points ? ` <strong>+${result.points}</strong>` : '');
   }
   return '';
 }

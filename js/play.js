@@ -69,14 +69,14 @@ function renderTimer() {
 function playerStatus(id) {
   const round = view.round;
   if (!round) return '';
-  const tags = statusTags({
+  return statusTags({
     phase: round.phase,
     progress: round.progress && round.progress[id],
     result: round.results && round.results[id],
     labels: view.labels,
     esc,
+    points: false,
   });
-  return tags;
 }
 
 function renderStandings() {
