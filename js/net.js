@@ -108,7 +108,8 @@ export function createHost(code, handlers) {
   };
 }
 
-// handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline')
+// handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline'),
+// onNotFound() när det inte finns något spel med koden.
 // Klienten försöker ansluta igen av sig själv tills destroy() anropas.
 export function createClient(code, handlers) {
   let peer = null;
@@ -117,6 +118,7 @@ export function createClient(code, handlers) {
   let retryDelay = 1000;
   let retryTimer = null;
   let destroyed = false;
+  let everConnected = false;
 
   function connect() {
     clearTimeout(retryTimer);
@@ -125,7 +127,15 @@ export function createClient(code, handlers) {
     if (!peer || peer.destroyed) {
       peer = new Peer(peerOptions());
       peer.on('open', () => openConnection());
-      peer.on('error', () => scheduleRetry());
+      peer.on('error', (err) => {
+        // Spelledaren finns inte. Har vi aldrig varit anslutna är koden fel
+        // eller spelet avslutat. Annars laddar spelledaren troligen om sidan.
+        if (err.type === 'peer-unavailable' && !everConnected) {
+          handlers.onNotFound();
+          return;
+        }
+        scheduleRetry();
+      });
       peer.on('disconnected', () => {
         if (!destroyed && !peer.destroyed) peer.reconnect();
       });
@@ -145,6 +155,7 @@ export function createClient(code, handlers) {
       if (conn !== c) return;
       lastSeen = Date.now();
       retryDelay = 1000;
+      everConnected = true;
       handlers.onStatus('connected');
       handlers.onOpen();
     });
