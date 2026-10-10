@@ -4,5 +4,6 @@
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } },
   { "id": "90-tal", "name": "90-talets hits", "file": "90-tal.json" },
   { "id": "2000-tal", "name": "2000-talets hits", "file": "2000-tal.json" },
+  { "id": "70-tal", "name": "70-talet", "file": "70-tal.json" },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" }
 ]
