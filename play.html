@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Låtquiz</title>
+  <title>Låtquiz – Gå med i spel</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <main class="narrow">
     <section id="join" hidden>
-      <h1>Gå med</h1>
+      <h1>Låtquiz – Gå med i spel</h1>
       <p id="join-error" class="error-text" hidden></p>
       <form id="join-form">
         <label for="name-input">Ditt namn</label>
@@ -32,13 +32,12 @@
       <div id="waiting" class="card"><p id="waiting-text">Väntar på första låten …</p></div>
 
       <div id="guess" class="card" hidden>
-        <h2 id="round-title"></h2>
+        <h2 id="round-title" class="round-label"></h2>
         <div id="timer" class="ring mid-ring"></div>
         <label for="artist">Artist</label>
         <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
         <label for="title">Titel</label>
         <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
-        <p id="sent" class="muted small"></p>
       </div>
 
       <div id="result" class="card" hidden></div>

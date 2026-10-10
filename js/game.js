@@ -3,6 +3,8 @@
 // bytas (till exempel mot Firebase) utan att något här ändras.
 // Spelläget är ett vanligt objekt som går att spara som JSON.
 
+import { normalize } from './text.js';
+
 export const ROUND_MS = 60000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
@@ -35,9 +37,7 @@ export function applySettings(state, settings) {
   return true;
 }
 
-export function normalize(text) {
-  return (text || '').trim().toLocaleLowerCase('sv');
-}
+export { normalize };
 
 // labels: vad fälten heter i kategorin, till exempel Kompositör och Verk.
 export function createGame({ code, categoryId, categoryName = '', playedIds = [], labels = DEFAULT_LABELS, settings }) {
@@ -226,10 +226,8 @@ export function playerView(state, playerId, now) {
         ? { artist: round.song.artist, title: round.song.title, year: round.song.year }
         : null,
       result: round.results ? round.results[playerId] || null : null,
-      // Alla spelares läge: ifyllda fält medan låten spelas, rätt och fel efteråt.
-      progress: round.phase === 'playing'
-        ? Object.fromEntries(Object.keys(state.players).map((id) => [id, answeredFields(state, id)]))
-        : null,
+      // Alla spelares läge: vilka fält som är ifyllda, och rätt och fel när svaret visas.
+      progress: Object.fromEntries(Object.keys(state.players).map((id) => [id, answeredFields(state, id)])),
       results: round.results || null,
     };
   }

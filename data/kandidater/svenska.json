@@ -1,0 +1,3907 @@
+{
+ "id": "svenska",
+ "name": "Svenska klassiker",
+ "file": "svenska.json",
+ "songs": [
+  {
+   "id": "abba-mamma-mia",
+   "artist": "ABBA",
+   "title": "Mamma Mia",
+   "year": 1975
+  },
+  {
+   "id": "avicii-wake-me-up",
+   "artist": "Avicii",
+   "title": "Wake Me Up",
+   "year": 2013
+  },
+  {
+   "id": "kikki-danielsson-que-sera-sera",
+   "artist": "Kikki Danielsson & Doris Day",
+   "title": "Qué Será, Será",
+   "year": 1956
+  },
+  {
+   "id": "avicii-levels",
+   "artist": "Avicii",
+   "title": "Levels",
+   "year": 2011
+  },
+  {
+   "id": "avicii-hey-brother",
+   "artist": "Avicii",
+   "title": "Hey Brother",
+   "year": 2013
+  },
+  {
+   "id": "avicii-waiting-for-love",
+   "artist": "Avicii",
+   "title": "Waiting for Love",
+   "year": 2015
+  },
+  {
+   "id": "tonix-oh-pretty-woman",
+   "artist": "Tonix & Roy Orbison",
+   "title": "Oh, Pretty Woman",
+   "year": 1964
+  },
+  {
+   "id": "mnek-never-forget-you",
+   "artist": "MNEK",
+   "title": "Never Forget You",
+   "year": 2015
+  },
+  {
+   "id": "carola-haggkvist-you-ve-lost-that-lovin-feelin",
+   "artist": "Carola Häggkvist & The Righteous Brothers",
+   "title": "You've Lost That Lovin' Feelin'",
+   "year": 1964
+  },
+  {
+   "id": "tove-lo-habits",
+   "artist": "Tove Lo",
+   "title": "Habits",
+   "year": 2013
+  },
+  {
+   "id": "nicky-romero-i-could-be-the-one",
+   "artist": "Nicky Romero & Avicii",
+   "title": "I Could Be the One",
+   "year": 2012
+  },
+  {
+   "id": "sandro-cavazza-without-you",
+   "artist": "Sandro Cavazza & Avicii",
+   "title": "Without You",
+   "year": 2017
+  },
+  {
+   "id": "wizex-that-ll-be-the-day",
+   "artist": "Wizex & The Crickets",
+   "title": "That'll Be the Day",
+   "year": 1957
+  },
+  {
+   "id": "p-p-arnold-the-first-cut-is-the-deepest",
+   "artist": "P. P. Arnold & Papa Dee",
+   "title": "The First Cut Is the Deepest",
+   "year": 1967
+  },
+  {
+   "id": "aysel-teymurzadeh-always",
+   "artist": "Aysel Teymurzadeh & Arash",
+   "title": "Always",
+   "year": 2009
+  },
+  {
+   "id": "buddy-holly-peggy-sue",
+   "artist": "Buddy Holly & Jerry Williams",
+   "title": "Peggy Sue",
+   "year": 1957
+  },
+  {
+   "id": "charli-xcx-i-love-it",
+   "artist": "Charli XCX & Icona Pop",
+   "title": "I Love It",
+   "year": 2012
+  },
+  {
+   "id": "clean-bandit-symphony",
+   "artist": "Clean Bandit",
+   "title": "Symphony",
+   "year": 2017
+  },
+  {
+   "id": "aloe-blacc-sos",
+   "artist": "Aloe Blacc & Avicii",
+   "title": "SOS",
+   "year": 2019
+  },
+  {
+   "id": "abba-i-still-have-faith-in-you",
+   "artist": "ABBA",
+   "title": "I Still Have Faith in You",
+   "year": 2021
+  },
+  {
+   "id": "pernilla-karlsson-nar-jag-blundar",
+   "artist": "Pernilla Karlsson",
+   "title": "När jag blundar",
+   "year": 2012
+  },
+  {
+   "id": "eric-prydz-call-on-me",
+   "artist": "Eric Prydz & Steve Winwood",
+   "title": "Call on Me",
+   "year": 2004
+  },
+  {
+   "id": "swedish-house-mafia-don-t-you-worry-child",
+   "artist": "Swedish House Mafia & John Martin",
+   "title": "Don't You Worry Child",
+   "year": 2012
+  },
+  {
+   "id": "tove-lo-talking-body",
+   "artist": "Tove Lo",
+   "title": "Talking Body",
+   "year": 2015
+  },
+  {
+   "id": "carola-haggkvist-the-way-we-were",
+   "artist": "Carola Häggkvist & Barbra Streisand",
+   "title": "The Way We Were",
+   "year": 1974
+  },
+  {
+   "id": "lykke-li-i-follow-rivers",
+   "artist": "Lykke Li",
+   "title": "I Follow Rivers",
+   "year": 2011
+  },
+  {
+   "id": "robyn-dancing-on-my-own",
+   "artist": "Robyn",
+   "title": "Dancing on My Own",
+   "year": 2010
+  },
+  {
+   "id": "mohombi-bumpy-ride",
+   "artist": "Mohombi",
+   "title": "Bumpy Ride",
+   "year": 2010
+  },
+  {
+   "id": "aronchupa-i-m-an-albatraoz",
+   "artist": "AronChupa",
+   "title": "I'm an Albatraoz",
+   "year": 2014
+  },
+  {
+   "id": "axwell-ingrosso-more-than-you-know",
+   "artist": "Axwell Λ Ingrosso",
+   "title": "More Than You Know",
+   "year": 2017
+  },
+  {
+   "id": "carola-haggkvist-evergreen-love-theme-from-a-star-is-born",
+   "artist": "Carola Häggkvist & Barbra Streisand",
+   "title": "Evergreen (Love Theme from A Star Is Born)",
+   "year": 1976
+  },
+  {
+   "id": "girls-generation-catch-me-if-you-can-girls-generation-song",
+   "artist": "Girls' Generation & Ana Johnsson",
+   "title": "Catch Me If You Can (Girls' Generation song)",
+   "year": 2015
+  },
+  {
+   "id": "alesso-when-i-m-gone",
+   "artist": "Alesso & Katy Perry",
+   "title": "When I'm Gone",
+   "year": 2021
+  },
+  {
+   "id": "basshunter-please-don-t-go",
+   "artist": "Basshunter",
+   "title": "Please Don't Go",
+   "year": 2008
+  },
+  {
+   "id": "alesso-heroes",
+   "artist": "Alesso",
+   "title": "Heroes",
+   "year": 2014
+  },
+  {
+   "id": "galantis-dilshadilu07celebrity-s-runaway-u-i",
+   "artist": "Galantis Dilshadilu07celebrity's",
+   "title": "Runaway (U & I)",
+   "year": 2014
+  },
+  {
+   "id": "galantis-dilshadilu07celebrity-s-no-money",
+   "artist": "Galantis Dilshadilu07celebrity's",
+   "title": "No Money",
+   "year": 2016
+  },
+  {
+   "id": "tove-lo-cool-girl",
+   "artist": "Tove Lo",
+   "title": "Cool Girl",
+   "year": 2016
+  },
+  {
+   "id": "swedish-house-mafia-save-the-world",
+   "artist": "Swedish House Mafia & John Martin",
+   "title": "Save The World",
+   "year": 2011
+  },
+  {
+   "id": "kofia-leve-palestina",
+   "artist": "Kofia",
+   "title": "Leve Palestina",
+   "year": 1978
+  },
+  {
+   "id": "axwell-leave-the-world-behind",
+   "artist": "Axwell & Steve Angello",
+   "title": "Leave The World Behind",
+   "year": 2009
+  },
+  {
+   "id": "swedish-house-mafia-greyhound",
+   "artist": "Swedish House Mafia",
+   "title": "Greyhound",
+   "year": 2012
+  },
+  {
+   "id": "eagle-eye-cherry-save-tonight",
+   "artist": "Eagle-Eye Cherry",
+   "title": "Save Tonight",
+   "year": 1997
+  },
+  {
+   "id": "agnes-carlsson-release-me",
+   "artist": "Agnes Carlsson",
+   "title": "Release Me",
+   "year": 2008
+  },
+  {
+   "id": "leona-lewis-collide",
+   "artist": "Leona Lewis & Avicii",
+   "title": "Collide",
+   "year": 2011
+  },
+  {
+   "id": "europe-rock-the-night",
+   "artist": "Europe",
+   "title": "Rock the Night",
+   "year": 1985
+  },
+  {
+   "id": "loreen-my-heart-is-refusing-me",
+   "artist": "Loreen",
+   "title": "My Heart Is Refusing Me",
+   "year": 2011
+  },
+  {
+   "id": "hurts-under-control",
+   "artist": "Hurts & Alesso",
+   "title": "Under Control",
+   "year": 2013
+  },
+  {
+   "id": "ty-dolla-sign-so-good",
+   "artist": "Ty Dolla Sign",
+   "title": "So Good",
+   "year": 2017
+  },
+  {
+   "id": "martin-garrix-high-on-life",
+   "artist": "Martin Garrix & Bonn",
+   "title": "High on Life",
+   "year": 2018
+  },
+  {
+   "id": "mabel-don-t-call-me-up",
+   "artist": "Mabel",
+   "title": "Don't Call Me Up",
+   "year": 2019
+  },
+  {
+   "id": "little-mix-heartbreak-anthem",
+   "artist": "Little Mix & Galantis Dilshadilu07celebrity's",
+   "title": "Heartbreak Anthem",
+   "year": 2021
+  },
+  {
+   "id": "pinkpantheress-stateside",
+   "artist": "PinkPantheress",
+   "title": "Stateside",
+   "year": 2025
+  },
+  {
+   "id": "siw-malmkvist-alla-andra-far-varann",
+   "artist": "Siw Malmkvist & Östen Warnerbring",
+   "title": "Alla andra får varann",
+   "year": 1960
+  },
+  {
+   "id": "pewdiepie-bitch-lasagna",
+   "artist": "PewDiePie",
+   "title": "Bitch Lasagna",
+   "year": 2018
+  },
+  {
+   "id": "eric-prydz-pjanoo",
+   "artist": "Eric Prydz",
+   "title": "Pjanoo",
+   "year": 2008
+  },
+  {
+   "id": "mohombi-coconut-tree",
+   "artist": "Mohombi & Nicole Scherzinger",
+   "title": "Coconut Tree",
+   "year": 2011
+  },
+  {
+   "id": "swedish-house-mafia-one",
+   "artist": "Swedish House Mafia",
+   "title": "One",
+   "year": 2010
+  },
+  {
+   "id": "victoria-bergsman-young-folks",
+   "artist": "Victoria Bergsman & Peter Bjorn and John",
+   "title": "Young Folks",
+   "year": 2006
+  },
+  {
+   "id": "petra-marklund-cry-for-you",
+   "artist": "Petra Marklund",
+   "title": "Cry for You",
+   "year": 2006
+  },
+  {
+   "id": "the-hives-hate-to-say-i-told-you-so",
+   "artist": "The Hives",
+   "title": "Hate to Say I Told You So",
+   "year": 2000
+  },
+  {
+   "id": "anita-skorgan-casanova",
+   "artist": "Anita Skorgan",
+   "title": "Casanova",
+   "year": 1977
+  },
+  {
+   "id": "sertab-erener-private-emotion",
+   "artist": "Sertab Erener & Meja",
+   "title": "Private Emotion",
+   "year": 2000
+  },
+  {
+   "id": "helena-josefsson-broken-angel",
+   "artist": "Helena Josefsson & Arash",
+   "title": "Broken Angel",
+   "year": 2010
+  },
+  {
+   "id": "alesso-let-me-go",
+   "artist": "Alesso & Hailee Steinfeld",
+   "title": "Let Me Go",
+   "year": 2017
+  },
+  {
+   "id": "tinie-tempah-girls-like",
+   "artist": "Tinie Tempah",
+   "title": "Girls Like",
+   "year": 2016
+  },
+  {
+   "id": "mabel-god-is-a-dancer",
+   "artist": "Mabel",
+   "title": "God Is a Dancer",
+   "year": 2019
+  },
+  {
+   "id": "sabrina-carpenter-wow",
+   "artist": "Sabrina Carpenter",
+   "title": "Wow",
+   "year": 2019
+  },
+  {
+   "id": "topic-breaking-me",
+   "artist": "Topic & A7S",
+   "title": "Breaking Me",
+   "year": 2019
+  },
+  {
+   "id": "carola-haggkvist-invincible",
+   "artist": "Carola Häggkvist & Tomas Andersson Wij",
+   "title": "Invincible",
+   "year": 2006
+  },
+  {
+   "id": "arash-she-makes-me-go",
+   "artist": "Arash",
+   "title": "She Makes Me Go",
+   "year": 2012
+  },
+  {
+   "id": "xxxtentacion-falling-down",
+   "artist": "XXXTentacion & Lil Peep",
+   "title": "Falling Down",
+   "year": 2018
+  },
+  {
+   "id": "knife-party-antidote",
+   "artist": "Knife Party & Swedish House Mafia",
+   "title": "Antidote",
+   "year": 2011
+  },
+  {
+   "id": "max-elto-just-one-last-time",
+   "artist": "Max Elto",
+   "title": "Just One Last Time",
+   "year": 2012
+  },
+  {
+   "id": "in-flames-the-quiet-place",
+   "artist": "In Flames",
+   "title": "The Quiet Place",
+   "year": 2004
+  },
+  {
+   "id": "alcazar-crying-at-the-discoteque",
+   "artist": "Alcazar",
+   "title": "Crying at the Discoteque",
+   "year": 2001
+  },
+  {
+   "id": "europe-superstitious",
+   "artist": "Europe",
+   "title": "Superstitious",
+   "year": 1988
+  },
+  {
+   "id": "nayer-suave",
+   "artist": "Nayer & Mohombi",
+   "title": "Suave",
+   "year": 2011
+  },
+  {
+   "id": "in-flames-the-mirror-s-truth",
+   "artist": "In Flames",
+   "title": "The Mirror's Truth",
+   "year": 2008
+  },
+  {
+   "id": "nick-jonas-close",
+   "artist": "Nick Jonas & Tove Lo",
+   "title": "Close",
+   "year": 2016
+  },
+  {
+   "id": "tove-lo-disco-tits",
+   "artist": "Tove Lo",
+   "title": "Disco Tits",
+   "year": 2017
+  },
+  {
+   "id": "gromee-light-me-up-gromee-song",
+   "artist": "Gromee & Lukas Meijer",
+   "title": "Light Me Up (Gromee song)",
+   "year": 2018
+  },
+  {
+   "id": "young-thug-talk-about-love",
+   "artist": "Young Thug",
+   "title": "Talk About Love",
+   "year": 2021
+  },
+  {
+   "id": "steve-angello-everytime-we-touch",
+   "artist": "Steve Angello & Sebastian Ingrosso",
+   "title": "Everytime We Touch",
+   "year": 2009
+  },
+  {
+   "id": "kygo-happy-now",
+   "artist": "Kygo & Sandro Cavazza",
+   "title": "Happy Now",
+   "year": 2018
+  },
+  {
+   "id": "eric-saade-hotter-than-fire",
+   "artist": "Eric Saade & Dev",
+   "title": "Hotter Than Fire",
+   "year": 2011
+  },
+  {
+   "id": "mika-kick-ass",
+   "artist": "Mika & RedOne",
+   "title": "Kick Ass",
+   "year": 2010
+  },
+  {
+   "id": "hardcore-superstar-bad-sneakers-and-a-pina-colada",
+   "artist": "Hardcore Superstar",
+   "title": "Bad Sneakers and a Piña Colada",
+   "year": 2000
+  },
+  {
+   "id": "agnes-carlsson-on-and-on",
+   "artist": "Agnes Carlsson",
+   "title": "On and On",
+   "year": 2008
+  },
+  {
+   "id": "in-flames-cloud-connected",
+   "artist": "In Flames",
+   "title": "Cloud Connected",
+   "year": 2002
+  },
+  {
+   "id": "europe-cherokee",
+   "artist": "Europe",
+   "title": "Cherokee",
+   "year": 1987
+  },
+  {
+   "id": "mohombi-miss-me",
+   "artist": "Mohombi",
+   "title": "Miss Me",
+   "year": 2010
+  },
+  {
+   "id": "manic-street-preachers-your-love-alone-is-not-enough",
+   "artist": "Manic Street Preachers & Nina Persson",
+   "title": "Your Love Alone Is Not Enough",
+   "year": 2007
+  },
+  {
+   "id": "neneh-cherry-buffalo-stance",
+   "artist": "Neneh Cherry",
+   "title": "Buffalo Stance",
+   "year": 1988
+  },
+  {
+   "id": "otto-knows-million-voices-2012-song",
+   "artist": "Otto Knows",
+   "title": "Million Voices (2012 song)",
+   "year": 2012
+  },
+  {
+   "id": "cyndi-lauper-a-christmas-duel",
+   "artist": "Cyndi Lauper & The Hives",
+   "title": "A Christmas Duel",
+   "year": 2008
+  },
+  {
+   "id": "europe-open-your-heart",
+   "artist": "Europe",
+   "title": "Open Your Heart",
+   "year": 1984
+  },
+  {
+   "id": "loreen-crying-out-your-name",
+   "artist": "Loreen",
+   "title": "Crying Out Your Name",
+   "year": 2012
+  },
+  {
+   "id": "loreen-sober",
+   "artist": "Loreen",
+   "title": "Sober",
+   "year": 2011
+  },
+  {
+   "id": "siw-malmkvist-primaballerina",
+   "artist": "Siw Malmkvist",
+   "title": "Primaballerina",
+   "year": 1969
+  },
+  {
+   "id": "arash-pure-love",
+   "artist": "Arash",
+   "title": "Pure Love",
+   "year": 2008
+  },
+  {
+   "id": "loreen-we-got-the-power",
+   "artist": "Loreen",
+   "title": "We Got the Power",
+   "year": 2013
+  },
+  {
+   "id": "arash-one-day",
+   "artist": "Arash & Helena Josefsson",
+   "title": "One Day",
+   "year": 2014
+  },
+  {
+   "id": "sophia-somajo-diamond-heart",
+   "artist": "Sophia Somajo",
+   "title": "Diamond Heart",
+   "year": 2018
+  },
+  {
+   "id": "dotter-bulletproof",
+   "artist": "Dotter",
+   "title": "Bulletproof",
+   "year": 2020
+  },
+  {
+   "id": "alesso-words",
+   "artist": "Alesso",
+   "title": "Words",
+   "year": 2022
+  },
+  {
+   "id": "harpo-moviestar",
+   "artist": "Harpo",
+   "title": "Moviestar",
+   "year": 1975
+  },
+  {
+   "id": "agnes-carlsson-stranded",
+   "artist": "Agnes Carlsson",
+   "title": "Stranded",
+   "year": 2006
+  },
+  {
+   "id": "rednex-wish-you-were-here",
+   "artist": "Rednex",
+   "title": "Wish You Were Here",
+   "year": 1995
+  },
+  {
+   "id": "lasse-berghagen-en-kvall-i-juni",
+   "artist": "Lasse Berghagen & Tre Profiler",
+   "title": "En kväll i juni",
+   "year": 1971
+  },
+  {
+   "id": "agnes-carlsson-tough-love",
+   "artist": "Agnes Carlsson & Avicii",
+   "title": "Tough Love",
+   "year": 2019
+  },
+  {
+   "id": "rednex-old-pop-in-an-oak",
+   "artist": "Rednex",
+   "title": "Old Pop in an Oak",
+   "year": 1994
+  },
+  {
+   "id": "the-rasmus-october-april",
+   "artist": "The Rasmus & Anette Olzon",
+   "title": "October & April",
+   "year": 2009
+  },
+  {
+   "id": "sebastian-ingrosso-calling",
+   "artist": "Sebastian Ingrosso & Ryan Tedder",
+   "title": "Calling",
+   "year": 2012
+  },
+  {
+   "id": "gunther-ding-dong-song",
+   "artist": "Günther",
+   "title": "Ding Dong Song",
+   "year": 2004
+  },
+  {
+   "id": "razorlight-america",
+   "artist": "Razorlight",
+   "title": "America",
+   "year": 2006
+  },
+  {
+   "id": "petra-marklund-can-t-get-over",
+   "artist": "Petra Marklund",
+   "title": "Can't Get Over",
+   "year": 2007
+  },
+  {
+   "id": "the-hives-tick-tick-boom",
+   "artist": "The Hives",
+   "title": "Tick Tick Boom",
+   "year": 2007
+  },
+  {
+   "id": "pink-floyd-proper-education",
+   "artist": "Pink Floyd & Eric Prydz",
+   "title": "Proper Education",
+   "year": 2007
+  },
+  {
+   "id": "caesars-jerk-it-out",
+   "artist": "Caesars",
+   "title": "Jerk It Out",
+   "year": 2003
+  },
+  {
+   "id": "rednex-the-spirit-of-the-hawk",
+   "artist": "Rednex",
+   "title": "The Spirit of the Hawk",
+   "year": 2000
+  },
+  {
+   "id": "arash-suddenly",
+   "artist": "Arash & Rebecca Zadig",
+   "title": "Suddenly",
+   "year": 2008
+  },
+  {
+   "id": "rednex-hold-me-for-a-while",
+   "artist": "Rednex",
+   "title": "Hold Me for a While",
+   "year": 2000
+  },
+  {
+   "id": "galantis-dilshadilu07celebrity-s-peanut-butter-jelly",
+   "artist": "Galantis Dilshadilu07celebrity's",
+   "title": "Peanut Butter Jelly",
+   "year": 2015
+  },
+  {
+   "id": "onerepublic-bones",
+   "artist": "OneRepublic & Galantis Dilshadilu07celebrity's",
+   "title": "Bones",
+   "year": 2019
+  },
+  {
+   "id": "mabel-boyfriend",
+   "artist": "Mabel",
+   "title": "Boyfriend",
+   "year": 2020
+  },
+  {
+   "id": "martin-garrix-pressure",
+   "artist": "Martin Garrix & Tove Lo",
+   "title": "Pressure",
+   "year": 2021
+  },
+  {
+   "id": "clean-bandit-tick-tock",
+   "artist": "Clean Bandit & 24kGoldn",
+   "title": "Tick Tock",
+   "year": 2020
+  },
+  {
+   "id": "kygo-like-it-is",
+   "artist": "Kygo",
+   "title": "Like It Is",
+   "year": 2020
+  },
+  {
+   "id": "marie-serneholt-that-s-the-way-my-heart-goes",
+   "artist": "Marie Serneholt",
+   "title": "That's the Way My Heart Goes",
+   "year": 2006
+  },
+  {
+   "id": "ingela-forsman-tre-pepparkaksgubbar",
+   "artist": "Ingela Forsman & Kerstin Andeby's children's choir",
+   "title": "Tre pepparkaksgubbar",
+   "year": 1913
+  },
+  {
+   "id": "icona-pop-all-night",
+   "artist": "Icona Pop",
+   "title": "All Night",
+   "year": 2013
+  },
+  {
+   "id": "jonny-jakobsen-calcutta-taxi-taxi-taxi",
+   "artist": "Jonny Jakobsen",
+   "title": "Calcutta (Taxi Taxi Taxi)",
+   "year": 1998
+  },
+  {
+   "id": "titiyo-come-along",
+   "artist": "Titiyo",
+   "title": "Come Along",
+   "year": 2001
+  },
+  {
+   "id": "dotter-it-s-not-easy-to-write-a-love-song",
+   "artist": "Dotter",
+   "title": "It's Not Easy to Write a Love Song",
+   "year": 2024
+  },
+  {
+   "id": "lykke-li-get-some",
+   "artist": "Lykke Li",
+   "title": "Get Some",
+   "year": 2008
+  },
+  {
+   "id": "supermode-tell-me-why",
+   "artist": "Supermode",
+   "title": "Tell Me Why",
+   "year": 2006
+  },
+  {
+   "id": "anna-sahlene-the-little-voice",
+   "artist": "Anna Sahlene",
+   "title": "The Little Voice",
+   "year": 2000
+  },
+  {
+   "id": "petra-marklund-la-la-la-never-give-it-up",
+   "artist": "Petra Marklund",
+   "title": "La La La (Never Give It Up)",
+   "year": 2003
+  },
+  {
+   "id": "eric-saade-hearts-in-the-air",
+   "artist": "Eric Saade & J-Son",
+   "title": "Hearts in the Air",
+   "year": 2011
+  },
+  {
+   "id": "helena-paparizou-pirotehnimata",
+   "artist": "Helena Paparizou",
+   "title": "Pirotehnimata",
+   "year": 2008
+  },
+  {
+   "id": "petra-marklund-looking-for-love",
+   "artist": "Petra Marklund",
+   "title": "Looking for Love",
+   "year": 2007
+  },
+  {
+   "id": "dead-by-april-losing-you",
+   "artist": "Dead by April",
+   "title": "Losing You",
+   "year": 2009
+  },
+  {
+   "id": "hammerfall-heeding-the-call",
+   "artist": "HammerFall",
+   "title": "Heeding the Call",
+   "year": 1998
+  },
+  {
+   "id": "helena-paparizou-tha-mai-allios",
+   "artist": "Helena Paparizou",
+   "title": "Tha 'Mai Allios",
+   "year": 2009
+  },
+  {
+   "id": "hammerfall-glory-to-the-brave",
+   "artist": "HammerFall",
+   "title": "Glory to the Brave",
+   "year": 1997
+  },
+  {
+   "id": "robyn-indestructible",
+   "artist": "Robyn",
+   "title": "Indestructible",
+   "year": 2010
+  },
+  {
+   "id": "andreas-johnson-glorious",
+   "artist": "Andreas Johnson",
+   "title": "Glorious",
+   "year": 2000
+  },
+  {
+   "id": "the-hives-walk-idiot-walk",
+   "artist": "The Hives",
+   "title": "Walk Idiot Walk",
+   "year": 2004
+  },
+  {
+   "id": "therion-the-siren-of-the-woods",
+   "artist": "Therion",
+   "title": "The Siren of the Woods",
+   "year": 1996
+  },
+  {
+   "id": "eric-prydz-niton",
+   "artist": "Eric Prydz",
+   "title": "Niton",
+   "year": 2011
+  },
+  {
+   "id": "a-teens-upside-down",
+   "artist": "A-Teens",
+   "title": "Upside Down",
+   "year": 2000
+  },
+  {
+   "id": "robyn-call-your-girlfriend",
+   "artist": "Robyn",
+   "title": "Call Your Girlfriend",
+   "year": 2011
+  },
+  {
+   "id": "dyo-sexual",
+   "artist": "Dyo & NEIKED",
+   "title": "Sexual",
+   "year": 2016
+  },
+  {
+   "id": "anton-ewald-begging-song",
+   "artist": "Anton Ewald",
+   "title": "Begging (song)",
+   "year": 2013
+  },
+  {
+   "id": "hammerfall-always-will-be",
+   "artist": "HammerFall",
+   "title": "Always Will Be",
+   "year": 2000
+  },
+  {
+   "id": "dolly-style-hello-hi",
+   "artist": "Dolly Style",
+   "title": "Hello Hi",
+   "year": 2015
+  },
+  {
+   "id": "costi-ionita-habibi-i-need-your-love",
+   "artist": "Costi Ioniță & Shaggy",
+   "title": "Habibi (I Need Your Love)",
+   "year": 2014
+  },
+  {
+   "id": "mariette-hansson-a-million-years",
+   "artist": "Mariette Hansson",
+   "title": "A Million Years",
+   "year": 2017
+  },
+  {
+   "id": "army-of-lovers-obsession",
+   "artist": "Army of Lovers",
+   "title": "Obsession",
+   "year": 1991
+  },
+  {
+   "id": "mabel-mad-love",
+   "artist": "Mabel",
+   "title": "Mad Love",
+   "year": 2019
+  },
+  {
+   "id": "topic-why-do-you-lie-to-me",
+   "artist": "Topic & A7S",
+   "title": "Why Do You Lie to Me",
+   "year": 2020
+  },
+  {
+   "id": "malou-prytz-i-do-me",
+   "artist": "Malou Prytz",
+   "title": "I Do Me",
+   "year": 2019
+  },
+  {
+   "id": "lil-peep-save-that-shit",
+   "artist": "Lil Peep",
+   "title": "Save That Shit",
+   "year": 2017
+  },
+  {
+   "id": "lil-peep-awful-things",
+   "artist": "Lil Peep",
+   "title": "Awful Things",
+   "year": 2017
+  },
+  {
+   "id": "martin-garrix-higher-ground",
+   "artist": "Martin Garrix & John Martin",
+   "title": "Higher Ground",
+   "year": 2020
+  },
+  {
+   "id": "winona-oak-oxygen-winona-oak-and-robin-schulz-song",
+   "artist": "Winona Oak",
+   "title": "Oxygen (Winona Oak and Robin Schulz song)",
+   "year": 2020
+  },
+  {
+   "id": "froken-snusk-unga-fria",
+   "artist": "Fröken Snusk",
+   "title": "Unga & fria",
+   "year": 2024
+  },
+  {
+   "id": "hammerfall-blood-bound",
+   "artist": "HammerFall",
+   "title": "Blood Bound",
+   "year": 2005
+  },
+  {
+   "id": "darin-zanyar-perfect",
+   "artist": "Darin Zanyar",
+   "title": "Perfect",
+   "year": 2006
+  },
+  {
+   "id": "danny-saucedo-radio",
+   "artist": "Danny Saucedo",
+   "title": "Radio",
+   "year": 2008
+  },
+  {
+   "id": "helena-paparizou-heroes",
+   "artist": "Helena Paparizou",
+   "title": "Heroes",
+   "year": 2006
+  },
+  {
+   "id": "molly-sanden-why-am-i-crying",
+   "artist": "Molly Sandén",
+   "title": "Why am I Crying",
+   "year": 2012
+  },
+  {
+   "id": "eric-saade-still-loving-it",
+   "artist": "Eric Saade",
+   "title": "Still Loving It",
+   "year": 2011
+  },
+  {
+   "id": "mohombi-winners",
+   "artist": "Mohombi",
+   "title": "Winners",
+   "year": 2020
+  },
+  {
+   "id": "jacqline-mossberg-mounkassa-effortless",
+   "artist": "Jacqline Mossberg Mounkassa",
+   "title": "Effortless",
+   "year": 2024
+  },
+  {
+   "id": "gunilla-persson-i-wont-shake-la-la-gunilla",
+   "artist": "Gunilla Persson",
+   "title": "I Won’t Shake (La La Gunilla)",
+   "year": 2024
+  },
+  {
+   "id": "cazzi-opeia-give-my-heart-a-break",
+   "artist": "Cazzi Opeia",
+   "title": "Give My Heart a Break",
+   "year": 2024
+  },
+  {
+   "id": "meja-all-bout-the-money",
+   "artist": "Meja",
+   "title": "All 'Bout the Money",
+   "year": 1998
+  },
+  {
+   "id": "smash-into-pieces-six-feet-under",
+   "artist": "Smash into Pieces",
+   "title": "Six Feet Under",
+   "year": 2023
+  },
+  {
+   "id": "mariette-hansson-one-day-mariette-song",
+   "artist": "Mariette Hansson",
+   "title": "One Day (Mariette song)",
+   "year": 2023
+  },
+  {
+   "id": "jay-smith-back-to-my-roots",
+   "artist": "Jay Smith",
+   "title": "Back to My Roots",
+   "year": 2024
+  },
+  {
+   "id": "katatonia-tonight-s-music",
+   "artist": "Katatonia",
+   "title": "Tonight's Music",
+   "year": 2001
+  },
+  {
+   "id": "helena-paparizou-gigolo",
+   "artist": "Helena Paparizou",
+   "title": "Gigolo",
+   "year": 2006
+  },
+  {
+   "id": "danny-saucedo-if-only-you",
+   "artist": "Danny Saucedo & Therese Grankvist",
+   "title": "If Only You",
+   "year": 2007
+  },
+  {
+   "id": "danny-saucedo-tokyo",
+   "artist": "Danny Saucedo",
+   "title": "Tokyo",
+   "year": 2007
+  },
+  {
+   "id": "laleh-some-die-young",
+   "artist": "Laleh",
+   "title": "Some Die Young",
+   "year": 2012
+  },
+  {
+   "id": "katatonia-my-twin",
+   "artist": "Katatonia",
+   "title": "My Twin",
+   "year": 2006
+  },
+  {
+   "id": "razorlight-in-the-morning",
+   "artist": "Razorlight",
+   "title": "In the Morning",
+   "year": 2006
+  },
+  {
+   "id": "dead-by-april-what-can-i-say",
+   "artist": "Dead by April",
+   "title": "What Can I Say",
+   "year": 2009
+  },
+  {
+   "id": "royksopp-the-girl-and-the-robot",
+   "artist": "Röyksopp & Robyn",
+   "title": "The Girl and the Robot",
+   "year": 2009
+  },
+  {
+   "id": "danny-saucedo-play-it-for-the-girls",
+   "artist": "Danny Saucedo",
+   "title": "Play It for the Girls",
+   "year": 2007
+  },
+  {
+   "id": "the-hives-two-timing-touch-and-broken-bones",
+   "artist": "The Hives",
+   "title": "Two-Timing Touch and Broken Bones",
+   "year": 2005
+  },
+  {
+   "id": "robyn-hang-with-me",
+   "artist": "Robyn",
+   "title": "Hang with Me",
+   "year": 2010
+  },
+  {
+   "id": "a-teens-floorfiller",
+   "artist": "A-Teens",
+   "title": "Floorfiller",
+   "year": 2002
+  },
+  {
+   "id": "miike-snow-black-blue",
+   "artist": "Miike Snow",
+   "title": "Black & Blue",
+   "year": 2009
+  },
+  {
+   "id": "kleerup-with-every-heartbeat",
+   "artist": "Kleerup & Robyn",
+   "title": "With Every Heartbeat",
+   "year": 2007
+  },
+  {
+   "id": "lykke-li-little-bit",
+   "artist": "Lykke Li",
+   "title": "Little Bit",
+   "year": 2007
+  },
+  {
+   "id": "alcazar-this-is-the-world-we-live-in",
+   "artist": "Alcazar",
+   "title": "This Is the World We Live In",
+   "year": 2004
+  },
+  {
+   "id": "millencolin-the-story-of-my-life",
+   "artist": "Millencolin",
+   "title": "The Story of My Life",
+   "year": 1995
+  },
+  {
+   "id": "millencolin-da-strike",
+   "artist": "Millencolin",
+   "title": "Da Strike",
+   "year": 1994
+  },
+  {
+   "id": "millencolin-ray",
+   "artist": "Millencolin",
+   "title": "Ray",
+   "year": 2005
+  },
+  {
+   "id": "millencolin-shut-you-out",
+   "artist": "Millencolin",
+   "title": "Shut You Out",
+   "year": 2005
+  },
+  {
+   "id": "sabaton-cliffs-of-gallipoli",
+   "artist": "Sabaton",
+   "title": "Cliffs of Gallipoli",
+   "year": 2008
+  },
+  {
+   "id": "eric-prydz-every-day",
+   "artist": "Eric Prydz",
+   "title": "Every Day",
+   "year": 2012
+  },
+  {
+   "id": "timoteij-kom",
+   "artist": "Timoteij",
+   "title": "Kom",
+   "year": 2010
+  },
+  {
+   "id": "darin-zanyar-money-for-nothing",
+   "artist": "Darin Zanyar",
+   "title": "Money for Nothing",
+   "year": 2005
+  },
+  {
+   "id": "razorlight-somewhere-else",
+   "artist": "Razorlight",
+   "title": "Somewhere Else",
+   "year": 2005
+  },
+  {
+   "id": "therion-the-beauty-in-black",
+   "artist": "Therion",
+   "title": "The Beauty in Black",
+   "year": 1995
+  },
+  {
+   "id": "ana-johnsson-we-are",
+   "artist": "Ana Johnsson",
+   "title": "We Are",
+   "year": 2004
+  },
+  {
+   "id": "razorlight-wire-to-wire",
+   "artist": "Razorlight",
+   "title": "Wire to Wire",
+   "year": 2008
+  },
+  {
+   "id": "veronica-maggio-jag-kommer",
+   "artist": "Veronica Maggio",
+   "title": "Jag kommer",
+   "year": 2011
+  },
+  {
+   "id": "eric-saade-sting",
+   "artist": "Eric Saade",
+   "title": "Sting",
+   "year": 2015
+  },
+  {
+   "id": "mariette-hansson-don-t-stop-believing",
+   "artist": "Mariette Hansson",
+   "title": "Don't Stop Believing",
+   "year": 2015
+  },
+  {
+   "id": "galantis-dilshadilu07celebrity-s-gold-dust",
+   "artist": "Galantis Dilshadilu07celebrity's",
+   "title": "Gold Dust",
+   "year": 2015
+  },
+  {
+   "id": "robin-bengtsson-constellation-prize",
+   "artist": "Robin Bengtsson",
+   "title": "Constellation Prize",
+   "year": 2016
+  },
+  {
+   "id": "molly-pettersson-hammar-och-moa-pettersson-hammar-i-ll-be-fine",
+   "artist": "Molly Pettersson Hammar och Moa Pettersson Hammar",
+   "title": "I'll Be Fine",
+   "year": 2015
+  },
+  {
+   "id": "dinah-jane-boom-boom",
+   "artist": "Dinah Jane & Daddy Yankee",
+   "title": "Boom Boom",
+   "year": 2017
+  },
+  {
+   "id": "neneh-cherry-manchild",
+   "artist": "Neneh Cherry",
+   "title": "Manchild",
+   "year": 1989
+  },
+  {
+   "id": "hanna-ferm-hold-you",
+   "artist": "Hanna Ferm",
+   "title": "Hold You",
+   "year": 2019
+  },
+  {
+   "id": "lil-peep-i-ve-been-waiting",
+   "artist": "Lil Peep",
+   "title": "I've Been Waiting",
+   "year": 2019
+  },
+  {
+   "id": "lil-peep-benz-truck",
+   "artist": "Lil Peep",
+   "title": "Benz Truck (Гелик)",
+   "year": 2017
+  },
+  {
+   "id": "afrojack-we-got-that-cool",
+   "artist": "Afrojack & Icona Pop",
+   "title": "We Got That Cool",
+   "year": 2019
+  },
+  {
+   "id": "mike-perry-the-ocean-mike-perry-song",
+   "artist": "Mike Perry",
+   "title": "The Ocean (Mike Perry song)",
+   "year": 2016
+  },
+  {
+   "id": "felix-jaehn-so-close",
+   "artist": "Felix Jaehn & Captain Cuts",
+   "title": "So Close",
+   "year": 2018
+  },
+  {
+   "id": "victor-leksell-svag",
+   "artist": "Victor Leksell",
+   "title": "Svag",
+   "year": 2020
+  },
+  {
+   "id": "nea-some-say",
+   "artist": "Nea",
+   "title": "Some Say",
+   "year": 2019
+  },
+  {
+   "id": "malou-prytz-ballerina",
+   "artist": "Malou Prytz",
+   "title": "Ballerina",
+   "year": 2020
+  },
+  {
+   "id": "anna-bergendahl-higher-power",
+   "artist": "Anna Bergendahl",
+   "title": "Higher Power",
+   "year": 2022
+  },
+  {
+   "id": "5-seconds-of-summer-lighter",
+   "artist": "5 Seconds of Summer & Galantis Dilshadilu07celebrity's",
+   "title": "Lighter",
+   "year": 2024
+  },
+  {
+   "id": "a-teens-heartbreak-lullaby",
+   "artist": "A-Teens",
+   "title": "Heartbreak Lullaby",
+   "year": 2001
+  },
+  {
+   "id": "rob-n-raz-got-to-get",
+   "artist": "Rob'n'Raz",
+   "title": "Got to Get",
+   "year": 1989
+  },
+  {
+   "id": "per-gessle-hey-mr-dj-won-t-you-play-another-love-song",
+   "artist": "Per Gessle",
+   "title": "Hey Mr. DJ (Won't You Play Another Love Song)",
+   "year": 2006
+  },
+  {
+   "id": "louise-hoffsten-only-the-dead-fish-follow-the-stream",
+   "artist": "Louise Hoffsten",
+   "title": "Only the Dead Fish Follow the Stream",
+   "year": 2013
+  },
+  {
+   "id": "mando-diao-gloria",
+   "artist": "Mando Diao",
+   "title": "Gloria",
+   "year": 2009
+  },
+  {
+   "id": "erik-gronwall-higher",
+   "artist": "Erik Grönwall",
+   "title": "Higher",
+   "year": 2009
+  },
+  {
+   "id": "behrang-miri-jalla-dansa-sawa",
+   "artist": "Behrang Miri",
+   "title": "Jalla Dansa Sawa",
+   "year": 2013
+  },
+  {
+   "id": "the-ark-it-takes-a-fool-to-remain-sane",
+   "artist": "The Ark",
+   "title": "It Takes a Fool to Remain Sane",
+   "year": 2000
+  },
+  {
+   "id": "eddie-razaz-alibi",
+   "artist": "Eddie Razaz",
+   "title": "Alibi",
+   "year": 2013
+  },
+  {
+   "id": "oh-laura-release-me",
+   "artist": "Oh Laura",
+   "title": "Release Me",
+   "year": 2007
+  },
+  {
+   "id": "alcazar-stay-the-night",
+   "artist": "Alcazar",
+   "title": "Stay the Night",
+   "year": 2009
+  },
+  {
+   "id": "clawfinger-nigger",
+   "artist": "Clawfinger",
+   "title": "Nigger",
+   "year": 1993
+  },
+  {
+   "id": "mans-zelmerlow-brother-oh-brother",
+   "artist": "Måns Zelmerlöw",
+   "title": "Brother oh Brother",
+   "year": 2007
+  },
+  {
+   "id": "sibel-redzep-make-believe",
+   "artist": "Sibel Redžep",
+   "title": "Make Believe",
+   "year": 2008
+  },
+  {
+   "id": "david-lindgren-we-are-your-tomorrow",
+   "artist": "David Lindgren",
+   "title": "We Are Your Tomorrow",
+   "year": 2016
+  },
+  {
+   "id": "darin-zanyar-breathing-your-love",
+   "artist": "Darin Zanyar & Kat DeLuna",
+   "title": "Breathing Your Love",
+   "year": 2008
+  },
+  {
+   "id": "oscar-zia-human",
+   "artist": "Oscar Zia",
+   "title": "Human",
+   "year": 2016
+  },
+  {
+   "id": "yung-lean-ginseng-strip-2002",
+   "artist": "Yung Lean",
+   "title": "Ginseng Strip 2002",
+   "year": 2013
+  },
+  {
+   "id": "klara-hammarstrom-run-to-the-hills",
+   "artist": "Klara Hammarström",
+   "title": "Run to the Hills",
+   "year": 2022
+  },
+  {
+   "id": "medina-que-sera",
+   "artist": "Medina",
+   "title": "Que Sera",
+   "year": 2024
+  },
+  {
+   "id": "the-sound-of-arrows-magic",
+   "artist": "The Sound of Arrows",
+   "title": "Magic",
+   "year": 2011
+  },
+  {
+   "id": "darin-zanyar-want-ya",
+   "artist": "Darin Zanyar",
+   "title": "Want Ya!",
+   "year": 2006
+  },
+  {
+   "id": "axwell-i-found-u",
+   "artist": "Axwell",
+   "title": "I Found U",
+   "year": 2007
+  },
+  {
+   "id": "kinnda-give-it-all-u-got",
+   "artist": "Kinnda",
+   "title": "Give It All U Got",
+   "year": 2009
+  },
+  {
+   "id": "lykke-li-i-m-good-i-m-gone",
+   "artist": "Lykke Li",
+   "title": "I'm Good, I'm Gone",
+   "year": 2008
+  },
+  {
+   "id": "a-teens-halfway-around-the-world",
+   "artist": "A-Teens",
+   "title": "Halfway Around the World",
+   "year": 2001
+  },
+  {
+   "id": "dream-evil-the-first-chapter",
+   "artist": "Dream Evil",
+   "title": "The First Chapter",
+   "year": 2004
+  },
+  {
+   "id": "dead-by-april-angels-of-clarity",
+   "artist": "Dead by April",
+   "title": "Angels of Clarity",
+   "year": 2009
+  },
+  {
+   "id": "alcazar-we-keep-on-rockin",
+   "artist": "Alcazar",
+   "title": "We Keep on Rockin'",
+   "year": 2008
+  },
+  {
+   "id": "amy-deasismont-stay-my-baby",
+   "artist": "Amy Deasismont",
+   "title": "Stay My Baby",
+   "year": 2007
+  },
+  {
+   "id": "e-m-d-alone",
+   "artist": "E.M.D.",
+   "title": "Alone",
+   "year": 2008
+  },
+  {
+   "id": "army-of-lovers-king-midas",
+   "artist": "Army of Lovers",
+   "title": "King Midas",
+   "year": 1996
+  },
+  {
+   "id": "veronica-maggio-17-ar",
+   "artist": "Veronica Maggio",
+   "title": "17 år",
+   "year": 2009
+  },
+  {
+   "id": "riskykidd-all-the-time",
+   "artist": "RiskyKidd & Courtney Parker",
+   "title": "All The Time",
+   "year": 2012
+  },
+  {
+   "id": "sofia-berntson-alla",
+   "artist": "Sofia Berntson",
+   "title": "Alla",
+   "year": 2009
+  },
+  {
+   "id": "agnetha-faltskog-can-t-shake-loose",
+   "artist": "Agnetha Fältskog",
+   "title": "Can't Shake Loose",
+   "year": 1983
+  },
+  {
+   "id": "therion-wand-of-abaris",
+   "artist": "Therion",
+   "title": "Wand of Abaris",
+   "year": 2006
+  },
+  {
+   "id": "ace-of-base-all-for-you",
+   "artist": "Ace of Base",
+   "title": "All for You",
+   "year": 2010
+  },
+  {
+   "id": "therion-eye-of-shiva",
+   "artist": "Therion",
+   "title": "Eye of Shiva",
+   "year": 1998
+  },
+  {
+   "id": "veronica-maggio-dumpa-mig",
+   "artist": "Veronica Maggio",
+   "title": "Dumpa mig",
+   "year": 2006
+  },
+  {
+   "id": "the-sounds-living-in-america",
+   "artist": "The Sounds",
+   "title": "Living in America",
+   "year": 2002
+  },
+  {
+   "id": "katatonia-july",
+   "artist": "Katatonia",
+   "title": "July",
+   "year": 2007
+  },
+  {
+   "id": "alina-devecerski-flytta-pa-dej",
+   "artist": "Alina Devecerski",
+   "title": "Flytta på dej!",
+   "year": 2012
+  },
+  {
+   "id": "crashdiet-in-the-raw",
+   "artist": "Crashdïet",
+   "title": "In the Raw",
+   "year": 2007
+  },
+  {
+   "id": "kent-ingenting",
+   "artist": "Kent",
+   "title": "Ingenting",
+   "year": 2007
+  },
+  {
+   "id": "zarah-leander-ich-wei-es-wird-einmal-ein-wunder-geschehn",
+   "artist": "Zarah Leander",
+   "title": "Ich weiß, es wird einmal ein Wunder gescheh’n",
+   "year": 1942
+  },
+  {
+   "id": "veronica-maggio-mandagsbarn",
+   "artist": "Veronica Maggio",
+   "title": "Måndagsbarn",
+   "year": 2008
+  },
+  {
+   "id": "leila-k-open-sesame",
+   "artist": "Leila K",
+   "title": "Open Sesame",
+   "year": 1992
+  },
+  {
+   "id": "bosson-one-in-a-million",
+   "artist": "Bosson",
+   "title": "One in a Million",
+   "year": 2000
+  },
+  {
+   "id": "maja-ivarsson-snakes-on-a-plane-bring-it",
+   "artist": "Maja Ivarsson & Travie McCoy",
+   "title": "Snakes on a Plane (Bring It)",
+   "year": 2006
+  },
+  {
+   "id": "kent-tontarna",
+   "artist": "Kent",
+   "title": "Töntarna",
+   "year": 2009
+  },
+  {
+   "id": "kent-747",
+   "artist": "Kent",
+   "title": "747",
+   "year": 1998
+  },
+  {
+   "id": "nano-omar-hold-on",
+   "artist": "Nano Omar",
+   "title": "Hold On",
+   "year": 2017
+  },
+  {
+   "id": "panetoz-dansa-pausa",
+   "artist": "Panetoz",
+   "title": "Dansa pausa",
+   "year": 2012
+  },
+  {
+   "id": "christian-walz-wonderchild",
+   "artist": "Christian Walz",
+   "title": "Wonderchild",
+   "year": 2004
+  },
+  {
+   "id": "e-type-true-believer",
+   "artist": "E-type",
+   "title": "True Believer",
+   "year": 2007
+  },
+  {
+   "id": "den-svenska-bjornstammen-vart-jag-mig-i-varlden-vander",
+   "artist": "Den Svenska Björnstammen",
+   "title": "Vart jag mig i världen vänder",
+   "year": 2011
+  },
+  {
+   "id": "lindemann-praise-abort",
+   "artist": "Lindemann",
+   "title": "Praise Abort",
+   "year": 2015
+  },
+  {
+   "id": "army-of-lovers-my-army-of-lovers",
+   "artist": "Army of Lovers",
+   "title": "My Army of Lovers",
+   "year": 1990
+  },
+  {
+   "id": "axwell-ingrosso-something-new",
+   "artist": "Axwell Λ Ingrosso",
+   "title": "Something New",
+   "year": 2014
+  },
+  {
+   "id": "mans-zelmerlow-should-ve-gone-home",
+   "artist": "Måns Zelmerlöw",
+   "title": "Should've Gone Home",
+   "year": 2015
+  },
+  {
+   "id": "redone-don-t-you-need-somebody",
+   "artist": "RedOne & R. City",
+   "title": "Don't You Need Somebody",
+   "year": 2016
+  },
+  {
+   "id": "first-aid-kit-my-silver-lining",
+   "artist": "First Aid Kit",
+   "title": "My Silver Lining",
+   "year": 2014
+  },
+  {
+   "id": "isa-tengblad-i-will-wait",
+   "artist": "Isa Tengblad",
+   "title": "I Will Wait",
+   "year": 2016
+  },
+  {
+   "id": "anni-frid-lyngstad-harlig-ar-var-jord",
+   "artist": "Anni-Frid Lyngstad",
+   "title": "Härlig Är Vår Jord",
+   "year": 1969
+  },
+  {
+   "id": "dolly-style-rollercoaster",
+   "artist": "Dolly Style",
+   "title": "Rollercoaster",
+   "year": 2016
+  },
+  {
+   "id": "lucas-nord-run-on-love",
+   "artist": "Lucas Nord",
+   "title": "Run On Love",
+   "year": 2015
+  },
+  {
+   "id": "army-of-lovers-israelism",
+   "artist": "Army of Lovers",
+   "title": "Israelism",
+   "year": 1993
+  },
+  {
+   "id": "axwell-ingrosso-i-love-you",
+   "artist": "Axwell Λ Ingrosso",
+   "title": "I Love You",
+   "year": 2017
+  },
+  {
+   "id": "jon-henrik-fjallgren-en-varld-full-av-strider",
+   "artist": "Jon Henrik Fjällgren",
+   "title": "En värld full av strider",
+   "year": 2017
+  },
+  {
+   "id": "molly-pettersson-hammar-och-moa-pettersson-hammar-hunger",
+   "artist": "Molly Pettersson Hammar och Moa Pettersson Hammar",
+   "title": "Hunger",
+   "year": 2016
+  },
+  {
+   "id": "lisa-ajax-my-heart-wants-me-dead",
+   "artist": "Lisa Ajax",
+   "title": "My Heart Wants Me Dead",
+   "year": 2016
+  },
+  {
+   "id": "dotter-cry",
+   "artist": "Dotter",
+   "title": "Cry",
+   "year": 2018
+  },
+  {
+   "id": "liamoo-playing-with-fire",
+   "artist": "Liamoo",
+   "title": "Playing with Fire",
+   "year": 2016
+  },
+  {
+   "id": "conor-maynard-remedy",
+   "artist": "Conor Maynard & Alesso",
+   "title": "Remedy",
+   "year": 2018
+  },
+  {
+   "id": "molly-sanden-youniverse",
+   "artist": "Molly Sandén",
+   "title": "Youniverse",
+   "year": 2016
+  },
+  {
+   "id": "bea-miller-i-wanna-know",
+   "artist": "Bea Miller & NOTD",
+   "title": "I Wanna Know",
+   "year": 2018
+  },
+  {
+   "id": "miss-li-close-your-eyes",
+   "artist": "Miss Li & Felix Jaehn",
+   "title": "Close Your Eyes",
+   "year": 2019
+  },
+  {
+   "id": "liamoo-last-breath",
+   "artist": "Liamoo",
+   "title": "Last Breath",
+   "year": 2018
+  },
+  {
+   "id": "lindemann-knebel",
+   "artist": "Lindemann",
+   "title": "Knebel",
+   "year": 2019
+  },
+  {
+   "id": "lindemann-fish-on",
+   "artist": "Lindemann",
+   "title": "Fish On",
+   "year": 2015
+  },
+  {
+   "id": "robin-bengtsson-take-a-chance",
+   "artist": "Robin Bengtsson",
+   "title": "Take a Chance",
+   "year": 2020
+  },
+  {
+   "id": "wiktoria-johansson-not-with-me",
+   "artist": "Wiktoria Johansson",
+   "title": "Not with Me",
+   "year": 2019
+  },
+  {
+   "id": "jon-henrik-fjallgren-norrsken-goeksegh",
+   "artist": "Jon Henrik Fjällgren",
+   "title": "Norrsken (Goeksegh)",
+   "year": 2019
+  },
+  {
+   "id": "lisa-ajax-torn",
+   "artist": "Lisa Ajax",
+   "title": "Torn",
+   "year": 2019
+  },
+  {
+   "id": "ty-dolla-sign-lifetime",
+   "artist": "Ty Dolla Sign & 070 Shake",
+   "title": "Lifetime",
+   "year": 2021
+  },
+  {
+   "id": "clean-bandit-everything-but-you",
+   "artist": "Clean Bandit & A7S",
+   "title": "Everything but You",
+   "year": 2022
+  },
+  {
+   "id": "becky-hill-run",
+   "artist": "Becky Hill & Galantis Dilshadilu07celebrity's",
+   "title": "Run",
+   "year": 2022
+  },
+  {
+   "id": "siw-malmkvist-liebeskummer-lohnt-sich-nicht",
+   "artist": "Siw Malmkvist",
+   "title": "Liebeskummer lohnt sich nicht",
+   "year": 1964
+  },
+  {
+   "id": "ulrik-munther-tell-the-world-i-m-here",
+   "artist": "Ulrik Munther",
+   "title": "Tell the World I'm Here",
+   "year": 2013
+  },
+  {
+   "id": "markoolio-ingen-sommar-utan-reggae",
+   "artist": "Markoolio",
+   "title": "Ingen sommar utan reggae",
+   "year": 2007
+  },
+  {
+   "id": "tove-styrke-white-light-moment",
+   "artist": "Tove Styrke",
+   "title": "White Light Moment",
+   "year": 2010
+  },
+  {
+   "id": "dilba-demirbag-try-again",
+   "artist": "Dilba Demirbağ",
+   "title": "Try Again",
+   "year": 2011
+  },
+  {
+   "id": "bwo-lay-your-love-on-me",
+   "artist": "BWO",
+   "title": "Lay Your Love on Me",
+   "year": 2008
+  },
+  {
+   "id": "top-cats-baby-doll",
+   "artist": "Top Cats",
+   "title": "Baby Doll",
+   "year": 2012
+  },
+  {
+   "id": "dynazty-land-of-broken-dreams",
+   "artist": "Dynazty",
+   "title": "Land of Broken Dreams",
+   "year": 2012
+  },
+  {
+   "id": "the-playtones-the-king",
+   "artist": "The Playtones",
+   "title": "The King",
+   "year": 2011
+  },
+  {
+   "id": "shirley-clamp-med-hjartat-fyllt-av-ljus",
+   "artist": "Shirley Clamp",
+   "title": "Med hjärtat fyllt av ljus",
+   "year": 2009
+  },
+  {
+   "id": "eddie-meduza-tretton-ar",
+   "artist": "Eddie Meduza",
+   "title": "Tretton år",
+   "year": 1975
+  },
+  {
+   "id": "thorsten-flinck-jag-reser-mig-igen",
+   "artist": "Thorsten Flinck",
+   "title": "Jag reser mig igen",
+   "year": 2012
+  },
+  {
+   "id": "stiftelsen-vart-jag-an-gar",
+   "artist": "Stiftelsen",
+   "title": "Vart jag än går",
+   "year": 2012
+  },
+  {
+   "id": "brolle-7-days-and-7-nights",
+   "artist": "Brolle",
+   "title": "7 Days and 7 Nights",
+   "year": 2011
+  },
+  {
+   "id": "the-moniker-oh-my-god",
+   "artist": "The Moniker",
+   "title": "Oh, My God!",
+   "year": 2011
+  },
+  {
+   "id": "charlotte-perrelli-i-write-you-a-love-song",
+   "artist": "Charlotte Perrelli & Izabella Scorupco",
+   "title": "I Write You a Love Song",
+   "year": 1991
+  },
+  {
+   "id": "laser-inc-det-var-en-gang-en-fagel",
+   "artist": "Laser Inc",
+   "title": "Det var en gång en fågel",
+   "year": 2007
+  },
+  {
+   "id": "arch-enemy-war-eternal",
+   "artist": "Arch Enemy",
+   "title": "War Eternal",
+   "year": 2014
+  },
+  {
+   "id": "axwell-center-of-the-universe",
+   "artist": "Axwell",
+   "title": "Center of the Universe",
+   "year": 2013
+  },
+  {
+   "id": "jessica-andersson-long-live-love",
+   "artist": "Jessica Andersson & Sandie Shaw",
+   "title": "Long Live Love",
+   "year": 1965
+  },
+  {
+   "id": "per-gessle-i-like-it-like-that",
+   "artist": "Per Gessle",
+   "title": "I Like It Like That",
+   "year": 2006
+  },
+  {
+   "id": "lars-winnerback-elegi",
+   "artist": "Lars Winnerbäck",
+   "title": "Elegi",
+   "year": 2004
+  },
+  {
+   "id": "kent-la-belle-epoque",
+   "artist": "Kent",
+   "title": "La Belle Epoque",
+   "year": 2014
+  },
+  {
+   "id": "ola-svensson-i-m-in-love",
+   "artist": "Ola Svensson",
+   "title": "I'm in Love",
+   "year": 2012
+  },
+  {
+   "id": "mans-zelmerlow-miss-america",
+   "artist": "Måns Zelmerlöw",
+   "title": "Miss America",
+   "year": 2008
+  },
+  {
+   "id": "agnetha-faltskog-i-should-ve-followed-you-home",
+   "artist": "Agnetha Fältskog",
+   "title": "I Should've Followed You Home",
+   "year": 2013
+  },
+  {
+   "id": "atb-your-love-9pm",
+   "artist": "ATB & Topic",
+   "title": "Your Love (9PM)",
+   "year": 2021
+  },
+  {
+   "id": "anna-jarvinen-nuori-ja-kaunis",
+   "artist": "Anna Järvinen",
+   "title": "Nuori ja kaunis",
+   "year": 2011
+  },
+  {
+   "id": "yung-lean-crystal-clear-ice",
+   "artist": "Yung Lean",
+   "title": "Crystal Clear Ice",
+   "year": 2015
+  },
+  {
+   "id": "arch-enemy-the-world-is-yours",
+   "artist": "Arch Enemy",
+   "title": "The World Is Yours",
+   "year": 2017
+  },
+  {
+   "id": "eddie-meduza-jag-vill-ha-en-brud-med-stora-pattar",
+   "artist": "Eddie Meduza",
+   "title": "Jag vill ha en brud med stora pattar",
+   "year": 1983
+  },
+  {
+   "id": "neiked-better-days",
+   "artist": "NEIKED & Polo G",
+   "title": "Better Days",
+   "year": 2021
+  },
+  {
+   "id": "kiana-blanckert-where-did-you-go",
+   "artist": "Kiana Blanckert",
+   "title": "Where Did You Go",
+   "year": 2023
+  },
+  {
+   "id": "faith-kakembo-freedom-faith-kakembo-song",
+   "artist": "Faith Kakembo",
+   "title": "Freedom (Faith Kakembo song)",
+   "year": 2022
+  },
+  {
+   "id": "lisa-miskovsky-best-to-come",
+   "artist": "Lisa Miskovsky",
+   "title": "Best to Come",
+   "year": 2022
+  },
+  {
+   "id": "annika-wickihalder-light",
+   "artist": "Annika Wickihalder",
+   "title": "Light",
+   "year": 2024
+  },
+  {
+   "id": "crashdiet-falling-rain",
+   "artist": "Crashdïet",
+   "title": "Falling Rain",
+   "year": 2008
+  },
+  {
+   "id": "leila-k-rok-the-nation",
+   "artist": "Leila K & Rob'n'Raz",
+   "title": "Rok the Nation",
+   "year": 1990
+  },
+  {
+   "id": "opeth-the-drapery-falls",
+   "artist": "Opeth",
+   "title": "The Drapery Falls",
+   "year": 2001
+  },
+  {
+   "id": "dead-by-april-dance-in-the-neon-light",
+   "artist": "Dead by April & Lena Philipsson",
+   "title": "Dance in the Neon Light",
+   "year": 1987
+  },
+  {
+   "id": "the-sounds-painted-by-numbers",
+   "artist": "The Sounds",
+   "title": "Painted by Numbers",
+   "year": 2007
+  },
+  {
+   "id": "slagsmalsklubben-his-morning-promenade",
+   "artist": "Slagsmålsklubben",
+   "title": "His Morning Promenade",
+   "year": 2005
+  },
+  {
+   "id": "hypocrisy-carved-up",
+   "artist": "Hypocrisy",
+   "title": "Carved Up",
+   "year": 1996
+  },
+  {
+   "id": "dissection-starless-aeon",
+   "artist": "Dissection",
+   "title": "Starless Aeon",
+   "year": 2006
+  },
+  {
+   "id": "icona-pop-mind-your-manners",
+   "artist": "Icona Pop & Chiddy Bang",
+   "title": "Mind Your Manners",
+   "year": 2011
+  },
+  {
+   "id": "the-sound-of-arrows-nova",
+   "artist": "The Sound of Arrows",
+   "title": "Nova",
+   "year": 2011
+  },
+  {
+   "id": "crashdiet-breakin-the-chainz",
+   "artist": "Crashdïet",
+   "title": "Breakin' the Chainz",
+   "year": 2005
+  },
+  {
+   "id": "per-gessle-c-mon-jo-anna-says",
+   "artist": "Per Gessle",
+   "title": "C'mon/Jo-Anna Says",
+   "year": 2005
+  },
+  {
+   "id": "hans-edler-black-fender",
+   "artist": "Hans Edler",
+   "title": "Black Fender",
+   "year": 2010
+  },
+  {
+   "id": "mando-diao-clean-town",
+   "artist": "Mando Diao",
+   "title": "Clean Town",
+   "year": 2004
+  },
+  {
+   "id": "tove-styrke-call-my-name",
+   "artist": "Tove Styrke",
+   "title": "Call My Name",
+   "year": 2011
+  },
+  {
+   "id": "miike-snow-animal",
+   "artist": "Miike Snow",
+   "title": "Animal",
+   "year": 2009
+  },
+  {
+   "id": "melody-club-destiny-calling",
+   "artist": "Melody Club",
+   "title": "Destiny Calling",
+   "year": 2006
+  },
+  {
+   "id": "crashdiet-chemical",
+   "artist": "Crashdïet",
+   "title": "Chemical",
+   "year": 2010
+  },
+  {
+   "id": "backyard-babies-electric-suzy",
+   "artist": "Backyard Babies",
+   "title": "Electric Suzy",
+   "year": 1994
+  },
+  {
+   "id": "sebastian-karlsson-do-what-you-re-told",
+   "artist": "Sebastian Karlsson",
+   "title": "Do What You're Told",
+   "year": 2006
+  },
+  {
+   "id": "leila-k-electric",
+   "artist": "Leila K",
+   "title": "Electric",
+   "year": 1995
+  },
+  {
+   "id": "mando-diao-good-morning-herr-horst",
+   "artist": "Mando Diao",
+   "title": "Good Morning, Herr Horst",
+   "year": 2006
+  },
+  {
+   "id": "pandora-don-t-you-know",
+   "artist": "Pandora",
+   "title": "Don't You Know",
+   "year": 1995
+  },
+  {
+   "id": "paul-lekakis-boom-boom",
+   "artist": "Paul Lekakis",
+   "title": "Boom Boom",
+   "year": 1987
+  },
+  {
+   "id": "gyllene-tider-en-sten-vid-en-sjo-i-en-skog-tuffa-tider-for-en-drommare",
+   "artist": "Gyllene Tider",
+   "title": "En sten vid en sjö i en skog/Tuffa tider (för en drömmare)",
+   "year": 2004
+  },
+  {
+   "id": "jay-smith-dreaming-people",
+   "artist": "Jay Smith",
+   "title": "Dreaming People",
+   "year": 2010
+  },
+  {
+   "id": "play-famous",
+   "artist": "Play",
+   "title": "Famous",
+   "year": 2010
+  },
+  {
+   "id": "troll-jimmy-dean",
+   "artist": "Troll",
+   "title": "Jimmy Dean",
+   "year": 1989
+  },
+  {
+   "id": "laleh-live-tomorrow",
+   "artist": "Laleh",
+   "title": "Live Tomorrow",
+   "year": 2005
+  },
+  {
+   "id": "tove-styrke-million-pieces",
+   "artist": "Tove Styrke",
+   "title": "Million Pieces",
+   "year": 2010
+  },
+  {
+   "id": "the-sounds-song-with-a-mission",
+   "artist": "The Sounds",
+   "title": "Song with a Mission",
+   "year": 2006
+  },
+  {
+   "id": "mando-diao-long-before-rock-n-roll",
+   "artist": "Mando Diao",
+   "title": "Long Before Rock 'n' Roll",
+   "year": 2006
+  },
+  {
+   "id": "e-type-life",
+   "artist": "E-type & Nana Hedin",
+   "title": "Life",
+   "year": 2001
+  },
+  {
+   "id": "martin-stenmarck-i-ljus-och-morker",
+   "artist": "Martin Stenmarck",
+   "title": "I ljus och mörker",
+   "year": 2004
+  },
+  {
+   "id": "eric-amarillo-om-sanningen-ska-fram",
+   "artist": "Eric Amarillo",
+   "title": "Om sanningen ska fram",
+   "year": 2011
+  },
+  {
+   "id": "miike-snow-paddling-out",
+   "artist": "Miike Snow",
+   "title": "Paddling Out",
+   "year": 2012
+  },
+  {
+   "id": "adrian-lux-teenage-crime",
+   "artist": "Adrian Lux",
+   "title": "Teenage Crime",
+   "year": 2010
+  },
+  {
+   "id": "peter-bjorn-and-john-nothing-to-worry-about",
+   "artist": "Peter Bjorn and John",
+   "title": "Nothing to Worry About",
+   "year": 2009
+  },
+  {
+   "id": "jonny-jakobsen-s-o-s-the-tiger-took-my-family",
+   "artist": "Jonny Jakobsen",
+   "title": "S.O.S (The Tiger Took My Family)",
+   "year": 1998
+  },
+  {
+   "id": "bwo-rhythm-drives-me-crazy",
+   "artist": "BWO",
+   "title": "Rhythm Drives Me Crazy",
+   "year": 2007
+  },
+  {
+   "id": "laleh-sno",
+   "artist": "Laleh",
+   "title": "Snö",
+   "year": 2007
+  },
+  {
+   "id": "miike-snow-silvia",
+   "artist": "Miike Snow",
+   "title": "Silvia",
+   "year": 2010
+  },
+  {
+   "id": "swingfly-me-and-my-drum",
+   "artist": "Swingfly & Christoffer Hiding",
+   "title": "Me and My Drum",
+   "year": 2011
+  },
+  {
+   "id": "moa-lignell-when-i-held-ya",
+   "artist": "Moa Lignell",
+   "title": "When I Held Ya",
+   "year": 2012
+  },
+  {
+   "id": "e-type-this-is-the-way",
+   "artist": "E-type",
+   "title": "This Is the Way",
+   "year": 1994
+  },
+  {
+   "id": "andreas-johnson-we-can-work-it-out",
+   "artist": "Andreas Johnson",
+   "title": "We Can Work It Out",
+   "year": 2010
+  },
+  {
+   "id": "icona-pop-we-got-the-world",
+   "artist": "Icona Pop",
+   "title": "We Got the World",
+   "year": 2012
+  },
+  {
+   "id": "shout-out-louds-tonight-i-have-to-leave-it",
+   "artist": "Shout Out Louds",
+   "title": "Tonight I Have to Leave It",
+   "year": 2007
+  },
+  {
+   "id": "first-aid-kit-the-lion-s-roar",
+   "artist": "First Aid Kit",
+   "title": "The Lion's Roar",
+   "year": 2011
+  },
+  {
+   "id": "the-sounds-no-one-sleeps-when-i-m-awake",
+   "artist": "The Sounds",
+   "title": "No One Sleeps When I'm Awake",
+   "year": 2007
+  },
+  {
+   "id": "sbtrkt-wildfire",
+   "artist": "SBTRKT & Little Dragon",
+   "title": "Wildfire",
+   "year": 2011
+  },
+  {
+   "id": "cosmo4-what-s-your-name",
+   "artist": "Cosmo4",
+   "title": "What's Your Name",
+   "year": 2007
+  },
+  {
+   "id": "randy-x-ray-eyes",
+   "artist": "Randy",
+   "title": "X-ray Eyes",
+   "year": 2003
+  },
+  {
+   "id": "h-e-a-t-beg-beg-beg",
+   "artist": "H.E.A.T",
+   "title": "Beg Beg Beg",
+   "year": 2010
+  },
+  {
+   "id": "laleh-simon-says",
+   "artist": "Laleh",
+   "title": "Simon Says",
+   "year": 2009
+  },
+  {
+   "id": "linda-pritchard-you-re-making-me-hot-hot-hot",
+   "artist": "Linda Pritchard",
+   "title": "You're Making Me Hot-Hot-Hot",
+   "year": 2010
+  },
+  {
+   "id": "timoteij-stormande-hav",
+   "artist": "Timoteij",
+   "title": "Stormande hav",
+   "year": 2012
+  },
+  {
+   "id": "broder-daniel-shoreline",
+   "artist": "Broder Daniel",
+   "title": "Shoreline",
+   "year": 2004
+  },
+  {
+   "id": "jj-jj-n-1",
+   "artist": "Jj",
+   "title": "Jj n° 1",
+   "year": 2009
+  },
+  {
+   "id": "sandra-dahlberg-kom-hem-hel-igen",
+   "artist": "Sandra Dahlberg",
+   "title": "Kom hem hel igen",
+   "year": 2004
+  },
+  {
+   "id": "slam-creepers-we-are-happy-people",
+   "artist": "Slam Creepers",
+   "title": "We Are Happy People",
+   "year": 1968
+  },
+  {
+   "id": "icona-pop-girlfriend",
+   "artist": "Icona Pop",
+   "title": "Girlfriend",
+   "year": 2013
+  },
+  {
+   "id": "raquel-rastenni-love-is-a-golden-ring",
+   "artist": "Raquel Rastenni & Frankie Laine",
+   "title": "Love is a golden ring",
+   "year": 1957
+  },
+  {
+   "id": "echobelly-king-of-the-kerb",
+   "artist": "Echobelly",
+   "title": "King of the Kerb",
+   "year": 1995
+  },
+  {
+   "id": "jonathan-fagerlund-playing-me",
+   "artist": "Jonathan Fagerlund",
+   "title": "Playing Me",
+   "year": 2008
+  },
+  {
+   "id": "leila-k-slow-motion",
+   "artist": "Leila K",
+   "title": "Slow Motion",
+   "year": 1993
+  },
+  {
+   "id": "linus-svenning-forever-starts-today",
+   "artist": "Linus Svenning",
+   "title": "Forever Starts Today",
+   "year": 2015
+  },
+  {
+   "id": "behrang-miri-det-rar-vi-inte-for",
+   "artist": "Behrang Miri",
+   "title": "Det rår vi inte för",
+   "year": 2015
+  },
+  {
+   "id": "axwell-feel-the-vibe",
+   "artist": "Axwell",
+   "title": "Feel the Vibe",
+   "year": 2004
+  },
+  {
+   "id": "mans-zelmerlow-fire-in-the-rain",
+   "artist": "Måns Zelmerlöw",
+   "title": "Fire in the Rain",
+   "year": 2016
+  },
+  {
+   "id": "yung-lean-hoover",
+   "artist": "Yung Lean",
+   "title": "Hoover",
+   "year": 2016
+  },
+  {
+   "id": "elize-ryd-one-by-one",
+   "artist": "Elize Ryd & Rickard Söderberg",
+   "title": "One By One",
+   "year": 2015
+  },
+  {
+   "id": "mimi-werner-ain-t-no-good",
+   "artist": "Mimi Werner",
+   "title": "Ain't No Good",
+   "year": 2016
+  },
+  {
+   "id": "victor-och-natten-100",
+   "artist": "Victor och Natten",
+   "title": "100%",
+   "year": 2016
+  },
+  {
+   "id": "e-type-i-just-wanna-be-with-you",
+   "artist": "E-type",
+   "title": "I Just Wanna Be with You",
+   "year": 1997
+  },
+  {
+   "id": "panetoz-hall-om-mig-hart",
+   "artist": "Panetoz",
+   "title": "Håll om mig hårt",
+   "year": 2016
+  },
+  {
+   "id": "eclipse-runaways",
+   "artist": "Eclipse",
+   "title": "Runaways",
+   "year": 2016
+  },
+  {
+   "id": "yung-lean-kyoto",
+   "artist": "Yung Lean",
+   "title": "Kyoto",
+   "year": 2013
+  },
+  {
+   "id": "johan-renck-here-we-go",
+   "artist": "Johan Renck",
+   "title": "Here We Go",
+   "year": 1993
+  },
+  {
+   "id": "benjamin-ingrosso-good-lovin",
+   "artist": "Benjamin Ingrosso",
+   "title": "Good Lovin'",
+   "year": 2017
+  },
+  {
+   "id": "frans-young-like-us",
+   "artist": "Frans",
+   "title": "Young Like Us",
+   "year": 2016
+  },
+  {
+   "id": "boris-lumbana-put-your-love-on-me",
+   "artist": "Boris Lumbana",
+   "title": "Put Your Love on Me",
+   "year": 2016
+  },
+  {
+   "id": "albin-johnsen-rik",
+   "artist": "Albin Johnsén",
+   "title": "Rik",
+   "year": 2016
+  },
+  {
+   "id": "benjamin-ingrosso-one-more-time",
+   "artist": "Benjamin Ingrosso",
+   "title": "One More Time",
+   "year": 2017
+  },
+  {
+   "id": "sandro-cavazza-so-much-better",
+   "artist": "Sandro Cavazza",
+   "title": "So Much Better",
+   "year": 2017
+  },
+  {
+   "id": "mendez-everyday",
+   "artist": "Méndez",
+   "title": "Everyday",
+   "year": 2018
+  },
+  {
+   "id": "benjamin-ingrosso-paradise",
+   "artist": "Benjamin Ingrosso & Ofenbach",
+   "title": "Paradise",
+   "year": 2018
+  },
+  {
+   "id": "ida-redig-allting-som-vi-sa",
+   "artist": "Ida Redig",
+   "title": "Allting som vi sa",
+   "year": 2018
+  },
+  {
+   "id": "ramon-marcos-enrique-monserrat-cuba-libre",
+   "artist": "Ramón Marcos Enrique Monserrat",
+   "title": "Cuba Libre",
+   "year": 2018
+  },
+  {
+   "id": "rhys-last-dance",
+   "artist": "Rhys",
+   "title": "Last Dance",
+   "year": 2017
+  },
+  {
+   "id": "sebastian-wallden-everything-sebastian-wallden-song",
+   "artist": "Sebastian Walldén",
+   "title": "Everything (Sebastian Walldén song)",
+   "year": 2018
+  },
+  {
+   "id": "saraha-kizunguzungu",
+   "artist": "SaRaha",
+   "title": "Kizunguzungu",
+   "year": 2016
+  },
+  {
+   "id": "chris-klafford-treading-water-christoffer-klafford-song",
+   "artist": "Chris Kläfford",
+   "title": "Treading Water (Christoffer Kläfford song)",
+   "year": 2017
+  },
+  {
+   "id": "tove-styrke-been-there-done-that",
+   "artist": "Tove Styrke & NOTD",
+   "title": "Been There Done That",
+   "year": 2018
+  },
+  {
+   "id": "owe-thornqvist-boogieman-blues",
+   "artist": "Owe Thörnqvist",
+   "title": "Boogieman Blues",
+   "year": 2017
+  },
+  {
+   "id": "anton-hagman-kiss-you-goodbye",
+   "artist": "Anton Hagman",
+   "title": "Kiss You Goodbye",
+   "year": 2017
+  },
+  {
+   "id": "dinah-nah-one-more-night",
+   "artist": "Dinah Nah",
+   "title": "One More Night",
+   "year": 2017
+  },
+  {
+   "id": "lindemann-steh-auf",
+   "artist": "Lindemann",
+   "title": "Steh auf",
+   "year": 2019
+  },
+  {
+   "id": "martin-almgren-a-bitter-lullaby",
+   "artist": "Martin Almgren",
+   "title": "A Bitter Lullaby",
+   "year": 2018
+  },
+  {
+   "id": "adrijana-krasniqi-amare",
+   "artist": "Adrijana Krasniqi",
+   "title": "Amare",
+   "year": 2017
+  },
+  {
+   "id": "john-lundvik-my-turn",
+   "artist": "John Lundvik",
+   "title": "My Turn",
+   "year": 2018
+  },
+  {
+   "id": "rich-the-kid-ring-ring",
+   "artist": "Rich the Kid & Mabel",
+   "title": "Ring Ring",
+   "year": 2018
+  },
+  {
+   "id": "haftbefehl-mathematik",
+   "artist": "Haftbefehl & Lindemann",
+   "title": "Mathematik",
+   "year": 2018
+  },
+  {
+   "id": "sandro-cavazza-used-to",
+   "artist": "Sandro Cavazza & Lou Elliotte",
+   "title": "Used To",
+   "year": 2018
+  },
+  {
+   "id": "lina-hedlund-victorious-lina-hedlund-song",
+   "artist": "Lina Hedlund",
+   "title": "Victorious (Lina Hedlund song)",
+   "year": 2019
+  },
+  {
+   "id": "benjamin-ingrosso-the-dirt",
+   "artist": "Benjamin Ingrosso",
+   "title": "The Dirt",
+   "year": 2020
+  },
+  {
+   "id": "bishara-morad-on-my-own",
+   "artist": "Bishara Morad",
+   "title": "On My Own",
+   "year": 2019
+  },
+  {
+   "id": "nano-omar-chasing-rivers",
+   "artist": "Nano Omar",
+   "title": "Chasing Rivers",
+   "year": 2019
+  },
+  {
+   "id": "gryffin-body-back",
+   "artist": "Gryffin & Maia Wright",
+   "title": "Body Back",
+   "year": 2019
+  },
+  {
+   "id": "matisse-sadko-hold-on",
+   "artist": "Matisse & Sadko & Michel Zitron",
+   "title": "Hold On",
+   "year": 2019
+  },
+  {
+   "id": "john-martin-cry",
+   "artist": "John Martin & Gryffin",
+   "title": "Cry",
+   "year": 2020
+  },
+  {
+   "id": "john-martin-wont-let-you-go",
+   "artist": "John Martin & Matisse & Sadko",
+   "title": "Won’t Let You Go",
+   "year": 2021
+  },
+  {
+   "id": "jonas-blue-hear-me-say",
+   "artist": "Jonas Blue & Léon",
+   "title": "Hear Me Say",
+   "year": 2021
+  },
+  {
+   "id": "notd-wanted",
+   "artist": "NOTD & Daya",
+   "title": "Wanted",
+   "year": 2019
+  },
+  {
+   "id": "kamferdrops-solen-lever-kvar-hos-dig",
+   "artist": "Kamferdrops",
+   "title": "Solen lever kvar hos dig",
+   "year": 2018
+  },
+  {
+   "id": "marie-serneholt-oxygen",
+   "artist": "Marie Serneholt",
+   "title": "Oxygen",
+   "year": 2006
+  },
+  {
+   "id": "agnetha-faltskog-the-one-who-loves-you-now",
+   "artist": "Agnetha Fältskog",
+   "title": "The One Who Loves You Now",
+   "year": 2013
+  },
+  {
+   "id": "ola-salo-dream-on",
+   "artist": "Ola Salo & Robyn",
+   "title": "Dream On",
+   "year": 2006
+  },
+  {
+   "id": "draconian-the-cry-of-silence",
+   "artist": "Draconian",
+   "title": "The Cry of Silence",
+   "year": 2003
+  },
+  {
+   "id": "anna-jarvinen-porslin",
+   "artist": "Anna Järvinen",
+   "title": "Porslin",
+   "year": 2013
+  },
+  {
+   "id": "date-horde-anglarna-viska-ditt-namn",
+   "artist": "Date",
+   "title": "Hörde änglarna viska ditt namn",
+   "year": 2005
+  },
+  {
+   "id": "the-ark-superstar",
+   "artist": "The Ark",
+   "title": "Superstar",
+   "year": 2010
+  },
+  {
+   "id": "kristofer-astrom-the-wild",
+   "artist": "Kristofer Åström",
+   "title": "The Wild",
+   "year": 2004
+  },
+  {
+   "id": "eva-dahlgren-om-jag-skriver-en-sang",
+   "artist": "Eva Dahlgren",
+   "title": "Om jag skriver en sång",
+   "year": 1979
+  },
+  {
+   "id": "bombus-apparatus",
+   "artist": "Bombus",
+   "title": "Apparatus",
+   "year": 2013
+  },
+  {
+   "id": "fever-ray-wanna-sip",
+   "artist": "Fever Ray",
+   "title": "Wanna Sip",
+   "year": 2017
+  },
+  {
+   "id": "kikki-danielsson-i-o-u",
+   "artist": "Kikki Danielsson & Lee Greenwood",
+   "title": "I.O.U.",
+   "year": 1983
+  },
+  {
+   "id": "ana-johnsson-fate",
+   "artist": "Ana Johnsson",
+   "title": "Fate",
+   "year": 2006
+  },
+  {
+   "id": "johan-becker-let-me-love-you",
+   "artist": "Johan Becker",
+   "title": "Let Me Love You",
+   "year": 2004
+  },
+  {
+   "id": "fever-ray-when-i-grow-up",
+   "artist": "Fever Ray",
+   "title": "When I Grow Up",
+   "year": 2009
+  },
+  {
+   "id": "fever-ray-seven",
+   "artist": "Fever Ray",
+   "title": "Seven",
+   "year": 2009
+  },
+  {
+   "id": "amanda-jenssen-greetings-from-space",
+   "artist": "Amanda Jenssen",
+   "title": "Greetings from Space",
+   "year": 2008
+  },
+  {
+   "id": "ringo-starr-shine-silently",
+   "artist": "Ringo Starr & The Hollies",
+   "title": "Shine Silently",
+   "year": 1979
+  },
+  {
+   "id": "ilovemakonnen-sunlight-on-your-skin",
+   "artist": "ILoveMakonnen & Lil Peep",
+   "title": "Sunlight on Your Skin",
+   "year": 2018
+  },
+  {
+   "id": "agnetha-faltskog-dance-your-pain-away",
+   "artist": "Agnetha Fältskog",
+   "title": "Dance Your Pain Away",
+   "year": 2013
+  },
+  {
+   "id": "per-gessle-smastadsprat",
+   "artist": "Per Gessle",
+   "title": "Småstadsprat",
+   "year": 2017
+  },
+  {
+   "id": "kim-cesarion-undressed",
+   "artist": "Kim Cesarion",
+   "title": "Undressed",
+   "year": 2013
+  },
+  {
+   "id": "fever-ray-idk-about-you",
+   "artist": "Fever Ray",
+   "title": "IDK About You",
+   "year": 2017
+  },
+  {
+   "id": "sara-hjellstrom-lose-you-too",
+   "artist": "Sara Hjellström",
+   "title": "Lose You Too",
+   "year": 2018
+  },
+  {
+   "id": "ola-svensson-rain",
+   "artist": "Ola Svensson",
+   "title": "Rain",
+   "year": 2006
+  },
+  {
+   "id": "hov1-gamora",
+   "artist": "Hov1 & Einár",
+   "title": "Gamora",
+   "year": 2021
+  },
+  {
+   "id": "magnus-uggla-moder-svea",
+   "artist": "Magnus Uggla",
+   "title": "Moder Svea",
+   "year": 1989
+  },
+  {
+   "id": "elecktra-banne-maj",
+   "artist": "Elecktra",
+   "title": "Banne maj",
+   "year": 2024
+  },
+  {
+   "id": "mikael-rickfors-gates-to-heaven",
+   "artist": "Mikael Rickfors",
+   "title": "Gates to Heaven",
+   "year": 1987
+  },
+  {
+   "id": "john-dahlback-blink",
+   "artist": "John Dahlbäck",
+   "title": "Blink",
+   "year": 2007
+  },
+  {
+   "id": "steve-angello-counting-down-the-days",
+   "artist": "Steve Angello",
+   "title": "Counting Down the Days",
+   "year": 2007
+  },
+  {
+   "id": "gunther-christmas-song-ding-dong",
+   "artist": "Günther",
+   "title": "Christmas Song (Ding Dong)",
+   "year": 2005
+  },
+  {
+   "id": "sebastian-ingrosso-umbrella",
+   "artist": "Sebastian Ingrosso & Steve Angello",
+   "title": "Umbrella",
+   "year": 2007
+  },
+  {
+   "id": "peter-bjorn-and-john-let-s-call-it-off",
+   "artist": "Peter Bjorn and John",
+   "title": "Let's Call It Off",
+   "year": 2006
+  },
+  {
+   "id": "indra-let-s-go-crazy",
+   "artist": "Indra",
+   "title": "Let's Go Crazy",
+   "year": 1990
+  },
+  {
+   "id": "deus-slow",
+   "artist": "Deus",
+   "title": "Slow",
+   "year": 2008
+  },
+  {
+   "id": "hypocrisy-don-t-judge-me",
+   "artist": "Hypocrisy",
+   "title": "Don't Judge Me",
+   "year": 2008
+  },
+  {
+   "id": "indra-misery",
+   "artist": "Indra",
+   "title": "Misery",
+   "year": 1991
+  },
+  {
+   "id": "heavy-load-free",
+   "artist": "Heavy Load",
+   "title": "Free",
+   "year": 1983
+  },
+  {
+   "id": "draconian-no-greater-sorrow",
+   "artist": "Draconian",
+   "title": "No Greater Sorrow",
+   "year": 2008
+  },
+  {
+   "id": "heavy-load-monsters-of-the-night",
+   "artist": "Heavy Load",
+   "title": "Monsters of the Night",
+   "year": 1985
+  },
+  {
+   "id": "helena-josefsson-fen-jag",
+   "artist": "Helena Josefsson",
+   "title": "Fén & jag",
+   "year": 2009
+  },
+  {
+   "id": "heavy-load-take-me-away",
+   "artist": "Heavy Load",
+   "title": "Take Me Away",
+   "year": 1982
+  },
+  {
+   "id": "bwo-barcelona",
+   "artist": "BWO",
+   "title": "Barcelona",
+   "year": 2008
+  },
+  {
+   "id": "izabella-scorupco-brando-moves",
+   "artist": "Izabella Scorupco",
+   "title": "Brando Moves",
+   "year": 1991
+  },
+  {
+   "id": "kleerup-3am",
+   "artist": "Kleerup & Marit Bergman",
+   "title": "3AM",
+   "year": 2008
+  },
+  {
+   "id": "the-concretes-chosen-one",
+   "artist": "The Concretes",
+   "title": "Chosen One",
+   "year": 2006
+  },
+  {
+   "id": "dhani-lennevald-girl-talk",
+   "artist": "Dhani Lennevald",
+   "title": "Girl Talk",
+   "year": 2004
+  },
+  {
+   "id": "niki-the-dove-dj-ease-my-mind",
+   "artist": "Niki & the Dove",
+   "title": "DJ, Ease My Mind",
+   "year": 2012
+  },
+  {
+   "id": "cajsalisa-ejemyr-du-gor-mig-hel-igen",
+   "artist": "Cajsalisa Ejemyr",
+   "title": "Du gör mig hel igen",
+   "year": 1997
+  },
+  {
+   "id": "robert-wells-handful-of-keys",
+   "artist": "Robert Wells",
+   "title": "Handful of Keys",
+   "year": 2009
+  },
+  {
+   "id": "ana-johnsson-exception",
+   "artist": "Ana Johnsson",
+   "title": "Exception",
+   "year": 2006
+  },
+  {
+   "id": "melody-club-electric",
+   "artist": "Melody Club",
+   "title": "Electric",
+   "year": 2002
+  },
+  {
+   "id": "familjen-det-snurrar-i-min-skalle",
+   "artist": "Familjen",
+   "title": "Det snurrar i min skalle",
+   "year": 2007
+  },
+  {
+   "id": "ana-johnsson-days-of-summer",
+   "artist": "Ana Johnsson",
+   "title": "Days of Summer",
+   "year": 2006
+  },
+  {
+   "id": "bwo-give-me-the-night",
+   "artist": "BWO",
+   "title": "Give Me the Night",
+   "year": 2007
+  },
+  {
+   "id": "burst-forsaken-not-forgotten",
+   "artist": "Burst & Lash Out",
+   "title": "Forsaken, Not Forgotten",
+   "year": 1998
+  },
+  {
+   "id": "jenny-berggren-here-i-am",
+   "artist": "Jenny Berggren",
+   "title": "Here I Am",
+   "year": 2010
+  },
+  {
+   "id": "ultra-nate-freak-on",
+   "artist": "Ultra Naté & StoneBridge",
+   "title": "Freak On",
+   "year": 2005
+  },
+  {
+   "id": "jose-gonzalez-down-the-line",
+   "artist": "José González",
+   "title": "Down the Line",
+   "year": 2007
+  },
+  {
+   "id": "witchcraft-if-crimson-was-your-colour",
+   "artist": "Witchcraft",
+   "title": "If Crimson Was Your Colour",
+   "year": 2006
+  },
+  {
+   "id": "backyard-babies-is-it-still-alright-to-smile",
+   "artist": "Backyard Babies",
+   "title": "Is It Still Alright to Smile?",
+   "year": 1998
+  },
+  {
+   "id": "erik-hassle-don-t-bring-flowers",
+   "artist": "Erik Hassle",
+   "title": "Don't Bring Flowers",
+   "year": 2009
+  },
+  {
+   "id": "oleg-nejlik-elektropop",
+   "artist": "Oleg Nejlik",
+   "title": "Elektropop",
+   "year": 2011
+  },
+  {
+   "id": "victoria-silvstedt-hello-hey",
+   "artist": "Victoria Silvstedt",
+   "title": "Hello Hey",
+   "year": 1999
+  },
+  {
+   "id": "erik-hassle-hurtful",
+   "artist": "Erik Hassle",
+   "title": "Hurtful",
+   "year": 2008
+  },
+  {
+   "id": "timbuktu-kjrer-pa",
+   "artist": "Timbuktu & Madcon",
+   "title": "Kjører på",
+   "year": 2012
+  },
+  {
+   "id": "peter-bjorn-and-john-it-don-t-move-me",
+   "artist": "Peter Bjorn and John",
+   "title": "It Don't Move Me",
+   "year": 2009
+  },
+  {
+   "id": "the-knife-like-a-pen",
+   "artist": "The Knife",
+   "title": "Like a Pen",
+   "year": 2006
+  },
+  {
+   "id": "kleerup-longing-for-lullabies",
+   "artist": "Kleerup & Titiyo",
+   "title": "Longing for Lullabies",
+   "year": 2008
+  },
+  {
+   "id": "meshuggah-i-am-colossus",
+   "artist": "Meshuggah",
+   "title": "I Am Colossus",
+   "year": 2012
+  },
+  {
+   "id": "da-buzz-last-goodbye",
+   "artist": "Da Buzz",
+   "title": "Last Goodbye",
+   "year": 2006
+  },
+  {
+   "id": "elin-lanto-love-made-me-stupid",
+   "artist": "Elin Lanto",
+   "title": "Love Made Me Stupid",
+   "year": 2009
+  },
+  {
+   "id": "slagsmalsklubben-malmo-beach-night-party",
+   "artist": "Slagsmålsklubben",
+   "title": "Malmö Beach Night Party",
+   "year": 2007
+  },
+  {
+   "id": "the-knife-marble-house",
+   "artist": "The Knife",
+   "title": "Marble House",
+   "year": 2007
+  },
+  {
+   "id": "the-knife-pass-this-on",
+   "artist": "The Knife",
+   "title": "Pass This On",
+   "year": 2003
+  },
+  {
+   "id": "rebound-hurricane",
+   "artist": "Rebound!",
+   "title": "Hurricane",
+   "year": 2010
+  },
+  {
+   "id": "the-knife-n-y-hotel",
+   "artist": "The Knife",
+   "title": "N.Y. Hotel",
+   "year": 2001
+  },
+  {
+   "id": "the-concretes-say-something-new",
+   "artist": "The Concretes",
+   "title": "Say Something New",
+   "year": 2004
+  },
+  {
+   "id": "witchcraft-no-angel-or-demon-you-bury-your-head",
+   "artist": "Witchcraft",
+   "title": "No Angel or Demon / You Bury Your Head",
+   "year": 2002
+  },
+  {
+   "id": "crookers-remedy",
+   "artist": "Crookers & Miike Snow",
+   "title": "Remedy",
+   "year": 2010
+  },
+  {
+   "id": "eggstone-shooting-time",
+   "artist": "Eggstone",
+   "title": "Shooting Time",
+   "year": 1991
+  },
+  {
+   "id": "shotgun-messiah-shout-it-out",
+   "artist": "Shotgun Messiah",
+   "title": "Shout It Out",
+   "year": 1989
+  },
+  {
+   "id": "heather-nova-someone-new",
+   "artist": "Heather Nova & Eskobar",
+   "title": "Someone New",
+   "year": 2002
+  },
+  {
+   "id": "jonny-jakobsen-rice-curry",
+   "artist": "Jonny Jakobsen",
+   "title": "Rice & Curry",
+   "year": 1998
+  },
+  {
+   "id": "sonic-syndicate-revolution-baby",
+   "artist": "Sonic Syndicate",
+   "title": "Revolution, Baby",
+   "year": 2010
+  },
+  {
+   "id": "watain-reaping-death",
+   "artist": "Watain",
+   "title": "Reaping Death",
+   "year": 2010
+  },
+  {
+   "id": "the-69-eyes-supershow",
+   "artist": "The 69 Eyes & Backyard Babies",
+   "title": "Supershow",
+   "year": 1996
+  },
+  {
+   "id": "therese-grankvist-put-em-high",
+   "artist": "Therese Grankvist & StoneBridge",
+   "title": "Put 'Em High",
+   "year": 2016
+  },
+  {
+   "id": "herbie-crichlow-right-type-of-mood",
+   "artist": "Herbie Crichlow",
+   "title": "Right Type of Mood",
+   "year": 1995
+  },
+  {
+   "id": "therese-grankvist-take-me-away",
+   "artist": "Therese Grankvist & StoneBridge",
+   "title": "Take Me Away",
+   "year": 2005
+  },
+  {
+   "id": "tommy-sparks-she-s-got-me-dancing",
+   "artist": "Tommy Sparks",
+   "title": "She's Got Me Dancing",
+   "year": 2009
+  },
+  {
+   "id": "the-concretes-seems-fine",
+   "artist": "The Concretes",
+   "title": "Seems Fine",
+   "year": 2004
+  },
+  {
+   "id": "elin-lanto-tickles",
+   "artist": "Elin Lanto",
+   "title": "Tickles",
+   "year": 2010
+  },
+  {
+   "id": "michael-lindgren-tingaliin",
+   "artist": "Michael Lindgren",
+   "title": "Tingaliin",
+   "year": 2009
+  },
+  {
+   "id": "the-concretes-you-can-t-hurry-love",
+   "artist": "The Concretes",
+   "title": "You Can't Hurry Love",
+   "year": 2004
+  },
+  {
+   "id": "youngblood-youngblood",
+   "artist": "Youngblood",
+   "title": "Youngblood",
+   "year": 2012
+  },
+  {
+   "id": "the-wannadies-you-and-me-song",
+   "artist": "The Wannadies",
+   "title": "You and Me Song",
+   "year": 1996
+  },
+  {
+   "id": "e-m-d-youngblood",
+   "artist": "E.M.D.",
+   "title": "Youngblood",
+   "year": 2009
+  },
+  {
+   "id": "ann-winsborn-be-the-one",
+   "artist": "Ann Winsborn",
+   "title": "Be the One",
+   "year": 2002
+  },
+  {
+   "id": "deathstars-cyanide",
+   "artist": "Deathstars",
+   "title": "Cyanide",
+   "year": 2005
+  },
+  {
+   "id": "deathstars-death-dies-hard",
+   "artist": "Deathstars",
+   "title": "Death Dies Hard",
+   "year": 2009
+  },
+  {
+   "id": "deathstars-blitzkrieg",
+   "artist": "Deathstars",
+   "title": "Blitzkrieg",
+   "year": 2006
+  },
+  {
+   "id": "robin-beck-first-time",
+   "artist": "Robin Beck & Sunblock",
+   "title": "First Time",
+   "year": 2006
+  },
+  {
+   "id": "plan-three-achilles-heel",
+   "artist": "Plan Three",
+   "title": "Achilles Heel",
+   "year": 2007
+  },
+  {
+   "id": "imperiet-alltid-rott-alltid-ratt",
+   "artist": "Imperiet",
+   "title": "Alltid rött, alltid rätt",
+   "year": 1983
+  },
+  {
+   "id": "deltahead-don-t-move-to-finland",
+   "artist": "Deltahead",
+   "title": "Don't Move To Finland",
+   "year": 2005
+  },
+  {
+   "id": "ebba-gron-totalpop",
+   "artist": "Ebba Grön",
+   "title": "Totalpop",
+   "year": 1979
+  },
+  {
+   "id": "dia-psalma-tro-ratt-tro-fel",
+   "artist": "Dia Psalma",
+   "title": "Tro rätt tro fel",
+   "year": 1994
+  },
+  {
+   "id": "imperiet-cafe-cosmopolite",
+   "artist": "Imperiet",
+   "title": "Café Cosmopolite",
+   "year": 1986
+  },
+  {
+   "id": "nationalteatern-doin-the-omoralisk-schlagerfestival",
+   "artist": "Nationalteatern",
+   "title": "Doin' The Omoralisk Schlagerfestival",
+   "year": 1975
+  },
+  {
+   "id": "the-project-hate-mcmxcix-the-innocence-of-the-three-faced-saviour",
+   "artist": "The Project Hate MCMXCIX",
+   "title": "The Innocence of the Three-Faced Saviour",
+   "year": 2007
+  },
+  {
+   "id": "corroded-time-and-again",
+   "artist": "Corroded",
+   "title": "Time and Again",
+   "year": 2009
+  },
+  {
+   "id": "amy-deasismont-up",
+   "artist": "Amy Deasismont",
+   "title": "Up",
+   "year": 2009
+  },
+  {
+   "id": "ebba-gron-antirock",
+   "artist": "Ebba Grön",
+   "title": "Antirock",
+   "year": 1978
+  },
+  {
+   "id": "monster-debbie",
+   "artist": "Monster",
+   "title": "Debbie",
+   "year": 1996
+  },
+  {
+   "id": "ebba-gron-schlagers-julsingel",
+   "artist": "Ebba Grön & Anders F. Rönnblom",
+   "title": "Schlagers julsingel",
+   "year": 1980
+  },
+  {
+   "id": "billey-shamrock-super-swede-people",
+   "artist": "Billey Shamrock",
+   "title": "Super Swede / People",
+   "year": 1983
+  },
+  {
+   "id": "timo-raisanen-don-t-let-the-devil-ruin-it-all",
+   "artist": "Timo Räisänen",
+   "title": "Don't Let the Devil Ruin It All",
+   "year": 2005
+  },
+  {
+   "id": "amanda-jenssen-amarula-tree",
+   "artist": "Amanda Jenssen",
+   "title": "Amarula Tree",
+   "year": 2008
+  },
+  {
+   "id": "amanda-jenssen-another-christmas",
+   "artist": "Amanda Jenssen",
+   "title": "Another Christmas",
+   "year": 2008
+  },
+  {
+   "id": "gyllene-tider-schlagers-nyarssingel",
+   "artist": "Gyllene Tider & KSMB",
+   "title": "Schlagers nyårssingel",
+   "year": 1981
+  },
+  {
+   "id": "magnus-backlund-crash-and-burn",
+   "artist": "Magnus Bäcklund",
+   "title": "Crash and Burn",
+   "year": 2010
+  },
+  {
+   "id": "the-tough-alliance-first-class-riot",
+   "artist": "The Tough Alliance",
+   "title": "First Class Riot",
+   "year": 2007
+  },
+  {
+   "id": "ebba-gron-prorock",
+   "artist": "Ebba Grön",
+   "title": "Prorock",
+   "year": 1978
+  },
+  {
+   "id": "the-poodles-seven-seas",
+   "artist": "The Poodles",
+   "title": "Seven Seas",
+   "year": 2007
+  },
+  {
+   "id": "kristofer-astrom-twentyseven",
+   "artist": "Kristofer Åström",
+   "title": "Twentyseven",
+   "year": 2009
+  },
+  {
+   "id": "tommy-nilsson-miss-my-love",
+   "artist": "Tommy Nilsson",
+   "title": "Miss My Love",
+   "year": 1988
+  },
+  {
+   "id": "kenny-peach-ok-fred",
+   "artist": "Kenny Peach & Chilly White",
+   "title": "OK Fred",
+   "year": 1993
+  },
+  {
+   "id": "linda-thelenius-forget-me-forget-me-not",
+   "artist": "Linda Thelenius",
+   "title": "Forget Me, Forget Me Not",
+   "year": 2006
+  },
+  {
+   "id": "nilla-nielsen-found-you",
+   "artist": "Nilla Nielsen",
+   "title": "Found You",
+   "year": 2008
+  },
+  {
+   "id": "pontus-amerikanerna-min-bror-och-jag",
+   "artist": "Pontus & Amerikanerna",
+   "title": "Min bror och jag",
+   "year": 1990
+  },
+  {
+   "id": "bob-hund-skall-du-hanga-med-na",
+   "artist": "Bob Hund",
+   "title": "Skall du hänga med? Nä!!",
+   "year": 2001
+  },
+  {
+   "id": "lars-winnerback-kom-ihag-mig",
+   "artist": "Lars Winnerbäck",
+   "title": "Kom ihåg mig",
+   "year": 1999
+  },
+  {
+   "id": "molly-sanden-mirage",
+   "artist": "Molly Sandén",
+   "title": "Mirage",
+   "year": 2012
+  },
+  {
+   "id": "slagsmalsklubben-hit-me-hard",
+   "artist": "Slagsmålsklubben",
+   "title": "Hit Me Hard",
+   "year": 2004
+  },
+  {
+   "id": "the-poodles-i-rule-the-night",
+   "artist": "The Poodles",
+   "title": "I Rule the Night",
+   "year": 2009
+  },
+  {
+   "id": "alice-svensson-lady-luck",
+   "artist": "Alice Svensson",
+   "title": "Lady Luck",
+   "year": 2009
+  },
+  {
+   "id": "nilla-nielsen-just-dance",
+   "artist": "Nilla Nielsen",
+   "title": "Just Dance",
+   "year": 2009
+  },
+  {
+   "id": "hardcore-superstar-honey-tongue",
+   "artist": "Hardcore Superstar",
+   "title": "Honey Tongue",
+   "year": 2004
+  },
+  {
+   "id": "puss-master-slave",
+   "artist": "Puss",
+   "title": "Master & Slave",
+   "year": 2003
+  },
+  {
+   "id": "nocturnal-rites-okahoo-rock-n-roll-devil",
+   "artist": "Nocturnal Rites & Falconer",
+   "title": "Okahoo / Rock 'n' Roll Devil",
+   "year": 2005
+  },
+  {
+   "id": "bob-hund-nu-ar-det-val-revolution-pa-gang",
+   "artist": "Bob Hund",
+   "title": "Nu är det väl revolution på gång?",
+   "year": 1998
+  },
+  {
+   "id": "deltahead-peace-junk-drums",
+   "artist": "Deltahead",
+   "title": "Peace & Junk & Drums",
+   "year": 2004
+  },
+  {
+   "id": "glamour-jag-vill-dansa-natten-ar-ung",
+   "artist": "Glamour",
+   "title": "Jag vill dansa / Natten är ung",
+   "year": 1982
+  },
+  {
+   "id": "abba-from-a-twinkling-star-to-a-passing-angel",
+   "artist": "ABBA",
+   "title": "From a Twinkling Star to a Passing Angel",
+   "year": 2012
+  },
+  {
+   "id": "ragnar-bjarnason-eins-og-folk-er-flest-hun-gunna-og-hann-jon",
+   "artist": "Ragnar Bjarnason & Arvid Sundins orkester",
+   "title": "Eins og fólk er flest / Hún Gunna og hann Jón",
+   "year": 1960
+  },
+  {
+   "id": "ann-winsborn-la-la-love-on-my-mind",
+   "artist": "Ann Winsborn",
+   "title": "La La Love On My Mind",
+   "year": 2005
+  },
+  {
+   "id": "the-hellacopters-everythings-on-t-v",
+   "artist": "The Hellacopters",
+   "title": "Everything’s on T.V.",
+   "year": 2005
+  },
+  {
+   "id": "ragnar-bjarnason-litla-stulkan-min",
+   "artist": "Ragnar Bjarnason & Arvid Sundins orkester",
+   "title": "Litla stúlkan mín",
+   "year": 1960
+  },
+  {
+   "id": "joacim-cans-annelie",
+   "artist": "Joacim Cans",
+   "title": "Annelie",
+   "year": 2013
+  },
+  {
+   "id": "mary-n-diaye-gosa",
+   "artist": "Mary N'diaye",
+   "title": "Gosa",
+   "year": 2013
+  },
+  {
+   "id": "kevin-walker-belong",
+   "artist": "Kevin Walker",
+   "title": "Belong",
+   "year": 2013
+  },
+  {
+   "id": "evergrey-monday-morning-apocalypse",
+   "artist": "Evergrey",
+   "title": "Monday Morning Apocalypse",
+   "year": 2006
+  },
+  {
+   "id": "ansiktet-ackligt",
+   "artist": "Ansiktet",
+   "title": "Äckligt",
+   "year": 2011
+  },
+  {
+   "id": "kim-cesarion-brains-out",
+   "artist": "Kim Cesarion",
+   "title": "Brains Out",
+   "year": 2013
+  },
+  {
+   "id": "the-sound-of-arrows-into-the-clouds",
+   "artist": "The Sound of Arrows",
+   "title": "Into the Clouds",
+   "year": 2009
+  },
+  {
+   "id": "the-sound-of-arrows-wonders",
+   "artist": "The Sound of Arrows",
+   "title": "Wonders",
+   "year": 2011
+  },
+  {
+   "id": "echobelly-insomniac",
+   "artist": "Echobelly",
+   "title": "Insomniac",
+   "year": 1994
+  },
+  {
+   "id": "style-of-eye-kids",
+   "artist": "Style Of Eye",
+   "title": "Kids",
+   "year": 2013
+  },
+  {
+   "id": "cazzette-sleepless",
+   "artist": "Cazzette",
+   "title": "Sleepless",
+   "year": 2014
+  },
+  {
+   "id": "echobelly-tell-me-why",
+   "artist": "Echobelly",
+   "title": "Tell Me Why",
+   "year": 2001
+  },
+  {
+   "id": "echobelly-bellyache",
+   "artist": "Echobelly",
+   "title": "Bellyache",
+   "year": 1993
+  },
+  {
+   "id": "basshunter-i-promised-myself",
+   "artist": "Basshunter",
+   "title": "I Promised Myself",
+   "year": 2009
+  },
+  {
+   "id": "ragnar-bjarnason-ja-faru-fra-hun-var-me-dimmbla-augu",
+   "artist": "Ragnar Bjarnason & Arvid Sundins orkester",
+   "title": "Já, farðu frá / Hún var með dimmblá augu",
+   "year": 1960
+  },
+  {
+   "id": "backyard-babies-babylon",
+   "artist": "Backyard Babies",
+   "title": "Babylon",
+   "year": 1983
+  },
+  {
+   "id": "harpo-sayonara",
+   "artist": "Harpo",
+   "title": "Sayonara",
+   "year": 1973
+  },
+  {
+   "id": "gunther-touch-me",
+   "artist": "Günther",
+   "title": "Touch Me",
+   "year": 2003
+  },
+  {
+   "id": "vigiland-ufo",
+   "artist": "Vigiland",
+   "title": "UFO",
+   "year": 2014
+  },
+  {
+   "id": "peter-joback-ga-inte-forbi",
+   "artist": "Peter Jöback",
+   "title": "Gå inte förbi",
+   "year": 2003
+  },
+  {
+   "id": "otto-knows-parachute",
+   "artist": "Otto Knows",
+   "title": "Parachute",
+   "year": 2014
+  },
+  {
+   "id": "otto-knows-next-to-me",
+   "artist": "Otto Knows",
+   "title": "Next to Me",
+   "year": 2015
+  },
+  {
+   "id": "h-e-a-t-living-on-the-run",
+   "artist": "H.E.A.T",
+   "title": "Living On the Run",
+   "year": 2012
+  },
+  {
+   "id": "the-maharajas-black-box",
+   "artist": "The Maharajas",
+   "title": "Black Box",
+   "year": 2013
+  },
+  {
+   "id": "axwell-ingrosso-on-my-way",
+   "artist": "Axwell Λ Ingrosso",
+   "title": "On My Way",
+   "year": 2015
+  },
+  {
+   "id": "bomfunk-mc-s-turn-it-up",
+   "artist": "Bomfunk MC's",
+   "title": "Turn It Up",
+   "year": 2004
+  },
+  {
+   "id": "sabaton-the-lost-battalion",
+   "artist": "Sabaton",
+   "title": "The Lost Battalion",
+   "year": 2016
+  },
+  {
+   "id": "sabaton-blood-of-bannockburn",
+   "artist": "Sabaton",
+   "title": "Blood of Bannockburn",
+   "year": 2016
+  },
+  {
+   "id": "roxette-the-look-95",
+   "artist": "Roxette",
+   "title": "The Look '95",
+   "year": 1995
+  },
+  {
+   "id": "stonebridge-if-you-like-it",
+   "artist": "StoneBridge",
+   "title": "If You Like It",
+   "year": 2016
+  },
+  {
+   "id": "samir-viktor-saxofuckingfon",
+   "artist": "Samir & Viktor",
+   "title": "Saxofuckingfon",
+   "year": 2015
+  }
+ ]
+}

@@ -122,7 +122,7 @@ test('spelarna ser vilka fält alla har fyllt i, och allas rättning efteråt', 
   assert.equal(playing.results, null);
   reveal(state);
   const revealed = playerView(state, 'p2', 2000).round;
-  assert.equal(revealed.progress, null);
+  assert.deepEqual(revealed.progress.p2, { artist: false, title: false });
   assert.deepEqual(revealed.results.p1, state.round.results.p1);
 });
 
@@ -202,4 +202,25 @@ test('spelarvyn visar kategorins namn', () => {
   const state = createGame({ code: 'ABCD', categoryId: 'pop80', categoryName: '80-talspop' });
   assert.equal(playerView(state, 'p1', 0).categoryName, '80-talspop');
   assert.equal(playerView(createGame({ code: 'ABCD', categoryId: 'pop80' }), 'p1', 0).categoryName, '');
+});
+
+test('normalize bortser från accenter och skiljetecken', async () => {
+  const { normalize, compact } = await import('../js/text.js');
+  assert.equal(normalize("Don't Go Breaking My Heart"), normalize('dont go breaking my heart'));
+  assert.equal(normalize('Señorita'), 'senorita');
+  assert.equal(normalize('  Beyoncé   –  Halo! '), 'beyonce halo');
+  assert.equal(normalize('Mötley Crüe'), 'motley crue');
+  assert.equal(compact('AC/DC'), compact('ac dc'));
+  assert.equal(compact('Jay-Z'), 'jayz');
+});
+
+test('rättningen godtar svar utan accenter och apostrofer', () => {
+  const state = createGame({ code: 'ABCD', categoryId: 'x' });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  nextSong(state, [{ id: 's', artist: 'Shawn Mendes', title: 'Señorita' }], () => 0);
+  startRound(state, 1000);
+  submitAnswer(state, 'p1', 'artist', 'shawn mendes', 2000);
+  submitAnswer(state, 'p1', 'title', 'Senorita', 2000);
+  reveal(state);
+  assert.equal(state.players.p1.score > 0, true);
 });
