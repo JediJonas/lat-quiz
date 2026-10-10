@@ -135,7 +135,7 @@ function join(name, code) {
   $('#join').hidden = true;
   $('#join-error').hidden = true;
   $('#lobby').hidden = false;
-  $('#me').textContent = `${name} · spel ${code}`;
+  $('#me').textContent = `Spel ${code}`;
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
 }
 
