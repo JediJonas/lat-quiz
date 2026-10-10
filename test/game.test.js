@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
-  shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs, restart,
+  shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
   cleanSettings, applySettings,
 } from '../js/game.js';
 
@@ -110,6 +110,20 @@ test('spelaren ser inte låten förrän svaret visas', () => {
   const view = playerView(state, 'p1', 2000);
   assert.equal(view.round.song.title, 'Take On Me');
   assert.equal(view.round.result.points, 0);
+});
+
+test('spelarna ser vilka fält alla har fyllt i, och allas rättning efteråt', () => {
+  const state = setup();
+  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  const playing = playerView(state, 'p2', 2000).round;
+  assert.deepEqual(playing.progress.p1, { artist: false, title: true });
+  assert.deepEqual(playing.progress.p2, { artist: false, title: false });
+  assert.equal(JSON.stringify(playing).includes('Take On Me'), false);
+  assert.equal(playing.results, null);
+  reveal(state);
+  const revealed = playerView(state, 'p2', 2000).round;
+  assert.equal(revealed.progress, null);
+  assert.deepEqual(revealed.results.p1, state.round.results.p1);
 });
 
 test('poängställningen sorteras efter poäng och sedan namn', () => {

@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { renderRing, ranks, scoreTracker } from './ui.js';
+import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
@@ -307,16 +307,13 @@ function renderPlayers() {
   const list = game.standings(state);
   const places = ranks(list);
   const rows = list.map((p, i) => {
-    let status = '';
-    if (round && round.phase === 'playing') {
-      status = game.hasAnsweredBoth(state, p.id) ? '<span class="tag good">Svarat</span>' : '<span class="tag">Väntar</span>';
-    } else if (round && round.phase === 'revealed' && round.results[p.id]) {
-      const r = round.results[p.id];
-      const labels = state.labels || game.DEFAULT_LABELS;
-      const tag = (ok, label) => `<span class="tag ${ok ? 'good' : 'bad'}">${esc(label)}</span>`;
-      status = tag(r.artist, labels.artist) + tag(r.title, labels.title)
-        + (r.bonus ? '<span class="tag bonus">Bonus</span>' : '') + ` <strong>+${r.points}</strong>`;
-    }
+    const status = round ? statusTags({
+      phase: round.phase,
+      progress: game.answeredFields(state, p.id),
+      result: round.results && round.results[p.id],
+      labels: state.labels || game.DEFAULT_LABELS,
+      esc,
+    }) : '';
     return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
       <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
       <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
