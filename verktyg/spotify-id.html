@@ -19,18 +19,20 @@
 <body>
   <main>
     <h1>Spotify-ID</h1>
-    <p>Verktyget hämtar Spotify-ID för varje låt från Wikidata. Det tar ungefär en minut per kategori.
-      Låtar som inte hittas kan du fylla i själv: sök upp låten i Spotify, välj Dela → Kopiera länk
-      och klistra in länken i rutan på raden.</p>
+    <p>Verktyget går igenom en kandidatlista och hämtar Spotify-ID för varje låt från Wikidata.
+      Det stannar av sig självt när kategorin har nått målet. Låtar som inte hittas hoppas över.</p>
     <div class="controls">
-      <div><label for="cat">Kategori</label><select id="cat"></select></div>
-      <div><label><input type="checkbox" id="redo" style="width:auto"> Sök även låtar som redan har ID</label></div>
+      <div><label for="cat">Kandidatlista</label><select id="cat"></select></div>
+      <div><label for="target">Mål, antal låtar</label><input id="target" type="number" min="1" value="100"></div>
       <button id="start">Starta</button>
     </div>
     <p id="progress" class="muted"></p>
     <table><thead><tr><th>Låt</th><th>Resultat</th><th>Spotify</th><th></th></tr></thead><tbody id="rows"></tbody></table>
     <h2>Klart</h2>
-    <p>Gröna låtar, de du har bockat för och de du har klistrat in länkar till sparas. Ladda ner filen och skicka den till Claude i projektet.</p>
+    <p>Låtar som redan fanns, gröna låtar, de du har bockat för och de du har klistrat in länkar till sparas.
+      Osäkra och saknade låtar räknas inte mot målet, men du kan lägga till dem för hand:
+      sök upp låten i Spotify, välj Dela → Kopiera länk och klistra in länken i rutan på raden.
+      Ladda sedan ner filen och skicka den till Claude i projektet.</p>
     <button id="download" class="secondary">Ladda ner JSON-fil</button>
   </main>
 
@@ -41,8 +43,9 @@
     const $ = (sel) => document.querySelector(sel);
     const esc = (t) => String(t).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-    let category = null;
-    let songs = [];
+    let list = null; // { id, name, file, songs }
+    let existing = []; // låtar som redan finns i kategorin
+    let candidates = []; // kandidater som inte redan finns i kategorin
     const found = {}; // songId -> { id, accepted }
 
     // Söker låtar med titeln i Wikidata och hämtar deras Spotify-ID (P2207) och artist (P175).
@@ -79,23 +82,32 @@
 
     function setProgress(text) { $('#progress').textContent = text; }
 
+    function spotifyLink(spotifyId) {
+      return `<a href="https://open.spotify.com/track/${esc(spotifyId)}" target="_blank" rel="noopener">${esc(spotifyId)}</a>`;
+    }
+
     function setRow(song, html, spotifyId, status) {
       const tr = document.getElementById('row-' + song.id);
       tr.children[1].innerHTML = html;
-      tr.children[2].innerHTML = spotifyId
-        ? `<a href="https://open.spotify.com/track/${esc(spotifyId)}" target="_blank" rel="noopener">${esc(spotifyId)}</a>` : '';
+      tr.children[2].innerHTML = spotifyId ? spotifyLink(spotifyId) : '';
       tr.children[3].innerHTML = status === 'osäker'
         ? `<label class="row-actions"><input type="checkbox" style="width:auto" data-song="${esc(song.id)}"> Använd</label>` : '';
     }
 
+    function count() {
+      return existing.length + Object.values(found).filter((f) => f.accepted).length;
+    }
+
     async function run() {
       $('#start').disabled = true;
-      const redo = $('#redo').checked;
-      const todo = songs.filter((s) => redo || !s.spotifyId);
-      let done = 0;
+      $('#cat').disabled = true;
+      const target = Number($('#target').value) || 100;
+      const todo = candidates.filter((s) => !found[s.id]);
+      let tried = 0;
       for (const song of todo) {
-        done += 1;
-        setProgress(`${done} av ${todo.length}: ${song.artist} – ${song.title}`);
+        if (count() >= target) break;
+        tried += 1;
+        setProgress(`${count()} av ${target} låtar har ID. Söker ${song.artist} – ${song.title} …`);
         try {
           const rows = await wikidata(song.title);
           const hit = pickWikidataTrack(song, rows);
@@ -107,16 +119,18 @@
             found[song.id] = { id: unsure.spotify, accepted: false };
             setRow(song, `<span class="warn">Osäker:</span> ${esc(unsure.title)} utan angiven artist. Kontrollera länken.`, unsure.spotify, 'osäker');
           } else {
-            setRow(song, '<span class="bad">Hittades inte. Klistra in en länk.</span>' + manualInput(song), null, 'saknas');
+            setRow(song, '<span class="bad">Hittades inte.</span>' + manualInput(song), null, 'saknas');
           }
         } catch (err) {
           setRow(song, `<span class="bad">${esc(err.message)}</span>` + manualInput(song), null, 'saknas');
         }
         await sleep(DELAY_MS);
       }
-      const ok = Object.values(found).filter((f) => f.accepted).length;
-      setProgress(`Klart. ${ok} säkra träffar av ${todo.length}. Bocka för de osäkra som stämmer, klistra in länkar för de saknade och ladda ner filen.`);
+      setProgress(count() >= target
+        ? `Klart. Kategorin har ${count()} låtar med ID. Ladda ner filen.`
+        : `Kandidaterna tog slut vid ${count()} av ${target} låtar. Ladda ner filen och be Claude om fler kandidater.`);
       $('#start').disabled = false;
+      $('#cat').disabled = false;
     }
 
     function download() {
@@ -128,34 +142,42 @@
         if (id) found[input.dataset.manual] = { id, accepted: true };
         else if (input.value.trim()) alert('Känner inte igen länken: ' + input.value);
       }
-      const updated = songs.map((s) => {
-        const f = found[s.id];
-        return f && f.accepted ? { ...s, spotifyId: f.id } : s;
-      });
-      const blob = new Blob([JSON.stringify(updated, null, 1) + '\n'], { type: 'application/json' });
+      const added = candidates
+        .filter((s) => found[s.id] && found[s.id].accepted)
+        .map((s) => ({ ...s, spotifyId: found[s.id].id }));
+      const songs = [...existing, ...added];
+      const blob = new Blob([JSON.stringify(songs, null, 1) + '\n'], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = category.file;
+      a.download = list.file;
       a.click();
     }
 
-    async function loadCategory() {
-      const categories = await (await fetch('../data/categories.json', { cache: 'no-cache' })).json();
-      category = categories.find((c) => c.id === $('#cat').value) || categories[0];
-      songs = await (await fetch('../data/' + category.file, { cache: 'no-cache' })).json();
-      $('#rows').innerHTML = songs.map((s) => `<tr id="row-${esc(s.id)}">
-        <td>${esc(s.artist)} – ${esc(s.title)} (${s.year})</td>
-        <td class="muted">${s.spotifyId ? 'Har redan ID' : ''}</td>
-        <td>${s.spotifyId ? `<a href="https://open.spotify.com/track/${esc(s.spotifyId)}" target="_blank" rel="noopener">${esc(s.spotifyId)}</a>` : ''}</td><td></td></tr>`).join('');
-      setProgress(`${songs.length} låtar, varav ${songs.filter((s) => !s.spotifyId).length} utan ID.`);
+    async function getJson(path, fallback) {
+      const res = await fetch(path, { cache: 'no-cache' });
+      if (!res.ok) { if (fallback !== undefined) return fallback; throw new Error('Kunde inte läsa ' + path); }
+      return res.json();
     }
 
-    const categories = await (await fetch('../data/categories.json', { cache: 'no-cache' })).json();
-    $('#cat').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
-    $('#cat').addEventListener('change', loadCategory);
+    async function loadList() {
+      list = await getJson('../data/kandidater/' + $('#cat').value);
+      // En ny kategori har ingen fil ännu. Låtar utan ID tas inte med.
+      existing = (await getJson('../data/' + list.file, [])).filter((s) => s.spotifyId);
+      const have = new Set(existing.map((s) => s.id));
+      candidates = list.songs.filter((s) => !have.has(s.id));
+      for (const key of Object.keys(found)) delete found[key];
+      $('#rows').innerHTML = candidates.map((s) => `<tr id="row-${esc(s.id)}">
+        <td>${esc(s.artist)} – ${esc(s.title)} (${s.year})</td><td></td><td></td><td></td></tr>`).join('');
+      setProgress(`${list.name}: ${existing.length} låtar har redan ID och det finns ${candidates.length} kandidater.`);
+    }
+
+    const files = await getJson('../data/kandidater/index.json');
+    const lists = await Promise.all(files.map((f) => getJson('../data/kandidater/' + f)));
+    $('#cat').innerHTML = lists.map((l, i) => `<option value="${esc(files[i])}">${esc(l.name)}</option>`).join('');
+    $('#cat').addEventListener('change', loadList);
     $('#start').addEventListener('click', run);
     $('#download').addEventListener('click', download);
-    await loadCategory();
+    await loadList();
   </script>
 </body>
 </html>

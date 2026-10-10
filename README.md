@@ -42,4 +42,10 @@ npm test
 
 ## Spotify-ID
 
-`verktyg/spotify-id.html` slår upp Spotify-ID för låtarna i en kategori. Den hämtar ID:n från Wikidata, och låtar som saknas där kan fyllas i för hand med en Spotify-länk. Sidan körs i en vanlig webbläsare, till exempel via GitHub Pages, och laddar ner en uppdaterad JSON-fil som ersätter filen i `data/`. Låtar utan ID får en sökning i Spotify i stället.
+Så tas en kategori fram:
+
+1. Claude skriver en kandidatlista i `data/kandidater/<kategori>.json` med cirka 200 låtar och lägger till filen i `data/kandidater/index.json`.
+2. `verktyg/spotify-id.html` går igenom kandidaterna i ordning och hämtar Spotify-ID från Wikidata. Det stannar när kategorin har nått målet, normalt 100 låtar. Låtar som redan finns i kategorin behålls.
+3. Sidan laddar ner kategorifilen med bara låtar som har ID. Den ersätter filen i `data/`, och en ny kategori läggs till i `data/categories.json`. Kandidater som söktes men inte hittades läggs i `data/forslag.json` som lockbeten.
+
+Sidan körs i en vanlig webbläsare, till exempel via GitHub Pages. Låtar som saknas i Wikidata kan fyllas i för hand med en Spotify-länk.
