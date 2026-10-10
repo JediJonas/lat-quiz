@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
-  shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs, restart,
+  shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
   cleanSettings, applySettings,
 } from '../js/game.js';
 
@@ -112,6 +112,20 @@ test('spelaren ser inte låten förrän svaret visas', () => {
   assert.equal(view.round.result.points, 0);
 });
 
+test('spelarna ser vilka fält alla har fyllt i, och allas rättning efteråt', () => {
+  const state = setup();
+  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  const playing = playerView(state, 'p2', 2000).round;
+  assert.deepEqual(playing.progress.p1, { artist: false, title: true });
+  assert.deepEqual(playing.progress.p2, { artist: false, title: false });
+  assert.equal(JSON.stringify(playing).includes('Take On Me'), false);
+  assert.equal(playing.results, null);
+  reveal(state);
+  const revealed = playerView(state, 'p2', 2000).round;
+  assert.equal(revealed.progress, null);
+  assert.deepEqual(revealed.results.p1, state.round.results.p1);
+});
+
 test('poängställningen sorteras efter poäng och sedan namn', () => {
   const state = setup();
   submitAnswer(state, 'p2', 'artist', 'a-ha', 2000);
@@ -182,4 +196,31 @@ test('inställningar: okända värden ersätts med standard, bonus 0 betyder ing
   assert.equal(applySettings(state, { roundMs: 30000, bonusMs: 10000, winScore: 15 }), true);
   assert.equal(state.roundMs, 30000);
   assert.equal(state.winScore, 15);
+});
+
+test('spelarvyn visar kategorins namn', () => {
+  const state = createGame({ code: 'ABCD', categoryId: 'pop80', categoryName: '80-talspop' });
+  assert.equal(playerView(state, 'p1', 0).categoryName, '80-talspop');
+  assert.equal(playerView(createGame({ code: 'ABCD', categoryId: 'pop80' }), 'p1', 0).categoryName, '');
+});
+
+test('normalize bortser från accenter och skiljetecken', async () => {
+  const { normalize, compact } = await import('../js/text.js');
+  assert.equal(normalize("Don't Go Breaking My Heart"), normalize('dont go breaking my heart'));
+  assert.equal(normalize('Señorita'), 'senorita');
+  assert.equal(normalize('  Beyoncé   –  Halo! '), 'beyonce halo');
+  assert.equal(normalize('Mötley Crüe'), 'motley crue');
+  assert.equal(compact('AC/DC'), compact('ac dc'));
+  assert.equal(compact('Jay-Z'), 'jayz');
+});
+
+test('rättningen godtar svar utan accenter och apostrofer', () => {
+  const state = createGame({ code: 'ABCD', categoryId: 'x' });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  nextSong(state, [{ id: 's', artist: 'Shawn Mendes', title: 'Señorita' }], () => 0);
+  startRound(state, 1000);
+  submitAnswer(state, 'p1', 'artist', 'shawn mendes', 2000);
+  submitAnswer(state, 'p1', 'title', 'Senorita', 2000);
+  reveal(state);
+  assert.equal(state.players.p1.score > 0, true);
 });

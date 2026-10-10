@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { renderRing, ranks, scoreTracker } from './ui.js';
+import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 
 const SAVE_KEY = 'latquiz-player';
 const $ = (sel) => document.querySelector(sel);
@@ -41,6 +41,7 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type !== 'state') return;
   view = msg.view;
+  $('#category-name').textContent = view.categoryName || '';
   const round = view.round;
   if (round && round.number !== roundNumber) {
     roundNumber = round.number;
@@ -66,11 +67,25 @@ function renderTimer() {
   renderRing(el, ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
 }
 
+function playerStatus(id) {
+  const round = view.round;
+  if (!round) return '';
+  return statusTags({
+    phase: round.phase,
+    progress: round.progress && round.progress[id],
+    result: round.results && round.results[id],
+    labels: view.labels,
+    esc,
+    points: false,
+  });
+}
+
 function renderStandings() {
   const places = ranks(view.standings);
   const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
     <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
-    <td class="name">${esc(p.name)}${view.answered.includes(p.id) && view.round && view.round.phase === 'playing' ? ' <span class="tag good">Svarat</span>' : ''}</td>
+    <td class="name">${esc(p.name)}</td>
+    <td class="status">${playerStatus(p.id)}</td>
     <td class="score">${p.score}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
@@ -92,13 +107,11 @@ function render() {
 
   if (phase === 'playing') {
     $('#round-title').textContent = `Låt ${round.number}`;
-    const done = local.artist && local.title;
-    $('#sent').textContent = done ? 'Båda svaren är valda. Du kan ändra dem tills tiden är slut.' : `Välj ${view.labels.artist.toLowerCase()} och ${view.labels.title.toLowerCase()} ur listan.`;
     renderTimer();
   } else if (phase === 'revealed') {
     const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
     const mine = round.answer || { artist: '', title: '' };
-    $('#result').innerHTML = `<h2>Låt ${round.number}</h2>
+    $('#result').innerHTML = `<h2 class="round-label">Låt ${round.number}</h2>
       <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
       <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
       <ul class="mine">
@@ -120,7 +133,7 @@ function join(name, code) {
   $('#join').hidden = true;
   $('#join-error').hidden = true;
   $('#lobby').hidden = false;
-  $('#me').textContent = `${name} · spel ${code}`;
+  $('#me').textContent = code;
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
 }
 

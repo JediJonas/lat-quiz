@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { renderRing, ranks, scoreTracker } from './ui.js';
+import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
@@ -148,10 +148,12 @@ async function startGame(categoryId, resumeState) {
     for (const player of Object.values(state.players)) player.connected = false;
   } else {
     state = game.createGame({
-      code: newCode(), categoryId: category.id, labels: category.labels,
+      code: newCode(), categoryId: category.id, categoryName: category.name, labels: category.labels,
       settings: loadSettings(),
     });
   }
+  // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
+  state.categoryName = category.name;
   save();
   $('#setup').hidden = true;
   $('#game').hidden = false;
@@ -258,8 +260,8 @@ function showSettings(current) {
 }
 
 function settingsSummary(s) {
-  return [`${s.roundMs / 1000} s betänketid`, s.bonusMs ? `bonus inom ${s.bonusMs / 1000} s` : 'ingen bonus',
-    `först till ${s.winScore} poäng`].join(' · ');
+  return [`Tid ${s.roundMs / 1000} s`, s.bonusMs ? `Bonus ${s.bonusMs / 1000} s` : 'Ingen bonus',
+    `Först till ${s.winScore}`].join(' · ');
 }
 
 async function editSettings() {
@@ -307,16 +309,13 @@ function renderPlayers() {
   const list = game.standings(state);
   const places = ranks(list);
   const rows = list.map((p, i) => {
-    let status = '';
-    if (round && round.phase === 'playing') {
-      status = game.hasAnsweredBoth(state, p.id) ? '<span class="tag good">Svarat</span>' : '<span class="tag">Väntar</span>';
-    } else if (round && round.phase === 'revealed' && round.results[p.id]) {
-      const r = round.results[p.id];
-      const labels = state.labels || game.DEFAULT_LABELS;
-      const tag = (ok, label) => `<span class="tag ${ok ? 'good' : 'bad'}">${esc(label)}</span>`;
-      status = tag(r.artist, labels.artist) + tag(r.title, labels.title)
-        + (r.bonus ? '<span class="tag bonus">Bonus</span>' : '') + ` <strong>+${r.points}</strong>`;
-    }
+    const status = round ? statusTags({
+      phase: round.phase,
+      progress: game.answeredFields(state, p.id),
+      result: round.results && round.results[p.id],
+      labels: state.labels || game.DEFAULT_LABELS,
+      esc,
+    }) : '';
     return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
       <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
       <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
@@ -344,14 +343,13 @@ function playLinks(song) {
 function reopenLinks(song) {
   const app = spotifyAppUrl(song);
   const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
-  return `<p class="muted small">Öppnades inte låten? Öppna den i ${
+  return `<p class="muted small reopen">Öppnades inte låten? Öppna den i ${
     app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
 }
 
 function render() {
   const round = state.round;
-  const left = game.unplayedSongs(state, songs).length;
-  $('#category').textContent = `${category.name} · ${left} av ${songs.length} låtar kvar`;
+  $('#category').textContent = category.name;
   const stage = $('#stage');
 
   if (!round) {
@@ -366,7 +364,6 @@ function render() {
   } else if (round.phase === 'playing') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
-      ${state.bonusMs ? `<p class="muted">Bonus för rätt svar inom ${state.bonusMs / 1000} sekunder.</p>` : ''}
       <button id="reveal" class="secondary">Visa svar nu</button>
       ${reopenLinks(round.song)}`;
     renderTimer();
@@ -380,6 +377,7 @@ function render() {
         : '<button id="next" class="big huge">Nästa låt</button>'}`;
   }
   renderPlayers();
+  $('#game-settings-summary').textContent = settingsSummary(game.cleanSettings(state));
 }
 
 // ---- Start ----
