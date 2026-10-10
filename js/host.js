@@ -349,8 +349,7 @@ function reopenLinks(song) {
 
 function render() {
   const round = state.round;
-  const left = game.unplayedSongs(state, songs).length;
-  $('#category').textContent = `${category.name} · ${left} av ${songs.length} låtar kvar`;
+  $('#category').textContent = category.name;
   const stage = $('#stage');
 
   if (!round) {
