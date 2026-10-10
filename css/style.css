@@ -22,6 +22,8 @@
   --bad-soft: rgba(211, 58, 58, 0.1);
   --bonus: #c27400;
   --bonus-soft: rgba(194, 116, 0, 0.12);
+  --answered: #8a6a00;
+  --answered-soft: rgba(250, 204, 21, 0.28);
   --shadow-sm: 0 1px 2px rgba(16, 16, 24, 0.06);
   --shadow: 0 1px 2px rgba(16, 16, 24, 0.04), 0 8px 24px rgba(16, 16, 24, 0.06);
   --radius: 14px;
@@ -47,6 +49,8 @@
     --bad-soft: rgba(255, 107, 107, 0.13);
     --bonus: #f5b041;
     --bonus-soft: rgba(245, 176, 65, 0.14);
+    --answered: #fde047;
+    --answered-soft: rgba(250, 204, 21, 0.16);
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
     --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239a9aa6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -171,7 +175,8 @@ button.link:hover { color: var(--text); text-decoration: underline; }
   vertical-align: 1px;
 }
 .tag.good { background: var(--good-soft); color: var(--good); }
-.tag.bad { background: var(--bad-soft); color: var(--bad); text-decoration: line-through; }
+.tag.answered { background: var(--answered-soft); color: var(--answered); }
+.tag.bad { background: var(--bad-soft); color: var(--bad); }
 .tag.bonus { background: var(--bonus-soft); color: var(--bonus); }
 
 /* Poängtabell */
@@ -195,7 +200,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 
 /* Nedräkning */
 .ring { position: relative; width: 200px; height: 200px; margin: 8px auto 16px; }
-.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
 .ring circle { fill: none; stroke-width: 7; }
 .ring-track { stroke: var(--surface-2); }
 .ring { --ring-color: hsl(135 80% 45%); }
@@ -210,6 +215,12 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
 }
+.mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
+.mid-ring circle { stroke-width: 8; }
+.mid-ring .ring-num { font-size: 2.8rem; }
+#standings td { padding-left: 8px; padding-right: 8px; }
+#standings td.status { text-align: right; padding-right: 4px; }
+#standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -268,6 +279,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 
 /* Spelarens rubrikrad */
 .player-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--muted); }
+.player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.player-head .who strong { color: var(--text); font-size: 1rem; }
+.player-head .who strong:empty { display: none; }
+#me { font-size: 0.9rem; letter-spacing: 0.08em; }
 .conn {
   display: inline-flex;
   align-items: center;
@@ -346,6 +361,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .host .ring { width: 240px; height: 240px; }
 .host .ring-num { font-size: 5rem; }
 .actions { margin-top: 24px; }
+.game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 12px; }
+.game-head p { margin: 0; }
+#game-settings-summary { text-align: right; }
+.reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-link { margin-top: 8px; }
 .settings-link .small { display: block; margin-top: 4px; }
 .modal.settings label:first-of-type { margin-top: 8px; }

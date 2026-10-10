@@ -1,0 +1,1327 @@
+{
+ "id": "2000-tal",
+ "name": "2000-talets hits",
+ "file": "2000-tal.json",
+ "songs": [
+  {
+   "id": "colby-o-donis-just-dance",
+   "artist": "Colby O'Donis",
+   "title": "Just Dance",
+   "year": 2008
+  },
+  {
+   "id": "linkin-park-in-the-end",
+   "artist": "Linkin Park",
+   "title": "In the End",
+   "year": 2001
+  },
+  {
+   "id": "kylie-minogue-can-t-get-you-out-of-my-head",
+   "artist": "Kylie Minogue",
+   "title": "Can't Get You Out of My Head",
+   "year": 2001
+  },
+  {
+   "id": "katy-perry-i-kissed-a-girl",
+   "artist": "Katy Perry",
+   "title": "I Kissed a Girl",
+   "year": 2008
+  },
+  {
+   "id": "madonna-4-minutes",
+   "artist": "Madonna",
+   "title": "4 Minutes",
+   "year": 2008
+  },
+  {
+   "id": "katy-perry-hot-n-cold",
+   "artist": "Katy Perry",
+   "title": "Hot n Cold",
+   "year": 2008
+  },
+  {
+   "id": "bc-jean-if-i-were-a-boy",
+   "artist": "BC Jean",
+   "title": "If I Were a Boy",
+   "year": 2008
+  },
+  {
+   "id": "linkin-park-one-step-closer",
+   "artist": "Linkin Park",
+   "title": "One Step Closer",
+   "year": 2000
+  },
+  {
+   "id": "britney-spears-toxic",
+   "artist": "Britney Spears",
+   "title": "Toxic",
+   "year": 2004
+  },
+  {
+   "id": "linkin-park-crawling",
+   "artist": "Linkin Park",
+   "title": "Crawling",
+   "year": 2001
+  },
+  {
+   "id": "michael-jackson-you-rock-my-world",
+   "artist": "Michael Jackson",
+   "title": "You Rock My World",
+   "year": 2001
+  },
+  {
+   "id": "linkin-park-what-i-ve-done",
+   "artist": "Linkin Park",
+   "title": "What I've Done",
+   "year": 2007
+  },
+  {
+   "id": "paul-mccoy-bring-me-to-life",
+   "artist": "Paul McCoy & Evanescence",
+   "title": "Bring Me to Life",
+   "year": 2003
+  },
+  {
+   "id": "britney-spears-3",
+   "artist": "Britney Spears",
+   "title": "3",
+   "year": 2009
+  },
+  {
+   "id": "kylie-minogue-slow",
+   "artist": "Kylie Minogue",
+   "title": "Slow",
+   "year": 2003
+  },
+  {
+   "id": "avril-lavigne-complicated",
+   "artist": "Avril Lavigne",
+   "title": "Complicated",
+   "year": 2002
+  },
+  {
+   "id": "the-white-stripes-seven-nation-army",
+   "artist": "The White Stripes",
+   "title": "Seven Nation Army",
+   "year": 2003
+  },
+  {
+   "id": "lil-mama-girlfriend",
+   "artist": "Lil Mama & Avril Lavigne",
+   "title": "Girlfriend",
+   "year": 2007
+  },
+  {
+   "id": "madonna-hung-up",
+   "artist": "Madonna",
+   "title": "Hung Up",
+   "year": 2005
+  },
+  {
+   "id": "system-of-a-down-chop-suey",
+   "artist": "System of a Down",
+   "title": "Chop Suey!",
+   "year": 2001
+  },
+  {
+   "id": "kylie-minogue-in-your-eyes",
+   "artist": "Kylie Minogue",
+   "title": "In Your Eyes",
+   "year": 2002
+  },
+  {
+   "id": "avril-lavigne-sk8er-boi",
+   "artist": "Avril Lavigne",
+   "title": "Sk8er Boi",
+   "year": 2002
+  },
+  {
+   "id": "eminem-lose-yourself",
+   "artist": "Eminem",
+   "title": "Lose Yourself",
+   "year": 2002
+  },
+  {
+   "id": "green-day-boulevard-of-broken-dreams",
+   "artist": "Green Day",
+   "title": "Boulevard of Broken Dreams",
+   "year": 2004
+  },
+  {
+   "id": "kylie-minogue-red-blooded-woman",
+   "artist": "Kylie Minogue",
+   "title": "Red Blooded Woman",
+   "year": 2004
+  },
+  {
+   "id": "onerepublic-apologize",
+   "artist": "OneRepublic",
+   "title": "Apologize",
+   "year": 2007
+  },
+  {
+   "id": "amy-winehouse-rehab",
+   "artist": "Amy Winehouse",
+   "title": "Rehab",
+   "year": 2006
+  },
+  {
+   "id": "kesha-tik-tok",
+   "artist": "Kesha",
+   "title": "Tik Tok",
+   "year": 2009
+  },
+  {
+   "id": "avril-lavigne-i-m-with-you",
+   "artist": "Avril Lavigne",
+   "title": "I'm with You",
+   "year": 2002
+  },
+  {
+   "id": "ruslana-lyzhychko-wild-dances",
+   "artist": "Ruslana Lyzhychko",
+   "title": "Wild Dances",
+   "year": 2004
+  },
+  {
+   "id": "coldplay-yellow",
+   "artist": "Coldplay",
+   "title": "Yellow",
+   "year": 2000
+  },
+  {
+   "id": "green-day-wake-me-up-when-september-ends",
+   "artist": "Green Day",
+   "title": "Wake Me Up When September Ends",
+   "year": 2005
+  },
+  {
+   "id": "madonna-miles-away",
+   "artist": "Madonna",
+   "title": "Miles Away",
+   "year": 2008
+  },
+  {
+   "id": "nelly-furtado-all-good-things-come-to-an-end",
+   "artist": "Nelly Furtado",
+   "title": "All Good Things (Come to an End)",
+   "year": 2006
+  },
+  {
+   "id": "eminem-stan",
+   "artist": "Eminem & Dido",
+   "title": "Stan",
+   "year": 2000
+  },
+  {
+   "id": "madonna-jump",
+   "artist": "Madonna",
+   "title": "Jump",
+   "year": 2006
+  },
+  {
+   "id": "britney-spears-stronger",
+   "artist": "Britney Spears",
+   "title": "Stronger",
+   "year": 2000
+  },
+  {
+   "id": "michael-jackson-cry",
+   "artist": "Michael Jackson",
+   "title": "Cry",
+   "year": 2001
+  },
+  {
+   "id": "black-eyed-peas-boom-boom-pow",
+   "artist": "Black Eyed Peas",
+   "title": "Boom Boom Pow",
+   "year": 2009
+  },
+  {
+   "id": "britney-spears-lucky",
+   "artist": "Britney Spears",
+   "title": "Lucky",
+   "year": 2000
+  },
+  {
+   "id": "green-day-american-idiot",
+   "artist": "Green Day",
+   "title": "American Idiot",
+   "year": 2004
+  },
+  {
+   "id": "system-of-a-down-toxicity",
+   "artist": "System of a Down",
+   "title": "Toxicity",
+   "year": 2002
+  },
+  {
+   "id": "system-of-a-down-lonely-day",
+   "artist": "System of a Down",
+   "title": "Lonely Day",
+   "year": 2006
+  },
+  {
+   "id": "michael-jackson-butterflies",
+   "artist": "Michael Jackson",
+   "title": "Butterflies",
+   "year": 2002
+  },
+  {
+   "id": "katy-perry-waking-up-in-vegas",
+   "artist": "Katy Perry",
+   "title": "Waking Up in Vegas",
+   "year": 2009
+  },
+  {
+   "id": "taylor-swift-tim-mcgraw",
+   "artist": "Taylor Swift",
+   "title": "Tim McGraw",
+   "year": 2006
+  },
+  {
+   "id": "avril-lavigne-nobody-s-home",
+   "artist": "Avril Lavigne",
+   "title": "Nobody's Home",
+   "year": 2004
+  },
+  {
+   "id": "evanescence-my-immortal",
+   "artist": "Evanescence",
+   "title": "My Immortal",
+   "year": 2003
+  },
+  {
+   "id": "coldplay-clocks",
+   "artist": "Coldplay",
+   "title": "Clocks",
+   "year": 2002
+  },
+  {
+   "id": "gwen-stefani-hollaback-girl",
+   "artist": "Gwen Stefani",
+   "title": "Hollaback Girl",
+   "year": 2005
+  },
+  {
+   "id": "system-of-a-down-b-y-o-b",
+   "artist": "System of a Down",
+   "title": "B.Y.O.B.",
+   "year": 2005
+  },
+  {
+   "id": "metallica-st-anger",
+   "artist": "Metallica",
+   "title": "St. Anger",
+   "year": 2003
+  },
+  {
+   "id": "rammstein-sonne",
+   "artist": "Rammstein",
+   "title": "Sonne",
+   "year": 2001
+  },
+  {
+   "id": "taylor-swift-teardrops-on-my-guitar",
+   "artist": "Taylor Swift",
+   "title": "Teardrops on My Guitar",
+   "year": 2007
+  },
+  {
+   "id": "maroon-5-if-i-never-see-your-face-again",
+   "artist": "Maroon 5",
+   "title": "If I Never See Your Face Again",
+   "year": 2008
+  },
+  {
+   "id": "maroon-5-this-love",
+   "artist": "Maroon 5",
+   "title": "This Love",
+   "year": 2004
+  },
+  {
+   "id": "coldplay-the-scientist",
+   "artist": "Coldplay",
+   "title": "The Scientist",
+   "year": 2002
+  },
+  {
+   "id": "miley-cyrus-party-in-the-u-s-a",
+   "artist": "Miley Cyrus",
+   "title": "Party in the U.S.A.",
+   "year": 2009
+  },
+  {
+   "id": "u2-beautiful-day",
+   "artist": "U2",
+   "title": "Beautiful Day",
+   "year": 2000
+  },
+  {
+   "id": "green-day-21-guns",
+   "artist": "Green Day",
+   "title": "21 Guns",
+   "year": 2009
+  },
+  {
+   "id": "ne-yo-hate-that-i-love-you",
+   "artist": "Ne-Yo",
+   "title": "Hate That I Love You",
+   "year": 2007
+  },
+  {
+   "id": "the-jackson-5-this-is-it",
+   "artist": "The Jackson 5 & Michael Jackson",
+   "title": "This Is It",
+   "year": 2009
+  },
+  {
+   "id": "metallica-the-day-that-never-comes",
+   "artist": "Metallica",
+   "title": "The Day That Never Comes",
+   "year": 2008
+  },
+  {
+   "id": "rammstein-amerika",
+   "artist": "Rammstein",
+   "title": "Amerika",
+   "year": 2004
+  },
+  {
+   "id": "black-eyed-peas-i-gotta-feeling",
+   "artist": "Black Eyed Peas",
+   "title": "I Gotta Feeling",
+   "year": 2009
+  },
+  {
+   "id": "eminem-without-me",
+   "artist": "Eminem",
+   "title": "Without Me",
+   "year": 2002
+  },
+  {
+   "id": "michael-jackson-one-more-chance",
+   "artist": "Michael Jackson",
+   "title": "One More Chance",
+   "year": 2003
+  },
+  {
+   "id": "rammstein-pussy",
+   "artist": "Rammstein",
+   "title": "Pussy",
+   "year": 2009
+  },
+  {
+   "id": "miley-cyrus-see-you-again",
+   "artist": "Miley Cyrus",
+   "title": "See You Again",
+   "year": 2007
+  },
+  {
+   "id": "owl-city-fireflies",
+   "artist": "Owl City",
+   "title": "Fireflies",
+   "year": 2009
+  },
+  {
+   "id": "maroon-5-she-will-be-loved",
+   "artist": "Maroon 5",
+   "title": "She Will Be Loved",
+   "year": 2004
+  },
+  {
+   "id": "coldplay-fix-you",
+   "artist": "Coldplay",
+   "title": "Fix You",
+   "year": 2005
+  },
+  {
+   "id": "james-blunt-you-re-beautiful",
+   "artist": "James Blunt",
+   "title": "You're Beautiful",
+   "year": 2005
+  },
+  {
+   "id": "kelly-clarkson-breakaway",
+   "artist": "Kelly Clarkson",
+   "title": "Breakaway",
+   "year": 2004
+  },
+  {
+   "id": "jennifer-lopez-let-s-get-loud",
+   "artist": "Jennifer Lopez",
+   "title": "Let's Get Loud",
+   "year": 2000
+  },
+  {
+   "id": "nelly-furtado-i-m-like-a-bird",
+   "artist": "Nelly Furtado",
+   "title": "I'm Like a Bird",
+   "year": 2000
+  },
+  {
+   "id": "kelly-clarkson-since-u-been-gone",
+   "artist": "Kelly Clarkson",
+   "title": "Since U Been Gone",
+   "year": 2004
+  },
+  {
+   "id": "rammstein-mein-teil",
+   "artist": "Rammstein",
+   "title": "Mein Teil",
+   "year": 2004
+  },
+  {
+   "id": "urban-symphony-randajad",
+   "artist": "Urban Symphony",
+   "title": "Rändajad",
+   "year": 2009
+  },
+  {
+   "id": "t-i-live-your-life",
+   "artist": "T.I.",
+   "title": "Live Your Life",
+   "year": 2008
+  },
+  {
+   "id": "nightwish-wish-i-had-an-angel",
+   "artist": "Nightwish",
+   "title": "Wish I Had an Angel",
+   "year": 2004
+  },
+  {
+   "id": "nelly-furtado-promiscuous",
+   "artist": "Nelly Furtado",
+   "title": "Promiscuous",
+   "year": 2006
+  },
+  {
+   "id": "the-killers-mr-brightside",
+   "artist": "The Killers",
+   "title": "Mr. Brightside",
+   "year": 2003
+  },
+  {
+   "id": "taylor-swift-our-song",
+   "artist": "Taylor Swift",
+   "title": "Our Song",
+   "year": 2001
+  },
+  {
+   "id": "katy-perry-if-we-ever-meet-again",
+   "artist": "Katy Perry",
+   "title": "If We Ever Meet Again",
+   "year": 2009
+  },
+  {
+   "id": "knaan-wavin-flag",
+   "artist": "K’naan",
+   "title": "Wavin' Flag",
+   "year": 2009
+  },
+  {
+   "id": "nelly-furtado-say-it-right",
+   "artist": "Nelly Furtado",
+   "title": "Say It Right",
+   "year": 2006
+  },
+  {
+   "id": "jadakiss-jenny-from-the-block",
+   "artist": "Jadakiss & Styles P",
+   "title": "Jenny from the Block",
+   "year": 2002
+  },
+  {
+   "id": "daft-punk-one-more-time",
+   "artist": "Daft Punk",
+   "title": "One More Time",
+   "year": 2000
+  },
+  {
+   "id": "fergie-big-girls-don-t-cry",
+   "artist": "Fergie",
+   "title": "Big Girls Don't Cry",
+   "year": 2007
+  },
+  {
+   "id": "nightwish-amaranth",
+   "artist": "Nightwish",
+   "title": "Amaranth",
+   "year": 2007
+  },
+  {
+   "id": "miley-cyrus-the-climb",
+   "artist": "Miley Cyrus & Joe McElderry",
+   "title": "The Climb",
+   "year": 2009
+  },
+  {
+   "id": "maroon-5-harder-to-breathe",
+   "artist": "Maroon 5",
+   "title": "Harder to Breathe",
+   "year": 2002
+  },
+  {
+   "id": "taylor-swift-picture-to-burn",
+   "artist": "Taylor Swift",
+   "title": "Picture to Burn",
+   "year": 2008
+  },
+  {
+   "id": "arctic-monkeys-i-bet-you-look-good-on-the-dancefloor",
+   "artist": "Arctic Monkeys",
+   "title": "I Bet You Look Good on the Dancefloor",
+   "year": 2005
+  },
+  {
+   "id": "my-chemical-romance-welcome-to-the-black-parade",
+   "artist": "My Chemical Romance",
+   "title": "Welcome to the Black Parade",
+   "year": 2006
+  },
+  {
+   "id": "jennifer-lopez-love-don-t-cost-a-thing",
+   "artist": "Jennifer Lopez",
+   "title": "Love Don't Cost a Thing",
+   "year": 2001
+  },
+  {
+   "id": "red-hot-chili-peppers-californication",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Californication",
+   "year": 2000
+  },
+  {
+   "id": "eminem-mockingbird",
+   "artist": "Eminem",
+   "title": "Mockingbird",
+   "year": 2005
+  },
+  {
+   "id": "nirvana-you-know-you-re-right",
+   "artist": "Nirvana",
+   "title": "You Know You're Right",
+   "year": 2002
+  },
+  {
+   "id": "wale-chillin",
+   "artist": "Wale",
+   "title": "Chillin",
+   "year": 2009
+  },
+  {
+   "id": "cangaia-de-jegue-ai-se-eu-te-pego",
+   "artist": "Cangaia de Jegue",
+   "title": "Ai Se Eu Te Pego",
+   "year": 2008
+  },
+  {
+   "id": "the-pussycat-dolls-don-t-cha",
+   "artist": "The Pussycat Dolls",
+   "title": "Don't Cha",
+   "year": 2005
+  },
+  {
+   "id": "evanescence-call-me-when-you-re-sober",
+   "artist": "Evanescence",
+   "title": "Call Me When You're Sober",
+   "year": 2006
+  },
+  {
+   "id": "red-hot-chili-peppers-dani-california",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Dani California",
+   "year": 2006
+  },
+  {
+   "id": "cheb-mami-desert-rose",
+   "artist": "Cheb Mami & Sting",
+   "title": "Desert Rose",
+   "year": 2000
+  },
+  {
+   "id": "las-ketchup-the-ketchup-song",
+   "artist": "Las Ketchup",
+   "title": "The Ketchup Song",
+   "year": 2002
+  },
+  {
+   "id": "nightwish-nemo",
+   "artist": "Nightwish",
+   "title": "Nemo",
+   "year": 2004
+  },
+  {
+   "id": "kelly-rowland-dilemma",
+   "artist": "Kelly Rowland",
+   "title": "Dilemma",
+   "year": 2002
+  },
+  {
+   "id": "slipknot-before-i-forget",
+   "artist": "Slipknot",
+   "title": "Before I Forget",
+   "year": 2005
+  },
+  {
+   "id": "black-eyed-peas-where-is-the-love",
+   "artist": "Black Eyed Peas",
+   "title": "Where Is the Love?",
+   "year": 2003
+  },
+  {
+   "id": "outkast-hey-ya",
+   "artist": "OutKast",
+   "title": "Hey Ya!",
+   "year": 2003
+  },
+  {
+   "id": "gorillaz-feel-good-inc",
+   "artist": "Gorillaz",
+   "title": "Feel Good Inc.",
+   "year": 2005
+  },
+  {
+   "id": "slipknot-psychosocial",
+   "artist": "Slipknot",
+   "title": "Psychosocial",
+   "year": 2008
+  },
+  {
+   "id": "christina-aguilera-hurt",
+   "artist": "Christina Aguilera",
+   "title": "Hurt",
+   "year": 2006
+  },
+  {
+   "id": "slim-thug-check-on-it",
+   "artist": "Slim Thug",
+   "title": "Check on It",
+   "year": 2005
+  },
+  {
+   "id": "christina-aguilera-ain-t-no-other-man",
+   "artist": "Christina Aguilera",
+   "title": "Ain't No Other Man",
+   "year": 2006
+  },
+  {
+   "id": "kelly-clarkson-behind-these-hazel-eyes",
+   "artist": "Kelly Clarkson",
+   "title": "Behind These Hazel Eyes",
+   "year": 2005
+  },
+  {
+   "id": "nickelback-how-you-remind-me",
+   "artist": "Nickelback",
+   "title": "How You Remind Me",
+   "year": 2001
+  },
+  {
+   "id": "kesha-right-round",
+   "artist": "Kesha",
+   "title": "Right Round",
+   "year": 2009
+  },
+  {
+   "id": "keane-somewhere-only-we-know",
+   "artist": "Keane",
+   "title": "Somewhere Only We Know",
+   "year": 2004
+  },
+  {
+   "id": "metallica-the-unnamed-feeling",
+   "artist": "Metallica",
+   "title": "The Unnamed Feeling",
+   "year": 2004
+  },
+  {
+   "id": "metallica-frantic",
+   "artist": "Metallica",
+   "title": "Frantic",
+   "year": 2003
+  },
+  {
+   "id": "christina-aguilera-candyman",
+   "artist": "Christina Aguilera",
+   "title": "Candyman",
+   "year": 2007
+  },
+  {
+   "id": "annie-lennox-into-the-west",
+   "artist": "Annie Lennox",
+   "title": "Into the West",
+   "year": 2003
+  },
+  {
+   "id": "slipknot-duality",
+   "artist": "Slipknot",
+   "title": "Duality",
+   "year": 2004
+  },
+  {
+   "id": "dr-dre-the-next-episode",
+   "artist": "Dr. Dre & Snoop Dogg",
+   "title": "The Next Episode",
+   "year": 2000
+  },
+  {
+   "id": "space-cowboy-christmas-tree",
+   "artist": "Space Cowboy",
+   "title": "Christmas Tree",
+   "year": 2008
+  },
+  {
+   "id": "johanna-gurun-jonsdottir-is-it-true",
+   "artist": "Jóhanna Guðrún Jónsdóttir",
+   "title": "Is It True?",
+   "year": 2009
+  },
+  {
+   "id": "the-killers-somebody-told-me",
+   "artist": "The Killers",
+   "title": "Somebody Told Me",
+   "year": 2004
+  },
+  {
+   "id": "lordi-would-you-love-a-monsterman",
+   "artist": "Lordi",
+   "title": "Would You Love a Monsterman?",
+   "year": 2002
+  },
+  {
+   "id": "snoop-dogg-buttons",
+   "artist": "Snoop Dogg & The Pussycat Dolls",
+   "title": "Buttons",
+   "year": 2006
+  },
+  {
+   "id": "christina-aguilera-fighter",
+   "artist": "Christina Aguilera",
+   "title": "Fighter",
+   "year": 2003
+  },
+  {
+   "id": "evanescence-everybody-s-fool",
+   "artist": "Evanescence",
+   "title": "Everybody's Fool",
+   "year": 2004
+  },
+  {
+   "id": "nightwish-kuolema-tekee-taiteilijan",
+   "artist": "Nightwish",
+   "title": "Kuolema Tekee Taiteilijan",
+   "year": 2005
+  },
+  {
+   "id": "destiny-s-child-survivor",
+   "artist": "Destiny's Child",
+   "title": "Survivor",
+   "year": 2001
+  },
+  {
+   "id": "destiny-s-child-independent-women-part-i",
+   "artist": "Destiny's Child",
+   "title": "Independent Women Part I",
+   "year": 2000
+  },
+  {
+   "id": "evanescence-going-under",
+   "artist": "Evanescence",
+   "title": "Going Under",
+   "year": 2003
+  },
+  {
+   "id": "verka-serduchka-dancing-lasha-tumbai",
+   "artist": "Verka Serduchka",
+   "title": "Dancing Lasha Tumbai",
+   "year": 2007
+  },
+  {
+   "id": "ludacris-yeah",
+   "artist": "Ludacris & Usher",
+   "title": "Yeah!",
+   "year": 2004
+  },
+  {
+   "id": "red-hot-chili-peppers-otherside",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Otherside",
+   "year": 2000
+  },
+  {
+   "id": "daniel-powter-bad-day",
+   "artist": "Daniel Powter",
+   "title": "Bad Day",
+   "year": 2005
+  },
+  {
+   "id": "the-rasmus-in-the-shadows",
+   "artist": "The Rasmus",
+   "title": "In the Shadows",
+   "year": 2003
+  },
+  {
+   "id": "red-hot-chili-peppers-can-t-stop",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Can't Stop",
+   "year": 2003
+  },
+  {
+   "id": "amy-macdonald-this-is-the-life",
+   "artist": "Amy Macdonald",
+   "title": "This Is the Life",
+   "year": 2008
+  },
+  {
+   "id": "janet-jackson-all-for-you",
+   "artist": "Janet Jackson",
+   "title": "All for You",
+   "year": 2001
+  },
+  {
+   "id": "ja-rule-i-m-real",
+   "artist": "Ja Rule & Jennifer Lopez",
+   "title": "I'm Real",
+   "year": 2001
+  },
+  {
+   "id": "t-i-my-love",
+   "artist": "T.I.",
+   "title": "My Love",
+   "year": 2006
+  },
+  {
+   "id": "the-killers-human",
+   "artist": "The Killers",
+   "title": "Human",
+   "year": 2008
+  },
+  {
+   "id": "dido-thank-you",
+   "artist": "Dido",
+   "title": "Thank You",
+   "year": 2000
+  },
+  {
+   "id": "robbie-williams-supreme",
+   "artist": "Robbie Williams",
+   "title": "Supreme",
+   "year": 2000
+  },
+  {
+   "id": "t-a-t-u-all-the-things-she-said",
+   "artist": "t.A.T.u.",
+   "title": "All the Things She Said",
+   "year": 2002
+  },
+  {
+   "id": "slipknot-my-plague",
+   "artist": "Slipknot",
+   "title": "My Plague",
+   "year": 2002
+  },
+  {
+   "id": "black-eyed-peas-meet-me-halfway",
+   "artist": "Black Eyed Peas",
+   "title": "Meet Me Halfway",
+   "year": 2009
+  },
+  {
+   "id": "olivia-candy-shop",
+   "artist": "Olivia",
+   "title": "Candy Shop",
+   "year": 2005
+  },
+  {
+   "id": "foo-fighters-the-pretender",
+   "artist": "Foo Fighters",
+   "title": "The Pretender",
+   "year": 2007
+  },
+  {
+   "id": "miley-cyrus-7-things",
+   "artist": "Miley Cyrus",
+   "title": "7 Things",
+   "year": 2008
+  },
+  {
+   "id": "gwen-stefani-4-in-the-morning",
+   "artist": "Gwen Stefani",
+   "title": "4 in the Morning",
+   "year": 2007
+  },
+  {
+   "id": "jason-mraz-i-m-yours",
+   "artist": "Jason Mraz",
+   "title": "I'm Yours",
+   "year": 2008
+  },
+  {
+   "id": "iron-maiden-the-wicker-man",
+   "artist": "Iron Maiden",
+   "title": "The Wicker Man",
+   "year": 2000
+  },
+  {
+   "id": "sirusho-qele-qele",
+   "artist": "Sirusho",
+   "title": "Qélé, Qélé",
+   "year": 2008
+  },
+  {
+   "id": "t-a-t-u-all-about-us",
+   "artist": "t.A.T.u.",
+   "title": "All About Us",
+   "year": 2005
+  },
+  {
+   "id": "oasis-stop-crying-your-heart-out",
+   "artist": "Oasis",
+   "title": "Stop Crying Your Heart Out",
+   "year": 2002
+  },
+  {
+   "id": "depeche-mode-martyr",
+   "artist": "Depeche Mode",
+   "title": "Martyr",
+   "year": 2006
+  },
+  {
+   "id": "u2-walk-on",
+   "artist": "U2",
+   "title": "Walk On",
+   "year": 2001
+  },
+  {
+   "id": "vanessa-carlton-a-thousand-miles",
+   "artist": "Vanessa Carlton",
+   "title": "A Thousand Miles",
+   "year": 2002
+  },
+  {
+   "id": "fergie-london-bridge",
+   "artist": "Fergie",
+   "title": "London Bridge",
+   "year": 2006
+  },
+  {
+   "id": "kelly-clarkson-already-gone",
+   "artist": "Kelly Clarkson",
+   "title": "Already Gone",
+   "year": 2009
+  },
+  {
+   "id": "a-touch-of-class-around-the-world-la-la-la-la-la",
+   "artist": "A Touch of Class",
+   "title": "Around the World (La La La La La)",
+   "year": 2000
+  },
+  {
+   "id": "zeljko-joksimovic-lane-moje",
+   "artist": "Željko Joksimović",
+   "title": "Lane moje",
+   "year": 2004
+  },
+  {
+   "id": "plain-white-t-s-hey-there-delilah",
+   "artist": "Plain White T's",
+   "title": "Hey There Delilah",
+   "year": 2006
+  },
+  {
+   "id": "papa-roach-last-resort",
+   "artist": "Papa Roach",
+   "title": "Last Resort",
+   "year": 2000
+  },
+  {
+   "id": "dido-white-flag",
+   "artist": "Dido",
+   "title": "White Flag",
+   "year": 2003
+  },
+  {
+   "id": "destiny-s-child-bootylicious",
+   "artist": "Destiny's Child",
+   "title": "Bootylicious",
+   "year": 2001
+  },
+  {
+   "id": "sebastian-the-way-i-are",
+   "artist": "Sebastian & D.O.E.",
+   "title": "The Way I Are",
+   "year": 2007
+  },
+  {
+   "id": "jennifer-lopez-ain-t-it-funny",
+   "artist": "Jennifer Lopez",
+   "title": "Ain't It Funny",
+   "year": 2001
+  },
+  {
+   "id": "snow-patrol-run",
+   "artist": "Snow Patrol",
+   "title": "Run",
+   "year": 2004
+  },
+  {
+   "id": "jennifer-lopez-get-right",
+   "artist": "Jennifer Lopez",
+   "title": "Get Right",
+   "year": 2005
+  },
+  {
+   "id": "taio-cruz-break-your-heart",
+   "artist": "Taio Cruz",
+   "title": "Break Your Heart",
+   "year": 2009
+  },
+  {
+   "id": "alejandro-sanz-la-tortura",
+   "artist": "Alejandro Sanz",
+   "title": "La Tortura",
+   "year": 2005
+  },
+  {
+   "id": "girls-generation-into-the-new-world",
+   "artist": "Girls' Generation",
+   "title": "Into the New World",
+   "year": 2007
+  },
+  {
+   "id": "30-seconds-to-mars-the-kill",
+   "artist": "30 Seconds to Mars",
+   "title": "The Kill",
+   "year": 2006
+  },
+  {
+   "id": "enya-only-time",
+   "artist": "Enya",
+   "title": "Only Time",
+   "year": 2000
+  },
+  {
+   "id": "amy-winehouse-you-know-i-m-no-good",
+   "artist": "Amy Winehouse",
+   "title": "You Know I'm No Good",
+   "year": 2007
+  },
+  {
+   "id": "inna-hot",
+   "artist": "Inna",
+   "title": "Hot",
+   "year": 2008
+  },
+  {
+   "id": "robbie-williams-feel",
+   "artist": "Robbie Williams",
+   "title": "Feel",
+   "year": 2002
+  },
+  {
+   "id": "gwen-stefani-what-you-waiting-for",
+   "artist": "Gwen Stefani",
+   "title": "What You Waiting For?",
+   "year": 2004
+  },
+  {
+   "id": "jamie-foxx-gold-digger",
+   "artist": "Jamie Foxx",
+   "title": "Gold Digger",
+   "year": 2005
+  },
+  {
+   "id": "pink-u-ur-hand",
+   "artist": "Pink",
+   "title": "U + Ur Hand",
+   "year": 2006
+  },
+  {
+   "id": "girls-generation-gee",
+   "artist": "Girls' Generation",
+   "title": "Gee",
+   "year": 2009
+  },
+  {
+   "id": "kelly-rowland-when-love-takes-over",
+   "artist": "Kelly Rowland",
+   "title": "When Love Takes Over",
+   "year": 2009
+  },
+  {
+   "id": "foo-fighters-best-of-you",
+   "artist": "Foo Fighters",
+   "title": "Best of You",
+   "year": 2005
+  },
+  {
+   "id": "flipmode-squad-i-know-what-you-want",
+   "artist": "Flipmode Squad",
+   "title": "I Know What You Want",
+   "year": 2003
+  },
+  {
+   "id": "gwen-stefani-wind-it-up",
+   "artist": "Gwen Stefani",
+   "title": "Wind It Up",
+   "year": 2006
+  },
+  {
+   "id": "celine-dion-i-m-alive",
+   "artist": "Céline Dion",
+   "title": "I'm Alive",
+   "year": 2002
+  },
+  {
+   "id": "panic-at-the-disco-i-write-sins-not-tragedies",
+   "artist": "Panic! at the Disco",
+   "title": "I Write Sins Not Tragedies",
+   "year": 2006
+  },
+  {
+   "id": "various-artists-beijing-welcomes-you",
+   "artist": "various artists",
+   "title": "Beijing Welcomes You",
+   "year": 2008
+  },
+  {
+   "id": "cascada-evacuate-the-dancefloor",
+   "artist": "Cascada",
+   "title": "Evacuate the Dancefloor",
+   "year": 2009
+  },
+  {
+   "id": "depeche-mode-dream-on",
+   "artist": "Depeche Mode",
+   "title": "Dream On",
+   "year": 2001
+  },
+  {
+   "id": "jay-sean-down",
+   "artist": "Jay Sean",
+   "title": "Down",
+   "year": 2009
+  },
+  {
+   "id": "robbie-williams-rock-dj",
+   "artist": "Robbie Williams",
+   "title": "Rock DJ",
+   "year": 2000
+  },
+  {
+   "id": "depeche-mode-suffer-well",
+   "artist": "Depeche Mode",
+   "title": "Suffer Well",
+   "year": 2006
+  },
+  {
+   "id": "whitney-houston-could-i-have-this-kiss-forever",
+   "artist": "Whitney Houston & Enrique Iglesias",
+   "title": "Could I Have This Kiss Forever",
+   "year": 2000
+  },
+  {
+   "id": "demi-lovato-la-la-land",
+   "artist": "Demi Lovato",
+   "title": "La La Land",
+   "year": 2009
+  },
+  {
+   "id": "ludacris-glamorous",
+   "artist": "Ludacris & Fergie",
+   "title": "Glamorous",
+   "year": 2007
+  },
+  {
+   "id": "pink-dear-mr-president",
+   "artist": "Pink & Indigo Girls",
+   "title": "Dear Mr. President",
+   "year": 2006
+  },
+  {
+   "id": "daft-punk-harder-better-faster-stronger",
+   "artist": "Daft Punk",
+   "title": "Harder, Better, Faster, Stronger",
+   "year": 2001
+  },
+  {
+   "id": "fergie-fergalicious",
+   "artist": "Fergie",
+   "title": "Fergalicious",
+   "year": 2006
+  },
+  {
+   "id": "lordi-bite-it-like-a-bulldog",
+   "artist": "Lordi",
+   "title": "Bite It Like a Bulldog",
+   "year": 2008
+  },
+  {
+   "id": "u2-city-of-blinding-lights",
+   "artist": "U2",
+   "title": "City of Blinding Lights",
+   "year": 2005
+  },
+  {
+   "id": "ll-cool-j-all-i-have",
+   "artist": "LL Cool J & Jennifer Lopez",
+   "title": "All I Have",
+   "year": 2003
+  },
+  {
+   "id": "arash-always",
+   "artist": "Arash & Aysel Teymurzadeh",
+   "title": "Always",
+   "year": 2009
+  },
+  {
+   "id": "oasis-go-let-it-out",
+   "artist": "Oasis",
+   "title": "Go Let It Out",
+   "year": 2000
+  },
+  {
+   "id": "98-degrees-thank-god-i-found-you",
+   "artist": "98 Degrees & Joe",
+   "title": "Thank God I Found You",
+   "year": 2000
+  },
+  {
+   "id": "depeche-mode-peace",
+   "artist": "Depeche Mode",
+   "title": "Peace",
+   "year": 2009
+  },
+  {
+   "id": "leona-lewis-i-will-be",
+   "artist": "Leona Lewis",
+   "title": "I Will Be",
+   "year": 2009
+  },
+  {
+   "id": "carlos-santana-illegal",
+   "artist": "Carlos Santana",
+   "title": "Illegal",
+   "year": 2006
+  },
+  {
+   "id": "iron-maiden-out-of-the-silent-planet",
+   "artist": "Iron Maiden",
+   "title": "Out of the Silent Planet",
+   "year": 2000
+  },
+  {
+   "id": "30-seconds-to-mars-kings-and-queens",
+   "artist": "30 Seconds to Mars",
+   "title": "Kings and Queens",
+   "year": 2009
+  },
+  {
+   "id": "duffy-mercy",
+   "artist": "Duffy",
+   "title": "Mercy",
+   "year": 2008
+  }
+ ]
+}

@@ -22,14 +22,18 @@
 
     <section id="lobby" hidden>
       <header class="player-head">
-        <span id="me"></span>
+        <div class="who">
+          <strong id="category-name"></strong>
+          <span id="me"></span>
+        </div>
         <span id="conn" class="conn connecting">Ansluter …</span>
       </header>
 
       <div id="waiting" class="card"><p id="waiting-text">Väntar på första låten …</p></div>
 
       <div id="guess" class="card" hidden>
-        <div class="round-head"><h2 id="round-title"></h2><div id="timer" class="ring small-ring"></div></div>
+        <h2 id="round-title"></h2>
+        <div id="timer" class="ring mid-ring"></div>
         <label for="artist">Artist</label>
         <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
         <label for="title">Titel</label>
