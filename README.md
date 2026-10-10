@@ -19,6 +19,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/net.js`: kommunikationen via PeerJS, med automatisk återanslutning.
 - `js/host.js`, `js/play.js`: spelledarvy och spelarvy.
 - `data/`: kategorier, quizlåtar och förslagslista.
+- `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `vendor/`: PeerJS 1.5.4 och qrcode-generator 1.4.4.
 
 ## Köra lokalt
@@ -38,3 +39,7 @@ PeerJS gratisserver används som standard. För att testa med en egen PeerJS-ser
 ```
 npm test
 ```
+
+## Spotify-ID
+
+`verktyg/spotify-id.html` slår upp Spotify-ID för låtarna i en kategori. Den söker hos iTunes och översätter via Song.link, som tillåter ungefär 10 anrop i minuten. Sidan körs i en vanlig webbläsare, till exempel via GitHub Pages, och laddar ner en uppdaterad JSON-fil som ersätter filen i `data/`. Låtar utan ID får en sökning i Spotify i stället.
