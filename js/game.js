@@ -40,10 +40,11 @@ export function normalize(text) {
 }
 
 // labels: vad fälten heter i kategorin, till exempel Kompositör och Verk.
-export function createGame({ code, categoryId, playedIds = [], labels = DEFAULT_LABELS, settings }) {
+export function createGame({ code, categoryId, categoryName = '', playedIds = [], labels = DEFAULT_LABELS, settings }) {
   return {
     code,
     categoryId,
+    categoryName,
     players: {},
     playedIds: [...playedIds],
     roundNumber: 0,
@@ -205,6 +206,7 @@ export function playerView(state, playerId, now) {
   const round = state.round;
   const view = {
     code: state.code,
+    categoryName: state.categoryName || '',
     standings: standings(state),
     answered: round ? Object.keys(state.players).filter((id) => hasAnsweredBoth(state, id)) : [],
     winScore: state.winScore || WIN_SCORE,

@@ -148,10 +148,12 @@ async function startGame(categoryId, resumeState) {
     for (const player of Object.values(state.players)) player.connected = false;
   } else {
     state = game.createGame({
-      code: newCode(), categoryId: category.id, labels: category.labels,
+      code: newCode(), categoryId: category.id, categoryName: category.name, labels: category.labels,
       settings: loadSettings(),
     });
   }
+  // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
+  state.categoryName = category.name;
   save();
   $('#setup').hidden = true;
   $('#game').hidden = false;
@@ -258,8 +260,8 @@ function showSettings(current) {
 }
 
 function settingsSummary(s) {
-  return [`${s.roundMs / 1000} s betänketid`, s.bonusMs ? `bonus inom ${s.bonusMs / 1000} s` : 'ingen bonus',
-    `först till ${s.winScore} poäng`].join(' · ');
+  return [`Tid ${s.roundMs / 1000} s`, s.bonusMs ? `Bonus ${s.bonusMs / 1000} s` : 'Ingen bonus',
+    `Först till ${s.winScore}`].join(' · ');
 }
 
 async function editSettings() {
@@ -347,8 +349,7 @@ function reopenLinks(song) {
 
 function render() {
   const round = state.round;
-  const left = game.unplayedSongs(state, songs).length;
-  $('#category').textContent = `${category.name} · ${left} av ${songs.length} låtar kvar`;
+  $('#category').textContent = category.name;
   const stage = $('#stage');
 
   if (!round) {

@@ -41,6 +41,7 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type !== 'state') return;
   view = msg.view;
+  $('#category-name').textContent = view.categoryName || '';
   const round = view.round;
   if (round && round.number !== roundNumber) {
     roundNumber = round.number;
@@ -134,7 +135,7 @@ function join(name, code) {
   $('#join').hidden = true;
   $('#join-error').hidden = true;
   $('#lobby').hidden = false;
-  $('#me').textContent = `${name} · spel ${code}`;
+  $('#me').textContent = code;
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
 }
 
