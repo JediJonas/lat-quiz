@@ -35,14 +35,14 @@
       <li>Varje ändring kontrolleras automatiskt med tester, HTML-validering, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen.</li>
     </ul>
 
-    <p class="theme-row"><a class="quiet-link" href="index.html">Till startsidan</a><button class="theme-switch"></button></p>
+    <p class="theme-row"><a class="quiet-link" href="index.html">Till startsidan</a><button class="link user-settings"></button></p>
   </main>
   <script>
     for (const a of document.querySelectorAll('a')) a.search = location.search;
   </script>
   <script type="module">
-    import { mountThemeSwitches } from './js/theme.js';
-    mountThemeSwitches();
+    import { mountUserSettings } from './js/theme.js';
+    mountUserSettings();
   </script>
 </body>
 </html>
