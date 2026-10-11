@@ -9,6 +9,6 @@
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json" },
   { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "labels": { "artist": "Land", "title": "Låt" } },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" },
-  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Artist/kompositör", "title": "Film" } },
+  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Kompositör", "title": "Film" } },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } }
 ]
