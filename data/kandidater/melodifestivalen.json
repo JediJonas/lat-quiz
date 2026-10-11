@@ -4,22 +4,22 @@
  "file": "melodifestivalen.json",
  "songs": [
   {
-   "id": "loreen-euphoria",
-   "artist": "Loreen",
-   "title": "Euphoria",
-   "year": 2012
-  },
-  {
    "id": "loreen-tattoo",
    "artist": "Loreen",
    "title": "Tattoo",
    "year": 2023
   },
   {
-   "id": "eric-saade-popular",
-   "artist": "Eric Saade",
-   "title": "Popular",
-   "year": 2011
+   "id": "loreen-euphoria",
+   "artist": "Loreen",
+   "title": "Euphoria",
+   "year": 2012
+  },
+  {
+   "id": "mans-zelmerlow-heroes",
+   "artist": "Måns Zelmerlöw",
+   "title": "Heroes",
+   "year": 2015
   },
   {
    "id": "kaj-bara-bada-bastu",
@@ -28,10 +28,10 @@
    "year": 2025
   },
   {
-   "id": "marcus-martinus-unforgettable",
-   "artist": "Marcus & Martinus",
-   "title": "Unforgettable",
-   "year": 2024
+   "id": "sanna-nielsen-undo",
+   "artist": "Sanna Nielsen",
+   "title": "Undo",
+   "year": 2014
   },
   {
    "id": "cornelia-jakobs-hold-me-closer",
@@ -40,10 +40,202 @@
    "year": 2022
   },
   {
+   "id": "marcus-martinus-unforgettable",
+   "artist": "Marcus & Martinus",
+   "title": "Unforgettable",
+   "year": 2024
+  },
+  {
+   "id": "hasse-andersson-guld-och-grona-skogar",
+   "artist": "Hasse Andersson",
+   "title": "Guld och gröna skogar",
+   "year": 2015
+  },
+  {
+   "id": "john-lundvik-too-late-for-love",
+   "artist": "John Lundvik",
+   "title": "Too Late for Love",
+   "year": 2019
+  },
+  {
+   "id": "benjamin-ingrosso-dance-you-off",
+   "artist": "Benjamin Ingrosso",
+   "title": "Dance You Off",
+   "year": 2018
+  },
+  {
+   "id": "klara-hammarstrom-run-to-the-hills",
+   "artist": "Klara Hammarström",
+   "title": "Run to the Hills",
+   "year": 2022
+  },
+  {
+   "id": "loreen-my-heart-is-refusing-me",
+   "artist": "Loreen",
+   "title": "My Heart Is Refusing Me",
+   "year": 2011
+  },
+  {
+   "id": "dolly-style-habibi",
+   "artist": "Dolly Style",
+   "title": "Habibi",
+   "year": 2019
+  },
+  {
    "id": "felicia-eriksson-my-system",
    "artist": "Felicia Eriksson",
    "title": "My System",
    "year": 2026
+  },
+  {
+   "id": "sean-banan-sean-den-forste-banan",
+   "artist": "Sean Banan",
+   "title": "Sean den förste banan",
+   "year": 2012
+  },
+  {
+   "id": "danny-saucedo-amazing",
+   "artist": "Danny Saucedo",
+   "title": "Amazing",
+   "year": 2012
+  },
+  {
+   "id": "molly-sanden-why-am-i-crying",
+   "artist": "Molly Sandén",
+   "title": "Why Am I Crying",
+   "year": 2012
+  },
+  {
+   "id": "medina-que-sera",
+   "artist": "Medina",
+   "title": "Que Sera",
+   "year": 2024
+  },
+  {
+   "id": "frans-if-i-were-sorry",
+   "artist": "Frans",
+   "title": "If I Were Sorry",
+   "year": 2016
+  },
+  {
+   "id": "sean-banan-copacabanana",
+   "artist": "Sean Banan",
+   "title": "Copacabanana",
+   "year": 2013
+  },
+  {
+   "id": "dead-by-april-mystery",
+   "artist": "Dead by April",
+   "title": "Mystery",
+   "year": 2012
+  },
+  {
+   "id": "arvingarna-i-do",
+   "artist": "Arvingarna",
+   "title": "I Do",
+   "year": 2019
+  },
+  {
+   "id": "panetoz-hall-om-mig-hart",
+   "artist": "Panetoz",
+   "title": "Håll om mig hårt",
+   "year": 2016
+  },
+  {
+   "id": "marcus-martinus-air",
+   "artist": "Marcus & Martinus",
+   "title": "Air",
+   "year": 2023
+  },
+  {
+   "id": "margaret-in-my-cabana",
+   "artist": "Margaret",
+   "title": "In My Cabana",
+   "year": 2018
+  },
+  {
+   "id": "anis-don-demina-vem-e-som-oss",
+   "artist": "Anis Don Demina",
+   "title": "Vem e som oss",
+   "year": 2020
+  },
+  {
+   "id": "dotter-bulletproof",
+   "artist": "Dotter",
+   "title": "Bulletproof",
+   "year": 2020
+  },
+  {
+   "id": "mohombi-hello",
+   "artist": "Mohombi",
+   "title": "Hello",
+   "year": 2019
+  },
+  {
+   "id": "youngblood-youngblood",
+   "artist": "Youngblood",
+   "title": "Youngblood",
+   "year": 2012
+  },
+  {
+   "id": "dolly-style-yihaa",
+   "artist": "Dolly Style",
+   "title": "YIHAA",
+   "year": 2025
+  },
+  {
+   "id": "mans-zelmerlow-cara-mia",
+   "artist": "Måns Zelmerlöw",
+   "title": "Cara Mia",
+   "year": 2007
+  },
+  {
+   "id": "samir-viktor-bada-nakna",
+   "artist": "Samir & Viktor",
+   "title": "Bada nakna",
+   "year": 2016
+  },
+  {
+   "id": "klara-hammarstrom-on-and-on-and-on",
+   "artist": "Klara Hammarström",
+   "title": "On and On and On",
+   "year": 2025
+  },
+  {
+   "id": "samir-viktor-shuffla",
+   "artist": "Samir & Viktor",
+   "title": "Shuffla",
+   "year": 2018
+  },
+  {
+   "id": "panetoz-efter-solsken",
+   "artist": "Panetoz",
+   "title": "Efter solsken",
+   "year": 2014
+  },
+  {
+   "id": "robin-bengtsson-constellation-prize",
+   "artist": "Robin Bengtsson",
+   "title": "Constellation Prize",
+   "year": 2016
+  },
+  {
+   "id": "john-lundvik-my-turn",
+   "artist": "John Lundvik",
+   "title": "My Turn",
+   "year": 2018
+  },
+  {
+   "id": "felix-sandman-every-single-day",
+   "artist": "Felix Sandman",
+   "title": "Every Single Day",
+   "year": 2018
+  },
+  {
+   "id": "alcazar-stay-the-night",
+   "artist": "Alcazar",
+   "title": "Stay the Night",
+   "year": 2009
   },
   {
    "id": "tusse-voices",
@@ -52,22 +244,28 @@
    "year": 2021
   },
   {
-   "id": "the-mamas-move",
-   "artist": "The Mamas",
-   "title": "Move",
-   "year": 2020
+   "id": "wiktoria-as-i-lay-me-down",
+   "artist": "Wiktoria",
+   "title": "As I Lay Me Down",
+   "year": 2017
   },
   {
-   "id": "carola-haggkvist-evighet",
-   "artist": "Carola Häggkvist & Tomas Andersson Wij",
-   "title": "Evighet",
-   "year": 2006
+   "id": "anna-bergendahl-ashes-to-ashes",
+   "artist": "Anna Bergendahl",
+   "title": "Ashes to Ashes",
+   "year": 2019
   },
   {
-   "id": "alice-babs-sweden-in-the-eurovision-song-contest-1958",
-   "artist": "Alice Babs",
-   "title": "Sweden in the Eurovision Song Contest 1958",
-   "year": 1958
+   "id": "anna-bergendahl-this-is-my-life",
+   "artist": "Anna Bergendahl",
+   "title": "This Is My Life",
+   "year": 2010
+  },
+  {
+   "id": "medina-in-i-dimman",
+   "artist": "Medina",
+   "title": "In i dimman",
+   "year": 2022
   },
   {
    "id": "ace-wilder-busy-doin-nothin",
@@ -76,9 +274,75 @@
    "year": 2014
   },
   {
-   "id": "mans-zelmerlow-revolution",
-   "artist": "Måns Zelmerlöw",
-   "title": "Revolution",
+   "id": "dolly-style-rollercoaster",
+   "artist": "Dolly Style",
+   "title": "Rollercoaster",
+   "year": 2016
+  },
+  {
+   "id": "de-vet-du-road-trip",
+   "artist": "De Vet Du",
+   "title": "Road Trip",
+   "year": 2017
+  },
+  {
+   "id": "brandsta-city-slackers-kom-och-ta-mig",
+   "artist": "Brandsta City Släckers",
+   "title": "Kom och ta mig",
+   "year": 2002
+  },
+  {
+   "id": "alcazar-blame-it-on-the-disco",
+   "artist": "Alcazar",
+   "title": "Blame It on the Disco",
+   "year": 2014
+  },
+  {
+   "id": "jay-smith-back-to-my-roots",
+   "artist": "Jay Smith",
+   "title": "Back to My Roots",
+   "year": 2024
+  },
+  {
+   "id": "sarah-dawn-finer-moving-on",
+   "artist": "Sarah Dawn Finer",
+   "title": "Moving On",
+   "year": 2009
+  },
+  {
+   "id": "anna-bergendahl-kingdom-come",
+   "artist": "Anna Bergendahl",
+   "title": "Kingdom Come",
+   "year": 2020
+  },
+  {
+   "id": "smash-into-pieces-six-feet-under",
+   "artist": "Smash Into Pieces",
+   "title": "Six Feet Under",
+   "year": 2023
+  },
+  {
+   "id": "jon-henrik-fjallgren-where-you-are-savezan",
+   "artist": "Jon Henrik Fjällgren & Adam Woods",
+   "title": "Where You Are (Sávežan)",
+   "year": 2023
+  },
+  {
+   "id": "jon-henrik-fjallgren-jag-ar-fri-manne-leam-frijje",
+   "artist": "Jon Henrik Fjällgren",
+   "title": "Jag är fri (Manne Leam Frijje)",
+   "year": 2015
+  },
+  {
+   "id": "dolly-style-hello-hi",
+   "artist": "Dolly Style",
+   "title": "Hello Hi",
+   "year": 2015
+  },
+  {
+   "id": "meira-omar-hush-hush",
+   "artist": "Meira Omar",
+   "title": "Hush Hush",
    "year": 2025
   },
   {
@@ -88,76 +352,220 @@
    "year": 2020
   },
   {
-   "id": "jon-henrik-fjallgren-where-you-are-savezan",
-   "artist": "Jon Henrik Fjällgren & Adam Woods",
-   "title": "Where You Are (Sávežan)",
-   "year": 2023
+   "id": "jon-henrik-fjallgren-norrsken",
+   "artist": "Jon Henrik Fjällgren",
+   "title": "Norrsken",
+   "year": 2019
   },
   {
-   "id": "the-mamas-in-the-middle",
-   "artist": "The Mamas",
-   "title": "In the Middle",
+   "id": "carola-haggkvist-evighet",
+   "artist": "Carola Häggkvist & Tomas Andersson Wij",
+   "title": "Evighet",
+   "year": 2006
+  },
+  {
+   "id": "dotter-little-tot",
+   "artist": "Dotter",
+   "title": "Little Tot",
    "year": 2021
   },
   {
-   "id": "anna-bergendahl-higher-power",
-   "artist": "Anna Bergendahl",
-   "title": "Higher Power",
+   "id": "theoz-mer-av-dig",
+   "artist": "Theoz",
+   "title": "Mer av dig",
+   "year": 2023
+  },
+  {
+   "id": "mans-zelmerlow-revolution",
+   "artist": "Måns Zelmerlöw",
+   "title": "Revolution",
+   "year": 2025
+  },
+  {
+   "id": "froken-snusk-unga-fria",
+   "artist": "FRÖKEN SNUSK",
+   "title": "Unga & fria",
+   "year": 2024
+  },
+  {
+   "id": "clara-klingenstrom-behover-inte-dig-idag",
+   "artist": "Clara Klingenström",
+   "title": "Behöver inte dig idag",
+   "year": 2021
+  },
+  {
+   "id": "paul-rey-talking-in-my-sleep",
+   "artist": "Paul Rey",
+   "title": "Talking in My Sleep",
+   "year": 2020
+  },
+  {
+   "id": "saraha-kizunguzungu",
+   "artist": "SaRaha",
+   "title": "Kizunguzungu",
+   "year": 2016
+  },
+  {
+   "id": "mendez-everyday",
+   "artist": "Mendez",
+   "title": "Everyday",
+   "year": 2018
+  },
+  {
+   "id": "nano-hold-on",
+   "artist": "Nano",
+   "title": "Hold On",
+   "year": 2017
+  },
+  {
+   "id": "omar-rudberg-moving-like-that",
+   "artist": "Omar Rudberg",
+   "title": "Moving Like That",
    "year": 2022
   },
   {
-   "id": "anna-bergendahl-kingdom-come",
-   "artist": "Anna Bergendahl",
-   "title": "Kingdom Come",
-   "year": 2020
+   "id": "samir-viktor-groupie",
+   "artist": "Samir & Viktor",
+   "title": "Groupie",
+   "year": 2015
   },
   {
-   "id": "malou-prytz-ballerina",
-   "artist": "Malou Prytz",
-   "title": "Ballerina",
-   "year": 2020
-  },
-  {
-   "id": "mariette-hansson-one-day",
-   "artist": "Mariette Hansson",
-   "title": "One Day",
+   "id": "elov-beny-raggen-gar",
+   "artist": "Elov & Beny",
+   "title": "Raggen går",
    "year": 2023
   },
   {
-   "id": "john-lundvik-voice-of-the-silent",
-   "artist": "John Lundvik",
-   "title": "Voice of the Silent",
-   "year": 2025
-  },
-  {
-   "id": "maja-ivarsson-kamikaze-life",
-   "artist": "Maja Ivarsson",
-   "title": "Kamikaze Life",
-   "year": 2025
-  },
-  {
-   "id": "klara-hammarstrom-on-and-on-and-on",
+   "id": "klara-hammarstrom-beat-of-broken-hearts",
    "artist": "Klara Hammarström",
-   "title": "On and On and On",
+   "title": "Beat of Broken Hearts",
+   "year": 2021
+  },
+  {
+   "id": "danny-saucedo-dandi-dansa",
+   "artist": "Danny Saucedo",
+   "title": "Dandi dansa",
+   "year": 2021
+  },
+  {
+   "id": "wiktoria-save-me",
+   "artist": "Wiktoria",
+   "title": "Save Me",
+   "year": 2016
+  },
+  {
+   "id": "greczula-believe-me",
+   "artist": "Greczula",
+   "title": "Believe Me",
    "year": 2025
   },
   {
-   "id": "dolly-style-yihaa",
-   "artist": "Dolly Style",
-   "title": "YIHAA",
-   "year": 2025
-  },
-  {
-   "id": "tone-sekelius-rhythm-of-my-show",
+   "id": "tone-sekelius-my-way",
    "artist": "Tone Sekelius",
-   "title": "Rhythm of My Show",
+   "title": "My Way",
+   "year": 2022
+  },
+  {
+   "id": "darin-youre-out-of-my-life",
+   "artist": "Darin",
+   "title": "You’re Out of My Life",
+   "year": 2010
+  },
+  {
+   "id": "sarah-dawn-finer-i-remember-love",
+   "artist": "Sarah Dawn Finer",
+   "title": "I Remember Love",
+   "year": 2007
+  },
+  {
+   "id": "hanna-ferm-liamoo-hold-you",
+   "artist": "Hanna Ferm & LIAMOO",
+   "title": "Hold You",
+   "year": 2019
+  },
+  {
+   "id": "ida-lova-lat-hela-stan-se-pa",
+   "artist": "Ida-Lova",
+   "title": "Låt hela stan se på",
    "year": 2023
   },
   {
-   "id": "victor-crone-diamonds",
-   "artist": "Victor Crone",
-   "title": "Diamonds",
+   "id": "theoz-som-du-vill",
+   "artist": "Theoz",
+   "title": "Som du vill",
+   "year": 2022
+  },
+  {
+   "id": "dotter-its-not-easy-to-write-a-love-song",
+   "artist": "Dotter",
+   "title": "It’s Not Easy to Write a Love Song",
+   "year": 2024
+  },
+  {
+   "id": "nordman-odet-var-min-vag",
+   "artist": "Nordman",
+   "title": "Ödet var min väg",
+   "year": 2005
+  },
+  {
+   "id": "malou-prytz-i-do-me",
+   "artist": "Malou Prytz",
+   "title": "I Do Me",
+   "year": 2019
+  },
+  {
+   "id": "panetoz-on-my-way",
+   "artist": "Panetoz",
+   "title": "On My Way",
    "year": 2023
+  },
+  {
+   "id": "nordman-i-lagornas-sken",
+   "artist": "Nordman",
+   "title": "I lågornas sken",
+   "year": 2008
+  },
+  {
+   "id": "sanna-nielsen-empty-room",
+   "artist": "Sanna Nielsen",
+   "title": "Empty Room",
+   "year": 2008
+  },
+  {
+   "id": "anders-bagge-bigger-than-the-universe",
+   "artist": "Anders Bagge",
+   "title": "Bigger Than the Universe",
+   "year": 2022
+  },
+  {
+   "id": "robin-bengtsson-take-a-chance",
+   "artist": "Robin Bengtsson",
+   "title": "Take a Chance",
+   "year": 2020
+  },
+  {
+   "id": "alcazar-not-a-sinner-nor-a-saint",
+   "artist": "Alcazar",
+   "title": "Not a Sinner nor a Saint",
+   "year": 2003
+  },
+  {
+   "id": "mans-zelmerlow-hope-and-glory",
+   "artist": "Måns Zelmerlöw",
+   "title": "Hope and Glory",
+   "year": 2009
+  },
+  {
+   "id": "danny-saucedo-happy-that-you-found-me",
+   "artist": "Danny Saucedo",
+   "title": "Happy That You Found Me",
+   "year": 2024
+  },
+  {
+   "id": "the-mamas-move",
+   "artist": "The Mamas",
+   "title": "Move",
+   "year": 2020
   },
   {
    "id": "arvingarna-tanker-inte-alls-ga-hem",
@@ -166,10 +574,364 @@
    "year": 2021
   },
   {
+   "id": "saga-ludvigsson-hate-you-so-much",
+   "artist": "Saga Ludvigsson",
+   "title": "Hate You So Much",
+   "year": 2025
+  },
+  {
+   "id": "robin-bengtsson-innocent-love",
+   "artist": "Robin Bengtsson",
+   "title": "Innocent Love",
+   "year": 2022
+  },
+  {
+   "id": "steps-something-in-your-eyes",
+   "artist": "Steps & Jenny Silver",
+   "title": "Something in Your Eyes",
+   "year": 2011
+  },
+  {
+   "id": "dynazty-land-of-broken-dreams",
+   "artist": "Dynazty",
+   "title": "Land of Broken Dreams",
+   "year": 2012
+  },
+  {
+   "id": "maria-sur-when-im-gone",
+   "artist": "Maria Sur",
+   "title": "When I’m Gone",
+   "year": 2024
+  },
+  {
+   "id": "john-lundvik-anglavakt",
+   "artist": "John Lundvik",
+   "title": "Änglavakt",
+   "year": 2022
+  },
+  {
    "id": "oscar-zia-human",
    "artist": "Oscar Zia",
    "title": "Human",
    "year": 2016
+  },
+  {
+   "id": "lia-larsson-30-km-h",
+   "artist": "Lia Larsson",
+   "title": "30 km/h",
+   "year": 2024
+  },
+  {
+   "id": "bishara-on-my-own",
+   "artist": "Bishara",
+   "title": "On My Own",
+   "year": 2019
+  },
+  {
+   "id": "smash-into-pieces-heroes-are-calling",
+   "artist": "Smash Into Pieces",
+   "title": "Heroes Are Calling",
+   "year": 2024
+  },
+  {
+   "id": "erik-segerstedt-show-me-what-love-is",
+   "artist": "Erik Segerstedt",
+   "title": "Show Me What Love Is",
+   "year": 2025
+  },
+  {
+   "id": "cazzi-opeia-i-can-t-get-enough",
+   "artist": "Cazzi Opeia",
+   "title": "I Can't Get Enough",
+   "year": 2022
+  },
+  {
+   "id": "eric-saade-every-minute",
+   "artist": "Eric Saade",
+   "title": "Every Minute",
+   "year": 2021
+  },
+  {
+   "id": "helena-paparizou-survivor",
+   "artist": "Helena Paparizou",
+   "title": "Survivor",
+   "year": 2014
+  },
+  {
+   "id": "malou-prytz-ballerina",
+   "artist": "Malou Prytz",
+   "title": "Ballerina",
+   "year": 2020
+  },
+  {
+   "id": "wiktoria-not-with-me",
+   "artist": "Wiktoria",
+   "title": "Not With Me",
+   "year": 2019
+  },
+  {
+   "id": "anton-hagman-kiss-you-goodbye",
+   "artist": "Anton Hagman",
+   "title": "Kiss You Goodbye",
+   "year": 2017
+  },
+  {
+   "id": "maja-ivarsson-kamikaze-life",
+   "artist": "Maja Ivarsson",
+   "title": "Kamikaze Life",
+   "year": 2025
+  },
+  {
+   "id": "liamoo-last-breath",
+   "artist": "LIAMOO",
+   "title": "Last Breath",
+   "year": 2018
+  },
+  {
+   "id": "victor-crone-troubled-waters",
+   "artist": "Victor Crone",
+   "title": "Troubled Waters",
+   "year": 2020
+  },
+  {
+   "id": "boris-rene-put-your-love-on-me",
+   "artist": "Boris René",
+   "title": "Put Your Love On Me",
+   "year": 2016
+  },
+  {
+   "id": "benjamin-ingrosso-good-lovin",
+   "artist": "Benjamin Ingrosso",
+   "title": "Good Lovin’",
+   "year": 2017
+  },
+  {
+   "id": "maria-sur-never-give-up",
+   "artist": "Maria Sur",
+   "title": "Never Give Up",
+   "year": 2023
+  },
+  {
+   "id": "lisa-ajax-my-heart-wants-me-dead",
+   "artist": "Lisa Ajax",
+   "title": "My Heart Wants Me Dead",
+   "year": 2016
+  },
+  {
+   "id": "nordman-slapp-alla-sorger",
+   "artist": "Nordman",
+   "title": "Släpp alla sorger",
+   "year": 2023
+  },
+  {
+   "id": "eric-saade-sting",
+   "artist": "Eric Saade",
+   "title": "Sting",
+   "year": 2015
+  },
+  {
+   "id": "molly-sanden-youniverse",
+   "artist": "Molly Sandén",
+   "title": "Youniverse",
+   "year": 2016
+  },
+  {
+   "id": "molly-sanden-sa-vill-stjarnorna",
+   "artist": "Molly Sandén",
+   "title": "Så vill stjärnorna",
+   "year": 2009
+  },
+  {
+   "id": "cazzi-opeia-give-my-heart-a-break",
+   "artist": "Cazzi Opeia",
+   "title": "Give My Heart a Break",
+   "year": 2024
+  },
+  {
+   "id": "scarlet-circus-x",
+   "artist": "SCARLET",
+   "title": "Circus X",
+   "year": 2024
+  },
+  {
+   "id": "alvaro-estrella-baila-baila",
+   "artist": "Alvaro Estrella",
+   "title": "Bailá Bailá",
+   "year": 2021
+  },
+  {
+   "id": "wahl-feat-sami-90-talet",
+   "artist": "WAHL feat. SAMI",
+   "title": "90-talet",
+   "year": 2021
+  },
+  {
+   "id": "adam-woods-supernatural",
+   "artist": "Adam Woods",
+   "title": "Supernatural",
+   "year": 2024
+  },
+  {
+   "id": "jon-henrik-fjallgren-feat-aninia-en-varld-full-av-strider-eatneme-gusnie-jeenh-daaroeh",
+   "artist": "Jon Henrik Fjällgren feat. Aninia",
+   "title": "En Värld Full Av Strider (Eatneme gusnie jeenh dåaroeh)",
+   "year": 2017
+  },
+  {
+   "id": "anna-bergendahl-higher-power",
+   "artist": "Anna Bergendahl",
+   "title": "Higher Power",
+   "year": 2022
+  },
+  {
+   "id": "drangarna-piga-drang",
+   "artist": "Drängarna",
+   "title": "Piga & dräng",
+   "year": 2020
+  },
+  {
+   "id": "jacqline-effortless",
+   "artist": "Jacqline",
+   "title": "Effortless",
+   "year": 2024
+  },
+  {
+   "id": "omar-rudberg-om-om-och-om-igen",
+   "artist": "Omar Rudberg",
+   "title": "Om om och om igen",
+   "year": 2019
+  },
+  {
+   "id": "scarlet-sweet-n-psycho",
+   "artist": "SCARLET",
+   "title": "Sweet N' Psycho",
+   "year": 2025
+  },
+  {
+   "id": "gunilla-persson-i-wont-shake-la-la-gunilla",
+   "artist": "Gunilla Persson",
+   "title": "I Won’t Shake (La La Gunilla)",
+   "year": 2024
+  },
+  {
+   "id": "klaudy-for-dig",
+   "artist": "Klaudy",
+   "title": "För dig",
+   "year": 2024
+  },
+  {
+   "id": "ace-wilder-dont-worry",
+   "artist": "Ace Wilder",
+   "title": "Don’t Worry",
+   "year": 2016
+  },
+  {
+   "id": "lisa-ajax-torn",
+   "artist": "Lisa Ajax",
+   "title": "Torn",
+   "year": 2019
+  },
+  {
+   "id": "sanna-nielsen-i-m-in-love",
+   "artist": "Sanna Nielsen",
+   "title": "I'm in Love",
+   "year": 2011
+  },
+  {
+   "id": "patrik-jean-tears-run-dry",
+   "artist": "Patrik Jean",
+   "title": "Tears Run Dry",
+   "year": 2021
+  },
+  {
+   "id": "liamoo-bluffin",
+   "artist": "LIAMOO",
+   "title": "Bluffin",
+   "year": 2022
+  },
+  {
+   "id": "tone-sekelius-rhythm-of-my-show",
+   "artist": "Tone Sekelius",
+   "title": "Rhythm of My Show",
+   "year": 2023
+  },
+  {
+   "id": "liamoo-dragon",
+   "artist": "LIAMOO",
+   "title": "Dragon",
+   "year": 2024
+  },
+  {
+   "id": "mohombi-winners",
+   "artist": "Mohombi",
+   "title": "Winners",
+   "year": 2020
+  },
+  {
+   "id": "emil-assergard-om-allting-skiter-sig",
+   "artist": "Emil Assergård",
+   "title": "Om allting skiter sig",
+   "year": 2021
+  },
+  {
+   "id": "lillasyster-pretender",
+   "artist": "Lillasyster",
+   "title": "Pretender",
+   "year": 2021
+  },
+  {
+   "id": "rolandz-fuldans",
+   "artist": "Rolandz",
+   "title": "Fuldans",
+   "year": 2018
+  },
+  {
+   "id": "vilhelm-buchaus-im-yours",
+   "artist": "Vilhelm Buchaus",
+   "title": "I’m Yours",
+   "year": 2025
+  },
+  {
+   "id": "mariette-a-million-years",
+   "artist": "Mariette",
+   "title": "A Million Years",
+   "year": 2017
+  },
+  {
+   "id": "klara-hammarstrom-nobody",
+   "artist": "Klara Hammarström",
+   "title": "Nobody",
+   "year": 2020
+  },
+  {
+   "id": "the-mamas-in-the-middle",
+   "artist": "The Mamas",
+   "title": "In the Middle",
+   "year": 2021
+  },
+  {
+   "id": "annika-wickihalder-light",
+   "artist": "Annika Wickihalder",
+   "title": "Light",
+   "year": 2024
+  },
+  {
+   "id": "linus-svenning-broder",
+   "artist": "Linus Svenning",
+   "title": "Bröder",
+   "year": 2014
+  },
+  {
+   "id": "loreen-statements",
+   "artist": "Loreen",
+   "title": "Statements",
+   "year": 2017
+  },
+  {
+   "id": "linus-svenning-forever-starts-today",
+   "artist": "Linus Svenning",
+   "title": "Forever Starts Today",
+   "year": 2015
   },
   {
    "id": "mariette-hansson-for-you",
@@ -178,16 +940,1180 @@
    "year": 2018
   },
   {
-   "id": "arvingarna-i-do",
-   "artist": "Arvingarna",
-   "title": "I Do",
+   "id": "dotter-cry",
+   "artist": "Dotter",
+   "title": "Cry",
+   "year": 2018
+  },
+  {
+   "id": "mendez-feat-alvaro-estrella-vamos-amigos",
+   "artist": "Mendez feat. Alvaro Estrella",
+   "title": "Vamos amigos",
+   "year": 2020
+  },
+  {
+   "id": "oscar-enestad-i-love-it",
+   "artist": "Oscar Enestad",
+   "title": "I Love It",
    "year": 2019
   },
   {
-   "id": "robin-bengtsson-take-a-chance",
-   "artist": "Robin Bengtsson",
-   "title": "Take a Chance",
+   "id": "lasse-stefanz-en-sang-om-sommaren",
+   "artist": "Lasse Stefanz",
+   "title": "En sång om sommaren",
+   "year": 2024
+  },
+  {
+   "id": "kiana-where-did-you-go",
+   "artist": "Kiana",
+   "title": "Where Did You Go",
+   "year": 2023
+  },
+  {
+   "id": "felix-sandman-boys-with-emotions",
+   "artist": "FELIX SANDMAN",
+   "title": "BOYS WITH EMOTIONS",
    "year": 2020
+  },
+  {
+   "id": "paul-rey-the-missing-piece",
+   "artist": "Paul Rey",
+   "title": "The Missing Piece",
+   "year": 2021
+  },
+  {
+   "id": "niello-lisa-ajax-tror-du-att-jag-bryr-mig",
+   "artist": "Niello & Lisa Ajax",
+   "title": "Tror du att jag bryr mig",
+   "year": 2022
+  },
+  {
+   "id": "renaida-all-the-feels",
+   "artist": "Renaida",
+   "title": "All the Feels",
+   "year": 2018
+  },
+  {
+   "id": "malou-prytz-bananas",
+   "artist": "Malou Prytz",
+   "title": "Bananas",
+   "year": 2022
+  },
+  {
+   "id": "nano-chasing-rivers",
+   "artist": "Nano",
+   "title": "Chasing Rivers",
+   "year": 2019
+  },
+  {
+   "id": "john-lundvik-voice-of-the-silent",
+   "artist": "John Lundvik",
+   "title": "Voice of the Silent",
+   "year": 2025
+  },
+  {
+   "id": "laurell-sober",
+   "artist": "Laurell",
+   "title": "Sober",
+   "year": 2023
+  },
+  {
+   "id": "sigrid-bernson-patrick-swayze",
+   "artist": "Sigrid Bernson",
+   "title": "Patrick Swayze",
+   "year": 2018
+  },
+  {
+   "id": "alvaro-estrella-suave",
+   "artist": "Alvaro Estrella",
+   "title": "Suave",
+   "year": 2022
+  },
+  {
+   "id": "ella-tiritiello-bara-du-ar-dar",
+   "artist": "Ella Tiritiello",
+   "title": "Bara du är där",
+   "year": 2025
+  },
+  {
+   "id": "robin-stjernberg-you",
+   "artist": "Robin Stjernberg",
+   "title": "You",
+   "year": 2013
+  },
+  {
+   "id": "victor-crone-diamonds",
+   "artist": "Victor Crone",
+   "title": "Diamonds",
+   "year": 2023
+  },
+  {
+   "id": "andreas-weise-bring-out-the-fire",
+   "artist": "Andreas Weise",
+   "title": "Bring Out the Fire",
+   "year": 2015
+  },
+  {
+   "id": "isa-i-will-wait",
+   "artist": "Isa",
+   "title": "I Will Wait",
+   "year": 2016
+  },
+  {
+   "id": "anton-ewald-new-religion",
+   "artist": "Anton Ewald",
+   "title": "New Religion",
+   "year": 2021
+  },
+  {
+   "id": "zeana-feat-anis-don-demina-mina-brander",
+   "artist": "Zeana feat. Anis Don Demina",
+   "title": "Mina bränder",
+   "year": 2019
+  },
+  {
+   "id": "isa-don-t-stop",
+   "artist": "Isa",
+   "title": "Don't Stop",
+   "year": 2015
+  },
+  {
+   "id": "david-lindgren-we-are-your-tomorrow",
+   "artist": "David Lindgren",
+   "title": "We Are Your Tomorrow",
+   "year": 2016
+  },
+  {
+   "id": "samir-viktor-hela-varlden-vantar",
+   "artist": "Samir & Viktor",
+   "title": "Hela världen väntar",
+   "year": 2024
+  },
+  {
+   "id": "jakob-karlberg-om-du-tror-att-jag-saknar-dig",
+   "artist": "Jakob Karlberg",
+   "title": "Om du tror att jag saknar dig",
+   "year": 2020
+  },
+  {
+   "id": "dinah-nah-make-me-la-la-la",
+   "artist": "Dinah Nah",
+   "title": "Make Me (La La La)",
+   "year": 2015
+  },
+  {
+   "id": "alcazar-alcastar",
+   "artist": "Alcazar",
+   "title": "Alcastar",
+   "year": 2005
+  },
+  {
+   "id": "boris-rene-her-kiss",
+   "artist": "Boris René",
+   "title": "Her Kiss",
+   "year": 2017
+  },
+  {
+   "id": "linnea-henriksson-den-kanslan",
+   "artist": "Linnea Henriksson",
+   "title": "Den känslan",
+   "year": 2025
+  },
+  {
+   "id": "jessica-andersson-party-voice",
+   "artist": "Jessica Andersson",
+   "title": "Party Voice",
+   "year": 2018
+  },
+  {
+   "id": "ace-wilder-wild-child",
+   "artist": "Ace Wilder",
+   "title": "Wild Child",
+   "year": 2017
+  },
+  {
+   "id": "malou-prytz-24k-gold",
+   "artist": "Malou Prytz",
+   "title": "24K Gold",
+   "year": 2025
+  },
+  {
+   "id": "moncho-cuba-libre",
+   "artist": "Moncho",
+   "title": "Cuba Libre",
+   "year": 2018
+  },
+  {
+   "id": "axel-schylstrom-nar-ingen-ser",
+   "artist": "Axel Schylström",
+   "title": "När ingen ser",
+   "year": 2017
+  },
+  {
+   "id": "efraim-leo-best-of-me",
+   "artist": "Efraim Leo",
+   "title": "Best of Me",
+   "year": 2021
+  },
+  {
+   "id": "lisa-ekdahl-crazy-in-love",
+   "artist": "Lisa Ekdahl & Jill Johnson",
+   "title": "Crazy in Love",
+   "year": 2003
+  },
+  {
+   "id": "danne-strahed-hallabaloo",
+   "artist": "Danne Stråhed",
+   "title": "Hallabaloo",
+   "year": 2022
+  },
+  {
+   "id": "sanna-nielsen-hela-varlden-for-mig",
+   "artist": "Sanna Nielsen",
+   "title": "Hela världen för mig",
+   "year": 2003
+  },
+  {
+   "id": "arwin-this-dream-of-mine",
+   "artist": "Arwin",
+   "title": "This Dream of Mine",
+   "year": 2025
+  },
+  {
+   "id": "annika-wickihalder-life-again",
+   "artist": "Annika Wickihalder",
+   "title": "Life Again",
+   "year": 2025
+  },
+  {
+   "id": "lisa-ajax-awful-liar",
+   "artist": "Lisa Ajax",
+   "title": "Awful Liar",
+   "year": 2024
+  },
+  {
+   "id": "eva-rydberg-ewa-roos-rena-rama-ding-dong",
+   "artist": "Eva Rydberg & Ewa Roos",
+   "title": "Rena rama ding dong",
+   "year": 2021
+  },
+  {
+   "id": "lovad-allting-ar-precis-likadant",
+   "artist": "lovad",
+   "title": "Allting är precis likadant",
+   "year": 2021
+  },
+  {
+   "id": "alcazar-headlines",
+   "artist": "Alcazar",
+   "title": "Headlines",
+   "year": 2010
+  },
+  {
+   "id": "smilo-weight-of-the-world",
+   "artist": "SMILO",
+   "title": "Weight of the World",
+   "year": 2016
+  },
+  {
+   "id": "vlad-reiser-nakna-i-regnet",
+   "artist": "Vlad Reiser",
+   "title": "Nakna i regnet",
+   "year": 2019
+  },
+  {
+   "id": "bella-filippa-crucified",
+   "artist": "Bella & Filippa",
+   "title": "Crucified",
+   "year": 2017
+  },
+  {
+   "id": "army-of-lovers-rockin-the-ride",
+   "artist": "Army of Lovers",
+   "title": "Rockin’ the Ride",
+   "year": 2013
+  },
+  {
+   "id": "margaret-tempo",
+   "artist": "Margaret",
+   "title": "Tempo",
+   "year": 2019
+  },
+  {
+   "id": "olivia-eliasson-never-learn",
+   "artist": "Olivia Eliasson",
+   "title": "Never Learn",
+   "year": 2018
+  },
+  {
+   "id": "charlotte-perrelli-still-young",
+   "artist": "Charlotte Perrelli",
+   "title": "Still Young",
+   "year": 2021
+  },
+  {
+   "id": "ted-gardestad-lat-solen-varma-dig",
+   "artist": "Ted Gärdestad",
+   "title": "Låt solen värma dig",
+   "year": 1980
+  },
+  {
+   "id": "adrijana-amare",
+   "artist": "Adrijana",
+   "title": "Amare",
+   "year": 2017
+  },
+  {
+   "id": "faith-kakembo-freedom",
+   "artist": "Faith Kakembo",
+   "title": "Freedom",
+   "year": 2022
+  },
+  {
+   "id": "paul-rey-royals",
+   "artist": "Paul Rey",
+   "title": "Royals",
+   "year": 2023
+  },
+  {
+   "id": "lillasyster-till-our-days-are-over",
+   "artist": "Lillasyster",
+   "title": "Till Our Days Are Over",
+   "year": 2022
+  },
+  {
+   "id": "lina-hedlund-victorious",
+   "artist": "Lina Hedlund",
+   "title": "Victorious",
+   "year": 2019
+  },
+  {
+   "id": "anton-ewald-begging",
+   "artist": "Anton Ewald",
+   "title": "Begging",
+   "year": 2013
+  },
+  {
+   "id": "martin-almgren-a-bitter-lullaby",
+   "artist": "Martin Almgren",
+   "title": "A Bitter Lullaby",
+   "year": 2018
+  },
+  {
+   "id": "albin-johnsen-feat-pa-upp-i-luften",
+   "artist": "Albin Johnsén feat. Pa",
+   "title": "Upp i luften",
+   "year": 2025
+  },
+  {
+   "id": "kaliffa-salute",
+   "artist": "Kaliffa",
+   "title": "Salute",
+   "year": 2025
+  },
+  {
+   "id": "william-stridh-molnljus",
+   "artist": "William Stridh",
+   "title": "Molnljus",
+   "year": 2020
+  },
+  {
+   "id": "emil-henrohn-mera-mera-mera",
+   "artist": "Emil Henrohn",
+   "title": "Mera mera mera",
+   "year": 2023
+  },
+  {
+   "id": "mariette-don-t-stop-believing",
+   "artist": "Mariette",
+   "title": "Don't Stop Believing",
+   "year": 2015
+  },
+  {
+   "id": "bjorn-skifs-fangad-i-en-drom",
+   "artist": "Björn Skifs",
+   "title": "Fångad i en dröm",
+   "year": 1980
+  },
+  {
+   "id": "kadiatou-one-touch",
+   "artist": "Kadiatou",
+   "title": "One Touch",
+   "year": 2021
+  },
+  {
+   "id": "brandsta-city-slackers-15-minuter",
+   "artist": "Brandsta City Släckers",
+   "title": "15 Minuter",
+   "year": 2003
+  },
+  {
+   "id": "nomi-tales-funniest-thing",
+   "artist": "Nomi Tales",
+   "title": "Funniest Thing",
+   "year": 2025
+  },
+  {
+   "id": "rebecka-karlsson-who-i-am",
+   "artist": "Rebecka Karlsson",
+   "title": "Who I Am",
+   "year": 2019
+  },
+  {
+   "id": "kamferdrops-solen-lever-kvar-hos-dig",
+   "artist": "Kamferdrops",
+   "title": "Solen lever kvar hos dig",
+   "year": 2018
+  },
+  {
+   "id": "magnus-carlsson-mot-mig-i-gamla-stan",
+   "artist": "Magnus Carlsson",
+   "title": "Möt mig i Gamla stan",
+   "year": 2015
+  },
+  {
+   "id": "kristin-amparo-i-see-you",
+   "artist": "Kristin Amparo",
+   "title": "I See You",
+   "year": 2015
+  },
+  {
+   "id": "dinah-nah-one-more-night",
+   "artist": "Dinah Nah",
+   "title": "One More Night",
+   "year": 2017
+  },
+  {
+   "id": "jtr-building-it-up",
+   "artist": "JTR",
+   "title": "Building It Up",
+   "year": 2015
+  },
+  {
+   "id": "edward-blom-livet-pa-en-pinne",
+   "artist": "Edward Blom",
+   "title": "Livet på en pinne",
+   "year": 2018
+  },
+  {
+   "id": "arvingarna-ring-baby-ring",
+   "artist": "Arvingarna",
+   "title": "Ring baby ring",
+   "year": 2025
+  },
+  {
+   "id": "lisa-miskovsky-best-to-come",
+   "artist": "Lisa Miskovsky",
+   "title": "Best to Come",
+   "year": 2022
+  },
+  {
+   "id": "c-joe-ahumma",
+   "artist": "C-Joe",
+   "title": "Ahumma",
+   "year": 2024
+  },
+  {
+   "id": "andreas-johnson-army-of-us",
+   "artist": "Andreas Johnson",
+   "title": "Army of Us",
+   "year": 2019
+  },
+  {
+   "id": "elecktra-banne-maj",
+   "artist": "Elecktra",
+   "title": "Banne maj",
+   "year": 2024
+  },
+  {
+   "id": "albin-tingwall-done-getting-over-you",
+   "artist": "Albin Tingwall",
+   "title": "Done Getting Over You",
+   "year": 2024
+  },
+  {
+   "id": "adrian-maceus-var-forsta-gang",
+   "artist": "Adrian Macéus",
+   "title": "Vår första gång",
+   "year": 2025
+  },
+  {
+   "id": "lancelot-lyckligt-slut",
+   "artist": "Lancelot",
+   "title": "Lyckligt slut",
+   "year": 2022
+  },
+  {
+   "id": "mariette-hansson-one-day",
+   "artist": "Mariette Hansson",
+   "title": "One Day",
+   "year": 2023
+  },
+  {
+   "id": "mariette-one-day",
+   "artist": "Mariette",
+   "title": "One Day",
+   "year": 2023
+  },
+  {
+   "id": "mariette-shout-it-out",
+   "artist": "Mariette",
+   "title": "Shout It Out",
+   "year": 2020
+  },
+  {
+   "id": "tennessee-tears-now-i-know",
+   "artist": "Tennessee Tears",
+   "title": "Now I Know",
+   "year": 2023
+  },
+  {
+   "id": "mimi-werner-aint-no-good",
+   "artist": "Mimi Werner",
+   "title": "Ain’t No Good",
+   "year": 2016
+  },
+  {
+   "id": "sanna-nielsen-vagar-du-vagar-jag",
+   "artist": "Sanna Nielsen",
+   "title": "Vågar du, vågar jag",
+   "year": 2007
+  },
+  {
+   "id": "bjorn-holmgren-radda-mig",
+   "artist": "Björn Holmgren",
+   "title": "Rädda mig",
+   "year": 2025
+  },
+  {
+   "id": "frida-green-the-silence",
+   "artist": "Frida Green",
+   "title": "The Silence",
+   "year": 2021
+  },
+  {
+   "id": "signe-hjordis-edelweiss",
+   "artist": "Signe & Hjördis",
+   "title": "Edelweiss",
+   "year": 2023
+  },
+  {
+   "id": "andreas-lundstedt-vicious",
+   "artist": "Andreas Lundstedt",
+   "title": "Vicious",
+   "year": 2025
+  },
+  {
+   "id": "samira-manners-i-want-to-be-loved",
+   "artist": "Samira Manners",
+   "title": "I Want to Be Loved",
+   "year": 2022
+  },
+  {
+   "id": "fredrik-lundman-the-heart-of-a-swedish-cowboy",
+   "artist": "Fredrik Lundman",
+   "title": "The Heart of a Swedish Cowboy",
+   "year": 2025
+  },
+  {
+   "id": "ida-redig-allting-som-vi-sa",
+   "artist": "Ida Redig",
+   "title": "Allting som vi sa",
+   "year": 2018
+  },
+  {
+   "id": "jasmine-kara-gravity",
+   "artist": "Jasmine Kara",
+   "title": "Gravity",
+   "year": 2017
+  },
+  {
+   "id": "sannex-all-inclusive",
+   "artist": "Sannex",
+   "title": "All Inclusive",
+   "year": 2021
+  },
+  {
+   "id": "martin-stenmarck-lat-skiten-brinna",
+   "artist": "Martin Stenmarck",
+   "title": "Låt skiten brinna",
+   "year": 2019
+  },
+  {
+   "id": "oscar-zia-yes-we-can",
+   "artist": "Oscar Zia",
+   "title": "Yes We Can",
+   "year": 2014
+  },
+  {
+   "id": "owe-thornqvist-boogieman-blues",
+   "artist": "Owe Thörnqvist",
+   "title": "Boogieman Blues",
+   "year": 2017
+  },
+  {
+   "id": "elias-abbas-mitt-paradis",
+   "artist": "Elias Abbas",
+   "title": "Mitt paradis",
+   "year": 2018
+  },
+  {
+   "id": "eclipse-runaways",
+   "artist": "Eclipse",
+   "title": "Runaways",
+   "year": 2016
+  },
+  {
+   "id": "jessica-andersson-horizon",
+   "artist": "Jessica Andersson",
+   "title": "Horizon",
+   "year": 2021
+  },
+  {
+   "id": "linda-bengtzing-fyrfaldigt-hurra",
+   "artist": "Linda Bengtzing",
+   "title": "Fyrfaldigt hurra!",
+   "year": 2022
+  },
+  {
+   "id": "loulou-lamotte-inga-sorger",
+   "artist": "Loulou Lamotte",
+   "title": "Inga sorger",
+   "year": 2023
+  },
+  {
+   "id": "loulou-lamotte-inga-sorger",
+   "artist": "Loulou LaMotte",
+   "title": "Inga sorger",
+   "year": 2023
+  },
+  {
+   "id": "elize-ryd-rickard-soderberg-one-by-one",
+   "artist": "Elize Ryd & Rickard Söderberg",
+   "title": "One by One",
+   "year": 2015
+  },
+  {
+   "id": "tennessee-tears-yours",
+   "artist": "Tennessee Tears",
+   "title": "Yours",
+   "year": 2025
+  },
+  {
+   "id": "behrang-miri-feat-victor-crone-det-rar-vi-inte-for",
+   "artist": "Behrang Miri feat. Victor Crone",
+   "title": "Det rår vi inte för",
+   "year": 2015
+  },
+  {
+   "id": "swingfly-feat-helena-gutarra-you-carved-your-name",
+   "artist": "Swingfly feat. Helena Gutarra",
+   "title": "You Carved Your Name",
+   "year": 2016
+  },
+  {
+   "id": "angelino-teardrops",
+   "artist": "Angelino",
+   "title": "Teardrops",
+   "year": 2025
+  },
+  {
+   "id": "victor-och-natten-100",
+   "artist": "Victor och Natten",
+   "title": "100%",
+   "year": 2016
+  },
+  {
+   "id": "victor-och-natten-100",
+   "artist": "Victor och Natten",
+   "title": "100%",
+   "year": 2016
+  },
+  {
+   "id": "wiktoria-all-my-life-where-have-you-been",
+   "artist": "Wiktoria",
+   "title": "All My Life (Where Have You Been)",
+   "year": 2023
+  },
+  {
+   "id": "alice-running-with-lions",
+   "artist": "Alice",
+   "title": "Running With Lions",
+   "year": 2017
+  },
+  {
+   "id": "roger-pontare-himmel-och-hav",
+   "artist": "Roger Pontare",
+   "title": "Himmel Och Hav",
+   "year": 2017
+  },
+  {
+   "id": "linda-bengtzing-alla-mina-sorger",
+   "artist": "Linda Bengtzing",
+   "title": "Alla mina sorger",
+   "year": 2020
+  },
+  {
+   "id": "kim-cesarion-take-my-breath-away",
+   "artist": "Kim Cesarion",
+   "title": "Take My Breath Away",
+   "year": 2024
+  },
+  {
+   "id": "dear-sara-the-silence-after-you",
+   "artist": "Dear Sara",
+   "title": "The Silence After You",
+   "year": 2024
+  },
+  {
+   "id": "angelino-the-end",
+   "artist": "Angelino",
+   "title": "The End",
+   "year": 2022
+  },
+  {
+   "id": "anton-ewald-natural",
+   "artist": "Anton Ewald",
+   "title": "Natural",
+   "year": 2014
+  },
+  {
+   "id": "behrang-miri-jalla-dansa-sawa",
+   "artist": "Behrang Miri",
+   "title": "Jalla dansa sawa",
+   "year": 2013
+  },
+  {
+   "id": "ellen-benediktson-insomnia",
+   "artist": "Ellen Benediktson",
+   "title": "Insomnia",
+   "year": 2015
+  },
+  {
+   "id": "casanovas-sa-kommer-kanslorna-tillbaka",
+   "artist": "Casanovas",
+   "title": "Så kommer känslorna tillbaka",
+   "year": 2023
+  },
+  {
+   "id": "browsing-collection-face-in-the-crowd",
+   "artist": "Browsing Collection",
+   "title": "Face in the Crowd",
+   "year": 2022
+  },
+  {
+   "id": "chelsea-muco-controlla",
+   "artist": "Chelsea Muco",
+   "title": "Controlla",
+   "year": 2024
+  },
+  {
+   "id": "neverstore-if-i-was-god-for-one-day",
+   "artist": "Neverstore",
+   "title": "If I Was God for One Day",
+   "year": 2015
+  },
+  {
+   "id": "after-dark-kom-ut-som-en-stjarna",
+   "artist": "After Dark",
+   "title": "Kom ut som en stjärna",
+   "year": 2016
+  },
+  {
+   "id": "linda-bengtzing-killer-girl",
+   "artist": "Linda Bengtzing",
+   "title": "Killer Girl",
+   "year": 2016
+  },
+  {
+   "id": "melanie-wehbe-for-the-show",
+   "artist": "Melanie Wehbe",
+   "title": "For the Show",
+   "year": 2023
+  },
+  {
+   "id": "ellen-benediktson-simon-peyron-surface",
+   "artist": "Ellen Benediktson & Simon Peyron",
+   "title": "Surface",
+   "year": 2020
+  },
+  {
+   "id": "anton-hagman-kanner-dig",
+   "artist": "Anton Hagman",
+   "title": "Känner dig",
+   "year": 2019
+  },
+  {
+   "id": "axel-schylstrom-gorgeous",
+   "artist": "Axel Schylström",
+   "title": "Gorgeous",
+   "year": 2023
+  },
+  {
+   "id": "tess-merkel-good-life",
+   "artist": "Tess Merkel",
+   "title": "Good Life",
+   "year": 2021
+  },
+  {
+   "id": "mustasch-contagious",
+   "artist": "Mustasch",
+   "title": "Contagious",
+   "year": 2021
+  },
+  {
+   "id": "tribe-friday-shut-me-up",
+   "artist": "Tribe Friday",
+   "title": "Shut Me Up",
+   "year": 2022
+  },
+  {
+   "id": "kalle-johansson-for-din-skull",
+   "artist": "Kalle Johansson",
+   "title": "För din skull",
+   "year": 2015
+  },
+  {
+   "id": "markoolio-karlekssang-fran-mig",
+   "artist": "Markoolio",
+   "title": "Kärlekssång från mig",
+   "year": 2009
+  },
+  {
+   "id": "frida-ohrn-we-are-one",
+   "artist": "Frida Öhrn",
+   "title": "We Are One",
+   "year": 2020
+  },
+  {
+   "id": "dismissed-hearts-align",
+   "artist": "Dismissed",
+   "title": "Hearts Align",
+   "year": 2017
+  },
+  {
+   "id": "high15-no-drama",
+   "artist": "High15",
+   "title": "No Drama",
+   "year": 2019
+  },
+  {
+   "id": "midnight-boy-don-t-say-no",
+   "artist": "Midnight Boy",
+   "title": "Don't Say No",
+   "year": 2015
+  },
+  {
+   "id": "clara-klingenstrom-aldrig-mer",
+   "artist": "Clara Klingenström",
+   "title": "Aldrig mer",
+   "year": 2024
+  },
+  {
+   "id": "krista-siegfrids-snurra-min-jord",
+   "artist": "Krista Siegfrids",
+   "title": "Snurra Min Jord",
+   "year": 2017
+  },
+  {
+   "id": "martin-stenmarck-du-tar-mig-tillbaks",
+   "artist": "Martin Stenmarck",
+   "title": "Du tar mig tillbaks",
+   "year": 2016
+  },
+  {
+   "id": "jessica-andersson-can-t-hurt-me-now",
+   "artist": "Jessica Andersson",
+   "title": "Can't Hurt Me Now",
+   "year": 2015
+  },
+  {
+   "id": "pernilla-andersson-mitt-guld",
+   "artist": "Pernilla Andersson",
+   "title": "Mitt guld",
+   "year": 2016
+  },
+  {
+   "id": "victoria-silvstedt-love-it",
+   "artist": "Victoria Silvstedt",
+   "title": "Love It!",
+   "year": 2025
+  },
+  {
+   "id": "albin-livet-borjar-nu",
+   "artist": "Albin",
+   "title": "Livet börjar nu",
+   "year": 2020
+  },
+  {
+   "id": "the-lovers-of-valdaro-somebody-wants",
+   "artist": "The Lovers of Valdaro",
+   "title": "Somebody Wants",
+   "year": 2019
+  },
+  {
+   "id": "nathalie-brydolf-fingerprints",
+   "artist": "Nathalie Brydolf",
+   "title": "Fingerprints",
+   "year": 2021
+  },
+  {
+   "id": "amanda-aasa-late",
+   "artist": "Amanda Aasa",
+   "title": "Late",
+   "year": 2020
+  },
+  {
+   "id": "sonja-alden-sluta-aldrig-ga",
+   "artist": "Sonja Aldén",
+   "title": "Sluta aldrig gå",
+   "year": 2020
+  },
+  {
+   "id": "faith-kakembo-crying-rivers",
+   "artist": "Faith Kakembo",
+   "title": "Crying Rivers",
+   "year": 2020
+  },
+  {
+   "id": "malin-christin-synd-om-dig",
+   "artist": "Malin Christin",
+   "title": "Synd om dig",
+   "year": 2022
+  },
+  {
+   "id": "schlagerz-don-juan",
+   "artist": "Schlagerz",
+   "title": "Don Juan",
+   "year": 2025
+  },
+  {
+   "id": "julia-alfrida-rich",
+   "artist": "Julia Alfrida",
+   "title": "Rich",
+   "year": 2021
+  },
+  {
+   "id": "krista-siegfrids-faller",
+   "artist": "Krista Siegfrids",
+   "title": "Faller",
+   "year": 2016
+  },
+  {
+   "id": "anna-book-himmel-for-tva",
+   "artist": "Anna Book",
+   "title": "Himmel för två",
+   "year": 2016
+  },
+  {
+   "id": "mimi-werner-songburning",
+   "artist": "Mimi Werner",
+   "title": "Songburning",
+   "year": 2018
+  },
+  {
+   "id": "emmi-christensson-icarus",
+   "artist": "Emmi Christensson",
+   "title": "Icarus",
+   "year": 2018
+  },
+  {
+   "id": "pandora-runaway",
+   "artist": "Pandora",
+   "title": "Runaway",
+   "year": 2004
+  },
+  {
+   "id": "elisa-den-du-ar",
+   "artist": "Elisa",
+   "title": "Den du är",
+   "year": 2021
+  },
+  {
+   "id": "shirley-clamp-let-there-be-angels",
+   "artist": "Shirley Clamp",
+   "title": "Let There Be Angels",
+   "year": 2022
+  },
+  {
+   "id": "uje-brandelius-grytan",
+   "artist": "Uje Brandelius",
+   "title": "Grytan",
+   "year": 2023
+  },
+  {
+   "id": "caroline-wennergren-black-swan",
+   "artist": "Caroline Wennergren",
+   "title": "Black Swan",
+   "year": 2015
+  },
+  {
+   "id": "allyawan-vart-har-du-vart",
+   "artist": "Allyawan",
+   "title": "Vart Har Du Vart",
+   "year": 2017
+  },
+  {
+   "id": "andreas-johnson-living-to-die",
+   "artist": "Andreas Johnson",
+   "title": "Living to Die",
+   "year": 2015
+  },
+  {
+   "id": "elisa-lindstrom-forever-yours",
+   "artist": "Elisa Lindström",
+   "title": "Forever Yours",
+   "year": 2024
+  },
+  {
+   "id": "patrik-isaksson-tommy-nilsson-uno-svenningsson-hall-mitt-hjarta-hart",
+   "artist": "Patrik Isaksson, Tommy Nilsson & Uno Svenningsson",
+   "title": "Håll mitt hjärta hårt",
+   "year": 2016
+  },
+  {
+   "id": "annika-herlitz-ett-andetag",
+   "artist": "Annika Herlitz",
+   "title": "Ett andetag",
+   "year": 2015
+  },
+  {
+   "id": "peter-joback-hollow",
+   "artist": "Peter Jöback",
+   "title": "Hollow",
+   "year": 2010
+  },
+  {
+   "id": "niklas-stromstedt-for-manga-ord-om-karlek",
+   "artist": "Niklas Strömstedt",
+   "title": "För många ord om kärlek",
+   "year": 2008
+  },
+  {
+   "id": "pagan-fury-stormbringer",
+   "artist": "Pagan Fury",
+   "title": "Stormbringer",
+   "year": 2019
+  },
+  {
+   "id": "nanne-carpool-karaoke",
+   "artist": "Nanne",
+   "title": "Carpool Karaoke",
+   "year": 2020
+  },
+  {
+   "id": "amena-do-good-be-better",
+   "artist": "AmenA",
+   "title": "Do Good Be Better",
+   "year": 2025
+  },
+  {
+   "id": "ann-louise-hanson-karleken-finns-kvar",
+   "artist": "Ann-Louise Hanson",
+   "title": "Kärleken finns kvar",
+   "year": 2019
+  },
+  {
+   "id": "barbi-escobar-stark",
+   "artist": "Barbi Escobar",
+   "title": "Stark",
+   "year": 2018
+  },
+  {
+   "id": "sara-varga-juha-mulari-du-far-inte-andra-pa-mig",
+   "artist": "Sara Varga & Juha Mulari",
+   "title": "Du får inte ändra på mig",
+   "year": 2017
+  },
+  {
+   "id": "emelie-irewald-dar-och-da-med-dig",
+   "artist": "Emelie Irewald",
+   "title": "Där och då med dig",
+   "year": 2015
+  },
+  {
+   "id": "etzia-up",
+   "artist": "Etzia",
+   "title": "Up",
+   "year": 2017
+  },
+  {
+   "id": "jonas-gardell-det-finns-en-vag",
+   "artist": "Jonas Gardell",
+   "title": "Det finns en väg",
+   "year": 2018
+  },
+  {
+   "id": "les-gordons-bound-to-fall",
+   "artist": "Les Gordons",
+   "title": "Bound to Fall",
+   "year": 2017
+  },
+  {
+   "id": "sanne-salomonsen-higher-ground",
+   "artist": "Sanne Salomonsen",
+   "title": "Higher Ground",
+   "year": 2005
+  },
+  {
+   "id": "osten-med-resten-hon-kommer-med-solsken",
+   "artist": "Östen med Resten",
+   "title": "Hon kommer med solsken",
+   "year": 2002
+  },
+  {
+   "id": "arja-saijonmaa-mina-fyra-arstider",
+   "artist": "Arja Saijonmaa",
+   "title": "Mina fyra årstider",
+   "year": 2019
+  },
+  {
+   "id": "jan-malmsjo-leva-livet",
+   "artist": "Jan Malmsjö",
+   "title": "Leva livet",
+   "year": 2019
+  },
+  {
+   "id": "engmans-kapell-norrland",
+   "artist": "Engmans Kapell",
+   "title": "Norrland",
+   "year": 2024
+  },
+  {
+   "id": "suzi-p-moves",
+   "artist": "Suzi P",
+   "title": "Moves",
+   "year": 2020
+  },
+  {
+   "id": "charlotte-perrelli-mitt-liv",
+   "artist": "Charlotte Perrelli",
+   "title": "Mitt Liv",
+   "year": 2017
+  },
+  {
+   "id": "marie-bergman-sanne-salomonsen-nonetheless",
+   "artist": "Marie Bergman & Sanne Salomonsen",
+   "title": "Nonetheless",
+   "year": 2015
+  },
+  {
+   "id": "tenori-la-stella",
+   "artist": "Tenori",
+   "title": "La stella",
+   "year": 2022
+  },
+  {
+   "id": "eric-saade-popular",
+   "artist": "Eric Saade",
+   "title": "Popular",
+   "year": 2011
+  },
+  {
+   "id": "alice-babs-sweden-in-the-eurovision-song-contest-1958",
+   "artist": "Alice Babs",
+   "title": "Sweden in the Eurovision Song Contest 1958",
+   "year": 1958
   },
   {
    "id": "lotta-engberg-100",
@@ -238,12 +2164,6 @@
    "year": 2011
   },
   {
-   "id": "steps-something-in-your-eyes",
-   "artist": "Steps & Jenny Silver",
-   "title": "Something in Your Eyes",
-   "year": 2011
-  },
-  {
    "id": "the-playtones-the-king",
    "artist": "The Playtones",
    "title": "The King",
@@ -260,60 +2180,6 @@
    "artist": "Emilia Rydberg",
    "title": "You're My World",
    "year": 2009
-  },
-  {
-   "id": "meira-omar-hush-hush",
-   "artist": "Meira Omar",
-   "title": "Hush Hush",
-   "year": 2025
-  },
-  {
-   "id": "erik-segerstedt-show-me-what-love-is",
-   "artist": "Erik Segerstedt",
-   "title": "Show Me What Love Is",
-   "year": 2025
-  },
-  {
-   "id": "annika-wickihalder-life-again",
-   "artist": "Annika Wickihalder",
-   "title": "Life Again",
-   "year": 2025
-  },
-  {
-   "id": "saga-ludvigsson-hate-you-so-much",
-   "artist": "Saga Ludvigsson",
-   "title": "Hate You So Much",
-   "year": 2025
-  },
-  {
-   "id": "scarlet-sweet-n-psycho",
-   "artist": "SCARLET",
-   "title": "Sweet N' Psycho",
-   "year": 2025
-  },
-  {
-   "id": "elov-beny-raggen-gar",
-   "artist": "Elov & Beny",
-   "title": "Raggen går",
-   "year": 2023
-  },
-  {
-   "id": "lisa-ekdahl-crazy-in-love",
-   "artist": "Lisa Ekdahl & Jill Johnson",
-   "title": "Crazy in Love",
-   "year": 2003
-  },
-  {
-   "id": "victor-och-natten-100",
-   "artist": "Victor och Natten",
-   "title": "100%",
-   "year": 2016
-  },
-  {
-   "id": "rolandz-fuldans",
-   "artist": "Rolandz",
-   "title": "Fuldans",
-   "year": 2018
   },
   {
    "id": "ulf-bork-nasta-weekend",
@@ -364,18 +2230,6 @@
    "year": 2006
   },
   {
-   "id": "linnea-henriksson-den-kanslan",
-   "artist": "Linnea Henriksson",
-   "title": "Den känslan",
-   "year": 2025
-  },
-  {
-   "id": "loulou-lamotte-inga-sorger",
-   "artist": "Loulou Lamotte",
-   "title": "Inga sorger",
-   "year": 2023
-  },
-  {
    "id": "rejhan-haunted",
    "artist": "Rejhan",
    "title": "Haunted",
@@ -386,48 +2240,6 @@
    "artist": "Eva Rydberg & Ewa Roos",
    "title": "Länge leve livet",
    "year": 2023
-  },
-  {
-   "id": "abba-waterloo",
-   "artist": "ABBA",
-   "title": "Waterloo",
-   "year": 1958
-  },
-  {
-   "id": "abba-ring-ring-bara-du-slog-en-signal",
-   "artist": "ABBA",
-   "title": "Ring Ring (Bara du slog en signal)",
-   "year": 1958
-  },
-  {
-   "id": "loreen-my-heart-is-refusing-me",
-   "artist": "Loreen",
-   "title": "My Heart Is Refusing Me",
-   "year": 2011
-  },
-  {
-   "id": "loreen-statements",
-   "artist": "Loreen",
-   "title": "Statements",
-   "year": 2017
-  },
-  {
-   "id": "mans-zelmerlow-cara-mia",
-   "artist": "Måns Zelmerlöw",
-   "title": "Cara Mia",
-   "year": 1958
-  },
-  {
-   "id": "mans-zelmerlow-hope-and-glory",
-   "artist": "Måns Zelmerlöw",
-   "title": "Hope and Glory",
-   "year": 2009
-  },
-  {
-   "id": "mans-zelmerlow-heroes",
-   "artist": "Måns Zelmerlöw",
-   "title": "Heroes",
-   "year": 2015
   },
   {
    "id": "sebastian-when-the-night-comes-falling",
@@ -442,100 +2254,34 @@
    "year": 2009
   },
   {
-   "id": "sanna-nielsen-undo",
-   "artist": "Sanna Nielsen",
-   "title": "Undo",
-   "year": 2014
-  },
-  {
-   "id": "sanna-nielsen-hela-varlden-for-mig",
-   "artist": "Sanna Nielsen",
-   "title": "Hela världen för mig",
-   "year": 2003
-  },
-  {
-   "id": "sanna-nielsen-i-m-in-love",
-   "artist": "Sanna Nielsen",
-   "title": "I'm in Love",
-   "year": 2011
-  },
-  {
    "id": "charlotte-perrelli-the-girl",
    "artist": "Charlotte Perrelli",
    "title": "The Girl",
    "year": 2012
   },
   {
-   "id": "sanna-nielsen-empty-room",
-   "artist": "Sanna Nielsen",
-   "title": "Empty Room",
-   "year": 2008
-  },
-  {
    "id": "charlotte-perrelli-hero",
    "artist": "Charlotte Perrelli",
    "title": "Hero",
-   "year": 1958
-  },
-  {
-   "id": "charlotte-perrelli-mitt-liv",
-   "artist": "Charlotte Perrelli",
-   "title": "Mitt Liv",
-   "year": 2017
-  },
-  {
-   "id": "charlotte-perrelli-still-young",
-   "artist": "Charlotte Perrelli",
-   "title": "Still Young",
-   "year": 2021
-  },
-  {
-   "id": "helena-paparizou-survivor",
-   "artist": "Helena Paparizou",
-   "title": "Survivor",
-   "year": 2014
-  },
-  {
-   "id": "victoria-silvstedt-love-it",
-   "artist": "Victoria Silvstedt",
-   "title": "Love It!",
-   "year": 2025
-  },
-  {
-   "id": "anna-bergendahl-ashes-to-ashes",
-   "artist": "Anna Bergendahl",
-   "title": "Ashes to Ashes",
-   "year": 2019
-  },
-  {
-   "id": "anna-bergendahl-this-is-my-life",
-   "artist": "Anna Bergendahl",
-   "title": "This Is My Life",
-   "year": 1958
+   "year": 2008
   },
   {
    "id": "malena-ernman-la-voix",
    "artist": "Malena Ernman",
    "title": "La Voix",
-   "year": 1958
+   "year": 2009
+  },
+  {
+   "id": "eric-saade-popular",
+   "artist": "Eric Saade",
+   "title": "Popular",
+   "year": 2011
   },
   {
    "id": "eric-saade-manboy",
    "artist": "Eric Saade",
    "title": "Manboy",
-   "year": 1958
-  },
-  {
-   "id": "eric-saade-every-minute",
-   "artist": "Eric Saade",
-   "title": "Every Minute",
-   "year": 2021
-  },
-  {
-   "id": "eric-saade-sting",
-   "artist": "Eric Saade",
-   "title": "Sting",
-   "year": 2015
+   "year": 2010
   },
   {
    "id": "kikki-danielsson-osby-tennessee",
@@ -547,7 +2293,7 @@
    "id": "jill-johnson-crazy-in-love",
    "artist": "Jill Johnson",
    "title": "Crazy in Love",
-   "year": 1958
+   "year": 2003
   },
   {
    "id": "lotta-engberg-och-christer-sjogren-don-t-let-me-down",
@@ -562,28 +2308,10 @@
    "year": 2006
   },
   {
-   "id": "jill-johnson-karleken-ar",
-   "artist": "Jill Johnson",
-   "title": "Kärleken är",
-   "year": 1958
-  },
-  {
-   "id": "kikki-danielsson-bra-vibrationer",
-   "artist": "Kikki Danielsson",
-   "title": "Bra vibrationer",
-   "year": 1958
-  },
-  {
-   "id": "lotta-engberg-fyra-bugg-och-en-coca-cola",
-   "artist": "Lotta Engberg",
-   "title": "Fyra bugg och en Coca Cola",
-   "year": 1958
-  },
-  {
    "id": "danny-in-the-club",
    "artist": "Danny",
    "title": "In the Club",
-   "year": 1958
+   "year": 2011
   },
   {
    "id": "kerli-locatellis-let-s-go",
@@ -598,106 +2326,16 @@
    "year": 2017
   },
   {
-   "id": "robin-bengtsson-constellation-prize",
-   "artist": "Robin Bengtsson",
-   "title": "Constellation Prize",
-   "year": 2016
-  },
-  {
-   "id": "robin-bengtsson-innocent-love",
-   "artist": "Robin Bengtsson",
-   "title": "Innocent Love",
-   "year": 2022
-  },
-  {
-   "id": "robin-stjernberg-you",
-   "artist": "Robin Stjernberg",
-   "title": "You",
-   "year": 1958
-  },
-  {
-   "id": "darin-youre-out-of-my-life",
-   "artist": "Darin",
-   "title": "You’re Out of My Life",
-   "year": 2010
-  },
-  {
-   "id": "krista-siegfrids-snurra-min-jord",
-   "artist": "Krista Siegfrids",
-   "title": "Snurra Min Jord",
-   "year": 2017
-  },
-  {
-   "id": "krista-siegfrids-faller",
-   "artist": "Krista Siegfrids",
-   "title": "Faller",
-   "year": 2016
-  },
-  {
    "id": "lena-philipsson-det-gor-ont",
    "artist": "Lena Philipsson",
    "title": "Det gör ont",
-   "year": 1958
-  },
-  {
-   "id": "lena-philipsson-dansa-i-neon",
-   "artist": "Lena Philipsson",
-   "title": "Dansa i neon",
-   "year": 1958
-  },
-  {
-   "id": "alice-babs-lilla-stjarna",
-   "artist": "Alice Babs",
-   "title": "Lilla stjärna",
-   "year": 1958
-  },
-  {
-   "id": "john-lundvik-my-turn",
-   "artist": "John Lundvik",
-   "title": "My Turn",
-   "year": 2018
-  },
-  {
-   "id": "john-lundvik-too-late-for-love",
-   "artist": "John Lundvik",
-   "title": "Too Late for Love",
-   "year": 2019
-  },
-  {
-   "id": "john-lundvik-anglavakt",
-   "artist": "John Lundvik",
-   "title": "Änglavakt",
-   "year": 2022
-  },
-  {
-   "id": "benjamin-ingrosso-dance-you-off",
-   "artist": "Benjamin Ingrosso",
-   "title": "Dance You Off",
-   "year": 2018
-  },
-  {
-   "id": "benjamin-ingrosso-good-lovin",
-   "artist": "Benjamin Ingrosso",
-   "title": "Good Lovin’",
-   "year": 2017
+   "year": 2004
   },
   {
    "id": "elisabeth-andreassen-vaken-i-en-drom",
    "artist": "Elisabeth Andreassen",
    "title": "Vaken i en dröm",
    "year": 2011
-  },
-  {
-   "id": "elisa-den-du-ar",
-   "artist": "Elisa",
-   "title": "Den du är",
-   "year": 2021
-  },
-  {
-   "id": "victor-crone-troubled-waters",
-   "artist": "Victor Crone",
-   "title": "Troubled Waters",
-   "year": 2020
   },
   {
    "id": "julia-jag-vill-inte-forklara",
@@ -710,24 +2348,6 @@
    "artist": "Julia",
    "title": "Jag Vill Inte Förklara (Karaokeversion)",
    "year": 2005
-  },
-  {
-   "id": "danny-saucedo-happy-that-you-found-me",
-   "artist": "Danny Saucedo",
-   "title": "Happy That You Found Me",
-   "year": 2024
-  },
-  {
-   "id": "danny-saucedo-amazing",
-   "artist": "Danny Saucedo",
-   "title": "Amazing",
-   "year": 2012
-  },
-  {
-   "id": "danny-saucedo-dandi-dansa",
-   "artist": "Danny Saucedo",
-   "title": "Dandi dansa",
-   "year": 2021
   },
   {
    "id": "rednex-mama-take-me-home",
@@ -754,12 +2374,6 @@
    "year": 2010
   },
   {
-   "id": "frans-if-i-were-sorry",
-   "artist": "Frans",
-   "title": "If I Were Sorry",
-   "year": 2016
-  },
-  {
    "id": "e-type-feat-na-na-paradise",
    "artist": "E-Type feat. Na Na",
    "title": "Paradise",
@@ -770,96 +2384,6 @@
    "artist": "Günther & the Sunshine Girls",
    "title": "Like Fire Tonight",
    "year": 2006
-  },
-  {
-   "id": "monica-zetterlund-en-gang-i-stockholm",
-   "artist": "Monica Zetterlund",
-   "title": "En gång i Stockholm",
-   "year": 1958
-  },
-  {
-   "id": "siw-malmkvist-augustin",
-   "artist": "Siw Malmkvist",
-   "title": "Augustin",
-   "year": 1958
-  },
-  {
-   "id": "alcazar-blame-it-on-the-disco",
-   "artist": "Alcazar",
-   "title": "Blame It on the Disco",
-   "year": 2014
-  },
-  {
-   "id": "alcazar-alcastar",
-   "artist": "Alcazar",
-   "title": "Alcastar",
-   "year": 2005
-  },
-  {
-   "id": "alcazar-not-a-sinner-nor-a-saint",
-   "artist": "Alcazar",
-   "title": "Not a Sinner nor a Saint",
-   "year": 1958
-  },
-  {
-   "id": "mohombi-hello",
-   "artist": "Mohombi",
-   "title": "Hello",
-   "year": 2019
-  },
-  {
-   "id": "molly-sanden-why-am-i-crying",
-   "artist": "Molly Sandén",
-   "title": "Why Am I Crying",
-   "year": 1958
-  },
-  {
-   "id": "alcazar-headlines",
-   "artist": "Alcazar",
-   "title": "Headlines",
-   "year": 2010
-  },
-  {
-   "id": "molly-sanden-youniverse",
-   "artist": "Molly Sandén",
-   "title": "Youniverse",
-   "year": 2016
-  },
-  {
-   "id": "molly-sanden-sa-vill-stjarnorna",
-   "artist": "Molly Sandén",
-   "title": "Så vill stjärnorna",
-   "year": 2009
-  },
-  {
-   "id": "mohombi-winners",
-   "artist": "Mohombi",
-   "title": "Winners",
-   "year": 2020
-  },
-  {
-   "id": "margaret-in-my-cabana",
-   "artist": "Margaret",
-   "title": "In My Cabana",
-   "year": 2018
-  },
-  {
-   "id": "medina-que-sera",
-   "artist": "Medina",
-   "title": "Que Sera",
-   "year": 2024
-  },
-  {
-   "id": "margaret-tempo",
-   "artist": "Margaret",
-   "title": "Tempo",
-   "year": 2019
-  },
-  {
-   "id": "medina-in-i-dimman",
-   "artist": "Medina",
-   "title": "In i dimman",
-   "year": 2022
   },
   {
    "id": "ida-jessie-coola-brudar",
@@ -877,73 +2401,7 @@
    "id": "the-ark-the-worrying-kind",
    "artist": "The Ark",
    "title": "The Worrying Kind",
-   "year": 1958
-  },
-  {
-   "id": "bjorn-skifs-det-blir-alltid-varre-framat-natten",
-   "artist": "Björn Skifs",
-   "title": "Det blir alltid värre framåt natten",
-   "year": 1958
-  },
-  {
-   "id": "bjorn-skifs-michelangelo-men-sa-svara-da",
-   "artist": "Björn Skifs",
-   "title": "Michelangelo (men så svara då)",
-   "year": 1958
-  },
-  {
-   "id": "tomas-ledin-just-nu",
-   "artist": "Tomas Ledin",
-   "title": "Just nu",
-   "year": 1958
-  },
-  {
-   "id": "bjorn-skifs-fangad-i-en-drom",
-   "artist": "Björn Skifs",
-   "title": "Fångad i en dröm",
-   "year": 1958
-  },
-  {
-   "id": "tommy-korberg-stad-i-ljus",
-   "artist": "Tommy Körberg",
-   "title": "Stad i ljus",
-   "year": 1958
-  },
-  {
-   "id": "christer-bjorkman-imorgon-ar-en-annan-dag",
-   "artist": "Christer Björkman",
-   "title": "Imorgon är en annan dag",
-   "year": 1958
-  },
-  {
-   "id": "tommy-korberg-judy-min-van",
-   "artist": "Tommy Körberg",
-   "title": "Judy min vän",
-   "year": 1958
-  },
-  {
-   "id": "army-of-lovers-rockin-the-ride",
-   "artist": "Army of Lovers",
-   "title": "Rockin’ the Ride",
-   "year": 2013
-  },
-  {
-   "id": "lisa-ajax-awful-liar",
-   "artist": "Lisa Ajax",
-   "title": "Awful Liar",
-   "year": 2024
-  },
-  {
-   "id": "omar-rudberg-om-om-och-om-igen",
-   "artist": "Omar Rudberg",
-   "title": "Om om och om igen",
-   "year": 2019
-  },
-  {
-   "id": "lisa-ajax-torn",
-   "artist": "Lisa Ajax",
-   "title": "Torn",
-   "year": 2019
+   "year": 2007
   },
   {
    "id": "lisa-miskovsky-why-start-a-fire",
@@ -958,24 +2416,6 @@
    "year": 2017
   },
   {
-   "id": "lisa-ajax-my-heart-wants-me-dead",
-   "artist": "Lisa Ajax",
-   "title": "My Heart Wants Me Dead",
-   "year": 2016
-  },
-  {
-   "id": "omar-rudberg-moving-like-that",
-   "artist": "Omar Rudberg",
-   "title": "Moving Like That",
-   "year": 2022
-  },
-  {
-   "id": "lisa-miskovsky-best-to-come",
-   "artist": "Lisa Miskovsky",
-   "title": "Best to Come",
-   "year": 2022
-  },
-  {
    "id": "anna-sahlene-maria-haukaas-storeng-killing-me-tenderly",
    "artist": "Anna Sahlene & Maria Haukaas Storeng",
    "title": "Killing Me Tenderly",
@@ -986,18 +2426,6 @@
    "artist": "Anna Sahlin",
    "title": "This Woman",
    "year": 2006
-  },
-  {
-   "id": "ingvar-wixell-annorstades-vals",
-   "artist": "Ingvar Wixell",
-   "title": "Annorstädes vals",
-   "year": 1958
-  },
-  {
-   "id": "inger-berggren-sol-och-var",
-   "artist": "Inger Berggren",
-   "title": "Sol och vår",
-   "year": 1958
   },
   {
    "id": "shirley-clamp-burning-alive",
@@ -1012,18 +2440,6 @@
    "year": 2005
   },
   {
-   "id": "dotter-cry",
-   "artist": "Dotter",
-   "title": "Cry",
-   "year": 2018
-  },
-  {
-   "id": "dotter-its-not-easy-to-write-a-love-song",
-   "artist": "Dotter",
-   "title": "It’s Not Easy to Write a Love Song",
-   "year": 2024
-  },
-  {
    "id": "shirley-clamp-mr-memory",
    "artist": "Shirley Clamp",
    "title": "Mr Memory",
@@ -1036,16 +2452,10 @@
    "year": 2012
   },
   {
-   "id": "alice-running-with-lions",
-   "artist": "Alice",
-   "title": "Running With Lions",
-   "year": 2017
-  },
-  {
-   "id": "shirley-clamp-let-there-be-angels",
+   "id": "shirley-clamp-med-hjartat-fullt-av-ljus",
    "artist": "Shirley Clamp",
-   "title": "Let There Be Angels",
-   "year": 2022
+   "title": "Med hjärtat fullt av ljus",
+   "year": 2009
   },
   {
    "id": "marie-serneholt-disconnect-me",
@@ -1054,16 +2464,10 @@
    "year": 2009
   },
   {
-   "id": "dotter-little-tot",
-   "artist": "Dotter",
-   "title": "Little Tot",
-   "year": 2021
-  },
-  {
-   "id": "dotter-bulletproof",
-   "artist": "Dotter",
-   "title": "Bulletproof",
-   "year": 2020
+   "id": "shirley-clamp-min-karlek",
+   "artist": "Shirley Clamp",
+   "title": "Min kärlek",
+   "year": 2004
   },
   {
    "id": "samuel-jag-har-alltid-velat-traffa-jimmy-janson",
@@ -1078,46 +2482,10 @@
    "year": 2007
   },
   {
-   "id": "eva-dahlgren-om-jag-skriver-en-sang",
-   "artist": "Eva Dahlgren",
-   "title": "Om jag skriver en sång",
-   "year": 1958
-  },
-  {
    "id": "eva-dahlgren-jag-ger-mig-inte",
    "artist": "Eva Dahlgren",
    "title": "Jag ger mig inte",
    "year": 1980
-  },
-  {
-   "id": "kim-cesarion-take-my-breath-away",
-   "artist": "Kim Cesarion",
-   "title": "Take My Breath Away",
-   "year": 2024
-  },
-  {
-   "id": "marcus-martinus-air",
-   "artist": "Marcus & Martinus",
-   "title": "Air",
-   "year": 2023
-  },
-  {
-   "id": "jon-henrik-fjallgren-norrsken",
-   "artist": "Jon Henrik Fjällgren",
-   "title": "Norrsken",
-   "year": 2019
-  },
-  {
-   "id": "dead-by-april-mystery",
-   "artist": "Dead by April",
-   "title": "Mystery",
-   "year": 2012
-  },
-  {
-   "id": "jon-henrik-fjallgren-feat-aninia-en-varld-full-av-strider-eatneme-gusnie-jeenh-daaroeh",
-   "artist": "Jon Henrik Fjällgren feat. Aninia",
-   "title": "En Värld Full Av Strider (Eatneme gusnie jeenh dåaroeh)",
-   "year": 2017
   },
   {
    "id": "nina-kim-en-gang-for-alla",
@@ -1126,34 +2494,10 @@
    "year": 2004
   },
   {
-   "id": "jon-henrik-fjallgren-jag-ar-fri-manne-leam-frijje",
-   "artist": "Jon Henrik Fjällgren",
-   "title": "Jag är fri (Manne Leam Frijje)",
-   "year": 2015
-  },
-  {
-   "id": "ted-gardestad-satellit",
-   "artist": "Ted Gärdestad",
-   "title": "Satellit",
-   "year": 1958
-  },
-  {
-   "id": "ted-gardestad-lat-solen-varma-dig",
-   "artist": "Ted Gärdestad",
-   "title": "Låt solen värma dig",
-   "year": 1980
-  },
-  {
    "id": "joacim-cans-annelie",
    "artist": "Joacim Cans",
    "title": "Annelie",
    "year": 2013
-  },
-  {
-   "id": "felix-sandman-every-single-day",
-   "artist": "Felix Sandman",
-   "title": "Every Single Day",
-   "year": 2018
   },
   {
    "id": "bwo-lay-your-love-on-me",
@@ -1162,10 +2506,10 @@
    "year": 2008
   },
   {
-   "id": "roger-pontare-himmel-och-hav",
-   "artist": "Roger Pontare",
-   "title": "Himmel Och Hav",
-   "year": 2017
+   "id": "tommy-nilsson-jag-tror-pa-manniskan",
+   "artist": "Tommy Nilsson",
+   "title": "Jag tror på människan",
+   "year": 2007
   },
   {
    "id": "svante-thuresson-annelie-ryde-forsta-gangen",
@@ -1183,25 +2527,13 @@
    "id": "bwo-temple-of-love",
    "artist": "BWO",
    "title": "Temple of Love",
-   "year": 1958
+   "year": 2006
   },
   {
    "id": "roger-pontare-silverland",
    "artist": "Roger Pontare",
    "title": "Silverland",
    "year": 2006
-  },
-  {
-   "id": "tommy-nilsson-en-dag",
-   "artist": "Tommy Nilsson",
-   "title": "En dag",
-   "year": 1958
-  },
-  {
-   "id": "roger-pontare-nar-vindarna-viskar-mitt-namm",
-   "artist": "Roger Pontare",
-   "title": "När vindarna viskar mitt namm",
-   "year": 1958
   },
   {
    "id": "martin-stenmarck-nar-anglarna-gar-hem",
@@ -1213,7 +2545,7 @@
    "id": "martin-stenmarck-las-vegas",
    "artist": "Martin Stenmarck",
    "title": "Las Vegas",
-   "year": 1958
+   "year": 2005
   },
   {
    "id": "arvingarna-ingenting-ar-storre-an-vi",
@@ -1222,70 +2554,16 @@
    "year": 2002
   },
   {
-   "id": "martin-stenmarck-lat-skiten-brinna",
-   "artist": "Martin Stenmarck",
-   "title": "Låt skiten brinna",
-   "year": 2019
-  },
-  {
-   "id": "ace-wilder-wild-child",
-   "artist": "Ace Wilder",
-   "title": "Wild Child",
-   "year": 2017
-  },
-  {
    "id": "magnus-uggla-for-kung-och-fosterland",
    "artist": "Magnus Uggla",
    "title": "För kung och fosterland",
    "year": 2007
   },
   {
-   "id": "arvingarna-ring-baby-ring",
-   "artist": "Arvingarna",
-   "title": "Ring baby ring",
-   "year": 2025
-  },
-  {
-   "id": "ace-wilder-dont-worry",
-   "artist": "Ace Wilder",
-   "title": "Don’t Worry",
-   "year": 2016
-  },
-  {
-   "id": "martin-stenmarck-du-tar-mig-tillbaks",
-   "artist": "Martin Stenmarck",
-   "title": "Du tar mig tillbaks",
-   "year": 2016
-  },
-  {
    "id": "daniel-gildenlow-pappa",
    "artist": "Daniel Gildenlöw",
    "title": "Pappa",
    "year": 2015
-  },
-  {
-   "id": "elize-ryd-rickard-soderberg-one-by-one",
-   "artist": "Elize Ryd & Rickard Söderberg",
-   "title": "One by One",
-   "year": 2015
-  },
-  {
-   "id": "marie-bergman-sanne-salomonsen-nonetheless",
-   "artist": "Marie Bergman & Sanne Salomonsen",
-   "title": "Nonetheless",
-   "year": 2015
-  },
-  {
-   "id": "marie-bergman-roger-pontare-stjarnorna",
-   "artist": "Marie Bergman & Roger Pontare",
-   "title": "Stjärnorna",
-   "year": 1958
-  },
-  {
-   "id": "chips-dag-efter-dag",
-   "artist": "Chips",
-   "title": "Dag efter dag",
-   "year": 1958
   },
   {
    "id": "pernilla-wahlgren-feat-jan-johansen-let-your-spirit-fly",
@@ -1312,46 +2590,10 @@
    "year": 2007
   },
   {
-   "id": "sarah-dawn-finer-i-remember-love",
-   "artist": "Sarah Dawn Finer",
-   "title": "I Remember Love",
-   "year": 2007
-  },
-  {
-   "id": "sarah-dawn-finer-moving-on",
-   "artist": "Sarah Dawn Finer",
-   "title": "Moving On",
-   "year": 1958
-  },
-  {
    "id": "bosson-efharisto",
    "artist": "Bosson",
    "title": "Efharisto",
    "year": 2004
-  },
-  {
-   "id": "sonja-alden-sluta-aldrig-ga",
-   "artist": "Sonja Aldén",
-   "title": "Sluta aldrig gå",
-   "year": 2020
-  },
-  {
-   "id": "pernilla-wahlgren-picaddilly-circus",
-   "artist": "Pernilla Wahlgren",
-   "title": "Picaddilly circus",
-   "year": 1958
-  },
-  {
-   "id": "osten-warnerbring-alla-andra-far-varann",
-   "artist": "Östen Warnerbring",
-   "title": "Alla andra får varann",
-   "year": 1958
-  },
-  {
-   "id": "osten-warnerbring-som-en-drom",
-   "artist": "Östen Warnerbring",
-   "title": "Som en dröm",
-   "year": 1958
   },
   {
    "id": "sylvia-vrethammar-trivialitet",
@@ -1366,12 +2608,6 @@
    "year": 2013
   },
   {
-   "id": "samir-viktor-shuffla",
-   "artist": "Samir & Viktor",
-   "title": "Shuffla",
-   "year": 2018
-  },
-  {
    "id": "sylvia-vrethammar-hon-ar-en-annan-nu",
    "artist": "Sylvia Vrethammar",
    "title": "Hon är en annan nu",
@@ -1382,18 +2618,6 @@
    "artist": "Jan Johansen",
    "title": "Sista andetaget",
    "year": 2002
-  },
-  {
-   "id": "samir-viktor-hela-varlden-vantar",
-   "artist": "Samir & Viktor",
-   "title": "Hela världen väntar",
-   "year": 2024
-  },
-  {
-   "id": "andreas-johnson-army-of-us",
-   "artist": "Andreas Johnson",
-   "title": "Army of Us",
-   "year": 2019
   },
   {
    "id": "linda-sundblad-lucky-you",
@@ -1432,16 +2656,16 @@
    "year": 2007
   },
   {
+   "id": "magnus-carlsson-live-forever",
+   "artist": "Magnus Carlsson",
+   "title": "Live Forever",
+   "year": 2007
+  },
+  {
    "id": "andreas-johnson-a-little-bit-of-love",
    "artist": "Andreas Johnson",
    "title": "A Little Bit of Love",
    "year": 2007
-  },
-  {
-   "id": "samir-viktor-bada-nakna",
-   "artist": "Samir & Viktor",
-   "title": "Bada nakna",
-   "year": 2016
   },
   {
    "id": "emilia-you-re-my-world",
@@ -1456,16 +2680,10 @@
    "year": 2009
   },
   {
-   "id": "samir-viktor-groupie",
-   "artist": "Samir & Viktor",
-   "title": "Groupie",
-   "year": 2015
-  },
-  {
-   "id": "magnus-carlsson-mot-mig-i-gamla-stan",
-   "artist": "Magnus Carlsson",
-   "title": "Möt mig i Gamla stan",
-   "year": 2015
+   "id": "andreas-johnson-sing-for-me",
+   "artist": "Andreas Johnson",
+   "title": "Sing for Me",
+   "year": 2006
   },
   {
    "id": "magnus-carlsson-lev-livet",
@@ -1480,24 +2698,6 @@
    "year": 2006
   },
   {
-   "id": "jan-johansen-se-pa-mig",
-   "artist": "Jan Johansen",
-   "title": "Se på mig",
-   "year": 1958
-  },
-  {
-   "id": "maria-sur-when-im-gone",
-   "artist": "Maria Sur",
-   "title": "When I’m Gone",
-   "year": 2024
-  },
-  {
-   "id": "maria-sur-never-give-up",
-   "artist": "Maria Sur",
-   "title": "Never Give Up",
-   "year": 2023
-  },
-  {
    "id": "pandora-you",
    "artist": "Pandora",
    "title": "You",
@@ -1507,7 +2707,7 @@
    "id": "fame-give-me-your-love",
    "artist": "Fame",
    "title": "Give Me Your Love",
-   "year": 1958
+   "year": 2003
   },
   {
    "id": "fame-vindarna-vander-oss",
@@ -1516,88 +2716,10 @@
    "year": 2004
   },
   {
-   "id": "pandora-runaway",
-   "artist": "Pandora",
-   "title": "Runaway",
-   "year": 2004
-  },
-  {
-   "id": "family-four-vita-vidder",
-   "artist": "Family Four",
-   "title": "Vita vidder",
-   "year": 1958
-  },
-  {
-   "id": "family-four-harliga-sommardag",
-   "artist": "Family Four",
-   "title": "Härliga sommardag",
-   "year": 1958
-  },
-  {
    "id": "jessica-folcker-om-natten",
    "artist": "Jessica Folcker",
    "title": "Om natten",
    "year": 2005
-  },
-  {
-   "id": "jonas-gardell-det-finns-en-vag",
-   "artist": "Jonas Gardell",
-   "title": "Det finns en väg",
-   "year": 2018
-  },
-  {
-   "id": "cazzi-opeia-give-my-heart-a-break",
-   "artist": "Cazzi Opeia",
-   "title": "Give My Heart a Break",
-   "year": 2024
-  },
-  {
-   "id": "nano-chasing-rivers",
-   "artist": "Nano",
-   "title": "Chasing Rivers",
-   "year": 2019
-  },
-  {
-   "id": "jan-malmsjo-leva-livet",
-   "artist": "Jan Malmsjö",
-   "title": "Leva livet",
-   "year": 2019
-  },
-  {
-   "id": "dolly-style-habibi",
-   "artist": "Dolly Style",
-   "title": "Habibi",
-   "year": 2019
-  },
-  {
-   "id": "nano-hold-on",
-   "artist": "Nano",
-   "title": "Hold On",
-   "year": 2017
-  },
-  {
-   "id": "peter-joback-hollow",
-   "artist": "Peter Jöback",
-   "title": "Hollow",
-   "year": 2010
-  },
-  {
-   "id": "dolly-style-rollercoaster",
-   "artist": "Dolly Style",
-   "title": "Rollercoaster",
-   "year": 2016
-  },
-  {
-   "id": "cazzi-opeia-i-can-t-get-enough",
-   "artist": "Cazzi Opeia",
-   "title": "I Can't Get Enough",
-   "year": 2022
-  },
-  {
-   "id": "dolly-style-hello-hi",
-   "artist": "Dolly Style",
-   "title": "Hello Hi",
-   "year": 2015
   },
   {
    "id": "jessica-folcker-when-love-s-comin-back-again",
@@ -1651,7 +2773,7 @@
    "id": "salem-al-fakir-keep-on-walking",
    "artist": "Salem Al Fakir",
    "title": "Keep on Walking",
-   "year": 1958
+   "year": 2010
   },
   {
    "id": "crucified-barbara-heaven-or-hell",
@@ -1666,40 +2788,10 @@
    "year": 2007
   },
   {
-   "id": "andreas-lundstedt-vicious",
-   "artist": "Andreas Lundstedt",
-   "title": "Vicious",
-   "year": 2025
-  },
-  {
-   "id": "tess-merkel-good-life",
-   "artist": "Tess Merkel",
-   "title": "Good Life",
-   "year": 2021
-  },
-  {
    "id": "the-poodles-night-of-passion",
    "artist": "The Poodles",
    "title": "Night of Passion",
    "year": 2006
-  },
-  {
-   "id": "friends-lyssna-till-ditt-hjarta",
-   "artist": "Friends",
-   "title": "Lyssna till ditt hjärta",
-   "year": 1958
-  },
-  {
-   "id": "forbes-beatles",
-   "artist": "Forbes",
-   "title": "Beatles",
-   "year": 1958
-  },
-  {
-   "id": "one-more-time-den-vilda",
-   "artist": "One More Time",
-   "title": "Den vilda",
-   "year": 1958
   },
   {
    "id": "linda-bengtzing-ta-mig",
@@ -1711,7 +2803,7 @@
    "id": "linda-bengtzing-alla-flickor",
    "artist": "Linda Bengtzing",
    "title": "Alla flickor",
-   "year": 1958
+   "year": 2005
   },
   {
    "id": "fredrik-kempe-sanna-nielsen-du-och-jag-mot-varlden",
@@ -1738,24 +2830,6 @@
    "year": 2003
   },
   {
-   "id": "arja-saijonmaa-mina-fyra-arstider",
-   "artist": "Arja Saijonmaa",
-   "title": "Mina fyra årstider",
-   "year": 2019
-  },
-  {
-   "id": "lina-hedlund-victorious",
-   "artist": "Lina Hedlund",
-   "title": "Victorious",
-   "year": 2019
-  },
-  {
-   "id": "ann-louise-hanson-karleken-finns-kvar",
-   "artist": "Ann-Louise Hanson",
-   "title": "Kärleken finns kvar",
-   "year": 2019
-  },
-  {
    "id": "sara-lumholdt-enemy",
    "artist": "Sara Lumholdt",
    "title": "Enemy",
@@ -1765,7 +2839,7 @@
    "id": "sara-varga-spring-for-livet",
    "artist": "Sara Varga",
    "title": "Spring för livet",
-   "year": 1958
+   "year": 2011
   },
   {
    "id": "linda-bengtzing-e-det-fel-pa-mej",
@@ -1786,16 +2860,16 @@
    "year": 2008
   },
   {
-   "id": "sara-varga-juha-mulari-du-far-inte-andra-pa-mig",
-   "artist": "Sara Varga & Juha Mulari",
-   "title": "Du får inte ändra på mig",
-   "year": 2017
-  },
-  {
    "id": "fredrik-kempe-finally",
    "artist": "Fredrik Kempe",
    "title": "Finally",
    "year": 2004
+  },
+  {
+   "id": "linda-bengtzing-jag-ljuger-sa-bra",
+   "artist": "Linda Bengtzing",
+   "title": "Jag ljuger så bra",
+   "year": 2006
   },
   {
    "id": "elysion-golden-star",
@@ -1834,24 +2908,6 @@
    "year": 2005
   },
   {
-   "id": "monica-tornell-lasse-holm-e-de-det-har-du-kallar-karlek",
-   "artist": "Monica Törnell & Lasse Holm",
-   "title": "É dé det här du kallar kärlek",
-   "year": 1958
-  },
-  {
-   "id": "arja-saijonmaa-hogt-over-havet",
-   "artist": "Arja Saijonmaa",
-   "title": "Högt över havet",
-   "year": 1958
-  },
-  {
-   "id": "blond-bara-hon-alskar-mig",
-   "artist": "Blond",
-   "title": "Bara hon älskar mig",
-   "year": 1958
-  },
-  {
    "id": "david-lindgren-skyline",
    "artist": "David Lindgren",
    "title": "Skyline",
@@ -1888,34 +2944,16 @@
    "year": 2013
   },
   {
-   "id": "jessica-andersson-party-voice",
-   "artist": "Jessica Andersson",
-   "title": "Party Voice",
-   "year": 2018
-  },
-  {
    "id": "hanna-lina-big-time-party",
    "artist": "Hanna & Lina",
    "title": "Big Time Party",
    "year": 2002
   },
   {
-   "id": "jay-smith-back-to-my-roots",
-   "artist": "Jay Smith",
-   "title": "Back to My Roots",
-   "year": 2024
-  },
-  {
    "id": "da-buzz-stop-look-listen",
    "artist": "Da Buzz",
    "title": "Stop! Look! Listen!",
    "year": 2003
-  },
-  {
-   "id": "malou-prytz-i-do-me",
-   "artist": "Malou Prytz",
-   "title": "I Do Me",
-   "year": 2019
   },
   {
    "id": "pernilla-andersson-desperados",
@@ -1933,25 +2971,19 @@
    "id": "david-lindgren-shout-it-out",
    "artist": "David Lindgren",
    "title": "Shout It Out",
-   "year": 1958
-  },
-  {
-   "id": "dynazty-land-of-broken-dreams",
-   "artist": "Dynazty",
-   "title": "Land of Broken Dreams",
    "year": 2012
   },
   {
    "id": "christer-sjogren-i-love-europe",
    "artist": "Christer Sjögren",
    "title": "I Love Europe",
-   "year": 1958
+   "year": 2008
   },
   {
    "id": "jessica-andersson-i-did-it-for-love",
    "artist": "Jessica Andersson",
    "title": "I Did It for Love",
-   "year": 1958
+   "year": 2010
   },
   {
    "id": "timoteij-kom",
@@ -1970,1038 +3002,6 @@
    "artist": "Caroline af Ugglas",
    "title": "Tror på dig",
    "year": 2007
-  },
-  {
-   "id": "malou-prytz-24k-gold",
-   "artist": "Malou Prytz",
-   "title": "24K Gold",
-   "year": 2025
-  },
-  {
-   "id": "pernilla-andersson-mitt-guld",
-   "artist": "Pernilla Andersson",
-   "title": "Mitt guld",
-   "year": 2016
-  },
-  {
-   "id": "david-lindgren-we-are-your-tomorrow",
-   "artist": "David Lindgren",
-   "title": "We Are Your Tomorrow",
-   "year": 2016
-  },
-  {
-   "id": "malou-prytz-bananas",
-   "artist": "Malou Prytz",
-   "title": "Bananas",
-   "year": 2022
-  },
-  {
-   "id": "klara-hammarstrom-run-to-the-hills",
-   "artist": "Klara Hammarström",
-   "title": "Run to the Hills",
-   "year": 2022
-  },
-  {
-   "id": "caroline-af-ugglas-snalla-snalla",
-   "artist": "Caroline af Ugglas",
-   "title": "Snälla, snälla",
-   "year": 2009
-  },
-  {
-   "id": "h-e-a-t-1000-miles",
-   "artist": "H.E.A.T",
-   "title": "1000 Miles",
-   "year": 2009
-  },
-  {
-   "id": "jessica-andersson-horizon",
-   "artist": "Jessica Andersson",
-   "title": "Horizon",
-   "year": 2021
-  },
-  {
-   "id": "klara-hammarstrom-beat-of-broken-hearts",
-   "artist": "Klara Hammarström",
-   "title": "Beat of Broken Hearts",
-   "year": 2021
-  },
-  {
-   "id": "klara-hammarstrom-nobody",
-   "artist": "Klara Hammarström",
-   "title": "Nobody",
-   "year": 2020
-  },
-  {
-   "id": "daniel-lucas-data-hop",
-   "artist": "Daniel & Lucas",
-   "title": "Data-Hop",
-   "year": 2003
-  },
-  {
-   "id": "daniel-lucas-data-hop-karaokeversion",
-   "artist": "Daniel & Lucas",
-   "title": "Data-Hop (Karaokeversion)",
-   "year": 2003
-  },
-  {
-   "id": "towa-carson-alla-har-glomt",
-   "artist": "Towa Carson",
-   "title": "Alla har glömt",
-   "year": 1958
-  },
-  {
-   "id": "oscar-zia-yes-we-can",
-   "artist": "Oscar Zia",
-   "title": "Yes We Can",
-   "year": 2014
-  },
-  {
-   "id": "anton-ewald-natural",
-   "artist": "Anton Ewald",
-   "title": "Natural",
-   "year": 2014
-  },
-  {
-   "id": "anton-ewald-begging",
-   "artist": "Anton Ewald",
-   "title": "Begging",
-   "year": 2013
-  },
-  {
-   "id": "eva-rydberg-ewa-roos-lange-leve-livet",
-   "artist": "Eva Rydberg & Ewa Roos",
-   "title": "Länge leve livet",
-   "year": 2023
-  },
-  {
-   "id": "hanna-ferm-liamoo-hold-you",
-   "artist": "Hanna Ferm & LIAMOO",
-   "title": "Hold You",
-   "year": 2019
-  },
-  {
-   "id": "jenny-silver-something-in-your-eyes",
-   "artist": "Jenny Silver",
-   "title": "Something in Your Eyes",
-   "year": 2011
-  },
-  {
-   "id": "thorsten-flinck-jag-reser-mig-igen",
-   "artist": "Thorsten Flinck",
-   "title": "Jag reser mig igen",
-   "year": 1958
-  },
-  {
-   "id": "jenny-silver-a-place-to-stay",
-   "artist": "Jenny Silver",
-   "title": "A Place to Stay",
-   "year": 2010
-  },
-  {
-   "id": "elin-lanto-doctor-doctor",
-   "artist": "Elin Lanto",
-   "title": "Doctor Doctor",
-   "year": 2010
-  },
-  {
-   "id": "elin-lanto-money",
-   "artist": "Elin Lanto",
-   "title": "Money",
-   "year": 2007
-  },
-  {
-   "id": "anders-bagge-bigger-than-the-universe",
-   "artist": "Anders Bagge",
-   "title": "Bigger Than the Universe",
-   "year": 2022
-  },
-  {
-   "id": "anton-ewald-new-religion",
-   "artist": "Anton Ewald",
-   "title": "New Religion",
-   "year": 2021
-  },
-  {
-   "id": "eva-rydberg-ewa-roos-rena-rama-ding-dong",
-   "artist": "Eva Rydberg & Ewa Roos",
-   "title": "Rena rama ding dong",
-   "year": 2021
-  },
-  {
-   "id": "thorsten-flinck-miraklernas-tid",
-   "artist": "Thorsten Flinck",
-   "title": "Miraklernas tid",
-   "year": 2020
-  },
-  {
-   "id": "bjorn-kjellman-alskar-du-livet",
-   "artist": "Björn Kjellman",
-   "title": "Älskar du livet",
-   "year": 2006
-  },
-  {
-   "id": "janet-leon-hollow",
-   "artist": "Janet Leon",
-   "title": "Hollow",
-   "year": 2014
-  },
-  {
-   "id": "papa-dee-my-no-1",
-   "artist": "Papa Dee",
-   "title": "My No 1",
-   "year": 2005
-  },
-  {
-   "id": "nordman-odet-var-min-vag",
-   "artist": "Nordman",
-   "title": "Ödet var min väg",
-   "year": 2005
-  },
-  {
-   "id": "nana-hedin-wherever-you-go",
-   "artist": "Nana Hedin",
-   "title": "Wherever You Go",
-   "year": 2005
-  },
-  {
-   "id": "jay-jay-johanson-paris",
-   "artist": "Jay-Jay Johanson",
-   "title": "Paris",
-   "year": 2013
-  },
-  {
-   "id": "louise-hoffsten-only-the-dead-fish-follow-the-stream",
-   "artist": "Louise Hoffsten",
-   "title": "Only the Dead Fish Follow the Stream",
-   "year": 2013
-  },
-  {
-   "id": "sean-banan-copacabanana",
-   "artist": "Sean Banan",
-   "title": "Copacabanana",
-   "year": 2013
-  },
-  {
-   "id": "janet-leon-heartstrings",
-   "artist": "Janet Leon",
-   "title": "Heartstrings",
-   "year": 2013
-  },
-  {
-   "id": "niklas-andersson-i-want-you",
-   "artist": "Niklas Andersson",
-   "title": "I Want You",
-   "year": 2002
-  },
-  {
-   "id": "lasse-stefanz-en-sang-om-sommaren",
-   "artist": "Lasse Stefanz",
-   "title": "En sång om sommaren",
-   "year": 2024
-  },
-  {
-   "id": "nordman-slapp-alla-sorger",
-   "artist": "Nordman",
-   "title": "Släpp alla sorger",
-   "year": 2023
-  },
-  {
-   "id": "melody-club-the-hunter",
-   "artist": "Melody Club",
-   "title": "The Hunter",
-   "year": 2011
-  },
-  {
-   "id": "lasse-stefanz-en-blick-och-nanting-hander",
-   "artist": "Lasse Stefanz",
-   "title": "En blick och nånting händer",
-   "year": 2011
-  },
-  {
-   "id": "sean-banan-sean-den-forste-banan",
-   "artist": "Sean Banan",
-   "title": "Sean den förste banan",
-   "year": 1958
-  },
-  {
-   "id": "bjorn-ranelid-feat-sara-li-mirakel",
-   "artist": "Björn Ranelid feat. Sara Li",
-   "title": "Mirakel",
-   "year": 2012
-  },
-  {
-   "id": "nordman-i-lagornas-sken",
-   "artist": "Nordman",
-   "title": "I lågornas sken",
-   "year": 2008
-  },
-  {
-   "id": "pauline-sucker-for-love",
-   "artist": "Pauline",
-   "title": "Sucker for Love",
-   "year": 2010
-  },
-  {
-   "id": "lillasyster-till-our-days-are-over",
-   "artist": "Lillasyster",
-   "title": "Till Our Days Are Over",
-   "year": 2022
-  },
-  {
-   "id": "markoolio-karlekssang-fran-mig",
-   "artist": "Markoolio",
-   "title": "Kärlekssång från mig",
-   "year": 2009
-  },
-  {
-   "id": "lillasyster-pretender",
-   "artist": "Lillasyster",
-   "title": "Pretender",
-   "year": 2021
-  },
-  {
-   "id": "niklas-andersson-tro-pa-mig",
-   "artist": "Niklas Andersson",
-   "title": "Tro På Mig",
-   "year": 2004
-  },
-  {
-   "id": "ellen-benediktson-songbird",
-   "artist": "Ellen Benediktson",
-   "title": "Songbird",
-   "year": 2014
-  },
-  {
-   "id": "josefin-nilsson-med-hjartats-egna-ord",
-   "artist": "Josefin Nilsson",
-   "title": "Med hjärtats egna ord",
-   "year": 2005
-  },
-  {
-   "id": "lagaylia-frazier-nothing-at-all",
-   "artist": "LaGaylia Frazier",
-   "title": "Nothing at All",
-   "year": 2005
-  },
-  {
-   "id": "barbados-varlden-utanfor",
-   "artist": "Barbados",
-   "title": "Världen utanför",
-   "year": 1958
-  },
-  {
-   "id": "clara-klingenstrom-aldrig-mer",
-   "artist": "Clara Klingenström",
-   "title": "Aldrig mer",
-   "year": 2024
-  },
-  {
-   "id": "barbados-bye-bye",
-   "artist": "Barbados",
-   "title": "Bye Bye",
-   "year": 2003
-  },
-  {
-   "id": "dilba-try-again",
-   "artist": "Dilba",
-   "title": "Try Again",
-   "year": 2011
-  },
-  {
-   "id": "brandur-enni-lullaby",
-   "artist": "Brandur Enni",
-   "title": "Lullaby",
-   "year": 2008
-  },
-  {
-   "id": "johnson-haggkvist-one-love",
-   "artist": "Johnson & Häggkvist",
-   "title": "One Love",
-   "year": 2008
-  },
-  {
-   "id": "niklas-stromstedt-for-manga-ord-om-karlek",
-   "artist": "Niklas Strömstedt",
-   "title": "För många ord om kärlek",
-   "year": 2008
-  },
-  {
-   "id": "verona-la-musica",
-   "artist": "Verona",
-   "title": "La Musica",
-   "year": 2007
-  },
-  {
-   "id": "eclipse-runaways",
-   "artist": "Eclipse",
-   "title": "Runaways",
-   "year": 2016
-  },
-  {
-   "id": "tone-sekelius-my-way",
-   "artist": "Tone Sekelius",
-   "title": "My Way",
-   "year": 2022
-  },
-  {
-   "id": "scotts-jag-tror-pa-oss",
-   "artist": "Scotts",
-   "title": "Jag tror på oss",
-   "year": 2009
-  },
-  {
-   "id": "mikael-rickfors-du-vinner-over-mig",
-   "artist": "Mikael Rickfors",
-   "title": "Du vinner över mig!",
-   "year": 2009
-  },
-  {
-   "id": "mustasch-contagious",
-   "artist": "Mustasch",
-   "title": "Contagious",
-   "year": 2021
-  },
-  {
-   "id": "clara-klingenstrom-behover-inte-dig-idag",
-   "artist": "Clara Klingenström",
-   "title": "Behöver inte dig idag",
-   "year": 2021
-  },
-  {
-   "id": "lagaylia-frazier-it-s-in-the-stars",
-   "artist": "LaGaylia Frazier",
-   "title": "It's in the Stars",
-   "year": 2004
-  },
-  {
-   "id": "ellen-benediktson-simon-peyron-surface",
-   "artist": "Ellen Benediktson & Simon Peyron",
-   "title": "Surface",
-   "year": 2020
-  },
-  {
-   "id": "ellen-benediktson-insomnia",
-   "artist": "Ellen Benediktson",
-   "title": "Insomnia",
-   "year": 2015
-  },
-  {
-   "id": "hasse-andersson-guld-och-grona-skogar",
-   "artist": "Hasse Andersson",
-   "title": "Guld och gröna skogar",
-   "year": 2015
-  },
-  {
-   "id": "cajsastina-akerstrom-en-enkel-sang",
-   "artist": "CajsaStina Åkerström",
-   "title": "En enkel sång",
-   "year": 2014
-  },
-  {
-   "id": "cecilia-vennersten-var-mig-nara",
-   "artist": "Cecilia Vennersten",
-   "title": "Var mig nära",
-   "year": 2005
-  },
-  {
-   "id": "jimmy-jansson-vi-kan-gunga",
-   "artist": "Jimmy Jansson",
-   "title": "Vi kan gunga",
-   "year": 2005
-  },
-  {
-   "id": "edward-blom-livet-pa-en-pinne",
-   "artist": "Edward Blom",
-   "title": "Livet på en pinne",
-   "year": 2018
-  },
-  {
-   "id": "gunilla-persson-i-wont-shake-la-la-gunilla",
-   "artist": "Gunilla Persson",
-   "title": "I Won’t Shake (La La Gunilla)",
-   "year": 2024
-  },
-  {
-   "id": "sofia-kallgren-robert-wells-my-love",
-   "artist": "Sofia Källgren & Robert Wells",
-   "title": "My Love",
-   "year": 2003
-  },
-  {
-   "id": "swingfly-me-and-my-drum",
-   "artist": "Swingfly",
-   "title": "Me and My Drum",
-   "year": 2011
-  },
-  {
-   "id": "linda-pritchard-alive",
-   "artist": "Linda Pritchard",
-   "title": "Alive",
-   "year": 2011
-  },
-  {
-   "id": "thomas-di-leva-ge-aldrig-upp",
-   "artist": "Thomas Di Leva",
-   "title": "Ge aldrig upp",
-   "year": 2012
-  },
-  {
-   "id": "patrik-isaksson-under-mitt-tunna-skinn",
-   "artist": "Patrik Isaksson",
-   "title": "Under mitt tunna skinn",
-   "year": 2008
-  },
-  {
-   "id": "dinah-nah-one-more-night",
-   "artist": "Dinah Nah",
-   "title": "One More Night",
-   "year": 2017
-  },
-  {
-   "id": "linda-pritchard-you-re-making-me-hot-hot-hot",
-   "artist": "Linda Pritchard",
-   "title": "You're Making Me Hot-Hot-Hot",
-   "year": 2010
-  },
-  {
-   "id": "anders-ekborg-the-saviour",
-   "artist": "Anders Ekborg",
-   "title": "The Saviour",
-   "year": 2010
-  },
-  {
-   "id": "py-backman-magisk-stjarna",
-   "artist": "Py Bäckman",
-   "title": "Magisk Stjärna",
-   "year": 2010
-  },
-  {
-   "id": "anna-book-samba-sambero",
-   "artist": "Anna Book",
-   "title": "Samba sambero",
-   "year": 2007
-  },
-  {
-   "id": "marie-lindberg-trying-to-recall",
-   "artist": "Marie Lindberg",
-   "title": "Trying to Recall",
-   "year": 1958
-  },
-  {
-   "id": "jimmy-jansson-amanda",
-   "artist": "Jimmy Jansson",
-   "title": "Amanda",
-   "year": 2007
-  },
-  {
-   "id": "anna-book-himmel-for-tva",
-   "artist": "Anna Book",
-   "title": "Himmel för två",
-   "year": 2016
-  },
-  {
-   "id": "swingfly-feat-helena-gutarra-you-carved-your-name",
-   "artist": "Swingfly feat. Helena Gutarra",
-   "title": "You Carved Your Name",
-   "year": 2016
-  },
-  {
-   "id": "jennifer-brown-never-been-here-before",
-   "artist": "Jennifer Brown",
-   "title": "Never Been Here Before",
-   "year": 2009
-  },
-  {
-   "id": "thorleifs-sweet-kissin-in-the-moonlight",
-   "artist": "Thorleifs",
-   "title": "Sweet Kissin’ in the Moonlight",
-   "year": 2009
-  },
-  {
-   "id": "petra-nielsen-tango-tango",
-   "artist": "Petra Nielsen",
-   "title": "Tango! Tango!",
-   "year": 2004
-  },
-  {
-   "id": "neverstore-if-i-was-god-for-one-day",
-   "artist": "Neverstore",
-   "title": "If I Was God for One Day",
-   "year": 2015
-  },
-  {
-   "id": "dinah-nah-make-me-la-la-la",
-   "artist": "Dinah Nah",
-   "title": "Make Me (La La La)",
-   "year": 2015
-  },
-  {
-   "id": "patrik-isaksson-faller-du-sa-faller-jag",
-   "artist": "Patrik Isaksson",
-   "title": "Faller du så faller jag",
-   "year": 2006
-  },
-  {
-   "id": "anna-book-abc",
-   "artist": "Anna Book",
-   "title": "ABC",
-   "year": 1958
-  },
-  {
-   "id": "cecilia-vennersten-det-vackraste",
-   "artist": "Cecilia Vennersten",
-   "title": "Det vackraste",
-   "year": 1958
-  },
-  {
-   "id": "elisa-lindstrom-casanova",
-   "artist": "Elisa Lindström",
-   "title": "Casanova",
-   "year": 2014
-  },
-  {
-   "id": "eric-gadd-vi-kommer-aldrig-att-forlora",
-   "artist": "Eric Gadd",
-   "title": "Vi kommer aldrig att förlora",
-   "year": 2013
-  },
-  {
-   "id": "kalle-moraeus-orsa-spelman-min-drom",
-   "artist": "Kalle Moraeus & Orsa Spelmän",
-   "title": "Min dröm",
-   "year": 2018
-  },
-  {
-   "id": "martin-du-och-jag-i-hela-varlden",
-   "artist": "Martin",
-   "title": "Du och jag (i hela världen)",
-   "year": 2002
-  },
-  {
-   "id": "annika-ljungberg-sail-away",
-   "artist": "Annika Ljungberg",
-   "title": "Sail Away",
-   "year": 2002
-  },
-  {
-   "id": "elisa-lindstrom-forever-yours",
-   "artist": "Elisa Lindström",
-   "title": "Forever Yours",
-   "year": 2024
-  },
-  {
-   "id": "annika-wickihalder-light",
-   "artist": "Annika Wickihalder",
-   "title": "Light",
-   "year": 2024
-  },
-  {
-   "id": "christian-walz-like-suicide",
-   "artist": "Christian Walz",
-   "title": "Like Suicide",
-   "year": 2011
-  },
-  {
-   "id": "sebastian-karlsson-no-one-else-could",
-   "artist": "Sebastian Karlsson",
-   "title": "No One Else Could",
-   "year": 2011
-  },
-  {
-   "id": "hanna-lindblad-goosebumps",
-   "artist": "Hanna Lindblad",
-   "title": "Goosebumps",
-   "year": 2012
-  },
-  {
-   "id": "lasse-lindh-du-behover-aldrig-mer-vara-radd",
-   "artist": "Lasse Lindh",
-   "title": "Du behöver aldrig mer vara rädd",
-   "year": 2008
-  },
-  {
-   "id": "jasmine-kara-gravity",
-   "artist": "Jasmine Kara",
-   "title": "Gravity",
-   "year": 2017
-  },
-  {
-   "id": "kalle-moraeus-orsa-spelman-underbart",
-   "artist": "Kalle Moraeus & Orsa spelmän",
-   "title": "Underbart",
-   "year": 2010
-  },
-  {
-   "id": "hanna-lindblad-manipulated",
-   "artist": "Hanna Lindblad",
-   "title": "Manipulated",
-   "year": 2010
-  },
-  {
-   "id": "greczula-believe-me",
-   "artist": "Greczula",
-   "title": "Believe Me",
-   "year": 2025
-  },
-  {
-   "id": "saraha-kizunguzungu",
-   "artist": "SaRaha",
-   "title": "Kizunguzungu",
-   "year": 2016
-  },
-  {
-   "id": "lasse-lindh-jag-ska-slass-i-dina-kvarter",
-   "artist": "Lasse Lindh",
-   "title": "Jag Ska Slass I Dina Kvarter",
-   "year": 2009
-  },
-  {
-   "id": "sandra-dahlberg-har-stannar-jag-kvar",
-   "artist": "Sandra Dahlberg",
-   "title": "Här stannar jag kvar",
-   "year": 2004
-  },
-  {
-   "id": "frida-ohrn-we-are-one",
-   "artist": "Frida Öhrn",
-   "title": "We Are One",
-   "year": 2020
-  },
-  {
-   "id": "sandra-dahlberg-jag-tar-det-jag-vill-ha",
-   "artist": "Sandra Dahlberg",
-   "title": "Jag tar det jag vill ha",
-   "year": 2006
-  },
-  {
-   "id": "amanda-andrea-lat-oss-dansa",
-   "artist": "Amanda & Andrea",
-   "title": "Låt oss dansa",
-   "year": 2007
-  },
-  {
-   "id": "amanda-andrea-lat-oss-dansa-karaoke-version",
-   "artist": "Amanda & Andrea",
-   "title": "Låt oss dansa (karaoke version)",
-   "year": 2007
-  },
-  {
-   "id": "loa-falkman-symfonin",
-   "artist": "Loa Falkman",
-   "title": "Symfonin",
-   "year": 1958
-  },
-  {
-   "id": "orup-anders-glenmark-upp-over-mina-oron",
-   "artist": "Orup & Anders Glenmark",
-   "title": "Upp över mina öron",
-   "year": 1958
-  },
-  {
-   "id": "panetoz-efter-solsken",
-   "artist": "Panetoz",
-   "title": "Efter solsken",
-   "year": 2014
-  },
-  {
-   "id": "josef-johansson-hela-natten",
-   "artist": "Josef Johansson",
-   "title": "Hela natten",
-   "year": 2014
-  },
-  {
-   "id": "caroline-wennergren-a-different-kind-of-love",
-   "artist": "Caroline Wennergren",
-   "title": "A Different Kind of Love",
-   "year": 2005
-  },
-  {
-   "id": "eddie-razaz-alibi",
-   "artist": "Eddie Razaz",
-   "title": "Alibi",
-   "year": 2013
-  },
-  {
-   "id": "sigrid-bernson-patrick-swayze",
-   "artist": "Sigrid Bernson",
-   "title": "Patrick Swayze",
-   "year": 2018
-  },
-  {
-   "id": "mimi-werner-songburning",
-   "artist": "Mimi Werner",
-   "title": "Songburning",
-   "year": 2018
-  },
-  {
-   "id": "towe-jaarnek-back-again",
-   "artist": "Towe Jaarnek",
-   "title": "Back Again",
-   "year": 2002
-  },
-  {
-   "id": "adam-woods-supernatural",
-   "artist": "Adam Woods",
-   "title": "Supernatural",
-   "year": 2024
-  },
-  {
-   "id": "panetoz-on-my-way",
-   "artist": "Panetoz",
-   "title": "On My Way",
-   "year": 2023
-  },
-  {
-   "id": "paul-rey-royals",
-   "artist": "Paul Rey",
-   "title": "Royals",
-   "year": 2023
-  },
-  {
-   "id": "casanovas-sa-kommer-kanslorna-tillbaka",
-   "artist": "Casanovas",
-   "title": "Så kommer känslorna tillbaka",
-   "year": 2023
-  },
-  {
-   "id": "melanie-wehbe-for-the-show",
-   "artist": "Melanie Wehbe",
-   "title": "For the Show",
-   "year": 2023
-  },
-  {
-   "id": "ida-lova-lat-hela-stan-se-pa",
-   "artist": "Ida-Lova",
-   "title": "Låt hela stan se på",
-   "year": 2023
-  },
-  {
-   "id": "sarek-genom-eld-och-vatten",
-   "artist": "Sarek",
-   "title": "Genom eld och vatten",
-   "year": 2003
-  },
-  {
-   "id": "mattias-andreasson-forlat-mig",
-   "artist": "Mattias Andréasson",
-   "title": "Förlåt mig",
-   "year": 2012
-  },
-  {
-   "id": "after-dark-ah-nar-ni-tar-saken-i-egna-hander",
-   "artist": "After Dark",
-   "title": "(Åh) När ni tar saken i egna händer",
-   "year": 2007
-  },
-  {
-   "id": "albin-johnsen-feat-pa-upp-i-luften",
-   "artist": "Albin Johnsén feat. Pa",
-   "title": "Upp i luften",
-   "year": 2025
-  },
-  {
-   "id": "mimi-werner-aint-no-good",
-   "artist": "Mimi Werner",
-   "title": "Ain’t No Good",
-   "year": 2016
-  },
-  {
-   "id": "after-dark-kom-ut-som-en-stjarna",
-   "artist": "After Dark",
-   "title": "Kom ut som en stjärna",
-   "year": 2016
-  },
-  {
-   "id": "panetoz-hall-om-mig-hart",
-   "artist": "Panetoz",
-   "title": "Håll om mig hårt",
-   "year": 2016
-  },
-  {
-   "id": "paul-rey-the-missing-piece",
-   "artist": "Paul Rey",
-   "title": "The Missing Piece",
-   "year": 2021
-  },
-  {
-   "id": "sarek-alvorna",
-   "artist": "Sarek",
-   "title": "Älvorna",
-   "year": 2004
-  },
-  {
-   "id": "after-dark-la-dolce-vita",
-   "artist": "After Dark",
-   "title": "La Dolce Vita",
-   "year": 2004
-  },
-  {
-   "id": "paul-rey-talking-in-my-sleep",
-   "artist": "Paul Rey",
-   "title": "Talking in My Sleep",
-   "year": 2020
-  },
-  {
-   "id": "caroline-wennergren-black-swan",
-   "artist": "Caroline Wennergren",
-   "title": "Black Swan",
-   "year": 2015
-  },
-  {
-   "id": "ana-dansa-ar-ok",
-   "artist": "Ana",
-   "title": "Dansa Är OK",
-   "year": 2005
-  },
-  {
-   "id": "ana-dansa-ar-ok-karaokeversion",
-   "artist": "Ana",
-   "title": "Dansa är OK (Karaokeversion)",
-   "year": 2005
-  },
-  {
-   "id": "alvaro-estrella-bedroom",
-   "artist": "Alvaro Estrella",
-   "title": "Bedroom",
-   "year": 2014
-  },
-  {
-   "id": "camilla-brinck-jenny",
-   "artist": "Camilla Brinck",
-   "title": "Jenny",
-   "year": 2005
-  },
-  {
-   "id": "ralf-gyllenhammar-bed-on-fire",
-   "artist": "Ralf Gyllenhammar",
-   "title": "Bed on Fire",
-   "year": 2013
-  },
-  {
-   "id": "elias-abbas-mitt-paradis",
-   "artist": "Elias Abbas",
-   "title": "Mitt paradis",
-   "year": 2018
-  },
-  {
-   "id": "brandsta-city-slackers-kom-och-ta-mig",
-   "artist": "Brandsta City Släckers",
-   "title": "Kom och ta mig",
-   "year": 2002
-  },
-  {
-   "id": "lia-larsson-30-km-h",
-   "artist": "Lia Larsson",
-   "title": "30 km/h",
-   "year": 2024
-  },
-  {
-   "id": "tennessee-tears-now-i-know",
-   "artist": "Tennessee Tears",
-   "title": "Now I Know",
-   "year": 2023
-  },
-  {
-   "id": "laurell-sober",
-   "artist": "Laurell",
-   "title": "Sober",
-   "year": 2023
-  },
-  {
-   "id": "axel-schylstrom-gorgeous",
-   "artist": "Axel Schylström",
-   "title": "Gorgeous",
-   "year": 2023
-  },
-  {
-   "id": "brandsta-city-slackers-15-minuter",
-   "artist": "Brandsta City Släckers",
-   "title": "15 Minuter",
-   "year": 2003
-  },
-  {
-   "id": "bubbles-t-k-o-knock-you-out",
-   "artist": "Bubbles",
-   "title": "T.K.O. (Knock You Out)",
-   "year": 2003
-  },
-  {
-   "id": "le-kid-oh-my-god",
-   "artist": "Le Kid",
-   "title": "Oh My God",
-   "year": 2011
-  },
-  {
-   "id": "brolle-7-days-and-7-nights",
-   "artist": "Brolle",
-   "title": "7 Days and 7 Nights",
-   "year": 2011
-  },
-  {
-   "id": "the-moniker-i-want-to-be-chris-isaak",
-   "artist": "The Moniker",
-   "title": "I Want To Be Chris Isaak",
-   "year": 2012
-  },
-  {
-   "id": "axel-schylstrom-nar-ingen-ser",
-   "artist": "Axel Schylström",
-   "title": "När ingen ser",
-   "year": 2017
-  },
-  {
-   "id": "highlights-mist-come-and-get-me-now",
-   "artist": "Highlights & Mist",
-   "title": "Come and Get Me Now",
-   "year": 2010
-  },
-  {
-   "id": "adrian-maceus-var-forsta-gang",
-   "artist": "Adrian Macéus",
-   "title": "Vår första gång",
-   "year": 2025
-  },
-  {
-   "id": "ella-tiritiello-bara-du-ar-dar",
-   "artist": "Ella Tiritiello",
-   "title": "Bara du är där",
-   "year": 2025
-  },
-  {
-   "id": "tennessee-tears-yours",
-   "artist": "Tennessee Tears",
-   "title": "Yours",
-   "year": 2025
-  },
-  {
-   "id": "alvaro-estrella-suave",
-   "artist": "Alvaro Estrella",
-   "title": "Suave",
-   "year": 2022
-  },
-  {
-   "id": "alvaro-estrella-baila-baila",
-   "artist": "Alvaro Estrella",
-   "title": "Bailá Bailá",
-   "year": 2021
-  },
-  {
-   "id": "sannex-all-inclusive",
-   "artist": "Sannex",
-   "title": "All Inclusive",
-   "year": 2021
-  },
-  {
-   "id": "sara-lofgren-som-stormen",
-   "artist": "Sara Löfgren",
-   "title": "Som Stormen",
-   "year": 2004
-  },
-  {
-   "id": "bubbles-blow-the-spot",
-   "artist": "Bubbles",
-   "title": "Blow the Spot",
-   "year": 2004
   }
  ]
 }
