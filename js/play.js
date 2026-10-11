@@ -99,9 +99,9 @@ function renderStandings() {
 function rulesText(view) {
   const s = view.settings;
   if (!s) return `Först till ${view.winScore} poäng vinner.`;
-  return [`Du har ${s.roundMs / 1000} sekunder på dig per låt.`, 'Rätt artist ger en poäng och rätt titel en poäng.',
-    s.bonusMs ? `Rätt artist och titel inom ${s.bonusMs / 1000} sekunder ger en bonuspoäng.` : '',
-    `Först till ${s.winScore} poäng vinner.`].filter(Boolean).join(' ');
+  // Hårda mellanslag efter talen, så att ett tal aldrig hamnar ensamt sist på en rad.
+  const bonus = s.bonusMs ? ` och 1\u00a0i bonus om båda är rätt inom ${s.bonusMs / 1000}\u00a0s` : '';
+  return `${s.roundMs / 1000}\u00a0s per låt. 1\u00a0poäng för artist, 1\u00a0för titel${bonus}. Först till ${s.winScore}\u00a0vinner.`;
 }
 
 function render() {
