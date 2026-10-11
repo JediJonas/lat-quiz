@@ -141,7 +141,8 @@ h1.logo { margin: 16px 0 8px; }
 }
 .page-title { font-size: 1.25rem; font-weight: 500; color: var(--title); margin: 0 0 0.8em; }
 /* Liten logga bredvid kategorin under spelet. */
-.logo-small { flex: none; width: 4.5rem; margin: 0 4px 0 0; align-self: center; }
+/* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
+.logo-small { flex: none; width: 4.5rem; margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(4.5rem * 260 / 2814); }
 h2 { font-size: 1.25rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 h3, .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
