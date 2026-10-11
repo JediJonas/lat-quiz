@@ -84,7 +84,7 @@ export function autocomplete(input, list, onChange) {
       box.append(li);
       options.push(li);
     }
-    if (items.length === 0) note('Laddar förslag …');
+    if (items.length === 0) note('Laddar förslag…');
     else if (hits.length === 0) note('Inga träffar');
     else if (hits.length > MAX_SHOWN) note(`… och ${hits.length - MAX_SHOWN} till. Skriv mer.`);
     show(true);

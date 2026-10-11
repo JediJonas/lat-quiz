@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderRing, ranks, scoreTracker, statusTags } from './ui.js';
+import { announce, renderRing, ranks, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
@@ -17,6 +17,8 @@ let roundNumber = null;
 let deadline = 0;
 const local = { artist: '', title: '' };
 let fields = null;
+// Sant medan formuläret väntar på att spelledaren godkänner namnet.
+let pending = false;
 const scoreChanged = scoreTracker();
 
 function storage(fn, fallback) {
@@ -43,6 +45,7 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
+  if (pending) showLobby();
   view = msg.view;
   $('#category-name').textContent = view.categoryName || '';
   const round = view.round;
@@ -60,7 +63,7 @@ function onMessage(msg) {
 function onStatus(status) {
   const el = $('#conn');
   el.className = 'conn ' + status;
-  el.textContent = { connecting: 'Ansluter …', connected: 'Ansluten', offline: 'Frånkopplad, försöker igen …' }[status];
+  el.textContent = { connecting: 'Ansluter…', connected: 'Ansluten', offline: 'Frånkopplad' }[status];
 }
 
 function renderTimer() {
@@ -98,8 +101,11 @@ function render() {
   const phase = round ? round.phase : 'waiting';
   $('#waiting').hidden = !(phase === 'waiting' || phase === 'ready');
   $('#waiting-text').textContent = phase === 'ready'
-    ? `Låt ${round.number} startar snart …`
-    : `Väntar på första låten … Först till ${view.winScore} poäng vinner.`;
+    ? `Låt ${round.number} startar snart…`
+    : `Väntar på första låten… Först till ${view.winScore} poäng vinner.`;
+  // Hårda mellanslag inom varje del, så att raden bara bryts vid ·.
+  $('#game-rules').textContent = view.settings
+    ? ' · ' + settingsSummary(view.settings).split(' · ').map((part) => part.replace(/ /g, '\u00a0')).join(' · ') : '';
   $('#guess').hidden = phase !== 'playing';
   $('#result').hidden = phase !== 'revealed';
   fields.artist.disable(phase !== 'playing');
@@ -130,16 +136,31 @@ function render() {
   renderStandings();
 }
 
-function join(name, code) {
+// Från formuläret stannar man kvar där tills spelledaren har svarat, så att ett upptaget namn
+// visas som ett fel i formuläret. Vid återanslutning visas spelvyn direkt.
+function join(name, code, fromForm) {
   const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
   const playerId = saved && saved.code === code ? saved.playerId : newId();
   me = { playerId, name, code };
   storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify(me)));
-  $('#join').hidden = true;
   $('#join-error').hidden = true;
-  $('#lobby').hidden = false;
   $('#me').textContent = code;
+  if (fromForm) setPending(true);
+  else showLobby();
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
+}
+
+function setPending(on) {
+  pending = on;
+  const button = $('#join-form button');
+  button.disabled = on;
+  button.textContent = on ? 'Ansluter…' : 'Jag är med!';
+}
+
+function showLobby() {
+  setPending(false);
+  $('#join').hidden = true;
+  $('#lobby').hidden = false;
 }
 
 // Koden är fel eller spelet är avslutat: tillbaka till sidan där man anger kod.
@@ -160,6 +181,7 @@ function leave(message, clearCode) {
     history.replaceState(null, '', location.pathname + (query ? '?' + query : ''));
     $('#code-input').value = '';
   }
+  setPending(false);
   $('#join-error').textContent = message;
   $('#join-error').hidden = false;
   $('#lobby').hidden = true;
@@ -193,7 +215,7 @@ async function init() {
     const query = new URLSearchParams(location.search);
     query.set('kod', joinCode);
     history.replaceState(null, '', '?' + query.toString());
-    join(name, joinCode);
+    join(name, joinCode, true);
   });
 
   // Samma spel som förra gången: anslut direkt, till exempel efter omladdning.
