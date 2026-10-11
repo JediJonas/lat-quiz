@@ -108,6 +108,7 @@ main { padding: 24px 16px; }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 /* h1 och h2 ser likadana ut överallt: sidans rubrik, kategorin under spelet och rubrikerna i modalerna. */
 h1, h2 { font-size: 1.3rem; font-weight: 700; margin: 0.2em 0 0.5em; }
+@media (max-width: 760px) { h1, h2 { font-size: 1.1rem; } }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
 .logo {
   display: block;
