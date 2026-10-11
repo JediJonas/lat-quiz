@@ -6,7 +6,7 @@
   { "id": "2000-tal", "name": "2000-tal", "file": "2000-tal.json" },
   { "id": "2010-tal", "name": "2010-tal", "file": "2010-tal.json" },
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json" },
-  { "id": "melodifestivalen", "name": "Melodifestivalen och Eurovision", "file": "melodifestivalen.json" },
+  { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json" },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" },
   { "id": "filmmusik", "name": "Filmmusik och ledmotiv", "file": "filmmusik.json" },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } }
