@@ -698,5 +698,705 @@
   "title": "S.O.S.",
   "year": 1998,
   "spotifyId": "2YiGsIvV2bF73JcMsjF784"
+ },
+ {
+  "id": "ac-dc-thunderstruck",
+  "artist": "AC/DC",
+  "title": "Thunderstruck",
+  "year": 1990,
+  "spotifyId": "57bgtoPSgt236HzfBOd8kj"
+ },
+ {
+  "id": "toto-hold-the-line",
+  "artist": "Toto",
+  "title": "Hold the Line",
+  "year": 1978,
+  "spotifyId": "4aVuWgvD0X63hcOCnZtNFA"
+ },
+ {
+  "id": "guns-n-roses-knockin-on-heaven-s-door",
+  "artist": "Guns N' Roses",
+  "title": "Knockin' on Heaven's Door",
+  "year": 1992,
+  "spotifyId": "4JiEyzf0Md7KEFFGWDDdCr"
+ },
+ {
+  "id": "motley-crue-kickstart-my-heart",
+  "artist": "Mötley Crüe",
+  "title": "Kickstart My Heart",
+  "year": 1989,
+  "spotifyId": "4Yqy0GpeDEXLibWJCZyQew"
+ },
+ {
+  "id": "avenged-sevenfold-hail-to-the-king",
+  "artist": "Avenged Sevenfold",
+  "title": "Hail to the King",
+  "year": 2013,
+  "spotifyId": "5anCkDvJ17aznvK5TED5uo"
+ },
+ {
+  "id": "metallica-the-unforgiven",
+  "artist": "Metallica",
+  "title": "The Unforgiven",
+  "year": 1991,
+  "spotifyId": "4aYLAF6ckQ5ooGGGM7sWAa"
+ },
+ {
+  "id": "metallica-whiskey-in-the-jar",
+  "artist": "Metallica",
+  "title": "Whiskey in the Jar",
+  "year": 1999,
+  "spotifyId": "3ZpWy5rBZv2aLQAldnmTsP"
+ },
+ {
+  "id": "ram-jam-black-betty",
+  "artist": "Ram Jam",
+  "title": "Black Betty",
+  "year": 1977,
+  "spotifyId": "6kooDsorCpWVMGc994XjWN"
+ },
+ {
+  "id": "aerosmith-sweet-emotion",
+  "artist": "Aerosmith",
+  "title": "Sweet Emotion",
+  "year": 1975,
+  "spotifyId": "0tYKQyj7FrCshczU4BHWvy"
+ },
+ {
+  "id": "journey-any-way-you-want-it",
+  "artist": "Journey",
+  "title": "Any Way You Want It",
+  "year": 1980,
+  "spotifyId": "71SvEDmsOwIWw1IozsZoMA"
+ },
+ {
+  "id": "avenged-sevenfold-nightmare",
+  "artist": "Avenged Sevenfold",
+  "title": "Nightmare",
+  "year": 2010,
+  "spotifyId": "4UEo1b0wWrtHMC8bVqPiH8"
+ },
+ {
+  "id": "disturbed-stricken",
+  "artist": "Disturbed",
+  "title": "Stricken",
+  "year": 2005,
+  "spotifyId": "6RJdYpFQwLyNfDc5FbjkgV"
+ },
+ {
+  "id": "ac-dc-dirty-deeds-done-dirt-cheap",
+  "artist": "AC/DC",
+  "title": "Dirty Deeds Done Dirt Cheap",
+  "year": 1976,
+  "spotifyId": "2d4e45fmUnguxh6yqC7gNT"
+ },
+ {
+  "id": "journey-separate-ways-worlds-apart",
+  "artist": "Journey",
+  "title": "Separate Ways (Worlds Apart)",
+  "year": 1983,
+  "spotifyId": "1pTw2cNrp9L3esxLAvWnN2"
+ },
+ {
+  "id": "three-days-grace-riot",
+  "artist": "Three Days Grace",
+  "title": "Riot",
+  "year": 2007,
+  "spotifyId": "0rwR2BAY4eStTkV8Az0pDU"
+ },
+ {
+  "id": "nickelback-animals",
+  "artist": "Nickelback",
+  "title": "Animals",
+  "year": 2005,
+  "spotifyId": "2TeEhtmhMQmUyQJhnJNvAs"
+ },
+ {
+  "id": "the-kinks-you-really-got-me",
+  "artist": "The Kinks",
+  "title": "You Really Got Me",
+  "year": 1964,
+  "spotifyId": "3BjNfUum237WPkFvmxc3Ht"
+ },
+ {
+  "id": "survivor-burning-heart",
+  "artist": "Survivor",
+  "title": "Burning Heart",
+  "year": 1985,
+  "spotifyId": "2VN7uPrbryJ7nE2MXX3f9a"
+ },
+ {
+  "id": "avenged-sevenfold-afterlife",
+  "artist": "Avenged Sevenfold",
+  "title": "Afterlife",
+  "year": 2008,
+  "spotifyId": "7zAt4tdL44D3VuzsvM0N8n"
+ },
+ {
+  "id": "danzig-mother",
+  "artist": "Danzig",
+  "title": "Mother",
+  "year": 1994,
+  "spotifyId": "7txxAtOMwLLnQTpKeBL6bp"
+ },
+ {
+  "id": "wolfmother-joker-the-thief",
+  "artist": "Wolfmother",
+  "title": "Joker & the Thief",
+  "year": 2005,
+  "spotifyId": "5BvGdjGZKbsrtfA05Yg23W"
+ },
+ {
+  "id": "free-all-right-now",
+  "artist": "Free",
+  "title": "All Right Now",
+  "year": 1970,
+  "spotifyId": "2Wf4IsWzhBgVR9uUDuktFB"
+ },
+ {
+  "id": "the-darkness-i-believe-in-a-thing-called-love",
+  "artist": "The Darkness",
+  "title": "I Believe in a Thing Called Love",
+  "year": 2003,
+  "spotifyId": "756CJtQRFSxEx9jV4P9hpA"
+ },
+ {
+  "id": "avenged-sevenfold-bat-country",
+  "artist": "Avenged Sevenfold",
+  "title": "Bat Country",
+  "year": 2005,
+  "spotifyId": "3sHH7lklbfpcraDDvYnjo7"
+ },
+ {
+  "id": "greta-van-fleet-highway-tune",
+  "artist": "Greta Van Fleet",
+  "title": "Highway Tune",
+  "year": 2017,
+  "spotifyId": "7aOor99o8NNLZYElOXlBG1"
+ },
+ {
+  "id": "motley-crue-dr-feelgood",
+  "artist": "Mötley Crüe",
+  "title": "Dr. Feelgood",
+  "year": 1989,
+  "spotifyId": "5dnwXK73BDZ0H2L06ZrKcE"
+ },
+ {
+  "id": "disturbed-indestructible",
+  "artist": "Disturbed",
+  "title": "Indestructible",
+  "year": 2008,
+  "spotifyId": "42ZVk59gT4tMlrZmd8Ijxf"
+ },
+ {
+  "id": "royal-blood-figure-it-out",
+  "artist": "Royal Blood",
+  "title": "Figure It Out",
+  "year": 2014,
+  "spotifyId": "6tPUSaejY2IMpBPFfQqjKd"
+ },
+ {
+  "id": "foreigner-juke-box-hero",
+  "artist": "Foreigner",
+  "title": "Juke Box Hero",
+  "year": 1982,
+  "spotifyId": "139vZye7kKfLw1dYITnaVW"
+ },
+ {
+  "id": "saving-abel-addicted",
+  "artist": "Saving Abel",
+  "title": "Addicted",
+  "year": 2008,
+  "spotifyId": "3pxCXv0NACYfYnLjFcQW5D"
+ },
+ {
+  "id": "styx-renegade",
+  "artist": "Styx",
+  "title": "Renegade",
+  "year": 1979,
+  "spotifyId": "1CQqupcyMg7176PPmIVmSj"
+ },
+ {
+  "id": "ac-dc-rock-n-roll-train",
+  "artist": "AC/DC",
+  "title": "Rock 'N Roll Train",
+  "year": 2008,
+  "spotifyId": "4feXJ5IC3avXsVW9WNFSag"
+ },
+ {
+  "id": "volbeat-lola-montez",
+  "artist": "Volbeat",
+  "title": "Lola Montez",
+  "year": 2013,
+  "spotifyId": "1wnq9TwifJ9ipLUFsm8vKx"
+ },
+ {
+  "id": "system-of-a-down-i-e-a-i-a-i-o",
+  "artist": "System of a Down",
+  "title": "I-E-A-I-A-I-O",
+  "year": 2002,
+  "spotifyId": "3RgDvs9Jpvn3kUuaTek1R5"
+ },
+ {
+  "id": "volbeat-the-devil-s-bleeding-crown",
+  "artist": "Volbeat",
+  "title": "The Devil's Bleeding Crown",
+  "year": 2016,
+  "spotifyId": "79M3Eq1q61lkeQJ1OCVEdZ"
+ },
+ {
+  "id": "bon-jovi-bad-medicine",
+  "artist": "Bon Jovi",
+  "title": "Bad Medicine",
+  "year": 1988,
+  "spotifyId": "5UtT4muzCy1mHkzA7ZRksv"
+ },
+ {
+  "id": "theory-of-a-deadman-bad-girlfriend",
+  "artist": "Theory of a Deadman",
+  "title": "Bad Girlfriend",
+  "year": 2009,
+  "spotifyId": "5ynWvN3bQymHVThxutO4hG"
+ },
+ {
+  "id": "buckcherry-crazy-bitch",
+  "artist": "Buckcherry",
+  "title": "Crazy Bitch",
+  "year": 2006,
+  "spotifyId": "1gtHjIoQIU5XIcRGjn7DfH"
+ },
+ {
+  "id": "shinedown-cut-the-cord",
+  "artist": "Shinedown",
+  "title": "Cut the Cord",
+  "year": 2015,
+  "spotifyId": "1RcABeMCAH0UQi0yF4drXj"
+ },
+ {
+  "id": "avenged-sevenfold-welcome-to-the-family",
+  "artist": "Avenged Sevenfold",
+  "title": "Welcome to the Family",
+  "year": 2010,
+  "spotifyId": "0jqblvsI9LBY4irmLVqqEO"
+ },
+ {
+  "id": "nickelback-something-in-your-mouth",
+  "artist": "Nickelback",
+  "title": "Something in Your Mouth",
+  "year": 2008,
+  "spotifyId": "6wO0vMRAJB0r1lEWBJZNOq"
+ },
+ {
+  "id": "volbeat-a-warrior-s-call",
+  "artist": "Volbeat",
+  "title": "A Warrior's Call",
+  "year": 2011,
+  "spotifyId": "4o6k1XHlrIZay8v1m5VU83"
+ },
+ {
+  "id": "tenacious-d-tribute",
+  "artist": "Tenacious D",
+  "title": "Tribute",
+  "year": 2002,
+  "spotifyId": "6crBy2sODw2HS53xquM6us"
+ },
+ {
+  "id": "boston-peace-of-mind",
+  "artist": "Boston",
+  "title": "Peace of Mind",
+  "year": 1977,
+  "spotifyId": "1GqlvSEtMx5xbGptxOTTyk"
+ },
+ {
+  "id": "disturbed-the-vengeful-one",
+  "artist": "Disturbed",
+  "title": "The Vengeful One",
+  "year": 2015,
+  "spotifyId": "3jjU4Pky1ja5J1onU6ei4T"
+ },
+ {
+  "id": "shinedown-45",
+  "artist": "Shinedown",
+  "title": "45",
+  "year": 2003,
+  "spotifyId": "420JGkyLfLUZcgBHKiIK9v"
+ },
+ {
+  "id": "billy-squier-the-stroke",
+  "artist": "Billy Squier",
+  "title": "The Stroke",
+  "year": 1981,
+  "spotifyId": "4wwMbUJC9tbhUO0shXSxv3"
+ },
+ {
+  "id": "3-doors-down-it-s-not-my-time",
+  "artist": "3 Doors Down",
+  "title": "It's Not My Time",
+  "year": 2008,
+  "spotifyId": "3DelzIn0lPwX4PeOJk9zDF"
+ },
+ {
+  "id": "bad-company-feel-like-makin-love",
+  "artist": "Bad Company",
+  "title": "Feel Like Makin' Love",
+  "year": 2003,
+  "spotifyId": "3KPwt1LBpt1jVSHz8GXERo"
+ },
+ {
+  "id": "blue-oyster-cult-burnin-for-you",
+  "artist": "Blue Öyster Cult",
+  "title": "Burnin' for You",
+  "year": 1981,
+  "spotifyId": "1zm8Bs1jRnveMzryxIkH4s"
+ },
+ {
+  "id": "rainbow-since-you-been-gone",
+  "artist": "Rainbow",
+  "title": "Since You Been Gone",
+  "year": 1979,
+  "spotifyId": "6xq5DxZWGgdStAxGAil0yw"
+ },
+ {
+  "id": "ratt-round-and-round",
+  "artist": "Ratt",
+  "title": "Round and Round",
+  "year": 1984,
+  "spotifyId": "6QKToMy6096oooFMGEXije"
+ },
+ {
+  "id": "airbourne-runnin-wild",
+  "artist": "Airbourne",
+  "title": "Runnin' Wild",
+  "year": 2007,
+  "spotifyId": "71fSn6OIF7HnCbgCzOBqpj"
+ },
+ {
+  "id": "motley-crue-wild-side",
+  "artist": "Mötley Crüe",
+  "title": "Wild Side",
+  "year": 1987,
+  "spotifyId": "7zVpUAOuXY7pHHSm21jFEq"
+ },
+ {
+  "id": "ozzy-osbourne-bark-at-the-moon",
+  "artist": "Ozzy Osbourne",
+  "title": "Bark at the Moon",
+  "year": 1983,
+  "spotifyId": "2E7W1X4maFFcjHrVrFA7Vs"
+ },
+ {
+  "id": "journey-wheel-in-the-sky",
+  "artist": "Journey",
+  "title": "Wheel in the Sky",
+  "year": 1978,
+  "spotifyId": "215wUTQQUo2PElJFEFoB0d"
+ },
+ {
+  "id": "queens-of-the-stone-age-i-sat-by-the-ocean",
+  "artist": "Queens of the Stone Age",
+  "title": "I Sat by the Ocean",
+  "year": 2013,
+  "spotifyId": "1D3YGmST01Ba0WRiT7THPG"
+ },
+ {
+  "id": "motley-crue-live-wire",
+  "artist": "Mötley Crüe",
+  "title": "Live Wire",
+  "year": 1982,
+  "spotifyId": "1Jrt2fqQm5JEKlAPMYG2nD"
+ },
+ {
+  "id": "shinedown-devil",
+  "artist": "Shinedown",
+  "title": "Devil",
+  "year": 2018,
+  "spotifyId": "2hEYslbdYWFSIA6JboUvnR"
+ },
+ {
+  "id": "ozzy-osbourne-i-don-t-wanna-stop",
+  "artist": "Ozzy Osbourne",
+  "title": "I Don't Wanna Stop",
+  "year": 2007,
+  "spotifyId": "5axOkQnmQmwtjr4bv1Xt7i"
+ },
+ {
+  "id": "rev-theory-hell-yeah",
+  "artist": "Rev Theory",
+  "title": "Hell Yeah",
+  "year": 2008,
+  "spotifyId": "2DK7d4rQkTpZ7P81M0Sjou"
+ },
+ {
+  "id": "the-pretty-reckless-heaven-knows",
+  "artist": "The Pretty Reckless",
+  "title": "Heaven Knows",
+  "year": 2013,
+  "spotifyId": "04w73SmPfQkkmEpKbcrHOL"
+ },
+ {
+  "id": "velvet-revolver-slither",
+  "artist": "Velvet Revolver",
+  "title": "Slither",
+  "year": 2004,
+  "spotifyId": "1ugRmaf5TDDf1fO3hFSIs1"
+ },
+ {
+  "id": "shinedown-diamond-eyes-boom-lay-boom-lay-boom",
+  "artist": "Shinedown",
+  "title": "Diamond Eyes (Boom-Lay Boom-Lay Boom)",
+  "year": 2010,
+  "spotifyId": "1PLMK1ui86iHHG3FM1N7ue"
+ },
+ {
+  "id": "queen-hammer-to-fall",
+  "artist": "Queen",
+  "title": "Hammer to Fall",
+  "year": 1984,
+  "spotifyId": "7GjmYhAv1En3jpqhICFAfv"
+ },
+ {
+  "id": "disturbed-ten-thousand-fists",
+  "artist": "Disturbed",
+  "title": "Ten Thousand Fists",
+  "year": 2006,
+  "spotifyId": "5hkgrWxkobGtg30I7DsfVu"
+ },
+ {
+  "id": "royal-blood-out-of-the-black",
+  "artist": "Royal Blood",
+  "title": "Out of the Black",
+  "year": 2013,
+  "spotifyId": "2nIulsLMiP2SMTDrtxfQXX"
+ },
+ {
+  "id": "pat-benatar-heartbreaker",
+  "artist": "Pat Benatar",
+  "title": "Heartbreaker",
+  "year": 1979,
+  "spotifyId": "5aSXwnKskF6h1JLKCJ8a80"
+ },
+ {
+  "id": "boston-foreplay-long-time",
+  "artist": "Boston",
+  "title": "Foreplay/Long Time",
+  "year": 1977,
+  "spotifyId": "39C5FuZ8C8M0QI8CrMsPkR"
+ },
+ {
+  "id": "whitesnake-still-of-the-night",
+  "artist": "Whitesnake",
+  "title": "Still of the Night",
+  "year": 1987,
+  "spotifyId": "7AtwQRLPdttsxcLM5tPL0t"
+ },
+ {
+  "id": "stone-sour-song-3",
+  "artist": "Stone Sour",
+  "title": "Song #3",
+  "year": 2017,
+  "spotifyId": "5jsDxDkJ1PqyYUWhDMr86B"
+ },
+ {
+  "id": "iron-maiden-wasting-love",
+  "artist": "Iron Maiden",
+  "title": "Wasting Love",
+  "year": 1992,
+  "spotifyId": "2KKLuHN6zDxVnWtFKO8vo4"
+ },
+ {
+  "id": "shinedown-simple-man",
+  "artist": "Shinedown",
+  "title": "Simple Man",
+  "year": 2003,
+  "spotifyId": "4VuKGQiCzE5BdSdvp6Hjoh"
+ },
+ {
+  "id": "def-leppard-rock-of-ages",
+  "artist": "Def Leppard",
+  "title": "Rock of Ages",
+  "year": 2012,
+  "spotifyId": "2cu1h8GEdbM01dNmYZFNuK"
+ },
+ {
+  "id": "disturbed-warrior",
+  "artist": "Disturbed",
+  "title": "Warrior",
+  "year": 2011,
+  "spotifyId": "2TNPagu8Z4zvDOpmnktF00"
+ },
+ {
+  "id": "foo-fighters-run",
+  "artist": "Foo Fighters",
+  "title": "Run",
+  "year": 2017,
+  "spotifyId": "1wLQwg0mloy3yXjL0jPE0N"
+ },
+ {
+  "id": "three-days-grace-the-good-life",
+  "artist": "Three Days Grace",
+  "title": "The Good Life",
+  "year": 2010,
+  "spotifyId": "55KYlnsC6nYnr3IykbmJwE"
+ },
+ {
+  "id": "velvet-revolver-fall-to-pieces",
+  "artist": "Velvet Revolver",
+  "title": "Fall to Pieces",
+  "year": 2004,
+  "spotifyId": "4A9O9e4iTm4bYnOPSzWaGb"
+ },
+ {
+  "id": "royal-blood-little-monster",
+  "artist": "Royal Blood",
+  "title": "Little Monster",
+  "year": 2014,
+  "spotifyId": "0LHni3bdbwZASRHf8RYlXK"
+ },
+ {
+  "id": "sixx-a-m-life-is-beautiful",
+  "artist": "Sixx:A.M.",
+  "title": "Life Is Beautiful",
+  "year": 2007,
+  "spotifyId": "3XKh4x3f0o8V0VZrgAqaGT"
+ },
+ {
+  "id": "bullet-for-my-valentine-you-want-a-battle",
+  "artist": "Bullet for My Valentine",
+  "title": "You Want A Battle",
+  "year": 2015,
+  "spotifyId": "1KCAEG6JcsTzi8ddZzs0nk"
+ },
+ {
+  "id": "nickelback-figured-you-out",
+  "artist": "Nickelback",
+  "title": "Figured You Out",
+  "year": 2003,
+  "spotifyId": "1Yuim9eHBfG8YUJII28XDF"
+ },
+ {
+  "id": "bullet-for-my-valentine-waking-the-demon",
+  "artist": "Bullet for My Valentine",
+  "title": "Waking the Demon",
+  "year": 2008,
+  "spotifyId": "0k6wiMT26Wc3K4B2IiloUw"
+ },
+ {
+  "id": "volbeat-fallen",
+  "artist": "Volbeat",
+  "title": "Fallen",
+  "year": 2010,
+  "spotifyId": "3gXxpp7y7EAOg4PVqqGCAb"
+ },
+ {
+  "id": "poison-unskinny-bop",
+  "artist": "Poison",
+  "title": "Unskinny Bop",
+  "year": 1990,
+  "spotifyId": "1Z6lKdYhwp8WYoBqGCKxlM"
+ },
+ {
+  "id": "skillet-legendary",
+  "artist": "Skillet",
+  "title": "Legendary",
+  "year": 2019,
+  "spotifyId": "2pYaGdqXBrl8MdvuwgtBb7"
+ },
+ {
+  "id": "guns-n-roses-rocket-queen",
+  "artist": "Guns N' Roses",
+  "title": "Rocket Queen",
+  "year": 1987,
+  "spotifyId": "0xaNdYwK8ZF3cHSjraQGC0"
+ },
+ {
+  "id": "three-days-grace-so-called-life",
+  "artist": "Three Days Grace",
+  "title": "So Called Life",
+  "year": 2021,
+  "spotifyId": "1QTQ3VNzabl4yF5GJE6hhK"
+ },
+ {
+  "id": "quiet-riot-metal-health-bang-your-head",
+  "artist": "Quiet Riot",
+  "title": "Metal Health (Bang Your Head)",
+  "year": 1983,
+  "spotifyId": "28clONjZmul6FjfO6tZQDE"
+ },
+ {
+  "id": "kiss-crazy-crazy-nights",
+  "artist": "Kiss",
+  "title": "Crazy Crazy Nights",
+  "year": 1987,
+  "spotifyId": "45AmJxnQ9ifHsADkmp1qz1"
+ },
+ {
+  "id": "kiss-love-gun",
+  "artist": "Kiss",
+  "title": "Love Gun",
+  "year": 1977,
+  "spotifyId": "5llPm5KlNNlMWMVOLZ5lMo"
+ },
+ {
+  "id": "hinder-get-stoned",
+  "artist": "Hinder",
+  "title": "Get Stoned",
+  "year": 2005,
+  "spotifyId": "1IEhKPgUratgeMTm9G1kWt"
+ },
+ {
+  "id": "volbeat-heaven-nor-hell",
+  "artist": "Volbeat",
+  "title": "Heaven Nor Hell",
+  "year": 2010,
+  "spotifyId": "5Hgx4ssabqTTD1fmGFTmi2"
+ },
+ {
+  "id": "godsmack-love-hate-sex-pain",
+  "artist": "Godsmack",
+  "title": "Love-Hate-Sex-Pain",
+  "year": 2010,
+  "spotifyId": "36QG29bbGuJkxNgzY6o9Mu"
+ },
+ {
+  "id": "nickelback-shakin-hands",
+  "artist": "Nickelback",
+  "title": "Shakin' Hands",
+  "year": 2009,
+  "spotifyId": "4Jn9QEd4nKFPqeCdL4TsZM"
+ },
+ {
+  "id": "grand-funk-railroad-we-re-an-american-band",
+  "artist": "Grand Funk Railroad",
+  "title": "We're an American Band",
+  "year": 1973,
+  "spotifyId": "3bIgVAJqxzUKUIg5Wj72C8"
+ },
+ {
+  "id": "greta-van-fleet-when-the-curtain-falls",
+  "artist": "Greta Van Fleet",
+  "title": "When the Curtain Falls",
+  "year": 2018,
+  "spotifyId": "2ZMI0QNoqU9fQZFirR9WpK"
+ },
+ {
+  "id": "airbourne-too-much-too-young-too-fast",
+  "artist": "Airbourne",
+  "title": "Too Much, Too Young, Too Fast",
+  "year": 2007,
+  "spotifyId": "2LQbBzrXkgQHnCDUmHjReH"
+ },
+ {
+  "id": "accept-balls-to-the-wall",
+  "artist": "Accept",
+  "title": "Balls to the Wall",
+  "year": 1984,
+  "spotifyId": "3XpE0yzmb4s0jHepk0xzRi"
+ },
+ {
+  "id": "buckcherry-lit-up",
+  "artist": "Buckcherry",
+  "title": "Lit Up",
+  "year": 1998,
+  "spotifyId": "1OBMSzh2ocRqK2gUFaMBSM"
  }
 ]
