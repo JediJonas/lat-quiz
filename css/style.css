@@ -123,10 +123,7 @@ h1, h2 { font-size: 1.3rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 }
 h1.logo { margin: 16px 0 8px; }
 /* Sidans rubrik står under loggan. Loggan har samma storlek och läge som på startsidan. */
-/* Tillbaka-länken står uppe till höger. Loggan krymper om länken behöver plats. */
-.page-head { position: relative; }
-.page-head .logo { max-width: calc(100% - 5.5em); margin: 16px 0 8px; }
-.page-head .back-link { position: absolute; top: 16px; right: 0; color: var(--muted); }
+.page-head .logo { margin: 16px 0 24px; }
 .page-head .page-title { margin: 0 0 20px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
