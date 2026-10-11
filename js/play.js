@@ -95,6 +95,15 @@ function renderStandings() {
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
 
+// Reglerna i klartext medan spelarna väntar på första låten.
+function rulesText(view) {
+  const s = view.settings;
+  if (!s) return `Först till ${view.winScore} poäng vinner.`;
+  // Hårda mellanslag efter talen, så att ett tal aldrig hamnar ensamt sist på en rad.
+  const bonus = s.bonusMs ? ` och 1\u00a0i bonus om båda är rätt inom ${s.bonusMs / 1000}\u00a0s` : '';
+  return `${s.roundMs / 1000}\u00a0s per låt. 1\u00a0poäng för artist, 1\u00a0för titel${bonus}. Först till ${s.winScore}\u00a0vinner.`;
+}
+
 function render() {
   if (!view) return;
   const round = view.round;
@@ -102,7 +111,7 @@ function render() {
   $('#waiting').hidden = !(phase === 'waiting' || phase === 'ready');
   $('#waiting-text').textContent = phase === 'ready'
     ? `Låt ${round.number} startar snart…`
-    : `Väntar på första låten… Först till ${view.winScore} poäng vinner.`;
+    : `Väntar på första låten… ${rulesText(view)}`;
   // Hårda mellanslag inom varje del, så att raden bara bryts vid ·.
   $('#game-rules').textContent = view.settings
     ? ' · ' + settingsSummary(view.settings).split(' · ').map((part) => part.replace(/ /g, '\u00a0')).join(' · ') : '';
