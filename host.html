@@ -29,21 +29,20 @@
   <main id="game" class="host" hidden>
     <section id="join-info" class="join-info" aria-label="Gå med i spelet">
       <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden">×</button>
-      <div class="logo" aria-hidden="true"></div>
       <div id="qr" class="qr"></div>
       <p>Skanna eller gå till<br><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
       <p>Kod: <span id="code" class="code"></span></p>
     </section>
     <section class="main-col">
       <div class="game-head">
-        <div class="who"><h1 id="category"></h1>
-          <button id="show-qr" class="code-link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button></div>
+        <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
         <p id="game-settings-summary" class="muted small"></p>
       </div>
       <div id="stage" class="stage"></div>
       <h2 class="section-title">Poäng</h2>
       <div id="players"></div>
       <p class="actions">
+        <button id="show-qr" class="link code-link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button>
         <button id="game-settings" class="link">Inställningar</button>
         <button id="end" class="link">Avsluta spelet</button>
         <button class="link user-settings"></button>
