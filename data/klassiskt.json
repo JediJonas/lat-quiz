@@ -698,5 +698,446 @@
   "title": "Anitra's Dance",
   "year": 1875,
   "spotifyId": "51lEVEZynCl4xU4NqCoa3m"
+ },
+ {
+  "id": "chopin-nocturne-no-20-in-c-sharp-minor-op-posth",
+  "artist": "Frédéric Chopin",
+  "title": "Nocturne No. 20 in C-sharp minor, Op. posth.",
+  "year": 1830,
+  "spotifyId": "2MSgFefjK0T7Iwjvr3OKqV"
+ },
+ {
+  "id": "verdi-rigoletto",
+  "artist": "Giuseppe Verdi",
+  "title": "Rigoletto",
+  "year": 1850,
+  "spotifyId": "1uu51I3m4d7qsuLRl51hEA"
+ },
+ {
+  "id": "ravel-miroirs",
+  "artist": "Maurice Ravel",
+  "title": "Miroirs",
+  "year": 1905,
+  "spotifyId": "4JOEMgLkrHp8K1XNmyNffH"
+ },
+ {
+  "id": "chopin-prelude-no-4-in-e-minor-op-28",
+  "artist": "Frédéric Chopin",
+  "title": "Prélude no. 4 in E minor, op. 28",
+  "year": 1838,
+  "spotifyId": "0B5xalvQGHip7iQZbTkaLe"
+ },
+ {
+  "id": "gluck-orfeo-ed-euridice",
+  "artist": "Christoph Willibald von Gluck",
+  "title": "Orfeo ed Euridice",
+  "year": 1762,
+  "spotifyId": "3KghHt657FrbphwVSKROFw"
+ },
+ {
+  "id": "prokofiev-romeo-and-juliet",
+  "artist": "Sergei Prokofiev",
+  "title": "Romeo and Juliet",
+  "year": 1935,
+  "spotifyId": "7HSs4srn1qnZhh7WRWBVOk"
+ },
+ {
+  "id": "williams-the-lark-ascending",
+  "artist": "Ralph Vaughan Williams",
+  "title": "The Lark Ascending",
+  "year": 1920,
+  "spotifyId": "67b02tR31CEv8f0DQ1M1C0"
+ },
+ {
+  "id": "chopin-nocturnes-op-9",
+  "artist": "Frédéric Chopin",
+  "title": "Nocturnes, Op. 9",
+  "year": 1832,
+  "spotifyId": "2FP7JttwbYPXcXxIihEvop"
+ },
+ {
+  "id": "debussy-deux-arabesques",
+  "artist": "Claude Debussy",
+  "title": "Deux arabesques",
+  "year": 1890,
+  "spotifyId": "3L0SyNok31C6FaFtg0S8yX"
+ },
+ {
+  "id": "tchaikovsky-serenade-for-strings",
+  "artist": "Pyotr Ilyich Tchaikovsky",
+  "title": "Serenade for Strings",
+  "year": 1880,
+  "spotifyId": "7uf3aFC1msj0t5cYImgOWy"
+ },
+ {
+  "id": "chopin-ballade-no-1-in-g-minor-op-23",
+  "artist": "Frédéric Chopin",
+  "title": "Ballade No. 1 in G minor, Op. 23",
+  "year": 1831,
+  "spotifyId": "4NkWlfGbWziTBgN4NnLKjq"
+ },
+ {
+  "id": "ravel-piano-concerto",
+  "artist": "Maurice Ravel",
+  "title": "Piano Concerto",
+  "year": 1931,
+  "spotifyId": "4ju98rvX917EwXLKLnRbQ2"
+ },
+ {
+  "id": "faure-pavane-op-50",
+  "artist": "Gabriel Fauré",
+  "title": "Pavane, Op. 50",
+  "year": 1887,
+  "spotifyId": "5etkHPCogGK9ZGYBf2iuDC"
+ },
+ {
+  "id": "chopin-berceuse",
+  "artist": "Frédéric Chopin",
+  "title": "Berceuse",
+  "year": 1844,
+  "spotifyId": "2MqHSXGxnvLZgXJsUtyDql"
+ },
+ {
+  "id": "puccini-madama-butterfly",
+  "artist": "Giacomo Puccini",
+  "title": "Madama Butterfly",
+  "year": 1903,
+  "spotifyId": "5ognTTeiL1cxUSD8bQtVDS"
+ },
+ {
+  "id": "ravel-ma-mere-l-oye",
+  "artist": "Maurice Ravel",
+  "title": "Ma mère l'oye",
+  "year": 1910,
+  "spotifyId": "4k2uu9nsoueK2HWJJKtk0E"
+ },
+ {
+  "id": "verdi-nabucco",
+  "artist": "Giuseppe Verdi",
+  "title": "Nabucco",
+  "year": 1841,
+  "spotifyId": "4UPPQcwiQJpmXYirbgicT9"
+ },
+ {
+  "id": "beethoven-piano-sonata-no-8",
+  "artist": "Ludwig van Beethoven",
+  "title": "Piano Sonata No. 8",
+  "year": 1797,
+  "spotifyId": "6VrjMDQMfVKaawVDTX26d5"
+ },
+ {
+  "id": "rossini-william-tell",
+  "artist": "Gioachino Rossini",
+  "title": "William Tell",
+  "year": 1828,
+  "spotifyId": "04OI7MCwzUE1SSAJRSjw3R"
+ },
+ {
+  "id": "prokofiev-piano-concerto-no-3",
+  "artist": "Sergei Prokofiev",
+  "title": "Piano Concerto No. 3",
+  "year": 1921,
+  "spotifyId": "4gbExCdPeoiQqkLOULoVhc"
+ },
+ {
+  "id": "satie-gymnopedie-no-1",
+  "artist": "Erik Satie",
+  "title": "Gymnopédie No. 1",
+  "year": 1888,
+  "spotifyId": "5OPT7l9b5SMwfTQgLPoNl7"
+ },
+ {
+  "id": "satie-gnossienne-no-1",
+  "artist": "Erik Satie",
+  "title": "Gnossienne No. 1",
+  "year": 1890,
+  "spotifyId": "5fdp9rXfEixCGLM1Og4EN1"
+ },
+ {
+  "id": "debussy-reverie",
+  "artist": "Claude Debussy",
+  "title": "Rêverie",
+  "year": 1890,
+  "spotifyId": "3j0x7VenudiseuHcqRa5tW"
+ },
+ {
+  "id": "bach-prelude-in-c-major-bwv-846",
+  "artist": "Johann Sebastian Bach",
+  "title": "Prelude in C major, BWV 846",
+  "year": 1722,
+  "spotifyId": "1TGp4083lfFG6clpKGHVfc"
+ },
+ {
+  "id": "bach-jesu-joy-of-man-s-desiring",
+  "artist": "Johann Sebastian Bach",
+  "title": "Jesu, Joy of Man's Desiring",
+  "year": 1723,
+  "spotifyId": "5btW4CdJZW7IMqwnyFru8u"
+ },
+ {
+  "id": "handel-sarabande-in-d-minor",
+  "artist": "George Frideric Handel",
+  "title": "Sarabande in D minor",
+  "year": 1733,
+  "spotifyId": "6QOxk7dSbNniwUgDh1zmBH"
+ },
+ {
+  "id": "handel-hallelujah-chorus",
+  "artist": "George Frideric Handel",
+  "title": "Hallelujah Chorus",
+  "year": 1741,
+  "spotifyId": "4TNCQyG2gmepsGoeLdRKn4"
+ },
+ {
+  "id": "handel-water-music",
+  "artist": "George Frideric Handel",
+  "title": "Water Music",
+  "year": 1717,
+  "spotifyId": "76IkG07VDXyZIc6TXD8Pr5"
+ },
+ {
+  "id": "handel-zadok-the-priest",
+  "artist": "George Frideric Handel",
+  "title": "Zadok the Priest",
+  "year": 1727,
+  "spotifyId": "37ZfVpV5frVFqnqlSVADUQ"
+ },
+ {
+  "id": "handel-lascia-ch-io-pianga",
+  "artist": "George Frideric Handel",
+  "title": "Lascia ch'io pianga",
+  "year": 1711,
+  "spotifyId": "0dfAHJmRg7JtCbitsageQG"
+ },
+ {
+  "id": "mozart-requiem",
+  "artist": "Wolfgang Amadeus Mozart",
+  "title": "Requiem",
+  "year": 1791,
+  "spotifyId": "3oHSL6pt9LpNrQZuQGu9wL"
+ },
+ {
+  "id": "mozart-piano-sonata-no-16",
+  "artist": "Wolfgang Amadeus Mozart",
+  "title": "Piano Sonata No. 16",
+  "year": 1788,
+  "spotifyId": "0iGDZom5WctL4eSQogMhMp"
+ },
+ {
+  "id": "liszt-liebestraume-no-3",
+  "artist": "Franz Liszt",
+  "title": "Liebesträume No. 3",
+  "year": 1850,
+  "spotifyId": "6GzMz3s0K1YKwRVI36CgRx"
+ },
+ {
+  "id": "brahms-hungarian-dance-no-5",
+  "artist": "Johannes Brahms",
+  "title": "Hungarian Dance No. 5",
+  "year": 1869,
+  "spotifyId": "2oLjhx7w8Hyd3gry9cCXr7"
+ },
+ {
+  "id": "brahms-brahms-lullaby",
+  "artist": "Johannes Brahms",
+  "title": "Brahms' Lullaby",
+  "year": 1868,
+  "spotifyId": "59cPOVxrn3Yjwydl1pullI"
+ },
+ {
+  "id": "tchaikovsky-swan-lake",
+  "artist": "Pyotr Ilyich Tchaikovsky",
+  "title": "Swan Lake",
+  "year": 1876,
+  "spotifyId": "2xizRhme7pYeITbH1NLLGt"
+ },
+ {
+  "id": "orff-o-fortuna",
+  "artist": "Carl Orff",
+  "title": "O Fortuna",
+  "year": 1937,
+  "spotifyId": "2d7139N7CJ9eJmGVE42Y44"
+ },
+ {
+  "id": "shostakovich-waltz-no-2",
+  "artist": "Dmitri Shostakovich",
+  "title": "Waltz No. 2",
+  "year": 1938,
+  "spotifyId": "4bgyv4pOiNgNZTN7BMLRuW"
+ },
+ {
+  "id": "mussorgsky-night-on-bald-mountain",
+  "artist": "Modest Mussorgsky",
+  "title": "Night on Bald Mountain",
+  "year": 1867,
+  "spotifyId": "5rPqo5uyPn5MDoJkkiu8Nr"
+ },
+ {
+  "id": "dvorak-humoresque",
+  "artist": "Antonín Dvořák",
+  "title": "Humoresque",
+  "year": 1894,
+  "spotifyId": "6ZgBPqiowNI40FaLezqG9H"
+ },
+ {
+  "id": "schubert-ave-maria",
+  "artist": "Franz Schubert",
+  "title": "Ave Maria",
+  "year": 1825,
+  "spotifyId": "4JsMpgsep6XpuHSzKCTxCz"
+ },
+ {
+  "id": "schubert-standchen",
+  "artist": "Franz Schubert",
+  "title": "Ständchen",
+  "year": 1828,
+  "spotifyId": "4b59u2E74KcDuyHCRBkf5v"
+ },
+ {
+  "id": "mendelssohn-violin-concerto-in-e-minor",
+  "artist": "Felix Mendelssohn",
+  "title": "Violin Concerto in E minor",
+  "year": 1844,
+  "spotifyId": "1KpZV5L3I2PWFi1zIXFLkI"
+ },
+ {
+  "id": "rachmaninoff-vocalise",
+  "artist": "Sergei Rachmaninoff",
+  "title": "Vocalise",
+  "year": 1915,
+  "spotifyId": "0H3JiNc4CGnFVwMqWvACmO"
+ },
+ {
+  "id": "chopin-waltz-in-c-sharp-minor",
+  "artist": "Frédéric Chopin",
+  "title": "Waltz in C-sharp minor",
+  "year": 1847,
+  "spotifyId": "3lHJHMAeFrmWvieiaWnJzf"
+ },
+ {
+  "id": "chopin-etude-op-10-no-3",
+  "artist": "Frédéric Chopin",
+  "title": "Étude Op. 10 No. 3",
+  "year": 1832,
+  "spotifyId": "5XUSigwfoZDo1d9uTikcE4"
+ },
+ {
+  "id": "massenet-meditation",
+  "artist": "Jules Massenet",
+  "title": "Méditation",
+  "year": 1894,
+  "spotifyId": "7ijOLIYbAqtLsqMpjWYMfL"
+ },
+ {
+  "id": "offenbach-barcarolle",
+  "artist": "Jacques Offenbach",
+  "title": "Barcarolle",
+  "year": 1881,
+  "spotifyId": "0fW7uCEe0wnwxHyt7iw5LJ"
+ },
+ {
+  "id": "delibes-flower-duet",
+  "artist": "Léo Delibes",
+  "title": "Flower Duet",
+  "year": 1883,
+  "spotifyId": "25M8AkXKn3GmLTqdc07BcX"
+ },
+ {
+  "id": "beethoven-symphony-no-7",
+  "artist": "Ludwig van Beethoven",
+  "title": "Symphony No. 7",
+  "year": 1812,
+  "spotifyId": "79RYNk7I1YDy4RLPamenAn"
+ },
+ {
+  "id": "vivaldi-gloria",
+  "artist": "Antonio Vivaldi",
+  "title": "Gloria",
+  "year": 1715,
+  "spotifyId": "0KwdAf2et7QMsy2tLDP3u6"
+ },
+ {
+  "id": "khachaturian-spartacus",
+  "artist": "Aram Khachaturian",
+  "title": "Spartacus",
+  "year": 1956,
+  "spotifyId": "0jLVAklgGXRF7RxY1ogh6E"
+ },
+ {
+  "id": "khachaturian-masquerade",
+  "artist": "Aram Khachaturian",
+  "title": "Masquerade",
+  "year": 1941,
+  "spotifyId": "3kd8AhmS3VJkmuKt4tIHzD"
+ },
+ {
+  "id": "verdi-messa-da-requiem",
+  "artist": "Giuseppe Verdi",
+  "title": "Messa da Requiem",
+  "year": 1874,
+  "spotifyId": "4UVwbnxKEzPGOuAtSEt2ic"
+ },
+ {
+  "id": "gounod-ave-maria",
+  "artist": "Charles Gounod",
+  "title": "Ave Maria",
+  "year": 1853,
+  "spotifyId": "2kyEgPaAW8wdpvevPnkf0Z"
+ },
+ {
+  "id": "faure-pie-jesu",
+  "artist": "Gabriel Fauré",
+  "title": "Pie Jesu",
+  "year": 1890,
+  "spotifyId": "2nywPXZrSK91Oepjw3p5kH"
+ },
+ {
+  "id": "mascagni-cavalleria-rusticana",
+  "artist": "Pietro Mascagni",
+  "title": "Cavalleria rusticana",
+  "year": 1890,
+  "spotifyId": "2ejVc73K8orfIk9W2uZKlg"
+ },
+ {
+  "id": "saint-saens-symphony-no-3-organ",
+  "artist": "Camille Saint-Saëns",
+  "title": "Symphony No. 3 \"Organ\"",
+  "year": 1886,
+  "spotifyId": "2oSVf7bdGI2dsCVHpPsQme"
+ },
+ {
+  "id": "elgar-salut-d-amour",
+  "artist": "Edward Elgar",
+  "title": "Salut d'amour",
+  "year": 1888,
+  "spotifyId": "0P7UwPB9vL74bD6gzYaKIu"
+ },
+ {
+  "id": "elgar-cello-concerto",
+  "artist": "Edward Elgar",
+  "title": "Cello Concerto",
+  "year": 1919,
+  "spotifyId": "4qIwQaY9y4wPownt1sS7sI"
+ },
+ {
+  "id": "mahler-symphony-no-5",
+  "artist": "Gustav Mahler",
+  "title": "Symphony No. 5",
+  "year": 1902,
+  "spotifyId": "0cqcRqZgkNHanWQ8slYA0v"
+ },
+ {
+  "id": "williams-fantasia-on-greensleeves",
+  "artist": "Ralph Vaughan Williams",
+  "title": "Fantasia on Greensleeves",
+  "year": 1934,
+  "spotifyId": "32gYbV6WQ8kfzLFKv0wWs2"
+ },
+ {
+  "id": "boccherini-minuet",
+  "artist": "Luigi Boccherini",
+  "title": "Minuet",
+  "year": 1771,
+  "spotifyId": "6e85fziCk6MwZUxWyG6Ijm"
  }
 ]

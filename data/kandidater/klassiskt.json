@@ -1294,6 +1294,252 @@
    "artist": "Carl Maria von Weber",
    "title": "Der Freischütz",
    "year": 1821
+  },
+  {
+   "id": "chopin-nocturne-no-20-in-c-sharp-minor-op-posth",
+   "artist": "Frédéric Chopin",
+   "title": "Nocturne No. 20 in C-sharp minor, Op. posth.",
+   "year": 1830
+  },
+  {
+   "id": "verdi-rigoletto",
+   "artist": "Giuseppe Verdi",
+   "title": "Rigoletto",
+   "year": 1850
+  },
+  {
+   "id": "ravel-miroirs",
+   "artist": "Maurice Ravel",
+   "title": "Miroirs",
+   "year": 1905
+  },
+  {
+   "id": "chopin-prelude-no-4-in-e-minor-op-28",
+   "artist": "Frédéric Chopin",
+   "title": "Prélude no. 4 in E minor, op. 28",
+   "year": 1838
+  },
+  {
+   "id": "gluck-orfeo-ed-euridice",
+   "artist": "Christoph Willibald von Gluck",
+   "title": "Orfeo ed Euridice",
+   "year": 1762
+  },
+  {
+   "id": "prokofiev-romeo-and-juliet",
+   "artist": "Sergei Prokofiev",
+   "title": "Romeo and Juliet",
+   "year": 1935
+  },
+  {
+   "id": "williams-the-lark-ascending",
+   "artist": "Ralph Vaughan Williams",
+   "title": "The Lark Ascending",
+   "year": 1920
+  },
+  {
+   "id": "chopin-nocturnes-op-9",
+   "artist": "Frédéric Chopin",
+   "title": "Nocturnes, Op. 9",
+   "year": 1832
+  },
+  {
+   "id": "debussy-deux-arabesques",
+   "artist": "Claude Debussy",
+   "title": "Deux arabesques",
+   "year": 1890
+  },
+  {
+   "id": "tchaikovsky-serenade-for-strings",
+   "artist": "Pyotr Ilyich Tchaikovsky",
+   "title": "Serenade for Strings",
+   "year": 1880
+  },
+  {
+   "id": "chopin-ballade-no-1-in-g-minor-op-23",
+   "artist": "Frédéric Chopin",
+   "title": "Ballade No. 1 in G minor, Op. 23",
+   "year": 1831
+  },
+  {
+   "id": "ravel-piano-concerto",
+   "artist": "Maurice Ravel",
+   "title": "Piano Concerto",
+   "year": 1931
+  },
+  {
+   "id": "faure-pavane-op-50",
+   "artist": "Gabriel Fauré",
+   "title": "Pavane, Op. 50",
+   "year": 1887
+  },
+  {
+   "id": "chopin-berceuse",
+   "artist": "Frédéric Chopin",
+   "title": "Berceuse",
+   "year": 1844
+  },
+  {
+   "id": "ravel-ma-mere-l-oye",
+   "artist": "Maurice Ravel",
+   "title": "Ma mère l'oye",
+   "year": 1910
+  },
+  {
+   "id": "verdi-nabucco",
+   "artist": "Giuseppe Verdi",
+   "title": "Nabucco",
+   "year": 1841
+  },
+  {
+   "id": "beethoven-piano-sonata-no-8",
+   "artist": "Ludwig van Beethoven",
+   "title": "Piano Sonata No. 8",
+   "year": 1797
+  },
+  {
+   "id": "rossini-william-tell",
+   "artist": "Gioachino Rossini",
+   "title": "William Tell",
+   "year": 1828
+  },
+  {
+   "id": "prokofiev-piano-concerto-no-3",
+   "artist": "Sergei Prokofiev",
+   "title": "Piano Concerto No. 3",
+   "year": 1921
+  },
+  {
+   "id": "satie-gymnopedie-no-1",
+   "artist": "Erik Satie",
+   "title": "Gymnopédie No. 1",
+   "year": 1888
+  },
+  {
+   "id": "satie-gnossienne-no-1",
+   "artist": "Erik Satie",
+   "title": "Gnossienne No. 1",
+   "year": 1890
+  },
+  {
+   "id": "debussy-reverie",
+   "artist": "Claude Debussy",
+   "title": "Rêverie",
+   "year": 1890
+  },
+  {
+   "id": "bach-prelude-in-c-major-bwv-846",
+   "artist": "Johann Sebastian Bach",
+   "title": "Prelude in C major, BWV 846",
+   "year": 1722
+  },
+  {
+   "id": "handel-sarabande-in-d-minor",
+   "artist": "George Frideric Handel",
+   "title": "Sarabande in D minor",
+   "year": 1733
+  },
+  {
+   "id": "handel-hallelujah-chorus",
+   "artist": "George Frideric Handel",
+   "title": "Hallelujah Chorus",
+   "year": 1741
+  },
+  {
+   "id": "handel-lascia-ch-io-pianga",
+   "artist": "George Frideric Handel",
+   "title": "Lascia ch'io pianga",
+   "year": 1711
+  },
+  {
+   "id": "mozart-piano-sonata-no-16",
+   "artist": "Wolfgang Amadeus Mozart",
+   "title": "Piano Sonata No. 16",
+   "year": 1788
+  },
+  {
+   "id": "liszt-liebestraume-no-3",
+   "artist": "Franz Liszt",
+   "title": "Liebesträume No. 3",
+   "year": 1850
+  },
+  {
+   "id": "brahms-brahms-lullaby",
+   "artist": "Johannes Brahms",
+   "title": "Brahms' Lullaby",
+   "year": 1868
+  },
+  {
+   "id": "orff-o-fortuna",
+   "artist": "Carl Orff",
+   "title": "O Fortuna",
+   "year": 1937
+  },
+  {
+   "id": "schubert-standchen",
+   "artist": "Franz Schubert",
+   "title": "Ständchen",
+   "year": 1828
+  },
+  {
+   "id": "chopin-waltz-in-c-sharp-minor",
+   "artist": "Frédéric Chopin",
+   "title": "Waltz in C-sharp minor",
+   "year": 1847
+  },
+  {
+   "id": "chopin-etude-op-10-no-3",
+   "artist": "Frédéric Chopin",
+   "title": "Étude Op. 10 No. 3",
+   "year": 1832
+  },
+  {
+   "id": "beethoven-symphony-no-7",
+   "artist": "Ludwig van Beethoven",
+   "title": "Symphony No. 7",
+   "year": 1812
+  },
+  {
+   "id": "khachaturian-spartacus",
+   "artist": "Aram Khachaturian",
+   "title": "Spartacus",
+   "year": 1956
+  },
+  {
+   "id": "khachaturian-masquerade",
+   "artist": "Aram Khachaturian",
+   "title": "Masquerade",
+   "year": 1941
+  },
+  {
+   "id": "verdi-messa-da-requiem",
+   "artist": "Giuseppe Verdi",
+   "title": "Messa da Requiem",
+   "year": 1874
+  },
+  {
+   "id": "faure-pie-jesu",
+   "artist": "Gabriel Fauré",
+   "title": "Pie Jesu",
+   "year": 1890
+  },
+  {
+   "id": "saint-saens-symphony-no-3-organ",
+   "artist": "Camille Saint-Saëns",
+   "title": "Symphony No. 3 \"Organ\"",
+   "year": 1886
+  },
+  {
+   "id": "elgar-cello-concerto",
+   "artist": "Edward Elgar",
+   "title": "Cello Concerto",
+   "year": 1919
+  },
+  {
+   "id": "williams-fantasia-on-greensleeves",
+   "artist": "Ralph Vaughan Williams",
+   "title": "Fantasia on Greensleeves",
+   "year": 1934
   }
  ]
 }
