@@ -227,7 +227,7 @@ button.link {
   font-size: 0.9rem;
   font-weight: 500;
 }
-button.link:hover { color: var(--text); text-decoration: underline; }
+@media (hover: hover) { button.link:hover { color: var(--text); text-decoration: underline; } }
 
 /* Strömbrytare för mörkt läge */
 button.theme-switch {
@@ -252,7 +252,7 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .theme-row .row-end .link { margin: 0; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; text-decoration: none; }
-.quiet-link:hover { color: var(--text); text-decoration: underline; }
+@media (hover: hover) { .quiet-link:hover { color: var(--text); text-decoration: underline; } }
 main:has(#lobby:not([hidden])) .join-only { display: none; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
@@ -499,7 +499,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   font-weight: 500;
   letter-spacing: 0.08em;
 }
-.code-link:hover { background: none; color: var(--text); text-decoration: underline; }
+@media (hover: hover) { .code-link:hover { background: none; color: var(--text); text-decoration: underline; } }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
