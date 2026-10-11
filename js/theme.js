@@ -14,17 +14,41 @@ function setTheme(theme) {
   try { localStorage.setItem(THEME_KEY, theme); } catch { /* privat läge: gäller bara den här sidvisningen */ }
 }
 
-// Gör alla knappar med klassen theme-switch till en strömbrytare för mörkt läge.
-export function mountThemeSwitches() {
-  const switches = [...document.querySelectorAll('.theme-switch')];
-  const update = () => {
-    for (const el of switches) el.setAttribute('aria-checked', String(isDark()));
-  };
-  for (const el of switches) {
-    el.innerHTML = '<span class="track" aria-hidden="true"></span>Mörkt läge';
-    el.setAttribute('role', 'switch');
-    el.addEventListener('click', () => { setTheme(isDark() ? 'light' : 'dark'); update(); });
-  }
-  deviceDark.addEventListener('change', update);
+// Gör en knapp till en strömbrytare för mörkt läge.
+function mountThemeSwitch(el) {
+  const update = () => el.setAttribute('aria-checked', String(isDark()));
+  el.innerHTML = '<span class="track" aria-hidden="true"></span>Mörkt läge';
+  el.setAttribute('role', 'switch');
+  el.addEventListener('click', () => { setTheme(isDark() ? 'light' : 'dark'); update(); });
   update();
+}
+
+// Utseendet gäller den här enheten och inte spelet.
+function showUserSettings() {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'modal settings';
+  dialog.setAttribute('aria-labelledby', 'user-settings-title');
+  dialog.innerHTML = `
+    <form method="dialog">
+      <h2 id="user-settings-title">Utseende</h2>
+      <p>Gäller bara den här enheten.</p>
+      <button type="button" class="theme-switch"></button>
+      <div class="modal-actions">
+        <button value="ok">Stäng</button>
+      </div>
+    </form>`;
+  mountThemeSwitch(dialog.querySelector('.theme-switch'));
+  // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.
+  dialog.addEventListener('keydown', (e) => e.stopPropagation());
+  dialog.addEventListener('close', () => dialog.remove(), { once: true });
+  document.body.append(dialog);
+  dialog.showModal();
+}
+
+// Gör alla knappar med klassen user-settings till länken Utseende.
+export function mountUserSettings() {
+  for (const el of document.querySelectorAll('.user-settings')) {
+    el.textContent = 'Utseende';
+    el.addEventListener('click', showUserSettings);
+  }
 }

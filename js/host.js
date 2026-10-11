@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { announce, renderRing, ranks, scoreTracker, statusTags } from './ui.js';
-import { mountThemeSwitches } from './theme.js';
+import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
@@ -462,7 +462,7 @@ function renderCategories(categories) {
 }
 
 async function init() {
-  mountThemeSwitches();
+  mountUserSettings();
   $('#create').addEventListener('click', () => startGame($('#category-select').value));
   // Visa förra besökets lista direkt så att rutan inte står tom medan den nya hämtas.
   const cached = storage(() => JSON.parse(localStorage.getItem(CATEGORIES_KEY)), null);

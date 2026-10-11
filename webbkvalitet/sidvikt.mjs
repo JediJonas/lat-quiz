@@ -8,6 +8,7 @@ const songs = JSON.parse(read('data/categories.json')).map((c) => 'data/' + c.fi
 const common = ['css/style.css', 'vendor/fonts/inter.woff2', 'favicon.svg', 'js/theme.js'];
 const pages = {
   'index.html': [...common],
+  'om.html': [...common],
   'host.html': [...common, 'vendor/peerjs.min.js', 'vendor/qrcode.js', 'js/host.js', 'js/game.js', 'js/net.js',
     'js/data.js', 'js/dialog.js', 'js/ui.js', 'js/text.js', 'data/categories.json'],
   'play.html': [...common, 'vendor/peerjs.min.js', 'js/play.js', 'js/net.js', 'js/data.js', 'js/autocomplete.js',

@@ -39,6 +39,8 @@ for (const page of [host, player]) page.on('pageerror', (e) => problems.push('Sk
 
 await host.goto(BASE + 'index.html' + PEER);
 await check(host, 'Startsidan');
+await host.goto(BASE + 'om.html' + PEER);
+await check(host, 'Om spelet');
 await host.goto(BASE + 'verktyg/spotify-id.html');
 await check(host, 'Verktyget för Spotify-ID');
 
