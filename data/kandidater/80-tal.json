@@ -1106,6 +1106,504 @@
    "artist": "Vanessa Paradis",
    "title": "Joe le taxi",
    "year": 1987
+  },
+  {
+   "id": "bon-jovi-livin-on-a-prayer",
+   "artist": "Bon Jovi",
+   "title": "Livin' on a Prayer",
+   "year": 1986
+  },
+  {
+   "id": "ac-dc-back-in-black",
+   "artist": "AC/DC",
+   "title": "Back in Black",
+   "year": 1981
+  },
+  {
+   "id": "bon-jovi-you-give-love-a-bad-name",
+   "artist": "Bon Jovi",
+   "title": "You Give Love a Bad Name",
+   "year": 1986
+  },
+  {
+   "id": "the-outfield-your-love",
+   "artist": "The Outfield",
+   "title": "Your Love",
+   "year": 1986
+  },
+  {
+   "id": "bob-marley-the-wailers-could-you-be-loved",
+   "artist": "Bob Marley & The Wailers",
+   "title": "Could You Be Loved",
+   "year": 1980
+  },
+  {
+   "id": "u2-with-or-without-you",
+   "artist": "U2",
+   "title": "With or Without You",
+   "year": 1987
+  },
+  {
+   "id": "bob-marley-the-wailers-three-little-birds",
+   "artist": "Bob Marley & The Wailers",
+   "title": "Three Little Birds",
+   "year": 1980
+  },
+  {
+   "id": "hall-oates-you-make-my-dreams",
+   "artist": "Hall & Oates",
+   "title": "You Make My Dreams",
+   "year": 1981
+  },
+  {
+   "id": "hall-oates-maneater",
+   "artist": "Hall & Oates",
+   "title": "Maneater",
+   "year": 1982
+  },
+  {
+   "id": "kenny-loggins-footloose",
+   "artist": "Kenny Loggins",
+   "title": "Footloose",
+   "year": 1984
+  },
+  {
+   "id": "phil-collins-in-the-air-tonight",
+   "artist": "Phil Collins",
+   "title": "In the Air Tonight",
+   "year": 1981
+  },
+  {
+   "id": "u2-i-still-haven-t-found-what-i-m-looking-for",
+   "artist": "U2",
+   "title": "I Still Haven't Found What I'm Looking For",
+   "year": 1987
+  },
+  {
+   "id": "motley-crue-kickstart-my-heart",
+   "artist": "Mötley Crüe",
+   "title": "Kickstart My Heart",
+   "year": 1989
+  },
+  {
+   "id": "sade-smooth-operator",
+   "artist": "Sade",
+   "title": "Smooth Operator",
+   "year": 1984
+  },
+  {
+   "id": "earth-wind-fire-let-s-groove",
+   "artist": "Earth, Wind & Fire",
+   "title": "Let's Groove",
+   "year": 1981
+  },
+  {
+   "id": "phil-collins-another-day-in-paradise",
+   "artist": "Phil Collins",
+   "title": "Another Day in Paradise",
+   "year": 1989
+  },
+  {
+   "id": "dexys-midnight-runners-come-on-eileen",
+   "artist": "Dexys Midnight Runners",
+   "title": "Come On Eileen",
+   "year": 1982
+  },
+  {
+   "id": "metallica-one",
+   "artist": "Metallica",
+   "title": "One",
+   "year": 1989
+  },
+  {
+   "id": "rick-springfield-jessie-s-girl",
+   "artist": "Rick Springfield",
+   "title": "Jessie's Girl",
+   "year": 1981
+  },
+  {
+   "id": "bruce-springsteen-i-m-on-fire",
+   "artist": "Bruce Springsteen",
+   "title": "I'm on Fire",
+   "year": 1985
+  },
+  {
+   "id": "metallica-for-whom-the-bell-tolls",
+   "artist": "Metallica",
+   "title": "For Whom the Bell Tolls",
+   "year": 1984
+  },
+  {
+   "id": "the-human-league-don-t-you-want-me",
+   "artist": "The Human League",
+   "title": "Don't You Want Me",
+   "year": 1981
+  },
+  {
+   "id": "the-smiths-heaven-knows-i-m-miserable-now",
+   "artist": "The Smiths",
+   "title": "Heaven Knows I'm Miserable Now",
+   "year": 1984
+  },
+  {
+   "id": "don-henley-the-boys-of-summer",
+   "artist": "Don Henley",
+   "title": "The Boys of Summer",
+   "year": 1984
+  },
+  {
+   "id": "the-smiths-this-charming-man",
+   "artist": "The Smiths",
+   "title": "This Charming Man",
+   "year": 1983
+  },
+  {
+   "id": "george-michael-faith",
+   "artist": "George Michael",
+   "title": "Faith",
+   "year": 1987
+  },
+  {
+   "id": "stevie-nicks-edge-of-seventeen",
+   "artist": "Stevie Nicks",
+   "title": "Edge of Seventeen",
+   "year": 1982
+  },
+  {
+   "id": "def-leppard-pour-some-sugar-on-me",
+   "artist": "Def Leppard",
+   "title": "Pour Some Sugar on Me",
+   "year": 1987
+  },
+  {
+   "id": "stevie-wonder-i-just-called-to-say-i-love-you",
+   "artist": "Stevie Wonder",
+   "title": "I Just Called to Say I Love You",
+   "year": 1984
+  },
+  {
+   "id": "billy-idol-rebel-yell",
+   "artist": "Billy Idol",
+   "title": "Rebel Yell",
+   "year": 1984
+  },
+  {
+   "id": "bob-marley-the-wailers-buffalo-soldier",
+   "artist": "Bob Marley & The Wailers",
+   "title": "Buffalo Soldier",
+   "year": 1983
+  },
+  {
+   "id": "iron-maiden-the-trooper",
+   "artist": "Iron Maiden",
+   "title": "The Trooper",
+   "year": 1983
+  },
+  {
+   "id": "ac-dc-hells-bells",
+   "artist": "AC/DC",
+   "title": "Hells Bells",
+   "year": 1980
+  },
+  {
+   "id": "the-stranglers-golden-brown",
+   "artist": "The Stranglers",
+   "title": "Golden Brown",
+   "year": 1981
+  },
+  {
+   "id": "shakin-stevens-merry-christmas-everyone",
+   "artist": "Shakin' Stevens",
+   "title": "Merry Christmas Everyone",
+   "year": 1985
+  },
+  {
+   "id": "men-at-work-who-can-it-be-now",
+   "artist": "Men at Work",
+   "title": "Who Can It Be Now?",
+   "year": 1981
+  },
+  {
+   "id": "bon-jovi-wanted-dead-or-alive",
+   "artist": "Bon Jovi",
+   "title": "Wanted Dead or Alive",
+   "year": 1987
+  },
+  {
+   "id": "journey-any-way-you-want-it",
+   "artist": "Journey",
+   "title": "Any Way You Want It",
+   "year": 1980
+  },
+  {
+   "id": "inxs-never-tear-us-apart",
+   "artist": "INXS",
+   "title": "Never Tear Us Apart",
+   "year": 1988
+  },
+  {
+   "id": "motorhead-ace-of-spades",
+   "artist": "Motörhead",
+   "title": "Ace of Spades",
+   "year": 1980
+  },
+  {
+   "id": "philip-bailey-easy-lover",
+   "artist": "Philip Bailey",
+   "title": "Easy Lover",
+   "year": 1984
+  },
+  {
+   "id": "fine-young-cannibals-she-drives-me-crazy",
+   "artist": "Fine Young Cannibals",
+   "title": "She Drives Me Crazy",
+   "year": 1989
+  },
+  {
+   "id": "duran-duran-hungry-like-the-wolf",
+   "artist": "Duran Duran",
+   "title": "Hungry Like the Wolf",
+   "year": 1982
+  },
+  {
+   "id": "elton-john-sacrifice",
+   "artist": "Elton John",
+   "title": "Sacrifice",
+   "year": 1989
+  },
+  {
+   "id": "tom-petty-i-won-t-back-down",
+   "artist": "Tom Petty",
+   "title": "I Won't Back Down",
+   "year": 1989
+  },
+  {
+   "id": "lipps-inc-funkytown",
+   "artist": "Lipps Inc.",
+   "title": "Funkytown",
+   "year": 1980
+  },
+  {
+   "id": "fleetwood-mac-gypsy",
+   "artist": "Fleetwood Mac",
+   "title": "Gypsy",
+   "year": 1982
+  },
+  {
+   "id": "john-mellencamp-jack-diane",
+   "artist": "John Mellencamp",
+   "title": "Jack & Diane",
+   "year": 1982
+  },
+  {
+   "id": "sting-englishman-in-new-york",
+   "artist": "Sting",
+   "title": "Englishman in New York",
+   "year": 1988
+  },
+  {
+   "id": "ricchi-e-poveri-sara-perche-ti-amo",
+   "artist": "Ricchi e Poveri",
+   "title": "Sarà perché ti amo",
+   "year": 1981
+  },
+  {
+   "id": "air-supply-making-love-out-of-nothing-at-all",
+   "artist": "Air Supply",
+   "title": "Making Love Out of Nothing at All",
+   "year": 1983
+  },
+  {
+   "id": "iron-maiden-run-to-the-hills",
+   "artist": "Iron Maiden",
+   "title": "Run to the Hills",
+   "year": 1982
+  },
+  {
+   "id": "tears-for-fears-shout",
+   "artist": "Tears for Fears",
+   "title": "Shout",
+   "year": 1984
+  },
+  {
+   "id": "n-w-a-straight-outta-compton",
+   "artist": "N.W.A.",
+   "title": "Straight Outta Compton",
+   "year": 1988
+  },
+  {
+   "id": "midnight-oil-beds-are-burning",
+   "artist": "Midnight Oil",
+   "title": "Beds Are Burning",
+   "year": 1987
+  },
+  {
+   "id": "whitesnake-is-this-love",
+   "artist": "Whitesnake",
+   "title": "Is This Love",
+   "year": 1987
+  },
+  {
+   "id": "rick-james-super-freak",
+   "artist": "Rick James",
+   "title": "Super Freak",
+   "year": 1981
+  },
+  {
+   "id": "bob-marley-redemption-song",
+   "artist": "Bob Marley",
+   "title": "Redemption Song",
+   "year": 1980
+  },
+  {
+   "id": "metallica-fade-to-black",
+   "artist": "Metallica",
+   "title": "Fade to Black",
+   "year": 1984
+  },
+  {
+   "id": "bon-jovi-runaway",
+   "artist": "Bon Jovi",
+   "title": "Runaway",
+   "year": 1983
+  },
+  {
+   "id": "the-cure-close-to-me",
+   "artist": "The Cure",
+   "title": "Close to Me",
+   "year": 1985
+  },
+  {
+   "id": "alannah-myles-black-velvet",
+   "artist": "Alannah Myles",
+   "title": "Black Velvet",
+   "year": 1989
+  },
+  {
+   "id": "dire-straits-brothers-in-arms",
+   "artist": "Dire Straits",
+   "title": "Brothers in Arms",
+   "year": 1985
+  },
+  {
+   "id": "george-harrison-got-my-mind-set-on-you",
+   "artist": "George Harrison",
+   "title": "Got My Mind Set on You",
+   "year": 1987
+  },
+  {
+   "id": "f-r-david-words",
+   "artist": "F. R. David",
+   "title": "Words",
+   "year": 1982
+  },
+  {
+   "id": "billy-idol-white-wedding",
+   "artist": "Billy Idol",
+   "title": "White Wedding",
+   "year": 1982
+  },
+  {
+   "id": "lionel-richie-stuck-on-you",
+   "artist": "Lionel Richie",
+   "title": "Stuck on You",
+   "year": 1984
+  },
+  {
+   "id": "the-j-geils-band-centerfold",
+   "artist": "The J. Geils Band",
+   "title": "Centerfold",
+   "year": 1981
+  },
+  {
+   "id": "celine-dion-it-s-all-coming-back-to-me-now",
+   "artist": "Céline Dion",
+   "title": "It's All Coming Back to Me Now",
+   "year": 1989
+  },
+  {
+   "id": "christopher-cross-sailing",
+   "artist": "Christopher Cross",
+   "title": "Sailing",
+   "year": 1980
+  },
+  {
+   "id": "rush-tom-sawyer",
+   "artist": "Rush",
+   "title": "Tom Sawyer",
+   "year": 1981
+  },
+  {
+   "id": "john-lennon-woman",
+   "artist": "John Lennon",
+   "title": "Woman",
+   "year": 1981
+  },
+  {
+   "id": "skid-row-18-and-life",
+   "artist": "Skid Row",
+   "title": "18 and Life",
+   "year": 1989
+  },
+  {
+   "id": "dire-straits-romeo-and-juliet",
+   "artist": "Dire Straits",
+   "title": "Romeo and Juliet",
+   "year": 1981
+  },
+  {
+   "id": "tears-for-fears-head-over-heels",
+   "artist": "Tears for Fears",
+   "title": "Head over Heels",
+   "year": 1985
+  },
+  {
+   "id": "diana-ross-i-m-coming-out",
+   "artist": "Diana Ross",
+   "title": "I'm Coming Out",
+   "year": 1980
+  },
+  {
+   "id": "kool-the-gang-get-down-on-it",
+   "artist": "Kool & The Gang",
+   "title": "Get Down on It",
+   "year": 1981
+  },
+  {
+   "id": "run-dmc-it-s-tricky",
+   "artist": "Run-DMC",
+   "title": "It's Tricky",
+   "year": 1987
+  },
+  {
+   "id": "hall-oates-out-of-touch",
+   "artist": "Hall & Oates",
+   "title": "Out of Touch",
+   "year": 1984
+  },
+  {
+   "id": "frankie-goes-to-hollywood-relax",
+   "artist": "Frankie Goes to Hollywood",
+   "title": "Relax",
+   "year": 1983
+  },
+  {
+   "id": "kaoma-lambada",
+   "artist": "Kaoma",
+   "title": "Lambada",
+   "year": 1989
+  },
+  {
+   "id": "billy-ocean-caribbean-queen",
+   "artist": "Billy Ocean",
+   "title": "Caribbean Queen",
+   "year": 1984
+  },
+  {
+   "id": "miami-sound-machine-conga",
+   "artist": "Miami Sound Machine",
+   "title": "Conga",
+   "year": 1985
   }
  ]
 }
