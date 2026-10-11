@@ -17,9 +17,14 @@
     <a class="button secondary" href="host.html">Starta spel som spelledare</a>
     <p class="muted small">Spelledaren använder en dator med Spotify. Spelarna använder sina mobiler.</p>
   </main>
+  <footer><button class="theme-switch"></button></footer>
   <script>
     // Följ med eventuella testparametrar, till exempel en lokal PeerJS-server.
     for (const a of document.querySelectorAll('a')) a.search = location.search;
+  </script>
+  <script type="module">
+    import { mountThemeSwitches } from './js/theme.js';
+    mountThemeSwitches();
   </script>
 </body>
 </html>
