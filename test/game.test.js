@@ -198,9 +198,10 @@ test('inställningar: okända värden ersätts med standard, bonus 0 betyder ing
   assert.equal(state.winScore, 15);
 });
 
-test('spelarvyn visar kategorins namn', () => {
+test('spelarvyn visar kategorins namn och inställningar', () => {
   const state = createGame({ code: 'ABCD', categoryId: 'pop80', categoryName: '80-talspop' });
   assert.equal(playerView(state, 'p1', 0).categoryName, '80-talspop');
+  assert.deepEqual(playerView(state, 'p1', 0).settings, { roundMs: state.roundMs, bonusMs: state.bonusMs, winScore: state.winScore });
   assert.equal(playerView(createGame({ code: 'ABCD', categoryId: 'pop80' }), 'p1', 0).categoryName, '');
 });
 

@@ -109,7 +109,7 @@
       for (const song of todo) {
         if (count() >= target) break;
         tried += 1;
-        setProgress(`${count()} av ${target} låtar har ID. Söker ${song.artist} – ${song.title} …`);
+        setProgress(`${count()} av ${target} låtar har ID. Söker ${song.artist} – ${song.title}…`);
         try {
           const rows = await wikidata(song.title);
           const hit = pickWikidataTrack(song, rows);

@@ -143,10 +143,11 @@ h1.logo { margin: 16px 0 8px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
 .logo-small { --w: 5.5rem; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-.game-head .logo-small { --w: 7rem; margin-right: 8px; }
+.game-head .logo-small { --w: 8.5rem; margin-right: 8px; }
 h2 { font-size: 1.25rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 h3, .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
+@media (hover: hover) { a:not(.button):hover { color: var(--text); } }
 .muted { color: var(--muted); }
 .small { font-size: 0.85rem; }
 .hidden, [hidden] { display: none !important; }
@@ -226,8 +227,10 @@ button.link {
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-@media (hover: hover) { button.link:hover { color: var(--text); text-decoration: underline; } }
+@media (hover: hover) { button.link:hover { color: var(--text); } }
 
 /* Strömbrytare för mörkt läge */
 button.theme-switch {
@@ -247,12 +250,11 @@ button.theme-switch {
 button.theme-switch:hover { background: none; color: var(--text); }
 button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
-.theme-row { display: flex; align-items: center; gap: 16px; margin: 24px 0 0; }
-.theme-row .row-end { display: flex; gap: 20px; margin-left: auto; }
+.theme-row { display: flex; align-items: baseline; gap: 16px; margin: 24px 0 0; }
+.theme-row .row-end { display: flex; flex: none; gap: 20px; margin-left: auto; }
 .theme-row .row-end .link { margin: 0; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
-.quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; text-decoration: none; }
-@media (hover: hover) { .quiet-link:hover { color: var(--text); text-decoration: underline; } }
+.quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 main:has(#lobby:not([hidden])) .join-only { display: none; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
@@ -409,22 +411,24 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; font-weight: 700; letter-spacing: normal; }
+/* Långa kategorinamn kortas med … så att de inte krockar med Ansluten, även med Stor text. */
+.player-head .who h1 { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.player-head .conn { flex: none; }
 .player-head .who h1:empty { display: none; }
-/* Spelarens kod är ingen länk, så den visas som en etikett. */
-.game-code { padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 0.85rem; font-weight: 500; }
-#me { color: var(--text); font-weight: 600; letter-spacing: 0.08em; }
+/* Spelarens kod och inställningar som vanlig grå text. Länkar är understrukna, så den syns inte som en länk. */
+.game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+#me { letter-spacing: 0.08em; }
 main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
+/* inline-block så att etikettens baslinje är textens, och den linjerar med kategorin. */
 .conn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline-block;
   padding: 3px 10px;
   border-radius: 999px;
   background: var(--surface-2);
   font-size: 0.8rem;
   font-weight: 600;
 }
-.conn::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.conn::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 6px 0 0; border-radius: 50%; background: currentColor; vertical-align: 0.1em; }
 .conn.connected { color: var(--good); background: var(--good-soft); }
 .conn.offline { color: var(--bad); background: var(--bad-soft); }
 
@@ -501,11 +505,11 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   font-size: 0.9rem;
   font-weight: 500;
 }
-@media (hover: hover) { .code-link:hover { background: none; color: var(--text); text-decoration: underline; } }
+@media (hover: hover) { .code-link:hover { background: none; color: var(--text); } }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
-#join-url { word-break: break-all; font-size: 0.8rem; }
+#join-url { word-break: break-all; }
 #category { margin: 0; font-weight: 700; font-size: 1rem; letter-spacing: normal; color: var(--text); }
 .stage {
   background: var(--surface);
@@ -522,7 +526,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .host .ring { width: 240px; height: 240px; }
 .host .ring-num { font-size: 5rem; }
 .actions { margin-top: 24px; }
-.game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 12px; }
+.game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 20px; }
 .game-head p { margin: 0; }
 #game-settings-summary { text-align: right; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }

@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce, renderRing, ranks, scoreTracker, statusTags } from './ui.js';
+import { announce, renderRing, ranks, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
@@ -116,7 +116,7 @@ function onDisconnect(connId) {
 }
 
 function startNetwork() {
-  setNetStatus('Startar …');
+  setNetStatus('Startar…');
   net = createHost(state.code, {
     onReady: () => setNetStatus(''),
     onMessage,
@@ -287,11 +287,6 @@ function showSettings(current, categories = null, categoryId = null) {
   });
 }
 
-function settingsSummary(s) {
-  return [`Tid ${s.roundMs / 1000} s`, s.bonusMs ? `Bonus ${s.bonusMs / 1000} s` : 'Ingen bonus',
-    `Först till ${s.winScore}`].join(' · ');
-}
-
 async function editSettings() {
   if (state && state.round && state.round.phase === 'playing') {
     showAlert('Inställningarna kan ändras när svaret har visats.', { title: 'Låten pågår' });
@@ -406,7 +401,7 @@ function render() {
   const stage = $('#stage');
 
   if (!round) {
-    stage.innerHTML = `<p>Först till ${state.winScore || game.WIN_SCORE} poäng vinner. Vänta tills alla har anslutit och tryck sedan på Nästa låt.
+    stage.innerHTML = `<p>Vänta tills alla har anslutit och tryck sedan på Nästa låt.
       Låten öppnas i Spotify och timern startar. Stoppa låten när tiden har gått ut.</p>
       <button id="next" class="big huge">Nästa låt</button>`;
   } else if (round.phase === 'ready') {
@@ -490,7 +485,7 @@ async function init() {
   if (saved) {
     const resume = $('#resume');
     resume.hidden = false;
-    resume.querySelector('button').textContent = `Tillbaka till ${saved.code}!`;
+    resume.querySelector('button').textContent = `Tillbaka till ${saved.code}`;
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
 }

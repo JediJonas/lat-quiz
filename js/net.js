@@ -64,11 +64,11 @@ export function createHost(code, handlers) {
     peer.on('error', (err) => {
       if (err.type === 'unavailable-id') {
         // Händer när sidan laddas om. Det gamla id:t släpps efter en stund.
-        handlers.onError('Väntar på att spelkoden ska bli ledig igen …');
+        handlers.onError('Väntar på att spelkoden ska bli ledig igen…');
         peer.destroy();
         setTimeout(() => !destroyed && open(), 3000);
       } else if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
-        handlers.onError('Kontakten med anslutningsservern bröts. Försöker igen …');
+        handlers.onError('Kontakten med anslutningsservern bröts. Försöker igen…');
       } else if (err.type !== 'peer-unavailable') {
         handlers.onError('Anslutningsfel: ' + err.type);
       }

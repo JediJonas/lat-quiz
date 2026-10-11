@@ -227,6 +227,7 @@ export function playerView(state, playerId, now) {
     standings: standings(state),
     answered: round ? Object.keys(state.players).filter((id) => hasAnsweredBoth(state, id)) : [],
     winScore: state.winScore || WIN_SCORE,
+    settings: { roundMs: state.roundMs, bonusMs: state.bonusMs, winScore: state.winScore || WIN_SCORE },
     winners: state.winners ? state.winners.map((id) => state.players[id].name) : null,
     labels: state.labels || DEFAULT_LABELS,
     round: null,
