@@ -124,9 +124,21 @@ h1 { font-size: 2rem; font-weight: 750; margin: 0.6em 0 0.5em; }
   mask-repeat: no-repeat;
 }
 h1.logo { width: 14rem; margin: 0.6em 0 0.3em; }
-.page-head { margin: 16px 0 20px; }
-.page-head .logo { margin: 0 0 4px; }
-.page-head .page-title { margin: 0; }
+.page-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 16px 0 20px; }
+.page-head .logo { margin: 0; }
+.page-head .page-title {
+  margin: 0 4px 0 0;
+  padding: 3px 10px;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-7deg);
+}
 .page-title { font-size: 1.25rem; font-weight: 500; color: var(--title); margin: 0 0 0.8em; }
 .join-info .logo { width: 8rem; margin: -28px auto 12px; }
 h2 { font-size: 1.25rem; font-weight: 700; margin: 0.2em 0 0.5em; }
