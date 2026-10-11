@@ -1322,6 +1322,426 @@
    "artist": "AC/DC",
    "title": "Big Gun",
    "year": 1993
+  },
+  {
+   "id": "ice-cube-it-was-a-good-day",
+   "artist": "Ice Cube",
+   "title": "It Was a Good Day",
+   "year": 1993
+  },
+  {
+   "id": "sixpence-none-the-richer-kiss-me",
+   "artist": "Sixpence None the Richer",
+   "title": "Kiss Me",
+   "year": 1998
+  },
+  {
+   "id": "sublime-santeria",
+   "artist": "Sublime",
+   "title": "Santeria",
+   "year": 1997
+  },
+  {
+   "id": "the-smiths-there-is-a-light-that-never-goes-out",
+   "artist": "The Smiths",
+   "title": "There Is a Light That Never Goes Out",
+   "year": 1992
+  },
+  {
+   "id": "blackstreet-no-diggity",
+   "artist": "Blackstreet",
+   "title": "No Diggity",
+   "year": 1996
+  },
+  {
+   "id": "counting-crows-mr-jones",
+   "artist": "Counting Crows",
+   "title": "Mr. Jones",
+   "year": 1993
+  },
+  {
+   "id": "blink-182-what-s-my-age-again",
+   "artist": "Blink-182",
+   "title": "What's My Age Again?",
+   "year": 1999
+  },
+  {
+   "id": "whitney-houston-i-will-always-love-you",
+   "artist": "Whitney Houston",
+   "title": "I Will Always Love You",
+   "year": 1992
+  },
+  {
+   "id": "ice-cube-you-know-how-we-do-it",
+   "artist": "Ice Cube",
+   "title": "You Know How We Do It",
+   "year": 1994
+  },
+  {
+   "id": "sean-combs-i-ll-be-missing-you",
+   "artist": "Sean Combs",
+   "title": "I'll Be Missing You",
+   "year": 1997
+  },
+  {
+   "id": "new-radicals-you-get-what-you-give",
+   "artist": "New Radicals",
+   "title": "You Get What You Give",
+   "year": 1998
+  },
+  {
+   "id": "house-of-pain-jump-around",
+   "artist": "House of Pain",
+   "title": "Jump Around",
+   "year": 1992
+  },
+  {
+   "id": "eagle-eye-cherry-save-tonight",
+   "artist": "Eagle-Eye Cherry",
+   "title": "Save Tonight",
+   "year": 1997
+  },
+  {
+   "id": "rob-zombie-dragula",
+   "artist": "Rob Zombie",
+   "title": "Dragula",
+   "year": 1998
+  },
+  {
+   "id": "metallica-the-unforgiven",
+   "artist": "Metallica",
+   "title": "The Unforgiven",
+   "year": 1991
+  },
+  {
+   "id": "deftones-my-own-summer-shove-it",
+   "artist": "Deftones",
+   "title": "My Own Summer (Shove It)",
+   "year": 1997
+  },
+  {
+   "id": "alejandro-sanz-corazon-partio",
+   "artist": "Alejandro Sanz",
+   "title": "Corazón Partío",
+   "year": 1997
+  },
+  {
+   "id": "spin-doctors-two-princes",
+   "artist": "Spin Doctors",
+   "title": "Two Princes",
+   "year": 1993
+  },
+  {
+   "id": "weezer-say-it-ain-t-so",
+   "artist": "Weezer",
+   "title": "Say It Ain't So",
+   "year": 1995
+  },
+  {
+   "id": "warren-g-regulate",
+   "artist": "Warren G",
+   "title": "Regulate",
+   "year": 1994
+  },
+  {
+   "id": "mana-en-el-muelle-de-san-blas",
+   "artist": "Maná",
+   "title": "En el muelle de San Blas",
+   "year": 1998
+  },
+  {
+   "id": "rusted-root-send-me-on-my-way",
+   "artist": "Rusted Root",
+   "title": "Send Me On My Way",
+   "year": 1995
+  },
+  {
+   "id": "mana-clavado-en-un-bar",
+   "artist": "Maná",
+   "title": "Clavado En Un Bar",
+   "year": 1997
+  },
+  {
+   "id": "pantera-walk",
+   "artist": "Pantera",
+   "title": "Walk",
+   "year": 1992
+  },
+  {
+   "id": "stone-temple-pilots-interstate-love-song",
+   "artist": "Stone Temple Pilots",
+   "title": "Interstate Love Song",
+   "year": 1994
+  },
+  {
+   "id": "santana-smooth",
+   "artist": "Santana",
+   "title": "Smooth",
+   "year": 1999
+  },
+  {
+   "id": "tom-petty-and-the-heartbreakers-mary-jane-s-last-dance",
+   "artist": "Tom Petty and the Heartbreakers",
+   "title": "Mary Jane's Last Dance",
+   "year": 1993
+  },
+  {
+   "id": "wu-tang-clan-c-r-e-a-m",
+   "artist": "Wu-Tang Clan",
+   "title": "C.R.E.A.M.",
+   "year": 1994
+  },
+  {
+   "id": "deftones-be-quiet-and-drive",
+   "artist": "Deftones",
+   "title": "Be Quiet and Drive",
+   "year": 1998
+  },
+  {
+   "id": "snoop-dogg-gin-and-juice",
+   "artist": "Snoop Dogg",
+   "title": "Gin And Juice",
+   "year": 1994
+  },
+  {
+   "id": "will-smith-miami",
+   "artist": "Will Smith",
+   "title": "Miami",
+   "year": 1998
+  },
+  {
+   "id": "creed-higher",
+   "artist": "Creed",
+   "title": "Higher",
+   "year": 1999
+  },
+  {
+   "id": "sting-fields-of-gold",
+   "artist": "Sting",
+   "title": "Fields of Gold",
+   "year": 1993
+  },
+  {
+   "id": "tupac-shakur-do-for-love",
+   "artist": "Tupac Shakur",
+   "title": "Do for Love",
+   "year": 1997
+  },
+  {
+   "id": "corona-the-rhythm-of-the-night",
+   "artist": "Corona",
+   "title": "The Rhythm of the Night",
+   "year": 1993
+  },
+  {
+   "id": "the-offspring-why-don-t-you-get-a-job",
+   "artist": "The Offspring",
+   "title": "Why Don't You Get a Job?",
+   "year": 1999
+  },
+  {
+   "id": "shaggy-boombastic",
+   "artist": "Shaggy",
+   "title": "Boombastic",
+   "year": 1996
+  },
+  {
+   "id": "no-doubt-just-a-girl",
+   "artist": "No Doubt",
+   "title": "Just a Girl",
+   "year": 1995
+  },
+  {
+   "id": "marilyn-manson-sweet-dreams",
+   "artist": "Marilyn Manson",
+   "title": "Sweet Dreams",
+   "year": 1995
+  },
+  {
+   "id": "macy-gray-i-try",
+   "artist": "Macy Gray",
+   "title": "I Try",
+   "year": 1999
+  },
+  {
+   "id": "mr-big-to-be-with-you",
+   "artist": "Mr. Big",
+   "title": "To Be with You",
+   "year": 1991
+  },
+  {
+   "id": "will-smith-gettin-jiggy-wit-it",
+   "artist": "Will Smith",
+   "title": "Gettin' Jiggy wit It",
+   "year": 1998
+  },
+  {
+   "id": "goo-goo-dolls-slide",
+   "artist": "Goo Goo Dolls",
+   "title": "Slide",
+   "year": 1998
+  },
+  {
+   "id": "jamiroquai-virtual-insanity",
+   "artist": "Jamiroquai",
+   "title": "Virtual Insanity",
+   "year": 1996
+  },
+  {
+   "id": "pantera-cowboys-from-hell",
+   "artist": "Pantera",
+   "title": "Cowboys from Hell",
+   "year": 1990
+  },
+  {
+   "id": "sade-kiss-of-life",
+   "artist": "Sade",
+   "title": "Kiss of Life",
+   "year": 1993
+  },
+  {
+   "id": "stone-temple-pilots-plush",
+   "artist": "Stone Temple Pilots",
+   "title": "Plush",
+   "year": 1993
+  },
+  {
+   "id": "korn-falling-away-from-me",
+   "artist": "Korn",
+   "title": "Falling Away from Me",
+   "year": 1999
+  },
+  {
+   "id": "boyz-ii-men-end-of-the-road",
+   "artist": "Boyz II Men",
+   "title": "End of the Road",
+   "year": 1992
+  },
+  {
+   "id": "tupac-shakur-hail-mary",
+   "artist": "Tupac Shakur",
+   "title": "Hail Mary",
+   "year": 1997
+  },
+  {
+   "id": "r-e-m-shiny-happy-people",
+   "artist": "R.E.M.",
+   "title": "Shiny Happy People",
+   "year": 1991
+  },
+  {
+   "id": "ozzy-osbourne-no-more-tears",
+   "artist": "Ozzy Osbourne",
+   "title": "No More Tears",
+   "year": 1991
+  },
+  {
+   "id": "oasis-stand-by-me",
+   "artist": "Oasis",
+   "title": "Stand by Me",
+   "year": 1997
+  },
+  {
+   "id": "celine-dion-it-s-all-coming-back-to-me-now",
+   "artist": "Céline Dion",
+   "title": "It's All Coming Back to Me Now",
+   "year": 1996
+  },
+  {
+   "id": "neil-young-harvest-moon",
+   "artist": "Neil Young",
+   "title": "Harvest Moon",
+   "year": 1993
+  },
+  {
+   "id": "massive-attack-teardrop",
+   "artist": "Massive Attack",
+   "title": "Teardrop",
+   "year": 1998
+  },
+  {
+   "id": "boyz-ii-men-on-bended-knee",
+   "artist": "Boyz II Men",
+   "title": "On Bended Knee",
+   "year": 1994
+  },
+  {
+   "id": "alice-in-chains-rooster",
+   "artist": "Alice in Chains",
+   "title": "Rooster",
+   "year": 1993
+  },
+  {
+   "id": "korn-got-the-life",
+   "artist": "Korn",
+   "title": "Got the Life",
+   "year": 1998
+  },
+  {
+   "id": "the-offspring-come-out-and-play",
+   "artist": "The Offspring",
+   "title": "Come Out and Play",
+   "year": 1994
+  },
+  {
+   "id": "tom-petty-and-the-heartbreakers-learning-to-fly",
+   "artist": "Tom Petty and the Heartbreakers",
+   "title": "Learning to Fly",
+   "year": 1991
+  },
+  {
+   "id": "ub40-kingston-town",
+   "artist": "UB40",
+   "title": "Kingston Town",
+   "year": 1990
+  },
+  {
+   "id": "blink-182-dammit",
+   "artist": "Blink-182",
+   "title": "Dammit",
+   "year": 1997
+  },
+  {
+   "id": "massive-attack-angel",
+   "artist": "Massive Attack",
+   "title": "Angel",
+   "year": 1998
+  },
+  {
+   "id": "savage-garden-i-knew-i-loved-you",
+   "artist": "Savage Garden",
+   "title": "I Knew I Loved You",
+   "year": 1999
+  },
+  {
+   "id": "lonestar-amazed",
+   "artist": "Lonestar",
+   "title": "Amazed",
+   "year": 1999
+  },
+  {
+   "id": "snoop-dogg-who-am-i-what-s-my-name",
+   "artist": "Snoop Dogg",
+   "title": "Who Am I? (What's My Name?)",
+   "year": 1993
+  },
+  {
+   "id": "boyz-ii-men-i-ll-make-love-to-you",
+   "artist": "Boyz II Men",
+   "title": "I'll Make Love to You",
+   "year": 1994
+  },
+  {
+   "id": "robin-s-show-me-love",
+   "artist": "Robin S.",
+   "title": "Show Me Love",
+   "year": 1992
+  },
+  {
+   "id": "korn-blind",
+   "artist": "Korn",
+   "title": "Blind",
+   "year": 1995
   }
  ]
 }
