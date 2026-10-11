@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Låtquiz – Gå med i spel</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>try { const t = localStorage.getItem('latquiz-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
 <body>
   <main class="narrow">
@@ -45,6 +46,8 @@
       <h3>Poäng</h3>
       <div id="standings"></div>
     </section>
+
+    <p class="actions"><button class="link theme-switch"></button></p>
   </main>
 
   <script src="vendor/peerjs.min.js"></script>

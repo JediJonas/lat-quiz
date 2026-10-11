@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Låtquiz – Starta spel</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>try { const t = localStorage.getItem('latquiz-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
 <body>
   <p id="net-status" class="net-status" hidden></p>
@@ -17,6 +18,7 @@
     <div id="resume" hidden><button class="secondary"></button></div>
     <p class="settings-link"><button id="settings" class="link">Inställningar</button>
       <span id="settings-summary" class="muted small"></span></p>
+    <p class="actions"><button class="link theme-switch"></button></p>
   </main>
 
   <main id="game" class="host" hidden>
@@ -36,6 +38,7 @@
       <p class="actions">
         <button id="game-settings" class="link">Inställningar</button>
         <button id="end" class="link">Avsluta spelet</button>
+        <button class="link theme-switch"></button>
       </p>
     </section>
   </main>
