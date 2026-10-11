@@ -11,6 +11,7 @@
   --surface-2: #f0f0f3;
   --text: #16161a;
   --muted: #5f5f69;
+  --title: #3d3d47;
   --border: #e4e4ea;
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
@@ -42,6 +43,7 @@
     --surface-2: #232329;
     --text: #f2f2f5;
     --muted: #9a9aa6;
+    --title: #d4d4dc;
     --border: #2c2c34;
     --accent: #1ed760;
     --accent-hover: #3be477;
@@ -69,6 +71,7 @@
   --surface-2: #232329;
   --text: #f2f2f5;
   --muted: #9a9aa6;
+  --title: #d4d4dc;
   --border: #2c2c34;
   --accent: #1ed760;
   --accent-hover: #3be477;
@@ -107,7 +110,19 @@ main { padding: 24px 16px; }
 .narrow { max-width: 460px; margin: 0 auto; }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 h1 { font-size: 2rem; font-weight: 750; margin: 0.6em 0 0.5em; }
-h2 { font-size: 1.25rem; font-weight: 700; margin: 0.2em 0 0.5em; }
+/* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
+.logo {
+  display: block;
+  width: 9.5rem;
+  aspect-ratio: 2814 / 1010;
+  margin: 16px 0 8px;
+  background: var(--accent);
+  -webkit-mask: url("../logo.svg") center / contain no-repeat;
+  mask: url("../logo.svg") center / contain no-repeat;
+}
+h1.logo { width: 14rem; margin: 0.6em 0 0.3em; }
+.page-title { font-size: 1.4rem; font-weight: 650; color: var(--title); margin: 0 0 0.8em; }
+.join-info .logo { width: 8rem; margin: -28px auto 12px; }h2 { font-size: 1.25rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 h3, .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
 .muted { color: var(--muted); }

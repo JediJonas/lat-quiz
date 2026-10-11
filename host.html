@@ -14,7 +14,8 @@
   <p id="announce" class="visually-hidden" role="status"></p>
 
   <main id="setup" class="narrow">
-    <h1>Låtquiz – Starta spel</h1>
+    <a class="logo" href="index.html"><span class="visually-hidden">Låtquiz, till startsidan</span></a>
+    <h1 class="page-title">Starta spel</h1>
     <label for="category-select">Kategori</label>
     <select id="category-select" disabled><option>Laddar kategorier …</option></select>
     <p class="settings-row"><span id="settings-summary" class="muted small"></span></p>
@@ -26,6 +27,7 @@
   <main id="game" class="host" hidden>
     <section id="join-info" class="join-info" aria-label="Gå med i spelet">
       <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden">×</button>
+      <div class="logo" aria-hidden="true"></div>
       <div id="qr" class="qr"></div>
       <p>Skanna eller gå till<br><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
       <p>Kod: <span id="code" class="code"></span></p>
