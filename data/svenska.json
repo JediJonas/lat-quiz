@@ -1,598 +1,87 @@
 [
  {
-  "id": "abba-mamma-mia",
-  "artist": "ABBA",
-  "title": "Mamma Mia",
-  "year": 1975,
-  "spotifyId": "6ZGR4XGx4tiVyPoWSGgiFq"
- },
- {
-  "id": "avicii-wake-me-up",
-  "artist": "Avicii",
-  "title": "Wake Me Up",
-  "year": 2013,
-  "spotifyId": "0nrRP2bk19rLc0orkWPQk2"
- },
- {
-  "id": "kikki-danielsson-que-sera-sera",
-  "artist": "Kikki Danielsson & Doris Day",
-  "title": "Qué Será, Será",
-  "year": 1956,
-  "spotifyId": "3Dnv944x31XU4FFMlkfnWN"
- },
- {
-  "id": "avicii-levels",
-  "artist": "Avicii",
-  "title": "Levels",
-  "year": 2011,
-  "spotifyId": "6Xe9wT5xeZETPwtaP2ynUz"
- },
- {
-  "id": "avicii-hey-brother",
-  "artist": "Avicii",
-  "title": "Hey Brother",
-  "year": 2013,
-  "spotifyId": "5LM2wq1AYeNnGq9J0nyxnj"
- },
- {
-  "id": "avicii-waiting-for-love",
-  "artist": "Avicii",
-  "title": "Waiting for Love",
-  "year": 2015,
-  "spotifyId": "157ql7EXhncV2pTlYkiM3d"
- },
- {
-  "id": "tonix-oh-pretty-woman",
-  "artist": "Tonix & Roy Orbison",
-  "title": "Oh, Pretty Woman",
-  "year": 1964,
-  "spotifyId": "48i055G1OT5KxGGftwFxWy"
- },
- {
-  "id": "mnek-never-forget-you",
-  "artist": "MNEK",
-  "title": "Never Forget You",
-  "year": 2015,
-  "spotifyId": "0k1qJaNhF5yTZvd4E8NgKL"
- },
- {
-  "id": "tove-lo-habits",
-  "artist": "Tove Lo",
-  "title": "Habits",
-  "year": 2013,
-  "spotifyId": "18AJRdgUoO9EYn11N7xzaT"
- },
- {
-  "id": "nicky-romero-i-could-be-the-one",
-  "artist": "Nicky Romero & Avicii",
-  "title": "I Could Be the One",
-  "year": 2012,
-  "spotifyId": "1lpGsHdCpWiTvrFitLakBo"
- },
- {
-  "id": "wizex-that-ll-be-the-day",
-  "artist": "Wizex & The Crickets",
-  "title": "That'll Be the Day",
-  "year": 1957,
-  "spotifyId": "33eON3GFQdOnb7pJon2FxC"
- },
- {
-  "id": "p-p-arnold-the-first-cut-is-the-deepest",
-  "artist": "P. P. Arnold & Papa Dee",
-  "title": "The First Cut Is the Deepest",
-  "year": 1967,
-  "spotifyId": "7gN24J8E0pR3G2nsbhkcjw"
- },
- {
-  "id": "buddy-holly-peggy-sue",
-  "artist": "Buddy Holly & Jerry Williams",
-  "title": "Peggy Sue",
-  "year": 1957,
-  "spotifyId": "2OARIMw1hpehr86Iwmv04c"
- },
- {
-  "id": "charli-xcx-i-love-it",
-  "artist": "Charli XCX & Icona Pop",
-  "title": "I Love It",
-  "year": 2012,
-  "spotifyId": "1Q8ys0130rNeEE162pmsQa"
- },
- {
-  "id": "clean-bandit-symphony",
-  "artist": "Clean Bandit",
-  "title": "Symphony",
-  "year": 2017,
-  "spotifyId": "4SPLWgCPoKwULz2UTM8TKg"
- },
- {
-  "id": "aloe-blacc-sos",
-  "artist": "Aloe Blacc & Avicii",
-  "title": "SOS",
-  "year": 2019,
-  "spotifyId": "2x0RZdkZcD8QRI53XT4GI5"
- },
- {
-  "id": "eric-prydz-call-on-me",
-  "artist": "Eric Prydz & Steve Winwood",
-  "title": "Call on Me",
-  "year": 2004,
-  "spotifyId": "1xNcBAoUw8Hz6LqK2jt4Ff"
- },
- {
-  "id": "swedish-house-mafia-don-t-you-worry-child",
-  "artist": "Swedish House Mafia & John Martin",
-  "title": "Don't You Worry Child",
-  "year": 2012,
-  "spotifyId": "1oF75Qbv8UvOBm1imUAE51"
- },
- {
-  "id": "robyn-dancing-on-my-own",
-  "artist": "Robyn",
-  "title": "Dancing on My Own",
-  "year": 2010,
-  "spotifyId": "15KLatwaXORrdfWC47ET2H"
- },
- {
-  "id": "mohombi-bumpy-ride",
-  "artist": "Mohombi",
-  "title": "Bumpy Ride",
-  "year": 2010,
-  "spotifyId": "71R6zJsrF3ffc3TBFHfivX"
- },
- {
-  "id": "aronchupa-i-m-an-albatraoz",
-  "artist": "AronChupa",
-  "title": "I'm an Albatraoz",
-  "year": 2014,
-  "spotifyId": "5MhsZlmKJG6X5kTHkdwC4B"
- },
- {
-  "id": "axwell-ingrosso-more-than-you-know",
-  "artist": "Axwell Λ Ingrosso",
-  "title": "More Than You Know",
-  "year": 2017,
-  "spotifyId": "6C09ToLEI6k4HOaXBRW49m"
- },
- {
-  "id": "carola-haggkvist-evergreen-love-theme-from-a-star-is-born",
-  "artist": "Carola Häggkvist & Barbra Streisand",
-  "title": "Evergreen (Love Theme from A Star Is Born)",
-  "year": 1976,
-  "spotifyId": "5SuEUz1orwSwkfqgFlJUHG"
- },
- {
-  "id": "girls-generation-catch-me-if-you-can-girls-generation-song",
-  "artist": "Girls' Generation & Ana Johnsson",
-  "title": "Catch Me If You Can (Girls' Generation song)",
-  "year": 2015,
-  "spotifyId": "5mejZAeca4Ry7Sptw7LnvS"
- },
- {
-  "id": "alesso-heroes",
-  "artist": "Alesso",
-  "title": "Heroes",
-  "year": 2014,
-  "spotifyId": "0YzCQcsgj6KqwBHVx1mZrH"
- },
- {
-  "id": "galantis-dilshadilu07celebrity-s-runaway-u-i",
-  "artist": "Galantis Dilshadilu07celebrity's",
-  "title": "Runaway (U & I)",
-  "year": 2014,
-  "spotifyId": "46lFttIf5hnUZMGvjK0Wxo"
- },
- {
-  "id": "galantis-dilshadilu07celebrity-s-no-money",
-  "artist": "Galantis Dilshadilu07celebrity's",
-  "title": "No Money",
-  "year": 2016,
-  "spotifyId": "0gb1J5UrTpzaU1s3nupgCd"
- },
- {
-  "id": "tove-lo-cool-girl",
-  "artist": "Tove Lo",
-  "title": "Cool Girl",
-  "year": 2016,
-  "spotifyId": "4SSJvi8LkjzVhemS32ZtCf"
- },
- {
-  "id": "agnes-carlsson-release-me",
-  "artist": "Agnes Carlsson",
-  "title": "Release Me",
-  "year": 2008,
-  "spotifyId": "4LiJE6pqgsTX3FtukW6bNh"
- },
- {
-  "id": "europe-rock-the-night",
-  "artist": "Europe",
-  "title": "Rock the Night",
-  "year": 1985,
-  "spotifyId": "4UQsy5ht5ZjSuKAL5Q7GBR"
- },
- {
-  "id": "loreen-my-heart-is-refusing-me",
-  "artist": "Loreen",
-  "title": "My Heart Is Refusing Me",
-  "year": 2011,
-  "spotifyId": "0GInCB9B7Qr4nNZaMjaMZj"
- },
- {
-  "id": "hurts-under-control",
-  "artist": "Hurts & Alesso",
-  "title": "Under Control",
-  "year": 2013,
-  "spotifyId": "4J7CKHCF3mdL4diUsmW8lq"
- },
- {
-  "id": "ty-dolla-sign-so-good",
-  "artist": "Ty Dolla Sign",
-  "title": "So Good",
-  "year": 2017,
-  "spotifyId": "54LGxQGf5LPXNGjtzDZ5IE"
- },
- {
-  "id": "mabel-don-t-call-me-up",
-  "artist": "Mabel",
-  "title": "Don't Call Me Up",
-  "year": 2019,
-  "spotifyId": "0AGm0paMGVzHL6TERfIYVQ"
- },
- {
-  "id": "little-mix-heartbreak-anthem",
-  "artist": "Little Mix & Galantis Dilshadilu07celebrity's",
-  "title": "Heartbreak Anthem",
-  "year": 2021,
-  "spotifyId": "2RHalWHuqOTRHoussgvvfC"
- },
- {
-  "id": "pinkpantheress-stateside",
-  "artist": "PinkPantheress",
-  "title": "Stateside",
-  "year": 2025,
-  "spotifyId": "1oN0xU3vvEoBBYx2aW5PcM"
- },
- {
-  "id": "eric-prydz-pjanoo",
-  "artist": "Eric Prydz",
-  "title": "Pjanoo",
-  "year": 2008,
-  "spotifyId": "6SJkpzkH8QFLtAiJ3GIx7t"
- },
- {
-  "id": "victoria-bergsman-young-folks",
-  "artist": "Victoria Bergsman & Peter Bjorn and John",
-  "title": "Young Folks",
+  "id": "basshunter-vi-sitter-i-ventrilo-och-spelar-dota",
+  "artist": "Basshunter",
+  "title": "Vi sitter i Ventrilo och spelar DotA",
   "year": 2006,
-  "spotifyId": "4dyx5SzxPPaD8xQIid5Wjj"
+  "spotifyId": "1L4KJxqMxhBANajtHXk4fn"
  },
  {
-  "id": "petra-marklund-cry-for-you",
-  "artist": "Petra Marklund",
-  "title": "Cry for You",
+  "id": "abba-ring-ring-bara-du-slog-en-signal",
+  "artist": "ABBA & Abba",
+  "title": "Ring ring (bara du slog en signal)",
+  "year": 1973,
+  "spotifyId": "6UB7FSQsiHNuygDhYERY4G"
+ },
+ {
+  "id": "basshunter-boten-anna",
+  "artist": "Basshunter",
+  "title": "Boten Anna",
   "year": 2006,
-  "spotifyId": "2B467Cogbd4wZAX6O2AYbf"
+  "spotifyId": "2hkQ2BjTzwkpfeRXPx9Gm8"
  },
  {
-  "id": "the-hives-hate-to-say-i-told-you-so",
-  "artist": "The Hives",
-  "title": "Hate to Say I Told You So",
-  "year": 2000,
-  "spotifyId": "5wuIUd0lIHxgjJ8Zt3mfgN"
+  "id": "thorleifs-jul-jul-stralande-jul",
+  "artist": "Thorleifs & Amy Deasismont",
+  "title": "Jul, jul, strålande jul",
+  "year": 1921,
+  "spotifyId": "0wuyRF7L5AWtJ52p36dBEr"
  },
  {
-  "id": "sertab-erener-private-emotion",
-  "artist": "Sertab Erener & Meja",
-  "title": "Private Emotion",
-  "year": 2000,
-  "spotifyId": "06s8ywdDg3ciaWxKLAf5IR"
- },
- {
-  "id": "helena-josefsson-broken-angel",
-  "artist": "Helena Josefsson & Arash",
-  "title": "Broken Angel",
-  "year": 2010,
-  "spotifyId": "7wyBHQWBpLJAPczbzcZ8PU"
- },
- {
-  "id": "mabel-god-is-a-dancer",
-  "artist": "Mabel",
-  "title": "God Is a Dancer",
-  "year": 2019,
-  "spotifyId": "6fenHIxXuuzKB55wY4WCHP"
- },
- {
-  "id": "sabrina-carpenter-wow",
-  "artist": "Sabrina Carpenter",
-  "title": "Wow",
-  "year": 2019,
-  "spotifyId": "7Hl6ugkpaxbkseHzSnqlxB"
- },
- {
-  "id": "topic-breaking-me",
-  "artist": "Topic & A7S",
-  "title": "Breaking Me",
-  "year": 2019,
-  "spotifyId": "0GtsogiNHVlIsFpWNlgd1D"
- },
- {
-  "id": "in-flames-the-mirror-s-truth",
-  "artist": "In Flames",
-  "title": "The Mirror's Truth",
-  "year": 2008,
-  "spotifyId": "2ZmQeF2erFIl3UOfTaGwhH"
- },
- {
-  "id": "nick-jonas-close",
-  "artist": "Nick Jonas & Tove Lo",
-  "title": "Close",
-  "year": 2016,
-  "spotifyId": "6XL0YDHsDlHaJxoLsfIhE7"
- },
- {
-  "id": "young-thug-talk-about-love",
-  "artist": "Young Thug",
-  "title": "Talk About Love",
-  "year": 2021,
-  "spotifyId": "5UkMXb3IfK9fTCCrMr0v9A"
- },
- {
-  "id": "agnes-carlsson-on-and-on",
-  "artist": "Agnes Carlsson",
-  "title": "On and On",
-  "year": 2008,
-  "spotifyId": "1eNZFQWc0u9YzYnCUPWmwZ"
- },
- {
-  "id": "europe-cherokee",
-  "artist": "Europe",
-  "title": "Cherokee",
-  "year": 1987,
-  "spotifyId": "6Q5msXoJZe69wBdSH35uTs"
- },
- {
-  "id": "manic-street-preachers-your-love-alone-is-not-enough",
-  "artist": "Manic Street Preachers & Nina Persson",
-  "title": "Your Love Alone Is Not Enough",
-  "year": 2007,
-  "spotifyId": "46UFzaFgZ5j6Dd59RVmhxa"
- },
- {
-  "id": "loreen-crying-out-your-name",
-  "artist": "Loreen",
-  "title": "Crying Out Your Name",
-  "year": 2012,
-  "spotifyId": "0QJYso3bYfliVZs39AX8cY"
- },
- {
-  "id": "loreen-sober",
-  "artist": "Loreen",
-  "title": "Sober",
-  "year": 2011,
-  "spotifyId": "3Qt80yrBHH3zuyU7wlMnGZ"
- },
- {
-  "id": "arash-pure-love",
-  "artist": "Arash",
-  "title": "Pure Love",
-  "year": 2008,
-  "spotifyId": "5rrmwzfwhbdtP445fOaWwX"
- },
- {
-  "id": "arash-one-day",
-  "artist": "Arash & Helena Josefsson",
-  "title": "One Day",
-  "year": 2014,
-  "spotifyId": "06EPXkpAJppmII5K3DZucA"
- },
- {
-  "id": "sophia-somajo-diamond-heart",
-  "artist": "Sophia Somajo",
-  "title": "Diamond Heart",
-  "year": 2018,
-  "spotifyId": "0nrWZWkJM62ftQJSI8fDc0"
- },
- {
-  "id": "rednex-wish-you-were-here",
-  "artist": "Rednex",
-  "title": "Wish You Were Here",
-  "year": 1995,
-  "spotifyId": "1SqGaM1N6OUvp5GUfx7zAb"
- },
- {
-  "id": "agnes-carlsson-tough-love",
-  "artist": "Agnes Carlsson & Avicii",
-  "title": "Tough Love",
-  "year": 2019,
-  "spotifyId": "1yfyIdEw5U2bD5I6gxQCxW"
- },
- {
-  "id": "rednex-old-pop-in-an-oak",
-  "artist": "Rednex",
-  "title": "Old Pop in an Oak",
+  "id": "danny-saucedo-oppna-din-dorr",
+  "artist": "Danny Saucedo & Tommy Nilsson",
+  "title": "Öppna din dörr",
   "year": 1994,
-  "spotifyId": "4QoNsQvKhWawAUydaG8tr9"
+  "spotifyId": "7gqSvvu8qtsnlGf9fqUD4W"
  },
  {
-  "id": "razorlight-america",
-  "artist": "Razorlight",
-  "title": "America",
-  "year": 2006,
-  "spotifyId": "6oxnXJyvGQoFomGCPnfROr"
+  "id": "chips-dag-efter-dag",
+  "artist": "Chips",
+  "title": "Dag efter dag",
+  "year": 1982,
+  "spotifyId": "5HOO74opAw58hYuZ3FIEL0"
  },
  {
-  "id": "caesars-jerk-it-out",
-  "artist": "Caesars",
-  "title": "Jerk It Out",
-  "year": 2003,
-  "spotifyId": "5XMjXjwCkJVmk0AHm7z8IV"
+  "id": "medina-in-i-dimman",
+  "artist": "Medina",
+  "title": "In i dimman",
+  "year": 2022,
+  "spotifyId": "0sGdIRJZ3ssSgoc0yD64HF"
  },
  {
-  "id": "galantis-dilshadilu07celebrity-s-peanut-butter-jelly",
-  "artist": "Galantis Dilshadilu07celebrity's",
-  "title": "Peanut Butter Jelly",
-  "year": 2015,
-  "spotifyId": "1jpa7peDsBgxYUmwMUIAWx"
+  "id": "kikki-danielsson-papaya-coconut",
+  "artist": "Kikki Danielsson & Larz-Kristerz",
+  "title": "Papaya Coconut",
+  "year": 1986,
+  "spotifyId": "5h84ujvyazGCn5KxEWemQL"
  },
  {
-  "id": "onerepublic-bones",
-  "artist": "OneRepublic & Galantis Dilshadilu07celebrity's",
-  "title": "Bones",
-  "year": 2019,
-  "spotifyId": "53Ji6ZvVjsBl4pIuiETfhN"
- },
- {
-  "id": "kygo-like-it-is",
-  "artist": "Kygo",
-  "title": "Like It Is",
-  "year": 2020,
-  "spotifyId": "3frUvGrmGcay91lvFbOgsN"
- },
- {
-  "id": "hammerfall-glory-to-the-brave",
-  "artist": "HammerFall",
-  "title": "Glory to the Brave",
-  "year": 1997,
-  "spotifyId": "1Z45Falnkv2ikX8aoWGcIh"
- },
- {
-  "id": "a-teens-upside-down",
-  "artist": "A-Teens",
-  "title": "Upside Down",
-  "year": 2000,
-  "spotifyId": "3lfLAToNl2Ibcuo9U6UTSd"
- },
- {
-  "id": "dyo-sexual",
-  "artist": "Dyo & NEIKED",
-  "title": "Sexual",
-  "year": 2016,
-  "spotifyId": "0XdxCaDiu2PT5VVQo4j72a"
- },
- {
-  "id": "topic-why-do-you-lie-to-me",
-  "artist": "Topic & A7S",
-  "title": "Why Do You Lie to Me",
-  "year": 2020,
-  "spotifyId": "7zC0MRRJangd16bCxDp4gB"
- },
- {
-  "id": "martin-garrix-higher-ground",
-  "artist": "Martin Garrix & John Martin",
-  "title": "Higher Ground",
-  "year": 2020,
-  "spotifyId": "0rohJsT6NWsThpukt0Xxdc"
- },
- {
-  "id": "smash-into-pieces-six-feet-under",
-  "artist": "Smash into Pieces",
-  "title": "Six Feet Under",
-  "year": 2023,
-  "spotifyId": "5DYCuzBPf13q0QZwQvjYzi"
- },
- {
-  "id": "royksopp-the-girl-and-the-robot",
-  "artist": "Röyksopp & Robyn",
-  "title": "The Girl and the Robot",
-  "year": 2009,
-  "spotifyId": "7ecsL4DZh0EhSde2sJR1uV"
- },
- {
-  "id": "a-teens-floorfiller",
-  "artist": "A-Teens",
-  "title": "Floorfiller",
-  "year": 2002,
-  "spotifyId": "4aq0yzsMrPqouA0htggx3J"
- },
- {
-  "id": "miike-snow-black-blue",
-  "artist": "Miike Snow",
-  "title": "Black & Blue",
-  "year": 2009,
-  "spotifyId": "0xGlQO6wmX3tRWcWu9SpGZ"
- },
- {
-  "id": "kleerup-with-every-heartbeat",
-  "artist": "Kleerup & Robyn",
-  "title": "With Every Heartbeat",
-  "year": 2007,
-  "spotifyId": "00sVcA5dG61xeJPZjscYtc"
- },
- {
-  "id": "veronica-maggio-jag-kommer",
+  "id": "veronica-maggio-mitt-hjarta-bloder",
   "artist": "Veronica Maggio",
-  "title": "Jag kommer",
-  "year": 2011,
-  "spotifyId": "5M2y8QdDepGYMsWyxhoxQU"
- },
- {
-  "id": "lil-peep-benz-truck",
-  "artist": "Lil Peep",
-  "title": "Benz Truck (Гелик)",
-  "year": 2017,
-  "spotifyId": "0E9kGKtSm8btX8qPUvIsyT"
- },
- {
-  "id": "afrojack-we-got-that-cool",
-  "artist": "Afrojack & Icona Pop",
-  "title": "We Got That Cool",
-  "year": 2019,
-  "spotifyId": "2cFK03sObtI6AK3QKeOT5g"
- },
- {
-  "id": "a-teens-heartbreak-lullaby",
-  "artist": "A-Teens",
-  "title": "Heartbreak Lullaby",
-  "year": 2001,
-  "spotifyId": "2vMIDy7dMsVqP4dXcvGmlK"
- },
- {
-  "id": "lykke-li-i-m-good-i-m-gone",
-  "artist": "Lykke Li",
-  "title": "I'm Good, I'm Gone",
-  "year": 2008,
-  "spotifyId": "2H929KEnVNcJw8sUEM1Epq"
- },
- {
-  "id": "a-teens-halfway-around-the-world",
-  "artist": "A-Teens",
-  "title": "Halfway Around the World",
-  "year": 2001,
-  "spotifyId": "2xcuNaGInn3jyJqPl0Rms9"
- },
- {
-  "id": "veronica-maggio-dumpa-mig",
-  "artist": "Veronica Maggio",
-  "title": "Dumpa mig",
-  "year": 2006,
-  "spotifyId": "269GFZePWvOkLHQKp0R0oe"
- },
- {
-  "id": "katatonia-july",
-  "artist": "Katatonia",
-  "title": "July",
-  "year": 2007,
-  "spotifyId": "5CeBScprfZSLKq9pSrbiE5"
- },
- {
-  "id": "alina-devecerski-flytta-pa-dej",
-  "artist": "Alina Devecerski",
-  "title": "Flytta på dej!",
+  "title": "Mitt hjärta blöder",
   "year": 2012,
-  "spotifyId": "3JO3ywp8UufIiKkszm7DkE"
+  "spotifyId": "3f5XsdY6hGh6LF6bakz8gF"
  },
  {
-  "id": "zarah-leander-ich-wei-es-wird-einmal-ein-wunder-geschehn",
-  "artist": "Zarah Leander",
-  "title": "Ich weiß, es wird einmal ein Wunder gescheh’n",
-  "year": 1942,
-  "spotifyId": "3NRYSarPtL1tOyEiIzgRUM"
+  "id": "kari-tapio-jag-har-hort-om-en-stad",
+  "artist": "Kari Tapio",
+  "title": "Jag har hört om en stad",
+  "year": 1947,
+  "spotifyId": "4PeSm4CpAynkWdGDbtYrvP"
  },
  {
-  "id": "veronica-maggio-mandagsbarn",
-  "artist": "Veronica Maggio",
-  "title": "Måndagsbarn",
-  "year": 2008,
-  "spotifyId": "4MXHBiKcdqHBJ4PeHQJBHO"
+  "id": "gunnar-wiklund-regntunga-skyar",
+  "artist": "Gunnar Wiklund & Annika Paulsson",
+  "title": "Regntunga skyar",
+  "year": 1940,
+  "spotifyId": "6bw9R3iFXlPO5PhqVju4y5"
+ },
+ {
+  "id": "ole-ivars-jag-trodde-anglarna-fanns",
+  "artist": "Ole Ivars & Bengt Hennings",
+  "title": "Jag trodde änglarna fanns",
+  "year": 1999,
+  "spotifyId": "1ZqIRQ9Aem7AreKJ8CY9rs"
  },
  {
   "id": "panetoz-dansa-pausa",
@@ -602,101 +91,87 @@
   "spotifyId": "2gNAGt7gUiMkagkhIiDLPm"
  },
  {
-  "id": "redone-don-t-you-need-somebody",
-  "artist": "RedOne & R. City",
-  "title": "Don't You Need Somebody",
-  "year": 2016,
-  "spotifyId": "1TPUbLdzpfgF7wrPEXIAAB"
+  "id": "lisa-ekdahl-om-jag-snubblat-efter-vagen",
+  "artist": "Lisa Ekdahl",
+  "title": "Om jag snubblat efter vägen",
+  "year": 2004,
+  "spotifyId": "0OzFp5d9FN1psgzlwxhpX6"
  },
  {
-  "id": "bea-miller-i-wanna-know",
-  "artist": "Bea Miller & NOTD",
-  "title": "I Wanna Know",
-  "year": 2018,
-  "spotifyId": "18W92Zm1KjLCbUIszOhpkD"
+  "id": "hakan-hellstrom-nu-kan-du-fa-mig-sa-latt",
+  "artist": "Håkan Hellström",
+  "title": "Nu kan du få mig så lätt",
+  "year": 2001,
+  "spotifyId": "4WezPPW6r7BNa5zvkGLSZe"
  },
  {
-  "id": "miss-li-close-your-eyes",
-  "artist": "Miss Li & Felix Jaehn",
-  "title": "Close Your Eyes",
-  "year": 2019,
-  "spotifyId": "1o20HBUk7mvAIrhgmt7hzC"
- },
- {
-  "id": "ty-dolla-sign-lifetime",
-  "artist": "Ty Dolla Sign & 070 Shake",
-  "title": "Lifetime",
-  "year": 2021,
-  "spotifyId": "2wACs4zbFyWDsrDo2nPzyu"
- },
- {
-  "id": "clean-bandit-everything-but-you",
-  "artist": "Clean Bandit & A7S",
-  "title": "Everything but You",
-  "year": 2022,
-  "spotifyId": "4GkplFxRzH3OkQWd6O2UOV"
- },
- {
-  "id": "becky-hill-run",
-  "artist": "Becky Hill & Galantis Dilshadilu07celebrity's",
-  "title": "Run",
-  "year": 2022,
-  "spotifyId": "2qFIeaY48iyHXTdbCQ3yuZ"
- },
- {
-  "id": "slagsmalsklubben-his-morning-promenade",
-  "artist": "Slagsmålsklubben",
-  "title": "His Morning Promenade",
+  "id": "hakan-hellstrom-13",
+  "artist": "Håkan Hellström",
+  "title": "13",
   "year": 2005,
-  "spotifyId": "2qxMa2KoqxLjXyGJqh7xRo"
+  "spotifyId": "44n32XsekQlbtBouXfoddV"
  },
  {
-  "id": "mando-diao-long-before-rock-n-roll",
-  "artist": "Mando Diao",
-  "title": "Long Before Rock 'n' Roll",
-  "year": 2006,
-  "spotifyId": "7l5Qw3r3kYuYIUqb29xQtX"
+  "id": "thorleifs-stilla-natt",
+  "artist": "Thorleifs & Ingvar Wixell",
+  "title": "Stilla natt",
+  "year": 1915,
+  "spotifyId": "08Xill1HcDO4UmK8u22sCt"
  },
  {
-  "id": "benjamin-ingrosso-one-more-time",
-  "artist": "Benjamin Ingrosso",
-  "title": "One More Time",
+  "id": "sanna-nielsen-i-m-in-love",
+  "artist": "Sanna Nielsen",
+  "title": "I'm in Love",
+  "year": 2011,
+  "spotifyId": "5wQDNYQwYW3dLML27FNlkY"
+ },
+ {
+  "id": "kikki-danielsson-som-en-sol",
+  "artist": "Kikki Danielsson",
+  "title": "Som en sol",
+  "year": 1993,
+  "spotifyId": "7HgPhO2lGqmrUuZytat7PB"
+ },
+ {
+  "id": "kaj-bara-bada-bastu",
+  "artist": "KAJ",
+  "title": "Bara bada bastu",
+  "year": 2025,
+  "spotifyId": "2gThkoApt6B7ajBWZRLAVv"
+ },
+ {
+  "id": "icona-pop-don-t-slam-the-door",
+  "artist": "Icona Pop",
+  "title": "Don't Slam the Door",
   "year": 2017,
-  "spotifyId": "5PXEj5bJ1VFQemUhuJ8BSA"
+  "spotifyId": "2aaUeZP6WNVnO9QPeOmoZ8"
  },
  {
-  "id": "john-martin-cry",
-  "artist": "John Martin & Gryffin",
-  "title": "Cry",
-  "year": 2020,
-  "spotifyId": "1TF8rXy87zrnpBlS9TLykA"
+  "id": "rikard-wolff-en-forlorad-sommar",
+  "artist": "Rikard Wolff",
+  "title": "En förlorad sommar",
+  "year": 2013,
+  "spotifyId": "5AGoekaqG9UjZ0aOTRAF9u"
  },
  {
-  "id": "jonas-blue-hear-me-say",
-  "artist": "Jonas Blue & Léon",
-  "title": "Hear Me Say",
-  "year": 2021,
-  "spotifyId": "15hWtIsi7o7sj4s460em9C"
+  "id": "kikki-bettan-lotta-vem-e-de-du-vill-ha",
+  "artist": "Kikki, Bettan & Lotta",
+  "title": "Vem é dé du vill ha",
+  "year": 2002,
+  "spotifyId": "21FrKnbvUOiygOWvNdJRwl"
  },
  {
-  "id": "the-ark-superstar",
-  "artist": "The Ark",
-  "title": "Superstar",
-  "year": 2010,
-  "spotifyId": "59y5Ebg2aTjiy1cJ81GYB5"
+  "id": "albin-johnsen-upp-i-luften",
+  "artist": "Albin Johnsén & Pa Modou Badjie",
+  "title": "Upp i luften",
+  "year": 2025,
+  "spotifyId": "2NerJk09enIxsE8DlVjRrT"
  },
  {
-  "id": "fever-ray-wanna-sip",
-  "artist": "Fever Ray",
-  "title": "Wanna Sip",
-  "year": 2017,
-  "spotifyId": "2aBuCgo2WycPIFAtMZ23qQ"
- },
- {
-  "id": "sara-hjellstrom-lose-you-too",
-  "artist": "Sara Hjellström",
-  "title": "Lose You Too",
-  "year": 2018,
-  "spotifyId": "5JkUNbYSn06ghlmu0NRUMf"
+  "id": "brandsta-city-slackers-rakt-in-i-elden",
+  "artist": "Brandsta City Släckers",
+  "title": "Rakt in i elden",
+  "year": 2026,
+  "spotifyId": "65xzEd5KnACVqZ6sDHMEuw"
  }
 ]
