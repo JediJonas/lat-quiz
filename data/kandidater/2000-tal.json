@@ -1322,6 +1322,480 @@
    "artist": "Duffy",
    "title": "Mercy",
    "year": 2008
+  },
+  {
+   "id": "linkin-park-numb",
+   "artist": "Linkin Park",
+   "title": "Numb",
+   "year": 2003
+  },
+  {
+   "id": "eminem-till-i-collapse",
+   "artist": "Eminem",
+   "title": "'Till I Collapse",
+   "year": 2002
+  },
+  {
+   "id": "kings-of-leon-sex-on-fire",
+   "artist": "Kings of Leon",
+   "title": "Sex on Fire",
+   "year": 2008
+  },
+  {
+   "id": "usher-yeah",
+   "artist": "Usher",
+   "title": "Yeah!",
+   "year": 2004
+  },
+  {
+   "id": "snow-patrol-chasing-cars",
+   "artist": "Snow Patrol",
+   "title": "Chasing Cars",
+   "year": 2006
+  },
+  {
+   "id": "the-fray-how-to-save-a-life",
+   "artist": "The Fray",
+   "title": "How to Save a Life",
+   "year": 2005
+  },
+  {
+   "id": "outkast-ms-jackson",
+   "artist": "OutKast",
+   "title": "Ms. Jackson",
+   "year": 2000
+  },
+  {
+   "id": "hoobastank-the-reason",
+   "artist": "Hoobastank",
+   "title": "The Reason",
+   "year": 2004
+  },
+  {
+   "id": "empire-of-the-sun-walking-on-a-dream",
+   "artist": "Empire of the Sun",
+   "title": "Walking on a Dream",
+   "year": 2008
+  },
+  {
+   "id": "florence-the-machine-dog-days-are-over",
+   "artist": "Florence + the Machine",
+   "title": "Dog Days Are Over",
+   "year": 2008
+  },
+  {
+   "id": "gnarls-barkley-crazy",
+   "artist": "Gnarls Barkley",
+   "title": "Crazy",
+   "year": 2006
+  },
+  {
+   "id": "the-script-the-man-who-can-t-be-moved",
+   "artist": "The Script",
+   "title": "The Man Who Can't Be Moved",
+   "year": 2008
+  },
+  {
+   "id": "iyaz-replay",
+   "artist": "Iyaz",
+   "title": "Replay",
+   "year": 2009
+  },
+  {
+   "id": "daddy-yankee-gasolina",
+   "artist": "Daddy Yankee",
+   "title": "Gasolina",
+   "year": 2004
+  },
+  {
+   "id": "mario-let-me-love-you",
+   "artist": "Mario",
+   "title": "Let Me Love You",
+   "year": 2004
+  },
+  {
+   "id": "red-hot-chili-peppers-snow-hey-oh",
+   "artist": "Red Hot Chili Peppers",
+   "title": "Snow (Hey Oh)",
+   "year": 2006
+  },
+  {
+   "id": "the-script-breakeven",
+   "artist": "The Script",
+   "title": "Breakeven",
+   "year": 2008
+  },
+  {
+   "id": "shaggy-it-wasn-t-me",
+   "artist": "Shaggy",
+   "title": "It Wasn't Me",
+   "year": 2000
+  },
+  {
+   "id": "franz-ferdinand-take-me-out",
+   "artist": "Franz Ferdinand",
+   "title": "Take Me Out",
+   "year": 2004
+  },
+  {
+   "id": "3-doors-down-kryptonite",
+   "artist": "3 Doors Down",
+   "title": "Kryptonite",
+   "year": 2000
+  },
+  {
+   "id": "my-chemical-romance-teenagers",
+   "artist": "My Chemical Romance",
+   "title": "Teenagers",
+   "year": 2007
+  },
+  {
+   "id": "empire-of-the-sun-we-are-the-people",
+   "artist": "Empire of the Sun",
+   "title": "We Are the People",
+   "year": 2008
+  },
+  {
+   "id": "three-days-grace-i-hate-everything-about-you",
+   "artist": "Three Days Grace",
+   "title": "I Hate Everything About You",
+   "year": 2003
+  },
+  {
+   "id": "train-drops-of-jupiter",
+   "artist": "Train",
+   "title": "Drops of Jupiter",
+   "year": 2001
+  },
+  {
+   "id": "nelly-furtado-maneater",
+   "artist": "Nelly Furtado",
+   "title": "Maneater",
+   "year": 2006
+  },
+  {
+   "id": "ne-yo-so-sick",
+   "artist": "Ne-Yo",
+   "title": "So Sick",
+   "year": 2006
+  },
+  {
+   "id": "limp-bizkit-break-stuff",
+   "artist": "Limp Bizkit",
+   "title": "Break Stuff",
+   "year": 2000
+  },
+  {
+   "id": "audioslave-like-a-stone",
+   "artist": "Audioslave",
+   "title": "Like a Stone",
+   "year": 2003
+  },
+  {
+   "id": "gorillaz-clint-eastwood",
+   "artist": "Gorillaz",
+   "title": "Clint Eastwood",
+   "year": 2001
+  },
+  {
+   "id": "arctic-monkeys-fluorescent-adolescent",
+   "artist": "Arctic Monkeys",
+   "title": "Fluorescent Adolescent",
+   "year": 2007
+  },
+  {
+   "id": "the-game-hate-it-or-love-it",
+   "artist": "The Game",
+   "title": "Hate It or Love It",
+   "year": 2005
+  },
+  {
+   "id": "weezer-island-in-the-sun",
+   "artist": "Weezer",
+   "title": "Island in the Sun",
+   "year": 2001
+  },
+  {
+   "id": "usher-my-boo",
+   "artist": "Usher",
+   "title": "My Boo",
+   "year": 2004
+  },
+  {
+   "id": "skillet-monster",
+   "artist": "Skillet",
+   "title": "Monster",
+   "year": 2009
+  },
+  {
+   "id": "black-eyed-peas-pump-it",
+   "artist": "Black Eyed Peas",
+   "title": "Pump It",
+   "year": 2006
+  },
+  {
+   "id": "three-days-grace-animal-i-have-become",
+   "artist": "Three Days Grace",
+   "title": "Animal I Have Become",
+   "year": 2006
+  },
+  {
+   "id": "blink-182-i-miss-you",
+   "artist": "Blink-182",
+   "title": "I Miss You",
+   "year": 2004
+  },
+  {
+   "id": "mgmt-electric-feel",
+   "artist": "MGMT",
+   "title": "Electric Feel",
+   "year": 2008
+  },
+  {
+   "id": "gwen-stefani-the-sweet-escape",
+   "artist": "Gwen Stefani",
+   "title": "The Sweet Escape",
+   "year": 2006
+  },
+  {
+   "id": "dr-dre-forgot-about-dre",
+   "artist": "Dr. Dre",
+   "title": "Forgot About Dre",
+   "year": 2000
+  },
+  {
+   "id": "ne-yo-miss-independent",
+   "artist": "Ne-Yo",
+   "title": "Miss Independent",
+   "year": 2008
+  },
+  {
+   "id": "fall-out-boy-sugar-we-re-goin-down",
+   "artist": "Fall Out Boy",
+   "title": "Sugar, We're Goin Down",
+   "year": 2005
+  },
+  {
+   "id": "the-calling-wherever-you-will-go",
+   "artist": "The Calling",
+   "title": "Wherever You Will Go",
+   "year": 2001
+  },
+  {
+   "id": "m-i-a-paper-planes",
+   "artist": "M.I.A.",
+   "title": "Paper Planes",
+   "year": 2008
+  },
+  {
+   "id": "soulja-boy-kiss-me-thru-the-phone",
+   "artist": "Soulja Boy",
+   "title": "Kiss Me thru the Phone",
+   "year": 2008
+  },
+  {
+   "id": "disturbed-down-with-the-sickness",
+   "artist": "Disturbed",
+   "title": "Down with the Sickness",
+   "year": 2000
+  },
+  {
+   "id": "fall-out-boy-thnks-fr-th-mmrs",
+   "artist": "Fall Out Boy",
+   "title": "Thnks fr th Mmrs",
+   "year": 2007
+  },
+  {
+   "id": "system-of-a-down-aerials",
+   "artist": "System of a Down",
+   "title": "Aerials",
+   "year": 2002
+  },
+  {
+   "id": "limp-bizkit-rollin",
+   "artist": "Limp Bizkit",
+   "title": "Rollin'",
+   "year": 2000
+  },
+  {
+   "id": "maroon-5-sunday-morning",
+   "artist": "Maroon 5",
+   "title": "Sunday Morning",
+   "year": 2004
+  },
+  {
+   "id": "rise-against-savior",
+   "artist": "Rise Against",
+   "title": "Savior",
+   "year": 2009
+  },
+  {
+   "id": "cascada-everytime-we-touch",
+   "artist": "Cascada",
+   "title": "Everytime We Touch",
+   "year": 2005
+  },
+  {
+   "id": "incubus-drive",
+   "artist": "Incubus",
+   "title": "Drive",
+   "year": 2000
+  },
+  {
+   "id": "jason-mraz-lucky",
+   "artist": "Jason Mraz",
+   "title": "Lucky",
+   "year": 2009
+  },
+  {
+   "id": "jason-derulo-whatcha-say",
+   "artist": "Jason Derulo",
+   "title": "Whatcha Say",
+   "year": 2009
+  },
+  {
+   "id": "drake-best-i-ever-had",
+   "artist": "Drake",
+   "title": "Best I Ever Had",
+   "year": 2009
+  },
+  {
+   "id": "jet-are-you-gonna-be-my-girl",
+   "artist": "Jet",
+   "title": "Are You Gonna Be My Girl",
+   "year": 2003
+  },
+  {
+   "id": "the-killers-when-you-were-young",
+   "artist": "The Killers",
+   "title": "When You Were Young",
+   "year": 2006
+  },
+  {
+   "id": "creed-one-last-breath",
+   "artist": "Creed",
+   "title": "One Last Breath",
+   "year": 2002
+  },
+  {
+   "id": "onerepublic-secrets",
+   "artist": "OneRepublic",
+   "title": "Secrets",
+   "year": 2009
+  },
+  {
+   "id": "carrie-underwood-before-he-cheats",
+   "artist": "Carrie Underwood",
+   "title": "Before He Cheats",
+   "year": 2006
+  },
+  {
+   "id": "breaking-benjamin-the-diary-of-jane",
+   "artist": "Breaking Benjamin",
+   "title": "The Diary of Jane",
+   "year": 2006
+  },
+  {
+   "id": "snoop-dogg-drop-it-like-it-s-hot",
+   "artist": "Snoop Dogg",
+   "title": "Drop It Like It's Hot",
+   "year": 2004
+  },
+  {
+   "id": "fall-out-boy-dance-dance",
+   "artist": "Fall Out Boy",
+   "title": "Dance Dance",
+   "year": 2005
+  },
+  {
+   "id": "the-strokes-last-nite",
+   "artist": "The Strokes",
+   "title": "Last Nite",
+   "year": 2001
+  },
+  {
+   "id": "deftones-change-in-the-house-of-flies",
+   "artist": "Deftones",
+   "title": "Change (In the House of Flies)",
+   "year": 2000
+  },
+  {
+   "id": "nickelback-rockstar",
+   "artist": "Nickelback",
+   "title": "Rockstar",
+   "year": 2007
+  },
+  {
+   "id": "cassie-ventura-me-u",
+   "artist": "Cassie Ventura",
+   "title": "Me & U",
+   "year": 2006
+  },
+  {
+   "id": "keane-everybody-s-changing",
+   "artist": "Keane",
+   "title": "Everybody's Changing",
+   "year": 2003
+  },
+  {
+   "id": "shaggy-angel",
+   "artist": "Shaggy",
+   "title": "Angel",
+   "year": 2001
+  },
+  {
+   "id": "drake-forever",
+   "artist": "Drake",
+   "title": "Forever",
+   "year": 2009
+  },
+  {
+   "id": "colbie-caillat-bubbly",
+   "artist": "Colbie Caillat",
+   "title": "Bubbly",
+   "year": 2007
+  },
+  {
+   "id": "juanes-es-por-ti",
+   "artist": "Juanes",
+   "title": "Es Por Ti",
+   "year": 2002
+  },
+  {
+   "id": "soulja-boy-crank-that",
+   "artist": "Soulja Boy",
+   "title": "Crank That",
+   "year": 2007
+  },
+  {
+   "id": "my-chemical-romance-helena",
+   "artist": "My Chemical Romance",
+   "title": "Helena",
+   "year": 2005
+  },
+  {
+   "id": "drowning-pool-bodies",
+   "artist": "Drowning Pool",
+   "title": "Bodies",
+   "year": 2001
+  },
+  {
+   "id": "bon-iver-skinny-love",
+   "artist": "Bon Iver",
+   "title": "Skinny Love",
+   "year": 2008
+  },
+  {
+   "id": "ne-yo-because-of-you",
+   "artist": "Ne-Yo",
+   "title": "Because of You",
+   "year": 2007
+  },
+  {
+   "id": "the-strokes-reptilia",
+   "artist": "The Strokes",
+   "title": "Reptilia",
+   "year": 2004
   }
  ]
 }

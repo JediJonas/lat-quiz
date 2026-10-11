@@ -698,5 +698,705 @@
   "title": "Kuolema Tekee Taiteilijan",
   "year": 2005,
   "spotifyId": "0k8j472pNJk5cWj5tXEHNL"
+ },
+ {
+  "id": "linkin-park-numb",
+  "artist": "Linkin Park",
+  "title": "Numb",
+  "year": 2003,
+  "spotifyId": "1y1sChqjzdNWzwdHQADMrR"
+ },
+ {
+  "id": "eminem-till-i-collapse",
+  "artist": "Eminem",
+  "title": "'Till I Collapse",
+  "year": 2002,
+  "spotifyId": "4xkOaSrkexMciUUogZKVTS"
+ },
+ {
+  "id": "jason-mraz-i-m-yours",
+  "artist": "Jason Mraz",
+  "title": "I'm Yours",
+  "year": 2008,
+  "spotifyId": "1EzrEOXmMH3G43AXT1y7pA"
+ },
+ {
+  "id": "kings-of-leon-sex-on-fire",
+  "artist": "Kings of Leon",
+  "title": "Sex on Fire",
+  "year": 2008,
+  "spotifyId": "5A1FmxbYVRZKy4nc16MAue"
+ },
+ {
+  "id": "usher-yeah",
+  "artist": "Usher",
+  "title": "Yeah!",
+  "year": 2004,
+  "spotifyId": "5rb9QrpfcKFHM1EUbSIurX"
+ },
+ {
+  "id": "red-hot-chili-peppers-can-t-stop",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Can't Stop",
+  "year": 2003,
+  "spotifyId": "3ZOEytgrvLwQaqXreDs2Jx"
+ },
+ {
+  "id": "snow-patrol-chasing-cars",
+  "artist": "Snow Patrol",
+  "title": "Chasing Cars",
+  "year": 2006,
+  "spotifyId": "329TqxWgwafgOVwlhwuRA6"
+ },
+ {
+  "id": "the-fray-how-to-save-a-life",
+  "artist": "The Fray",
+  "title": "How to Save a Life",
+  "year": 2005,
+  "spotifyId": "5fVZC9GiM4e8vu99W0Xf6J"
+ },
+ {
+  "id": "outkast-ms-jackson",
+  "artist": "OutKast",
+  "title": "Ms. Jackson",
+  "year": 2000,
+  "spotifyId": "0I3q5fE6wg7LIfHGngUTnV"
+ },
+ {
+  "id": "hoobastank-the-reason",
+  "artist": "Hoobastank",
+  "title": "The Reason",
+  "year": 2004,
+  "spotifyId": "5B5eTk7DF8KVp1zpQoY1XY"
+ },
+ {
+  "id": "papa-roach-last-resort",
+  "artist": "Papa Roach",
+  "title": "Last Resort",
+  "year": 2000,
+  "spotifyId": "5W8YXBz9MTIDyrpYaCg2Ky"
+ },
+ {
+  "id": "empire-of-the-sun-walking-on-a-dream",
+  "artist": "Empire of the Sun",
+  "title": "Walking on a Dream",
+  "year": 2008,
+  "spotifyId": "5r5cp9IpziiIsR6b93vcnQ"
+ },
+ {
+  "id": "red-hot-chili-peppers-otherside",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Otherside",
+  "year": 2000,
+  "spotifyId": "64BbK9SFKH2jk86U3dGj2P"
+ },
+ {
+  "id": "florence-the-machine-dog-days-are-over",
+  "artist": "Florence + the Machine",
+  "title": "Dog Days Are Over",
+  "year": 2008,
+  "spotifyId": "1YLJVmuzeM2YSUkCCaTNUB"
+ },
+ {
+  "id": "gnarls-barkley-crazy",
+  "artist": "Gnarls Barkley",
+  "title": "Crazy",
+  "year": 2006,
+  "spotifyId": "1vxw6aYJls2oq3gW0DujAo"
+ },
+ {
+  "id": "the-script-the-man-who-can-t-be-moved",
+  "artist": "The Script",
+  "title": "The Man Who Can't Be Moved",
+  "year": 2008,
+  "spotifyId": "3nqqDo8CcCLke3ZoTgiOKf"
+ },
+ {
+  "id": "iyaz-replay",
+  "artist": "Iyaz",
+  "title": "Replay",
+  "year": 2009,
+  "spotifyId": "294z5BgFzm1nUSjVwbQqFG"
+ },
+ {
+  "id": "daddy-yankee-gasolina",
+  "artist": "Daddy Yankee",
+  "title": "Gasolina",
+  "year": 2004,
+  "spotifyId": "5YoITs1m0q8UOQ4AW7N5ga"
+ },
+ {
+  "id": "mario-let-me-love-you",
+  "artist": "Mario",
+  "title": "Let Me Love You",
+  "year": 2004,
+  "spotifyId": "5WphWTUIfRe7x8NZss79cY"
+ },
+ {
+  "id": "red-hot-chili-peppers-snow-hey-oh",
+  "artist": "Red Hot Chili Peppers",
+  "title": "Snow (Hey Oh)",
+  "year": 2006,
+  "spotifyId": "2aibwv5hGXSgw7Yru8IYTO"
+ },
+ {
+  "id": "the-script-breakeven",
+  "artist": "The Script",
+  "title": "Breakeven",
+  "year": 2008,
+  "spotifyId": "285hMzLhJwHVLe9QT9qilk"
+ },
+ {
+  "id": "avril-lavigne-complicated",
+  "artist": "Avril Lavigne",
+  "title": "Complicated",
+  "year": 2002,
+  "spotifyId": "5xEM5hIgJ1jjgcEBfpkt2F"
+ },
+ {
+  "id": "shaggy-it-wasn-t-me",
+  "artist": "Shaggy",
+  "title": "It Wasn't Me",
+  "year": 2000,
+  "spotifyId": "5LIQBa14xlboDhAjw4tFaR"
+ },
+ {
+  "id": "franz-ferdinand-take-me-out",
+  "artist": "Franz Ferdinand",
+  "title": "Take Me Out",
+  "year": 2004,
+  "spotifyId": "20I8RduZC2PWMWTDCZuuAN"
+ },
+ {
+  "id": "plain-white-t-s-hey-there-delilah",
+  "artist": "Plain White T's",
+  "title": "Hey There Delilah",
+  "year": 2006,
+  "spotifyId": "0ecuIjJHTocfwWKStNte89"
+ },
+ {
+  "id": "3-doors-down-kryptonite",
+  "artist": "3 Doors Down",
+  "title": "Kryptonite",
+  "year": 2000,
+  "spotifyId": "6mcCraLFnKWPHboTQ4t4F3"
+ },
+ {
+  "id": "my-chemical-romance-teenagers",
+  "artist": "My Chemical Romance",
+  "title": "Teenagers",
+  "year": 2007,
+  "spotifyId": "7j31rVgGX9Q2blT92VBEA0"
+ },
+ {
+  "id": "empire-of-the-sun-we-are-the-people",
+  "artist": "Empire of the Sun",
+  "title": "We Are the People",
+  "year": 2008,
+  "spotifyId": "3zEN0ii6s4DHHBpnTp3RP7"
+ },
+ {
+  "id": "three-days-grace-i-hate-everything-about-you",
+  "artist": "Three Days Grace",
+  "title": "I Hate Everything About You",
+  "year": 2003,
+  "spotifyId": "0M955bMOoilikPXwKLYpoi"
+ },
+ {
+  "id": "train-drops-of-jupiter",
+  "artist": "Train",
+  "title": "Drops of Jupiter",
+  "year": 2001,
+  "spotifyId": "2hKdd3qO7cWr2Jo0Bcs0MA"
+ },
+ {
+  "id": "nelly-furtado-maneater",
+  "artist": "Nelly Furtado",
+  "title": "Maneater",
+  "year": 2006,
+  "spotifyId": "2NwuwbqiCJqnxC4yKh0Fqp"
+ },
+ {
+  "id": "ne-yo-so-sick",
+  "artist": "Ne-Yo",
+  "title": "So Sick",
+  "year": 2006,
+  "spotifyId": "5OSUgpGlw3sS6vd3v2q4IB"
+ },
+ {
+  "id": "limp-bizkit-break-stuff",
+  "artist": "Limp Bizkit",
+  "title": "Break Stuff",
+  "year": 2000,
+  "spotifyId": "5cZqsjVs6MevCnAkasbEOX"
+ },
+ {
+  "id": "audioslave-like-a-stone",
+  "artist": "Audioslave",
+  "title": "Like a Stone",
+  "year": 2003,
+  "spotifyId": "2xt2piJx6jlFkjS77YiqpL"
+ },
+ {
+  "id": "black-eyed-peas-meet-me-halfway",
+  "artist": "Black Eyed Peas",
+  "title": "Meet Me Halfway",
+  "year": 2009,
+  "spotifyId": "6wOYnPq1hPihRepcDClPUw"
+ },
+ {
+  "id": "gorillaz-clint-eastwood",
+  "artist": "Gorillaz",
+  "title": "Clint Eastwood",
+  "year": 2001,
+  "spotifyId": "7yMiX7n9SBvadzox8T5jzT"
+ },
+ {
+  "id": "slipknot-duality",
+  "artist": "Slipknot",
+  "title": "Duality",
+  "year": 2004,
+  "spotifyId": "61mWefnWQOLf90gepjOCb3"
+ },
+ {
+  "id": "arctic-monkeys-fluorescent-adolescent",
+  "artist": "Arctic Monkeys",
+  "title": "Fluorescent Adolescent",
+  "year": 2007,
+  "spotifyId": "7e8utCy2JlSB8dRHKi49xM"
+ },
+ {
+  "id": "the-game-hate-it-or-love-it",
+  "artist": "The Game",
+  "title": "Hate It or Love It",
+  "year": 2005,
+  "spotifyId": "2wGSgTmgSF3xjRrHkTc25R"
+ },
+ {
+  "id": "weezer-island-in-the-sun",
+  "artist": "Weezer",
+  "title": "Island in the Sun",
+  "year": 2001,
+  "spotifyId": "0AxdJGlXJjEUsNONDuT2pe"
+ },
+ {
+  "id": "james-blunt-you-re-beautiful",
+  "artist": "James Blunt",
+  "title": "You're Beautiful",
+  "year": 2005,
+  "spotifyId": "5pbajJXEPdcoXQPXoAVR1t"
+ },
+ {
+  "id": "usher-my-boo",
+  "artist": "Usher",
+  "title": "My Boo",
+  "year": 2004,
+  "spotifyId": "68vgtRHr7iZHpzGpon6Jlo"
+ },
+ {
+  "id": "skillet-monster",
+  "artist": "Skillet",
+  "title": "Monster",
+  "year": 2009,
+  "spotifyId": "2UREu1Y8CO4jXkbvqAtP7g"
+ },
+ {
+  "id": "black-eyed-peas-pump-it",
+  "artist": "Black Eyed Peas",
+  "title": "Pump It",
+  "year": 2006,
+  "spotifyId": "6btyEL6NwUa97Nex9cZFvo"
+ },
+ {
+  "id": "panic-at-the-disco-i-write-sins-not-tragedies",
+  "artist": "Panic! at the Disco",
+  "title": "I Write Sins Not Tragedies",
+  "year": 2006,
+  "spotifyId": "5cY8y2XgOfkAh4kSWLFKkz"
+ },
+ {
+  "id": "vanessa-carlton-a-thousand-miles",
+  "artist": "Vanessa Carlton",
+  "title": "A Thousand Miles",
+  "year": 2002,
+  "spotifyId": "6Qm9MaditCcx5V62rVHYqu"
+ },
+ {
+  "id": "three-days-grace-animal-i-have-become",
+  "artist": "Three Days Grace",
+  "title": "Animal I Have Become",
+  "year": 2006,
+  "spotifyId": "0CWhh0GnKwyq1m8ZgsHTdl"
+ },
+ {
+  "id": "blink-182-i-miss-you",
+  "artist": "Blink-182",
+  "title": "I Miss You",
+  "year": 2004,
+  "spotifyId": "1oTo3ijRbaDAtrjJrGAPSw"
+ },
+ {
+  "id": "mgmt-electric-feel",
+  "artist": "MGMT",
+  "title": "Electric Feel",
+  "year": 2008,
+  "spotifyId": "4ijZ4sCKTLsQJKTJT4psI8"
+ },
+ {
+  "id": "gwen-stefani-the-sweet-escape",
+  "artist": "Gwen Stefani",
+  "title": "The Sweet Escape",
+  "year": 2006,
+  "spotifyId": "07K4GcCDSTiXUF5ssyTRUM"
+ },
+ {
+  "id": "dr-dre-forgot-about-dre",
+  "artist": "Dr. Dre",
+  "title": "Forgot About Dre",
+  "year": 2000,
+  "spotifyId": "7iXF2W9vKmDoGAhlHdpyIa"
+ },
+ {
+  "id": "ne-yo-miss-independent",
+  "artist": "Ne-Yo",
+  "title": "Miss Independent",
+  "year": 2008,
+  "spotifyId": "34ceTg8ChN5HjrqiIYCn9Q"
+ },
+ {
+  "id": "jay-sean-down",
+  "artist": "Jay Sean",
+  "title": "Down",
+  "year": 2009,
+  "spotifyId": "4vetv4XorbuPrEWxZmALeJ"
+ },
+ {
+  "id": "fall-out-boy-sugar-we-re-goin-down",
+  "artist": "Fall Out Boy",
+  "title": "Sugar, We're Goin Down",
+  "year": 2005,
+  "spotifyId": "2TfSHkHiFO4gRztVIkggkE"
+ },
+ {
+  "id": "the-calling-wherever-you-will-go",
+  "artist": "The Calling",
+  "title": "Wherever You Will Go",
+  "year": 2001,
+  "spotifyId": "37qI0mchgzUSeUhPiwUWPY"
+ },
+ {
+  "id": "m-i-a-paper-planes",
+  "artist": "M.I.A.",
+  "title": "Paper Planes",
+  "year": 2008,
+  "spotifyId": "3wnwq6OjbXRkmPaXy5blR6"
+ },
+ {
+  "id": "soulja-boy-kiss-me-thru-the-phone",
+  "artist": "Soulja Boy",
+  "title": "Kiss Me thru the Phone",
+  "year": 2008,
+  "spotifyId": "2q4rjDy9WhaN3o9MvDbO21"
+ },
+ {
+  "id": "foo-fighters-the-pretender",
+  "artist": "Foo Fighters",
+  "title": "The Pretender",
+  "year": 2007,
+  "spotifyId": "6HNruFQlzQx4ulL4ppRLYI"
+ },
+ {
+  "id": "disturbed-down-with-the-sickness",
+  "artist": "Disturbed",
+  "title": "Down with the Sickness",
+  "year": 2000,
+  "spotifyId": "5Bk1ArPcnMgeQzSqLjqaSW"
+ },
+ {
+  "id": "fall-out-boy-thnks-fr-th-mmrs",
+  "artist": "Fall Out Boy",
+  "title": "Thnks fr th Mmrs",
+  "year": 2007,
+  "spotifyId": "3Zwu2K0Qa5sT6teCCHPShP"
+ },
+ {
+  "id": "system-of-a-down-aerials",
+  "artist": "System of a Down",
+  "title": "Aerials",
+  "year": 2002,
+  "spotifyId": "3UDm8rZI6cNfND31QnPnoG"
+ },
+ {
+  "id": "limp-bizkit-rollin",
+  "artist": "Limp Bizkit",
+  "title": "Rollin'",
+  "year": 2000,
+  "spotifyId": "3IV4swNduIRunHREK80owz"
+ },
+ {
+  "id": "30-seconds-to-mars-the-kill",
+  "artist": "30 Seconds to Mars",
+  "title": "The Kill",
+  "year": 2006,
+  "spotifyId": "4rRNDclay9ayn1iR1VpMMB"
+ },
+ {
+  "id": "maroon-5-sunday-morning",
+  "artist": "Maroon 5",
+  "title": "Sunday Morning",
+  "year": 2004,
+  "spotifyId": "5qII2n90lVdPDcgXEEVHNy"
+ },
+ {
+  "id": "rise-against-savior",
+  "artist": "Rise Against",
+  "title": "Savior",
+  "year": 2009,
+  "spotifyId": "1vcxF91pWs9uNwDROuiCPB"
+ },
+ {
+  "id": "cascada-everytime-we-touch",
+  "artist": "Cascada",
+  "title": "Everytime We Touch",
+  "year": 2005,
+  "spotifyId": "5YJtMNWKe55yr49cyJgxva"
+ },
+ {
+  "id": "incubus-drive",
+  "artist": "Incubus",
+  "title": "Drive",
+  "year": 2000,
+  "spotifyId": "7nnWIPM5hwE3DaUBkvOIpy"
+ },
+ {
+  "id": "jason-mraz-lucky",
+  "artist": "Jason Mraz",
+  "title": "Lucky",
+  "year": 2009,
+  "spotifyId": "0IktbUcnAGrvD03AWnz3Q8"
+ },
+ {
+  "id": "slipknot-psychosocial",
+  "artist": "Slipknot",
+  "title": "Psychosocial",
+  "year": 2008,
+  "spotifyId": "3RAFcUBrCNaboRXoP3S5t1"
+ },
+ {
+  "id": "jason-derulo-whatcha-say",
+  "artist": "Jason Derulo",
+  "title": "Whatcha Say",
+  "year": 2009,
+  "spotifyId": "67T6l4q3zVjC5nZZPXByU8"
+ },
+ {
+  "id": "drake-best-i-ever-had",
+  "artist": "Drake",
+  "title": "Best I Ever Had",
+  "year": 2009,
+  "spotifyId": "1GxHeBvQ9935Dd3cSfsfBa"
+ },
+ {
+  "id": "jet-are-you-gonna-be-my-girl",
+  "artist": "Jet",
+  "title": "Are You Gonna Be My Girl",
+  "year": 2003,
+  "spotifyId": "1WALOK31bChvJXxp3tsKhH"
+ },
+ {
+  "id": "the-killers-when-you-were-young",
+  "artist": "The Killers",
+  "title": "When You Were Young",
+  "year": 2006,
+  "spotifyId": "6aKWBLAFHXHUjsJJri2ota"
+ },
+ {
+  "id": "rammstein-sonne",
+  "artist": "Rammstein",
+  "title": "Sonne",
+  "year": 2001,
+  "spotifyId": "3gVhsZtseYtY1fMuyYq06F"
+ },
+ {
+  "id": "creed-one-last-breath",
+  "artist": "Creed",
+  "title": "One Last Breath",
+  "year": 2002,
+  "spotifyId": "42T2QQv3xgBlpQxaSP7lnK"
+ },
+ {
+  "id": "onerepublic-secrets",
+  "artist": "OneRepublic",
+  "title": "Secrets",
+  "year": 2009,
+  "spotifyId": "1NhPKVLsHhFUHIOZ32QnS2"
+ },
+ {
+  "id": "carrie-underwood-before-he-cheats",
+  "artist": "Carrie Underwood",
+  "title": "Before He Cheats",
+  "year": 2006,
+  "spotifyId": "3WG0wt9NlTya3hzT8VGzfT"
+ },
+ {
+  "id": "breaking-benjamin-the-diary-of-jane",
+  "artist": "Breaking Benjamin",
+  "title": "The Diary of Jane",
+  "year": 2006,
+  "spotifyId": "0faXHILILebCGnJBPU6KJJ"
+ },
+ {
+  "id": "taio-cruz-break-your-heart",
+  "artist": "Taio Cruz",
+  "title": "Break Your Heart",
+  "year": 2009,
+  "spotifyId": "1CdqVF1ywD0ZO1zXtB9yWa"
+ },
+ {
+  "id": "snoop-dogg-drop-it-like-it-s-hot",
+  "artist": "Snoop Dogg",
+  "title": "Drop It Like It's Hot",
+  "year": 2004,
+  "spotifyId": "75iHQ4MCtrTUGnlwNsPueS"
+ },
+ {
+  "id": "fall-out-boy-dance-dance",
+  "artist": "Fall Out Boy",
+  "title": "Dance Dance",
+  "year": 2005,
+  "spotifyId": "0a7BloCiNzLDD9qSQHh5m7"
+ },
+ {
+  "id": "the-strokes-last-nite",
+  "artist": "The Strokes",
+  "title": "Last Nite",
+  "year": 2001,
+  "spotifyId": "7kzKAuUzOITUauHAhoMoxA"
+ },
+ {
+  "id": "deftones-change-in-the-house-of-flies",
+  "artist": "Deftones",
+  "title": "Change (In the House of Flies)",
+  "year": 2000,
+  "spotifyId": "51c94ac31swyDQj9B3Lzs3"
+ },
+ {
+  "id": "nickelback-rockstar",
+  "artist": "Nickelback",
+  "title": "Rockstar",
+  "year": 2007,
+  "spotifyId": "05tlUh0E6IFks9sCQguQKN"
+ },
+ {
+  "id": "cassie-ventura-me-u",
+  "artist": "Cassie Ventura",
+  "title": "Me & U",
+  "year": 2006,
+  "spotifyId": "7k6IzwMGpxnRghE7YosnXT"
+ },
+ {
+  "id": "foo-fighters-best-of-you",
+  "artist": "Foo Fighters",
+  "title": "Best of You",
+  "year": 2005,
+  "spotifyId": "1sn6iOK93jnp0Hn5BnNOXy"
+ },
+ {
+  "id": "fergie-big-girls-don-t-cry",
+  "artist": "Fergie",
+  "title": "Big Girls Don't Cry",
+  "year": 2007,
+  "spotifyId": "4AniPkv5vgdE1n6VKreiyI"
+ },
+ {
+  "id": "keane-everybody-s-changing",
+  "artist": "Keane",
+  "title": "Everybody's Changing",
+  "year": 2003,
+  "spotifyId": "0yac0FPhLRH9i9lOng3f81"
+ },
+ {
+  "id": "shaggy-angel",
+  "artist": "Shaggy",
+  "title": "Angel",
+  "year": 2001,
+  "spotifyId": "2u9v2LS9eZJkNBf6BVrhYs"
+ },
+ {
+  "id": "drake-forever",
+  "artist": "Drake",
+  "title": "Forever",
+  "year": 2009,
+  "spotifyId": "4O3nAQfOC9PN5ElMEcAJb9"
+ },
+ {
+  "id": "colbie-caillat-bubbly",
+  "artist": "Colbie Caillat",
+  "title": "Bubbly",
+  "year": 2007,
+  "spotifyId": "1lkvpmrCaXK8QtliFDcHBO"
+ },
+ {
+  "id": "juanes-es-por-ti",
+  "artist": "Juanes",
+  "title": "Es Por Ti",
+  "year": 2002,
+  "spotifyId": "3b1IQflSLrgzYQPGFzI9cl"
+ },
+ {
+  "id": "soulja-boy-crank-that",
+  "artist": "Soulja Boy",
+  "title": "Crank That",
+  "year": 2007,
+  "spotifyId": "0E0bhsiSasH1vBoWXKk4oB"
+ },
+ {
+  "id": "my-chemical-romance-helena",
+  "artist": "My Chemical Romance",
+  "title": "Helena",
+  "year": 2005,
+  "spotifyId": "5dTHtzHFPyi8TlTtzoz1J9"
+ },
+ {
+  "id": "slipknot-before-i-forget",
+  "artist": "Slipknot",
+  "title": "Before I Forget",
+  "year": 2005,
+  "spotifyId": "6wqJeItl3Vc3az4ZicSQAB"
+ },
+ {
+  "id": "drowning-pool-bodies",
+  "artist": "Drowning Pool",
+  "title": "Bodies",
+  "year": 2001,
+  "spotifyId": "7CpbhqKUedOIrcvc94p60Y"
+ },
+ {
+  "id": "bon-iver-skinny-love",
+  "artist": "Bon Iver",
+  "title": "Skinny Love",
+  "year": 2008,
+  "spotifyId": "3B3eOgLJSqPEA0RfboIQVM"
+ },
+ {
+  "id": "t-i-live-your-life",
+  "artist": "T.I.",
+  "title": "Live Your Life",
+  "year": 2008,
+  "spotifyId": "3jlbL2OTD5YmIunYzgQTAN"
+ },
+ {
+  "id": "ne-yo-because-of-you",
+  "artist": "Ne-Yo",
+  "title": "Because of You",
+  "year": 2007,
+  "spotifyId": "2VarpyoSpCPNKI56WSAEMN"
+ },
+ {
+  "id": "the-strokes-reptilia",
+  "artist": "The Strokes",
+  "title": "Reptilia",
+  "year": 2004,
+  "spotifyId": "57Xjny5yNzAcsxnusKmAfA"
  }
 ]
