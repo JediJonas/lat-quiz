@@ -1,5 +1,5 @@
 {
-  "name": "lat-quiz-kontroller",
+  "name": "lat-quiz-webbkvalitet",
   "private": true,
   "type": "module",
   "description": "Kvalitetskontroller som körs i CI: HTML, tillgänglighet, Lighthouse, länkar och sidvikt.",

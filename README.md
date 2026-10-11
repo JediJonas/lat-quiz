@@ -42,14 +42,14 @@ npm test
 
 Testerna kontrollerar också att alla JSON-filer går att läsa och att varje quizlåt har ett giltigt Spotify-ID.
 
-## Kvalitetskontroller
+## Webbkvalitet
 
-Varje pull request kör `.github/workflows/kontroller.yml`: tester, HTML-validering (W3C Nu), tillgänglighet med axe (WCAG 2.2 AA, ljust och mörkt läge genom ett helt spel), Lighthouse i mobilläge, länkkontroll och sidvikt. Verktygen ligger i `kontroller/`, med egna beroenden, så att själva appen förblir fri från beroenden.
+Varje pull request kör `.github/workflows/webbkvalitet.yml`, som följer regeln webbkvalitet: tester, HTML-validering (W3C Nu), tillgänglighet med axe (WCAG 2.2 AA, ljust och mörkt läge genom ett helt spel), Lighthouse i mobilläge, länkkontroll och sidvikt. Verktygen ligger i `webbkvalitet/`, med egna beroenden, så att själva appen förblir fri från beroenden.
 
 Lokalt, med webbservern på port 8080 igång:
 
 ```
-cd kontroller
+cd webbkvalitet
 npm ci
 npm run peer &        # lokal PeerJS-server, behövs för axe
 npm run html
