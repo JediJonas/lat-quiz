@@ -1,87 +1,52 @@
 [
  {
-  "id": "basshunter-vi-sitter-i-ventrilo-och-spelar-dota",
-  "artist": "Basshunter",
-  "title": "Vi sitter i Ventrilo och spelar DotA",
-  "year": 2006,
-  "spotifyId": "1L4KJxqMxhBANajtHXk4fn"
+  "id": "victor-leksell-svag",
+  "artist": "Victor Leksell",
+  "title": "Svag",
+  "year": 2020,
+  "spotifyId": "4SS4YfDAEQG0fZAe1xfgn3"
  },
  {
-  "id": "abba-ring-ring-bara-du-slog-en-signal",
-  "artist": "ABBA & Abba",
-  "title": "Ring ring (bara du slog en signal)",
-  "year": 1973,
-  "spotifyId": "6UB7FSQsiHNuygDhYERY4G"
+  "id": "kaj-bara-bada-bastu",
+  "artist": "KAJ",
+  "title": "Bara bada bastu",
+  "year": 2025,
+  "spotifyId": "6eIzQCYExfnNeM7KOlE3lE"
  },
  {
-  "id": "basshunter-boten-anna",
-  "artist": "Basshunter",
-  "title": "Boten Anna",
-  "year": 2006,
-  "spotifyId": "2hkQ2BjTzwkpfeRXPx9Gm8"
- },
- {
-  "id": "thorleifs-jul-jul-stralande-jul",
-  "artist": "Thorleifs & Amy Deasismont",
-  "title": "Jul, jul, strålande jul",
-  "year": 1921,
-  "spotifyId": "0wuyRF7L5AWtJ52p36dBEr"
- },
- {
-  "id": "danny-saucedo-oppna-din-dorr",
-  "artist": "Danny Saucedo & Tommy Nilsson",
-  "title": "Öppna din dörr",
-  "year": 1994,
-  "spotifyId": "7gqSvvu8qtsnlGf9fqUD4W"
- },
- {
-  "id": "chips-dag-efter-dag",
-  "artist": "Chips",
-  "title": "Dag efter dag",
-  "year": 1982,
-  "spotifyId": "5HOO74opAw58hYuZ3FIEL0"
- },
- {
-  "id": "medina-in-i-dimman",
-  "artist": "Medina",
-  "title": "In i dimman",
-  "year": 2022,
-  "spotifyId": "0sGdIRJZ3ssSgoc0yD64HF"
- },
- {
-  "id": "kikki-danielsson-papaya-coconut",
-  "artist": "Kikki Danielsson & Larz-Kristerz",
-  "title": "Papaya Coconut",
-  "year": 1986,
-  "spotifyId": "5h84ujvyazGCn5KxEWemQL"
- },
- {
-  "id": "veronica-maggio-mitt-hjarta-bloder",
-  "artist": "Veronica Maggio",
-  "title": "Mitt hjärta blöder",
+  "id": "petra-marklund-handerna-mot-himlen",
+  "artist": "Petra Marklund",
+  "title": "Händerna mot himlen",
   "year": 2012,
-  "spotifyId": "3f5XsdY6hGh6LF6bakz8gF"
+  "spotifyId": "14AJI1RloVWTh8bJe9gBPM"
  },
  {
-  "id": "kari-tapio-jag-har-hort-om-en-stad",
-  "artist": "Kari Tapio",
-  "title": "Jag har hört om en stad",
-  "year": 1947,
-  "spotifyId": "4PeSm4CpAynkWdGDbtYrvP"
+  "id": "kent-utan-dina-andetag",
+  "artist": "Kent & Sanna Nielsen",
+  "title": "Utan dina andetag",
+  "year": 1997,
+  "spotifyId": "5eJ314ozT4CTPlyjdsGq78"
  },
  {
-  "id": "gunnar-wiklund-regntunga-skyar",
-  "artist": "Gunnar Wiklund & Annika Paulsson",
-  "title": "Regntunga skyar",
-  "year": 1940,
-  "spotifyId": "6bw9R3iFXlPO5PhqVju4y5"
+  "id": "thomas-stenstrom-sla-mig-hart-i-ansiktet",
+  "artist": "Thomas Stenström",
+  "title": "Slå mig hårt i ansiktet",
+  "year": 2014,
+  "spotifyId": "2Lv9FudgITbthtKK1B5wxY"
  },
  {
-  "id": "ole-ivars-jag-trodde-anglarna-fanns",
-  "artist": "Ole Ivars & Bengt Hennings",
-  "title": "Jag trodde änglarna fanns",
-  "year": 1999,
-  "spotifyId": "1ZqIRQ9Aem7AreKJ8CY9rs"
+  "id": "miss-li-om-du-lamnade-mig-nu",
+  "artist": "Miss Li & Lars Winnerbäck",
+  "title": "Om du lämnade mig nu",
+  "year": 2007,
+  "spotifyId": "17q9gSD214wClyCjqrhmgH"
+ },
+ {
+  "id": "rasmus-gozzi-rid-mig-som-en-dalahast",
+  "artist": "Rasmus Gozzi & Fröken Snusk",
+  "title": "Rid mig som en dalahäst",
+  "year": 2022,
+  "spotifyId": "6dP4jUSraFGLZ8onWUAC0z"
  },
  {
   "id": "panetoz-dansa-pausa",
@@ -91,74 +56,648 @@
   "spotifyId": "2gNAGt7gUiMkagkhIiDLPm"
  },
  {
-  "id": "lisa-ekdahl-om-jag-snubblat-efter-vagen",
-  "artist": "Lisa Ekdahl",
-  "title": "Om jag snubblat efter vägen",
-  "year": 2004,
-  "spotifyId": "0OzFp5d9FN1psgzlwxhpX6"
+  "id": "darin-en-sang-av-rosor",
+  "artist": "Darin",
+  "title": "En säng av rosor",
+  "year": 2020,
+  "spotifyId": "07lrQgjirEbzcbIDghngJa"
+ },
+ {
+  "id": "marcus-martinus-unforgettable",
+  "artist": "Marcus & Martinus",
+  "title": "Unforgettable",
+  "year": 2024,
+  "spotifyId": "0RnJVPoIT2NDRCSsjpd0V7"
+ },
+ {
+  "id": "abba-ring-ring-bara-du-slog-en-signal",
+  "artist": "ABBA & Abba",
+  "title": "Ring ring (bara du slog en signal)",
+  "year": 1973,
+  "spotifyId": "5UwxImdvNoElIk7bAgk56p"
+ },
+ {
+  "id": "adolphson-falk-mer-jul",
+  "artist": "Adolphson & Falk",
+  "title": "Mer jul",
+  "year": 2021,
+  "spotifyId": "4wgvfWVqqw4JHYqX8bfQEH"
+ },
+ {
+  "id": "veronica-maggio-langesen",
+  "artist": "Veronica Maggio & Petter",
+  "title": "Längesen",
+  "year": 2010,
+  "spotifyId": "262acyaYdbQHXmOkl8goKT"
+ },
+ {
+  "id": "hasse-andersson-guld-och-grona-skogar",
+  "artist": "Hasse Andersson",
+  "title": "Guld och gröna skogar",
+  "year": 2015,
+  "spotifyId": "6EnNjWkk1YX3fsTXtwO773"
+ },
+ {
+  "id": "amy-deasismont-julen-ar-har",
+  "artist": "Amy Deasismont & Jenny Silver",
+  "title": "Julen är här",
+  "year": 1989,
+  "spotifyId": "4cGPWeCfoQTw7i0wqNRcjI"
+ },
+ {
+  "id": "triad-tand-ett-ljus",
+  "artist": "Triad",
+  "title": "Tänd ett ljus",
+  "year": 1987,
+  "spotifyId": "0WeT9UnF79pGH5ohYHsnD9"
+ },
+ {
+  "id": "veronica-maggio-mitt-hjarta-bloder",
+  "artist": "Veronica Maggio",
+  "title": "Mitt hjärta blöder",
+  "year": 2012,
+  "spotifyId": "6CtVEyME2La34RATPuJcnx"
+ },
+ {
+  "id": "stefan-borsch-sommaren-ar-kort",
+  "artist": "Stefan Borsch & Lotta Engberg",
+  "title": "Sommaren är kort",
+  "year": 1982,
+  "spotifyId": "0mXJHQQsh6gwGtUZKVIf7b"
+ },
+ {
+  "id": "carola-haggkvist-fangad-av-en-stormvind",
+  "artist": "Carola Häggkvist & Black Ingvars",
+  "title": "Fångad av en stormvind",
+  "year": 1991,
+  "spotifyId": "06xX9E1BTTwyOwyaBuszSK"
+ },
+ {
+  "id": "thomas-stenstrom-andas-in-andas-ut",
+  "artist": "Thomas Stenström",
+  "title": "Andas in, andas ut",
+  "year": 2023,
+  "spotifyId": "0gF8DDkQ4AZEEgPsWL95n6"
+ },
+ {
+  "id": "e-m-d-valkommen-hem",
+  "artist": "E.M.D.",
+  "title": "Välkommen hem",
+  "year": 2009,
+  "spotifyId": "4WfSDuJ4MrpdSSCEOanwzD"
  },
  {
   "id": "hakan-hellstrom-nu-kan-du-fa-mig-sa-latt",
   "artist": "Håkan Hellström",
   "title": "Nu kan du få mig så lätt",
   "year": 2001,
-  "spotifyId": "4WezPPW6r7BNa5zvkGLSZe"
+  "spotifyId": "2ENzbkJJShkj1d9mPKofQ9"
+ },
+ {
+  "id": "tomas-ledin-en-del-av-mitt-hjarta",
+  "artist": "Tomas Ledin",
+  "title": "En del av mitt hjärta",
+  "year": 1990,
+  "spotifyId": "6jq0VZNfYyTnxRzWOfw8np"
+ },
+ {
+  "id": "tommy-nilsson-oppna-din-dorr",
+  "artist": "Tommy Nilsson",
+  "title": "Öppna din dörr",
+  "year": 1994,
+  "spotifyId": "4bcnUDksPr6hCr04DwtlY7"
+ },
+ {
+  "id": "wiktoria-johansson-as-i-lay-me-down",
+  "artist": "Wiktoria Johansson",
+  "title": "As I lay Me Down",
+  "year": 2017,
+  "spotifyId": "4j8ZySp3Y3IJcS5jrfDSt3"
+ },
+ {
+  "id": "magnus-uggla-jag-och-min-far",
+  "artist": "Magnus Uggla",
+  "title": "Jag och min far",
+  "year": 2012,
+  "spotifyId": "3Nffm3OM123ldn35sG6fBp"
+ },
+ {
+  "id": "ole-ivars-jag-trodde-anglarna-fanns",
+  "artist": "Ole Ivars & Bengt Hennings",
+  "title": "Jag trodde änglarna fanns",
+  "year": 1999,
+  "spotifyId": "3qy7P1Vr6eGIwHP9DCUHwK"
+ },
+ {
+  "id": "markoolio-ingen-sommar-utan-reggae",
+  "artist": "Markoolio",
+  "title": "Ingen sommar utan reggae",
+  "year": 2007,
+  "spotifyId": "5YuLlTsWYK9uslUdGM83dJ"
+ },
+ {
+  "id": "eddie-meduza-midsommarnatt",
+  "artist": "Eddie Meduza",
+  "title": "Midsommarnatt",
+  "year": 2016,
+  "spotifyId": "5LAnTrLaN2SzUfWOglKPIy"
+ },
+ {
+  "id": "thorleifs-jul-jul-stralande-jul",
+  "artist": "Thorleifs & Amy Deasismont",
+  "title": "Jul, jul, strålande jul",
+  "year": 1921,
+  "spotifyId": "0Qcv82080Y0wWCC049qlE4"
+ },
+ {
+  "id": "thomas-stenstrom-sista-sommaren",
+  "artist": "Thomas Stenström",
+  "title": "Sista sommaren",
+  "year": 2022,
+  "spotifyId": "28TGtp6irVUZhTv5ytdex1"
+ },
+ {
+  "id": "stiftelsen-vart-jag-an-gar",
+  "artist": "Stiftelsen",
+  "title": "Vart jag än går",
+  "year": 2012,
+  "spotifyId": "2C0dZsmW6mvpavE5SEApkx"
+ },
+ {
+  "id": "thorleifs-nu-tandas-tusen-juleljus",
+  "artist": "Thorleifs & Amy Deasismont",
+  "title": "Nu tändas tusen juleljus",
+  "year": 1898,
+  "spotifyId": "70kxhlSyPeEJBdsMUBcm1r"
+ },
+ {
+  "id": "wiktoria-johansson-save-me",
+  "artist": "Wiktoria Johansson",
+  "title": "Save Me",
+  "year": 2016,
+  "spotifyId": "7fOgrKhpR8n5Va2PLxIofG"
+ },
+ {
+  "id": "e-type-true-believer",
+  "artist": "E-Type",
+  "title": "True Believer",
+  "year": 2007,
+  "spotifyId": "6wZvrYAir4XFpJNHUaj0r0"
+ },
+ {
+  "id": "richard-clayderman-himlen-runt-hornet",
+  "artist": "Richard Clayderman & Lisa Nilsson",
+  "title": "Himlen runt hörnet",
+  "year": 1992,
+  "spotifyId": "3KOPtw4AwfNGrP849batuS"
+ },
+ {
+  "id": "theodor-haraldsson-mer-av-dig",
+  "artist": "Theodor Haraldsson",
+  "title": "Mer av dig",
+  "year": 2023,
+  "spotifyId": "7J855JxtLLDGoL5HeHdayI"
+ },
+ {
+  "id": "froken-snusk-unga-fria",
+  "artist": "Fröken Snusk",
+  "title": "Unga & fria",
+  "year": 2024,
+  "spotifyId": "2ArX0SzCSHXytmAg36BIev"
+ },
+ {
+  "id": "eddie-meduza-mera-brannvin",
+  "artist": "Eddie Meduza",
+  "title": "Mera brännvin",
+  "year": 1981,
+  "spotifyId": "1MxbQpbMwureLpEfWY2ooH"
+ },
+ {
+  "id": "kent-kram-sa-nara-far-ingen-ga",
+  "artist": "Kent",
+  "title": "Kräm (så nära får ingen gå)",
+  "year": 1996,
+  "spotifyId": "6mwzXxkU8SLbIcOCqCVuOg"
+ },
+ {
+  "id": "theodor-haraldsson-som-du-vill",
+  "artist": "Theodor Haraldsson",
+  "title": "Som du vill",
+  "year": 2022,
+  "spotifyId": "6WZjMEoHUbHcRi2JkFHuFX"
+ },
+ {
+  "id": "tre-profiler-en-kvall-i-juni",
+  "artist": "Tre Profiler & Lasse Berghagen",
+  "title": "En kväll i juni",
+  "year": 1971,
+  "spotifyId": "7CnVWsiQpuNvoBflQI52qQ"
+ },
+ {
+  "id": "anna-bergendahl-ashes-to-ashes",
+  "artist": "Anna Bergendahl",
+  "title": "Ashes to Ashes",
+  "year": 2019,
+  "spotifyId": "1iqxk51n6yyc6OIXu7dX8o"
+ },
+ {
+  "id": "hasse-andersson-anglahund",
+  "artist": "Hasse Andersson",
+  "title": "Änglahund",
+  "year": 1982,
+  "spotifyId": "6Xn19Nf4HpdxwaSjPfkZxQ"
+ },
+ {
+  "id": "orup-magaluf",
+  "artist": "Orup",
+  "title": "Magaluf",
+  "year": 1992,
+  "spotifyId": "1eQbty3NNMMmGiFFEwdxjV"
+ },
+ {
+  "id": "medina-in-i-dimman",
+  "artist": "Medina",
+  "title": "In i dimman",
+  "year": 2022,
+  "spotifyId": "095zAxJmG96ap3ol3zVRZs"
+ },
+ {
+  "id": "eddie-meduza-volvo",
+  "artist": "Eddie Meduza",
+  "title": "Volvo",
+  "year": 1981,
+  "spotifyId": "01vfSVYtIhFmd2aNBIhcvf"
+ },
+ {
+  "id": "carola-haggkvist-himlen-i-min-famn",
+  "artist": "Carola Häggkvist",
+  "title": "Himlen i min famn",
+  "year": 1999,
+  "spotifyId": "6135boBE5RW4RWfS7WN2mD"
+ },
+ {
+  "id": "kent-om-du-var-har",
+  "artist": "Kent",
+  "title": "Om du var här",
+  "year": 1997,
+  "spotifyId": "7pjM7hTfLcoZBf4bkTNMiS"
+ },
+ {
+  "id": "helen-sjoholm-du-maste-finnas",
+  "artist": "Helen Sjöholm & Anna-Lotta Larsson",
+  "title": "Du måste finnas",
+  "year": 1995,
+  "spotifyId": "0tqCDasLQuA7K0SwK8sYTw"
+ },
+ {
+  "id": "bjorn-skifs-hall-mitt-hjarta",
+  "artist": "Björn Skifs",
+  "title": "Håll mitt hjärta",
+  "year": 2003,
+  "spotifyId": "6hcNWcs62MCLKbJbCcCpyz"
+ },
+ {
+  "id": "per-gessle-smastadsprat",
+  "artist": "Per Gessle",
+  "title": "Småstadsprat",
+  "year": 2017,
+  "spotifyId": "2hqycTvN1LuEOaiHvTjMBf"
+ },
+ {
+  "id": "tomas-andersson-wij-evighet",
+  "artist": "Tomas Andersson Wij & Carola Häggkvist",
+  "title": "Evighet",
+  "year": 2006,
+  "spotifyId": "2AB4PKwOYdIo6grMfQXgYU"
+ },
+ {
+  "id": "brandsta-city-slackers-rakt-in-i-elden",
+  "artist": "Brandsta City Släckers",
+  "title": "Rakt in i elden",
+  "year": 2026,
+  "spotifyId": "65xzEd5KnACVqZ6sDHMEuw"
+ },
+ {
+  "id": "siw-malmkvist-teddybjornen-fredriksson",
+  "artist": "Siw Malmkvist & Lasse Berghagen",
+  "title": "Teddybjörnen Fredriksson",
+  "year": 1969,
+  "spotifyId": "4HecwIfui1kQYNC2q2d1Mu"
+ },
+ {
+  "id": "clara-klingenstrom-behover-inte-dig-idag",
+  "artist": "Clara Klingenström",
+  "title": "Behöver inte dig idag",
+  "year": 2021,
+  "spotifyId": "61YmcO62hGjw1RlDHZ0XEg"
+ },
+ {
+  "id": "elov-beny-raggen-gar",
+  "artist": "Elov & Beny",
+  "title": "Raggen går",
+  "year": 2023,
+  "spotifyId": "5tq2w7SbOai77pCgdi2hcI"
+ },
+ {
+  "id": "yasin-workin",
+  "artist": "Yasin",
+  "title": "Workin",
+  "year": 2020,
+  "spotifyId": "67ttkEO235xJmxhQ9tOM1t"
+ },
+ {
+  "id": "cornelis-vreeswijk-jag-hade-en-gang-en-bat",
+  "artist": "Cornelis Vreeswijk",
+  "title": "Jag hade en gång en båt",
+  "year": 1966,
+  "spotifyId": "46N3vAOp6yJNqwsVaUGbml"
+ },
+ {
+  "id": "thorleifs-nar-det-lider-mot-jul",
+  "artist": "Thorleifs & Agnetha Fältskog",
+  "title": "När det lider mot jul",
+  "year": 1909,
+  "spotifyId": "6mBRHYqtY11PtOrvgV7qvN"
+ },
+ {
+  "id": "petra-marklund-mikrofonkat",
+  "artist": "Petra Marklund & Petter",
+  "title": "Mikrofonkåt",
+  "year": 1999,
+  "spotifyId": "0172j0ShGyeBE1prl6LscT"
+ },
+ {
+  "id": "nordman-odet-var-min-vag",
+  "artist": "Nordman",
+  "title": "Ödet var min väg",
+  "year": 2005,
+  "spotifyId": "0qNhAdjq0R7iBGOM1X44I4"
+ },
+ {
+  "id": "peter-joback-ga-inte-forbi",
+  "artist": "Peter Jöback",
+  "title": "Gå inte förbi",
+  "year": 2003,
+  "spotifyId": "0Yi69najyOxYoBA4zOqdYX"
+ },
+ {
+  "id": "linnea-henriksson-den-stora-dagen",
+  "artist": "Linnea Henriksson",
+  "title": "Den stora dagen",
+  "year": 2018,
+  "spotifyId": "1LnjSE9md9F0F6TDvCLqyd"
+ },
+ {
+  "id": "kent-dom-som-forsvann",
+  "artist": "Kent",
+  "title": "Dom som försvann",
+  "year": 2005,
+  "spotifyId": "1QJx7n6AO45hO9aYqnRAKH"
+ },
+ {
+  "id": "tommy-korberg-fattig-bonddrang",
+  "artist": "Tommy Körberg",
+  "title": "Fattig bonddräng",
+  "year": 1971,
+  "spotifyId": "68SZmBvH94tH35ihFb2OIw"
+ },
+ {
+  "id": "hakan-hellstrom-den-fulaste-flickan-i-varlden",
+  "artist": "Håkan Hellström",
+  "title": "Den fulaste flickan i världen",
+  "year": 2003,
+  "spotifyId": "0DqLuhTD1xI8mb2gY5YoLM"
+ },
+ {
+  "id": "arvingarna-tanker-inte-alls-ga-hem",
+  "artist": "Arvingarna",
+  "title": "Tänker inte alls gå hem",
+  "year": 2021,
+  "spotifyId": "1KvqulVkQYJLDr660ACS2U"
+ },
+ {
+  "id": "ges-stanna-varlden-en-stund",
+  "artist": "GES",
+  "title": "Stanna världen en stund",
+  "year": 1995,
+  "spotifyId": "2rYsDuqTkhx6qGvreh5Rqi"
+ },
+ {
+  "id": "lia-larsson-30-km-h",
+  "artist": "Lia Larsson",
+  "title": "30 km/h",
+  "year": 2024,
+  "spotifyId": "3qd2d4Mog20jxuQL5OEHE5"
+ },
+ {
+  "id": "magnus-uggla-vittring",
+  "artist": "Magnus Uggla",
+  "title": "Vittring",
+  "year": 1978,
+  "spotifyId": "7bgFB11wGlUzVNExjc37il"
  },
  {
   "id": "hakan-hellstrom-13",
   "artist": "Håkan Hellström",
   "title": "13",
   "year": 2005,
-  "spotifyId": "44n32XsekQlbtBouXfoddV"
+  "spotifyId": "2tbOFAXDTZ3LcH9DkjMp63"
  },
  {
-  "id": "thorleifs-stilla-natt",
-  "artist": "Thorleifs & Ingvar Wixell",
-  "title": "Stilla natt",
-  "year": 1915,
-  "spotifyId": "08Xill1HcDO4UmK8u22sCt"
+  "id": "eddie-meduza-eleganten-fran-vidderna",
+  "artist": "Eddie Meduza",
+  "title": "Eleganten Från Vidderna",
+  "year": 1996,
+  "spotifyId": "42dvrO5f0TenBrrYROEnm8"
+ },
+ {
+  "id": "cornelis-vreeswijk-deirdres-samba",
+  "artist": "Cornelis Vreeswijk",
+  "title": "Deirdres samba",
+  "year": 1968,
+  "spotifyId": "2BHwWqwuwcC5Zk6dpThXph"
+ },
+ {
+  "id": "anders-glenmark-hon-har-blommor-i-sitt-har",
+  "artist": "Anders Glenmark",
+  "title": "Hon har blommor i sitt hår",
+  "year": 1990,
+  "spotifyId": "4R61dwj0qyIRDhfMnqMupz"
+ },
+ {
+  "id": "malena-ernman-betlehems-stjarna",
+  "artist": "Malena Ernman & Inga Sundström",
+  "title": "Betlehems stjärna",
+  "year": 1893,
+  "spotifyId": "5OrSWgmxvtMGpR0o4WEnA4"
+ },
+ {
+  "id": "nordman-slapp-alla-sorger",
+  "artist": "Nordman",
+  "title": "Släpp alla sorger",
+  "year": 2023,
+  "spotifyId": "4lGrF9Fk8wJ6nLgcuRdFre"
+ },
+ {
+  "id": "molly-sanden-sa-vill-stjarnorna",
+  "artist": "Molly Sandén",
+  "title": "Så vill stjärnorna",
+  "year": 2009,
+  "spotifyId": "0kHzQ0zZPqEu8i6BrpRxKP"
+ },
+ {
+  "id": "brandsta-city-slackers-all-in-for-sverige",
+  "artist": "Brandsta City Släckers",
+  "title": "All in för Sverige",
+  "year": 2026,
+  "spotifyId": "3AGFGLUAhu0Cwv1Mkea3d4"
+ },
+ {
+  "id": "magnus-uggla-parlor-at-svin",
+  "artist": "Magnus Uggla",
+  "title": "Pärlor åt svin",
+  "year": 2007,
+  "spotifyId": "19YuI9hRgK62EvWJ2D5EeM"
+ },
+ {
+  "id": "albin-lee-meldau-kan-man-alska-nan-pa-avstand",
+  "artist": "Albin Lee Meldau",
+  "title": "Kan man älska nån på avstånd?",
+  "year": 2018,
+  "spotifyId": "7sBiLPlKybzaB9WZRk5xCf"
+ },
+ {
+  "id": "sami-rekik-90-talet",
+  "artist": "Sami Rekik & Christopher Wahlberg",
+  "title": "90-talet",
+  "year": 2021,
+  "spotifyId": "6O27WBEqkGeyq3hNYE0BdS"
+ },
+ {
+  "id": "ges-hon-ar-min",
+  "artist": "GES",
+  "title": "Hon är min",
+  "year": 1995,
+  "spotifyId": "5MqPII0xGIcRMRQUKPYqHN"
+ },
+ {
+  "id": "peter-joback-stockholm-i-natt",
+  "artist": "Peter Jöback",
+  "title": "Stockholm i natt",
+  "year": 2007,
+  "spotifyId": "502cALCyHnpUETi5798BGA"
+ },
+ {
+  "id": "magnus-uggla-hand-i-hand",
+  "artist": "Magnus Uggla & Dogge Doggelito",
+  "title": "Hand i hand",
+  "year": 1998,
+  "spotifyId": "5Uak6HFyswEH3JRJaNLHWa"
  },
  {
   "id": "sanna-nielsen-i-m-in-love",
   "artist": "Sanna Nielsen",
   "title": "I'm in Love",
   "year": 2011,
-  "spotifyId": "5wQDNYQwYW3dLML27FNlkY"
+  "spotifyId": "3EFdL3Q4mPrjUgfaO7IomQ"
  },
  {
-  "id": "kikki-danielsson-som-en-sol",
-  "artist": "Kikki Danielsson",
-  "title": "Som en sol",
-  "year": 1993,
-  "spotifyId": "7HgPhO2lGqmrUuZytat7PB"
+  "id": "thorleifs-stilla-natt",
+  "artist": "Thorleifs & Ingvar Wixell",
+  "title": "Stilla natt",
+  "year": 1915,
+  "spotifyId": "6dT4GmpnuHa7BoqgOtym2e"
  },
  {
-  "id": "kaj-bara-bada-bastu",
-  "artist": "KAJ",
-  "title": "Bara bada bastu",
+  "id": "thomas-stenstrom-carpe-diem",
+  "artist": "Thomas Stenström",
+  "title": "Carpe diem",
   "year": 2025,
-  "spotifyId": "2gThkoApt6B7ajBWZRLAVv"
+  "spotifyId": "1WwPOvPkpp05cpj2Atxn6f"
  },
  {
-  "id": "icona-pop-don-t-slam-the-door",
-  "artist": "Icona Pop",
-  "title": "Don't Slam the Door",
-  "year": 2017,
-  "spotifyId": "2aaUeZP6WNVnO9QPeOmoZ8"
+  "id": "amy-deasismont-tand-ett-ljus",
+  "artist": "Amy Deasismont & Shanes",
+  "title": "Tänd ett ljus",
+  "year": 1987,
+  "spotifyId": "6argJa62LtgqkrX2JbmyMq"
  },
  {
-  "id": "rikard-wolff-en-forlorad-sommar",
-  "artist": "Rikard Wolff",
-  "title": "En förlorad sommar",
-  "year": 2013,
-  "spotifyId": "5AGoekaqG9UjZ0aOTRAF9u"
+  "id": "carola-haggkvist-nar-loven-faller",
+  "artist": "Carola Häggkvist",
+  "title": "När löven faller",
+  "year": 2003,
+  "spotifyId": "3VQnbM0nlGf12MjLFUIPQj"
  },
  {
-  "id": "kikki-bettan-lotta-vem-e-de-du-vill-ha",
-  "artist": "Kikki, Bettan & Lotta",
-  "title": "Vem é dé du vill ha",
-  "year": 2002,
-  "spotifyId": "21FrKnbvUOiygOWvNdJRwl"
+  "id": "kikki-danielsson-det-var-dans-bort-i-vagen",
+  "artist": "Kikki Danielsson & Sven-Ingvars",
+  "title": "Det var dans bort i vägen",
+  "year": 1891,
+  "spotifyId": "3yIo0ffpokZKVS1RoOQmy2"
+ },
+ {
+  "id": "rolandz-fuldans",
+  "artist": "Rolandz",
+  "title": "Fuldans",
+  "year": 2018,
+  "spotifyId": "3awvm252RhYY8UJtM9svjY"
+ },
+ {
+  "id": "the-mamas-in-the-middle",
+  "artist": "The Mamas",
+  "title": "In the Middle",
+  "year": 2021,
+  "spotifyId": "5nBi3tQiXWt70G6UlXB86E"
+ },
+ {
+  "id": "linus-svenning-broder",
+  "artist": "Linus Svenning",
+  "title": "Bröder",
+  "year": 2014,
+  "spotifyId": "1TZtXdQwnbk1jOXnfyShRb"
+ },
+ {
+  "id": "mans-zelmerlow-december",
+  "artist": "Måns Zelmerlöw & Wizex",
+  "title": "December",
+  "year": 2010,
+  "spotifyId": "6WG7lWqmHXg9BNBouYNTuJ"
+ },
+ {
+  "id": "lasse-stefanz-skomagare-anton",
+  "artist": "Lasse Stefanz & Alf Robertson",
+  "title": "Skomagare Anton",
+  "year": 1981,
+  "spotifyId": "3VSz3gkrE2CGeiRPkgsZT0"
+ },
+ {
+  "id": "orup-stockholm",
+  "artist": "Orup",
+  "title": "Stockholm",
+  "year": 1992,
+  "spotifyId": "0xx53RF7FTN7Z7YPKI9k51"
+ },
+ {
+  "id": "kaliffa-karlsson-salute",
+  "artist": "Kaliffa Karlsson",
+  "title": "Salute",
+  "year": 2025,
+  "spotifyId": "2fa3V92K5LtrQKOHs5URSD"
+ },
+ {
+  "id": "lasse-stefanz-en-sang-om-sommaren",
+  "artist": "Lasse Stefanz",
+  "title": "En sång om sommaren",
+  "year": 2024,
+  "spotifyId": "1QNcq6ytcymUbBM43nUjeX"
+ },
+ {
+  "id": "ulf-lundell-ar-vi-lyckliga-nu",
+  "artist": "Ulf Lundell",
+  "title": "Är vi lyckliga nu?",
+  "year": 2012,
+  "spotifyId": "4Z046fY21X7ujBnLNteMdO"
  },
  {
   "id": "albin-johnsen-upp-i-luften",
@@ -168,10 +707,465 @@
   "spotifyId": "2NerJk09enIxsE8DlVjRrT"
  },
  {
-  "id": "brandsta-city-slackers-rakt-in-i-elden",
-  "artist": "Brandsta City Släckers",
-  "title": "Rakt in i elden",
-  "year": 2026,
-  "spotifyId": "65xzEd5KnACVqZ6sDHMEuw"
+  "id": "tommy-korberg-som-en-bro-over-morka-vatten",
+  "artist": "Tommy Körberg",
+  "title": "Som en bro över mörka vatten",
+  "year": 1970,
+  "spotifyId": "4jG7QiQdRFlmk3Cuznu2Ui"
+ },
+ {
+  "id": "ella-tiritiello-bara-du-ar-dar",
+  "artist": "Ella Tiritiello",
+  "title": "Bara du är där",
+  "year": 2025,
+  "spotifyId": "3zYTYk15l0ahY6cJ9MFrNT"
+ },
+ {
+  "id": "tomas-ledin-det-finns-inget-finare-an-karleken",
+  "artist": "Tomas Ledin",
+  "title": "Det finns inget finare än kärleken",
+  "year": 1983,
+  "spotifyId": "7qgNNLmmB77gVwR45GOcEA"
+ },
+ {
+  "id": "david-lindgren-we-are-your-tomorrow",
+  "artist": "David Lindgren",
+  "title": "We Are Your Tomorrow",
+  "year": 2016,
+  "spotifyId": "5RDFWDmMES0saxzu2DaH5Z"
+ },
+ {
+  "id": "adolphson-falk-blinkar-bla",
+  "artist": "Adolphson & Falk",
+  "title": "Blinkar blå",
+  "year": 1981,
+  "spotifyId": "0sA95tauonWmYDKtryjFs6"
+ },
+ {
+  "id": "just-d-vart-tog-den-sota-lilla-flickan-vagen",
+  "artist": "Just D",
+  "title": "Vart tog den söta lilla flickan vägen?",
+  "year": 1993,
+  "spotifyId": "6vVD6jsR9rhmWe0hVuy96b"
+ },
+ {
+  "id": "per-gessle-nyper-mig-i-armen",
+  "artist": "Per Gessle & Albin Lee Meldau",
+  "title": "Nyper mig i armen",
+  "year": 2024,
+  "spotifyId": "7l5hPHj4KCzxTFVI03sui1"
+ },
+ {
+  "id": "linnea-henriksson-den-kanslan",
+  "artist": "Linnea Henriksson",
+  "title": "Den känslan",
+  "year": 2025,
+  "spotifyId": "3J4rxzorN48mAnv5dU1OZq"
+ },
+ {
+  "id": "jessica-andersson-party-voice",
+  "artist": "Jessica Andersson",
+  "title": "Party Voice",
+  "year": 2018,
+  "spotifyId": "7J3UCWBsvFa6M0wrGqSc9s"
+ },
+ {
+  "id": "gyllene-tider-solsken",
+  "artist": "Gyllene Tider",
+  "title": "Solsken",
+  "year": 2004,
+  "spotifyId": "0ZOo7PN0abC4ws4H40TYy4"
+ },
+ {
+  "id": "eva-rydberg-rena-rama-ding-dong",
+  "artist": "Eva Rydberg & Eva Roos",
+  "title": "Rena rama ding dong",
+  "year": 2021,
+  "spotifyId": "1DT1yVnRlV3kV2gSHvf31Q"
+ },
+ {
+  "id": "carola-haggkvist-det-gatfulla-folket",
+  "artist": "Carola Häggkvist & Olle Adolphson",
+  "title": "Det gåtfulla folket",
+  "year": 1959,
+  "spotifyId": "0wWyaxbxqvN3XJ9vOeH7Xv"
+ },
+ {
+  "id": "per-gessle-jag-skulle-vilja-tanka-en-underbar-tanke",
+  "artist": "Per Gessle",
+  "title": "Jag skulle vilja tänka en underbar tanke",
+  "year": 2007,
+  "spotifyId": "7FspwM5ZvvVzoUI94xgykk"
+ },
+ {
+  "id": "icona-pop-don-t-slam-the-door",
+  "artist": "Icona Pop",
+  "title": "Don't Slam the Door",
+  "year": 2017,
+  "spotifyId": "2aaUeZP6WNVnO9QPeOmoZ8"
+ },
+ {
+  "id": "lasse-stefanz-av-hela-mitt-hjarta",
+  "artist": "Lasse Stefanz",
+  "title": "Av hela mitt hjärta",
+  "year": 1996,
+  "spotifyId": "4pFliRybIqKhsmo7C3GvVj"
+ },
+ {
+  "id": "kamferdrops-solen-lever-kvar-hos-dig",
+  "artist": "Kamferdrops",
+  "title": "Solen lever kvar hos dig",
+  "year": 2018,
+  "spotifyId": "12OZ4ZWIH0jIM8r4NnXNDR"
+ },
+ {
+  "id": "fredrik-kempe-du-och-jag-mot-varlden",
+  "artist": "Fredrik Kempe & Sanna Nielsen",
+  "title": "Du och jag mot världen",
+  "year": 2005,
+  "spotifyId": "68HY2D0KQtb09O1MhpfuLo"
+ },
+ {
+  "id": "lisa-ekdahl-om-jag-snubblat-efter-vagen",
+  "artist": "Lisa Ekdahl",
+  "title": "Om jag snubblat efter vägen",
+  "year": 2004,
+  "spotifyId": "0OzFp5d9FN1psgzlwxhpX6"
+ },
+ {
+  "id": "arvingarna-ring-baby-ring",
+  "artist": "Arvingarna",
+  "title": "Ring baby ring",
+  "year": 2025,
+  "spotifyId": "5w8uYlTjQool8wVlcyyblt"
+ },
+ {
+  "id": "dolly-parton-when-life-is-good-again",
+  "artist": "Dolly Parton",
+  "title": "When Life Is Good Again",
+  "year": 2020,
+  "spotifyId": "7JvmA0O2QcBGOeIpGv78sT"
+ },
+ {
+  "id": "gyllene-tider-chans",
+  "artist": "Gyllene Tider",
+  "title": "Chans",
+  "year": 2023,
+  "spotifyId": "3cLkgBbNa15pcBgZqyUBzj"
+ },
+ {
+  "id": "adrian-maceus-var-forsta-gang",
+  "artist": "Adrian Macéus",
+  "title": "Vår första gång",
+  "year": 2025,
+  "spotifyId": "4LU6zltjuVqOaU7u6Qdj7W"
+ },
+ {
+  "id": "orup-vid-min-faders-grav",
+  "artist": "Orup",
+  "title": "Vid min faders grav",
+  "year": 1993,
+  "spotifyId": "5fkJzWQVDssG1b6eBCZycq"
+ },
+ {
+  "id": "tomas-ledin-500-dagar-om-aret",
+  "artist": "Tomas Ledin",
+  "title": "500 dagar om året",
+  "year": 2009,
+  "spotifyId": "4RHG2T13v1wCwqrc5QhsWE"
+ },
+ {
+  "id": "bjorn-holmgren-radda-mig",
+  "artist": "Björn Holmgren",
+  "title": "Rädda mig",
+  "year": 2025,
+  "spotifyId": "7KVTHj4gD5UTxVuxQ00uyD"
+ },
+ {
+  "id": "peter-joback-han-ar-med-mig-nu",
+  "artist": "Peter Jöback & Annika Norlin",
+  "title": "Han är med mig nu",
+  "year": 2007,
+  "spotifyId": "3k97HZVpED4r1uv8PUxNwh"
+ },
+ {
+  "id": "orup-jag-ar-pa-vag-till-stockholm",
+  "artist": "Orup",
+  "title": "Jag är på väg till Stockholm",
+  "year": 2013,
+  "spotifyId": "7FDdpGCP4dBIqten2VsScD"
+ },
+ {
+  "id": "arvingarna-inbjudan-till-bohuslan",
+  "artist": "Arvingarna & Stefan Sundström",
+  "title": "Inbjudan till Bohuslän",
+  "year": 1943,
+  "spotifyId": "2Q9JZ6czlJkZng6zIKp0I7"
+ },
+ {
+  "id": "linda-bengtzing-fyrfaldigt-hurra",
+  "artist": "Linda Bengtzing",
+  "title": "Fyrfaldigt hurra!",
+  "year": 2022,
+  "spotifyId": "2G5CHjvnRkL5oYCUXwezkv"
+ },
+ {
+  "id": "loulou-lamotte-inga-sorger",
+  "artist": "Loulou Lamotte",
+  "title": "Inga sorger",
+  "year": 2023,
+  "spotifyId": "1nwjqLgtRYlHOJjLP0a4Y6"
+ },
+ {
+  "id": "gyllene-tider-jag-dromde-jag-motte-fluortanten",
+  "artist": "Gyllene Tider",
+  "title": "Jag drömde jag mötte Fluortanten",
+  "year": 2019,
+  "spotifyId": "0IeL57uL7nxervXIERkkm7"
+ },
+ {
+  "id": "gyllene-tider-dagar-att-dansa",
+  "artist": "Gyllene Tider",
+  "title": "Dagar att dansa",
+  "year": 2023,
+  "spotifyId": "1vf7nxXygRendH2e2RMqH4"
+ },
+ {
+  "id": "linda-bengtzing-alla-mina-sorger",
+  "artist": "Linda Bengtzing",
+  "title": "Alla mina sorger",
+  "year": 2020,
+  "spotifyId": "6g0ZPkF2ErP2hzccTRyuGC"
+ },
+ {
+  "id": "ulf-lundell-desperado",
+  "artist": "Ulf Lundell",
+  "title": "Desperado",
+  "year": 1984,
+  "spotifyId": "7yCSWD4y5DSNxYjXCAqy6v"
+ },
+ {
+  "id": "after-dark-kom-ut-som-en-stjarna",
+  "artist": "After Dark",
+  "title": "Kom ut som en stjärna",
+  "year": 2016,
+  "spotifyId": "2gDkutL0Q1UkY7gxzl9JNE"
+ },
+ {
+  "id": "linda-bengtzing-killer-girl",
+  "artist": "Linda Bengtzing",
+  "title": "Killer Girl",
+  "year": 2016,
+  "spotifyId": "10SICx8mDSnSzX3jvFxlzb"
+ },
+ {
+  "id": "tomas-ledin-pa-vingar-av-stal",
+  "artist": "Tomas Ledin",
+  "title": "På vingar av stål",
+  "year": 1978,
+  "spotifyId": "7jl9LDCOD2eEec1TrrppEB"
+ },
+ {
+  "id": "per-gessle-i-like-it-like-that",
+  "artist": "Per Gessle",
+  "title": "I Like It Like That",
+  "year": 2006,
+  "spotifyId": "57hJKjxqgGanT15PSawkEf"
+ },
+ {
+  "id": "markoolio-karlekssang-fran-mig",
+  "artist": "Markoolio",
+  "title": "Kärlekssång från mig",
+  "year": 2009,
+  "spotifyId": "6tcPcq3W2lcoTwwkBdoHoy"
+ },
+ {
+  "id": "frida-ohrn-we-are-one",
+  "artist": "Frida Öhrn",
+  "title": "We Are One",
+  "year": 2020,
+  "spotifyId": "1UQo1BX4t1st8w4zAWZjIk"
+ },
+ {
+  "id": "freestyle-fantasi",
+  "artist": "Freestyle",
+  "title": "Fantasi",
+  "year": 1998,
+  "spotifyId": "73ntNRkvOEuwWMiDZknqvy"
+ },
+ {
+  "id": "elisabeth-andreassen-klinga-mina-klockor",
+  "artist": "Elisabeth Andreassen & Benny Andersson",
+  "title": "Klinga mina klockor",
+  "year": 1987,
+  "spotifyId": "4ZqocvQswzJtc37drysIRB"
+ },
+ {
+  "id": "sonja-alden-sluta-aldrig-ga",
+  "artist": "Sonja Aldén",
+  "title": "Sluta aldrig gå",
+  "year": 2020,
+  "spotifyId": "4hvNDg3ajMY32BgFSfQ1MC"
+ },
+ {
+  "id": "anna-book-himmel-for-tva",
+  "artist": "Anna Book",
+  "title": "Himmel för två",
+  "year": 2016,
+  "spotifyId": "5CmFbhholq7Uu1suRA13BS"
+ },
+ {
+  "id": "uje-brandelius-grytan",
+  "artist": "Uje Brandelius",
+  "title": "Grytan",
+  "year": 2023,
+  "spotifyId": "2y8vVlyyZG9TLHY2MrNrTp"
+ },
+ {
+  "id": "eric-saade-bra-vibrationer-vill-ha-mer",
+  "artist": "Eric Saade",
+  "title": "Bra vibrationer (vill ha mer)",
+  "year": 2017,
+  "spotifyId": "5nZ5pAFgbXyjKKvLPgbTS5"
+ },
+ {
+  "id": "stefan-borsch-annu-doftar-karlek",
+  "artist": "Stefan Borsch & Marie Fredriksson",
+  "title": "Ännu doftar kärlek",
+  "year": 1984,
+  "spotifyId": "2cvgUpzXjHLtoE6P8SccL6"
+ },
+ {
+  "id": "niklas-stromstedt-for-manga-ord-om-karlek",
+  "artist": "Niklas Strömstedt",
+  "title": "För många ord om kärlek",
+  "year": 2008,
+  "spotifyId": "2cmbAHEHQFkO3UstWtubnw"
+ },
+ {
+  "id": "nanne-gronvall-carpool-karaoke",
+  "artist": "Nanne Grönvall",
+  "title": "Carpool Karaoke",
+  "year": 2020,
+  "spotifyId": "47PXScB3PxdVLp6XLlkANa"
+ },
+ {
+  "id": "ann-louise-hanson-karleken-finns-kvar",
+  "artist": "Ann-Louise Hanson",
+  "title": "Kärleken finns kvar",
+  "year": 2019,
+  "spotifyId": "4YfXmGT2WEH8JbWUtyuEwi"
+ },
+ {
+  "id": "tomas-andersson-wij-godmorgon",
+  "artist": "Tomas Andersson Wij",
+  "title": "Godmorgon",
+  "year": 2017,
+  "spotifyId": "0zNSMIL9M9nwxhNWIBNAOl"
+ },
+ {
+  "id": "freda-i-en-annan-del-av-varlden",
+  "artist": "Freda' & Tomas Andersson Wij",
+  "title": "I en annan del av världen",
+  "year": 1988,
+  "spotifyId": "6P5Ig5fST2tDIbwBJYqkA3"
+ },
+ {
+  "id": "ulf-lundell-hjartat-mitt",
+  "artist": "Ulf Lundell",
+  "title": "Hjärtat mitt",
+  "year": 1984,
+  "spotifyId": "7x4jhVYBIud9GptcYNFR8W"
+ },
+ {
+  "id": "marie-fredriksson-tro",
+  "artist": "Marie Fredriksson & Jill Johnson",
+  "title": "Tro",
+  "year": 1996,
+  "spotifyId": "5pkO17U6riaIaaTvT7GwCn"
+ },
+ {
+  "id": "gunnar-wiklund-regntunga-skyar",
+  "artist": "Gunnar Wiklund & Annika Paulsson",
+  "title": "Regntunga skyar",
+  "year": 1940,
+  "spotifyId": "6bw9R3iFXlPO5PhqVju4y5"
+ },
+ {
+  "id": "hasse-andersson-det-ar-akut",
+  "artist": "Hasse Andersson",
+  "title": "Det är akut",
+  "year": 1994,
+  "spotifyId": "7muHDDYdMzv7UVM7VkyGcI"
+ },
+ {
+  "id": "arja-saijonmaa-mina-fyra-arstider",
+  "artist": "Arja Saijonmaa",
+  "title": "Mina fyra årstider",
+  "year": 2019,
+  "spotifyId": "0CEXm6wzFXx1txePLk0qRS"
+ },
+ {
+  "id": "jan-malmsjo-leva-livet",
+  "artist": "Jan Malmsjö",
+  "title": "Leva livet",
+  "year": 2019,
+  "spotifyId": "0fBtRtuoExr5QE2hDgnzX7"
+ },
+ {
+  "id": "ulf-lundell-hon-var-dar-med-dej",
+  "artist": "Ulf Lundell",
+  "title": "Hon var där med dej",
+  "year": 1992,
+  "spotifyId": "1dkNKoKVuQQmIWo6QlxYsJ"
+ },
+ {
+  "id": "charlotte-perrelli-mitt-liv",
+  "artist": "Charlotte Perrelli",
+  "title": "Mitt liv",
+  "year": 2017,
+  "spotifyId": "3328CpFGxUecpx2jyNPzFV"
+ },
+ {
+  "id": "moneybrother-du-ser-mig-inte-langre",
+  "artist": "Moneybrother",
+  "title": "Du ser mig inte längre",
+  "year": 2017,
+  "spotifyId": "3G0lAvGfXKZAf5JCVorFtT"
+ },
+ {
+  "id": "pugh-rogefeldt-hog-farm",
+  "artist": "Pugh Rogefeldt & Magnus Uggla",
+  "title": "Hog Farm",
+  "year": 1974,
+  "spotifyId": "3C9oZ5TEwBW47D2DzZAKsm"
+ },
+ {
+  "id": "robert-broberg-batlat",
+  "artist": "Robert Broberg",
+  "title": "Båtlåt",
+  "year": 1966,
+  "spotifyId": "6bZqMRuNHt07wMtmSOQIwx"
+ },
+ {
+  "id": "robert-broberg-vatten",
+  "artist": "Robert Broberg",
+  "title": "Vatten",
+  "year": 1981,
+  "spotifyId": "7kabbbmDm1PFKOQyldIpI1"
+ },
+ {
+  "id": "kikki-danielsson-papaya-coconut",
+  "artist": "Kikki Danielsson & Larz-Kristerz",
+  "title": "Papaya Coconut",
+  "year": 1986,
+  "spotifyId": "6i5YS44UNyJul0l9M0zqqu"
+ },
+ {
+  "id": "marie-fredriksson-sa-skimrande-var-aldrig-havet",
+  "artist": "Marie Fredriksson & Elisabeth Andreassen",
+  "title": "Så skimrande var aldrig havet",
+  "year": 1948,
+  "spotifyId": "4p1LKZie1pNqfzzCYRrqmD"
  }
 ]
