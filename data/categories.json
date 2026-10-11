@@ -8,6 +8,6 @@
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json" },
   { "id": "melodifestivalen", "name": "Melodifestivalen och Eurovision", "file": "melodifestivalen.json" },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json" },
-  { "id": "filmmusik", "name": "Filmmusik och ledmotiv", "file": "filmmusik.json" },
+  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Artist/kompositör", "title": "Film" } },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } }
 ]
