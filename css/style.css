@@ -457,7 +457,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 }
 
 /* Startsidan */
-.lead { font-size: 1.1rem; color: var(--muted); margin: 0 0 24px; }
+.lead { font-size: 1.1rem; color: var(--text); margin: 0 0 24px; }
 
 /* Spelledarvyn på dator */
 .host { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; max-width: 1040px; margin: 0 auto; padding-top: 32px; }
