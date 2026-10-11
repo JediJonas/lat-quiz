@@ -7,16 +7,16 @@
   <meta name="description" content="Låtquiz för familj och vänner. Gissa artist och titel i mobilen medan spelledaren spelar låtar i Spotify.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
-  <script>try { const t = localStorage.getItem('latquiz-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+  <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
 </head>
 <body>
   <main class="narrow">
-    <h1>Låtquiz</h1>
+    <h1 class="logo"><span class="visually-hidden">Låtquiz</span></h1>
     <p class="lead">Lyssna, gissa artist och låt, samla poäng!</p>
     <a class="button big" href="play.html">Gå med i spel</a>
     <a class="button secondary" href="host.html">Starta spel som spelledare</a>
     <p class="muted small">Spelledaren använder en dator med Spotify. Spelarna använder sina mobiler.</p>
-    <p class="theme-row"><a class="quiet-link" href="om.html">Om spelet</a><button class="link user-settings"></button></p>
+    <p class="theme-row"><span class="row-end"><a class="quiet-link" href="om.html">Om spelet</a><button class="link user-settings"></button></span></p>
   </main>
   <script>
     // Följ med eventuella testparametrar, till exempel en lokal PeerJS-server.

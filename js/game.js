@@ -9,6 +9,7 @@ export const ROUND_MS = 60000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
 export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
+export const MAX_NAME = 10;
 
 // Inställningar som spelledaren kan välja. Bonus 0 betyder ingen bonus.
 export const SETTING_CHOICES = {
@@ -63,6 +64,12 @@ export function changeCategory(state, { categoryId, categoryName = '', labels = 
   state.categoryName = categoryName;
   state.labels = { ...labels };
   return true;
+}
+
+// Ett namn som en annan spelare redan har, utan hänsyn till stora bokstäver och accenter.
+export function nameTaken(state, { id, name }) {
+  const wanted = normalize(name);
+  return Object.values(state.players).some((p) => p.id !== id && normalize(p.name) === wanted);
 }
 
 // Ny spelare, eller en spelare som ansluter igen med samma id.
