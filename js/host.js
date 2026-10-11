@@ -333,7 +333,7 @@ function renderSetupSummary() {
 function showJoinInfo() {
   const url = joinUrl();
   $('#code').textContent = state.code;
-  $('#show-qr').textContent = state.code;
+  $('#show-qr').textContent = 'Kod ' + state.code;
   setQrVisible(true);
   $('#join-url').textContent = url;
   $('#join-url').href = url;

@@ -408,7 +408,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; font-weight: 700; letter-spacing: normal; }
 .player-head .who h1:empty { display: none; }
-#me { font-size: 0.9rem; letter-spacing: 0.08em; }
+.game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+#me { letter-spacing: 0.08em; }
+main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .conn {
   display: inline-flex;
   align-items: center;
@@ -495,7 +497,6 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
 }
 @media (hover: hover) { .code-link:hover { background: none; color: var(--text); text-decoration: underline; } }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
