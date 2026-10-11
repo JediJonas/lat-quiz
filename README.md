@@ -6,7 +6,7 @@ En webbapp för låtquiz med familj och vänner. Spelledaren spelar låtar i Spo
 
 ## Så spelar man
 
-1. Spelledaren öppnar `host.html` på en dator med Spotify, väljer kategori och trycker på **Starta spel**.
+1. Spelledaren öppnar `host.html` på en dator med Spotify, väljer kategori och trycker på **Dra igång!**.
 2. Spelarna skannar QR-koden, eller öppnar `play.html` och skriver in koden.
 3. Spelledaren trycker på **Nästa låt**. Låten öppnas i Spotify-appen, och klicket startar en timer på 60 sekunder. Spelledaren stoppar låten själv när tiden har gått ut.
 4. Spelarna väljer artist och titel ur listan. Rätt svar visas när tiden är slut, eller när alla har svarat.
