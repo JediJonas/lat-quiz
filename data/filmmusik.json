@@ -21,30 +21,30 @@
   "spotifyId": "6pWgRkpqVfxnj3WuIcJ7WP"
  },
  {
-  "id": "home-alone",
+  "id": "ensam-hemma",
   "artist": "John Williams",
-  "title": "Home Alone",
+  "title": "Ensam hemma",
   "year": 1990,
   "spotifyId": "4tHqQMWSqmL6YjXwsqthDI"
  },
  {
-  "id": "tangled",
+  "id": "trassel",
   "artist": "Alan Menken",
-  "title": "Tangled",
+  "title": "Trassel",
   "year": 2010,
   "spotifyId": "6VogQakFsXcuvOaJwOZAN2"
  },
  {
-  "id": "the-lion-king",
+  "id": "lejonkungen",
   "artist": "Elton John",
-  "title": "The Lion King",
+  "title": "Lejonkungen",
   "year": 1994,
   "spotifyId": "6s1KHEalfzcHpOK56RV2rt"
  },
  {
-  "id": "the-little-mermaid",
+  "id": "den-lilla-sjojungfrun",
   "artist": "Alan Menken",
-  "title": "The Little Mermaid",
+  "title": "Den lilla sjöjungfrun",
   "year": 1989,
   "spotifyId": "6oYkwjI1TKP9D0Y9II1GT7"
  },
@@ -56,9 +56,9 @@
   "spotifyId": "3NarImBO8U6KKMs7RXheX9"
  },
  {
-  "id": "hercules",
+  "id": "herkules",
   "artist": "Alan Menken",
-  "title": "Hercules",
+  "title": "Herkules",
   "year": 1997,
   "spotifyId": "5hEDJNVwVZuAhwejjKcs7Y"
  },
@@ -70,9 +70,9 @@
   "spotifyId": "1ewqpUUSLANb3jjc4UI8uX"
  },
  {
-  "id": "moana",
+  "id": "vaiana",
   "artist": "Opetaia Foaʻi",
-  "title": "Moana",
+  "title": "Vaiana",
   "year": 2016,
   "spotifyId": "5ndV6rlU0LqeJT7PWEYAV1"
  },
@@ -98,16 +98,16 @@
   "spotifyId": "0fzCtVM9D5UEwiLqcY8Ouq"
  },
  {
-  "id": "the-lord-of-the-rings",
+  "id": "sagan-om-ringen",
   "artist": "Howard Shore",
-  "title": "The Lord of the Rings",
+  "title": "Sagan om ringen",
   "year": 2001,
   "spotifyId": "644es5aYPJghtZLjM1rmSP"
  },
  {
-  "id": "up",
+  "id": "upp",
   "artist": "Michael Giacchino",
-  "title": "Up",
+  "title": "Upp",
   "year": 2009,
   "spotifyId": "7iocNjLrxPHLl8njgRlv5U"
  },
@@ -126,23 +126,23 @@
   "spotifyId": "7bOxfICJnT0av0ICxY2tZS"
  },
  {
-  "id": "amelie",
+  "id": "amelie-fran-montmartre",
   "artist": "Yann Tiersen",
-  "title": "Amélie",
+  "title": "Amelie från Montmartre",
   "year": 2001,
   "spotifyId": "6bpmBNPfQ2KFAW0ik6F9Vq"
  },
  {
-  "id": "how-to-train-your-dragon",
+  "id": "draktranaren",
   "artist": "John Powell",
-  "title": "How to Train Your Dragon",
+  "title": "Draktränaren",
   "year": 2010,
   "spotifyId": "2QTDuJIGKUjR7E2Q6KupIh"
  },
  {
-  "id": "breakfast-at-tiffany-s",
+  "id": "frukost-pa-tiffanys",
   "artist": "Henry Mancini",
-  "title": "Breakfast at Tiffany's",
+  "title": "Frukost på Tiffany’s",
   "year": 1961,
   "spotifyId": "2crXs3g9eNOORmRZVLF34Z"
  },
@@ -154,16 +154,16 @@
   "spotifyId": "0BTVwaI1VUhUd1SXGtTzFf"
  },
  {
-  "id": "brother-bear",
+  "id": "bjornbroder",
   "artist": "Phil Collins",
-  "title": "Brother Bear",
+  "title": "Björnbröder",
   "year": 2003,
   "spotifyId": "7wjiMdiSgsL9Vkrwb10Num"
  },
  {
-  "id": "the-da-vinci-code",
+  "id": "da-vinci-koden",
   "artist": "Hans Zimmer",
-  "title": "The Da Vinci Code",
+  "title": "Da Vinci-koden",
   "year": 2006,
   "spotifyId": "5CpQKWiwqsUs9IuIIDFn5s"
  },
@@ -217,23 +217,23 @@
   "spotifyId": "79npfYK6N5RnBc1jiaoHCr"
  },
  {
-  "id": "once-upon-a-time-in-the-west",
+  "id": "harmonica-en-hamnare",
   "artist": "Ennio Morricone",
-  "title": "Once Upon a Time in the West",
+  "title": "Harmonica - en hämnare",
   "year": 1968,
   "spotifyId": "6opPrJUpq4Pl5c84eCwLmo"
  },
  {
-  "id": "the-princess-and-the-frog",
+  "id": "prinsessan-och-grodan",
   "artist": "Randy Newman",
-  "title": "The Princess and the Frog",
+  "title": "Prinsessan och grodan",
   "year": 2009,
   "spotifyId": "32y50tctIUzKbg48kEqd50"
  },
  {
-  "id": "frozen",
+  "id": "frost",
   "artist": "Christophe Beck",
-  "title": "Frozen",
+  "title": "Frost",
   "year": 2013,
   "spotifyId": "0qnj9ufJJM6Xk4xuoyvHZp"
  },
@@ -259,9 +259,9 @@
   "spotifyId": "6XJGpirOP4Bgurcvkdanxb"
  },
  {
-  "id": "the-good-the-bad-and-the-ugly",
+  "id": "den-gode-den-onde-den-fule",
   "artist": "Ennio Morricone",
-  "title": "The Good, the Bad and the Ugly",
+  "title": "Den gode, den onde, den fule",
   "year": 1966,
   "spotifyId": "1JSIWsJfxOji0FrxFcxdCK"
  },
@@ -301,16 +301,16 @@
   "spotifyId": "1UBd7aWHZCz8yirI9KCvAU"
  },
  {
-  "id": "the-godfather",
+  "id": "gudfadern",
   "artist": "Nino Rota",
-  "title": "The Godfather",
+  "title": "Gudfadern",
   "year": 1972,
   "spotifyId": "39zu6JGd6tvRNsqyK78RLk"
  },
  {
-  "id": "legends-of-the-fall",
+  "id": "hostlegender",
   "artist": "James Horner",
-  "title": "Legends of the Fall",
+  "title": "Höstlegender",
   "year": 1994,
   "spotifyId": "6vtY2LUeXJ7KISwgiTu0Ph"
  },
@@ -371,30 +371,30 @@
   "spotifyId": "3Otarl1hRJ0ZsgMHiQ1mrP"
  },
  {
-  "id": "halloween",
+  "id": "alla-helgons-blodiga-natt",
   "artist": "John Carpenter",
-  "title": "Halloween",
+  "title": "Alla helgons blodiga natt",
   "year": 1978,
   "spotifyId": "7swocJUCUWTCiRUAU9oerC"
  },
  {
-  "id": "extremely-loud-and-incredibly-close",
+  "id": "extremt-hogt-och-otroligt-nara",
   "artist": "Alexandre Desplat",
-  "title": "Extremely Loud and Incredibly Close",
+  "title": "Extremt högt och otroligt nära",
   "year": 2011,
   "spotifyId": "4FnK3GEuekjYXavXPIGlmQ"
  },
  {
-  "id": "ratatouille",
+  "id": "rattatouille",
   "artist": "Michael Giacchino",
-  "title": "Ratatouille",
+  "title": "Råttatouille",
   "year": 2007,
   "spotifyId": "0AGAl2fZLAoGxGd5dO77Cp"
  },
  {
-  "id": "lady-and-the-tramp",
+  "id": "lady-och-lufsen",
   "artist": "Peggy Lee",
-  "title": "Lady and the Tramp",
+  "title": "Lady och Lufsen",
   "year": 1955,
   "spotifyId": "7zwWK53yc1ay0M4OJIEOuc"
  },
@@ -462,9 +462,9 @@
   "spotifyId": "69T9xcz6U8GFYmdPLkYn4J"
  },
  {
-  "id": "memoirs-of-a-geisha",
+  "id": "en-geishas-memoarer",
   "artist": "John Williams",
-  "title": "Memoirs of a Geisha",
+  "title": "En geishas memoarer",
   "year": 2005,
   "spotifyId": "0RGZCtszeCpGRgbMyVigAG"
  },
@@ -504,9 +504,9 @@
   "spotifyId": "5aSyBPvmnd5C6A1bfqH7Ic"
  },
  {
-  "id": "the-chronicles-of-narnia",
+  "id": "berattelsen-om-narnia-haxan-och-lejonet",
   "artist": "Harry Gregson-Williams",
-  "title": "The Chronicles of Narnia",
+  "title": "Berättelsen om Narnia: Häxan och lejonet",
   "year": 2005,
   "spotifyId": "7zY46aSULMG2pDG2fMlaI7"
  },
@@ -546,9 +546,9 @@
   "spotifyId": "2mFea4DOhY3iShay4BQ0se"
  },
  {
-  "id": "angels-demons",
+  "id": "anglar-och-demoner",
   "artist": "Hans Zimmer",
-  "title": "Angels & Demons",
+  "title": "Änglar och demoner",
   "year": 2009,
   "spotifyId": "14NE9H2mqNnzTPrAKQt479"
  },
@@ -560,9 +560,9 @@
   "spotifyId": "7Hs8rzQRZPAMQoz97S0u8L"
  },
  {
-  "id": "life-of-pi",
+  "id": "berattelsen-om-pi",
   "artist": "Mychael Danna",
-  "title": "Life of Pi",
+  "title": "Berättelsen om Pi",
   "year": 2012,
   "spotifyId": "1RxaEvQCmT36nIZFYjpk5F"
  },
@@ -588,16 +588,16 @@
   "spotifyId": "5rQmuNRjKT6t33JlNJbc6I"
  },
  {
-  "id": "the-pink-panther",
+  "id": "den-rosa-pantern",
   "artist": "Henry Mancini",
-  "title": "The Pink Panther",
+  "title": "Den rosa pantern",
   "year": 1963,
   "spotifyId": "0juPSJLFnLFim7BK6VzTes"
  },
  {
-  "id": "me-before-you",
+  "id": "livet-efter-dig",
   "artist": "Craig Armstrong",
-  "title": "Me Before You",
+  "title": "Livet efter dig",
   "year": 2016,
   "spotifyId": "28FvLA0GzWlwx8TSTqds9v"
  },
@@ -616,9 +616,9 @@
   "spotifyId": "4AQwwsz0ztRx4YKNb1GdBB"
  },
  {
-  "id": "the-piano",
+  "id": "pianot",
   "artist": "Michael Nyman",
-  "title": "The Piano",
+  "title": "Pianot",
   "year": 1993,
   "spotifyId": "0UxACryJlLw1VzQWe9eA3x"
  },
@@ -630,9 +630,9 @@
   "spotifyId": "44sVQfPdCTGM5JLBRHUngc"
  },
  {
-  "id": "fantastic-mr-fox",
+  "id": "den-fantastiska-raven",
   "artist": "Alexandre Desplat",
-  "title": "Fantastic Mr. Fox",
+  "title": "Den fantastiska räven",
   "year": 2009,
   "spotifyId": "1Clu0gbMFEvJ3bdpgmlMvh"
  },
@@ -644,9 +644,9 @@
   "spotifyId": "73JUZhMZLh2BcZSR8oHpXx"
  },
  {
-  "id": "the-truman-show",
+  "id": "truman-show",
   "artist": "Philip Glass",
-  "title": "The Truman Show",
+  "title": "Truman Show",
   "year": 1998,
   "spotifyId": "29S6PLRccSCyKozzwIik0J"
  },
@@ -658,16 +658,16 @@
   "spotifyId": "2LhA68Vm5k6lh0QenNFrDV"
  },
  {
-  "id": "oliver-company",
+  "id": "oliver-ganget",
   "artist": "Dan Hartman",
-  "title": "Oliver & Company",
+  "title": "Oliver & gänget",
   "year": 1988,
   "spotifyId": "3gH3AxHKptBuYVcJilLCeR"
  },
  {
-  "id": "finding-nemo",
+  "id": "hitta-nemo",
   "artist": "Thomas Newman",
-  "title": "Finding Nemo",
+  "title": "Hitta Nemo",
   "year": 2003,
   "spotifyId": "4MrXuZ2T6CMD0V5VURGBwx"
  },
@@ -679,23 +679,23 @@
   "spotifyId": "1WvaekR1rFUaQVvaDk9x0Q"
  },
  {
-  "id": "fifty-shades",
+  "id": "femtio-nyanser-av-honom",
   "artist": "Danny Elfman",
-  "title": "Fifty Shades",
+  "title": "Femtio nyanser av honom",
   "year": 2015,
   "spotifyId": "41siSuOrlQ6IqLNBbHYaJ9"
  },
  {
-  "id": "the-shawshank-redemption",
+  "id": "nyckeln-till-frihet",
   "artist": "Thomas Newman",
-  "title": "The Shawshank Redemption",
+  "title": "Nyckeln till frihet",
   "year": 1994,
   "spotifyId": "5zMuzsE5kvd54FwraufeeK"
  },
  {
-  "id": "little-women",
+  "id": "unga-kvinnor",
   "artist": "Alexandre Desplat",
-  "title": "Little Women",
+  "title": "Unga kvinnor",
   "year": 2019,
   "spotifyId": "4xui9WfNYFy7DKZfFBzSQA"
  },
@@ -707,9 +707,9 @@
   "spotifyId": "1ybtJbR4ARqmjl6dD2VtYU"
  },
  {
-  "id": "back-to-the-future",
+  "id": "tillbaka-till-framtiden",
   "artist": "Alan Silvestri",
-  "title": "Back to the Future",
+  "title": "Tillbaka till framtiden",
   "year": 1985,
   "spotifyId": "1FI5hblwy9ZwyPg4Jr5hni"
  },
@@ -721,9 +721,9 @@
   "spotifyId": "2m1mYan1nvOMORlb12q2Y9"
  },
  {
-  "id": "good-bye-lenin",
+  "id": "good-bye",
   "artist": "Yann Tiersen",
-  "title": "Good Bye Lenin!",
+  "title": "Good Bye",
   "year": 2003,
   "spotifyId": "35fKXUJk1yDn3LVr6MbSHm"
  },
@@ -749,9 +749,9 @@
   "spotifyId": "1uNhvxpkPrNHUNfeclo6xD"
  },
  {
-  "id": "la-dolce-vita",
+  "id": "det-ljuva-livet",
   "artist": "Nino Rota",
-  "title": "La Dolce Vita",
+  "title": "Det ljuva livet",
   "year": 1960,
   "spotifyId": "1ttC2dGMDxbgtylVoLBypR"
  },
@@ -763,9 +763,9 @@
   "spotifyId": "1RZ6jzlPeEaDeKYe7IJ792"
  },
  {
-  "id": "madagascar",
+  "id": "madagaskar",
   "artist": "Hans Zimmer",
-  "title": "Madagascar",
+  "title": "Madagaskar",
   "year": 2008,
   "spotifyId": "0RWdt99zIBgOp517fywDtT"
  },
@@ -784,16 +784,16 @@
   "spotifyId": "4bgyv4pOiNgNZTN7BMLRuW"
  },
  {
-  "id": "the-princess-diaries",
+  "id": "en-prinsessas-dagbok",
   "artist": "John Debney",
-  "title": "The Princess Diaries",
+  "title": "En prinsessas dagbok",
   "year": 2001,
   "spotifyId": "60vDJQPOMYUkL388zPpuNT"
  },
  {
-  "id": "for-a-few-dollars-more",
+  "id": "for-nagra-fa-dollar-mer",
   "artist": "Ennio Morricone",
-  "title": "For a Few Dollars More",
+  "title": "För några få dollar mer",
   "year": 1965,
   "spotifyId": "0GLA1Xd7KWwR8H3e6lz3jm"
  },
@@ -826,16 +826,16 @@
   "spotifyId": "6QGWsMkxSv2l3Ae3jlsENi"
  },
  {
-  "id": "2001-a-space-odyssey",
+  "id": "ar-2001-ett-rymdaventyr",
   "artist": "Johann Strauss II",
-  "title": "2001: A Space Odyssey",
+  "title": "År 2001 – Ett rymdäventyr",
   "year": 1968,
   "spotifyId": "5LYAuItJcXH06adHkebOmf"
  },
  {
-  "id": "cars",
+  "id": "bilar",
   "artist": "Randy Newman",
-  "title": "Cars",
+  "title": "Bilar",
   "year": 2006,
   "spotifyId": "47OC0Xl9TIijX4gkafSX1G"
  },
@@ -854,23 +854,23 @@
   "spotifyId": "7wjJIZiFfH8o2nBANoz4IG"
  },
  {
-  "id": "saving-private-ryan",
+  "id": "radda-menige-ryan",
   "artist": "John Williams",
-  "title": "Saving Private Ryan",
+  "title": "Rädda menige Ryan",
   "year": 1998,
   "spotifyId": "71zPpqRMdkEUCl7cPQIBrV"
  },
  {
-  "id": "the-polar-express",
+  "id": "polarexpressen",
   "artist": "Alan Silvestri",
-  "title": "The Polar Express",
+  "title": "Polarexpressen",
   "year": 2004,
   "spotifyId": "3mfEv2KipK7lVWwocNx46Y"
  },
  {
-  "id": "fantastic-beasts",
+  "id": "fantastiska-vidunder-och-var-man-hittar-dem",
   "artist": "James Newton Howard",
-  "title": "Fantastic Beasts",
+  "title": "Fantastiska vidunder och var man hittar dem",
   "year": 2016,
   "spotifyId": "4Pk1KXtkFTJNKLqwHhD3Zn"
  },
@@ -882,9 +882,9 @@
   "spotifyId": "1KFg8BWCMwBRmDbEUdorty"
  },
  {
-  "id": "dinosaur",
+  "id": "dinosaurier",
   "artist": "James Newton Howard",
-  "title": "Dinosaur",
+  "title": "Dinosaurier",
   "year": 2000,
   "spotifyId": "5JbuKh2rpieicj3ld8Yy2L"
  },
@@ -896,9 +896,9 @@
   "spotifyId": "0CmatMXKunVgbvxWjnxWpq"
  },
  {
-  "id": "warcraft",
+  "id": "warcraft-the-beginning",
   "artist": "Ramin Djawadi",
-  "title": "Warcraft",
+  "title": "Warcraft: The Beginning",
   "year": 2016,
   "spotifyId": "3EGMNVARma3sKEkFpxHOcy"
  },
@@ -924,9 +924,9 @@
   "spotifyId": "0YlqJkfuox9LpJ5uW3NPM8"
  },
  {
-  "id": "the-green-mile",
+  "id": "den-grona-milen",
   "artist": "Thomas Newman",
-  "title": "The Green Mile",
+  "title": "Den gröna milen",
   "year": 1999,
   "spotifyId": "0itndpPjxQrWj1mDENoKmG"
  },
@@ -938,9 +938,9 @@
   "spotifyId": "6yzzno5cXBkh5c6UzRxcyM"
  },
  {
-  "id": "brave",
+  "id": "modig",
   "artist": "Patrick Doyle",
-  "title": "Brave",
+  "title": "Modig",
   "year": 2012,
   "spotifyId": "2I5oyql6pcmgjx1yFqrUdE"
  },
@@ -952,9 +952,9 @@
   "spotifyId": "0w7yUSxpQV3a3HqlprOQUs"
  },
  {
-  "id": "out-of-africa",
+  "id": "mitt-afrika",
   "artist": "John Barry",
-  "title": "Out of Africa",
+  "title": "Mitt Afrika",
   "year": 1985,
   "spotifyId": "6qLLYJGpPhHPF7M4o53qJB"
  },
@@ -973,9 +973,9 @@
   "spotifyId": "48YZO1IOz04bN9PY2tKB21"
  },
  {
-  "id": "a-bug-s-life",
+  "id": "ett-smakryps-liv",
   "artist": "Randy Newman",
-  "title": "A Bug's Life",
+  "title": "Ett småkryps liv",
   "year": 1998,
   "spotifyId": "33GqT5sh9PQq8mnTPWUkco"
  },
@@ -994,9 +994,9 @@
   "spotifyId": "76MPOMsHa41j0AHZd7oFva"
  },
  {
-  "id": "the-super-mario-bros-movie",
+  "id": "super-mario-bros-filmen",
   "artist": "Brian Tyler",
-  "title": "The Super Mario Bros. Movie",
+  "title": "Super Mario Bros. Filmen",
   "year": 2023,
   "spotifyId": "4M4R19bQjkABzjResTozBt"
  },
@@ -1015,16 +1015,16 @@
   "spotifyId": "64ByydKWf67CJfIoPc8uLJ"
  },
  {
-  "id": "the-last-of-the-mohicans",
+  "id": "den-siste-mohikanen",
   "artist": "Trevor Jones",
-  "title": "The Last of the Mohicans",
+  "title": "Den siste mohikanen",
   "year": 1992,
   "spotifyId": "58vvywipieBzdHhlpr6HPq"
  },
  {
-  "id": "28-days-later",
+  "id": "28-dagar-senare",
   "artist": "John Murphy",
-  "title": "28 Days Later",
+  "title": "28 dagar senare",
   "year": 2002,
   "spotifyId": "6zUqWvzcvVQyWU36c7WXDC"
  },
@@ -1043,16 +1043,16 @@
   "spotifyId": "7G3wJhkjYz3YJTBlUcfxXO"
  },
  {
-  "id": "lemony-snicket-s-a-series-of-unfortunate-events",
+  "id": "lemony-snickets-berattelse-om-syskonen-baudelaires-olycksaliga-liv",
   "artist": "Thomas Newman",
-  "title": "Lemony Snicket's A Series of Unfortunate Events",
+  "title": "Lemony Snickets berättelse om syskonen Baudelaires olycksaliga liv",
   "year": 2004,
   "spotifyId": "32YVCuvm2iXGkNIDDmSX0j"
  },
  {
-  "id": "the-hours",
+  "id": "timmarna",
   "artist": "Philip Glass",
-  "title": "The Hours",
+  "title": "Timmarna",
   "year": 2002,
   "spotifyId": "2vHxeotyQDiCsKaYsaDG5P"
  },
@@ -1064,9 +1064,9 @@
   "spotifyId": "3Y4l9bwg4IXJPq2WYsXeNB"
  },
  {
-  "id": "night-at-the-museum",
+  "id": "natt-pa-museet",
   "artist": "Alan Silvestri",
-  "title": "Night at the Museum",
+  "title": "Natt på museet",
   "year": 2006,
   "spotifyId": "1r8Qi1Q8V6l7hpZwmAJ1pL"
  },
@@ -1092,16 +1092,16 @@
   "spotifyId": "1NwdCBWf8lK3U0E0NOev6G"
  },
  {
-  "id": "sleeping-beauty",
+  "id": "tornrosa",
   "artist": "George Bruns",
-  "title": "Sleeping Beauty",
+  "title": "Törnrosa",
   "year": 1959,
   "spotifyId": "0ZZbzAwXodEE2kN07ErPLx"
  },
  {
-  "id": "a-fistful-of-dollars",
+  "id": "for-en-handfull-dollar",
   "artist": "Ennio Morricone",
-  "title": "A Fistful of Dollars",
+  "title": "För en handfull dollar",
   "year": 1964,
   "spotifyId": "3WySGomfHajTtIG8mUyD5W"
  },
@@ -1113,30 +1113,30 @@
   "spotifyId": "6odjHeBKXP6fvV9v0QRUOw"
  },
  {
-  "id": "meet-joe-black",
+  "id": "mot-joe-black",
   "artist": "Thomas Newman",
-  "title": "Meet Joe Black",
+  "title": "Möt Joe Black",
   "year": 1998,
   "spotifyId": "7ARw6x2QYlbbNbzm27z0BW"
  },
  {
-  "id": "charlie-and-the-chocolate-factory",
+  "id": "kalle-och-chokladfabriken",
   "artist": "Danny Elfman",
-  "title": "Charlie and the Chocolate Factory",
+  "title": "Kalle och chokladfabriken",
   "year": 2005,
   "spotifyId": "36Or2BETVOkRQpw39sZHI4"
  },
  {
-  "id": "soul",
+  "id": "sjalen",
   "artist": "Jon Batiste",
-  "title": "Soul",
+  "title": "Själen",
   "year": 2020,
   "spotifyId": "27CZ07hOirwI4VSCbJVzSv"
  },
  {
-  "id": "wreck-it-ralph",
+  "id": "rojar-ralf",
   "artist": "Henry Jackman",
-  "title": "Wreck-It Ralph",
+  "title": "Röjar-Ralf",
   "year": 2012,
   "spotifyId": "46XRlhMVNU38v5ZvDrQSHB"
  },
