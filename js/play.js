@@ -3,6 +3,7 @@ import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
 import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
+import { showThemeSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
 const $ = (sel) => document.querySelector(sel);
@@ -169,6 +170,7 @@ async function init() {
   $('#code-input').value = code;
   if (saved) $('#name-input').value = saved.name;
 
+  $('#player-settings').addEventListener('click', showThemeSettings);
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#name-input').value.trim().slice(0, 20);
