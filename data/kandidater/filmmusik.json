@@ -1,2707 +1,3785 @@
 {
  "id": "filmmusik",
- "name": "Filmmusik och ledmotiv",
+ "name": "Filmmusik",
  "file": "filmmusik.json",
+ "labels": {
+  "artist": "Artist/kompositör",
+  "title": "Film"
+ },
  "songs": [
   {
-   "id": "michele-novaro-il-canto-degli-italiani",
-   "artist": "Michele Novaro",
-   "title": "Il Canto degli Italiani",
-   "year": 1847
-  },
-  {
-   "id": "ludwig-van-beethoven-symphony-no-5",
-   "artist": "Ludwig van Beethoven",
-   "title": "Symphony No. 5",
-   "year": 1809
-  },
-  {
-   "id": "nirvana-smells-like-teen-spirit",
-   "artist": "Nirvana & Krist Novoselic",
-   "title": "Smells Like Teen Spirit",
-   "year": 1991
-  },
-  {
-   "id": "maurice-ravel-bolero",
-   "artist": "Maurice Ravel",
-   "title": "Boléro",
-   "year": 1929
-  },
-  {
-   "id": "celine-dion-my-heart-will-go-on",
-   "artist": "Céline Dion & James Horner",
-   "title": "My Heart Will Go On",
+   "id": "titanic",
+   "artist": "James Horner",
+   "title": "Titanic",
    "year": 1997
   },
   {
-   "id": "wolfgang-amadeus-mozart-eine-kleine-nachtmusik",
-   "artist": "Wolfgang Amadeus Mozart",
-   "title": "Eine kleine Nachtmusik",
-   "year": 1827
+   "id": "lejonkungen",
+   "artist": "Carmen Twillie",
+   "title": "Lejonkungen",
+   "year": 1994
   },
   {
-   "id": "pete-waterman-never-gonna-give-you-up",
-   "artist": "Pete Waterman & Mike Stock",
-   "title": "Never Gonna Give You Up",
-   "year": 1987
+   "id": "gudfadern",
+   "artist": "Nino Rota",
+   "title": "Gudfadern",
+   "year": 1972
   },
   {
-   "id": "freshlyground-waka-waka-this-time-for-africa",
-   "artist": "Freshlyground & Golden Sounds",
-   "title": "Waka Waka (This Time for Africa)",
+   "id": "shrek",
+   "artist": "Harry Gregson-Williams",
+   "title": "Shrek",
+   "year": 2001
+  },
+  {
+   "id": "pulp-fiction",
+   "artist": "Dick Dale",
+   "title": "Pulp Fiction",
+   "year": 1994
+  },
+  {
+   "id": "the-dark-knight",
+   "artist": "Hans Zimmer",
+   "title": "The Dark Knight",
+   "year": 2008
+  },
+  {
+   "id": "nyckeln-till-frihet",
+   "artist": "Thomas Newman",
+   "title": "Nyckeln till frihet",
+   "year": 1994
+  },
+  {
+   "id": "aladdin",
+   "artist": "Peabo Bryson",
+   "title": "Aladdin",
+   "year": 1992
+  },
+  {
+   "id": "nar-lammen-tystnar",
+   "artist": "Howard Shore",
+   "title": "När lammen tystnar",
+   "year": 1991
+  },
+  {
+   "id": "lady-och-lufsen",
+   "artist": "Oliver Wallace",
+   "title": "Lady och Lufsen",
+   "year": 1955
+  },
+  {
+   "id": "terminator",
+   "artist": "Brad Fiedel",
+   "title": "Terminator",
+   "year": 1984
+  },
+  {
+   "id": "skonheten-och-odjuret",
+   "artist": "Céline Dion",
+   "title": "Skönheten och odjuret",
+   "year": 1991
+  },
+  {
+   "id": "sagan-om-ringen",
+   "artist": "Howard Shore",
+   "title": "Sagan om ringen",
+   "year": 2001
+  },
+  {
+   "id": "wall-e",
+   "artist": "Thomas Newman",
+   "title": "WALL-E",
+   "year": 2008
+  },
+  {
+   "id": "zootropolis",
+   "artist": "R.E.M.",
+   "title": "Zootropolis",
+   "year": 2016
+  },
+  {
+   "id": "stjarnornas-krig",
+   "artist": "John Williams",
+   "title": "Stjärnornas krig",
+   "year": 1977
+  },
+  {
+   "id": "encanto",
+   "artist": "Lin-Manuel Miranda",
+   "title": "Encanto",
+   "year": 2021
+  },
+  {
+   "id": "sagan-om-konungens-aterkomst",
+   "artist": "Howard Shore",
+   "title": "Sagan om konungens återkomst",
+   "year": 2003
+  },
+  {
+   "id": "trassel",
+   "artist": "Alan Menken",
+   "title": "Trassel",
    "year": 2010
   },
   {
-   "id": "richard-rodgers-you-ll-never-walk-alone",
-   "artist": "Richard Rodgers & Barbra Streisand",
-   "title": "You'll Never Walk Alone",
-   "year": 1945
-  },
-  {
-   "id": "the-dream-single-ladies-put-a-ring-on-it",
-   "artist": "The-Dream & Kuk Harrell",
-   "title": "Single Ladies (Put a Ring on It)",
-   "year": 2008
-  },
-  {
-   "id": "ingmar-nordstrom-ein-feste-burg-ist-unser-gott",
-   "artist": "Ingmar Nordström",
-   "title": "Ein' feste Burg ist unser Gott",
-   "year": 1529
-  },
-  {
-   "id": "richard-strauss-also-sprach-zarathustra",
-   "artist": "Richard Strauss",
-   "title": "Also sprach Zarathustra",
-   "year": 1896
-  },
-  {
-   "id": "bill-haley-his-comets-rock-around-the-clock",
-   "artist": "Bill Haley & His Comets",
-   "title": "Rock Around the Clock",
-   "year": 1954
-  },
-  {
-   "id": "ludwig-van-beethoven-symphony-no-7",
-   "artist": "Ludwig van Beethoven",
-   "title": "Symphony No. 7",
-   "year": 1816
-  },
-  {
-   "id": "antonin-dvorak-symphony-no-9",
-   "artist": "Antonín Dvořák",
-   "title": "Symphony No. 9",
-   "year": 1894
-  },
-  {
-   "id": "michael-jackson-bad",
-   "artist": "Michael Jackson",
-   "title": "Bad",
-   "year": 1987
-  },
-  {
-   "id": "trombo-combo-the-final-countdown",
-   "artist": "Trombo Combo & Europe",
-   "title": "The Final Countdown",
-   "year": 1986
-  },
-  {
-   "id": "adele-set-fire-to-the-rain",
-   "artist": "Adele & Fraser T. Smith",
-   "title": "Set Fire to the Rain",
-   "year": 2011
-  },
-  {
-   "id": "joaquin-rodrigo-concierto-de-aranjuez",
-   "artist": "Joaquín Rodrigo",
-   "title": "Concierto de Aranjuez",
-   "year": 1940
-  },
-  {
-   "id": "freddie-perren-i-will-survive",
-   "artist": "Freddie Perren & Dino Fekaris",
-   "title": "I Will Survive",
-   "year": 1978
-  },
-  {
-   "id": "taylor-swift-bad-blood",
-   "artist": "Taylor Swift",
-   "title": "Bad Blood",
-   "year": 2015
-  },
-  {
-   "id": "black-eyed-peas-boom-boom-pow",
-   "artist": "Black Eyed Peas",
-   "title": "Boom Boom Pow",
-   "year": 2009
-  },
-  {
-   "id": "bryan-adams-everything-i-do-i-do-it-for-you",
-   "artist": "Bryan Adams & Mutt Lange",
-   "title": "(Everything I Do) I Do It for You",
-   "year": 1991
-  },
-  {
-   "id": "john-philip-sousa-the-stars-and-stripes-forever",
-   "artist": "John Philip Sousa",
-   "title": "The Stars and Stripes Forever",
-   "year": 1897
-  },
-  {
-   "id": "guns-n-roses-welcome-to-the-jungle",
-   "artist": "Guns N' Roses & Izzy Stradlin",
-   "title": "Welcome to the Jungle",
-   "year": 1987
-  },
-  {
-   "id": "pete-townshend-baba-o-riley",
-   "artist": "Pete Townshend & The Who",
-   "title": "Baba O'Riley",
-   "year": 1971
-  },
-  {
-   "id": "jule-styne-let-it-snow-let-it-snow-let-it-snow",
-   "artist": "Jule Styne & Vaughn Monroe and His Orchestra",
-   "title": "Let It Snow! Let It Snow! Let It Snow!",
-   "year": 1945
-  },
-  {
-   "id": "nat-king-cole-smile",
-   "artist": "Nat King Cole & Petula Clark",
-   "title": "Smile",
-   "year": 1954
-  },
-  {
-   "id": "bob-rock-st-anger",
-   "artist": "Bob Rock & Kirk Hammett",
-   "title": "St. Anger",
-   "year": 2003
-  },
-  {
-   "id": "led-zeppelin-immigrant-song",
-   "artist": "Led Zeppelin & Jimmy Page",
-   "title": "Immigrant Song",
-   "year": 1970
-  },
-  {
-   "id": "the-rembrandts-i-ll-be-there-for-you",
-   "artist": "The Rembrandts",
-   "title": "I'll Be There for You",
-   "year": 1995
-  },
-  {
-   "id": "richard-wagner-ride-of-the-valkyries",
-   "artist": "Richard Wagner",
-   "title": "Ride of the Valkyries",
-   "year": 1856
-  },
-  {
-   "id": "soweto-gospel-choir-baba-yetu",
-   "artist": "Soweto Gospel Choir & Stanford Talisman",
-   "title": "Baba Yetu",
-   "year": 2005
-  },
-  {
-   "id": "mars-bonfire-born-to-be-wild",
-   "artist": "Mars Bonfire & Ebba Grön",
-   "title": "Born to Be Wild",
-   "year": 1968
-  },
-  {
-   "id": "doris-day-que-sera-sera",
-   "artist": "Doris Day & Kikki Danielsson",
-   "title": "Qué Será, Será",
-   "year": 1956
-  },
-  {
-   "id": "daniel-wayne-sermon-believer",
-   "artist": "Daniel Wayne Sermón & Ben McKee",
-   "title": "Believer",
-   "year": 2017
-  },
-  {
-   "id": "anne-preven-listen",
-   "artist": "Anne Preven & Henry Krieger",
-   "title": "Listen",
-   "year": 2007
-  },
-  {
-   "id": "sam-smith-writing-s-on-the-wall",
-   "artist": "Sam Smith & Jimmy Napes",
-   "title": "Writing's on the Wall",
-   "year": 2015
-  },
-  {
-   "id": "kevin-macleod-in-the-hall-of-the-mountain-king",
-   "artist": "Kevin MacLeod & Edvard Grieg",
-   "title": "In the Hall of the Mountain King",
-   "year": 1875
-  },
-  {
-   "id": "peabo-bryson-a-whole-new-world",
-   "artist": "Peabo Bryson & Alan Menken",
-   "title": "A Whole New World",
-   "year": 1992
-  },
-  {
-   "id": "diane-warren-i-don-t-want-to-miss-a-thing",
-   "artist": "Diane Warren & Aerosmith",
-   "title": "I Don't Want to Miss a Thing",
-   "year": 1998
-  },
-  {
-   "id": "kelly-clarkson-stronger",
-   "artist": "Kelly Clarkson & Greg Kurstin",
-   "title": "Stronger",
-   "year": 2012
-  },
-  {
-   "id": "irving-berlin-god-bless-america",
-   "artist": "Irving Berlin",
-   "title": "God Bless America",
-   "year": 1918
-  },
-  {
-   "id": "finneas-o-connell-no-time-to-die",
-   "artist": "Finneas O'Connell",
-   "title": "No Time to Die",
-   "year": 2020
-  },
-  {
-   "id": "roland-orzabal-everybody-wants-to-rule-the-world",
-   "artist": "Roland Orzabal & Chris Hughes",
-   "title": "Everybody Wants to Rule the World",
-   "year": 1985
-  },
-  {
-   "id": "phil-collins-you-ll-be-in-my-heart",
-   "artist": "Phil Collins",
-   "title": "You'll Be in My Heart",
-   "year": 1999
-  },
-  {
-   "id": "leigh-harline-when-you-wish-upon-a-star",
-   "artist": "Leigh Harline & Susan Boyle",
-   "title": "When You Wish Upon A Star",
-   "year": 1940
-  },
-  {
-   "id": "glen-gray-blue-moon",
-   "artist": "Glen Gray & Richard Rodgers",
-   "title": "Blue Moon",
-   "year": 1934
-  },
-  {
-   "id": "carole-king-you-ve-got-a-friend",
-   "artist": "Carole King & James Taylor",
-   "title": "You've Got a Friend",
-   "year": 1971
-  },
-  {
-   "id": "sergei-rachmaninoff-all-by-myself",
-   "artist": "Sergei Rachmaninoff & Eric Carmen",
-   "title": "All by Myself",
-   "year": 1975
-  },
-  {
-   "id": "enrique-iglesias-bailando",
-   "artist": "Enrique Iglesias & Gente de Zona",
-   "title": "Bailando",
-   "year": 2014
-  },
-  {
-   "id": "wolfgang-amadeus-mozart-piano-concerto-no-23-in-a-major",
-   "artist": "Wolfgang Amadeus Mozart",
-   "title": "Piano Concerto No. 23 in A major",
-   "year": 1800
-  },
-  {
-   "id": "anatoly-novikov-smuglyanka",
-   "artist": "Anatoly Novikov & Sofia Rotaru",
-   "title": "Smuglyanka",
-   "year": 1940
-  },
-  {
-   "id": "pyotr-ilyich-tchaikovsky-romeo-and-juliet",
-   "artist": "Pyotr Ilyich Tchaikovsky",
-   "title": "Romeo and Juliet",
-   "year": 1869
-  },
-  {
-   "id": "elton-john-circle-of-life",
-   "artist": "Elton John & Jocelyn Bernadette Smith",
-   "title": "Circle of Life",
-   "year": 1994
-  },
-  {
-   "id": "johnny-mandel-suicide-is-painless",
-   "artist": "Johnny Mandel & Henry Mancini",
-   "title": "Suicide Is Painless",
-   "year": 1970
-  },
-  {
-   "id": "richard-rodgers-the-lady-is-a-tramp",
-   "artist": "Richard Rodgers & Mitzi Green",
-   "title": "The Lady Is a Tramp",
-   "year": 1937
-  },
-  {
-   "id": "john-williams-the-imperial-march",
-   "artist": "John Williams & London Symphony Orchestra",
-   "title": "The Imperial March",
-   "year": 1980
-  },
-  {
-   "id": "celine-dion-beauty-and-the-beast",
-   "artist": "Céline Dion & Emma Thompson",
-   "title": "Beauty and the Beast",
-   "year": 1991
-  },
-  {
-   "id": "charles-trenet-la-mer",
-   "artist": "Charles Trenet & Roland Gerbeau",
-   "title": "La Mer",
-   "year": 1946
-  },
-  {
-   "id": "etienne-mehul-chant-du-depart",
-   "artist": "Étienne Méhul",
-   "title": "Chant du départ",
-   "year": 1794
-  },
-  {
-   "id": "dick-dale-misirlou",
-   "artist": "Dick Dale",
-   "title": "Misirlou",
-   "year": 1962
-  },
-  {
-   "id": "gjon-s-tears-tout-l-univers",
-   "artist": "Gjon's Tears",
-   "title": "Tout l'univers",
-   "year": 2021
-  },
-  {
-   "id": "lou-reed-perfect-day",
-   "artist": "Lou Reed",
-   "title": "Perfect Day",
-   "year": 1972
-  },
-  {
-   "id": "syd-barrett-interstellar-overdrive",
-   "artist": "Syd Barrett & Pink Floyd",
-   "title": "Interstellar Overdrive",
-   "year": 1967
-  },
-  {
-   "id": "colin-hay-down-under",
-   "artist": "Colin Hay & Ron Strykert",
-   "title": "Down Under",
-   "year": 1980
-  },
-  {
-   "id": "the-beatles-good-morning-good-morning",
-   "artist": "The Beatles & John Lennon",
-   "title": "Good Morning Good Morning",
-   "year": 1967
-  },
-  {
-   "id": "the-rasmus-in-the-shadows",
-   "artist": "The Rasmus",
-   "title": "In the Shadows",
-   "year": 2003
-  },
-  {
-   "id": "michael-stipe-everybody-hurts",
-   "artist": "Michael Stipe & Peter Buck",
-   "title": "Everybody Hurts",
-   "year": 1992
-  },
-  {
-   "id": "barbara-pravi-voila",
-   "artist": "Barbara Pravi & Igit",
-   "title": "Voilà",
-   "year": 2020
-  },
-  {
-   "id": "teddy-park-golden",
-   "artist": "Teddy Park & Mark Sonnenblick",
-   "title": "Golden",
-   "year": 2025
-  },
-  {
-   "id": "yoasobi-idol",
-   "artist": "Yoasobi & Ayase",
-   "title": "Idol",
-   "year": 2023
-  },
-  {
-   "id": "t-a-t-u-all-the-things-she-said",
-   "artist": "t.A.T.u.",
-   "title": "All the Things She Said",
-   "year": 2002
-  },
-  {
-   "id": "the-beatles-little-child",
-   "artist": "The Beatles & John Lennon",
-   "title": "Little Child",
-   "year": 1963
-  },
-  {
-   "id": "david-bowie-let-s-dance",
-   "artist": "David Bowie",
-   "title": "Let's Dance",
-   "year": 1983
-  },
-  {
-   "id": "ray-parker-jr-ghostbusters",
-   "artist": "Ray Parker Jr.",
-   "title": "Ghostbusters",
-   "year": 1983
-  },
-  {
-   "id": "bill-withers-lean-on-me",
-   "artist": "Bill Withers",
-   "title": "Lean on Me",
-   "year": 1972
-  },
-  {
-   "id": "marc-antoine-charpentier-te-deum",
-   "artist": "Marc-Antoine Charpentier",
-   "title": "Te Deum",
-   "year": 1957
-  },
-  {
-   "id": "victoria-georgieva-growing-up-is-getting-old",
-   "artist": "Victoria Georgieva",
-   "title": "Growing Up Is Getting Old",
-   "year": 2021
-  },
-  {
-   "id": "elton-john-crocodile-rock",
-   "artist": "Elton John",
-   "title": "Crocodile Rock",
-   "year": 1972
-  },
-  {
-   "id": "paul-mccartney-good-night",
-   "artist": "Paul McCartney & John Lennon",
-   "title": "Good Night",
-   "year": 1968
-  },
-  {
-   "id": "johann-sebastian-bach-concerto-for-two-violins",
-   "artist": "Johann Sebastian Bach",
-   "title": "Concerto for Two Violins",
-   "year": 1723
-  },
-  {
-   "id": "yoko-takahashi-a-cruel-angel-s-thesis",
-   "artist": "Yoko Takahashi & Hidetoshi Satō",
-   "title": "A Cruel Angel's Thesis",
-   "year": 1995
-  },
-  {
-   "id": "alan-menken-colors-of-the-wind",
-   "artist": "Alan Menken & Judy Kuhn",
-   "title": "Colors of the Wind",
-   "year": 1995
-  },
-  {
-   "id": "guy-sigsworth-crazy",
-   "artist": "Guy Sigsworth & Seal",
-   "title": "Crazy",
-   "year": 1990
-  },
-  {
-   "id": "common-glory",
-   "artist": "Common",
-   "title": "Glory",
-   "year": 2014
-  },
-  {
-   "id": "tor-erik-hermansen-try-everything",
-   "artist": "Tor Erik Hermansen",
-   "title": "Try Everything",
-   "year": 2016
-  },
-  {
-   "id": "turner-layton-after-you-ve-gone",
-   "artist": "Turner Layton & Bessie Smith",
-   "title": "After You've Gone",
-   "year": 1918
-  },
-  {
-   "id": "elton-john-arthur-s-theme-best-that-you-can-do",
-   "artist": "Elton John & Christopher Cross",
-   "title": "Arthur's Theme (Best That You Can Do)",
-   "year": 1981
-  },
-  {
-   "id": "howard-blake-walking-in-the-air",
-   "artist": "Howard Blake",
-   "title": "Walking in the Air",
-   "year": 1985
-  },
-  {
-   "id": "duran-duran-a-view-to-a-kill",
-   "artist": "Duran Duran & John Barry",
-   "title": "A View to a Kill",
-   "year": 1985
-  },
-  {
-   "id": "one-direction-one-way-or-another-teenage-kicks",
-   "artist": "One Direction",
-   "title": "One Way or Another (Teenage Kicks)",
-   "year": 2013
-  },
-  {
-   "id": "chris-cornell-you-know-my-name",
-   "artist": "Chris Cornell",
-   "title": "You Know My Name",
-   "year": 2006
-  },
-  {
-   "id": "boston-pops-sleigh-ride",
-   "artist": "Boston Pops & Leroy Anderson",
-   "title": "Sleigh Ride",
-   "year": 1948
-  },
-  {
-   "id": "giorgio-moroder-the-neverending-story",
-   "artist": "Giorgio Moroder & Limahl",
-   "title": "The NeverEnding Story",
-   "year": 1984
-  },
-  {
-   "id": "kristen-anderson-lopez-into-the-unknown",
-   "artist": "Kristen Anderson-Lopez & Robert Lopez",
-   "title": "Into the Unknown",
-   "year": 2019
-  },
-  {
-   "id": "blas-canto-voy-a-quedarme",
-   "artist": "Blas Cantó",
-   "title": "Voy a quedarme",
-   "year": 2021
-  },
-  {
-   "id": "t-rex-20th-century-boy",
-   "artist": "T. Rex",
-   "title": "20th Century Boy",
-   "year": 1973
-  },
-  {
-   "id": "lin-manuel-miranda-we-don-t-talk-about-bruno",
-   "artist": "Lin-Manuel Miranda & Nikka Costa",
-   "title": "We Don't Talk About Bruno",
-   "year": 2021
-  },
-  {
-   "id": "john-barry-the-james-bond-theme",
-   "artist": "John Barry & Monty Norman",
-   "title": "The James Bond Theme",
-   "year": 1962
-  },
-  {
-   "id": "irene-cara-fame",
-   "artist": "Irene Cara & Michael Gore",
-   "title": "Fame",
-   "year": 1980
-  },
-  {
-   "id": "the-who-won-t-get-fooled-again",
-   "artist": "The Who & Pete Townshend",
-   "title": "Won't Get Fooled Again",
-   "year": 1971
-  },
-  {
-   "id": "olivia-newton-john-hopelessly-devoted-to-you",
-   "artist": "Olivia Newton-John & Jill Johnson",
-   "title": "Hopelessly Devoted to You",
-   "year": 1978
-  },
-  {
-   "id": "dr-alban-it-s-my-life",
-   "artist": "Dr. Alban",
-   "title": "It's My Life",
-   "year": 1992
-  },
-  {
-   "id": "the-smashing-pumpkins-bullet-with-butterfly-wings",
-   "artist": "The Smashing Pumpkins",
-   "title": "Bullet with Butterfly Wings",
-   "year": 1995
-  },
-  {
-   "id": "cookin-on-3-burners-this-girl",
-   "artist": "Cookin' on 3 Burners & Kungs",
-   "title": "This Girl",
-   "year": 2016
-  },
-  {
-   "id": "ray-evans-mona-lisa",
-   "artist": "Ray Evans & Jay Livingston",
-   "title": "Mona Lisa",
-   "year": 1950
-  },
-  {
-   "id": "akb48-sakura-no-ki-ni-naro",
-   "artist": "AKB48",
-   "title": "Sakura no Ki ni Narō",
-   "year": 2011
-  },
-  {
-   "id": "manos-hatzidakis-never-on-sunday",
-   "artist": "Manos Hatzidakis & Melina Mercouri",
-   "title": "Never on Sunday",
-   "year": 1960
-  },
-  {
-   "id": "a-ha-the-living-daylights",
-   "artist": "a-ha",
-   "title": "The Living Daylights",
-   "year": 1987
-  },
-  {
-   "id": "nat-king-cole-tea-for-two",
-   "artist": "Nat King Cole & Vincent Youmans",
-   "title": "Tea for Two",
-   "year": 1924
-  },
-  {
-   "id": "edvard-grieg-morning-mood",
-   "artist": "Edvard Grieg",
-   "title": "Morning Mood",
-   "year": 1875
-  },
-  {
-   "id": "hidenori-chiwata-butter-fly",
-   "artist": "Hidenori Chiwata & Kōji Wada",
-   "title": "Butter-Fly",
-   "year": 1999
-  },
-  {
-   "id": "fred-astaire-the-way-you-look-tonight",
-   "artist": "Fred Astaire & Jerome Kern",
-   "title": "The Way You Look Tonight",
-   "year": 1936
-  },
-  {
-   "id": "sia-never-give-up",
-   "artist": "Sia",
-   "title": "Never Give Up",
-   "year": 2016
-  },
-  {
-   "id": "akb48-aitakatta",
-   "artist": "AKB48 & Bounceback",
-   "title": "Aitakatta",
-   "year": 2006
-  },
-  {
-   "id": "dizzy-gillespie-a-night-in-tunisia",
-   "artist": "Dizzy Gillespie & Frank Paparelli",
-   "title": "A Night in Tunisia",
-   "year": 1946
-  },
-  {
-   "id": "kumiko-osugi-doraemon-no-uta",
-   "artist": "Kumiko Ōsugi",
-   "title": "Doraemon no Uta",
-   "year": 1979
-  },
-  {
-   "id": "teresa-teng-the-moon-represents-my-heart",
-   "artist": "Teresa Teng & Tony Weng",
-   "title": "The Moon Represents My Heart",
-   "year": 1972
-  },
-  {
-   "id": "dick-haymes-love-letters",
-   "artist": "Dick Haymes & Victor Young",
-   "title": "Love Letters",
-   "year": 1945
-  },
-  {
-   "id": "garbage-the-world-is-not-enough",
-   "artist": "Garbage",
-   "title": "The World Is Not Enough",
-   "year": 1999
-  },
-  {
-   "id": "jack-white-another-way-to-die",
-   "artist": "Jack White",
-   "title": "Another Way to Die",
-   "year": 2008
-  },
-  {
-   "id": "johnny-nash-i-can-see-clearly-now",
-   "artist": "Johnny Nash",
-   "title": "I Can See Clearly Now",
-   "year": 1972
-  },
-  {
-   "id": "tina-turner-goldeneye",
-   "artist": "Tina Turner & The Edge",
-   "title": "GoldenEye",
-   "year": 1995
-  },
-  {
-   "id": "vangelis-chariots-of-fire",
-   "artist": "Vangelis",
-   "title": "Chariots of Fire",
-   "year": 1981
-  },
-  {
-   "id": "frank-churchill-who-s-afraid-of-the-big-bad-wolf",
-   "artist": "Frank Churchill",
-   "title": "Who's Afraid of the Big Bad Wolf?",
-   "year": 1933
-  },
-  {
-   "id": "leroy-anderson-the-typewriter",
-   "artist": "Leroy Anderson",
-   "title": "The Typewriter",
-   "year": 1950
-  },
-  {
-   "id": "barbra-streisand-evergreen-love-theme-from-a-star-is-born",
-   "artist": "Barbra Streisand & Carola Häggkvist",
-   "title": "Evergreen (Love Theme from A Star Is Born)",
-   "year": 1976
-  },
-  {
-   "id": "daft-punk-robot-rock",
-   "artist": "Daft Punk",
-   "title": "Robot Rock",
-   "year": 2005
-  },
-  {
-   "id": "kenshi-yonezu-kick-back",
-   "artist": "Kenshi Yonezu",
-   "title": "Kick Back",
-   "year": 2022
-  },
-  {
-   "id": "stromae-l-enfer",
-   "artist": "Stromae",
-   "title": "L'enfer",
-   "year": 2022
-  },
-  {
-   "id": "franco-battiato-i-treni-di-tozeur",
-   "artist": "Franco Battiato & Alice",
-   "title": "I treni di Tozeur",
-   "year": 1984
-  },
-  {
-   "id": "gjon-s-tears-repondez-moi",
-   "artist": "Gjon's Tears",
-   "title": "Répondez-moi",
-   "year": 2020
-  },
-  {
-   "id": "kalafina-magia",
-   "artist": "Kalafina",
-   "title": "Magia",
-   "year": 2011
-  },
-  {
-   "id": "nick-cave-and-the-bad-seeds-red-right-hand",
-   "artist": "Nick Cave and the Bad Seeds",
-   "title": "Red Right Hand",
-   "year": 1994
-  },
-  {
-   "id": "harry-james-and-his-orchestra-beyond-the-sea",
-   "artist": "Harry James and His Orchestra & Charles Trenet",
-   "title": "Beyond the Sea",
+   "id": "tornrosa",
+   "artist": "Mary Costa",
+   "title": "Törnrosa",
    "year": 1959
   },
   {
-   "id": "sheena-easton-for-your-eyes-only",
-   "artist": "Sheena Easton & Bill Conti",
-   "title": "For Your Eyes Only",
-   "year": 1981
+   "id": "toy-story-3",
+   "artist": "Randy Newman",
+   "title": "Toy Story 3",
+   "year": 2010
   },
   {
-   "id": "richard-m-sherman-chim-chim-cher-ee",
-   "artist": "Richard M. Sherman & Robert B. Sherman",
-   "title": "Chim Chim Cher-ee",
-   "year": 1964
+   "id": "mulan",
+   "artist": "Matthew Wilder",
+   "title": "Mulan",
+   "year": 1998
   },
   {
-   "id": "jodi-benson-part-of-your-world",
-   "artist": "Jodi Benson & Alan Menken",
-   "title": "Part of Your World",
-   "year": 1989
+   "id": "star-wars-episod-iii-morkrets-hamnd",
+   "artist": "John Williams",
+   "title": "Star Wars: Episod III – Mörkrets hämnd",
+   "year": 2005
   },
   {
-   "id": "hironobu-kageyama-cha-la-head-cha-la",
-   "artist": "Hironobu Kageyama",
-   "title": "Cha-La Head-Cha-La",
-   "year": 1989
+   "id": "blade-runner",
+   "artist": "Vangelis",
+   "title": "Blade Runner",
+   "year": 1982
   },
   {
-   "id": "gioachino-rossini-william-tell-overture",
-   "artist": "Gioachino Rossini",
-   "title": "William Tell Overture",
-   "year": 1829
+   "id": "oppenheimer",
+   "artist": "Ludwig Göransson",
+   "title": "Oppenheimer",
+   "year": 2023
   },
   {
-   "id": "dickey-betts-jessica",
-   "artist": "Dickey Betts & Les Dudek",
-   "title": "Jessica",
-   "year": 1973
+   "id": "american-beauty",
+   "artist": "Thomas Newman",
+   "title": "American Beauty",
+   "year": 1999
   },
   {
-   "id": "aram-khachaturian-violin-concerto",
-   "artist": "Aram Khachaturian",
-   "title": "Violin Concerto",
-   "year": 1940
+   "id": "skyfall",
+   "artist": "Adele",
+   "title": "Skyfall",
+   "year": 2012
   },
   {
-   "id": "village-people-in-the-navy",
-   "artist": "Village People",
-   "title": "In the Navy",
-   "year": 1979
+   "id": "modig",
+   "artist": "Patrick Doyle",
+   "title": "Modig",
+   "year": 2012
   },
   {
-   "id": "carly-simon-let-the-river-run",
-   "artist": "Carly Simon",
-   "title": "Let the River Run",
-   "year": 1989
+   "id": "alice-i-underlandet",
+   "artist": "The Jud Conlon Chorus",
+   "title": "Alice i Underlandet",
+   "year": 1951
   },
   {
-   "id": "elton-john-i-m-gonna-love-me-again",
-   "artist": "Elton John",
-   "title": "(I'm Gonna) Love Me Again",
+   "id": "prestige",
+   "artist": "David Julyan",
+   "title": "Prestige",
+   "year": 2006
+  },
+  {
+   "id": "black-panther",
+   "artist": "Ludwig Göransson",
+   "title": "Black Panther",
+   "year": 2018
+  },
+  {
+   "id": "toy-story-4",
+   "artist": "Randy Newman",
+   "title": "Toy Story 4",
    "year": 2019
   },
   {
-   "id": "viktor-tsoi-the-star-called-sun",
-   "artist": "Viktor Tsoi & Kino",
-   "title": "The Star Called Sun",
-   "year": 1989
+   "id": "bjornbroder",
+   "artist": "Phil Collins",
+   "title": "Björnbröder",
+   "year": 2003
   },
   {
-   "id": "lisa-gurenge",
-   "artist": "LiSA",
-   "title": "Gurenge",
-   "year": 2019
+   "id": "tarzan",
+   "artist": "Mark Mancina",
+   "title": "Tarzan",
+   "year": 1999
   },
   {
-   "id": "shirley-bassey-goldfinger",
-   "artist": "Shirley Bassey & Anthony Newley",
+   "id": "star-wars-the-force-awakens",
+   "artist": "John Williams",
+   "title": "Star Wars: The Force Awakens",
+   "year": 2015
+  },
+  {
+   "id": "coco",
+   "artist": "Michael Giacchino",
+   "title": "Coco",
+   "year": 2017
+  },
+  {
+   "id": "pocahontas",
+   "artist": "Judy Kuhn",
+   "title": "Pocahontas",
+   "year": 1995
+  },
+  {
+   "id": "doctor-strange",
+   "artist": "Earth, Wind & Fire",
+   "title": "Doctor Strange",
+   "year": 2016
+  },
+  {
+   "id": "ett-smakryps-liv",
+   "artist": "Randy Newman",
+   "title": "Ett småkryps liv",
+   "year": 1998
+  },
+  {
+   "id": "casino-royale",
+   "artist": "Chris Cornell",
+   "title": "Casino Royale",
+   "year": 2006
+  },
+  {
+   "id": "spectre",
+   "artist": "Sam Smith",
+   "title": "Spectre",
+   "year": 2015
+  },
+  {
+   "id": "aliens-aterkomsten",
+   "artist": "James Horner",
+   "title": "Aliens - Återkomsten",
+   "year": 1986
+  },
+  {
+   "id": "da-vinci-koden",
+   "artist": "Hans Zimmer",
+   "title": "Da Vinci-koden",
+   "year": 2006
+  },
+  {
+   "id": "quantum-of-solace",
+   "artist": "Jack White",
+   "title": "Quantum of Solace",
+   "year": 2008
+  },
+  {
+   "id": "spider-man-into-the-spider-verse",
+   "artist": "Daniel Pemberton",
+   "title": "Spider-Man: Into the Spider-Verse",
+   "year": 2018
+  },
+  {
+   "id": "goldeneye",
+   "artist": "Tina Turner",
+   "title": "Goldeneye",
+   "year": 1995
+  },
+  {
+   "id": "the-odyssey",
+   "artist": "Ludwig Göransson",
+   "title": "The Odyssey",
+   "year": 2026
+  },
+  {
+   "id": "goldfinger",
+   "artist": "Shirley Bassey",
    "title": "Goldfinger",
    "year": 1964
   },
   {
-   "id": "field-of-view-dan-dan-kokoro-hikareteku",
-   "artist": "Field of View",
-   "title": "Dan Dan Kokoro Hikareteku",
-   "year": 1996
-  },
-  {
-   "id": "enya-wild-child",
-   "artist": "Enya",
-   "title": "Wild Child",
-   "year": 2001
-  },
-  {
-   "id": "kunihiko-murai-tsubasa-wo-kudasai",
-   "artist": "Kunihiko Murai & Akai Tori",
-   "title": "Tsubasa wo Kudasai",
-   "year": 1971
-  },
-  {
-   "id": "peter-schilling-major-tom-vollig-losgelost",
-   "artist": "Peter Schilling",
-   "title": "Major Tom (Völlig losgelöst)",
-   "year": 1982
-  },
-  {
-   "id": "patrick-hernandez-born-to-be-alive",
-   "artist": "Patrick Hernandez",
-   "title": "Born to Be Alive",
-   "year": 1978
-  },
-  {
-   "id": "malvina-reynolds-little-boxes",
-   "artist": "Malvina Reynolds & Pete Seeger",
-   "title": "Little Boxes",
-   "year": 1962
-  },
-  {
-   "id": "claris-connect",
-   "artist": "ClariS & Shō Watanabe",
-   "title": "Connect",
-   "year": 2011
-  },
-  {
-   "id": "charlie-parker-ornithology",
-   "artist": "Charlie Parker & Benny Harris",
-   "title": "Ornithology",
-   "year": 1946
-  },
-  {
-   "id": "alan-menken-go-the-distance",
-   "artist": "Alan Menken & Roger Bart",
-   "title": "Go the Distance",
-   "year": 1997
-  },
-  {
-   "id": "ennio-morricone-gabriel-s-oboe",
-   "artist": "Ennio Morricone",
-   "title": "Gabriel's Oboe",
-   "year": 1986
-  },
-  {
-   "id": "alan-menken-friend-like-me",
-   "artist": "Alan Menken & Will Smith",
-   "title": "Friend Like Me",
-   "year": 1992
-  },
-  {
-   "id": "cesar-franck-violin-sonata",
-   "artist": "César Franck",
-   "title": "Violin Sonata",
-   "year": 1886
-  },
-  {
-   "id": "john-philip-sousa-the-liberty-bell",
-   "artist": "John Philip Sousa",
-   "title": "The Liberty Bell",
-   "year": 1893
-  },
-  {
-   "id": "jerry-goldsmith-ave-satani",
-   "artist": "Jerry Goldsmith",
-   "title": "Ave Satani",
-   "year": 1976
-  },
-  {
-   "id": "jan-hammer-crockett-s-theme",
-   "artist": "Jan Hammer",
-   "title": "Crockett's Theme",
-   "year": 1987
-  },
-  {
-   "id": "sepultura-roots-bloody-roots",
-   "artist": "Sepultura",
-   "title": "Roots Bloody Roots",
-   "year": 1996
-  },
-  {
-   "id": "harry-m-woods-try-a-little-tenderness",
-   "artist": "Harry M. Woods & Bing Crosby",
-   "title": "Try a Little Tenderness",
-   "year": 1932
-  },
-  {
-   "id": "ramin-djawadi-game-of-thrones-theme",
-   "artist": "Ramin Djawadi",
-   "title": "Game of Thrones Theme",
-   "year": 2011
-  },
-  {
-   "id": "peter-frampton-baby-i-love-your-way",
-   "artist": "Peter Frampton",
-   "title": "Baby, I Love Your Way",
-   "year": 1975
-  },
-  {
-   "id": "sammy-fain-once-upon-a-dream",
-   "artist": "Sammy Fain & Jack Lawrence",
-   "title": "Once Upon a Dream",
-   "year": 1958
-  },
-  {
-   "id": "danny-elfman-this-is-halloween",
-   "artist": "Danny Elfman",
-   "title": "This Is Halloween",
-   "year": 1993
-  },
-  {
-   "id": "duke-ellington-c-jam-blues",
-   "artist": "Duke Ellington",
-   "title": "C Jam Blues",
-   "year": 1942
-  },
-  {
-   "id": "alex-kapranos-this-fire",
-   "artist": "Alex Kapranos & Nick McCarthy",
-   "title": "This Fire",
-   "year": 2004
-  },
-  {
-   "id": "claire-carleton-it-s-only-a-paper-moon",
-   "artist": "Claire Carleton & Harold Arlen",
-   "title": "It's Only a Paper Moon",
-   "year": 1932
-  },
-  {
-   "id": "nat-king-cole-l-o-v-e",
-   "artist": "Nat King Cole & Bert Kaempfert",
-   "title": "L-O-V-E",
-   "year": 1964
-  },
-  {
-   "id": "anita-o-day-vaya-con-dios",
-   "artist": "Anita O'Day & Kate Davis",
-   "title": "Vaya con Dios",
-   "year": 1953
-  },
-  {
-   "id": "alan-menken-i-see-the-light",
-   "artist": "Alan Menken & Zachary Levi",
-   "title": "I See the Light",
-   "year": 2010
-  },
-  {
-   "id": "yuki-kajiura-hikari-no-senritsu",
-   "artist": "Yuki Kajiura & Kalafina",
-   "title": "Hikari no Senritsu",
-   "year": 2010
-  },
-  {
-   "id": "fred-karlin-for-all-we-know",
-   "artist": "Fred Karlin & The Carpenters",
-   "title": "For All We Know",
-   "year": 1971
-  },
-  {
-   "id": "henry-mancini-peter-gunn",
-   "artist": "Henry Mancini",
-   "title": "Peter Gunn",
-   "year": 1959
-  },
-  {
-   "id": "angela-aki-tegami",
-   "artist": "Angela Aki",
-   "title": "Tegami",
-   "year": 2008
-  },
-  {
-   "id": "julie-andrews-i-could-have-danced-all-night",
-   "artist": "Julie Andrews & Frederick Loewe",
-   "title": "I Could Have Danced All Night",
-   "year": 1956
-  },
-  {
-   "id": "make-up-pegasus-fantasy",
-   "artist": "Make-Up",
-   "title": "Pegasus Fantasy",
-   "year": 1986
-  },
-  {
-   "id": "harold-arlen-the-man-that-got-away",
-   "artist": "Harold Arlen & Frank Sinatra",
-   "title": "The Man That Got Away",
-   "year": 1954
-  },
-  {
-   "id": "gen-hoshino-koi",
-   "artist": "Gen Hoshino",
-   "title": "Koi",
-   "year": 2016
-  },
-  {
-   "id": "harry-warren-lullaby-of-broadway",
-   "artist": "Harry Warren & The Chicks",
-   "title": "Lullaby of Broadway",
-   "year": 1935
-  },
-  {
-   "id": "scandal-harukaze",
-   "artist": "Scandal",
-   "title": "Harukaze",
+   "id": "prometheus",
+   "artist": "Marc Streitenfeld",
+   "title": "Prometheus",
    "year": 2012
   },
   {
-   "id": "joel-hirschhorn-we-may-never-love-like-this-again",
-   "artist": "Joel Hirschhorn & Al Kasha",
-   "title": "We May Never Love Like This Again",
-   "year": 1975
-  },
-  {
-   "id": "jason-segel-man-or-muppet",
-   "artist": "Jason Segel & Bill Barretta",
-   "title": "Man or Muppet",
-   "year": 2011
-  },
-  {
-   "id": "high-and-mighty-color-ichirin-no-hana",
-   "artist": "High and Mighty Color",
-   "title": "Ichirin no Hana",
-   "year": 2006
-  },
-  {
-   "id": "victor-young-my-foolish-heart",
-   "artist": "Victor Young",
-   "title": "My Foolish Heart",
-   "year": 1949
-  },
-  {
-   "id": "daria-kawashima-moonlight-densetsu",
-   "artist": "Daria Kawashima & Manish",
-   "title": "Moonlight Densetsu",
-   "year": 1992
-  },
-  {
-   "id": "sammy-fain-love-is-a-many-splendored-thing",
-   "artist": "Sammy Fain & Don Cornell",
-   "title": "Love Is a Many-Splendored Thing",
-   "year": 1955
-  },
-  {
-   "id": "miki-watanabe-crazy-4-u",
-   "artist": "Miki Watanabe & Kumi Koda",
-   "title": "Crazy 4 U",
-   "year": 2004
-  },
-  {
-   "id": "angela-aki-kiss-me-good-bye",
-   "artist": "Angela Aki",
-   "title": "Kiss Me Good-Bye",
-   "year": 2006
-  },
-  {
-   "id": "the-dave-clark-five-glad-all-over",
-   "artist": "The Dave Clark Five & Mike Smith",
-   "title": "Glad All Over",
-   "year": 1963
-  },
-  {
-   "id": "mitch-miller-the-river-kwai-march",
-   "artist": "Mitch Miller & Malcolm Arnold",
-   "title": "The River Kwai March",
-   "year": 1958
-  },
-  {
-   "id": "john-philip-sousa-semper-fidelis",
-   "artist": "John Philip Sousa",
-   "title": "Semper Fidelis",
-   "year": 1900
-  },
-  {
-   "id": "drake-bell-i-found-a-way",
-   "artist": "Drake Bell",
-   "title": "I Found a Way",
-   "year": 2003
-  },
-  {
-   "id": "traditional-il-silenzio",
-   "artist": "traditional & Nini Rosso",
-   "title": "Il Silenzio",
-   "year": 1964
-  },
-  {
-   "id": "taylor-swift-us",
-   "artist": "Taylor Swift & Gracie Abrams",
-   "title": "Us",
-   "year": 2024
-  },
-  {
-   "id": "rex-harrison-talk-to-the-animals",
-   "artist": "Rex Harrison",
-   "title": "Talk to the Animals",
-   "year": 1967
-  },
-  {
-   "id": "olive-kline-cock-robin",
-   "artist": "Olive Kline",
-   "title": "Cock Robin",
-   "year": 1744
-  },
-  {
-   "id": "akb48-high-tension-song",
-   "artist": "AKB48",
-   "title": "High Tension (song)",
-   "year": 2016
-  },
-  {
-   "id": "matt-monro-born-free",
-   "artist": "Matt Monro",
-   "title": "Born Free",
-   "year": 1966
-  },
-  {
-   "id": "lin-manuel-miranda-dos-oruguitas",
-   "artist": "Lin-Manuel Miranda & Sebastián Yatra",
-   "title": "Dos Oruguitas",
-   "year": 2021
-  },
-  {
-   "id": "lin-manuel-miranda-surface-pressure",
-   "artist": "Lin-Manuel Miranda & Jessica Darrow",
-   "title": "Surface Pressure",
-   "year": 2021
-  },
-  {
-   "id": "orange-range-asterisk",
-   "artist": "Orange Range",
-   "title": "Asterisk",
-   "year": 2005
-  },
-  {
-   "id": "dizzy-gillespie-salt-peanuts",
-   "artist": "Dizzy Gillespie",
-   "title": "Salt Peanuts",
-   "year": 1942
-  },
-  {
-   "id": "nana-mizuki-scarlet-knight",
-   "artist": "Nana Mizuki",
-   "title": "Scarlet Knight",
-   "year": 2011
-  },
-  {
-   "id": "abc-the-look-of-love",
-   "artist": "ABC & Martin Fry",
-   "title": "The Look of Love",
-   "year": 1982
-  },
-  {
-   "id": "v6-change-the-world",
-   "artist": "V6",
-   "title": "Change the World",
-   "year": 2000
-  },
-  {
-   "id": "irene-cara-out-here-on-my-own",
-   "artist": "Irene Cara & Michael Gore",
-   "title": "Out Here on My Own",
-   "year": 1980
-  },
-  {
-   "id": "kohei-tanaka-jojo-sono-chi-no-sadame",
-   "artist": "Kōhei Tanaka & Hiroaki \"Tommy\" Tominaga",
-   "title": "JoJo (Sono Chi no Sadame)",
-   "year": 2012
-  },
-  {
-   "id": "bryan-adams-here-i-am",
-   "artist": "Bryan Adams & Hans Zimmer",
-   "title": "Here I Am",
-   "year": 2002
-  },
-  {
-   "id": "angelo-badalamenti-falling",
-   "artist": "Angelo Badalamenti & Julee Cruise",
-   "title": "Falling",
-   "year": 1990
-  },
-  {
-   "id": "maureen-mcgovern-the-morning-after",
-   "artist": "Maureen McGovern",
-   "title": "The Morning After",
-   "year": 1973
-  },
-  {
-   "id": "ben-homer-sentimental-journey",
-   "artist": "Ben Homer & Les Brown",
-   "title": "Sentimental Journey",
-   "year": 1944
-  },
-  {
-   "id": "l-arc-en-ciel-neo-universe-finale",
-   "artist": "L'Arc-en-Ciel",
-   "title": "Neo Universe/Finale",
-   "year": 2000
-  },
-  {
-   "id": "queen-bee-mephisto",
-   "artist": "Queen Bee",
-   "title": "Mephisto",
-   "year": 2023
-  },
-  {
-   "id": "motley-crue-live-wire",
-   "artist": "Mötley Crüe",
-   "title": "Live Wire",
-   "year": 1982
-  },
-  {
-   "id": "barbra-streisand-where-you-lead",
-   "artist": "Barbra Streisand & Carole King",
-   "title": "Where You Lead",
-   "year": 1971
-  },
-  {
-   "id": "joan-jett-i-hate-myself-for-loving-you",
-   "artist": "Joan Jett",
-   "title": "I Hate Myself for Loving You",
-   "year": 1988
-  },
-  {
-   "id": "donna-summer-last-dance",
-   "artist": "Donna Summer",
-   "title": "Last Dance",
-   "year": 1978
-  },
-  {
-   "id": "hikaru-utada-beautiful-world-kiss-cry",
-   "artist": "Hikaru Utada",
-   "title": "Beautiful World/Kiss & Cry",
-   "year": 2007
-  },
-  {
-   "id": "gladys-knight-licence-to-kill",
-   "artist": "Gladys Knight",
-   "title": "Licence to Kill",
-   "year": 1989
-  },
-  {
-   "id": "kalafina-kimi-no-gin-no-niwa",
-   "artist": "Kalafina",
-   "title": "Kimi no Gin no Niwa",
-   "year": 2013
-  },
-  {
-   "id": "produce-48-nekkoya",
-   "artist": "Produce 48",
-   "title": "Nekkoya",
-   "year": 2018
-  },
-  {
-   "id": "lisa-homura",
-   "artist": "LiSA",
-   "title": "Homura",
-   "year": 2020
-  },
-  {
-   "id": "bulat-okudzhava-we-need-one-victory",
-   "artist": "Bulat Okudzhava",
-   "title": "We Need One Victory",
-   "year": 1970
-  },
-  {
-   "id": "richard-a-whiting-on-the-good-ship-lollipop",
-   "artist": "Richard A. Whiting & Shirley Temple",
-   "title": "On the Good Ship Lollipop",
-   "year": 1934
-  },
-  {
-   "id": "nogizaka46-ima-hanashitai-dareka-ga-iru",
-   "artist": "Nogizaka46 & Mayuko Maruyama",
-   "title": "Ima, Hanashitai Dareka ga Iru",
-   "year": 2015
-  },
-  {
-   "id": "nogizaka46-kimi-no-na-wa-kibo",
-   "artist": "Nogizaka46 & Tatsurō Ariki",
-   "title": "Kimi no Na wa Kibō",
-   "year": 2013
-  },
-  {
-   "id": "nogizaka46-itsuka-dekiru-kara-kyou-dekiru",
-   "artist": "Nogizaka46 & Seiichi Kyoda",
-   "title": "Itsuka Dekiru Kara Kyou Dekiru",
-   "year": 2017
-  },
-  {
-   "id": "gary-brooker-a-salty-dog",
-   "artist": "Gary Brooker & Procol Harum",
-   "title": "A Salty Dog",
-   "year": 1969
-  },
-  {
-   "id": "ron-grainer-doctor-who-theme-music",
-   "artist": "Ron Grainer",
-   "title": "Doctor Who theme music",
-   "year": 1963
-  },
-  {
-   "id": "carrie-underwood-there-s-a-place-for-us",
-   "artist": "Carrie Underwood",
-   "title": "There's a Place for Us",
-   "year": 2010
-  },
-  {
-   "id": "neal-hefti-batman-theme",
-   "artist": "Neal Hefti",
-   "title": "Batman Theme",
-   "year": 1966
-  },
-  {
-   "id": "arashi-face-down",
-   "artist": "Arashi",
-   "title": "Face Down",
-   "year": 2012
-  },
-  {
-   "id": "hironobu-kageyama-we-gotta-power",
-   "artist": "Hironobu Kageyama",
-   "title": "We Gotta Power",
-   "year": 1993
-  },
-  {
-   "id": "the-white-stripes-we-re-going-to-be-friends",
-   "artist": "The White Stripes",
-   "title": "We're Going to Be Friends",
-   "year": 2002
-  },
-  {
-   "id": "jerome-kern-i-ve-told-ev-ry-little-star",
-   "artist": "Jerome Kern & Linda Scott",
-   "title": "I've Told Ev'ry Little Star",
-   "year": 1961
-  },
-  {
-   "id": "john-barry-you-only-live-twice",
-   "artist": "John Barry & Nancy Sinatra",
-   "title": "You Only Live Twice",
-   "year": 1967
-  },
-  {
-   "id": "harry-wayne-casey-get-down-tonight",
-   "artist": "Harry Wayne Casey & KC and the Sunshine Band",
-   "title": "Get Down Tonight",
-   "year": 1975
-  },
-  {
-   "id": "flow-go",
-   "artist": "Flow",
-   "title": "Go",
-   "year": 2004
-  },
-  {
-   "id": "johnnie-johnston-that-old-black-magic",
-   "artist": "Johnnie Johnston & Glenn Miller & His Orchestra",
-   "title": "That Old Black Magic",
-   "year": 1942
-  },
-  {
-   "id": "hikaru-utada-sakura-nagashi",
-   "artist": "Hikaru Utada",
-   "title": "Sakura Nagashi",
-   "year": 2012
-  },
-  {
-   "id": "earth-wind-fire-shining-star",
-   "artist": "Earth, Wind & Fire",
-   "title": "Shining Star",
-   "year": 1975
-  },
-  {
-   "id": "clannad-theme-from-harry-s-game",
-   "artist": "Clannad & Pól Brennan",
-   "title": "Theme from Harry's Game",
-   "year": 1982
-  },
-  {
-   "id": "l-arc-en-ciel-nexus-4-shine",
-   "artist": "L'Arc-en-Ciel",
-   "title": "Nexus 4/Shine",
-   "year": 2008
-  },
-  {
-   "id": "h-e-r-fight-for-you",
-   "artist": "H.E.R. & D'Mile",
-   "title": "Fight for You",
-   "year": 2021
-  },
-  {
-   "id": "lauv-steal-the-show",
-   "artist": "Lauv & Michael Matosic",
-   "title": "Steal the Show",
-   "year": 2023
-  },
-  {
-   "id": "jennifer-warnes-it-goes-like-it-goes",
-   "artist": "Jennifer Warnes & Dusty Springfield",
-   "title": "It Goes Like It Goes",
-   "year": 1979
-  },
-  {
-   "id": "hikaru-utada-be-my-last",
-   "artist": "Hikaru Utada",
-   "title": "Be My Last",
-   "year": 2005
-  },
-  {
-   "id": "paula-cole-i-don-t-want-to-wait",
-   "artist": "Paula Cole",
-   "title": "I Don't Want to Wait",
-   "year": 1997
-  },
-  {
-   "id": "saint-motel-my-type",
-   "artist": "Saint Motel",
-   "title": "My Type",
-   "year": 2014
-  },
-  {
-   "id": "george-givot-bella-notte",
-   "artist": "George Givot & Sonny Burke",
-   "title": "Bella Notte",
-   "year": 1955
-  },
-  {
-   "id": "hiroki-takahashi-makafushigi-adventure",
-   "artist": "Hiroki Takahashi",
-   "title": "Makafushigi Adventure!",
-   "year": 1986
-  },
-  {
-   "id": "ella-fitzgerald-i-can-t-get-started",
-   "artist": "Ella Fitzgerald & Bob Hope",
-   "title": "I Can't Get Started",
-   "year": 1936
-  },
-  {
-   "id": "mai-kuraki-kimi-to-koi-no-mama-de-owarenai-itsumo-yume-no-mama-ja-irarenai",
-   "artist": "Mai Kuraki",
-   "title": "Kimi to Koi no Mama de Owarenai Itsumo Yume no Mama ja Irarenai",
-   "year": 2019
-  },
-  {
-   "id": "claris-colorful",
-   "artist": "ClariS",
-   "title": "Colorful",
-   "year": 2013
-  },
-  {
-   "id": "rimi-natsukawa-hagushichao",
-   "artist": "Rimi Natsukawa",
-   "title": "Hagushichao",
-   "year": 2005
-  },
-  {
-   "id": "hiroshi-kitadani-we-are",
-   "artist": "Hiroshi Kitadani & TVXQ",
-   "title": "We Are!",
-   "year": 1999
-  },
-  {
-   "id": "kenshi-yonezu-spinning-globe",
-   "artist": "Kenshi Yonezu",
-   "title": "Spinning Globe",
-   "year": 2023
-  },
-  {
-   "id": "lalo-schifrin-theme-from-mission-impossible",
-   "artist": "Lalo Schifrin",
-   "title": "Theme from Mission: Impossible",
-   "year": 1967
-  },
-  {
-   "id": "tommy-heavenly6-pray",
-   "artist": "Tommy heavenly6",
-   "title": "Pray",
-   "year": 2006
-  },
-  {
-   "id": "traditional-the-bonnie-lass-o-fyvie",
-   "artist": "traditional & Bob Dylan",
-   "title": "The Bonnie Lass o' Fyvie",
-   "year": 1962
-  },
-  {
-   "id": "the-human-league-being-boiled",
-   "artist": "The Human League",
-   "title": "Being Boiled",
-   "year": 1978
-  },
-  {
-   "id": "kotoko-oboetete-ii-yo-dudiduwa-lalala",
-   "artist": "Kotoko",
-   "title": "Oboetete ii yo/DuDiDuWa*lalala",
-   "year": 2004
-  },
-  {
-   "id": "arne-glimcher-beautiful-maria-of-my-soul",
-   "artist": "Arne Glimcher & Robert Kraft",
-   "title": "Beautiful Maria of My Soul",
-   "year": 1992
-  },
-  {
-   "id": "aqua-timez-alones",
-   "artist": "Aqua Timez",
-   "title": "Alones",
-   "year": 2007
-  },
-  {
-   "id": "takayoshi-tanimoto-dragon-soul",
-   "artist": "Takayoshi Tanimoto",
-   "title": "Dragon Soul",
-   "year": 2009
-  },
-  {
-   "id": "takuya-d-tecno-life",
-   "artist": "Takuya & UVERworld",
-   "title": "D-tecno Life",
-   "year": 2005
-  },
-  {
-   "id": "giorgio-moroder-chase",
-   "artist": "Giorgio Moroder",
-   "title": "Chase",
-   "year": 1978
-  },
-  {
-   "id": "hiroto-ishikawa-yuzurenai-negai",
-   "artist": "Hiroto Ishikawa & Naomi Tamura",
-   "title": "Yuzurenai Negai",
-   "year": 1994
-  },
-  {
-   "id": "diana-ross-it-s-my-turn",
-   "artist": "Diana Ross",
-   "title": "It's My Turn",
-   "year": 1980
-  },
-  {
-   "id": "naomi-campbell-la-la-la-love-song",
-   "artist": "Naomi Campbell & Toshinobu Kubota",
-   "title": "La La La Love Song",
-   "year": 1996
-  },
-  {
-   "id": "perez-prado-guaglione",
-   "artist": "Perez Prado & Claudio Villa",
-   "title": "Guaglione",
-   "year": 1956
-  },
-  {
-   "id": "harry-ruby-three-little-words",
-   "artist": "Harry Ruby & Ella Fitzgerald",
-   "title": "Three Little Words",
-   "year": 1930
-  },
-  {
-   "id": "megumi-hayashibara-northern-lights",
-   "artist": "Megumi Hayashibara & Gō Takahashi",
-   "title": "Northern Lights",
-   "year": 2002
-  },
-  {
-   "id": "megumi-hayashibara-over-soul",
-   "artist": "Megumi Hayashibara & Gō Takahashi",
-   "title": "Over Soul",
-   "year": 2001
-  },
-  {
-   "id": "cliff-richard-the-young-ones",
-   "artist": "Cliff Richard & The Shadows",
-   "title": "The Young Ones",
-   "year": 1962
-  },
-  {
-   "id": "toots-and-the-maytals-pressure-drop",
-   "artist": "Toots and the Maytals",
-   "title": "Pressure Drop",
-   "year": 1970
-  },
-  {
-   "id": "sid-ranbu-no-melody",
-   "artist": "SID",
-   "title": "Ranbu no Melody",
-   "year": 2010
-  },
-  {
-   "id": "billie-holiday-easy-living",
-   "artist": "Billie Holiday & Ralph Rainger",
-   "title": "Easy Living",
-   "year": 1937
-  },
-  {
-   "id": "the-beautiful-south-rotterdam-or-anywhere",
-   "artist": "The Beautiful South",
-   "title": "Rotterdam (or Anywhere)",
-   "year": 1996
-  },
-  {
-   "id": "simple-minds-speed-your-love-to-me",
-   "artist": "Simple Minds",
-   "title": "Speed Your Love to Me",
-   "year": 1984
-  },
-  {
-   "id": "megumi-hinata-catch-you-catch-me",
-   "artist": "Megumi Hinata",
-   "title": "Catch You Catch Me",
+   "id": "prinsen-av-egypten",
+   "artist": "Hans Zimmer",
+   "title": "Prinsen av Egypten",
    "year": 1998
   },
   {
-   "id": "ken-ichi-maeyamada-hyadain-no-kakakata-kataomoi-c",
-   "artist": "Ken'ichi Maeyamada",
-   "title": "Hyadain no Kakakata Kataomoi-C",
-   "year": 2011
+   "id": "the-nightmare-before-christmas",
+   "artist": "Danny Elfman",
+   "title": "The Nightmare Before Christmas",
+   "year": 1993
   },
   {
-   "id": "eminem-legacy",
-   "artist": "Eminem",
-   "title": "Legacy",
-   "year": 2013
-  },
-  {
-   "id": "claris-hitorigoto",
-   "artist": "ClariS",
-   "title": "Hitorigoto",
-   "year": 2017
-  },
-  {
-   "id": "andrew-gold-thank-you-for-being-a-friend",
-   "artist": "Andrew Gold",
-   "title": "Thank You for Being a Friend",
-   "year": 1978
-  },
-  {
-   "id": "zaz-paris-sera-toujours-paris",
-   "artist": "Zaz & Maurice Chevalier",
-   "title": "Paris sera toujours Paris",
-   "year": 1939
-  },
-  {
-   "id": "in-this-moment-the-gun-show",
-   "artist": "In This Moment",
-   "title": "The Gun Show",
+   "id": "draktranaren",
+   "artist": "John Powell",
+   "title": "Draktränaren",
    "year": 2010
   },
   {
-   "id": "aya-ueto-message-personal",
-   "artist": "Aya Ueto",
-   "title": "Message/Personal",
-   "year": 2003
-  },
-  {
-   "id": "angele-bruxelles-je-t-aime",
-   "artist": "Angèle",
-   "title": "Bruxelles je t'aime",
-   "year": 2021
-  },
-  {
-   "id": "gen-hoshino-doraemon",
-   "artist": "Gen Hoshino",
-   "title": "Doraemon",
-   "year": 2018
-  },
-  {
-   "id": "sid-v-i-p",
-   "artist": "SID",
-   "title": "V.I.P",
-   "year": 2012
-  },
-  {
-   "id": "richard-a-whiting-ain-t-we-got-fun",
-   "artist": "Richard A. Whiting & Doris Day",
-   "title": "Ain't We Got Fun?",
-   "year": 1920
-  },
-  {
-   "id": "joseph-winner-little-brown-jug",
-   "artist": "Joseph Winner",
-   "title": "Little Brown Jug",
-   "year": 1869
-  },
-  {
-   "id": "lin-manuel-miranda-the-family-madrigal",
-   "artist": "Lin-Manuel Miranda & Olga Merediz",
-   "title": "The Family Madrigal",
-   "year": 2021
-  },
-  {
-   "id": "kanako-ito-hacking-to-the-gate",
-   "artist": "Kanako Itō",
-   "title": "Hacking to the Gate",
-   "year": 2011
-  },
-  {
-   "id": "minutemen-corona",
-   "artist": "Minutemen",
-   "title": "Corona",
-   "year": 1984
-  },
-  {
-   "id": "jay-ungar-ashokan-farewell",
-   "artist": "Jay Ungar",
-   "title": "Ashokan Farewell",
-   "year": 1990
-  },
-  {
-   "id": "al-jolson-california-here-i-come",
-   "artist": "Al Jolson",
-   "title": "California, Here I Come",
-   "year": 1924
-  },
-  {
-   "id": "sachi-tainaka-itoshii-hito-e",
-   "artist": "Sachi Tainaka",
-   "title": "Itoshii Hito e",
-   "year": 2007
-  },
-  {
-   "id": "tomoyo-harada-toki-o-kakeru-shojo",
-   "artist": "Tomoyo Harada",
-   "title": "Toki o Kakeru Shōjo",
-   "year": 1983
-  },
-  {
-   "id": "the-sounds-living-in-america",
-   "artist": "The Sounds",
-   "title": "Living in America",
+   "id": "die-another-day",
+   "artist": "Madonna",
+   "title": "Die Another Day",
    "year": 2002
   },
   {
-   "id": "tom-tykwer-zu-asche-zu-staub",
-   "artist": "Tom Tykwer & Mario Kamien",
-   "title": "Zu Asche, zu Staub",
-   "year": 2016
+   "id": "varlden-racker-inte-till",
+   "artist": "Garbage",
+   "title": "Världen räcker inte till",
+   "year": 1999
   },
   {
-   "id": "tomoji-sogawa-kanashimi-o-yasashisa-ni",
-   "artist": "Tomoji Sogawa & Little by Little",
-   "title": "Kanashimi o Yasashisa ni",
-   "year": 2003
+   "id": "bilar-2",
+   "artist": "Michael Giacchino",
+   "title": "Bilar 2",
+   "year": 2011
   },
   {
-   "id": "azumi-inoue-my-neighbor-totoro",
-   "artist": "Azumi Inoue",
-   "title": "My Neighbor Totoro",
-   "year": 1988
-  },
-  {
-   "id": "boris-mokrousov-odinokaya-garmon",
-   "artist": "Boris Mokrousov",
-   "title": "Odinokaya garmon'",
-   "year": 1945
-  },
-  {
-   "id": "miwa-hikari-e",
-   "artist": "Miwa",
-   "title": "Hikari e",
-   "year": 2012
-  },
-  {
-   "id": "john-barry-all-time-high",
-   "artist": "John Barry & Rita Coolidge",
-   "title": "All Time High",
-   "year": 1983
-  },
-  {
-   "id": "george-bruns-yo-ho",
-   "artist": "George Bruns",
-   "title": "Yo Ho",
+   "id": "man-lever-bara-tva-ganger",
+   "artist": "John Barry",
+   "title": "Man lever bara två gånger",
    "year": 1967
   },
   {
-   "id": "judy-and-mary-sobakasu",
-   "artist": "Judy and Mary",
-   "title": "Sobakasu",
-   "year": 1996
-  },
-  {
-   "id": "don-henley-sit-down-you-re-rockin-the-boat",
-   "artist": "Don Henley",
-   "title": "Sit Down, You're Rockin' the Boat",
-   "year": 1992
-  },
-  {
-   "id": "andrew-lloyd-webber-learn-to-be-lonely",
-   "artist": "Andrew Lloyd Webber",
-   "title": "Learn to Be Lonely",
-   "year": 2004
-  },
-  {
-   "id": "tatsuya-hirakawa-imasugu-kiss-me",
-   "artist": "Tatsuya Hirakawa & Lindberg",
-   "title": "Imasugu Kiss Me",
-   "year": 1990
-  },
-  {
-   "id": "rikki-suteki-da-ne",
-   "artist": "Rikki",
-   "title": "Suteki da ne",
-   "year": 2001
-  },
-  {
-   "id": "masami-okui-shuffle",
-   "artist": "Masami Okui",
-   "title": "Shuffle",
-   "year": 2001
-  },
-  {
-   "id": "peter-gabriel-burn-you-up-burn-you-down",
-   "artist": "Peter Gabriel & Karl Wallinger",
-   "title": "Burn You Up, Burn You Down",
-   "year": 2003
-  },
-  {
-   "id": "ringo-sheena-carnation",
-   "artist": "Ringo Sheena",
-   "title": "Carnation",
-   "year": 2011
-  },
-  {
-   "id": "youmi-kimura-always-with-me",
-   "artist": "Youmi Kimura",
-   "title": "Always with me",
-   "year": 2001
-  },
-  {
-   "id": "apollo-440-krupa",
-   "artist": "Apollo 440 & Noko",
-   "title": "Krupa",
-   "year": 1996
-  },
-  {
-   "id": "v6-take-me-higher",
-   "artist": "V6 & Jennifer Batten",
-   "title": "Take Me Higher",
-   "year": 1996
-  },
-  {
-   "id": "agharta-wa-ni-natte-odoro",
-   "artist": "AGHARTA",
-   "title": "Wa ni Natte Odorō",
+   "id": "tomorrow-never-dies",
+   "artist": "Sheryl Crow",
+   "title": "Tomorrow Never Dies",
    "year": 1997
   },
   {
-   "id": "the-kills-future-starts-slow",
-   "artist": "The Kills",
-   "title": "Future Starts Slow",
-   "year": 2011
-  },
-  {
-   "id": "eriko-imai-our-relation",
-   "artist": "Eriko Imai",
-   "title": "Our Relation",
-   "year": 2002
-  },
-  {
-   "id": "mihimaru-gt-kibun-jojo",
-   "artist": "Mihimaru GT",
-   "title": "Kibun Jōjō",
-   "year": 2006
-  },
-  {
-   "id": "nie-er-graduation-song",
-   "artist": "Nie Er",
-   "title": "Graduation Song",
-   "year": 1934
-  },
-  {
-   "id": "s-kitto-seishun-ga-kikoeru",
-   "artist": "μ's",
-   "title": "Kitto Seishun ga Kikoeru",
+   "id": "her",
+   "artist": "Arcade Fire",
+   "title": "Her",
    "year": 2013
   },
   {
-   "id": "aimyon-haru-no-hi",
-   "artist": "Aimyon",
-   "title": "Haru no Hi",
-   "year": 2019
-  },
-  {
-   "id": "ken-ichi-maeyamada-hyadain-no-jojo-yujo",
-   "artist": "Ken'ichi Maeyamada",
-   "title": "Hyadain no Jōjō Yūjō",
-   "year": 2011
-  },
-  {
-   "id": "matsuko-mawatari-hohoemi-no-bakudan",
-   "artist": "Matsuko Mawatari",
-   "title": "Hohoemi no Bakudan",
-   "year": 1992
-  },
-  {
-   "id": "alexandros-senkou",
-   "artist": "[Alexandros]",
-   "title": "Senkou",
-   "year": 2021
-  },
-  {
-   "id": "kirk-douglas-a-whale-of-a-tale",
-   "artist": "Kirk Douglas & Al Hoffman",
-   "title": "A Whale of a Tale",
-   "year": 1954
-  },
-  {
-   "id": "louis-alter-do-you-know-what-it-means-to-miss-new-orleans",
-   "artist": "Louis Alter & Billie Holiday",
-   "title": "Do You Know What It Means to Miss New Orleans?",
-   "year": 1947
-  },
-  {
-   "id": "crystal-king-ai-o-torimodose",
-   "artist": "Crystal King",
-   "title": "Ai o Torimodose!!",
-   "year": 1984
-  },
-  {
-   "id": "spencer-williams-tishomingo-blues",
-   "artist": "Spencer Williams",
-   "title": "Tishomingo Blues",
-   "year": 1917
-  },
-  {
-   "id": "dirty-pretty-things-deadwood",
-   "artist": "Dirty Pretty Things",
-   "title": "Deadwood",
-   "year": 2006
-  },
-  {
-   "id": "akira-ifukube-godzilla-main-theme",
-   "artist": "Akira Ifukube",
-   "title": "Godzilla – Main Theme",
-   "year": 1954
-  },
-  {
-   "id": "barry-mann-once-upon-a-time-in-new-york-city",
-   "artist": "Barry Mann & Huey Lewis",
-   "title": "Once Upon a Time in New York City",
+   "id": "vem-satte-dit-roger-rabbit",
+   "artist": "Alan Silvestri",
+   "title": "Vem satte dit Roger Rabbit?",
    "year": 1988
   },
   {
-   "id": "kunio-muramatsu-ja-ja-uma-sasenaide-don-t-make-me-wild-like-you",
-   "artist": "Kunio Muramatsu & Etsuko Nishio",
-   "title": "Ja Ja Uma Sasenaide (Don't Make Me Wild Like You)",
-   "year": 1989
+   "id": "diamantfeber",
+   "artist": "John Barry",
+   "title": "Diamantfeber",
+   "year": 1971
   },
   {
-   "id": "sunao-blade-chord",
-   "artist": "Sunao & Abingdon Boys School",
-   "title": "Blade Chord",
-   "year": 2007
-  },
-  {
-   "id": "harold-arlen-my-shining-hour",
-   "artist": "Harold Arlen & Barbra Streisand",
-   "title": "My Shining Hour",
-   "year": 1943
-  },
-  {
-   "id": "peter-sellers-goodness-gracious-me",
-   "artist": "Peter Sellers & Sophia Loren",
-   "title": "Goodness Gracious Me",
-   "year": 1960
-  },
-  {
-   "id": "marvin-hamlisch-through-the-eyes-of-love",
-   "artist": "Marvin Hamlisch & Melissa Manchester",
-   "title": "Through the Eyes of Love",
-   "year": 1979
-  },
-  {
-   "id": "chuck-mangione-feels-so-good",
-   "artist": "Chuck Mangione",
-   "title": "Feels So Good",
-   "year": 1978
-  },
-  {
-   "id": "frank-churchill-baby-mine",
-   "artist": "Frank Churchill & Betty Noyes",
-   "title": "Baby Mine",
-   "year": 1941
-  },
-  {
-   "id": "ron-wasserman-go-go-power-rangers",
-   "artist": "Ron Wasserman",
-   "title": "Go Go Power Rangers",
-   "year": 1994
-  },
-  {
-   "id": "the-rascals-good-lovin",
-   "artist": "The Rascals",
-   "title": "Good Lovin'",
+   "id": "askbollen",
+   "artist": "John Barry",
+   "title": "Åskbollen",
    "year": 1965
   },
   {
-   "id": "kazuya-yoshii-chozetsudynamic",
-   "artist": "Kazuya Yoshii",
-   "title": "Chōzetsu☆Dynamic!",
-   "year": 2015
-  },
-  {
-   "id": "van-halen-glory-glory",
-   "artist": "Van Halen",
-   "title": "Glory Glory",
-   "year": 1968
-  },
-  {
-   "id": "melody-club-destiny-calling",
-   "artist": "Melody Club",
-   "title": "Destiny Calling",
-   "year": 2006
-  },
-  {
-   "id": "john-williams-theme-from-close-encounters-of-the-third-kind",
-   "artist": "John Williams",
-   "title": "Theme from Close Encounters of the Third Kind",
-   "year": 1977
-  },
-  {
-   "id": "walter-donaldson-you-re-driving-me-crazy",
-   "artist": "Walter Donaldson & Guy Lombardo",
-   "title": "You're Driving Me Crazy",
-   "year": 1930
-  },
-  {
-   "id": "seven-oops-orange",
-   "artist": "Seven oops",
-   "title": "Orange",
-   "year": 2015
-  },
-  {
-   "id": "takanori-nishikawa-resonance",
-   "artist": "Takanori Nishikawa",
-   "title": "Resonance",
-   "year": 2008
-  },
-  {
-   "id": "gioachino-rossini-tutto-cangia-il-ciel-s-abbella",
-   "artist": "Gioachino Rossini",
-   "title": "Tutto cangia, il ciel s'abbella",
-   "year": 1829
-  },
-  {
-   "id": "dolores-claman-the-hockey-theme",
-   "artist": "Dolores Claman",
-   "title": "The Hockey Theme",
-   "year": 1968
-  },
-  {
-   "id": "mc-hammer-addams-groove",
-   "artist": "MC Hammer & Felton Pilate",
-   "title": "Addams Groove",
-   "year": 1991
-  },
-  {
-   "id": "lulu-the-man-with-the-golden-gun",
-   "artist": "Lulu & John Barry",
-   "title": "The Man with the Golden Gun",
-   "year": 1974
-  },
-  {
-   "id": "tony-weng-small-town-story",
-   "artist": "Tony Weng & Teresa Teng",
-   "title": "Small Town Story",
-   "year": 1979
-  },
-  {
-   "id": "vic-mizzy-the-addams-family-theme",
-   "artist": "Vic Mizzy & Vic Mizzy and His Orchestra",
-   "title": "The Addams Family Theme",
-   "year": 1964
-  },
-  {
-   "id": "snowkel-namikaze-satellite",
-   "artist": "Snowkel",
-   "title": "Namikaze Satellite",
-   "year": 2006
-  },
-  {
-   "id": "mark-snow-the-x-files",
-   "artist": "Mark Snow",
-   "title": "The X-Files",
-   "year": 1998
-  },
-  {
-   "id": "mickey-lin-on-happiness-road",
-   "artist": "Mickey Lin & Lin Chia-chin",
-   "title": "On Happiness Road",
-   "year": 2017
-  },
-  {
-   "id": "hound-dog-rocks",
-   "artist": "Hound Dog",
-   "title": "Rocks",
-   "year": 2002
-  },
-  {
-   "id": "scandal-the-warrior",
-   "artist": "Scandal",
-   "title": "The Warrior",
+   "id": "ghostbusters-spokligan",
+   "artist": "Ray Parker Jr.",
+   "title": "Ghostbusters – Spökligan",
    "year": 1984
   },
   {
-   "id": "yoko-takahashi-fly-me-to-the-moon",
-   "artist": "Yoko Takahashi & Bart Howard",
-   "title": "Fly Me to the Moon",
-   "year": 1995
+   "id": "terminator-salvation",
+   "artist": "Danny Elfman",
+   "title": "Terminator Salvation",
+   "year": 2009
   },
   {
-   "id": "choucho-dreamriser",
-   "artist": "ChouCho & Rino",
-   "title": "DreamRiser",
-   "year": 2012
-  },
-  {
-   "id": "david-foster-voices-that-care",
-   "artist": "David Foster & Peter Cetera",
-   "title": "Voices That Care",
-   "year": 1991
-  },
-  {
-   "id": "masatoshi-ono-depature",
-   "artist": "Masatoshi Ono",
-   "title": "Depature!",
-   "year": 2011
-  },
-  {
-   "id": "eir-aoi-sirius",
-   "artist": "Eir Aoi",
-   "title": "Sirius",
-   "year": 2013
-  },
-  {
-   "id": "the-dandy-warhols-we-used-to-be-friends",
-   "artist": "The Dandy Warhols",
-   "title": "We Used to Be Friends",
-   "year": 2003
-  },
-  {
-   "id": "neru-ashura-chan",
-   "artist": "Neru & Ado",
-   "title": "Ashura-chan",
-   "year": 2021
-  },
-  {
-   "id": "kumamon-kumamonmon",
-   "artist": "Kumamon",
-   "title": "Kumamonmon",
-   "year": 2013
-  },
-  {
-   "id": "peerless-quartet-say-a-prayer-for-the-boys-over-there",
-   "artist": "Peerless Quartet",
-   "title": "Say a Prayer for the Boys Over There",
-   "year": 1943
-  },
-  {
-   "id": "thegiornalisti-riccione",
-   "artist": "Thegiornalisti",
-   "title": "Riccione",
-   "year": 2017
-  },
-  {
-   "id": "massari-ya-lil",
-   "artist": "Massari & Frank Dukes",
-   "title": "Ya Lil",
-   "year": 2019
-  },
-  {
-   "id": "produce-x-101-x1-ma",
-   "artist": "Produce X 101",
-   "title": "X1-MA",
-   "year": 2019
-  },
-  {
-   "id": "chieko-kawabe-be-your-girl",
-   "artist": "Chieko Kawabe",
-   "title": "Be your girl",
-   "year": 2004
-  },
-  {
-   "id": "ayano-tsuji-kaze-ni-naru",
-   "artist": "Ayano Tsuji",
-   "title": "Kaze ni Naru",
-   "year": 2002
-  },
-  {
-   "id": "miyuki-nakajima-in-the-core-of-my-heart",
-   "artist": "Miyuki Nakajima",
-   "title": "In the Core of My Heart",
-   "year": 2023
-  },
-  {
-   "id": "richard-m-sherman-the-age-of-not-believing",
-   "artist": "Richard M. Sherman & Robert B. Sherman",
-   "title": "The Age of Not Believing",
-   "year": 1970
-  },
-  {
-   "id": "dwiki-dharmawan-melangkah-di-atas-awan",
-   "artist": "Dwiki Dharmawan",
-   "title": "Melangkah Di Atas Awan",
-   "year": 1997
-  },
-  {
-   "id": "jean-jacques-perrey-the-elephant-never-forgets",
-   "artist": "Jean-Jacques Perrey",
-   "title": "The elephant never forgets",
-   "year": 1970
-  },
-  {
-   "id": "thalia-maria-mercedes",
-   "artist": "Thalía",
-   "title": "María Mercedes",
-   "year": 1992
-  },
-  {
-   "id": "beat-crusaders-tonight-tonight-tonight",
-   "artist": "Beat Crusaders",
-   "title": "Tonight, Tonight, Tonight",
-   "year": 2006
-  },
-  {
-   "id": "lana-nitibaskara-dengan-menyebut-nama-allah",
-   "artist": "Lana Nitibaskara & Novia Kolopaking",
-   "title": "Dengan Menyebut Nama Allah",
-   "year": 1990
-  },
-  {
-   "id": "band-maid-sense",
-   "artist": "Band-Maid",
-   "title": "Sense",
-   "year": 2021
-  },
-  {
-   "id": "sayaka-sasaki-zzz",
-   "artist": "Sayaka Sasaki & Ken'ichi Maeyamada",
-   "title": "Zzz",
-   "year": 2011
-  },
-  {
-   "id": "miho-nakayama-toi-machi-no-doko-ka-de",
-   "artist": "Miho Nakayama",
-   "title": "Tōi Machi no Doko ka de...",
-   "year": 1991
-  },
-  {
-   "id": "group-tamashii-dadada",
-   "artist": "Group Tamashii",
-   "title": "Dadada",
-   "year": 2011
-  },
-  {
-   "id": "hidenori-chiwata-kasabuta",
-   "artist": "Hidenori Chiwata",
-   "title": "Kasabuta",
-   "year": 2003
-  },
-  {
-   "id": "yoh-kamiyama-iro-kosui",
-   "artist": "Yoh Kamiyama",
-   "title": "Iro Kōsui",
-   "year": 2021
-  },
-  {
-   "id": "swing-out-sister-now-you-re-not-here",
-   "artist": "Swing Out Sister",
-   "title": "Now You're Not Here",
-   "year": 1997
-  },
-  {
-   "id": "alex-clare-up-all-night",
-   "artist": "Alex Clare",
-   "title": "Up All Night",
-   "year": 2010
-  },
-  {
-   "id": "s-donna-toki-mo-zutto",
-   "artist": "μ's",
-   "title": "Donna Toki mo Zutto",
-   "year": 2014
-  },
-  {
-   "id": "la-veneno-veneno-pa-tu-piel",
-   "artist": "La Veneno",
-   "title": "Veneno pa tu piel",
-   "year": 1996
-  },
-  {
-   "id": "hearts-grow-yura-yura",
-   "artist": "Hearts Grow",
-   "title": "Yura Yura",
-   "year": 2006
-  },
-  {
-   "id": "produce-101-japan-tsukame-it-s-coming",
-   "artist": "Produce 101 Japan",
-   "title": "Tsukame~It's Coming~",
-   "year": 2019
-  },
-  {
-   "id": "rekishi-gigaaishiteru",
-   "artist": "REKISHI",
-   "title": "Gigaaishiteru",
-   "year": 2020
-  },
-  {
-   "id": "akb48-365-nichi-no-kamihikoki",
-   "artist": "AKB48",
-   "title": "365 Nichi no Kamihikōki",
-   "year": 2015
-  },
-  {
-   "id": "ado-mizumori-wai-wai-world",
-   "artist": "Ado Mizumori",
-   "title": "Wai Wai World",
-   "year": 1981
-  },
-  {
-   "id": "isaac-schwartz-your-honor-lady-luck",
-   "artist": "Isaac Schwartz & Bulat Okudzhava",
-   "title": "Your Honor, Lady Luck",
-   "year": 1969
-  },
-  {
-   "id": "vladimir-vysotsky-he-did-not-return-from-battle",
-   "artist": "Vladimir Vysotsky",
-   "title": "He Did Not Return From Battle",
-   "year": 1972
-  },
-  {
-   "id": "jacques-offenbach-infernal-galop",
-   "artist": "Jacques Offenbach",
-   "title": "Infernal Galop",
-   "year": 1858
-  },
-  {
-   "id": "aleksandr-okayomov-orlyonok",
-   "artist": "Aleksandr Okayomov & Viktor Bely",
-   "title": "Orlyonok",
-   "year": 1936
-  },
-  {
-   "id": "masami-okui-labyrinth-toki-ni-ai-wa",
-   "artist": "Masami Okui",
-   "title": "Labyrinth / Toki ni Ai wa",
-   "year": 1999
-  },
-  {
-   "id": "umberto-tozzi-stella-stai",
-   "artist": "Umberto Tozzi",
-   "title": "Stella stai",
-   "year": 1980
-  },
-  {
-   "id": "sherman-brothers-a-rather-blustery-day",
-   "artist": "Sherman Brothers & Sterling Holloway",
-   "title": "A Rather Blustery Day",
-   "year": 1968
-  },
-  {
-   "id": "the-outhere-brothers-boom-boom-boom",
-   "artist": "The Outhere Brothers",
-   "title": "Boom Boom Boom",
-   "year": 1995
-  },
-  {
-   "id": "louis-jordan-beans-and-corn-bread",
-   "artist": "Louis Jordan",
-   "title": "Beans and Corn Bread",
-   "year": 1949
-  },
-  {
-   "id": "sherman-brothers-heffalumps-and-woozles",
-   "artist": "Sherman Brothers & The Mellomen",
-   "title": "Heffalumps and Woozles",
-   "year": 1968
-  },
-  {
-   "id": "sherman-brothers-hip-hip-pooh-ray",
-   "artist": "Sherman Brothers & Ralph Wright",
-   "title": "Hip Hip Pooh-Ray!",
-   "year": 1968
-  },
-  {
-   "id": "beastie-boys-ch-check-it-out",
-   "artist": "Beastie Boys",
-   "title": "Ch-Check It Out",
-   "year": 2004
-  },
-  {
-   "id": "tsugutoshi-goto-kashiko",
-   "artist": "Tsugutoshi Gotō & Ushiroyubi Sasaregumi",
-   "title": "KASHIKO",
-   "year": 1987
-  },
-  {
-   "id": "gen-hoshino-idea",
-   "artist": "Gen Hoshino",
-   "title": "IDEA",
-   "year": 2018
-  },
-  {
-   "id": "mark-reilly-get-out-of-your-lazy-bed",
-   "artist": "Mark Reilly & Danny White",
-   "title": "Get Out of Your Lazy Bed",
-   "year": 1984
-  },
-  {
-   "id": "hachidai-nakamura-sekai-no-kuni-kara-konnichiwa",
-   "artist": "Hachidai Nakamura & Kyū Sakamoto",
-   "title": "Sekai no Kuni kara Konnichiwa",
-   "year": 1967
-  },
-  {
-   "id": "leann-rimes-give",
-   "artist": "LeAnn Rimes",
-   "title": "Give",
-   "year": 2011
-  },
-  {
-   "id": "dizzy-gillespie-shaw-nuff",
-   "artist": "Dizzy Gillespie & Charlie Parker",
-   "title": "Shaw 'Nuff",
-   "year": 1945
-  },
-  {
-   "id": "guido-de-angelis-orzowei",
-   "artist": "Guido De Angelis & Maurizio De Angelis",
-   "title": "Orzowei",
-   "year": 1976
-  },
-  {
-   "id": "aurelio-voltaire-land-of-the-dead",
-   "artist": "Aurelio Voltaire",
-   "title": "Land of the Dead",
+   "id": "into-the-wild",
+   "artist": "Michael Brook",
+   "title": "Into the Wild",
    "year": 2007
   },
   {
-   "id": "rita-pavone-fortissimo",
-   "artist": "Rita Pavone & Bruno Canfora",
-   "title": "Fortissimo",
-   "year": 1966
+   "id": "gone-girl",
+   "artist": "Trent Reznor",
+   "title": "Gone Girl",
+   "year": 2014
   },
   {
-   "id": "fred-fisher-sing-me-a-song-of-araby",
-   "artist": "Fred Fisher",
-   "title": "Sing me a song of Araby",
-   "year": 1927
+   "id": "leva-och-lata-do",
+   "artist": "Wings",
+   "title": "Leva och låta dö",
+   "year": 1973
   },
   {
-   "id": "the-clovers-devil-or-angel",
-   "artist": "The Clovers",
-   "title": "Devil or Angel",
-   "year": 1956
+   "id": "octopussy",
+   "artist": "Rita Coolidge",
+   "title": "Octopussy",
+   "year": 1983
   },
   {
-   "id": "ray-anthony-dragnet",
-   "artist": "Ray Anthony",
-   "title": "Dragnet",
-   "year": 1987
+   "id": "kill-bill-volume-1",
+   "artist": "RZA",
+   "title": "Kill Bill: Volume 1",
+   "year": 2003
   },
   {
-   "id": "howard-carpendale-hurra-hurra-der-pumuckl-ist-da",
-   "artist": "Howard Carpendale & Fritz Muschler",
-   "title": "Hurra, hurra, der Pumuckl ist da",
-   "year": 1979
+   "id": "levande-maltavla",
+   "artist": "Duran Duran",
+   "title": "Levande måltavla",
+   "year": 1985
   },
   {
-   "id": "koji-makaino-hey-world",
-   "artist": "Kōji Makaino & Yuka Iguchi",
-   "title": "Hey World",
-   "year": 2015
+   "id": "alskade-spion",
+   "artist": "Carly Simon",
+   "title": "Älskade spion",
+   "year": 1977
   },
   {
-   "id": "tangerine-dream-choronzon",
-   "artist": "Tangerine Dream",
-   "title": "Choronzon",
-   "year": 1981
+   "id": "tid-for-hamnd",
+   "artist": "Gladys Knight",
+   "title": "Tid för hämnd",
+   "year": 1989
   },
   {
-   "id": "jerry-goldsmith-theme-from-dr-kildare",
-   "artist": "Jerry Goldsmith & Richard Chamberlain",
-   "title": "Theme from Dr. Kildare",
-   "year": 1962
-  },
-  {
-   "id": "victor-young-golden-earrings",
-   "artist": "Victor Young & Murvyn Vye",
-   "title": "Golden Earrings",
-   "year": 1947
-  },
-  {
-   "id": "kunihiko-murai-niji-to-yuki-no-ballad",
-   "artist": "Kunihiko Murai & Jackey Yoshikawa and His Blue Comets",
-   "title": "Niji to Yuki no Ballad",
-   "year": 1971
-  },
-  {
-   "id": "anna-hanski-tunteisiin",
-   "artist": "Anna Hanski",
-   "title": "Tunteisiin",
-   "year": 1999
-  },
-  {
-   "id": "ryudo-uzaki-kamen-rider-black",
-   "artist": "Ryudo Uzaki & Tetsuo Kurata",
-   "title": "Kamen Rider Black",
-   "year": 1987
-  },
-  {
-   "id": "sammy-fain-you-brought-a-new-kind-of-love-to-me",
-   "artist": "Sammy Fain & Pierre Norman",
-   "title": "You Brought a New Kind of Love to Me",
-   "year": 1930
-  },
-  {
-   "id": "john-barry-diamonds-are-forever",
-   "artist": "John Barry & Shirley Bassey",
-   "title": "Diamonds Are Forever",
-   "year": 1971
-  },
-  {
-   "id": "sherman-brothers-the-parent-trap",
-   "artist": "Sherman Brothers & Annette Funicello",
-   "title": "The Parent Trap",
-   "year": 1961
-  },
-  {
-   "id": "ankerstjerne-tinka",
-   "artist": "Ankerstjerne & Frida Brygmann",
-   "title": "Tinka",
+   "id": "jumanji-welcome-to-the-jungle",
+   "artist": "Guns N' Roses",
+   "title": "Jumanji: Welcome to the Jungle",
    "year": 2017
   },
   {
-   "id": "lothar-bruhne-la-habanera",
-   "artist": "Lothar Brühne",
-   "title": "La Habanera",
-   "year": 1937
+   "id": "solo-a-star-wars-story",
+   "artist": "John Powell",
+   "title": "Solo: A Star Wars Story",
+   "year": 2018
   },
   {
-   "id": "lennon-mccartney-the-sounds-of-science",
-   "artist": "Lennon-McCartney & Beastie Boys",
-   "title": "The Sounds of Science",
-   "year": 1989
+   "id": "avatar-fire-and-ash",
+   "artist": "Simon Franglen",
+   "title": "Avatar: Fire and Ash",
+   "year": 2025
   },
   {
-   "id": "kobukuro-kono-hoshi-no-tsuzuki-wo",
-   "artist": "Kobukuro",
-   "title": "Kono Hoshi no Tsuzuki wo",
-   "year": 2022
+   "id": "the-twilight-saga-breaking-dawn-part-1",
+   "artist": "Carter Burwell",
+   "title": "The Twilight Saga: Breaking Dawn – Part 1",
+   "year": 2011
   },
   {
-   "id": "chelsy-kite",
-   "artist": "Chelsy",
-   "title": "Kite",
-   "year": 2016
+   "id": "8-mile",
+   "artist": "Eminem",
+   "title": "8 Mile",
+   "year": 2002
   },
   {
-   "id": "adrian-quesada-like-a-bird",
-   "artist": "Adrian Quesada & Abraham Alexander",
-   "title": "Like a Bird",
+   "id": "k-pop-demonjagarna",
+   "artist": "Marcelo Zarvos",
+   "title": "K-Pop: Demonjägarna",
+   "year": 2025
+  },
+  {
+   "id": "ur-dodlig-synvinkel",
+   "artist": "Sheena Easton",
+   "title": "Ur dödlig synvinkel",
+   "year": 1981
+  },
+  {
+   "id": "draktranaren-2",
+   "artist": "John Powell",
+   "title": "Draktränaren 2",
+   "year": 2014
+  },
+  {
+   "id": "oblivion",
+   "artist": "Joseph Trapanese",
+   "title": "Oblivion",
+   "year": 2013
+  },
+  {
+   "id": "the-twilight-saga-breaking-dawn-part-2",
+   "artist": "Carter Burwell",
+   "title": "The Twilight Saga: Breaking Dawn – Part 2",
+   "year": 2012
+  },
+  {
+   "id": "28-dagar-senare",
+   "artist": "John Murphy",
+   "title": "28 dagar senare",
+   "year": 2002
+  },
+  {
+   "id": "spirit-hasten-fran-vildmarken",
+   "artist": "Bryan Adams",
+   "title": "Spirit - Hästen från vildmarken",
+   "year": 2002
+  },
+  {
+   "id": "du-har-mail",
+   "artist": "George Fenton",
+   "title": "Du har mail",
+   "year": 1998
+  },
+  {
+   "id": "birds-of-prey",
+   "artist": "Daniel Pemberton",
+   "title": "Birds of Prey",
+   "year": 2020
+  },
+  {
+   "id": "snuten-i-hollywood",
+   "artist": "Harold Faltermeyer",
+   "title": "Snuten i Hollywood",
+   "year": 1984
+  },
+  {
+   "id": "from-dusk-till-dawn",
+   "artist": "Graeme Revell",
+   "title": "From Dusk Till Dawn",
+   "year": 1996
+  },
+  {
+   "id": "dilwale-dulhania-le-jayenge",
+   "artist": "Jatin–Lalit",
+   "title": "Dilwale Dulhania Le Jayenge",
+   "year": 1995
+  },
+  {
+   "id": "vaiana-2",
+   "artist": "Opetaia Foaʻi",
+   "title": "Vaiana 2",
    "year": 2024
   },
   {
-   "id": "cristina-d-avena-d-artagnan-e-i-moschettieri-del-re-d-artagnan-e-i-moschettieri-del-re",
-   "artist": "Cristina D'Avena",
-   "title": "D'Artagnan e i moschettieri del re/D'Artagnan e i moschettieri del re",
+   "id": "lagaan",
+   "artist": "A. R. Rahman",
+   "title": "Lagaan",
+   "year": 2001
+  },
+  {
+   "id": "28-veckor-senare",
+   "artist": "John Murphy",
+   "title": "28 veckor senare",
+   "year": 2007
+  },
+  {
+   "id": "madagaskar",
+   "artist": "Hans Zimmer",
+   "title": "Madagaskar",
+   "year": 2005
+  },
+  {
+   "id": "avatar",
+   "artist": "Simon Franglen & James Horner",
+   "title": "Avatar",
+   "year": 2009
+  },
+  {
+   "id": "snovit-och-de-sju-dvargarna",
+   "artist": "Leigh Harline & Paul Smith",
+   "title": "Snövit och de sju dvärgarna",
+   "year": 1937
+  },
+  {
+   "id": "den-lilla-sjojungfrun",
+   "artist": "Howard Ashman & Alan Menken",
+   "title": "Den lilla sjöjungfrun",
    "year": 1989
   },
   {
-   "id": "piero-piccioni-il-cielo-in-una-rete",
-   "artist": "Piero Piccioni",
-   "title": "Il cielo in una rete",
+   "id": "matrix",
+   "artist": "Don Davis",
+   "title": "Matrix",
+   "year": 1999
+  },
+  {
+   "id": "frost",
+   "artist": "Robert Lopez & Kristen Anderson-Lopez",
+   "title": "Frost",
+   "year": 2013
+  },
+  {
+   "id": "dumbo",
+   "artist": "Frank Churchill & Oliver Wallace",
+   "title": "Dumbo",
+   "year": 1941
+  },
+  {
+   "id": "askungen",
+   "artist": "Al Hoffman & Paul Smith",
+   "title": "Askungen",
+   "year": 1950
+  },
+  {
+   "id": "tillbaka-till-framtiden",
+   "artist": "Alan Silvestri",
+   "title": "Tillbaka till framtiden",
+   "year": 1985
+  },
+  {
+   "id": "oliver-ganget",
+   "artist": "Tom Snow & Jon St. James",
+   "title": "Oliver & gänget",
+   "year": 1988
+  },
+  {
+   "id": "jurassic-park",
+   "artist": "John Williams",
+   "title": "Jurassic Park",
+   "year": 1993
+  },
+  {
+   "id": "harry-potter-och-de-vises-sten",
+   "artist": "John Williams",
+   "title": "Harry Potter och de vises sten",
+   "year": 2001
+  },
+  {
+   "id": "pinocchio",
+   "artist": "Paul Smith & Leigh Harline",
+   "title": "Pinocchio",
+   "year": 1940
+  },
+  {
+   "id": "interstellar",
+   "artist": "Hans Zimmer",
+   "title": "Interstellar",
+   "year": 2014
+  },
+  {
+   "id": "v-for-vendetta",
+   "artist": "Dario Marianelli",
+   "title": "V för Vendetta",
+   "year": 2005
+  },
+  {
+   "id": "the-avengers",
+   "artist": "Alan Silvestri",
+   "title": "The Avengers",
+   "year": 2012
+  },
+  {
+   "id": "den-gode-den-onde-den-fule",
+   "artist": "Ennio Morricone",
+   "title": "Den gode, den onde, den fule",
+   "year": 1966
+  },
+  {
+   "id": "harry-potter-och-hemligheternas-kammare",
+   "artist": "John Williams",
+   "title": "Harry Potter och Hemligheternas kammare",
+   "year": 2002
+  },
+  {
+   "id": "terminator-2-domedagen",
+   "artist": "Brad Fiedel",
+   "title": "Terminator 2 - Domedagen",
+   "year": 1991
+  },
+  {
+   "id": "djungelboken",
+   "artist": "George Bruns & Richard M. Sherman",
+   "title": "Djungelboken",
+   "year": 1967
+  },
+  {
+   "id": "hitta-nemo",
+   "artist": "",
+   "title": "Hitta Nemo",
+   "year": 2003
+  },
+  {
+   "id": "star-wars-episod-i-det-morka-hotet",
+   "artist": "John Williams",
+   "title": "Star Wars: Episod I – Det mörka hotet",
+   "year": 1999
+  },
+  {
+   "id": "harry-potter-och-fangen-fran-azkaban",
+   "artist": "John Williams",
+   "title": "Harry Potter och fången från Azkaban",
+   "year": 2004
+  },
+  {
+   "id": "rattatouille",
+   "artist": "Michael Giacchino",
+   "title": "Råttatouille",
+   "year": 2007
+  },
+  {
+   "id": "ar-2001-ett-rymdaventyr",
+   "artist": "György Ligeti & Aram Khachaturian",
+   "title": "År 2001 – Ett rymdäventyr",
+   "year": 1968
+  },
+  {
+   "id": "slumdog-millionaire",
+   "artist": "A. R. Rahman",
+   "title": "Slumdog Millionaire",
+   "year": 2008
+  },
+  {
+   "id": "vaiana",
+   "artist": "Opetaia Foaʻi & Lin-Manuel Miranda",
+   "title": "Vaiana",
+   "year": 2016
+  },
+  {
+   "id": "harry-potter-och-halvblodsprinsen",
+   "artist": "Nicholas Hooper",
+   "title": "Harry Potter och halvblodsprinsen",
+   "year": 2009
+  },
+  {
+   "id": "sagan-om-de-tva-tornen",
+   "artist": "Howard Shore",
+   "title": "Sagan om de två tornen",
+   "year": 2002
+  },
+  {
+   "id": "harry-potter-och-fenixorden",
+   "artist": "Nicholas Hooper",
+   "title": "Harry Potter och Fenixorden",
+   "year": 2007
+  },
+  {
+   "id": "radda-menige-ryan",
+   "artist": "John Williams",
+   "title": "Rädda menige Ryan",
+   "year": 1998
+  },
+  {
+   "id": "upp",
+   "artist": "Michael Giacchino",
+   "title": "Upp",
+   "year": 2009
+  },
+  {
+   "id": "doda-poeters-sallskap",
+   "artist": "Maurice Jarre",
+   "title": "Döda poeters sällskap",
+   "year": 1989
+  },
+  {
+   "id": "brokeback-mountain",
+   "artist": "",
+   "title": "Brokeback Mountain",
+   "year": 2005
+  },
+  {
+   "id": "rymdimperiet-slar-tillbaka",
+   "artist": "John Williams",
+   "title": "Rymdimperiet slår tillbaka",
    "year": 1980
   },
   {
-   "id": "jan-morgenstern-i-move-on-sintel-s-song",
-   "artist": "Jan Morgenstern & Helena Fix",
-   "title": "I Move On (Sintel's Song)",
+   "id": "spider-man",
+   "artist": "Danny Elfman",
+   "title": "Spider-Man",
+   "year": 2002
+  },
+  {
+   "id": "jedins-aterkomst",
+   "artist": "John Williams",
+   "title": "Jedins återkomst",
+   "year": 1983
+  },
+  {
+   "id": "alien",
+   "artist": "Jerry Goldsmith",
+   "title": "Alien",
+   "year": 1979
+  },
+  {
+   "id": "bilar",
+   "artist": "Randy Newman",
+   "title": "Bilar",
+   "year": 2006
+  },
+  {
+   "id": "big-hero-6",
+   "artist": "Henry Jackman",
+   "title": "Big Hero 6",
+   "year": 2014
+  },
+  {
+   "id": "the-avengers-age-of-ultron",
+   "artist": "Brian Tyler & Danny Elfman",
+   "title": "The Avengers: Age of Ultron",
+   "year": 2015
+  },
+  {
+   "id": "star-wars-episod-ii-klonerna-anfaller",
+   "artist": "John Williams",
+   "title": "Star Wars: Episod II – Klonerna anfaller",
+   "year": 2002
+  },
+  {
+   "id": "ice-age",
+   "artist": "David Newman",
+   "title": "Ice Age",
+   "year": 2002
+  },
+  {
+   "id": "herkules",
+   "artist": "Alan Menken",
+   "title": "Herkules",
+   "year": 1997
+  },
+  {
+   "id": "aristocats",
+   "artist": "Floyd Huddleston & George Bruns",
+   "title": "Aristocats",
+   "year": 1970
+  },
+  {
+   "id": "parasit",
+   "artist": "Jung Jae-il",
+   "title": "Parasit",
+   "year": 2019
+  },
+  {
+   "id": "the-departed",
+   "artist": "Howard Shore",
+   "title": "The Departed",
+   "year": 2006
+  },
+  {
+   "id": "prinsessan-och-grodan",
+   "artist": "Randy Newman & Ne-Yo",
+   "title": "Prinsessan och grodan",
+   "year": 2009
+  },
+  {
+   "id": "livet-ar-underbart",
+   "artist": "Nicola Piovani",
+   "title": "Livet är underbart",
+   "year": 1997
+  },
+  {
+   "id": "inglourious-basterds",
+   "artist": "Mary Ramos",
+   "title": "Inglourious Basterds",
+   "year": 2009
+  },
+  {
+   "id": "captain-america-the-first-avenger",
+   "artist": "Alan Silvestri",
+   "title": "Captain America: The First Avenger",
+   "year": 2011
+  },
+  {
+   "id": "lawrence-av-arabien",
+   "artist": "Maurice Jarre",
+   "title": "Lawrence av Arabien",
+   "year": 1962
+  },
+  {
+   "id": "die-hard",
+   "artist": "",
+   "title": "Die Hard",
+   "year": 1988
+  },
+  {
+   "id": "thor",
+   "artist": "Patrick Doyle",
+   "title": "Thor",
+   "year": 2011
+  },
+  {
+   "id": "12-years-a-slave",
+   "artist": "Hans Zimmer",
+   "title": "12 Years a Slave",
+   "year": 2013
+  },
+  {
+   "id": "amelie-fran-montmartre",
+   "artist": "Yann Tiersen",
+   "title": "Amelie från Montmartre",
+   "year": 2001
+  },
+  {
+   "id": "ben-hur",
+   "artist": "Miklós Rózsa",
+   "title": "Ben-Hur",
+   "year": 1959
+  },
+  {
+   "id": "joker",
+   "artist": "Hildur Guðnadóttir",
+   "title": "Joker",
+   "year": 2019
+  },
+  {
+   "id": "gravity",
+   "artist": "Steven Price",
+   "title": "Gravity",
+   "year": 2013
+  },
+  {
+   "id": "agent-007-med-ratt-att-doda",
+   "artist": "Monty Norman & John Barry",
+   "title": "Agent 007 med rätt att döda",
+   "year": 1962
+  },
+  {
+   "id": "ringaren-i-notre-dame",
+   "artist": "Alan Menken",
+   "title": "Ringaren i Notre Dame",
+   "year": 1996
+  },
+  {
+   "id": "the-shining",
+   "artist": "",
+   "title": "The Shining",
+   "year": 1980
+  },
+  {
+   "id": "peter-pan",
+   "artist": "Erdman Penner & Jack Lawrence",
+   "title": "Peter Pan",
+   "year": 1953
+  },
+  {
+   "id": "the-simpsons-filmen",
+   "artist": "Hans Zimmer",
+   "title": "The Simpsons: Filmen",
+   "year": 2007
+  },
+  {
+   "id": "frost-2",
+   "artist": "Robert Lopez & Christophe Beck",
+   "title": "Frost 2",
+   "year": 2019
+  },
+  {
+   "id": "the-wolf-of-wall-street",
+   "artist": "Howard Shore",
+   "title": "The Wolf of Wall Street",
+   "year": 2013
+  },
+  {
+   "id": "iron-man-2",
+   "artist": "John Debney",
+   "title": "Iron Man 2",
    "year": 2010
   },
   {
-   "id": "akihito-tokunaga-barairo-no-jinsei",
-   "artist": "Akihito Tokunaga & Mai Kuraki",
-   "title": "Barairo no Jinsei",
+   "id": "madagaskar-2",
+   "artist": "Hans Zimmer",
+   "title": "Madagaskar 2",
+   "year": 2008
+  },
+  {
+   "id": "twilight",
+   "artist": "Carter Burwell",
+   "title": "Twilight",
+   "year": 2008
+  },
+  {
+   "id": "hobbit-en-ovantad-resa",
+   "artist": "Howard Shore",
+   "title": "Hobbit: En oväntad resa",
+   "year": 2012
+  },
+  {
+   "id": "rojar-ralf",
+   "artist": "Henry Jackman",
+   "title": "Röjar-Ralf",
+   "year": 2012
+  },
+  {
+   "id": "the-social-network",
+   "artist": "Atticus Ross & Trent Reznor",
+   "title": "The Social Network",
+   "year": 2010
+  },
+  {
+   "id": "ice-age-3-det-varas-for-dinosaurierna",
+   "artist": "John Powell",
+   "title": "Ice Age 3: Det våras för dinosaurierna",
+   "year": 2009
+  },
+  {
+   "id": "maffiabroder",
+   "artist": "Pete Townshend",
+   "title": "Maffiabröder",
+   "year": 1990
+  },
+  {
+   "id": "seven",
+   "artist": "Howard Shore",
+   "title": "Seven",
+   "year": 1995
+  },
+  {
+   "id": "robotar",
+   "artist": "John Powell",
+   "title": "Robotar",
+   "year": 2005
+  },
+  {
+   "id": "a-clockwork-orange",
+   "artist": "Wendy Carlos",
+   "title": "A Clockwork Orange",
+   "year": 1971
+  },
+  {
+   "id": "rocky",
+   "artist": "Bill Conti",
+   "title": "Rocky",
+   "year": 1976
+  },
+  {
+   "id": "guardians-of-the-galaxy",
+   "artist": "Tyler Bates",
+   "title": "Guardians of the Galaxy",
+   "year": 2014
+  },
+  {
+   "id": "scarface",
+   "artist": "Giorgio Moroder",
+   "title": "Scarface",
+   "year": 1983
+  },
+  {
+   "id": "thor-ragnarok",
+   "artist": "",
+   "title": "Thor: Ragnarök",
+   "year": 2017
+  },
+  {
+   "id": "shrek-2",
+   "artist": "Harry Gregson-Williams",
+   "title": "Shrek 2",
+   "year": 2004
+  },
+  {
+   "id": "captain-america-civil-war",
+   "artist": "Henry Jackman",
+   "title": "Captain America: Civil War",
+   "year": 2016
+  },
+  {
+   "id": "shutter-island",
+   "artist": "Robbie Robertson",
+   "title": "Shutter Island",
+   "year": 2010
+  },
+  {
+   "id": "iron-man-3",
+   "artist": "Brian Tyler",
+   "title": "Iron Man 3",
+   "year": 2013
+  },
+  {
+   "id": "captain-america-the-winter-soldier",
+   "artist": "Henry Jackman",
+   "title": "Captain America: The Winter Soldier",
+   "year": 2014
+  },
+  {
+   "id": "ice-age-2",
+   "artist": "John Powell",
+   "title": "Ice Age 2",
+   "year": 2006
+  },
+  {
+   "id": "rio",
+   "artist": "John Powell",
+   "title": "Rio",
+   "year": 2011
+  },
+  {
+   "id": "lilo-stitch",
+   "artist": "Alan Silvestri",
+   "title": "Lilo & Stitch",
+   "year": 2002
+  },
+  {
+   "id": "green-book",
+   "artist": "Kris Bowers",
+   "title": "Green Book",
+   "year": 2018
+  },
+  {
+   "id": "bron-over-floden-kwai",
+   "artist": "Malcolm Arnold",
+   "title": "Bron över floden Kwai",
+   "year": 1957
+  },
+  {
+   "id": "independence-day",
+   "artist": "",
+   "title": "Independence Day",
+   "year": 1996
+  },
+  {
+   "id": "min-granne-totoro",
+   "artist": "Joe Hisaishi",
+   "title": "Min granne Totoro",
+   "year": 1988
+  },
+  {
+   "id": "the-shape-of-water",
+   "artist": "Alexandre Desplat",
+   "title": "The Shape of Water",
+   "year": 2017
+  },
+  {
+   "id": "hobbit-smaugs-odemark",
+   "artist": "Howard Shore",
+   "title": "Hobbit: Smaugs ödemark",
+   "year": 2013
+  },
+  {
+   "id": "spider-man-2",
+   "artist": "Danny Elfman",
+   "title": "Spider-Man 2",
+   "year": 2004
+  },
+  {
+   "id": "dune",
+   "artist": "Hans Zimmer",
+   "title": "Dune",
+   "year": 2021
+  },
+  {
+   "id": "spider-man-no-way-home",
+   "artist": "Michael Giacchino",
+   "title": "Spider-Man: No Way Home",
+   "year": 2021
+  },
+  {
+   "id": "barbie",
+   "artist": "Andrew Wyatt",
+   "title": "Barbie",
+   "year": 2023
+  },
+  {
+   "id": "dansar-med-vargar",
+   "artist": "John Barry",
+   "title": "Dansar med vargar",
+   "year": 1990
+  },
+  {
+   "id": "e-t-the-extra-terrestrial",
+   "artist": "John Williams",
+   "title": "E.T. the Extra-Terrestrial",
+   "year": 1982
+  },
+  {
+   "id": "ant-man",
+   "artist": "Christophe Beck",
+   "title": "Ant-Man",
+   "year": 2015
+  },
+  {
+   "id": "man-of-steel",
+   "artist": "Hans Zimmer",
+   "title": "Man of Steel",
+   "year": 2013
+  },
+  {
+   "id": "lost-in-translation",
+   "artist": "Kevin Shields",
+   "title": "Lost in Translation",
+   "year": 2003
+  },
+  {
+   "id": "kejsarens-nya-stil",
+   "artist": "David Hartley & Sting",
+   "title": "Kejsarens nya stil",
+   "year": 2000
+  },
+  {
+   "id": "once-upon-a-time-in-hollywood",
+   "artist": "",
+   "title": "Once Upon a Time in Hollywood",
    "year": 2019
+  },
+  {
+   "id": "love-actually",
+   "artist": "Craig Armstrong",
+   "title": "Love Actually",
+   "year": 2003
+  },
+  {
+   "id": "hitta-doris",
+   "artist": "Thomas Newman",
+   "title": "Hitta Doris",
+   "year": 2016
+  },
+  {
+   "id": "transformers",
+   "artist": "Steve Jablonsky",
+   "title": "Transformers",
+   "year": 2007
+  },
+  {
+   "id": "indiana-jones-och-det-sista-korstaget",
+   "artist": "John Williams",
+   "title": "Indiana Jones och det sista korståget",
+   "year": 1989
+  },
+  {
+   "id": "anastasia",
+   "artist": "David Newman",
+   "title": "Anastasia",
+   "year": 1997
+  },
+  {
+   "id": "thor-en-mork-varld",
+   "artist": "Brian Tyler",
+   "title": "Thor: En mörk värld",
+   "year": 2013
+  },
+  {
+   "id": "gangs-of-new-york",
+   "artist": "Howard Shore",
+   "title": "Gangs of New York",
+   "year": 2002
+  },
+  {
+   "id": "kingdom-of-heaven",
+   "artist": "Harry Gregson-Williams",
+   "title": "Kingdom of Heaven",
+   "year": 2005
+  },
+  {
+   "id": "hobbit-femharaslaget",
+   "artist": "Howard Shore",
+   "title": "Hobbit: Femhäraslaget",
+   "year": 2014
+  },
+  {
+   "id": "eternal-sunshine-of-the-spotless-mind",
+   "artist": "Jon Brion",
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004
+  },
+  {
+   "id": "the-fast-and-the-furious",
+   "artist": "BT",
+   "title": "The Fast and the Furious",
+   "year": 2001
+  },
+  {
+   "id": "borat",
+   "artist": "Erran Baron Cohen",
+   "title": "Borat",
+   "year": 2006
+  },
+  {
+   "id": "guardians-of-the-galaxy-vol-2",
+   "artist": "Tyler Bates",
+   "title": "Guardians of the Galaxy Vol. 2",
+   "year": 2017
+  },
+  {
+   "id": "ensam-hemma-2-vilse-i-new-york",
+   "artist": "John Williams",
+   "title": "Ensam hemma 2 - vilse i New York",
+   "year": 1992
+  },
+  {
+   "id": "trollkarlen-fran-oz",
+   "artist": "Harold Arlen",
+   "title": "Trollkarlen från Oz",
+   "year": 1939
+  },
+  {
+   "id": "crouching-tiger-hidden-dragon",
+   "artist": "Tan Dun",
+   "title": "Crouching Tiger, Hidden Dragon",
+   "year": 2000
+  },
+  {
+   "id": "the-amazing-spider-man-2",
+   "artist": "Junkie XL & Hans Zimmer",
+   "title": "The Amazing Spider-Man 2",
+   "year": 2014
+  },
+  {
+   "id": "the-matrix-reloaded",
+   "artist": "Don Davis",
+   "title": "The Matrix Reloaded",
+   "year": 2003
+  },
+  {
+   "id": "terminator-3-rise-of-the-machines",
+   "artist": "Marco Beltrami",
+   "title": "Terminator 3: Rise of the Machines",
+   "year": 2003
+  },
+  {
+   "id": "dumma-mej-2",
+   "artist": "Heitor Pereira",
+   "title": "Dumma mej 2",
+   "year": 2013
+  },
+  {
+   "id": "plutonen",
+   "artist": "Georges Delerue",
+   "title": "Plutonen",
+   "year": 1986
+  },
+  {
+   "id": "indiana-jones-och-kristalldodskallens-rike",
+   "artist": "John Williams",
+   "title": "Indiana Jones och Kristalldödskallens rike",
+   "year": 2008
+  },
+  {
+   "id": "batman",
+   "artist": "Danny Elfman",
+   "title": "Batman",
+   "year": 1989
+  },
+  {
+   "id": "the-matrix-revolutions",
+   "artist": "Don Davis",
+   "title": "The Matrix Revolutions",
+   "year": 2003
+  },
+  {
+   "id": "men-in-black",
+   "artist": "Danny Elfman",
+   "title": "Men in Black",
+   "year": 1997
+  },
+  {
+   "id": "argo",
+   "artist": "Alexandre Desplat",
+   "title": "Argo",
+   "year": 2012
+  },
+  {
+   "id": "for-en-handfull-dollar",
+   "artist": "Ennio Morricone",
+   "title": "För en handfull dollar",
+   "year": 1964
+  },
+  {
+   "id": "agent-007-ser-rott",
+   "artist": "",
+   "title": "Agent 007 ser rött",
+   "year": 1963
+  },
+  {
+   "id": "filmen-om-nalle-puh",
+   "artist": "Buddy Baker & Robert B. Sherman",
+   "title": "Filmen om Nalle Puh",
+   "year": 1977
+  },
+  {
+   "id": "mr-mrs-smith",
+   "artist": "John Powell",
+   "title": "Mr. & Mrs. Smith",
+   "year": 2005
+  },
+  {
+   "id": "trainspotting",
+   "artist": "",
+   "title": "Trainspotting",
+   "year": 1996
+  },
+  {
+   "id": "ant-man-and-the-wasp",
+   "artist": "Christophe Beck",
+   "title": "Ant-Man and the Wasp",
+   "year": 2018
+  },
+  {
+   "id": "donnie-darko",
+   "artist": "Michael Andrews",
+   "title": "Donnie Darko",
+   "year": 2001
+  },
+  {
+   "id": "venom",
+   "artist": "Ludwig Göransson",
+   "title": "Venom",
+   "year": 2018
+  },
+  {
+   "id": "chicago",
+   "artist": "John Kander & Danny Elfman",
+   "title": "Chicago",
+   "year": 2002
+  },
+  {
+   "id": "mary-poppins",
+   "artist": "Richard Sherman & Sherman Brothers",
+   "title": "Mary Poppins",
+   "year": 1964
+  },
+  {
+   "id": "antz",
+   "artist": "Harry Gregson-Williams & John Powell",
+   "title": "Antz",
+   "year": 1998
+  },
+  {
+   "id": "the-batman",
+   "artist": "Michael Giacchino",
+   "title": "The Batman",
+   "year": 2022
+  },
+  {
+   "id": "apollo-13",
+   "artist": "James Horner",
+   "title": "Apollo 13",
+   "year": 1995
+  },
+  {
+   "id": "midnatt-i-paris",
+   "artist": "Stephane Wrembel",
+   "title": "Midnatt i Paris",
+   "year": 2011
+  },
+  {
+   "id": "captain-marvel",
+   "artist": "Pınar Toprak",
+   "title": "Captain Marvel",
+   "year": 2019
+  },
+  {
+   "id": "sin-city",
+   "artist": "Graeme Revell & John Debney",
+   "title": "Sin City",
+   "year": 2005
+  },
+  {
+   "id": "harmonica-en-hamnare",
+   "artist": "Ennio Morricone",
+   "title": "Harmonica - en hämnare",
+   "year": 1968
+  },
+  {
+   "id": "maleficent",
+   "artist": "James Newton Howard",
+   "title": "Maleficent",
+   "year": 2014
+  },
+  {
+   "id": "familjen-robinson",
+   "artist": "Danny Elfman",
+   "title": "Familjen Robinson",
+   "year": 2007
+  },
+  {
+   "id": "full-metal-jacket",
+   "artist": "Vivian Kubrick",
+   "title": "Full Metal Jacket",
+   "year": 1987
+  },
+  {
+   "id": "the-incredible-hulk",
+   "artist": "Craig Armstrong",
+   "title": "The Incredible Hulk",
+   "year": 2008
+  },
+  {
+   "id": "hugo-cabret",
+   "artist": "Howard Shore",
+   "title": "Hugo Cabret",
+   "year": 2011
+  },
+  {
+   "id": "for-nagra-fa-dollar-mer",
+   "artist": "Ennio Morricone",
+   "title": "För några få dollar mer",
+   "year": 1965
+  },
+  {
+   "id": "taran-och-den-magiska-kitteln",
+   "artist": "Elmer Bernstein",
+   "title": "Taran och den magiska kitteln",
+   "year": 1985
+  },
+  {
+   "id": "exorcisten",
+   "artist": "",
+   "title": "Exorcisten",
+   "year": 1973
+  },
+  {
+   "id": "deer-hunter",
+   "artist": "Stanley Myers",
+   "title": "Deer Hunter",
+   "year": 1978
+  },
+  {
+   "id": "sonic-the-hedgehog",
+   "artist": "Junkie XL",
+   "title": "Sonic the Hedgehog",
+   "year": 2020
+  },
+  {
+   "id": "the-bourne-identity",
+   "artist": "John Powell",
+   "title": "The Bourne Identity",
+   "year": 2002
+  },
+  {
+   "id": "the-twilight-saga-new-moon",
+   "artist": "Alexandre Desplat",
+   "title": "The Twilight Saga: New Moon",
+   "year": 2009
+  },
+  {
+   "id": "anglar-och-demoner",
+   "artist": "Hans Zimmer",
+   "title": "Änglar och demoner",
+   "year": 2009
+  },
+  {
+   "id": "star-wars-the-last-jedi",
+   "artist": "John Williams",
+   "title": "Star Wars: The Last Jedi",
+   "year": 2017
+  },
+  {
+   "id": "en-kvinnas-doft",
+   "artist": "Thomas Newman",
+   "title": "En kvinnas doft",
+   "year": 1992
+  },
+  {
+   "id": "requiem-for-a-dream",
+   "artist": "Clint Mansell",
+   "title": "Requiem for a Dream",
+   "year": 2000
+  },
+  {
+   "id": "mulholland-drive",
+   "artist": "Angelo Badalamenti",
+   "title": "Mulholland Drive",
+   "year": 2001
+  },
+  {
+   "id": "the-fast-and-the-furious-tokyo-drift",
+   "artist": "Brian Tyler",
+   "title": "The Fast and the Furious: Tokyo Drift",
+   "year": 2006
+  },
+  {
+   "id": "10-orsaker-att-hata-dig",
+   "artist": "Richard Gibbs",
+   "title": "10 orsaker att hata dig",
+   "year": 1999
+  },
+  {
+   "id": "top-gun",
+   "artist": "Harold Faltermeyer & Giorgio Moroder",
+   "title": "Top Gun",
+   "year": 1986
+  },
+  {
+   "id": "transformers-dark-of-the-moon",
+   "artist": "Steve Jablonsky",
+   "title": "Transformers: Dark of the Moon",
+   "year": 2011
+  },
+  {
+   "id": "frukost-pa-tiffanys",
+   "artist": "Henry Mancini",
+   "title": "Frukost på Tiffany’s",
+   "year": 1961
+  },
+  {
+   "id": "mitt-afrika",
+   "artist": "John Barry",
+   "title": "Mitt Afrika",
+   "year": 1985
+  },
+  {
+   "id": "den-fantastiska-raven",
+   "artist": "Alexandre Desplat",
+   "title": "Den fantastiska räven",
+   "year": 2009
+  },
+  {
+   "id": "spider-man-across-the-spider-verse",
+   "artist": "Daniel Pemberton",
+   "title": "Spider-Man: Across the Spider-Verse",
+   "year": 2023
+  },
+  {
+   "id": "ice-age-4-jorden-skakar-loss",
+   "artist": "John Powell",
+   "title": "Ice Age 4: Jorden skakar loss",
+   "year": 2012
+  },
+  {
+   "id": "no-time-to-die",
+   "artist": "Hans Zimmer",
+   "title": "No Time to Die",
+   "year": 2021
+  },
+  {
+   "id": "the-grand-budapest-hotel",
+   "artist": "Alexandre Desplat",
+   "title": "The Grand Budapest Hotel",
+   "year": 2014
+  },
+  {
+   "id": "1917",
+   "artist": "Thomas Newman",
+   "title": "1917",
+   "year": 2019
+  },
+  {
+   "id": "basic-instinct-iskallt-begar",
+   "artist": "Jerry Goldsmith",
+   "title": "Basic Instinct - iskallt begär",
+   "year": 1992
+  },
+  {
+   "id": "blade-runner-2049",
+   "artist": "Benjamin Wallfisch & Hans Zimmer",
+   "title": "Blade Runner 2049",
+   "year": 2017
+  },
+  {
+   "id": "munchen",
+   "artist": "John Williams",
+   "title": "München",
+   "year": 2005
+  },
+  {
+   "id": "star-trek",
+   "artist": "Michael Giacchino",
+   "title": "Star Trek",
+   "year": 2009
+  },
+  {
+   "id": "fast-five",
+   "artist": "Brian Tyler",
+   "title": "Fast Five",
+   "year": 2011
+  },
+  {
+   "id": "fast-furious-7",
+   "artist": "Brian Tyler",
+   "title": "Fast & Furious 7",
+   "year": 2015
+  },
+  {
+   "id": "doktor-zjivago",
+   "artist": "Maurice Jarre",
+   "title": "Doktor Zjivago",
+   "year": 1965
+  },
+  {
+   "id": "doctor-strange-in-the-multiverse-of-madness",
+   "artist": "Danny Elfman",
+   "title": "Doctor Strange in the Multiverse of Madness",
+   "year": 2022
+  },
+  {
+   "id": "pretty-woman",
+   "artist": "James Newton Howard",
+   "title": "Pretty Woman",
+   "year": 1990
+  },
+  {
+   "id": "scream",
+   "artist": "Marco Beltrami",
+   "title": "Scream",
+   "year": 1996
+  },
+  {
+   "id": "my-fair-lady",
+   "artist": "Frederick Loewe",
+   "title": "My Fair Lady",
+   "year": 1964
+  },
+  {
+   "id": "chinatown",
+   "artist": "Jerry Goldsmith",
+   "title": "Chinatown",
+   "year": 1974
+  },
+  {
+   "id": "det-ljuva-livet",
+   "artist": "Nino Rota",
+   "title": "Det ljuva livet",
+   "year": 1960
+  },
+  {
+   "id": "x-men-2",
+   "artist": "John Ottman",
+   "title": "X-Men 2",
+   "year": 2003
+  },
+  {
+   "id": "babel",
+   "artist": "",
+   "title": "Babel",
+   "year": 2006
+  },
+  {
+   "id": "tintins-aventyr-enhorningens-hemlighet",
+   "artist": "John Williams",
+   "title": "Tintins äventyr: Enhörningens hemlighet",
+   "year": 2011
+  },
+  {
+   "id": "shrek-den-tredje",
+   "artist": "Harry Gregson-Williams",
+   "title": "Shrek den tredje",
+   "year": 2007
+  },
+  {
+   "id": "triumfens-ogonblick",
+   "artist": "Vangelis",
+   "title": "Triumfens ögonblick",
+   "year": 1981
+  },
+  {
+   "id": "shrek-nu-och-for-alltid",
+   "artist": "Harry Gregson-Williams",
+   "title": "Shrek - Nu och för alltid",
+   "year": 2010
+  },
+  {
+   "id": "fast-and-furious",
+   "artist": "Brian Tyler",
+   "title": "Fast and Furious",
+   "year": 2009
+  },
+  {
+   "id": "moulin-rouge",
+   "artist": "Marius de Vries & Craig Armstrong",
+   "title": "Moulin Rouge!",
+   "year": 2001
+  },
+  {
+   "id": "2-fast-2-furious",
+   "artist": "",
+   "title": "2 Fast 2 Furious",
+   "year": 2003
+  },
+  {
+   "id": "black-widow",
+   "artist": "Lorne Balfe",
+   "title": "Black Widow",
+   "year": 2021
+  },
+  {
+   "id": "everything-everywhere-all-at-once",
+   "artist": "Ian Chang & Ryan Lott",
+   "title": "Everything Everywhere All at Once",
+   "year": 2022
+  },
+  {
+   "id": "den-gode-dinosaurien",
+   "artist": "Jeff Danna & Mychael Danna",
+   "title": "Den gode dinosaurien",
+   "year": 2015
+  },
+  {
+   "id": "minioner-berattelsen-om-gru",
+   "artist": "Heitor Pereira",
+   "title": "Minioner: Berättelsen om Gru",
+   "year": 2022
+  },
+  {
+   "id": "madagaskar-3",
+   "artist": "Hans Zimmer",
+   "title": "Madagaskar 3",
+   "year": 2012
+  },
+  {
+   "id": "a-i-artificiell-intelligens",
+   "artist": "John Williams",
+   "title": "A.I. – Artificiell Intelligens",
+   "year": 2001
+  },
+  {
+   "id": "transformers-de-besegrades-hamnd",
+   "artist": "Steve Jablonsky",
+   "title": "Transformers: De besegrades hämnd",
+   "year": 2009
+  },
+  {
+   "id": "ghost",
+   "artist": "Maurice Jarre",
+   "title": "Ghost",
+   "year": 1990
+  },
+  {
+   "id": "x-men-the-last-stand",
+   "artist": "John Powell",
+   "title": "X-Men: The Last Stand",
+   "year": 2006
+  },
+  {
+   "id": "fast-furious-8",
+   "artist": "Brian Tyler",
+   "title": "Fast & Furious 8",
+   "year": 2017
+  },
+  {
+   "id": "batman-aterkomsten",
+   "artist": "Danny Elfman",
+   "title": "Batman – Återkomsten",
+   "year": 1992
+  },
+  {
+   "id": "berattelsen-om-narnia-haxan-och-lejonet",
+   "artist": "Harry Gregson-Williams",
+   "title": "Berättelsen om Narnia: Häxan och lejonet",
+   "year": 2005
+  },
+  {
+   "id": "space-jam",
+   "artist": "James Newton Howard",
+   "title": "Space Jam",
+   "year": 1996
+  },
+  {
+   "id": "american-psycho",
+   "artist": "John Cale",
+   "title": "American Psycho",
+   "year": 2000
+  },
+  {
+   "id": "raya-och-den-sista-draken",
+   "artist": "James Newton Howard",
+   "title": "Raya och den sista draken",
+   "year": 2021
+  },
+  {
+   "id": "american-hustle",
+   "artist": "Danny Elfman",
+   "title": "American Hustle",
+   "year": 2013
+  },
+  {
+   "id": "tenet",
+   "artist": "Ludwig Göransson",
+   "title": "Tenet",
+   "year": 2020
+  },
+  {
+   "id": "robin-hood",
+   "artist": "Marc Streitenfeld",
+   "title": "Robin Hood",
+   "year": 2010
+  },
+  {
+   "id": "iskallt-uppdrag",
+   "artist": "",
+   "title": "Iskallt uppdrag",
+   "year": 1987
+  },
+  {
+   "id": "rogue-one-a-star-wars-story",
+   "artist": "Michael Giacchino",
+   "title": "Rogue One: A Star Wars Story",
+   "year": 2016
+  },
+  {
+   "id": "varldarnas-krig",
+   "artist": "John Williams",
+   "title": "Världarnas krig",
+   "year": 2005
+  },
+  {
+   "id": "fantastic-four",
+   "artist": "John Ottman",
+   "title": "Fantastic Four",
+   "year": 2005
+  },
+  {
+   "id": "armageddon",
+   "artist": "Trevor Rabin & Harry Gregson-Williams",
+   "title": "Armageddon",
+   "year": 1998
+  },
+  {
+   "id": "mandomsprovet",
+   "artist": "Dave Grusin",
+   "title": "Mandomsprovet",
+   "year": 1967
+  },
+  {
+   "id": "pans-labyrint",
+   "artist": "Javier Navarrete",
+   "title": "Pans labyrint",
+   "year": 2006
+  },
+  {
+   "id": "american-pie",
+   "artist": "David Nessim Lawrence",
+   "title": "American Pie",
+   "year": 1999
+  },
+  {
+   "id": "snatch",
+   "artist": "John Murphy",
+   "title": "Snatch",
+   "year": 2000
+  },
+  {
+   "id": "eternals",
+   "artist": "Ramin Djawadi",
+   "title": "Eternals",
+   "year": 2021
+  },
+  {
+   "id": "edward-scissorhands",
+   "artist": "Danny Elfman",
+   "title": "Edward Scissorhands",
+   "year": 1990
+  },
+  {
+   "id": "kontakt",
+   "artist": "Alan Silvestri",
+   "title": "Kontakt",
+   "year": 1997
+  },
+  {
+   "id": "spionernas-bro",
+   "artist": "Thomas Newman",
+   "title": "Spionernas bro",
+   "year": 2015
+  },
+  {
+   "id": "midnight-cowboy",
+   "artist": "John Barry",
+   "title": "Midnight Cowboy",
+   "year": 1969
+  },
+  {
+   "id": "familjen-mitchell-mot-maskinerna",
+   "artist": "Mark Mothersbaugh",
+   "title": "Familjen Mitchell mot maskinerna",
+   "year": 2021
+  },
+  {
+   "id": "sjalen",
+   "artist": "Atticus Ross & Jon Batiste",
+   "title": "Själen",
+   "year": 2020
+  },
+  {
+   "id": "dune-part-two",
+   "artist": "Hans Zimmer",
+   "title": "Dune: Part Two",
+   "year": 2024
+  },
+  {
+   "id": "i-hennes-majestats-hemliga-tjanst",
+   "artist": "",
+   "title": "I hennes majestäts hemliga tjänst",
+   "year": 1969
+  },
+  {
+   "id": "natt-pa-museet",
+   "artist": "Alan Silvestri",
+   "title": "Natt på museet",
+   "year": 2006
+  },
+  {
+   "id": "sista-tangon-i-paris",
+   "artist": "Gato Barbieri",
+   "title": "Sista tangon i Paris",
+   "year": 1972
+  },
+  {
+   "id": "minority-report",
+   "artist": "John Williams",
+   "title": "Minority Report",
+   "year": 2002
+  },
+  {
+   "id": "den-tunna-roda-linjen",
+   "artist": "Hans Zimmer",
+   "title": "Den tunna röda linjen",
+   "year": 1998
+  },
+  {
+   "id": "sweeney-todd",
+   "artist": "Stephen Sondheim",
+   "title": "Sweeney Todd",
+   "year": 2007
+  },
+  {
+   "id": "pearl-harbor",
+   "artist": "Hans Zimmer",
+   "title": "Pearl Harbor",
+   "year": 2001
+  },
+  {
+   "id": "three-billboards-outside-ebbing-missouri",
+   "artist": "Carter Burwell",
+   "title": "Three Billboards Outside Ebbing, Missouri",
+   "year": 2017
+  },
+  {
+   "id": "terminator-genisys",
+   "artist": "Lorne Balfe",
+   "title": "Terminator Genisys",
+   "year": 2015
+  },
+  {
+   "id": "deadpool-2",
+   "artist": "Tyler Bates",
+   "title": "Deadpool 2",
+   "year": 2018
+  },
+  {
+   "id": "notting-hill",
+   "artist": "Trevor Jones",
+   "title": "Notting Hill",
+   "year": 1999
+  },
+  {
+   "id": "resident-evil",
+   "artist": "Marco Beltrami",
+   "title": "Resident Evil",
+   "year": 2002
+  },
+  {
+   "id": "super-mario-bros-filmen",
+   "artist": "Brian Tyler & Koji Kondo",
+   "title": "Super Mario Bros. Filmen",
+   "year": 2023
+  },
+  {
+   "id": "thor-love-and-thunder",
+   "artist": "Nami Melumad & Michael Giacchino",
+   "title": "Thor: Love and Thunder",
+   "year": 2022
+  },
+  {
+   "id": "apornas-planet-r-evolution",
+   "artist": "Patrick Doyle",
+   "title": "Apornas planet: (r)evolution",
+   "year": 2011
+  },
+  {
+   "id": "sonic-the-hedgehog-2",
+   "artist": "Junkie XL",
+   "title": "Sonic the Hedgehog 2",
+   "year": 2022
+  },
+  {
+   "id": "amarcord",
+   "artist": "Nino Rota",
+   "title": "Amarcord",
+   "year": 1973
+  },
+  {
+   "id": "mannen-med-den-gyllene-pistolen",
+   "artist": "",
+   "title": "Mannen med den gyllene pistolen",
+   "year": 1974
+  },
+  {
+   "id": "en-vampyrs-bekannelse",
+   "artist": "Elliot Goldenthal",
+   "title": "En vampyrs bekännelse",
+   "year": 1994
+  },
+  {
+   "id": "justice-league",
+   "artist": "Junkie XL & Danny Elfman",
+   "title": "Justice League",
+   "year": 2017
+  },
+  {
+   "id": "mission-impossible-ii",
+   "artist": "Hans Zimmer",
+   "title": "Mission: Impossible II",
+   "year": 2000
+  },
+  {
+   "id": "the-twilight-saga-eclipse",
+   "artist": "Howard Shore",
+   "title": "The Twilight Saga: Eclipse",
+   "year": 2010
+  },
+  {
+   "id": "philadelphia",
+   "artist": "Howard Shore",
+   "title": "Philadelphia",
+   "year": 1993
+  },
+  {
+   "id": "true-grit",
+   "artist": "Carter Burwell",
+   "title": "True Grit",
+   "year": 2010
+  },
+  {
+   "id": "star-wars-the-rise-of-skywalker",
+   "artist": "John Williams",
+   "title": "Star Wars: The Rise of Skywalker",
+   "year": 2019
+  },
+  {
+   "id": "forsoning",
+   "artist": "Dario Marianelli",
+   "title": "Försoning",
+   "year": 2007
+  },
+  {
+   "id": "fast-furious-6",
+   "artist": "Lucas Vidal",
+   "title": "Fast & Furious 6",
+   "year": 2013
+  },
+  {
+   "id": "mission-impossible",
+   "artist": "Danny Elfman",
+   "title": "Mission: Impossible",
+   "year": 1996
+  },
+  {
+   "id": "vanilla-sky",
+   "artist": "Nancy Wilson",
+   "title": "Vanilla Sky",
+   "year": 2001
+  },
+  {
+   "id": "batman-forever",
+   "artist": "Elliot Goldenthal",
+   "title": "Batman Forever",
+   "year": 1995
+  },
+  {
+   "id": "watchmen",
+   "artist": "Tyler Bates",
+   "title": "Watchmen",
+   "year": 2009
+  },
+  {
+   "id": "fury",
+   "artist": "Steven Price",
+   "title": "Fury",
+   "year": 2014
+  },
+  {
+   "id": "west-side-story",
+   "artist": "Leonard Bernstein",
+   "title": "West Side Story",
+   "year": 1961
+  },
+  {
+   "id": "rango",
+   "artist": "Hans Zimmer",
+   "title": "Rango",
+   "year": 2011
+  },
+  {
+   "id": "bram-stokers-dracula",
+   "artist": "Wojciech Kilar",
+   "title": "Bram Stokers Dracula",
+   "year": 1992
+  },
+  {
+   "id": "apornas-planet-uppgorelsen",
+   "artist": "Michael Giacchino",
+   "title": "Apornas planet: Uppgörelsen",
+   "year": 2014
+  },
+  {
+   "id": "x-men-first-class",
+   "artist": "Henry Jackman",
+   "title": "X-Men: First Class",
+   "year": 2011
+  },
+  {
+   "id": "guardians-of-the-galaxy-vol-3",
+   "artist": "John Murphy",
+   "title": "Guardians of the Galaxy Vol. 3",
+   "year": 2023
+  },
+  {
+   "id": "cinema-paradiso",
+   "artist": "Ennio Morricone",
+   "title": "Cinema Paradiso",
+   "year": 1988
+  },
+  {
+   "id": "black-panther-wakanda-forever",
+   "artist": "Ludwig Göransson",
+   "title": "Black Panther: Wakanda Forever",
+   "year": 2022
+  },
+  {
+   "id": "nalle-puhs-film-nya-aventyr-i-sjumilaskogen",
+   "artist": "Kristen Anderson-Lopez & Robert Lopez",
+   "title": "Nalle Puhs film – Nya äventyr i Sjumilaskogen",
+   "year": 2011
+  },
+  {
+   "id": "the-conjuring",
+   "artist": "Joseph Bishara",
+   "title": "The Conjuring",
+   "year": 2013
+  },
+  {
+   "id": "singin-in-the-rain",
+   "artist": "Nacio Herb Brown",
+   "title": "Singin' in the Rain",
+   "year": 1952
+  },
+  {
+   "id": "baby-bossen",
+   "artist": "Hans Zimmer",
+   "title": "Baby-bossen",
+   "year": 2017
+  },
+  {
+   "id": "la-strada-landsvagen",
+   "artist": "Nino Rota",
+   "title": "La Strada - landsvägen",
+   "year": 1954
+  },
+  {
+   "id": "stargate",
+   "artist": "",
+   "title": "Stargate",
+   "year": 1994
+  },
+  {
+   "id": "moonraker",
+   "artist": "",
+   "title": "Moonraker",
+   "year": 1979
+  },
+  {
+   "id": "the-wolverine",
+   "artist": "Marco Beltrami",
+   "title": "The Wolverine",
+   "year": 2013
+  },
+  {
+   "id": "femtio-nyanser-av-honom",
+   "artist": "Danny Elfman",
+   "title": "Femtio nyanser av honom",
+   "year": 2015
+  },
+  {
+   "id": "good-bye",
+   "artist": "Yann Tiersen",
+   "title": "Good Bye",
+   "year": 2003
+  },
+  {
+   "id": "the-crow",
+   "artist": "Graeme Revell",
+   "title": "The Crow",
+   "year": 1994
+  },
+  {
+   "id": "jojo-rabbit",
+   "artist": "Michael Giacchino",
+   "title": "Jojo Rabbit",
+   "year": 2019
+  },
+  {
+   "id": "mission-impossible-fallout",
+   "artist": "Lorne Balfe",
+   "title": "Mission: Impossible – Fallout",
+   "year": 2018
+  },
+  {
+   "id": "masterkatten",
+   "artist": "Henry Jackman",
+   "title": "Mästerkatten",
+   "year": 2011
+  },
+  {
+   "id": "de-omutbara",
+   "artist": "Ennio Morricone",
+   "title": "De omutbara",
+   "year": 1987
+  },
+  {
+   "id": "dallas-buyers-club",
+   "artist": "Danny Elfman",
+   "title": "Dallas Buyers Club",
+   "year": 2013
+  },
+  {
+   "id": "american-gangster",
+   "artist": "Marc Streitenfeld",
+   "title": "American Gangster",
+   "year": 2007
+  },
+  {
+   "id": "rambo-first-blood-ii",
+   "artist": "Jerry Goldsmith",
+   "title": "Rambo – First Blood II",
+   "year": 1985
+  },
+  {
+   "id": "dumma-mej-4",
+   "artist": "Heitor Pereira",
+   "title": "Dumma mej 4",
+   "year": 2024
+  },
+  {
+   "id": "black-hawk-down",
+   "artist": "Hans Zimmer",
+   "title": "Black Hawk Down",
+   "year": 2001
+  },
+  {
+   "id": "the-irishman",
+   "artist": "Robbie Robertson",
+   "title": "The Irishman",
+   "year": 2019
+  },
+  {
+   "id": "a-star-is-born",
+   "artist": "",
+   "title": "A Star Is Born",
+   "year": 2018
+  },
+  {
+   "id": "sleepy-hollow",
+   "artist": "Danny Elfman",
+   "title": "Sleepy Hollow",
+   "year": 1999
+  },
+  {
+   "id": "the-hunger-games-catching-fire",
+   "artist": "James Newton Howard",
+   "title": "The Hunger Games: Catching Fire",
+   "year": 2013
+  },
+  {
+   "id": "john-wick",
+   "artist": "Tyler Bates",
+   "title": "John Wick",
+   "year": 2014
+  },
+  {
+   "id": "rojar-ralf-kraschar-internet",
+   "artist": "Henry Jackman",
+   "title": "Röjar-Ralf kraschar internet",
+   "year": 2018
+  },
+  {
+   "id": "kill-bill-volume-2",
+   "artist": "Robert Rodriguez",
+   "title": "Kill Bill: Volume 2",
+   "year": 2004
+  },
+  {
+   "id": "svampbob-fyrkant-filmen",
+   "artist": "Gregor Narholz",
+   "title": "Svampbob Fyrkant – Filmen",
+   "year": 2004
+  },
+  {
+   "id": "mission-impossible-ghost-protocol",
+   "artist": "Michael Giacchino",
+   "title": "Mission: Impossible – Ghost Protocol",
+   "year": 2011
+  },
+  {
+   "id": "jurassic-world-fallen-kingdom",
+   "artist": "Michael Giacchino",
+   "title": "Jurassic World: Fallen Kingdom",
+   "year": 2018
+  },
+  {
+   "id": "lightyear",
+   "artist": "Michael Giacchino",
+   "title": "Lightyear",
+   "year": 2022
+  },
+  {
+   "id": "berattelsen-om-askungen",
+   "artist": "Patrick Doyle",
+   "title": "Berättelsen om Askungen",
+   "year": 2015
+  },
+  {
+   "id": "edge-of-tomorrow",
+   "artist": "Christophe Beck",
+   "title": "Edge of Tomorrow",
+   "year": 2014
+  },
+  {
+   "id": "john-wick-chapter-2",
+   "artist": "Tyler Bates",
+   "title": "John Wick: Chapter 2",
+   "year": 2017
+  },
+  {
+   "id": "the-suicide-squad",
+   "artist": "John Murphy",
+   "title": "The Suicide Squad",
+   "year": 2021
+  },
+  {
+   "id": "moneyball",
+   "artist": "Mychael Danna",
+   "title": "Moneyball",
+   "year": 2011
+  },
+  {
+   "id": "deadpool-wolverine",
+   "artist": "Rob Simonsen",
+   "title": "Deadpool & Wolverine",
+   "year": 2024
+  },
+  {
+   "id": "rambo-iii",
+   "artist": "Jerry Goldsmith",
+   "title": "Rambo III",
+   "year": 1988
+  },
+  {
+   "id": "narkontakt-av-tredje-graden",
+   "artist": "",
+   "title": "Närkontakt av tredje graden",
+   "year": 1977
+  },
+  {
+   "id": "the-mission",
+   "artist": "",
+   "title": "The Mission",
+   "year": 1986
+  },
+  {
+   "id": "alice-i-spegellandet",
+   "artist": "Danny Elfman",
+   "title": "Alice i Spegellandet",
+   "year": 2016
+  },
+  {
+   "id": "breakfast-club",
+   "artist": "Keith Forsey",
+   "title": "Breakfast Club",
+   "year": 1985
+  },
+  {
+   "id": "alita-battle-angel",
+   "artist": "Junkie XL",
+   "title": "Alita: Battle Angel",
+   "year": 2019
+  },
+  {
+   "id": "apornas-planet",
+   "artist": "Jerry Goldsmith",
+   "title": "Apornas planet",
+   "year": 1968
+  },
+  {
+   "id": "mission-impossible-rogue-nation",
+   "artist": "Joe Kraemer",
+   "title": "Mission: Impossible – Rogue Nation",
+   "year": 2015
+  },
+  {
+   "id": "patrioten",
+   "artist": "John Williams",
+   "title": "Patrioten",
+   "year": 2000
+  },
+  {
+   "id": "nar-harry-traffade-sally",
+   "artist": "Marc Shaiman",
+   "title": "När Harry träffade Sally...",
+   "year": 1989
+  },
+  {
+   "id": "alien-3",
+   "artist": "Elliot Goldenthal",
+   "title": "Alien 3",
+   "year": 1992
+  },
+  {
+   "id": "divergent",
+   "artist": "Junkie XL",
+   "title": "Divergent",
+   "year": 2014
+  },
+  {
+   "id": "kick-ass",
+   "artist": "Henry Jackman & Ilan Eshkeri",
+   "title": "Kick-Ass",
+   "year": 2010
+  },
+  {
+   "id": "jackie-brown",
+   "artist": "Bobby Womack",
+   "title": "Jackie Brown",
+   "year": 1997
+  },
+  {
+   "id": "little-miss-sunshine",
+   "artist": "Mychael Danna",
+   "title": "Little Miss Sunshine",
+   "year": 2006
+  },
+  {
+   "id": "pingvinerna-fran-madagaskar",
+   "artist": "Lorne Balfe",
+   "title": "Pingvinerna från Madagaskar",
+   "year": 2014
+  },
+  {
+   "id": "fast-furious-hobbs-shaw",
+   "artist": "Tyler Bates",
+   "title": "Fast & Furious: Hobbs & Shaw",
+   "year": 2019
+  },
+  {
+   "id": "shang-chi-and-the-legend-of-the-ten-rings",
+   "artist": "Joel P. West",
+   "title": "Shang-Chi and the Legend of the Ten Rings",
+   "year": 2021
+  },
+  {
+   "id": "the-descendants",
+   "artist": "Craig Armstrong",
+   "title": "The Descendants",
+   "year": 2011
+  },
+  {
+   "id": "somnlos-i-seattle",
+   "artist": "Marc Shaiman",
+   "title": "Sömnlös i Seattle",
+   "year": 1993
+  },
+  {
+   "id": "blade-ii",
+   "artist": "Marco Beltrami",
+   "title": "Blade II",
+   "year": 2002
+  },
+  {
+   "id": "desperado",
+   "artist": "Tito Larriva",
+   "title": "Desperado",
+   "year": 1995
+  },
+  {
+   "id": "love-story",
+   "artist": "Francis Lai",
+   "title": "Love Story",
+   "year": 1970
+  },
+  {
+   "id": "kung-fu-panda-3",
+   "artist": "Hans Zimmer",
+   "title": "Kung Fu Panda 3",
+   "year": 2016
+  },
+  {
+   "id": "conan-barbaren",
+   "artist": "Basil Poledouris",
+   "title": "Conan Barbaren",
+   "year": 1982
+  },
+  {
+   "id": "fast-furious-9",
+   "artist": "Brian Tyler",
+   "title": "Fast & Furious 9",
+   "year": 2021
+  },
+  {
+   "id": "riddarfalken-fran-malta",
+   "artist": "Adolph Deutsch",
+   "title": "Riddarfalken från Malta",
+   "year": 1941
+  },
+  {
+   "id": "pingvinen-och-lyckostenen",
+   "artist": "Barry Manilow",
+   "title": "Pingvinen och lyckostenen",
+   "year": 1995
+  },
+  {
+   "id": "berattelsen-om-narnia-prins-caspian",
+   "artist": "Harry Gregson-Williams",
+   "title": "Berättelsen om Narnia: Prins Caspian",
+   "year": 2008
+  },
+  {
+   "id": "wall-street",
+   "artist": "Stewart Copeland",
+   "title": "Wall Street",
+   "year": 1987
+  },
+  {
+   "id": "o-brother-where-art-thou",
+   "artist": "T Bone Burnett",
+   "title": "O Brother, Where Art Thou?",
+   "year": 2000
+  },
+  {
+   "id": "rush-hour",
+   "artist": "Lalo Schifrin",
+   "title": "Rush Hour",
+   "year": 1998
+  },
+  {
+   "id": "war-horse",
+   "artist": "John Williams",
+   "title": "War Horse",
+   "year": 2011
+  },
+  {
+   "id": "blues-brothers",
+   "artist": "Ira Newborn",
+   "title": "Blues Brothers",
+   "year": 1980
+  },
+  {
+   "id": "venom-let-there-be-carnage",
+   "artist": "Marco Beltrami",
+   "title": "Venom: Let There Be Carnage",
+   "year": 2021
+  },
+  {
+   "id": "indiana-jones-and-the-dial-of-destiny",
+   "artist": "John Williams",
+   "title": "Indiana Jones and the Dial of Destiny",
+   "year": 2023
+  },
+  {
+   "id": "ghost-rider",
+   "artist": "Christopher Young",
+   "title": "Ghost Rider",
+   "year": 2007
+  },
+  {
+   "id": "a-minecraft-movie",
+   "artist": "Mark Mothersbaugh",
+   "title": "A Minecraft Movie",
+   "year": 2025
+  },
+  {
+   "id": "ubaten",
+   "artist": "Klaus Doldinger",
+   "title": "Ubåten",
+   "year": 1981
+  },
+  {
+   "id": "star-trek-ii-khans-vrede",
+   "artist": "James Horner",
+   "title": "Star Trek II – Khans vrede",
+   "year": 1982
+  },
+  {
+   "id": "megamind",
+   "artist": "Lorne Balfe & Hans Zimmer",
+   "title": "Megamind",
+   "year": 2010
+  },
+  {
+   "id": "the-dictator",
+   "artist": "Erran Baron Cohen",
+   "title": "The Dictator",
+   "year": 2012
+  },
+  {
+   "id": "tron",
+   "artist": "Wendy Carlos",
+   "title": "Tron",
+   "year": 1982
+  },
+  {
+   "id": "inferno",
+   "artist": "Hans Zimmer",
+   "title": "Inferno",
+   "year": 2016
+  },
+  {
+   "id": "x-men-dark-phoenix",
+   "artist": "Hans Zimmer",
+   "title": "X-Men: Dark Phoenix",
+   "year": 2019
+  },
+  {
+   "id": "hannibal",
+   "artist": "Hans Zimmer",
+   "title": "Hannibal",
+   "year": 2001
+  },
+  {
+   "id": "the-ring",
+   "artist": "Hans Zimmer",
+   "title": "The Ring",
+   "year": 2002
+  },
+  {
+   "id": "hulk",
+   "artist": "Danny Elfman",
+   "title": "Hulk",
+   "year": 2003
+  },
+  {
+   "id": "magnolia",
+   "artist": "Jon Brion & Aimee Mann",
+   "title": "Magnolia",
+   "year": 1999
+  },
+  {
+   "id": "50-first-dates",
+   "artist": "Teddy Castellucci",
+   "title": "50 First Dates",
+   "year": 2004
+  },
+  {
+   "id": "tropic-thunder",
+   "artist": "Theodore Shapiro",
+   "title": "Tropic Thunder",
+   "year": 2008
+  },
+  {
+   "id": "up-in-the-air",
+   "artist": "Rolfe Kent",
+   "title": "Up in the Air",
+   "year": 2009
+  },
+  {
+   "id": "wonder-woman-1984",
+   "artist": "Hans Zimmer",
+   "title": "Wonder Woman 1984",
+   "year": 2020
+  },
+  {
+   "id": "mission-impossible-dead-reckoning-part-one",
+   "artist": "Lorne Balfe",
+   "title": "Mission: Impossible – Dead Reckoning Part One",
+   "year": 2023
+  },
+  {
+   "id": "highlander",
+   "artist": "Michael Kamen",
+   "title": "Highlander",
+   "year": 1986
+  },
+  {
+   "id": "masterkatten-2",
+   "artist": "Heitor Pereira",
+   "title": "Mästerkatten 2",
+   "year": 2022
+  },
+  {
+   "id": "eraserhead",
+   "artist": "",
+   "title": "Eraserhead",
+   "year": 1977
+  },
+  {
+   "id": "charade",
+   "artist": "Henry Mancini",
+   "title": "Charade",
+   "year": 1963
+  },
+  {
+   "id": "djungelboken-2",
+   "artist": "Joel McNeely",
+   "title": "Djungelboken 2",
+   "year": 2003
+  },
+  {
+   "id": "cruella",
+   "artist": "Nicholas Britell",
+   "title": "Cruella",
+   "year": 2021
+  },
+  {
+   "id": "lego-filmen",
+   "artist": "Mark Mothersbaugh",
+   "title": "Lego-filmen",
+   "year": 2014
+  },
+  {
+   "id": "kong-skull-island",
+   "artist": "Henry Jackman",
+   "title": "Kong: Skull Island",
+   "year": 2017
+  },
+  {
+   "id": "killers-of-the-flower-moon",
+   "artist": "Robbie Robertson",
+   "title": "Killers of the Flower Moon",
+   "year": 2023
+  },
+  {
+   "id": "annabelle",
+   "artist": "Joseph Bishara",
+   "title": "Annabelle",
+   "year": 2014
+  },
+  {
+   "id": "luca",
+   "artist": "Dan Romer",
+   "title": "Luca",
+   "year": 2021
+  },
+  {
+   "id": "chocolat",
+   "artist": "Rachel Portman",
+   "title": "Chocolat",
+   "year": 2000
+  },
+  {
+   "id": "21-gram",
+   "artist": "",
+   "title": "21 gram",
+   "year": 2003
+  },
+  {
+   "id": "fortrollad",
+   "artist": "Alan Menken & Stephen Schwartz",
+   "title": "Förtrollad",
+   "year": 2007
+  },
+  {
+   "id": "den-siste-mohikanen",
+   "artist": "Randy Edelman & Trevor Jones",
+   "title": "Den siste mohikanen",
+   "year": 1992
+  },
+  {
+   "id": "rocky-ii",
+   "artist": "Bill Conti",
+   "title": "Rocky II",
+   "year": 1979
+  },
+  {
+   "id": "fornuft-och-kansla",
+   "artist": "Patrick Doyle",
+   "title": "Förnuft och känsla",
+   "year": 1995
+  },
+  {
+   "id": "the-hunger-games-mockingjay-part-1",
+   "artist": "James Newton Howard",
+   "title": "The Hunger Games: Mockingjay – Part 1",
+   "year": 2014
+  },
+  {
+   "id": "drive",
+   "artist": "Cliff Martinez",
+   "title": "Drive",
+   "year": 2011
+  },
+  {
+   "id": "blade",
+   "artist": "Mark Isham",
+   "title": "Blade",
+   "year": 1998
+  },
+  {
+   "id": "ater-till-cold-mountain",
+   "artist": "Gabriel Yared",
+   "title": "Åter till Cold Mountain",
+   "year": 2003
+  },
+  {
+   "id": "bortspolad",
+   "artist": "Harry Gregson-Williams",
+   "title": "Bortspolad",
+   "year": 2006
+  },
+  {
+   "id": "natural-born-killers",
+   "artist": "Leonard Cohen",
+   "title": "Natural Born Killers",
+   "year": 1994
+  },
+  {
+   "id": "rocky-iv",
+   "artist": "Vince DiCola",
+   "title": "Rocky IV",
+   "year": 1985
+  },
+  {
+   "id": "knives-out",
+   "artist": "Nathan Johnson",
+   "title": "Knives Out",
+   "year": 2019
+  },
+  {
+   "id": "the-girl-with-the-dragon-tattoo",
+   "artist": "Atticus Ross & Trent Reznor",
+   "title": "The Girl with the Dragon Tattoo",
+   "year": 2011
+  },
+  {
+   "id": "sometimes-happiness-sometimes-sadness",
+   "artist": "Jatin–Lalit",
+   "title": "Sometimes Happiness Sometimes Sadness...",
+   "year": 2001
+  },
+  {
+   "id": "kuch-kuch-hota-hai",
+   "artist": "Jatin–Lalit",
+   "title": "Kuch Kuch Hota Hai",
+   "year": 1998
+  },
+  {
+   "id": "sing-2",
+   "artist": "Joby Talbot",
+   "title": "Sing 2",
+   "year": 2021
+  },
+  {
+   "id": "captain-america-brave-new-world",
+   "artist": "Laura Karpman",
+   "title": "Captain America: Brave New World",
+   "year": 2025
+  },
+  {
+   "id": "svampbob-fyrkant-aventyr-pa-torra-land",
+   "artist": "John Debney",
+   "title": "Svampbob Fyrkant: Äventyr på torra land",
+   "year": 2015
+  },
+  {
+   "id": "midnight-express",
+   "artist": "Giorgio Moroder",
+   "title": "Midnight Express",
+   "year": 1978
+  },
+  {
+   "id": "oskuldens-tid",
+   "artist": "Elmer Bernstein",
+   "title": "Oskuldens tid",
+   "year": 1993
+  },
+  {
+   "id": "star-trek-beyond",
+   "artist": "Michael Giacchino",
+   "title": "Star Trek Beyond",
+   "year": 2016
+  },
+  {
+   "id": "vandra-min-vag",
+   "artist": "Robert E. Dolan",
+   "title": "Vandra min väg",
+   "year": 1944
+  },
+  {
+   "id": "guldkompassen",
+   "artist": "Alexandre Desplat",
+   "title": "Guldkompassen",
+   "year": 2007
+  },
+  {
+   "id": "den-13-e-krigaren",
+   "artist": "Jerry Goldsmith",
+   "title": "Den 13:e krigaren",
+   "year": 1999
+  },
+  {
+   "id": "en-geishas-memoarer",
+   "artist": "John Williams",
+   "title": "En geishas memoarer",
+   "year": 2005
+  },
+  {
+   "id": "dirty-dancing",
+   "artist": "John Morris",
+   "title": "Dirty Dancing",
+   "year": 1987
+  },
+  {
+   "id": "slakten-ar-varst",
+   "artist": "Randy Newman",
+   "title": "Släkten är värst",
+   "year": 2000
+  },
+  {
+   "id": "home",
+   "artist": "Lorne Balfe",
+   "title": "Home",
+   "year": 2015
+  },
+  {
+   "id": "alien-ateruppstar",
+   "artist": "John Frizzell",
+   "title": "Alien återuppstår",
+   "year": 1997
+  },
+  {
+   "id": "bron-till-terabitia",
+   "artist": "Aaron Zigman",
+   "title": "Bron till Terabitia",
+   "year": 2007
+  },
+  {
+   "id": "natt-pa-museet-2",
+   "artist": "Alan Silvestri",
+   "title": "Natt på museet 2",
+   "year": 2009
+  },
+  {
+   "id": "godzilla",
+   "artist": "Michael Lloyd",
+   "title": "Godzilla",
+   "year": 1998
+  },
+  {
+   "id": "almost-famous",
+   "artist": "Nancy Wilson",
+   "title": "Almost Famous",
+   "year": 2000
+  },
+  {
+   "id": "rush-hour-2",
+   "artist": "Lalo Schifrin",
+   "title": "Rush Hour 2",
+   "year": 2001
+  },
+  {
+   "id": "baby-driver",
+   "artist": "Steven Price",
+   "title": "Baby Driver",
+   "year": 2017
+  },
+  {
+   "id": "cabaret",
+   "artist": "Fred Ebb & John Kander",
+   "title": "Cabaret",
+   "year": 1972
+  },
+  {
+   "id": "herr-peabody-sherman",
+   "artist": "Danny Elfman",
+   "title": "Herr Peabody & Sherman",
+   "year": 2014
+  },
+  {
+   "id": "mortal-engines",
+   "artist": "Junkie XL",
+   "title": "Mortal Engines",
+   "year": 2018
+  },
+  {
+   "id": "john-carter",
+   "artist": "Michael Giacchino",
+   "title": "John Carter",
+   "year": 2012
+  },
+  {
+   "id": "purpurfargen",
+   "artist": "Quincy Jones",
+   "title": "Purpurfärgen",
+   "year": 1985
+  },
+  {
+   "id": "alien-covenant",
+   "artist": "Jed Kurzel",
+   "title": "Alien: Covenant",
+   "year": 2017
+  },
+  {
+   "id": "a-walk-to-remember",
+   "artist": "Mervyn Warren",
+   "title": "A Walk to Remember",
+   "year": 2002
+  },
+  {
+   "id": "fast-x",
+   "artist": "Brian Tyler",
+   "title": "Fast X",
+   "year": 2023
+  },
+  {
+   "id": "scream-2",
+   "artist": "Marco Beltrami",
+   "title": "Scream 2",
+   "year": 1997
+  },
+  {
+   "id": "unga-kvinnor",
+   "artist": "Alexandre Desplat",
+   "title": "Unga kvinnor",
+   "year": 2019
+  },
+  {
+   "id": "500-days-of-summer",
+   "artist": "Rob Simonsen & Mychael Danna",
+   "title": "(500) Days of Summer",
+   "year": 2009
+  },
+  {
+   "id": "det-kapitel-2",
+   "artist": "Benjamin Wallfisch",
+   "title": "Det: Kapitel 2",
+   "year": 2019
+  },
+  {
+   "id": "star-trek-iv-resan-hem",
+   "artist": "Leonard Rosenman",
+   "title": "Star Trek IV - Resan hem",
+   "year": 1986
+  },
+  {
+   "id": "the-conjuring-2",
+   "artist": "Joseph Bishara",
+   "title": "The Conjuring 2",
+   "year": 2016
+  },
+  {
+   "id": "hostlegender",
+   "artist": "James Horner",
+   "title": "Höstlegender",
+   "year": 1994
+  },
+  {
+   "id": "the-fantastic-four-first-steps",
+   "artist": "",
+   "title": "The Fantastic Four: First Steps",
+   "year": 2025
+  },
+  {
+   "id": "familjen-addams",
+   "artist": "",
+   "title": "Familjen Addams",
+   "year": 1991
+  },
+  {
+   "id": "rocky-iii",
+   "artist": "Bill Conti",
+   "title": "Rocky III",
+   "year": 1982
+  },
+  {
+   "id": "demolition-man",
+   "artist": "Elliot Goldenthal",
+   "title": "Demolition Man",
+   "year": 1993
+  },
+  {
+   "id": "robin-hood-prince-of-thieves",
+   "artist": "Michael Kamen",
+   "title": "Robin Hood: Prince of Thieves",
+   "year": 1991
+  },
+  {
+   "id": "the-greatest-showman",
+   "artist": "Benj Pasek and Justin Paul & John Debney",
+   "title": "The Greatest Showman",
+   "year": 2017
+  },
+  {
+   "id": "vagen-till-el-dorado",
+   "artist": "Tim Rice & John Powell",
+   "title": "Vägen till El Dorado",
+   "year": 2000
+  },
+  {
+   "id": "dancer-in-the-dark",
+   "artist": "Björk",
+   "title": "Dancer in the Dark",
+   "year": 2000
+  },
+  {
+   "id": "the-rock",
+   "artist": "Nick Glennie-Smith & Hans Zimmer",
+   "title": "The Rock",
+   "year": 1996
+  },
+  {
+   "id": "den-stora-flykten",
+   "artist": "Elmer Bernstein",
+   "title": "Den stora flykten",
+   "year": 1963
+  },
+  {
+   "id": "snow-white-and-the-huntsman",
+   "artist": "James Newton Howard",
+   "title": "Snow White and the Huntsman",
+   "year": 2012
+  },
+  {
+   "id": "carol",
+   "artist": "Carter Burwell",
+   "title": "Carol",
+   "year": 2015
+  },
+  {
+   "id": "300-rise-of-an-empire",
+   "artist": "Junkie XL",
+   "title": "300: Rise of an Empire",
+   "year": 2014
+  },
+  {
+   "id": "rush-hour-3",
+   "artist": "Lalo Schifrin",
+   "title": "Rush Hour 3",
+   "year": 2007
+  },
+  {
+   "id": "the-fault-in-our-stars",
+   "artist": "Nate Walcott & Mike Mogis",
+   "title": "The Fault in Our Stars",
+   "year": 2014
+  },
+  {
+   "id": "body-of-lies",
+   "artist": "Marc Streitenfeld",
+   "title": "Body of Lies",
+   "year": 2008
+  },
+  {
+   "id": "sista-natten-med-ganget",
+   "artist": "Richard Rodgers",
+   "title": "Sista natten med gänget",
+   "year": 1973
+  },
+  {
+   "id": "kristi-sista-frestelse",
+   "artist": "Peter Gabriel",
+   "title": "Kristi sista frestelse",
+   "year": 1988
+  },
+  {
+   "id": "walk-the-line",
+   "artist": "T Bone Burnett",
+   "title": "Walk the Line",
+   "year": 2005
+  },
+  {
+   "id": "saturday-night-fever",
+   "artist": "Barry Gibb",
+   "title": "Saturday Night Fever",
+   "year": 1977
+  },
+  {
+   "id": "dolda-tillgangar",
+   "artist": "Benjamin Wallfisch & Hans Zimmer",
+   "title": "Dolda tillgångar",
+   "year": 2016
+  },
+  {
+   "id": "nightcrawler",
+   "artist": "James Newton Howard",
+   "title": "Nightcrawler",
+   "year": 2014
+  },
+  {
+   "id": "high-school-musical-3-sista-aret",
+   "artist": "David Nessim Lawrence",
+   "title": "High School Musical 3: Sista året",
+   "year": 2008
+  },
+  {
+   "id": "john-wick-chapter-3-parabellum",
+   "artist": "Tyler Bates",
+   "title": "John Wick: Chapter 3 – Parabellum",
+   "year": 2019
+  },
+  {
+   "id": "oz-the-great-and-powerful",
+   "artist": "Danny Elfman",
+   "title": "Oz: The Great and Powerful",
+   "year": 2013
+  },
+  {
+   "id": "zorro-den-maskerade-hamnaren",
+   "artist": "James Horner",
+   "title": "Zorro - Den maskerade hämnaren",
+   "year": 1998
+  },
+  {
+   "id": "stand-by-me",
+   "artist": "Jack Nitzsche",
+   "title": "Stand by Me",
+   "year": 1986
+  },
+  {
+   "id": "superman-ii-aventyret-fortsatter",
+   "artist": "Ken Thorne",
+   "title": "Superman II – Äventyret fortsätter",
+   "year": 1980
+  },
+  {
+   "id": "zorba",
+   "artist": "Mikis Theodorakis",
+   "title": "Zorba",
+   "year": 1964
+  },
+  {
+   "id": "the-holiday",
+   "artist": "Hans Zimmer",
+   "title": "The Holiday",
+   "year": 2006
+  },
+  {
+   "id": "tom-jerry-gor-stan-osaker",
+   "artist": "Henry Mancini",
+   "title": "Tom & Jerry gör stan osäker",
+   "year": 1992
+  },
+  {
+   "id": "mars-attacks",
+   "artist": "Danny Elfman",
+   "title": "Mars Attacks!",
+   "year": 1996
+  },
+  {
+   "id": "bleka-dodens-minut",
+   "artist": "Mark Knopfler",
+   "title": "Bleka dödens minut",
+   "year": 1987
+  },
+  {
+   "id": "signs",
+   "artist": "James Newton Howard",
+   "title": "Signs",
+   "year": 2002
+  },
+  {
+   "id": "into-the-woods",
+   "artist": "Stephen Sondheim",
+   "title": "Into the Woods",
+   "year": 2014
+  },
+  {
+   "id": "the-wrestler",
+   "artist": "Clint Mansell",
+   "title": "The Wrestler",
+   "year": 2008
+  },
+  {
+   "id": "johnny-english-reborn",
+   "artist": "Ilan Eshkeri",
+   "title": "Johnny English Reborn",
+   "year": 2011
+  },
+  {
+   "id": "hotell-transylvanien-2",
+   "artist": "Mark Mothersbaugh",
+   "title": "Hotell Transylvanien 2",
+   "year": 2015
+  },
+  {
+   "id": "death-proof",
+   "artist": "",
+   "title": "Death Proof",
+   "year": 2007
+  },
+  {
+   "id": "grease",
+   "artist": "John Farrar & Barry Gibb",
+   "title": "Grease",
+   "year": 1978
+  },
+  {
+   "id": "baahubali-the-beginning",
+   "artist": "M. M. Keeravani",
+   "title": "Baahubali: The Beginning",
+   "year": 2015
+  },
+  {
+   "id": "supersugen",
+   "artist": "Lyle Workman",
+   "title": "Supersugen",
+   "year": 2007
+  },
+  {
+   "id": "polarexpressen",
+   "artist": "Alan Silvestri",
+   "title": "Polarexpressen",
+   "year": 2004
+  },
+  {
+   "id": "dracula",
+   "artist": "Philip Glass",
+   "title": "Dracula",
+   "year": 1931
+  },
+  {
+   "id": "sa-tuktas-ett-lejon",
+   "artist": "John Barry",
+   "title": "Så tuktas ett lejon",
+   "year": 1968
+  },
+  {
+   "id": "scream-4",
+   "artist": "Marco Beltrami",
+   "title": "Scream 4",
+   "year": 2011
+  },
+  {
+   "id": "vittne-till-mord",
+   "artist": "Maurice Jarre",
+   "title": "Vittne till mord",
+   "year": 1985
+  },
+  {
+   "id": "joker-folie-a-deux",
+   "artist": "Hildur Guðnadóttir",
+   "title": "Joker: Folie à Deux",
+   "year": 2024
+  },
+  {
+   "id": "annabelle-2-creation",
+   "artist": "Joseph Bishara",
+   "title": "Annabelle 2: Creation",
+   "year": 2017
+  },
+  {
+   "id": "sinners",
+   "artist": "Ludwig Göransson",
+   "title": "Sinners",
+   "year": 2025
+  },
+  {
+   "id": "mission-impossible-the-final-reckoning",
+   "artist": "Lorne Balfe",
+   "title": "Mission: Impossible – The Final Reckoning",
+   "year": 2025
+  },
+  {
+   "id": "elementart",
+   "artist": "",
+   "title": "Elementärt",
+   "year": 2023
+  },
+  {
+   "id": "den-dar-mary",
+   "artist": "Jonathan Richman",
+   "title": "Den där Mary",
+   "year": 1998
+  },
+  {
+   "id": "murder-on-the-orient-express",
+   "artist": "Patrick Doyle",
+   "title": "Murder on the Orient Express",
+   "year": 2017
+  },
+  {
+   "id": "the-hunger-games-mockingjay-part-2",
+   "artist": "James Newton Howard",
+   "title": "The Hunger Games: Mockingjay – Part 2",
+   "year": 2015
+  },
+  {
+   "id": "wanted",
+   "artist": "Danny Elfman",
+   "title": "Wanted",
+   "year": 2008
+  },
+  {
+   "id": "kingsman-the-golden-circle",
+   "artist": "Henry Jackman",
+   "title": "Kingsman: The Golden Circle",
+   "year": 2017
+  },
+  {
+   "id": "legally-blonde",
+   "artist": "Rolfe Kent",
+   "title": "Legally Blonde",
+   "year": 2001
+  },
+  {
+   "id": "daredevil",
+   "artist": "Graeme Revell",
+   "title": "Daredevil",
+   "year": 2003
+  },
+  {
+   "id": "precious",
+   "artist": "Mario Grigorov",
+   "title": "Precious",
+   "year": 2009
+  },
+  {
+   "id": "rocky-balboa",
+   "artist": "Bill Conti",
+   "title": "Rocky Balboa",
+   "year": 2006
+  },
+  {
+   "id": "rocky-v",
+   "artist": "Bill Conti",
+   "title": "Rocky V",
+   "year": 1990
+  },
+  {
+   "id": "snobben-the-peanuts-movie",
+   "artist": "Christophe Beck",
+   "title": "Snobben: The Peanuts Movie",
+   "year": 2015
+  },
+  {
+   "id": "bridesmaids",
+   "artist": "Michael Andrews",
+   "title": "Bridesmaids",
+   "year": 2011
+  },
+  {
+   "id": "scream-3",
+   "artist": "Marco Beltrami",
+   "title": "Scream 3",
+   "year": 2000
+  },
+  {
+   "id": "bad-boys",
+   "artist": "Mark Mancina",
+   "title": "Bad Boys",
+   "year": 1995
+  },
+  {
+   "id": "blade-trinity",
+   "artist": "Ramin Djawadi & RZA",
+   "title": "Blade: Trinity",
+   "year": 2004
+  },
+  {
+   "id": "american-pie-2",
+   "artist": "David Nessim Lawrence",
+   "title": "American Pie 2",
+   "year": 2001
+  },
+  {
+   "id": "lost-highway",
+   "artist": "Angelo Badalamenti",
+   "title": "Lost Highway",
+   "year": 1997
+  },
+  {
+   "id": "baksmallan-del-ii",
+   "artist": "Christophe Beck",
+   "title": "Baksmällan del II",
+   "year": 2011
+  },
+  {
+   "id": "shaun-of-the-dead",
+   "artist": "",
+   "title": "Shaun of the Dead",
+   "year": 2004
+  },
+  {
+   "id": "tjuren-ferdinand",
+   "artist": "John Powell",
+   "title": "Tjuren Ferdinand",
+   "year": 2017
+  },
+  {
+   "id": "mr-nobody",
+   "artist": "Pierre Van Dormael",
+   "title": "Mr. Nobody",
+   "year": 2009
+  },
+  {
+   "id": "anna-karenina",
+   "artist": "Dario Marianelli",
+   "title": "Anna Karenina",
+   "year": 2012
+  },
+  {
+   "id": "godzilla-ii-king-of-the-monsters",
+   "artist": "Bear McCreary",
+   "title": "Godzilla II: King of the Monsters",
+   "year": 2019
+  },
+  {
+   "id": "gigi-ett-lattfardigt-stycke",
+   "artist": "Frederick Loewe",
+   "title": "Gigi, ett lättfärdigt stycke",
+   "year": 1958
+  },
+  {
+   "id": "moonrise-kingdom",
+   "artist": "Alexandre Desplat",
+   "title": "Moonrise Kingdom",
+   "year": 2012
+  },
+  {
+   "id": "godzilla-vs-kong",
+   "artist": "Junkie XL",
+   "title": "Godzilla vs. Kong",
+   "year": 2021
+  },
+  {
+   "id": "fantastiska-vidunder-dumbledores-hemligheter",
+   "artist": "James Newton Howard",
+   "title": "Fantastiska vidunder: Dumbledores hemligheter",
+   "year": 2022
+  },
+  {
+   "id": "wicked",
+   "artist": "John Powell",
+   "title": "Wicked",
+   "year": 2024
+  },
+  {
+   "id": "hotell-transylvanien-3-en-monstersemester",
+   "artist": "Mark Mothersbaugh",
+   "title": "Hotell Transylvanien 3: En monstersemester",
+   "year": 2018
+  },
+  {
+   "id": "berattelsen-om-narnia-kung-caspian-och-skeppet-gryningen",
+   "artist": "",
+   "title": "Berättelsen om Narnia: Kung Caspian och skeppet Gryningen",
+   "year": 2010
+  },
+  {
+   "id": "lion",
+   "artist": "Sia & Hauschka",
+   "title": "Lion",
+   "year": 2015
+  },
+  {
+   "id": "jason-bourne",
+   "artist": "David Buckley & John Powell",
+   "title": "Jason Bourne",
+   "year": 2016
+  },
+  {
+   "id": "evita",
+   "artist": "Andrew Lloyd Webber",
+   "title": "Evita",
+   "year": 1996
+  },
+  {
+   "id": "dead-man-walking",
+   "artist": "David Robbins",
+   "title": "Dead Man Walking",
+   "year": 1995
+  },
+  {
+   "id": "the-great-wall",
+   "artist": "Ramin Djawadi",
+   "title": "The Great Wall",
+   "year": 2016
+  },
+  {
+   "id": "oliver",
+   "artist": "Lionel Bart",
+   "title": "Oliver!",
+   "year": 1968
+  },
+  {
+   "id": "cable-guy",
+   "artist": "John Ottman",
+   "title": "Cable Guy",
+   "year": 1996
+  },
+  {
+   "id": "hairspray",
+   "artist": "Marc Shaiman",
+   "title": "Hairspray",
+   "year": 2007
+  },
+  {
+   "id": "romeo-julia",
+   "artist": "Nellee Hooper",
+   "title": "Romeo & Julia",
+   "year": 1996
+  },
+  {
+   "id": "ghostbusters-2",
+   "artist": "Randy Edelman",
+   "title": "Ghostbusters 2",
+   "year": 1989
+  },
+  {
+   "id": "star-wars-the-clone-wars",
+   "artist": "Kevin Kiner",
+   "title": "Star Wars: The Clone Wars",
+   "year": 2008
+  },
+  {
+   "id": "en-prinsessas-dagbok",
+   "artist": "John Debney",
+   "title": "En prinsessas dagbok",
+   "year": 2001
+  },
+  {
+   "id": "wild-wild-west",
+   "artist": "Elmer Bernstein & Will Smith",
+   "title": "Wild Wild West",
+   "year": 1999
+  },
+  {
+   "id": "charlies-anglar",
+   "artist": "Edward Shearmur",
+   "title": "Charlies änglar",
+   "year": 2000
+  },
+  {
+   "id": "de-fem-legenderna",
+   "artist": "Alexandre Desplat",
+   "title": "De fem legenderna",
+   "year": 2012
+  },
+  {
+   "id": "ghost-rider-spirit-of-vengeance",
+   "artist": "Dave Sardy",
+   "title": "Ghost Rider: Spirit of Vengeance",
+   "year": 2012
+  },
+  {
+   "id": "my-name-is-khan",
+   "artist": "Shankar Mahadevan",
+   "title": "My Name Is Khan",
+   "year": 2010
+  },
+  {
+   "id": "blackkklansman",
+   "artist": "Terence Blanchard",
+   "title": "BlacKkKlansman",
+   "year": 2018
+  },
+  {
+   "id": "enola-holmes",
+   "artist": "Daniel Pemberton",
+   "title": "Enola Holmes",
+   "year": 2020
+  },
+  {
+   "id": "1900",
+   "artist": "Ennio Morricone",
+   "title": "1900",
+   "year": 1976
+  },
+  {
+   "id": "morbius",
+   "artist": "Jon Ekstrand",
+   "title": "Morbius",
+   "year": 2022
+  },
+  {
+   "id": "the-nun",
+   "artist": "Abel Korzeniowski",
+   "title": "The Nun",
+   "year": 2018
+  },
+  {
+   "id": "the-scorpion-king",
+   "artist": "John Debney",
+   "title": "The Scorpion King",
+   "year": 2002
+  },
+  {
+   "id": "gremlins",
+   "artist": "Jerry Goldsmith",
+   "title": "Gremlins",
+   "year": 1984
+  },
+  {
+   "id": "papillon",
+   "artist": "Jerry Goldsmith",
+   "title": "Papillon",
+   "year": 1973
+  },
+  {
+   "id": "star-trek-v-den-yttersta-gransen",
+   "artist": "Jerry Goldsmith",
+   "title": "Star Trek V – Den yttersta gränsen",
+   "year": 1989
+  },
+  {
+   "id": "dagbok-fran-en-motorcykel",
+   "artist": "Jorge Drexler",
+   "title": "Dagbok från en motorcykel",
+   "year": 2004
   }
  ]
 }
