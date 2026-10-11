@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory,
+  cleanSettings, applySettings, changeCategory, nameTaken,
 } from '../js/game.js';
 
 const songs = [
@@ -242,4 +242,13 @@ test('kategorin kan bytas mellan låtarna men inte medan en låt pågår', () =>
   const view = playerView(state, 'p1', 0);
   assert.equal(view.categoryName, 'Klassisk musik');
   assert.equal(view.labels.artist, 'Kompositör');
+});
+
+test('ett namn som en annan spelare har är upptaget, oavsett stora bokstäver och accenter', () => {
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal' });
+  addPlayer(state, { id: 'p1', name: 'Åsa' });
+  assert.equal(nameTaken(state, { id: 'p2', name: 'asa' }), true);
+  assert.equal(nameTaken(state, { id: 'p2', name: 'Bo' }), false);
+  // Samma spelare som ansluter igen får behålla sitt namn.
+  assert.equal(nameTaken(state, { id: 'p1', name: 'Åsa' }), false);
 });

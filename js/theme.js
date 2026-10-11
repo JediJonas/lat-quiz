@@ -9,6 +9,18 @@ function isDark() {
   return chosen ? chosen === 'dark' : deviceDark.matches;
 }
 
+const TEXT_KEY = 'latquiz-text';
+const TEXT_SIZES = [['small', 'Liten'], ['medium', 'Mellan'], ['large', 'Stor']];
+
+function textSize() {
+  return document.documentElement.dataset.text || 'medium';
+}
+
+function setTextSize(size) {
+  document.documentElement.dataset.text = size;
+  try { localStorage.setItem(TEXT_KEY, size); } catch { /* privat läge */ }
+}
+
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   try { localStorage.setItem(THEME_KEY, theme); } catch { /* privat läge: gäller bara den här sidvisningen */ }
@@ -31,13 +43,17 @@ function showUserSettings() {
   dialog.innerHTML = `
     <form method="dialog">
       <h2 id="user-settings-title">Utseende</h2>
-      <p>Gäller bara den här enheten.</p>
       <button type="button" class="theme-switch"></button>
+      <fieldset class="segmented">
+        <legend>Textstorlek</legend>
+        ${TEXT_SIZES.map(([value, text]) => `<label><input type="radio" name="text-size" value="${value}"${value === textSize() ? ' checked' : ''}><span>${text}</span></label>`).join('')}
+      </fieldset>
       <div class="modal-actions">
         <button value="ok">Stäng</button>
       </div>
     </form>`;
   mountThemeSwitch(dialog.querySelector('.theme-switch'));
+  dialog.querySelector('.segmented').addEventListener('change', (e) => setTextSize(e.target.value));
   // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.
   dialog.addEventListener('keydown', (e) => e.stopPropagation());
   dialog.addEventListener('close', () => dialog.remove(), { once: true });
