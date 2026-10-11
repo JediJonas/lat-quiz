@@ -111,7 +111,7 @@ h1, h2 { font-size: 1.3rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
 .logo {
   display: block;
-  width: 14rem;
+  width: 224px; /* I pixlar, så att loggan inte växer med Stor text. */
   aspect-ratio: 2814 / 1010;
   margin: 16px 0 8px;
   background: var(--accent);
@@ -127,8 +127,8 @@ h1.logo { margin: 16px 0 8px; }
 .page-head .page-title { margin: 0 0 20px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
-.logo-small { --w: 5.5rem; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-.game-head .logo-small { --w: 8.5rem; margin-right: 8px; }
+.logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
+.game-head .logo-small { --w: 136px; margin-right: 8px; }
 h3, .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
 @media (hover: hover) { a:not(.button):hover { color: var(--text); } }
