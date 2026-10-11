@@ -106,7 +106,7 @@ body {
 main { padding: 24px 16px; }
 .narrow { max-width: 460px; margin: 0 auto; }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
-/* h1 och h2 ser likadana ut: sidans rubrik och rubrikerna i modalerna. Kategorin under spelet är lika stor som löptexten. */
+/* h1 och h2 ser likadana ut: sidans rubrik och rubrikerna i modalerna. Spelarens kategori är lika stor som löptexten. */
 h1, h2 { font-size: 1.1rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
 .logo {
@@ -496,7 +496,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
-#category { margin: 0; color: var(--text); font-size: 1rem; }
+#category { margin: 0; color: var(--text); }
 .stage {
   background: var(--surface);
   border: 1px solid var(--border);
