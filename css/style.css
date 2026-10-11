@@ -124,10 +124,9 @@ h1 { font-size: 2rem; font-weight: 750; margin: 0.6em 0 0.5em; }
   mask-repeat: no-repeat;
 }
 h1.logo { margin: 16px 0 8px; }
-/* Sidans rubrik står bredvid loggan, i samma stil som rubrikerna i modalerna, på loggans baslinje. */
-.page-head { --w: min(14rem, 100vw - 48px - 8.75rem); display: flex; align-items: baseline; gap: 16px; margin: calc(16px - var(--w) * 260 / 2814) 0 calc(var(--w) * 260 / 2814 + 16px); }
-.page-head .logo { flex: none; width: var(--w); margin: 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-.page-head .page-title { margin: 0; color: var(--text); font-size: 1.3rem; font-weight: 700; white-space: nowrap; }
+/* Sidans rubrik står under loggan, i samma stil som rubrikerna i modalerna. Loggan har samma storlek och läge som på startsidan. */
+.page-head .logo { margin: 16px 0 8px; }
+.page-head .page-title { margin: 0 0 20px; color: var(--text); font-size: 1.3rem; font-weight: 700; }
 .page-title { font-size: 1.25rem; font-weight: 500; color: var(--title); margin: 0 0 0.8em; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
