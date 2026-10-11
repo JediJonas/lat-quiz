@@ -1,0 +1,57 @@
+name: Kontroller
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  kontroller:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: kontroller/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Tester och JSON
+        run: npm test
+
+      - name: Installera kontrollverktygen
+        working-directory: kontroller
+        run: npm ci
+
+      - name: Starta webbserver och PeerJS-server
+        working-directory: kontroller
+        run: |
+          (cd .. && python3 -m http.server 8080 &)
+          npx peerjs --host 127.0.0.1 --port 9000 &
+          sleep 3
+
+      - name: HTML-validering (W3C Nu)
+        working-directory: kontroller
+        run: npm run html
+
+      - name: Tillgänglighet (axe, WCAG 2.2 AA)
+        working-directory: kontroller
+        run: npm run axe
+
+      - name: Lighthouse (mobil)
+        working-directory: kontroller
+        run: npm run lighthouse
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - name: Länkkontroll
+        working-directory: kontroller
+        run: npm run lankar
+
+      - name: Sidvikt
+        working-directory: kontroller
+        run: npm run -s sidvikt >> "$GITHUB_STEP_SUMMARY" && cat "$GITHUB_STEP_SUMMARY"

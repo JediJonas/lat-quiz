@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
+import { announce, renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 import { mountThemeSwitches } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
@@ -108,6 +108,7 @@ function render() {
 
   if (phase === 'playing') {
     $('#round-title').textContent = `Låt ${round.number}`;
+    announce(`Låt ${round.number} har börjat. Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.`);
     renderTimer();
   } else if (phase === 'revealed') {
     const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
@@ -122,6 +123,8 @@ function render() {
       </ul>
       <p class="points">+${r.points} poäng</p>
       ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
+    announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
+      + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
   }
   renderStandings();
 }
@@ -157,11 +160,15 @@ function onNotFound() {
 }
 
 async function init() {
-  const suggestions = await loadSuggestions();
+  // Förslagslistan är stor. Den laddas i bakgrunden, så att kodsidan visas direkt.
   fields = {
-    artist: autocomplete($('#artist'), suggestions.artists, (v) => { local.artist = v; sendAnswer('artist'); render(); }),
-    title: autocomplete($('#title'), suggestions.titles, (v) => { local.title = v; sendAnswer('title'); render(); }),
+    artist: autocomplete($('#artist'), [], (v) => { local.artist = v; sendAnswer('artist'); render(); }),
+    title: autocomplete($('#title'), [], (v) => { local.title = v; sendAnswer('title'); render(); }),
   };
+  loadSuggestions().then((suggestions) => {
+    fields.artist.setList(suggestions.artists);
+    fields.title.setList(suggestions.titles);
+  }).catch(showError);
   setInterval(renderTimer, 250);
 
   const params = new URLSearchParams(location.search);
@@ -190,6 +197,8 @@ async function init() {
   $('#join').hidden = false;
 }
 
-init().catch((err) => {
-  document.body.insertAdjacentHTML('afterbegin', `<p class="error">${esc(err.message)}</p>`);
-});
+function showError(err) {
+  document.body.insertAdjacentHTML('afterbegin', `<p class="error" role="alert">${esc(err.message)}</p>`);
+}
+
+init().catch(showError);

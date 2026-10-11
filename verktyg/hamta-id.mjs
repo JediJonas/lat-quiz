@@ -48,7 +48,8 @@ async function wikidata(title) {
   }`;
   const data = await getJson('https://query.wikidata.org/sparql?' + new URLSearchParams({ query, format: 'json' }));
   await sleep(1000);
-  return data.results.bindings.map((b) => ({
+  // Wikidata kan ha felaktiga ID. Ett riktigt Spotify-ID har 22 tecken.
+  return data.results.bindings.filter((b) => /^[A-Za-z0-9]{22}$/.test(b.spotify.value)).map((b) => ({
     title: b.itemLabel ? b.itemLabel.value : '',
     performer: b.performerLabel ? b.performerLabel.value : '',
     spotify: b.spotify.value,

@@ -40,6 +40,25 @@ PeerJS gratisserver används som standard. För att testa med en egen PeerJS-ser
 npm test
 ```
 
+Testerna kontrollerar också att alla JSON-filer går att läsa och att varje quizlåt har ett giltigt Spotify-ID.
+
+## Kvalitetskontroller
+
+Varje pull request kör `.github/workflows/kontroller.yml`: tester, HTML-validering (W3C Nu), tillgänglighet med axe (WCAG 2.2 AA, ljust och mörkt läge genom ett helt spel), Lighthouse i mobilläge, länkkontroll och sidvikt. Verktygen ligger i `kontroller/`, med egna beroenden, så att själva appen förblir fri från beroenden.
+
+Lokalt, med webbservern på port 8080 igång:
+
+```
+cd kontroller
+npm ci
+npm run peer &        # lokal PeerJS-server, behövs för axe
+npm run html
+npm run axe
+npm run lighthouse
+npm run lankar
+npm run sidvikt
+```
+
 ## Spotify-ID
 
 Så tas en kategori fram:

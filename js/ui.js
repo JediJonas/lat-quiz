@@ -71,3 +71,13 @@ export function scoreTracker() {
     return changed;
   };
 }
+
+// Läser upp en kort händelse för skärmläsare via den dolda statusraden #announce.
+// Samma text två gånger i rad läses inte upp igen.
+let lastAnnounced = '';
+export function announce(text) {
+  const el = document.getElementById('announce');
+  if (!el || text === lastAnnounced) return;
+  lastAnnounced = text;
+  el.textContent = text;
+}
