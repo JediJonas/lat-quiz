@@ -80,9 +80,13 @@ function changed() {
 function onMessage(connId, msg) {
   if (!msg || typeof msg !== 'object') return;
   if (msg.type === 'hello') {
-    const name = String(msg.name || '').trim().slice(0, 20);
+    const name = String(msg.name || '').trim().slice(0, game.MAX_NAME);
     const playerId = String(msg.playerId || '').slice(0, 40);
     if (!name || !playerId) return;
+    if (game.nameTaken(state, { id: playerId, name })) {
+      net.send(connId, { type: 'name-taken', name });
+      return;
+    }
     // Samma spelare på en ny anslutning: släpp den gamla.
     for (const [otherConn, otherId] of connToPlayer) {
       if (otherId === playerId && otherConn !== connId) {
@@ -329,12 +333,21 @@ function renderSetupSummary() {
 function showJoinInfo() {
   const url = joinUrl();
   $('#code').textContent = state.code;
+  $('#show-qr').textContent = state.code;
+  setQrVisible(true);
   $('#join-url').textContent = url;
   $('#join-url').href = url;
   const qr = qrcode(0, 'M');
   qr.addData(url);
   qr.make();
   $('#qr').innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
+}
+
+// QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel.
+function setQrVisible(visible) {
+  $('#join-info').hidden = !visible;
+  $('#game').classList.toggle('qr-hidden', !visible);
+  $('#show-qr').setAttribute('aria-expanded', String(visible));
 }
 
 function renderTimer() {
@@ -431,6 +444,8 @@ document.addEventListener('click', (e) => {
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
   else if (id === 'settings' || id === 'game-settings') editSettings();
+  else if (id === 'hide-qr') setQrVisible(false);
+  else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
 });
 
 // Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.

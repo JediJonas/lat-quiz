@@ -1,0 +1,1997 @@
+{
+ "id": "eurovision",
+ "name": "Eurovision",
+ "file": "eurovision.json",
+ "labels": {
+  "artist": "Land",
+  "title": "Låt"
+ },
+ "songs": [
+  {
+   "id": "sverige-euphoria-2012",
+   "artist": "Sverige",
+   "title": "Euphoria",
+   "year": 2012
+  },
+  {
+   "id": "israel-toy-2018",
+   "artist": "Israel",
+   "title": "Toy",
+   "year": 2018
+  },
+  {
+   "id": "nederlanderna-arcade-2019",
+   "artist": "Nederländerna",
+   "title": "Arcade",
+   "year": 2019
+  },
+  {
+   "id": "sverige-tattoo-2023",
+   "artist": "Sverige",
+   "title": "Tattoo",
+   "year": 2023
+  },
+  {
+   "id": "schweiz-the-code-2024",
+   "artist": "Schweiz",
+   "title": "The Code",
+   "year": 2024
+  },
+  {
+   "id": "kroatien-rim-tim-tagi-dim-2024",
+   "artist": "Kroatien",
+   "title": "Rim Tim Tagi Dim",
+   "year": 2024
+  },
+  {
+   "id": "finland-cha-cha-cha-2023",
+   "artist": "Finland",
+   "title": "Cha Cha Cha",
+   "year": 2023
+  },
+  {
+   "id": "armenien-snap-2022",
+   "artist": "Armenien",
+   "title": "Snap",
+   "year": 2022
+  },
+  {
+   "id": "italien-la-noia-2024",
+   "artist": "Italien",
+   "title": "La noia",
+   "year": 2024
+  },
+  {
+   "id": "nederlanderna-europapa-2024",
+   "artist": "Nederländerna",
+   "title": "Europapa",
+   "year": 2024
+  },
+  {
+   "id": "sverige-unforgettable-2024",
+   "artist": "Sverige",
+   "title": "Unforgettable",
+   "year": 2024
+  },
+  {
+   "id": "italien-brividi-2022",
+   "artist": "Italien",
+   "title": "Brividi",
+   "year": 2022
+  },
+  {
+   "id": "storbritannien-space-man-2022",
+   "artist": "Storbritannien",
+   "title": "Space Man",
+   "year": 2022
+  },
+  {
+   "id": "spanien-la-venda-2019",
+   "artist": "Spanien",
+   "title": "La venda",
+   "year": 2019
+  },
+  {
+   "id": "armenien-jako-2024",
+   "artist": "Armenien",
+   "title": "Jako",
+   "year": 2024
+  },
+  {
+   "id": "storbritannien-dizzy-2024",
+   "artist": "Storbritannien",
+   "title": "Dizzy",
+   "year": 2024
+  },
+  {
+   "id": "italien-due-vite-2023",
+   "artist": "Italien",
+   "title": "Due vite",
+   "year": 2023
+  },
+  {
+   "id": "osterrike-who-the-hell-is-edgar-2023",
+   "artist": "Österrike",
+   "title": "Who the Hell Is Edgar?",
+   "year": 2023
+  },
+  {
+   "id": "serbien-samo-mi-se-spava-2023",
+   "artist": "Serbien",
+   "title": "Samo mi se spava",
+   "year": 2023
+  },
+  {
+   "id": "irland-doomsday-blue-2024",
+   "artist": "Irland",
+   "title": "Doomsday Blue",
+   "year": 2024
+  },
+  {
+   "id": "frankrike-j-ai-cherche-2016",
+   "artist": "Frankrike",
+   "title": "J'ai cherché",
+   "year": 2016
+  },
+  {
+   "id": "grekland-better-love-2019",
+   "artist": "Grekland",
+   "title": "Better Love",
+   "year": 2019
+  },
+  {
+   "id": "frankrike-mercy-2018",
+   "artist": "Frankrike",
+   "title": "Mercy",
+   "year": 2018
+  },
+  {
+   "id": "ukraina-tick-tock-2014",
+   "artist": "Ukraina",
+   "title": "Tick-Tock",
+   "year": 2014
+  },
+  {
+   "id": "spanien-eaea-2023",
+   "artist": "Spanien",
+   "title": "Eaea",
+   "year": 2023
+  },
+  {
+   "id": "norge-queen-of-kings-2023",
+   "artist": "Norge",
+   "title": "Queen of Kings",
+   "year": 2023
+  },
+  {
+   "id": "slovenien-carpe-diem-2023",
+   "artist": "Slovenien",
+   "title": "Carpe Diem",
+   "year": 2023
+  },
+  {
+   "id": "belgien-before-the-party-s-over-2024",
+   "artist": "Belgien",
+   "title": "Before the Party's Over",
+   "year": 2024
+  },
+  {
+   "id": "lettland-hollow-2024",
+   "artist": "Lettland",
+   "title": "Hollow",
+   "year": 2024
+  },
+  {
+   "id": "litauen-luktelk-2024",
+   "artist": "Litauen",
+   "title": "Luktelk",
+   "year": 2024
+  },
+  {
+   "id": "portugal-grito-2024",
+   "artist": "Portugal",
+   "title": "Grito",
+   "year": 2024
+  },
+  {
+   "id": "spanien-zorra-2024",
+   "artist": "Spanien",
+   "title": "Zorra",
+   "year": 2024
+  },
+  {
+   "id": "ryssland-russian-woman-2021",
+   "artist": "Ryssland",
+   "title": "Russian Woman",
+   "year": 2021
+  },
+  {
+   "id": "tjeckien-lights-off-2022",
+   "artist": "Tjeckien",
+   "title": "Lights Off",
+   "year": 2022
+  },
+  {
+   "id": "frankrike-fulenn-2022",
+   "artist": "Frankrike",
+   "title": "Fulenn",
+   "year": 2022
+  },
+  {
+   "id": "storbritannien-i-wrote-a-song-2023",
+   "artist": "Storbritannien",
+   "title": "I Wrote a Song",
+   "year": 2023
+  },
+  {
+   "id": "san-marino-11-11-2024",
+   "artist": "San Marino",
+   "title": "11:11",
+   "year": 2024
+  },
+  {
+   "id": "polen-pali-sie-2019",
+   "artist": "Polen",
+   "title": "Pali się",
+   "year": 2019
+  },
+  {
+   "id": "armenien-future-lover-2023",
+   "artist": "Armenien",
+   "title": "Future Lover",
+   "year": 2023
+  },
+  {
+   "id": "polen-the-tower-2024",
+   "artist": "Polen",
+   "title": "The Tower",
+   "year": 2024
+  },
+  {
+   "id": "georgien-echo-2023",
+   "artist": "Georgien",
+   "title": "Echo",
+   "year": 2023
+  },
+  {
+   "id": "moldavien-soarele-si-luna-2023",
+   "artist": "Moldavien",
+   "title": "Soarele şi Luna",
+   "year": 2023
+  },
+  {
+   "id": "tjeckien-pedestal-2024",
+   "artist": "Tjeckien",
+   "title": "Pedestal",
+   "year": 2024
+  },
+  {
+   "id": "azerbajdzjan-tell-me-more-2023",
+   "artist": "Azerbajdzjan",
+   "title": "Tell Me More",
+   "year": 2023
+  },
+  {
+   "id": "cypern-break-a-broken-heart-2023",
+   "artist": "Cypern",
+   "title": "Break a Broken Heart",
+   "year": 2023
+  },
+  {
+   "id": "malta-loop-2024",
+   "artist": "Malta",
+   "title": "Loop",
+   "year": 2024
+  },
+  {
+   "id": "spanien-tu-cancion-2018",
+   "artist": "Spanien",
+   "title": "Tu canción",
+   "year": 2018
+  },
+  {
+   "id": "tyskland-blood-glitter-2023",
+   "artist": "Tyskland",
+   "title": "Blood & Glitter",
+   "year": 2023
+  },
+  {
+   "id": "rumanien-d-g-t-off-and-on-2023",
+   "artist": "Rumänien",
+   "title": "D.G.T. (Off and On)",
+   "year": 2023
+  },
+  {
+   "id": "belgien-a-matter-of-time-2018",
+   "artist": "Belgien",
+   "title": "A Matter of Time",
+   "year": 2018
+  },
+  {
+   "id": "azerbajdzjan-ell-nikki-2011",
+   "artist": "Azerbajdzjan",
+   "title": "Ell & Nikki",
+   "year": 2011
+  },
+  {
+   "id": "ukraina-stefania-2022",
+   "artist": "Ukraina",
+   "title": "Stefania",
+   "year": 2022
+  },
+  {
+   "id": "israel-unicorn-2023",
+   "artist": "Israel",
+   "title": "Unicorn",
+   "year": 2023
+  },
+  {
+   "id": "schweiz-tout-l-univers-2021",
+   "artist": "Schweiz",
+   "title": "Tout l'univers",
+   "year": 2021
+  },
+  {
+   "id": "israel-hurricane-2024",
+   "artist": "Israel",
+   "title": "Hurricane",
+   "year": 2024
+  },
+  {
+   "id": "frankrike-mon-amour-2024",
+   "artist": "Frankrike",
+   "title": "Mon amour",
+   "year": 2024
+  },
+  {
+   "id": "frankrike-je-suis-l-enfant-soleil-1979",
+   "artist": "Frankrike",
+   "title": "Je suis l'enfant soleil",
+   "year": 1979
+  },
+  {
+   "id": "frankrike-mama-corsica-1993",
+   "artist": "Frankrike",
+   "title": "Mama Corsica",
+   "year": 1993
+  },
+  {
+   "id": "tyskland-dschinghis-khan-1979",
+   "artist": "Tyskland",
+   "title": "Dschinghis Khan",
+   "year": 1979
+  },
+  {
+   "id": "luxemburg-l-amour-est-bleu-1967",
+   "artist": "Luxemburg",
+   "title": "L'amour est bleu",
+   "year": 1967
+  },
+  {
+   "id": "spanien-slomo-2022",
+   "artist": "Spanien",
+   "title": "SloMo",
+   "year": 2022
+  },
+  {
+   "id": "serbien-in-corpore-sano-2022",
+   "artist": "Serbien",
+   "title": "In corpore sano",
+   "year": 2022
+  },
+  {
+   "id": "schweiz-she-got-me-2019",
+   "artist": "Schweiz",
+   "title": "She Got Me",
+   "year": 2019
+  },
+  {
+   "id": "island-hatri-mun-sigra-2019",
+   "artist": "Island",
+   "title": "Hatrið mun sigra",
+   "year": 2019
+  },
+  {
+   "id": "kroatien-mama-sc-2023",
+   "artist": "Kroatien",
+   "title": "Mama ŠČ!",
+   "year": 2023
+  },
+  {
+   "id": "albanien-world-2017",
+   "artist": "Albanien",
+   "title": "World",
+   "year": 2017
+  },
+  {
+   "id": "frankrike-requiem-2017",
+   "artist": "Frankrike",
+   "title": "Requiem",
+   "year": 2017
+  },
+  {
+   "id": "tjeckien-my-sister-s-crown-2023",
+   "artist": "Tjeckien",
+   "title": "My Sister's Crown",
+   "year": 2023
+  },
+  {
+   "id": "frankrike-evidemment-2023",
+   "artist": "Frankrike",
+   "title": "Évidemment",
+   "year": 2023
+  },
+  {
+   "id": "danmark-should-ve-known-better-2012",
+   "artist": "Danmark",
+   "title": "Should've Known Better",
+   "year": 2012
+  },
+  {
+   "id": "luxemburg-fighter-2024",
+   "artist": "Luxemburg",
+   "title": "Fighter",
+   "year": 2024
+  },
+  {
+   "id": "lettland-eat-your-salad-2022",
+   "artist": "Lettland",
+   "title": "Eat Your Salad",
+   "year": 2022
+  },
+  {
+   "id": "sverige-hold-me-closer-2022",
+   "artist": "Sverige",
+   "title": "Hold Me Closer",
+   "year": 2022
+  },
+  {
+   "id": "norge-that-s-how-you-write-a-song-2018",
+   "artist": "Norge",
+   "title": "That's How You Write a Song",
+   "year": 2018
+  },
+  {
+   "id": "spanien-say-yay-2016",
+   "artist": "Spanien",
+   "title": "Say Yay!",
+   "year": 2016
+  },
+  {
+   "id": "nederlanderna-de-vogels-van-holland-1956",
+   "artist": "Nederländerna",
+   "title": "De vogels van Holland",
+   "year": 1956
+  },
+  {
+   "id": "finland-no-rules-2024",
+   "artist": "Finland",
+   "title": "No Rules!",
+   "year": 2024
+  },
+  {
+   "id": "norge-ulveham-2024",
+   "artist": "Norge",
+   "title": "Ulveham",
+   "year": 2024
+  },
+  {
+   "id": "serbien-ramonda-2024",
+   "artist": "Serbien",
+   "title": "Ramonda",
+   "year": 2024
+  },
+  {
+   "id": "belgien-rhythm-inside-2015",
+   "artist": "Belgien",
+   "title": "Rhythm Inside",
+   "year": 2015
+  },
+  {
+   "id": "azerbajdzjan-mata-hari-2021",
+   "artist": "Azerbajdzjan",
+   "title": "Mata Hari",
+   "year": 2021
+  },
+  {
+   "id": "rumanien-yodel-it-2017",
+   "artist": "Rumänien",
+   "title": "Yodel It!",
+   "year": 2017
+  },
+  {
+   "id": "ukraina-heart-of-steel-2023",
+   "artist": "Ukraina",
+   "title": "Heart of Steel",
+   "year": 2023
+  },
+  {
+   "id": "tyskland-i-don-t-feel-hate-2021",
+   "artist": "Tyskland",
+   "title": "I Don't Feel Hate",
+   "year": 2021
+  },
+  {
+   "id": "lettland-aija-2023",
+   "artist": "Lettland",
+   "title": "Aijā",
+   "year": 2023
+  },
+  {
+   "id": "albanien-titan-2024",
+   "artist": "Albanien",
+   "title": "Titan",
+   "year": 2024
+  },
+  {
+   "id": "estland-nendest-narkootikumidest-ei-tea-me-kull-midagi-2024",
+   "artist": "Estland",
+   "title": "(Nendest) narkootikumidest ei tea me (küll) midagi",
+   "year": 2024
+  },
+  {
+   "id": "grekland-zari-2024",
+   "artist": "Grekland",
+   "title": "Zari",
+   "year": 2024
+  },
+  {
+   "id": "finland-dark-side-2021",
+   "artist": "Finland",
+   "title": "Dark Side",
+   "year": 2021
+  },
+  {
+   "id": "serbien-loco-loco-2021",
+   "artist": "Serbien",
+   "title": "Loco Loco",
+   "year": 2021
+  },
+  {
+   "id": "albanien-sekret-2022",
+   "artist": "Albanien",
+   "title": "Sekret",
+   "year": 2022
+  },
+  {
+   "id": "azerbajdzjan-fade-to-black-2022",
+   "artist": "Azerbajdzjan",
+   "title": "Fade to Black",
+   "year": 2022
+  },
+  {
+   "id": "island-me-hkkandi-sol-2022",
+   "artist": "Island",
+   "title": "Með hækkandi sól",
+   "year": 2022
+  },
+  {
+   "id": "litauen-sentimentai-2022",
+   "artist": "Litauen",
+   "title": "Sentimentai",
+   "year": 2022
+  },
+  {
+   "id": "moldavien-trenuletul-2022",
+   "artist": "Moldavien",
+   "title": "Trenulețul",
+   "year": 2022
+  },
+  {
+   "id": "norge-give-that-wolf-a-banana-2022",
+   "artist": "Norge",
+   "title": "Give That Wolf a Banana",
+   "year": 2022
+  },
+  {
+   "id": "portugal-saudade-saudade-2022",
+   "artist": "Portugal",
+   "title": "Saudade, saudade",
+   "year": 2022
+  },
+  {
+   "id": "finland-blackbird-2017",
+   "artist": "Finland",
+   "title": "Blackbird",
+   "year": 2017
+  },
+  {
+   "id": "serbien-kruna-2019",
+   "artist": "Serbien",
+   "title": "Kruna",
+   "year": 2019
+  },
+  {
+   "id": "estland-bridges-2023",
+   "artist": "Estland",
+   "title": "Bridges",
+   "year": 2023
+  },
+  {
+   "id": "danmark-sand-2024",
+   "artist": "Danmark",
+   "title": "Sand",
+   "year": 2024
+  },
+  {
+   "id": "georgien-firefighter-2024",
+   "artist": "Georgien",
+   "title": "Firefighter",
+   "year": 2024
+  },
+  {
+   "id": "moldavien-in-the-middle-2024",
+   "artist": "Moldavien",
+   "title": "In the Middle",
+   "year": 2024
+  },
+  {
+   "id": "slovenien-veronika-2024",
+   "artist": "Slovenien",
+   "title": "Veronika",
+   "year": 2024
+  },
+  {
+   "id": "belgien-miss-you-2022",
+   "artist": "Belgien",
+   "title": "Miss You",
+   "year": 2022
+  },
+  {
+   "id": "nederlanderna-de-diepte-2022",
+   "artist": "Nederländerna",
+   "title": "De diepte",
+   "year": 2022
+  },
+  {
+   "id": "polen-river-2022",
+   "artist": "Polen",
+   "title": "River",
+   "year": 2022
+  },
+  {
+   "id": "rumanien-llamame-2022",
+   "artist": "Rumänien",
+   "title": "Llámame",
+   "year": 2022
+  },
+  {
+   "id": "storbritannien-never-give-up-on-you-2017",
+   "artist": "Storbritannien",
+   "title": "Never Give Up on You",
+   "year": 2017
+  },
+  {
+   "id": "slovenien-on-my-way-2017",
+   "artist": "Slovenien",
+   "title": "On My Way",
+   "year": 2017
+  },
+  {
+   "id": "tyskland-always-on-the-run-2024",
+   "artist": "Tyskland",
+   "title": "Always on the Run",
+   "year": 2024
+  },
+  {
+   "id": "albanien-duje-2023",
+   "artist": "Albanien",
+   "title": "Duje",
+   "year": 2023
+  },
+  {
+   "id": "schweiz-watergun-2023",
+   "artist": "Schweiz",
+   "title": "Watergun",
+   "year": 2023
+  },
+  {
+   "id": "portugal-ai-coracao-2023",
+   "artist": "Portugal",
+   "title": "Ai Coração",
+   "year": 2023
+  },
+  {
+   "id": "australien-one-milkali-one-blood-2024",
+   "artist": "Australien",
+   "title": "One Milkali (One Blood)",
+   "year": 2024
+  },
+  {
+   "id": "osterrike-we-will-rave-2024",
+   "artist": "Österrike",
+   "title": "We Will Rave",
+   "year": 2024
+  },
+  {
+   "id": "azerbajdzjan-ozunl-apar-2024",
+   "artist": "Azerbajdzjan",
+   "title": "Özünlə apar",
+   "year": 2024
+  },
+  {
+   "id": "cypern-liar-2024",
+   "artist": "Cypern",
+   "title": "Liar",
+   "year": 2024
+  },
+  {
+   "id": "island-scared-of-heights-2024",
+   "artist": "Island",
+   "title": "Scared of Heights",
+   "year": 2024
+  },
+  {
+   "id": "nederlanderna-birth-of-a-new-age-2021",
+   "artist": "Nederländerna",
+   "title": "Birth of a New Age",
+   "year": 2021
+  },
+  {
+   "id": "norge-fallen-angel-2021",
+   "artist": "Norge",
+   "title": "Fallen Angel",
+   "year": 2021
+  },
+  {
+   "id": "bulgarien-intention-2022",
+   "artist": "Bulgarien",
+   "title": "Intention",
+   "year": 2022
+  },
+  {
+   "id": "estland-hope-2022",
+   "artist": "Estland",
+   "title": "Hope",
+   "year": 2022
+  },
+  {
+   "id": "grekland-die-together-2022",
+   "artist": "Grekland",
+   "title": "Die Together",
+   "year": 2022
+  },
+  {
+   "id": "montenegro-breathe-2022",
+   "artist": "Montenegro",
+   "title": "Breathe",
+   "year": 2022
+  },
+  {
+   "id": "danmark-higher-ground-2018",
+   "artist": "Danmark",
+   "title": "Higher Ground",
+   "year": 2018
+  },
+  {
+   "id": "ryssland-i-won-t-break-2018",
+   "artist": "Ryssland",
+   "title": "I Won't Break",
+   "year": 2018
+  },
+  {
+   "id": "georgien-keep-the-faith-2017",
+   "artist": "Georgien",
+   "title": "Keep the Faith",
+   "year": 2017
+  },
+  {
+   "id": "irland-22-2019",
+   "artist": "Irland",
+   "title": "22",
+   "year": 2019
+  },
+  {
+   "id": "ukraina-solovey-2020",
+   "artist": "Ukraina",
+   "title": "Solovey",
+   "year": 2020
+  },
+  {
+   "id": "georgien-sul-tsin-iare-2019",
+   "artist": "Georgien",
+   "title": "Sul tsin iare",
+   "year": 2019
+  },
+  {
+   "id": "nordmakedonien-circles-2022",
+   "artist": "Nordmakedonien",
+   "title": "Circles",
+   "year": 2022
+  },
+  {
+   "id": "danmark-breaking-my-heart-2023",
+   "artist": "Danmark",
+   "title": "Breaking My Heart",
+   "year": 2023
+  },
+  {
+   "id": "malta-dance-our-own-party-2023",
+   "artist": "Malta",
+   "title": "Dance (Our Own Party)",
+   "year": 2023
+  },
+  {
+   "id": "osterrike-halo-2022",
+   "artist": "Österrike",
+   "title": "Halo",
+   "year": 2022
+  },
+  {
+   "id": "australien-not-the-same-2022",
+   "artist": "Australien",
+   "title": "Not the Same",
+   "year": 2022
+  },
+  {
+   "id": "cypern-ela-2022",
+   "artist": "Cypern",
+   "title": "Ela",
+   "year": 2022
+  },
+  {
+   "id": "tyskland-rockstars-2022",
+   "artist": "Tyskland",
+   "title": "Rockstars",
+   "year": 2022
+  },
+  {
+   "id": "kroatien-guilty-pleasure-2022",
+   "artist": "Kroatien",
+   "title": "Guilty Pleasure",
+   "year": 2022
+  },
+  {
+   "id": "ungern-running-2014",
+   "artist": "Ungern",
+   "title": "Running",
+   "year": 2014
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "georgien-lock-me-in-2022",
+   "artist": "Georgien",
+   "title": "Lock Me In",
+   "year": 2022
+  },
+  {
+   "id": "grekland-what-they-say-2023",
+   "artist": "Grekland",
+   "title": "What They Say",
+   "year": 2023
+  },
+  {
+   "id": "irland-we-are-one-2023",
+   "artist": "Irland",
+   "title": "We Are One",
+   "year": 2023
+  },
+  {
+   "id": "nederlanderna-burning-daylight-2023",
+   "artist": "Nederländerna",
+   "title": "Burning Daylight",
+   "year": 2023
+  },
+  {
+   "id": "san-marino-like-an-animal-2023",
+   "artist": "San Marino",
+   "title": "Like an Animal",
+   "year": 2023
+  },
+  {
+   "id": "schweiz-boys-do-cry-2022",
+   "artist": "Schweiz",
+   "title": "Boys Do Cry",
+   "year": 2022
+  },
+  {
+   "id": "irland-that-s-rich-2022",
+   "artist": "Irland",
+   "title": "That's Rich",
+   "year": 2022
+  },
+  {
+   "id": "malta-i-am-what-i-am-2022",
+   "artist": "Malta",
+   "title": "I Am What I Am",
+   "year": 2022
+  },
+  {
+   "id": "slovenien-disko-2022",
+   "artist": "Slovenien",
+   "title": "Disko",
+   "year": 2022
+  },
+  {
+   "id": "san-marino-stripper-2022",
+   "artist": "San Marino",
+   "title": "Stripper",
+   "year": 2022
+  },
+  {
+   "id": "finland-monsters-2018",
+   "artist": "Finland",
+   "title": "Monsters",
+   "year": 2018
+  },
+  {
+   "id": "luxemburg-tant-de-peine-1957",
+   "artist": "Luxemburg",
+   "title": "Tant de peine",
+   "year": 1957
+  },
+  {
+   "id": "nederlanderna-netherlands-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Nederländerna",
+   "title": "Netherlands in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "schweiz-switzerland-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Schweiz",
+   "title": "Switzerland in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2010-2010",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2010",
+   "year": 2010
+  },
+  {
+   "id": "danmark-the-show-2022",
+   "artist": "Danmark",
+   "title": "The Show",
+   "year": 2022
+  },
+  {
+   "id": "island-power-2023",
+   "artist": "Island",
+   "title": "Power",
+   "year": 2023
+  },
+  {
+   "id": "litauen-stay-2023",
+   "artist": "Litauen",
+   "title": "Stay",
+   "year": 2023
+  },
+  {
+   "id": "israel-i-m-2022",
+   "artist": "Israel",
+   "title": "I.M",
+   "year": 2022
+  },
+  {
+   "id": "frankrike-il-est-la-1956",
+   "artist": "Frankrike",
+   "title": "Il est là",
+   "year": 1956
+  },
+  {
+   "id": "belgien-belgium-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Belgien",
+   "title": "Belgium in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "frankrike-france-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Frankrike",
+   "title": "France in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "azerbajdzjans-bidrag-i-eurovision-song-contest-cleopatra-2020",
+   "artist": "Azerbajdzjans bidrag i Eurovision Song Contest",
+   "title": "Cleopatra",
+   "year": 2020
+  },
+  {
+   "id": "ryssland-russia-in-the-eurovision-song-contest-2008-2008",
+   "artist": "Ryssland",
+   "title": "Russia in the Eurovision Song Contest 2008",
+   "year": 2008
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1976-1976",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1976",
+   "year": 1976
+  },
+  {
+   "id": "island-iceland-in-the-eurovision-song-contest-2020-2020",
+   "artist": "Island",
+   "title": "Iceland in the Eurovision Song Contest 2020",
+   "year": 2020
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2015-2015",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2015",
+   "year": 2015
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2014-2014",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2014",
+   "year": 2014
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-2008-2008",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 2008",
+   "year": 2008
+  },
+  {
+   "id": "spanien-algo-pequenito-2010",
+   "artist": "Spanien",
+   "title": "Algo pequeñito",
+   "year": 2010
+  },
+  {
+   "id": "san-marino-who-we-are-2018",
+   "artist": "San Marino",
+   "title": "Who We Are",
+   "year": 2018
+  },
+  {
+   "id": "danmark-disco-tango-1979",
+   "artist": "Danmark",
+   "title": "Disco Tango",
+   "year": 1979
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "nederlanderna-netherlands-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Nederländerna",
+   "title": "Netherlands in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "schweiz-switzerland-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Schweiz",
+   "title": "Switzerland in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "luxemburg-luxembourg-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Luxemburg",
+   "title": "Luxembourg in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "norge-mata-hari-1976",
+   "artist": "Norge",
+   "title": "Mata Hari",
+   "year": 1976
+  },
+  {
+   "id": "luxemburg-luxembourg-in-the-eurovision-song-contest-2024-2024",
+   "artist": "Luxemburg",
+   "title": "Luxembourg in the Eurovision Song Contest 2024",
+   "year": 2024
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2013-2013",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2013",
+   "year": 2013
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2012-2012",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2012",
+   "year": 2012
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2008-2008",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2008",
+   "year": 2008
+  },
+  {
+   "id": "ryssland-russia-in-the-eurovision-song-contest-2010-2010",
+   "artist": "Ryssland",
+   "title": "Russia in the Eurovision Song Contest 2010",
+   "year": 2010
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2011-2011",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2011",
+   "year": 2011
+  },
+  {
+   "id": "nederlanderna-netherlands-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Nederländerna",
+   "title": "Netherlands in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "italien-italy-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Italien",
+   "title": "Italy in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "italien-italy-in-the-eurovision-song-contest-1956-1956",
+   "artist": "Italien",
+   "title": "Italy in the Eurovision Song Contest 1956",
+   "year": 1956
+  },
+  {
+   "id": "nederlanderna-netherlands-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Nederländerna",
+   "title": "Netherlands in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "storbritannien-united-kingdom-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Storbritannien",
+   "title": "United Kingdom in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "italien-italy-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Italien",
+   "title": "Italy in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1962-1962",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1962",
+   "year": 1962
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1975-1975",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1975",
+   "year": 1975
+  },
+  {
+   "id": "australien-australia-in-the-eurovision-song-contest-2021-2021",
+   "artist": "Australien",
+   "title": "Australia in the Eurovision Song Contest 2021",
+   "year": 2021
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2016-2016",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2016",
+   "year": 2016
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2018-2018",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2018",
+   "year": 2018
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2017-2017",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2017",
+   "year": 2017
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1977-1977",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1977",
+   "year": 1977
+  },
+  {
+   "id": "lettland-latvia-in-the-eurovision-song-contest-2014-2014",
+   "artist": "Lettland",
+   "title": "Latvia in the Eurovision Song Contest 2014",
+   "year": 2014
+  },
+  {
+   "id": "finland-finland-in-the-eurovision-song-contest-2013-2013",
+   "artist": "Finland",
+   "title": "Finland in the Eurovision Song Contest 2013",
+   "year": 2013
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2005-2005",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2005",
+   "year": 2005
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2009-2009",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2009",
+   "year": 2009
+  },
+  {
+   "id": "rumanien-romania-in-the-eurovision-song-contest-2011-2011",
+   "artist": "Rumänien",
+   "title": "Romania in the Eurovision Song Contest 2011",
+   "year": 2011
+  },
+  {
+   "id": "osterrike-austria-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Österrike",
+   "title": "Austria in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "osterrike-austria-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Österrike",
+   "title": "Austria in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "belgien-belgium-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Belgien",
+   "title": "Belgium in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "frankrike-france-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Frankrike",
+   "title": "France in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "storbritannien-united-kingdom-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Storbritannien",
+   "title": "United Kingdom in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1961-1961",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1961",
+   "year": 1961
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1961-1961",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1961",
+   "year": 1961
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1974-1974",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1974",
+   "year": 1974
+  },
+  {
+   "id": "finland-finland-in-the-eurovision-song-contest-2018-2018",
+   "artist": "Finland",
+   "title": "Finland in the Eurovision Song Contest 2018",
+   "year": 2018
+  },
+  {
+   "id": "belarus-ya-nauchu-tebya-2021",
+   "artist": "Belarus",
+   "title": "Ya nauchu tebya",
+   "year": 2021
+  },
+  {
+   "id": "finland-finland-in-the-eurovision-song-contest-2016-2016",
+   "artist": "Finland",
+   "title": "Finland in the Eurovision Song Contest 2016",
+   "year": 2016
+  },
+  {
+   "id": "portugal-portugal-in-the-eurovision-song-contest-2017-2017",
+   "artist": "Portugal",
+   "title": "Portugal in the Eurovision Song Contest 2017",
+   "year": 2017
+  },
+  {
+   "id": "portugal-portugal-in-the-eurovision-song-contest-2018-2018",
+   "artist": "Portugal",
+   "title": "Portugal in the Eurovision Song Contest 2018",
+   "year": 2018
+  },
+  {
+   "id": "kroatien-croatia-in-the-eurovision-song-contest-2022-2022",
+   "artist": "Kroatien",
+   "title": "Croatia in the Eurovision Song Contest 2022",
+   "year": 2022
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1992-1992",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1992",
+   "year": 1992
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1999-1999",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1999",
+   "year": 1999
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2000-2000",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2000",
+   "year": 2000
+  },
+  {
+   "id": "kroatien-croatia-in-the-eurovision-song-contest-2023-2023",
+   "artist": "Kroatien",
+   "title": "Croatia in the Eurovision Song Contest 2023",
+   "year": 2023
+  },
+  {
+   "id": "spanien-spain-in-the-eurovision-song-contest-2024-2024",
+   "artist": "Spanien",
+   "title": "Spain in the Eurovision Song Contest 2024",
+   "year": 2024
+  },
+  {
+   "id": "kroatien-croatia-in-the-eurovision-song-contest-2024-2024",
+   "artist": "Kroatien",
+   "title": "Croatia in the Eurovision Song Contest 2024",
+   "year": 2024
+  },
+  {
+   "id": "slovenien-slovenia-in-the-eurovision-song-contest-2024-2024",
+   "artist": "Slovenien",
+   "title": "Slovenia in the Eurovision Song Contest 2024",
+   "year": 2024
+  },
+  {
+   "id": "ryssland-russia-in-the-eurovision-song-contest-2005-2005",
+   "artist": "Ryssland",
+   "title": "Russia in the Eurovision Song Contest 2005",
+   "year": 2005
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1979-1979",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1979",
+   "year": 1979
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2006-2006",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2006",
+   "year": 2006
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-2013-2013",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 2013",
+   "year": 2013
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-2011-2011",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 2011",
+   "year": 2011
+  },
+  {
+   "id": "frankrike-l-amour-a-la-francaise-2007",
+   "artist": "Frankrike",
+   "title": "L'Amour à la française",
+   "year": 2007
+  },
+  {
+   "id": "spanien-algo-prodigioso-1963",
+   "artist": "Spanien",
+   "title": "Algo prodigioso",
+   "year": 1963
+  },
+  {
+   "id": "luxemburg-croire-1988",
+   "artist": "Luxemburg",
+   "title": "Croire",
+   "year": 1988
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1985-1985",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1985",
+   "year": 1985
+  },
+  {
+   "id": "belgien-belgium-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Belgien",
+   "title": "Belgium in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1983-1983",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1983",
+   "year": 1983
+  },
+  {
+   "id": "belgien-belgium-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Belgien",
+   "title": "Belgium in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "frankrike-france-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Frankrike",
+   "title": "France in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "norge-norway-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Norge",
+   "title": "Norway in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "frankrike-france-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Frankrike",
+   "title": "France in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "italien-italy-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Italien",
+   "title": "Italy in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "belgien-belgium-in-the-eurovision-song-contest-1961-1961",
+   "artist": "Belgien",
+   "title": "Belgium in the Eurovision Song Contest 1961",
+   "year": 1961
+  },
+  {
+   "id": "luxemburg-luxembourg-in-the-eurovision-song-contest-1961-1961",
+   "artist": "Luxemburg",
+   "title": "Luxembourg in the Eurovision Song Contest 1961",
+   "year": 1961
+  },
+  {
+   "id": "frankrike-france-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Frankrike",
+   "title": "France in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "italien-italy-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Italien",
+   "title": "Italy in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1998-1998",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1998",
+   "year": 1998
+  },
+  {
+   "id": "italien-italy-in-the-eurovision-song-contest-1961-1961",
+   "artist": "Italien",
+   "title": "Italy in the Eurovision Song Contest 1961",
+   "year": 1961
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1959-1959",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1959",
+   "year": 1959
+  },
+  {
+   "id": "irland-ireland-in-the-eurovision-song-contest-1970-1970",
+   "artist": "Irland",
+   "title": "Ireland in the Eurovision Song Contest 1970",
+   "year": 1970
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1970-1970",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1970",
+   "year": 1970
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1993-1993",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1993",
+   "year": 1993
+  },
+  {
+   "id": "australien-australia-in-the-eurovision-song-contest-2020-2020",
+   "artist": "Australien",
+   "title": "Australia in the Eurovision Song Contest 2020",
+   "year": 2020
+  },
+  {
+   "id": "kroatien-croatia-in-the-eurovision-song-contest-2021-2021",
+   "artist": "Kroatien",
+   "title": "Croatia in the Eurovision Song Contest 2021",
+   "year": 2021
+  },
+  {
+   "id": "slovenien-slovenia-in-the-eurovision-song-contest-2021-2021",
+   "artist": "Slovenien",
+   "title": "Slovenia in the Eurovision Song Contest 2021",
+   "year": 2021
+  },
+  {
+   "id": "osterrike-austria-in-the-eurovision-song-contest-2016-2016",
+   "artist": "Österrike",
+   "title": "Austria in the Eurovision Song Contest 2016",
+   "year": 2016
+  },
+  {
+   "id": "polen-poland-in-the-eurovision-song-contest-2016-2016",
+   "artist": "Polen",
+   "title": "Poland in the Eurovision Song Contest 2016",
+   "year": 2016
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-1982-1982",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 1982",
+   "year": 1982
+  },
+  {
+   "id": "irland-ireland-in-the-eurovision-song-contest-1987-1987",
+   "artist": "Irland",
+   "title": "Ireland in the Eurovision Song Contest 1987",
+   "year": 1987
+  },
+  {
+   "id": "finland-finland-in-the-eurovision-song-contest-2000-2000",
+   "artist": "Finland",
+   "title": "Finland in the Eurovision Song Contest 2000",
+   "year": 2000
+  },
+  {
+   "id": "lettland-latvia-in-the-eurovision-song-contest-2002-2002",
+   "artist": "Lettland",
+   "title": "Latvia in the Eurovision Song Contest 2002",
+   "year": 2002
+  },
+  {
+   "id": "rumanien-romania-in-the-eurovision-song-contest-2008-2008",
+   "artist": "Rumänien",
+   "title": "Romania in the Eurovision Song Contest 2008",
+   "year": 2008
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2007-2007",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2007",
+   "year": 2007
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2001-2001",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2001",
+   "year": 2001
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-2001-2001",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 2001",
+   "year": 2001
+  },
+  {
+   "id": "frankrike-la-source-1968",
+   "artist": "Frankrike",
+   "title": "La source",
+   "year": 1968
+  },
+  {
+   "id": "spanien-que-bueno-que-bueno-1965",
+   "artist": "Spanien",
+   "title": "¡Qué bueno, qué bueno!",
+   "year": 1965
+  },
+  {
+   "id": "luxemburg-toi-1975",
+   "artist": "Luxemburg",
+   "title": "Toi",
+   "year": 1975
+  },
+  {
+   "id": "finland-anna-rakkaudelle-tilaisuus-1978",
+   "artist": "Finland",
+   "title": "Anna Rakkaudelle Tilaisuus",
+   "year": 1978
+  },
+  {
+   "id": "sverige-det-blir-alltid-varre-framat-natten-1978",
+   "artist": "Sverige",
+   "title": "Det blir alltid värre framåt natten",
+   "year": 1978
+  },
+  {
+   "id": "luxemburg-l-amour-de-ma-vie-1986",
+   "artist": "Luxemburg",
+   "title": "L'amour de ma vie",
+   "year": 1986
+  },
+  {
+   "id": "frankrike-chanteur-de-charme-1988",
+   "artist": "Frankrike",
+   "title": "Chanteur de charme",
+   "year": 1988
+  },
+  {
+   "id": "spanien-nacida-para-amar-1989",
+   "artist": "Spanien",
+   "title": "Nacida para amar",
+   "year": 1989
+  },
+  {
+   "id": "luxemburg-luxembourg-in-the-eurovision-song-contest-1957-1957",
+   "artist": "Luxemburg",
+   "title": "Luxembourg in the Eurovision Song Contest 1957",
+   "year": 1957
+  },
+  {
+   "id": "luxemburg-luxembourg-in-the-eurovision-song-contest-1958-1958",
+   "artist": "Luxemburg",
+   "title": "Luxembourg in the Eurovision Song Contest 1958",
+   "year": 1958
+  },
+  {
+   "id": "luxemburg-luxembourg-in-the-eurovision-song-contest-1960-1960",
+   "artist": "Luxemburg",
+   "title": "Luxembourg in the Eurovision Song Contest 1960",
+   "year": 1960
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1989-1989",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1989",
+   "year": 1989
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1990-1989",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1990",
+   "year": 1989
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1995-1995",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1995",
+   "year": 1995
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1989-1989",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1989",
+   "year": 1989
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1964-1964",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1964",
+   "year": 1964
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1965-1965",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1965",
+   "year": 1965
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1963-1963",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1963",
+   "year": 1963
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1991-1991",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1991",
+   "year": 1991
+  },
+  {
+   "id": "osterrike-austria-in-the-eurovision-song-contest-1966-1966",
+   "artist": "Österrike",
+   "title": "Austria in the Eurovision Song Contest 1966",
+   "year": 1966
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1982-1982",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1982",
+   "year": 1982
+  },
+  {
+   "id": "belgien-belgium-in-the-eurovision-song-contest-1986-1986",
+   "artist": "Belgien",
+   "title": "Belgium in the Eurovision Song Contest 1986",
+   "year": 1986
+  },
+  {
+   "id": "rumanien-romania-in-the-eurovision-song-contest-2015-2015",
+   "artist": "Rumänien",
+   "title": "Romania in the Eurovision Song Contest 2015",
+   "year": 2015
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1987-1987",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1987",
+   "year": 1987
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1988-1988",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1988",
+   "year": 1988
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1992-1992",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1992",
+   "year": 1992
+  },
+  {
+   "id": "lettland-latvia-in-the-eurovision-song-contest-2000-2000",
+   "artist": "Lettland",
+   "title": "Latvia in the Eurovision Song Contest 2000",
+   "year": 2000
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-2000-2000",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 2000",
+   "year": 2000
+  },
+  {
+   "id": "irland-ireland-in-the-eurovision-song-contest-1980-1980",
+   "artist": "Irland",
+   "title": "Ireland in the Eurovision Song Contest 1980",
+   "year": 1980
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-1981-1981",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 1981",
+   "year": 1981
+  },
+  {
+   "id": "albanien-albania-in-the-eurovision-song-contest-2004-2004",
+   "artist": "Albanien",
+   "title": "Albania in the Eurovision Song Contest 2004",
+   "year": 2004
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2002-2002",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2002",
+   "year": 2002
+  },
+  {
+   "id": "estland-estonia-in-the-eurovision-song-contest-2002-2002",
+   "artist": "Estland",
+   "title": "Estonia in the Eurovision Song Contest 2002",
+   "year": 2002
+  },
+  {
+   "id": "israel-israel-in-the-eurovision-song-contest-2003-2003",
+   "artist": "Israel",
+   "title": "Israel in the Eurovision Song Contest 2003",
+   "year": 2003
+  },
+  {
+   "id": "tyskland-germany-in-the-eurovision-song-contest-2006-2006",
+   "artist": "Tyskland",
+   "title": "Germany in the Eurovision Song Contest 2006",
+   "year": 2006
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-2006-2006",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 2006",
+   "year": 2006
+  },
+  {
+   "id": "kroatien-croatia-in-the-eurovision-song-contest-2006-2006",
+   "artist": "Kroatien",
+   "title": "Croatia in the Eurovision Song Contest 2006",
+   "year": 2006
+  },
+  {
+   "id": "spanien-y-solo-tu-1981",
+   "artist": "Spanien",
+   "title": "Y sólo tú",
+   "year": 1981
+  },
+  {
+   "id": "finland-hengaillaan-1984",
+   "artist": "Finland",
+   "title": "Hengaillaan",
+   "year": 1984
+  },
+  {
+   "id": "spanien-la-fiesta-termino-1985",
+   "artist": "Spanien",
+   "title": "La fiesta terminó",
+   "year": 1985
+  },
+  {
+   "id": "frankrike-les-mots-d-amour-n-ont-pas-de-dimanche-1987",
+   "artist": "Frankrike",
+   "title": "Les Mots d'amour n'ont pas de dimanche",
+   "year": 1987
+  },
+  {
+   "id": "spanien-ella-no-es-ella-1994",
+   "artist": "Spanien",
+   "title": "Ella no es ella",
+   "year": 1994
+  },
+  {
+   "id": "spanien-ay-que-deseo-1996",
+   "artist": "Spanien",
+   "title": "¡Ay, qué deseo!",
+   "year": 1996
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1985-1985",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1985",
+   "year": 1985
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1983-1983",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1983",
+   "year": 1983
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1971-1971",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1971",
+   "year": 1971
+  },
+  {
+   "id": "osterrike-austria-in-the-eurovision-song-contest-1964-1964",
+   "artist": "Österrike",
+   "title": "Austria in the Eurovision Song Contest 1964",
+   "year": 1964
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1966-1966",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1966",
+   "year": 1966
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-1966-1966",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 1966",
+   "year": 1966
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1999-1999",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1999",
+   "year": 1999
+  },
+  {
+   "id": "sverige-sweden-in-the-eurovision-song-contest-2000-2000",
+   "artist": "Sverige",
+   "title": "Sweden in the Eurovision Song Contest 2000",
+   "year": 2000
+  },
+  {
+   "id": "osterrike-austria-in-the-eurovision-song-contest-1979-1979",
+   "artist": "Österrike",
+   "title": "Austria in the Eurovision Song Contest 1979",
+   "year": 1979
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-2002-2002",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 2002",
+   "year": 2002
+  },
+  {
+   "id": "portugal-sobe-sobe-balao-sobe-1979",
+   "artist": "Portugal",
+   "title": "Sobe, sobe, balão sobe",
+   "year": 1979
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1993-1993",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1993",
+   "year": 1993
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1979-1979",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1979",
+   "year": 1979
+  },
+  {
+   "id": "danmark-denmark-in-the-eurovision-song-contest-1981-1981",
+   "artist": "Danmark",
+   "title": "Denmark in the Eurovision Song Contest 1981",
+   "year": 1981
+  },
+  {
+   "id": "serbien-odbrojavanje-za-bec-2015",
+   "artist": "Serbien",
+   "title": "Odbrojavanje za Beč",
+   "year": 2015
+  },
+  {
+   "id": "italien-zitti-e-buoni-2021",
+   "artist": "Italien",
+   "title": "Zitti e buoni",
+   "year": 2021
+  },
+  {
+   "id": "israel-raggio-di-luna-1979",
+   "artist": "Israel",
+   "title": "Raggio di luna",
+   "year": 1979
+  }
+ ]
+}

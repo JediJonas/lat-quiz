@@ -7,11 +7,14 @@
   <meta name="description" content="Hur Låtquiz fungerar tekniskt: statiska sidor, direktkontakt mellan webbläsare med WebRTC och låtar i Spotify.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
-  <script>try { const t = localStorage.getItem('latquiz-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+  <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
 </head>
 <body>
   <main class="narrow about">
-    <h1>Låtquiz – Om spelet</h1>
+    <header class="page-head">
+      <a class="logo" href="index.html"><span class="visually-hidden">Låtquiz, till startsidan</span></a>
+      <h1 class="page-title">Om spelet</h1>
+    </header>
     <p class="lead">Låtquiz är byggt med Claude, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
 
     <h2>Ingen egen server</h2>
@@ -30,12 +33,12 @@
     <ul>
       <li>Nedräkningen går i en Web Worker, så att den håller tiden även när spelledarens flik ligger i bakgrunden.</li>
       <li>Spelet sparas i webbläsaren, så att spelledaren kan fortsätta efter en omladdning och spelarna återansluts automatiskt.</li>
-      <li>QR-koden ritas i webbläsaren med qrcode-generator, och typsnittet är Inter.</li>
+      <li>QR-koden ritas i webbläsaren med qrcode-generator, och typsnittet är Inter. Loggan är ritad med typsnittet Lobster.</li>
       <li>Ljust och mörkt läge följer enheten tills man väljer själv.</li>
       <li>Varje ändring kontrolleras automatiskt med tester, HTML-validering, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen.</li>
     </ul>
 
-    <p class="theme-row"><a class="quiet-link" href="index.html">Till startsidan</a><button class="link user-settings"></button></p>
+    <p class="theme-row"><span class="row-end"><button class="link user-settings"></button></span></p>
   </main>
   <script>
     for (const a of document.querySelectorAll('a')) a.search = location.search;
