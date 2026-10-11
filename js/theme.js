@@ -2,7 +2,7 @@
 // Själva valet läses in redan i <head>, så att sidan inte blinkar till.
 
 const THEME_KEY = 'latquiz-tema';
-const CHOICES = [['auto', 'Automatiskt (som enheten)'], ['light', 'Ljust'], ['dark', 'Mörkt']];
+export const THEME_CHOICES = [['auto', 'Automatiskt (som enheten)'], ['light', 'Ljust'], ['dark', 'Mörkt']];
 
 export function currentTheme() {
   try { return localStorage.getItem(THEME_KEY) || 'auto'; } catch { return 'auto'; }
@@ -26,7 +26,7 @@ export function showThemeSettings() {
       <h2>Inställningar</h2>
       <label for="setting-theme">Utseende</label>
       <select id="setting-theme" name="theme">
-        ${CHOICES.map(([v, text]) => `<option value="${v}"${v === current ? ' selected' : ''}>${text}</option>`).join('')}
+        ${THEME_CHOICES.map(([v, text]) => `<option value="${v}"${v === current ? ' selected' : ''}>${text}</option>`).join('')}
       </select>
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>

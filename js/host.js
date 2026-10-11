@@ -4,6 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
+import { THEME_CHOICES, currentTheme, setTheme } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
@@ -256,6 +257,10 @@ function showSettings(current, categories = null, categoryId = null) {
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
+      <label for="setting-theme">Utseende på den här skärmen</label>
+      <select id="setting-theme" name="theme">
+        ${THEME_CHOICES.map(([v, text]) => `<option value="${v}"${v === currentTheme() ? ' selected' : ''}>${text}</option>`).join('')}
+      </select>
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
@@ -275,6 +280,7 @@ function showSettings(current, categories = null, categoryId = null) {
     dialog.addEventListener('close', () => {
       const form = dialog.querySelector('form');
       const values = Object.fromEntries(new FormData(form));
+      if (dialog.returnValue === 'ok') setTheme(values.theme);
       resolve(dialog.returnValue === 'ok'
         ? { ...game.cleanSettings(values), ...(categories ? { categoryId: values.categoryId } : {}) } : null);
       dialog.remove();
