@@ -7,34 +7,37 @@
   <meta name="description" content="Starta ett låtquiz som spelledare. Spelarna går med från mobilen med en kod eller QR-kod.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
-  <script>try { const t = localStorage.getItem('latquiz-tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+  <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
 </head>
 <body>
   <p id="net-status" class="net-status" role="status" hidden></p>
   <p id="announce" class="visually-hidden" role="status"></p>
 
   <main id="setup" class="narrow">
-    <h1>Låtquiz – Starta spel</h1>
+    <header class="page-head">
+      <a class="logo" href="index.html"><span class="visually-hidden">Låtquiz, till startsidan</span></a>
+      <h1 class="page-title">Starta spel</h1>
+    </header>
     <label for="category-select">Kategori</label>
     <select id="category-select" disabled><option>Laddar kategorier …</option></select>
+    <p class="settings-row"><span id="settings-summary" class="muted small"></span></p>
     <button id="create" class="big" disabled>Skapa spel</button>
     <div id="resume" hidden><button class="secondary"></button></div>
-    <div class="settings-row">
-      <p class="settings-link"><button id="settings" class="link">Inställningar</button>
-        <span id="settings-summary" class="muted small"></span></p>
-      <button class="link user-settings"></button>
-    </div>
+    <p class="theme-row"><button id="settings" class="link">Inställningar</button><span class="row-end"><a class="quiet-link" href="om.html">Om spelet</a><button class="link user-settings"></button></span></p>
   </main>
 
   <main id="game" class="host" hidden>
-    <section class="join-info" aria-label="Gå med i spelet">
+    <section id="join-info" class="join-info" aria-label="Gå med i spelet">
+      <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden">×</button>
+      <div class="logo" aria-hidden="true"></div>
       <div id="qr" class="qr"></div>
       <p>Skanna eller gå till<br><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
       <p>Kod: <span id="code" class="code"></span></p>
     </section>
     <section class="main-col">
       <div class="game-head">
-        <h1 id="category"></h1>
+        <div class="who"><h1 id="category"></h1>
+          <button id="show-qr" class="code-link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button></div>
         <p id="game-settings-summary" class="muted small"></p>
       </div>
       <div id="stage" class="stage"></div>
