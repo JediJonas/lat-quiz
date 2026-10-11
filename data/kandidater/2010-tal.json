@@ -1262,6 +1262,420 @@
    "artist": "John de Sohn",
    "title": "Long Time",
    "year": 2013
+  },
+  {
+   "id": "the-neighbourhood-sweater-weather",
+   "artist": "The Neighbourhood",
+   "title": "Sweater Weather",
+   "year": 2012
+  },
+  {
+   "id": "lord-huron-the-night-we-met",
+   "artist": "Lord Huron",
+   "title": "The Night We Met",
+   "year": 2015
+  },
+  {
+   "id": "vance-joy-riptide",
+   "artist": "Vance Joy",
+   "title": "Riptide",
+   "year": 2013
+  },
+  {
+   "id": "the-chainsmokers-something-just-like-this",
+   "artist": "The Chainsmokers",
+   "title": "Something Just Like This",
+   "year": 2017
+  },
+  {
+   "id": "tom-odell-another-love",
+   "artist": "Tom Odell",
+   "title": "Another Love",
+   "year": 2012
+  },
+  {
+   "id": "shawn-mendes-there-s-nothing-holdin-me-back",
+   "artist": "Shawn Mendes",
+   "title": "There's Nothing Holdin' Me Back",
+   "year": 2017
+  },
+  {
+   "id": "don-omar-danza-kuduro",
+   "artist": "Don Omar",
+   "title": "Danza Kuduro",
+   "year": 2010
+  },
+  {
+   "id": "charlie-puth-we-don-t-talk-anymore",
+   "artist": "Charlie Puth",
+   "title": "We Don't Talk Anymore",
+   "year": 2016
+  },
+  {
+   "id": "one-direction-night-changes",
+   "artist": "One Direction",
+   "title": "Night Changes",
+   "year": 2014
+  },
+  {
+   "id": "travis-scott-sicko-mode",
+   "artist": "Travis Scott",
+   "title": "Sicko Mode",
+   "year": 2018
+  },
+  {
+   "id": "sam-smith-i-m-not-the-only-one",
+   "artist": "Sam Smith",
+   "title": "I'm Not the Only One",
+   "year": 2014
+  },
+  {
+   "id": "lil-uzi-vert-xo-tour-llif3",
+   "artist": "Lil Uzi Vert",
+   "title": "XO Tour Llif3",
+   "year": 2017
+  },
+  {
+   "id": "xxxtentacion-sad",
+   "artist": "XXXTentacion",
+   "title": "SAD!",
+   "year": 2018
+  },
+  {
+   "id": "xxxtentacion-moonlight",
+   "artist": "XXXTentacion",
+   "title": "Moonlight",
+   "year": 2018
+  },
+  {
+   "id": "walk-the-moon-shut-up-and-dance",
+   "artist": "Walk the Moon",
+   "title": "Shut Up and Dance",
+   "year": 2014
+  },
+  {
+   "id": "lewis-capaldi-before-you-go",
+   "artist": "Lewis Capaldi",
+   "title": "Before You Go",
+   "year": 2019
+  },
+  {
+   "id": "arctic-monkeys-why-d-you-only-call-me-when-you-re-high",
+   "artist": "Arctic Monkeys",
+   "title": "Why'd You Only Call Me When You're High?",
+   "year": 2013
+  },
+  {
+   "id": "drake-passionfruit",
+   "artist": "Drake",
+   "title": "Passionfruit",
+   "year": 2017
+  },
+  {
+   "id": "christina-perri-a-thousand-years",
+   "artist": "Christina Perri",
+   "title": "A Thousand Years",
+   "year": 2011
+  },
+  {
+   "id": "twenty-one-pilots-ride",
+   "artist": "Twenty One Pilots",
+   "title": "Ride",
+   "year": 2016
+  },
+  {
+   "id": "eminem-love-the-way-you-lie",
+   "artist": "Eminem",
+   "title": "Love the Way You Lie",
+   "year": 2010
+  },
+  {
+   "id": "travis-scott-highest-in-the-room",
+   "artist": "Travis Scott",
+   "title": "Highest in the Room",
+   "year": 2019
+  },
+  {
+   "id": "zayn-malik-dusk-till-dawn",
+   "artist": "Zayn Malik",
+   "title": "Dusk Till Dawn",
+   "year": 2017
+  },
+  {
+   "id": "lana-del-rey-young-and-beautiful",
+   "artist": "Lana Del Rey",
+   "title": "Young and Beautiful",
+   "year": 2013
+  },
+  {
+   "id": "alec-benjamin-let-me-down-slowly",
+   "artist": "Alec Benjamin",
+   "title": "Let Me Down Slowly",
+   "year": 2018
+  },
+  {
+   "id": "ariana-grande-one-last-time",
+   "artist": "Ariana Grande",
+   "title": "One Last Time",
+   "year": 2015
+  },
+  {
+   "id": "5-seconds-of-summer-youngblood",
+   "artist": "5 Seconds of Summer",
+   "title": "Youngblood",
+   "year": 2018
+  },
+  {
+   "id": "zayn-malik-i-don-t-wanna-live-forever",
+   "artist": "Zayn Malik",
+   "title": "I Don't Wanna Live Forever",
+   "year": 2016
+  },
+  {
+   "id": "xxxtentacion-fuck-love",
+   "artist": "XXXTentacion",
+   "title": "Fuck Love",
+   "year": 2018
+  },
+  {
+   "id": "ava-max-sweet-but-psycho",
+   "artist": "Ava Max",
+   "title": "Sweet but Psycho",
+   "year": 2018
+  },
+  {
+   "id": "ariana-grande-into-you",
+   "artist": "Ariana Grande",
+   "title": "Into You",
+   "year": 2016
+  },
+  {
+   "id": "dnce-cake-by-the-ocean",
+   "artist": "DNCE",
+   "title": "Cake by the Ocean",
+   "year": 2015
+  },
+  {
+   "id": "katy-perry-last-friday-night-t-g-i-f",
+   "artist": "Katy Perry",
+   "title": "Last Friday Night (T.G.I.F.)",
+   "year": 2011
+  },
+  {
+   "id": "sia-unstoppable",
+   "artist": "Sia",
+   "title": "Unstoppable",
+   "year": 2016
+  },
+  {
+   "id": "ne-yo-time-of-our-lives",
+   "artist": "Ne-Yo",
+   "title": "Time of Our Lives",
+   "year": 2014
+  },
+  {
+   "id": "clean-bandit-symphony",
+   "artist": "Clean Bandit",
+   "title": "Symphony",
+   "year": 2017
+  },
+  {
+   "id": "capital-cities-safe-and-sound",
+   "artist": "Capital Cities",
+   "title": "Safe and Sound",
+   "year": 2011
+  },
+  {
+   "id": "xxxtentacion-revenge",
+   "artist": "XXXTentacion",
+   "title": "Revenge",
+   "year": 2017
+  },
+  {
+   "id": "major-lazer-cold-water",
+   "artist": "Major Lazer",
+   "title": "Cold Water",
+   "year": 2016
+  },
+  {
+   "id": "gym-class-heroes-stereo-hearts",
+   "artist": "Gym Class Heroes",
+   "title": "Stereo Hearts",
+   "year": 2011
+  },
+  {
+   "id": "anne-marie-2002",
+   "artist": "Anne-Marie",
+   "title": "2002",
+   "year": 2018
+  },
+  {
+   "id": "snoop-dogg-young-wild-free",
+   "artist": "Snoop Dogg",
+   "title": "Young, Wild & Free",
+   "year": 2011
+  },
+  {
+   "id": "alessia-cara-scars-to-your-beautiful",
+   "artist": "Alessia Cara",
+   "title": "Scars to Your Beautiful",
+   "year": 2016
+  },
+  {
+   "id": "martin-garrix-in-the-name-of-love",
+   "artist": "Martin Garrix",
+   "title": "In the Name of Love",
+   "year": 2016
+  },
+  {
+   "id": "zayn-malik-pillowtalk",
+   "artist": "Zayn Malik",
+   "title": "Pillowtalk",
+   "year": 2016
+  },
+  {
+   "id": "kygo-it-ain-t-me",
+   "artist": "Kygo",
+   "title": "It Ain't Me",
+   "year": 2017
+  },
+  {
+   "id": "fifth-harmony-work-from-home",
+   "artist": "Fifth Harmony",
+   "title": "Work from Home",
+   "year": 2016
+  },
+  {
+   "id": "shawn-mendes-mercy",
+   "artist": "Shawn Mendes",
+   "title": "Mercy",
+   "year": 2016
+  },
+  {
+   "id": "imagine-dragons-whatever-it-takes",
+   "artist": "Imagine Dragons",
+   "title": "Whatever It Takes",
+   "year": 2017
+  },
+  {
+   "id": "sam-smith-dancing-with-a-stranger",
+   "artist": "Sam Smith",
+   "title": "Dancing with a Stranger",
+   "year": 2019
+  },
+  {
+   "id": "xxxtentacion-look-at-me",
+   "artist": "XXXTentacion",
+   "title": "Look at Me!",
+   "year": 2015
+  },
+  {
+   "id": "coldplay-adventure-of-a-lifetime",
+   "artist": "Coldplay",
+   "title": "Adventure of a Lifetime",
+   "year": 2015
+  },
+  {
+   "id": "daddy-yankee-con-calma",
+   "artist": "Daddy Yankee",
+   "title": "Con Calma",
+   "year": 2019
+  },
+  {
+   "id": "g-eazy-me-myself-i",
+   "artist": "G-Eazy",
+   "title": "Me, Myself & I",
+   "year": 2015
+  },
+  {
+   "id": "jonas-brothers-sucker",
+   "artist": "Jonas Brothers",
+   "title": "Sucker",
+   "year": 2019
+  },
+  {
+   "id": "axwell-ingrosso-more-than-you-know",
+   "artist": "Axwell Λ Ingrosso",
+   "title": "More Than You Know",
+   "year": 2017
+  },
+  {
+   "id": "fall-out-boy-centuries",
+   "artist": "Fall Out Boy",
+   "title": "Centuries",
+   "year": 2014
+  },
+  {
+   "id": "major-lazer-light-it-up",
+   "artist": "Major Lazer",
+   "title": "Light It Up",
+   "year": 2015
+  },
+  {
+   "id": "robin-schulz-sugar",
+   "artist": "Robin Schulz",
+   "title": "Sugar",
+   "year": 2015
+  },
+  {
+   "id": "bebe-rexha-meant-to-be",
+   "artist": "Bebe Rexha",
+   "title": "Meant to Be",
+   "year": 2017
+  },
+  {
+   "id": "selena-gomez-wolves",
+   "artist": "Selena Gomez",
+   "title": "Wolves",
+   "year": 2017
+  },
+  {
+   "id": "m83-midnight-city",
+   "artist": "M83",
+   "title": "Midnight City",
+   "year": 2011
+  },
+  {
+   "id": "logic-1-800-273-8255",
+   "artist": "Logic",
+   "title": "1-800-273-8255",
+   "year": 2017
+  },
+  {
+   "id": "martin-garrix-scared-to-be-lonely",
+   "artist": "Martin Garrix",
+   "title": "Scared to Be Lonely",
+   "year": 2017
+  },
+  {
+   "id": "drake-nice-for-what",
+   "artist": "Drake",
+   "title": "Nice for What",
+   "year": 2018
+  },
+  {
+   "id": "usher-dj-got-us-fallin-in-love",
+   "artist": "Usher",
+   "title": "DJ Got Us Fallin' in Love",
+   "year": 2010
+  },
+  {
+   "id": "eminem-the-monster",
+   "artist": "Eminem",
+   "title": "The Monster",
+   "year": 2013
+  },
+  {
+   "id": "lilly-wood-and-the-prick-prayer-in-c",
+   "artist": "Lilly Wood and the Prick",
+   "title": "Prayer in C",
+   "year": 2014
+  },
+  {
+   "id": "sia-snowman",
+   "artist": "Sia",
+   "title": "Snowman",
+   "year": 2017
   }
  ]
 }
