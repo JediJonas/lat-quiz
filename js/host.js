@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
+import { announce, renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 import { mountThemeSwitches } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
@@ -415,6 +415,7 @@ function render() {
         ? `<div class="winner">${esc(winnerNames())} vinner!</div>
            <button id="restart" class="big huge">Ny match med samma spelare</button>`
         : '<button id="next" class="big huge">Nästa låt</button>'}`;
+    announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.` + (state.winners ? ` ${winnerNames()} vinner!` : ''));
   }
   renderPlayers();
   $('#game-settings-summary').textContent = settingsSummary(game.cleanSettings(state));
@@ -480,5 +481,5 @@ async function init() {
 }
 
 init().catch((err) => {
-  document.body.insertAdjacentHTML('afterbegin', `<p class="error">${esc(err.message)}</p>`);
+  document.body.insertAdjacentHTML('afterbegin', `<p class="error" role="alert">${esc(err.message)}</p>`);
 });

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Låtquiz – Spotify-ID</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
   <style>
     main { max-width: 1000px; margin: 0 auto; }
@@ -27,7 +28,7 @@
       <button id="start">Starta</button>
     </div>
     <p id="progress" class="muted"></p>
-    <table><thead><tr><th>Låt</th><th>Resultat</th><th>Spotify</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+    <table><thead><tr><th>Låt</th><th>Resultat</th><th>Spotify</th><th>Använd</th></tr></thead><tbody id="rows"></tbody></table>
     <h2>Klart</h2>
     <p>Låtar som redan fanns, gröna låtar, de du har bockat för och de du har klistrat in länkar till sparas.
       Osäkra och saknade låtar räknas inte mot målet, men du kan lägga till dem för hand:
@@ -69,7 +70,8 @@
       if (res.status === 429) { await sleep(30000); return wikidata(title); }
       if (!res.ok) throw new Error('Wikidata svarade ' + res.status);
       const data = await res.json();
-      return data.results.bindings.map((b) => ({
+      // Wikidata kan ha felaktiga ID. Ett riktigt Spotify-ID har 22 tecken.
+      return data.results.bindings.filter((b) => /^[A-Za-z0-9]{22}$/.test(b.spotify.value)).map((b) => ({
         title: b.itemLabel ? b.itemLabel.value : '',
         performer: b.performerLabel ? b.performerLabel.value : '',
         spotify: b.spotify.value,
