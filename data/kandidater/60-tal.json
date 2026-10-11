@@ -4202,6 +4202,198 @@
    "artist": "Jessica Andersson & Sandie Shaw",
    "title": "Long Live Love",
    "year": 1965
+  },
+  {
+   "id": "frankie-valli-can-t-take-my-eyes-off-you",
+   "artist": "Frankie Valli",
+   "title": "Can't Take My Eyes Off You",
+   "year": 1967
+  },
+  {
+   "id": "led-zeppelin-whole-lotta-love",
+   "artist": "Led Zeppelin",
+   "title": "Whole Lotta Love",
+   "year": 1969
+  },
+  {
+   "id": "simon-garfunkel-mrs-robinson",
+   "artist": "Simon & Garfunkel",
+   "title": "Mrs. Robinson",
+   "year": 1968
+  },
+  {
+   "id": "pearl-jam-last-kiss",
+   "artist": "Pearl Jam",
+   "title": "Last Kiss",
+   "year": 1961
+  },
+  {
+   "id": "the-beach-boys-little-saint-nick",
+   "artist": "The Beach Boys",
+   "title": "Little Saint Nick",
+   "year": 1963
+  },
+  {
+   "id": "stevie-wonder-what-christmas-means-to-me",
+   "artist": "Stevie Wonder",
+   "title": "What Christmas Means to Me",
+   "year": 1967
+  },
+  {
+   "id": "merle-haggard-mama-tried",
+   "artist": "Merle Haggard",
+   "title": "Mama Tried",
+   "year": 1968
+  },
+  {
+   "id": "stevie-wonder-uptight-everything-s-alright",
+   "artist": "Stevie Wonder",
+   "title": "Uptight (Everything's Alright)",
+   "year": 1965
+  },
+  {
+   "id": "linda-ronstadt-blue-bayou",
+   "artist": "Linda Ronstadt",
+   "title": "Blue Bayou",
+   "year": 1963
+  },
+  {
+   "id": "john-lee-hooker-boom-boom",
+   "artist": "John Lee Hooker",
+   "title": "Boom Boom",
+   "year": 1962
+  },
+  {
+   "id": "the-meters-cissy-strut",
+   "artist": "The Meters",
+   "title": "Cissy Strut",
+   "year": 1969
+  },
+  {
+   "id": "j-j-cale-after-midnight",
+   "artist": "J.J. Cale",
+   "title": "After Midnight",
+   "year": 1966
+  },
+  {
+   "id": "the-isley-brothers-it-s-your-thing",
+   "artist": "The Isley Brothers",
+   "title": "It's Your Thing",
+   "year": 1969
+  },
+  {
+   "id": "the-miracles-i-second-that-emotion",
+   "artist": "The Miracles",
+   "title": "I Second That Emotion",
+   "year": 1967
+  },
+  {
+   "id": "the-four-seasons-big-girls-don-t-cry",
+   "artist": "The Four Seasons",
+   "title": "Big Girls Don't Cry",
+   "year": 1962
+  },
+  {
+   "id": "wilson-pickett-mustang-sally",
+   "artist": "Wilson Pickett",
+   "title": "Mustang Sally",
+   "year": 1966
+  },
+  {
+   "id": "bob-seger-ramblin-gamblin-man",
+   "artist": "Bob Seger",
+   "title": "Ramblin' Gamblin' Man",
+   "year": 1968
+  },
+  {
+   "id": "the-shirelles-mama-said",
+   "artist": "The Shirelles",
+   "title": "Mama Said",
+   "year": 1961
+  },
+  {
+   "id": "the-four-seasons-walk-like-a-man",
+   "artist": "The Four Seasons",
+   "title": "Walk Like a Man",
+   "year": 1963
+  },
+  {
+   "id": "ricky-nelson-travelin-man",
+   "artist": "Ricky Nelson",
+   "title": "Travelin' Man",
+   "year": 1961
+  },
+  {
+   "id": "the-beach-boys-fun-fun-fun",
+   "artist": "The Beach Boys",
+   "title": "Fun, Fun, Fun",
+   "year": 1964
+  },
+  {
+   "id": "the-kinks-a-well-respected-man",
+   "artist": "The Kinks",
+   "title": "A Well Respected Man",
+   "year": 1965
+  },
+  {
+   "id": "lesley-gore-sunshine-lollipops-and-rainbows",
+   "artist": "Lesley Gore",
+   "title": "Sunshine, Lollipops and Rainbows",
+   "year": 1965
+  },
+  {
+   "id": "ike-tina-turner-river-deep-mountain-high-i-ll-keep-you-happy",
+   "artist": "Ike & Tina Turner",
+   "title": "River Deep - Mountain High / I'll Keep You Happy",
+   "year": 1966
+  },
+  {
+   "id": "jackie-wilson-i-get-the-sweetest-feeling",
+   "artist": "Jackie Wilson",
+   "title": "I Get the Sweetest Feeling",
+   "year": 1968
+  },
+  {
+   "id": "tommy-james-the-shondells-crystal-blue-persuasion",
+   "artist": "Tommy James & the Shondells",
+   "title": "Crystal Blue Persuasion",
+   "year": 1968
+  },
+  {
+   "id": "otis-redding-love-man",
+   "artist": "Otis Redding",
+   "title": "Love Man",
+   "year": 1969
+  },
+  {
+   "id": "patsy-cline-she-s-got-you",
+   "artist": "Patsy Cline",
+   "title": "She's Got You",
+   "year": 1962
+  },
+  {
+   "id": "the-shadows-apache",
+   "artist": "The Shadows",
+   "title": "Apache",
+   "year": 1960
+  },
+  {
+   "id": "the-delfonics-didn-t-i-blow-your-mind-this-time",
+   "artist": "The Delfonics",
+   "title": "Didn't I (Blow Your Mind This Time)",
+   "year": 1969
+  },
+  {
+   "id": "george-jones-the-race-is-on",
+   "artist": "George Jones",
+   "title": "The Race Is On",
+   "year": 1964
+  },
+  {
+   "id": "creedence-clearwater-revival-suzie-q",
+   "artist": "Creedence Clearwater Revival",
+   "title": "Suzie Q.",
+   "year": 1968
   }
  ]
 }
