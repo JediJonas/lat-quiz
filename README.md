@@ -18,6 +18,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/game.js`: spellogiken (låtval, gissningar och poäng), utan nätverk och gränssnitt.
 - `js/net.js`: kommunikationen via PeerJS, med automatisk återanslutning.
 - `js/host.js`, `js/play.js`: spelledarvy och spelarvy.
+- `om.html`: sidan Om spelet, med hur spelet fungerar tekniskt.
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Inter (SIL Open Font License).

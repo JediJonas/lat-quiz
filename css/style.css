@@ -211,7 +211,14 @@ button.theme-switch {
 button.theme-switch:hover { background: none; color: var(--text); }
 button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
-.theme-row { margin: 24px 0 0; text-align: right; }
+.theme-row { display: flex; align-items: center; gap: 16px; margin: 24px 0 0; }
+.theme-row .theme-switch { margin-left: auto; }
+.quiet-link { color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+.quiet-link:hover { color: var(--text); }
+.about h2 { margin-top: 1.6em; font-size: 1.05rem; }
+.about p, .about li { color: var(--text); }
+.about ul { padding-left: 1.2em; }
+.about li { margin: 0.4em 0; }
 .actions .theme-switch { float: right; }
 .theme-switch .track { position: relative; flex: none; width: 34px; height: 20px; border-radius: 999px; background: var(--border); transition: background 0.2s; }
 .theme-switch .track::after {
