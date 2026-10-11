@@ -7,6 +7,7 @@ import { renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
+const CATEGORIES_KEY = 'latquiz-categories';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -447,11 +448,25 @@ window.addEventListener('beforeunload', (e) => {
   if (state && Object.keys(state.players).length) e.preventDefault();
 });
 
-async function init() {
-  const categories = await loadCategories();
-  $('#category-select').innerHTML = categories
+// Fyller kategorilistan och behåller det val som redan är gjort.
+function renderCategories(categories) {
+  const select = $('#category-select');
+  const chosen = select.disabled ? null : select.value;
+  select.innerHTML = categories
     .map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+  if (categories.some((c) => c.id === chosen)) select.value = chosen;
+  select.disabled = false;
+  $('#create').disabled = false;
+}
+
+async function init() {
   $('#create').addEventListener('click', () => startGame($('#category-select').value));
+  // Visa förra besökets lista direkt så att rutan inte står tom medan den nya hämtas.
+  const cached = storage(() => JSON.parse(localStorage.getItem(CATEGORIES_KEY)), null);
+  if (Array.isArray(cached) && cached.length) renderCategories(cached);
+  const categories = await loadCategories();
+  renderCategories(categories);
+  storage(() => localStorage.setItem(CATEGORIES_KEY, JSON.stringify(categories)));
   renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
