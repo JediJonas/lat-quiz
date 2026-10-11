@@ -137,7 +137,7 @@ h1.logo { width: 14rem; margin: 0.6em 0 0.3em; }
   line-height: 1.4;
   text-transform: uppercase;
   white-space: nowrap;
-  transform: rotate(-7deg);
+  transform: rotate(7deg);
 }
 .page-title { font-size: 1.25rem; font-weight: 500; color: var(--title); margin: 0 0 0.8em; }
 .join-info .logo { width: 8rem; margin: -28px auto 12px; }
