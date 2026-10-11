@@ -1802,6 +1802,354 @@
    "artist": "Electric Light Orchestra",
    "title": "Turn to Stone",
    "year": 1977
+  },
+  {
+   "id": "hall-oates-rich-girl",
+   "artist": "Hall & Oates",
+   "title": "Rich Girl",
+   "year": 1977
+  },
+  {
+   "id": "the-doobie-brothers-listen-to-the-music",
+   "artist": "The Doobie Brothers",
+   "title": "Listen to the Music",
+   "year": 1972
+  },
+  {
+   "id": "looking-glass-brandy-you-re-a-fine-girl",
+   "artist": "Looking Glass",
+   "title": "Brandy (You're a Fine Girl)",
+   "year": 1972
+  },
+  {
+   "id": "ram-jam-black-betty",
+   "artist": "Ram Jam",
+   "title": "Black Betty",
+   "year": 1977
+  },
+  {
+   "id": "natalie-cole-this-will-be",
+   "artist": "Natalie Cole",
+   "title": "This Will Be",
+   "year": 1975
+  },
+  {
+   "id": "bob-seger-old-time-rock-and-roll",
+   "artist": "Bob Seger",
+   "title": "Old Time Rock and Roll",
+   "year": 1979
+  },
+  {
+   "id": "king-harvest-dancing-in-the-moonlight",
+   "artist": "King Harvest",
+   "title": "Dancing in the Moonlight",
+   "year": 1973
+  },
+  {
+   "id": "tom-petty-and-the-heartbreakers-american-girl",
+   "artist": "Tom Petty and the Heartbreakers",
+   "title": "American Girl",
+   "year": 1976
+  },
+  {
+   "id": "eagles-one-of-these-nights",
+   "artist": "Eagles",
+   "title": "One of These Nights",
+   "year": 1975
+  },
+  {
+   "id": "electric-light-orchestra-last-train-to-london",
+   "artist": "Electric Light Orchestra",
+   "title": "Last Train to London",
+   "year": 1979
+  },
+  {
+   "id": "bob-seger-night-moves",
+   "artist": "Bob Seger",
+   "title": "Night Moves",
+   "year": 1976
+  },
+  {
+   "id": "player-baby-come-back",
+   "artist": "Player",
+   "title": "Baby Come Back",
+   "year": 1977
+  },
+  {
+   "id": "bobby-caldwell-what-you-won-t-do-for-love",
+   "artist": "Bobby Caldwell",
+   "title": "What You Won't Do for Love",
+   "year": 1978
+  },
+  {
+   "id": "gladys-knight-the-pips-midnight-train-to-georgia",
+   "artist": "Gladys Knight & the Pips",
+   "title": "Midnight Train to Georgia",
+   "year": 1973
+  },
+  {
+   "id": "wild-cherry-play-that-funky-music",
+   "artist": "Wild Cherry",
+   "title": "Play That Funky Music",
+   "year": 1976
+  },
+  {
+   "id": "america-sister-golden-hair",
+   "artist": "America",
+   "title": "Sister Golden Hair",
+   "year": 1975
+  },
+  {
+   "id": "barry-white-you-re-the-first-the-last-my-everything",
+   "artist": "Barry White",
+   "title": "You're the First, the Last, My Everything",
+   "year": 1974
+  },
+  {
+   "id": "steely-dan-do-it-again",
+   "artist": "Steely Dan",
+   "title": "Do It Again",
+   "year": 1972
+  },
+  {
+   "id": "john-travolta-summer-nights",
+   "artist": "John Travolta",
+   "title": "Summer Nights",
+   "year": 1978
+  },
+  {
+   "id": "the-emotions-best-of-my-love",
+   "artist": "The Emotions",
+   "title": "Best of My Love",
+   "year": 1977
+  },
+  {
+   "id": "billy-ocean-love-really-hurts-without-you",
+   "artist": "Billy Ocean",
+   "title": "Love Really Hurts Without You",
+   "year": 1976
+  },
+  {
+   "id": "candi-staton-young-hearts-run-free",
+   "artist": "Candi Staton",
+   "title": "Young Hearts Run Free",
+   "year": 1976
+  },
+  {
+   "id": "cheap-trick-surrender",
+   "artist": "Cheap Trick",
+   "title": "Surrender",
+   "year": 1978
+  },
+  {
+   "id": "al-green-tired-of-being-alone",
+   "artist": "Al Green",
+   "title": "Tired of Being Alone",
+   "year": 1971
+  },
+  {
+   "id": "joe-cocker-you-are-so-beautiful",
+   "artist": "Joe Cocker",
+   "title": "You Are So Beautiful",
+   "year": 1974
+  },
+  {
+   "id": "styx-renegade",
+   "artist": "Styx",
+   "title": "Renegade",
+   "year": 1979
+  },
+  {
+   "id": "the-o-jays-love-train",
+   "artist": "The O'Jays",
+   "title": "Love Train",
+   "year": 1972
+  },
+  {
+   "id": "jimmy-buffett-margaritaville",
+   "artist": "Jimmy Buffett",
+   "title": "Margaritaville",
+   "year": 1977
+  },
+  {
+   "id": "eagles-peaceful-easy-feeling",
+   "artist": "Eagles",
+   "title": "Peaceful Easy Feeling",
+   "year": 1972
+  },
+  {
+   "id": "hall-oates-sara-smile",
+   "artist": "Hall & Oates",
+   "title": "Sara Smile",
+   "year": 1976
+  },
+  {
+   "id": "the-pretenders-brass-in-pocket",
+   "artist": "The Pretenders",
+   "title": "Brass in Pocket",
+   "year": 1979
+  },
+  {
+   "id": "bob-marley-the-wailers-stir-it-up",
+   "artist": "Bob Marley & The Wailers",
+   "title": "Stir It Up",
+   "year": 1972
+  },
+  {
+   "id": "boston-peace-of-mind",
+   "artist": "Boston",
+   "title": "Peace of Mind",
+   "year": 1977
+  },
+  {
+   "id": "curtis-mayfield-move-on-up",
+   "artist": "Curtis Mayfield",
+   "title": "Move On Up",
+   "year": 1971
+  },
+  {
+   "id": "jackson-browne-running-on-empty",
+   "artist": "Jackson Browne",
+   "title": "Running on Empty",
+   "year": 1978
+  },
+  {
+   "id": "bill-withers-use-me",
+   "artist": "Bill Withers",
+   "title": "Use Me",
+   "year": 1972
+  },
+  {
+   "id": "gordon-lightfoot-sundown",
+   "artist": "Gordon Lightfoot",
+   "title": "Sundown",
+   "year": 1974
+  },
+  {
+   "id": "steve-miller-band-take-the-money-and-run",
+   "artist": "Steve Miller Band",
+   "title": "Take the Money and Run",
+   "year": 1976
+  },
+  {
+   "id": "eagles-lyin-eyes",
+   "artist": "Eagles",
+   "title": "Lyin' Eyes",
+   "year": 1975
+  },
+  {
+   "id": "supertramp-goodbye-stranger",
+   "artist": "Supertramp",
+   "title": "Goodbye Stranger",
+   "year": 1979
+  },
+  {
+   "id": "steve-miller-band-rock-n-me",
+   "artist": "Steve Miller Band",
+   "title": "Rock'n Me",
+   "year": 1976
+  },
+  {
+   "id": "elton-john-daniel",
+   "artist": "Elton John",
+   "title": "Daniel",
+   "year": 1973
+  },
+  {
+   "id": "jim-croce-bad-bad-leroy-brown",
+   "artist": "Jim Croce",
+   "title": "Bad, Bad Leroy Brown",
+   "year": 1973
+  },
+  {
+   "id": "fleetwood-mac-say-you-love-me",
+   "artist": "Fleetwood Mac",
+   "title": "Say You Love Me",
+   "year": 1976
+  },
+  {
+   "id": "joe-walsh-life-s-been-good",
+   "artist": "Joe Walsh",
+   "title": "Life's Been Good",
+   "year": 1978
+  },
+  {
+   "id": "ten-years-after-i-d-love-to-change-the-world",
+   "artist": "Ten Years After",
+   "title": "I'd Love to Change the World",
+   "year": 1971
+  },
+  {
+   "id": "marvin-gaye-got-to-give-it-up",
+   "artist": "Marvin Gaye",
+   "title": "Got to Give It Up",
+   "year": 1977
+  },
+  {
+   "id": "jim-croce-operator-that-s-not-the-way-it-feels",
+   "artist": "Jim Croce",
+   "title": "Operator (That's Not the Way It Feels)",
+   "year": 1972
+  },
+  {
+   "id": "rainbow-since-you-been-gone",
+   "artist": "Rainbow",
+   "title": "Since You Been Gone",
+   "year": 1979
+  },
+  {
+   "id": "lobo-i-d-love-you-to-want-me",
+   "artist": "Lobo",
+   "title": "I'd Love You to Want Me",
+   "year": 1972
+  },
+  {
+   "id": "earth-wind-fire-after-the-love-has-gone",
+   "artist": "Earth, Wind & Fire",
+   "title": "After the Love Has Gone",
+   "year": 1979
+  },
+  {
+   "id": "the-spinners-the-rubberband-man",
+   "artist": "The Spinners",
+   "title": "The Rubberband Man",
+   "year": 1976
+  },
+  {
+   "id": "marvin-gaye-mercy-mercy-me-the-ecology",
+   "artist": "Marvin Gaye",
+   "title": "Mercy Mercy Me (The Ecology)",
+   "year": 1971
+  },
+  {
+   "id": "styx-come-sail-away",
+   "artist": "Styx",
+   "title": "Come Sail Away",
+   "year": 1977
+  },
+  {
+   "id": "the-spinners-it-s-a-shame",
+   "artist": "The Spinners",
+   "title": "It's a Shame",
+   "year": 1970
+  },
+  {
+   "id": "leo-sayer-you-make-me-feel-like-dancing",
+   "artist": "Leo Sayer",
+   "title": "You Make Me Feel Like Dancing",
+   "year": 1976
+  },
+  {
+   "id": "the-staple-singers-i-ll-take-you-there",
+   "artist": "The Staple Singers",
+   "title": "I'll Take You There",
+   "year": 1972
+  },
+  {
+   "id": "john-denver-rocky-mountain-high",
+   "artist": "John Denver",
+   "title": "Rocky Mountain High",
+   "year": 1972
   }
  ]
 }
