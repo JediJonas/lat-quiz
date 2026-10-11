@@ -113,7 +113,7 @@ h1 { font-size: 2rem; font-weight: 750; margin: 0.6em 0 0.5em; }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
 .logo {
   display: block;
-  width: 9.5rem;
+  width: 14rem;
   aspect-ratio: 2814 / 1010;
   margin: 16px 0 8px;
   background: var(--accent);
@@ -123,9 +123,9 @@ h1 { font-size: 2rem; font-weight: 750; margin: 0.6em 0 0.5em; }
   mask-size: contain;
   mask-repeat: no-repeat;
 }
-h1.logo { width: 14rem; margin: 0.6em 0 0.3em; }
+h1.logo { margin: 16px 0 8px; }
 .page-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 16px 0 20px; }
-.page-head .logo { margin: 0; }
+.page-head .logo { flex: 0 1 14rem; width: auto; min-width: 0; margin: 0; }
 .page-head .page-title {
   margin: 0 4px 0 0;
   padding: 3px 10px;
@@ -140,7 +140,10 @@ h1.logo { width: 14rem; margin: 0.6em 0 0.3em; }
   transform: rotate(7deg);
 }
 .page-title { font-size: 1.25rem; font-weight: 500; color: var(--title); margin: 0 0 0.8em; }
-.join-info .logo { width: 8rem; margin: -28px auto 12px; }
+/* Liten logga bredvid kategorin under spelet. */
+/* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
+.logo-small { --w: 5.5rem; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
+.game-head .logo-small { --w: 7rem; margin-right: 8px; }
 h2 { font-size: 1.25rem; font-weight: 700; margin: 0.2em 0 0.5em; }
 h3, .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
@@ -224,7 +227,7 @@ button.link {
   font-size: 0.9rem;
   font-weight: 500;
 }
-button.link:hover { color: var(--text); text-decoration: underline; }
+@media (hover: hover) { button.link:hover { color: var(--text); text-decoration: underline; } }
 
 /* Strömbrytare för mörkt läge */
 button.theme-switch {
@@ -249,7 +252,7 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .theme-row .row-end .link { margin: 0; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; text-decoration: none; }
-.quiet-link:hover { color: var(--text); text-decoration: underline; }
+@media (hover: hover) { .quiet-link:hover { color: var(--text); text-decoration: underline; } }
 main:has(#lobby:not([hidden])) .join-only { display: none; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
@@ -403,11 +406,14 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .suggestions li.empty:hover { background: none; }
 
 /* Spelarens rubrikrad */
-.player-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--muted); }
+.player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; font-weight: 700; letter-spacing: normal; }
 .player-head .who h1:empty { display: none; }
-#me { font-size: 0.9rem; letter-spacing: 0.08em; }
+/* Spelarens kod är ingen länk, så den visas som en etikett. */
+.game-code { padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+#me { color: var(--text); font-weight: 600; letter-spacing: 0.08em; }
+main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .conn {
   display: inline-flex;
   align-items: center;
@@ -451,7 +457,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 }
 
 /* Startsidan */
-.lead { font-size: 1.1rem; color: var(--muted); margin: 0 0 24px; }
+.lead { font-size: 1.1rem; color: var(--text); margin: 0 0 24px; }
 
 /* Spelledarvyn på dator */
 .host { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; max-width: 1040px; margin: 0 auto; padding-top: 32px; }
@@ -494,9 +500,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
 }
-.code-link:hover { background: none; color: var(--text); text-decoration: underline; }
+@media (hover: hover) { .code-link:hover { background: none; color: var(--text); text-decoration: underline; } }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
