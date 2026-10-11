@@ -408,8 +408,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; font-weight: 700; letter-spacing: normal; }
 .player-head .who h1:empty { display: none; }
-.game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
-#me { letter-spacing: 0.08em; }
+/* Spelarens kod är ingen länk, så den visas som en etikett. */
+.game-code { padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+#me { color: var(--text); font-weight: 600; letter-spacing: 0.08em; }
 main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .conn {
   display: inline-flex;
