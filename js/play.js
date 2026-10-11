@@ -6,6 +6,7 @@ import { announce, renderRing, ranks, scoreTracker, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
+const MAX_NAME = 10;
 const $ = (sel) => document.querySelector(sel);
 const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
@@ -40,6 +41,7 @@ function onOpen() {
 }
 
 function onMessage(msg) {
+  if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   view = msg.view;
   $('#category-name').textContent = view.categoryName || '';
@@ -77,7 +79,6 @@ function playerStatus(id) {
     result: round.results && round.results[id],
     labels: view.labels,
     esc,
-    points: false,
   });
 }
 
@@ -143,17 +144,23 @@ function join(name, code) {
 
 // Koden är fel eller spelet är avslutat: tillbaka till sidan där man anger kod.
 function onNotFound() {
-  const code = me.code;
+  leave(`Det finns inget aktivt spel med koden ${me.code}. Kontrollera koden och försök igen.`, true);
+}
+
+// Tillbaka till sidan där man anger namn och kod, med ett felmeddelande.
+function leave(message, clearCode) {
   net.destroy();
   net = null;
   view = null;
   storage(() => localStorage.removeItem(SAVE_KEY));
   const params = new URLSearchParams(location.search);
-  params.delete('kod');
-  const query = params.toString();
-  history.replaceState(null, '', location.pathname + (query ? '?' + query : ''));
-  $('#code-input').value = '';
-  $('#join-error').textContent = `Det finns inget aktivt spel med koden ${code}. Kontrollera koden och försök igen.`;
+  if (clearCode) {
+    params.delete('kod');
+    const query = params.toString();
+    history.replaceState(null, '', location.pathname + (query ? '?' + query : ''));
+    $('#code-input').value = '';
+  }
+  $('#join-error').textContent = message;
   $('#join-error').hidden = false;
   $('#lobby').hidden = true;
   $('#join').hidden = false;
@@ -180,7 +187,7 @@ async function init() {
   mountUserSettings();
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = $('#name-input').value.trim().slice(0, 20);
+    const name = $('#name-input').value.trim().slice(0, MAX_NAME);
     const joinCode = $('#code-input').value.trim().toUpperCase();
     if (!name || joinCode.length !== 4) return;
     const query = new URLSearchParams(location.search);
