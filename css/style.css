@@ -197,6 +197,8 @@ button:active, .button:active { transform: scale(0.98); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 input:focus-visible, select:focus-visible { outline: none; }
 .big { padding: 16px; font-size: 1.05rem; }
+/* Mer luft mellan formulärets fält och huvudknappen. */
+#create, #join-form .big { margin-top: 28px; }
 .huge { padding: 22px; font-size: 1.3rem; border-radius: 16px; letter-spacing: -0.01em; }
 .secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
 .secondary:hover { background: var(--surface-2); }
