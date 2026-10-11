@@ -453,8 +453,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-link { margin-top: 8px; }
 .settings-link .small { display: block; margin-top: 4px; }
-.settings-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
-.settings-row .theme-switch { flex: none; margin-top: 11px; }
+.settings-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 8px 0 16px; }
+.settings-row .settings-link { margin: 0; }
+.settings-row .theme-switch { flex: none; }
 .modal.settings label:first-of-type { margin-top: 8px; }
 .modal.settings .modal-actions { margin-top: 24px; }
 
