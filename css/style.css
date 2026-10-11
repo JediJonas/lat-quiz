@@ -130,11 +130,13 @@ h1.logo { margin: 16px 0 8px; }
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
 .logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
 .game-head .logo-small { --w: 136px; margin-right: 8px; }
-h3, .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 2em 0 0.6em; }
+/* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
+h3, .section-title, .round-label, .stage h2 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+h3, .section-title { margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
 @media (hover: hover) { a:not(.button):hover { color: var(--text); } }
 .muted { color: var(--muted); }
-.small { font-size: 0.85rem; }
+.small { font-size: 0.9rem; }
 .hidden, [hidden] { display: none !important; }
 
 /* Formulär */
@@ -282,7 +284,7 @@ main:has(#lobby:not([hidden])) .join-only { display: none; }
   margin: 0 4px 0 0;
   padding: 2px 9px;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
   background: var(--surface-2);
   color: var(--muted);
@@ -329,7 +331,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
 }
-.round-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; }
+.round-label { margin: 0 0 4px; }
 .mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
 .mid-ring circle { stroke-width: 8; }
 .mid-ring .ring-num { font-size: 2.8rem; }
@@ -506,7 +508,6 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   padding: 28px;
 }
 .stage > :first-child { margin-top: 0; }
-.stage h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 .stage .huge { margin-bottom: 0; }
 .stage > .secondary { width: auto; margin: 0 auto 12px; padding-inline: 24px; }
 .stage .answer .title { font-size: 2.4rem; }
@@ -519,7 +520,6 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 8px 0 0; }
 .settings-row .link { flex: none; margin: 0; }
-.modal.settings .modal-actions { margin-top: 24px; }
 
 @media (max-width: 760px) {
   .host { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
@@ -539,8 +539,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .modal::backdrop { background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(3px); }
 .modal[open] { animation: modal-in 0.15s ease-out; }
 .modal h2 { margin: 0 0 20px; }
-.modal p { margin: 0 0 20px; color: var(--muted); }
-.modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.modal p { margin: 0; color: var(--muted); }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
 .modal-actions button { width: auto; margin: 0; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
 button.danger:hover { filter: brightness(1.08); }
