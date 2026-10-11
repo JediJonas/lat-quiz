@@ -21,7 +21,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `om.html`: sidan Om spelet, med hur spelet fungerar tekniskt.
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
-- `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Inter (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
+- `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnitten Inter och Varela Round (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
 
 ## Köra lokalt
 
