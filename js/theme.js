@@ -9,16 +9,19 @@ function isDark() {
   return chosen ? chosen === 'dark' : deviceDark.matches;
 }
 
+// Stor text gör all text större, för den som vill se bättre.
 const TEXT_KEY = 'latquiz-text';
-const TEXT_SIZES = [['small', 'Liten'], ['medium', 'Mellan'], ['large', 'Stor']];
 
-function textSize() {
-  return document.documentElement.dataset.text || 'medium';
+function isLargeText() {
+  return document.documentElement.dataset.text === 'large';
 }
 
-function setTextSize(size) {
-  document.documentElement.dataset.text = size;
-  try { localStorage.setItem(TEXT_KEY, size); } catch { /* privat läge */ }
+function setLargeText(large) {
+  const root = document.documentElement;
+  if (large) root.dataset.text = 'large'; else delete root.dataset.text;
+  try {
+    if (large) localStorage.setItem(TEXT_KEY, 'large'); else localStorage.removeItem(TEXT_KEY);
+  } catch { /* privat läge */ }
 }
 
 function setTheme(theme) {
@@ -26,12 +29,12 @@ function setTheme(theme) {
   try { localStorage.setItem(THEME_KEY, theme); } catch { /* privat läge: gäller bara den här sidvisningen */ }
 }
 
-// Gör en knapp till en strömbrytare för mörkt läge.
-function mountThemeSwitch(el) {
-  const update = () => el.setAttribute('aria-checked', String(isDark()));
-  el.innerHTML = '<span class="track" aria-hidden="true"></span>Mörkt läge';
+// Gör en knapp till en strömbrytare.
+function mountSwitch(el, label, isOn, toggle) {
+  const update = () => el.setAttribute('aria-checked', String(isOn()));
+  el.innerHTML = `<span class="track" aria-hidden="true"></span>${label}`;
   el.setAttribute('role', 'switch');
-  el.addEventListener('click', () => { setTheme(isDark() ? 'light' : 'dark'); update(); });
+  el.addEventListener('click', () => { toggle(); update(); });
   update();
 }
 
@@ -43,17 +46,16 @@ function showUserSettings() {
   dialog.innerHTML = `
     <form method="dialog">
       <h2 id="user-settings-title">Utseende</h2>
-      <button type="button" class="theme-switch"></button>
-      <fieldset class="segmented">
-        <legend>Textstorlek</legend>
-        ${TEXT_SIZES.map(([value, text]) => `<label><input type="radio" name="text-size" value="${value}"${value === textSize() ? ' checked' : ''}><span>${text}</span></label>`).join('')}
-      </fieldset>
+      <div class="switches">
+        <button type="button" class="theme-switch" id="switch-dark"></button>
+        <button type="button" class="theme-switch" id="switch-text"></button>
+      </div>
       <div class="modal-actions">
         <button value="ok">Stäng</button>
       </div>
     </form>`;
-  mountThemeSwitch(dialog.querySelector('.theme-switch'));
-  dialog.querySelector('.segmented').addEventListener('change', (e) => setTextSize(e.target.value));
+  mountSwitch(dialog.querySelector('#switch-dark'), 'Mörkt läge', isDark, () => setTheme(isDark() ? 'light' : 'dark'));
+  mountSwitch(dialog.querySelector('#switch-text'), 'Stor text', isLargeText, () => setLargeText(!isLargeText()));
   // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.
   dialog.addEventListener('keydown', (e) => e.stopPropagation());
   dialog.addEventListener('close', () => dialog.remove(), { once: true });
