@@ -1802,6 +1802,384 @@
    "artist": "Eagles",
    "title": "Already Gone",
    "year": 1974
+  },
+  {
+   "id": "guns-n-roses-knockin-on-heaven-s-door",
+   "artist": "Guns N' Roses",
+   "title": "Knockin' on Heaven's Door",
+   "year": 1992
+  },
+  {
+   "id": "motley-crue-kickstart-my-heart",
+   "artist": "Mötley Crüe",
+   "title": "Kickstart My Heart",
+   "year": 1989
+  },
+  {
+   "id": "avenged-sevenfold-hail-to-the-king",
+   "artist": "Avenged Sevenfold",
+   "title": "Hail to the King",
+   "year": 2013
+  },
+  {
+   "id": "metallica-the-unforgiven",
+   "artist": "Metallica",
+   "title": "The Unforgiven",
+   "year": 1991
+  },
+  {
+   "id": "metallica-whiskey-in-the-jar",
+   "artist": "Metallica",
+   "title": "Whiskey in the Jar",
+   "year": 1999
+  },
+  {
+   "id": "aerosmith-sweet-emotion",
+   "artist": "Aerosmith",
+   "title": "Sweet Emotion",
+   "year": 1975
+  },
+  {
+   "id": "three-days-grace-riot",
+   "artist": "Three Days Grace",
+   "title": "Riot",
+   "year": 2007
+  },
+  {
+   "id": "danzig-mother",
+   "artist": "Danzig",
+   "title": "Mother",
+   "year": 1994
+  },
+  {
+   "id": "wolfmother-joker-the-thief",
+   "artist": "Wolfmother",
+   "title": "Joker & the Thief",
+   "year": 2005
+  },
+  {
+   "id": "avenged-sevenfold-bat-country",
+   "artist": "Avenged Sevenfold",
+   "title": "Bat Country",
+   "year": 2005
+  },
+  {
+   "id": "greta-van-fleet-highway-tune",
+   "artist": "Greta Van Fleet",
+   "title": "Highway Tune",
+   "year": 2017
+  },
+  {
+   "id": "royal-blood-figure-it-out",
+   "artist": "Royal Blood",
+   "title": "Figure It Out",
+   "year": 2014
+  },
+  {
+   "id": "foreigner-juke-box-hero",
+   "artist": "Foreigner",
+   "title": "Juke Box Hero",
+   "year": 1982
+  },
+  {
+   "id": "saving-abel-addicted",
+   "artist": "Saving Abel",
+   "title": "Addicted",
+   "year": 2008
+  },
+  {
+   "id": "styx-renegade",
+   "artist": "Styx",
+   "title": "Renegade",
+   "year": 1979
+  },
+  {
+   "id": "ac-dc-rock-n-roll-train",
+   "artist": "AC/DC",
+   "title": "Rock 'N Roll Train",
+   "year": 2008
+  },
+  {
+   "id": "volbeat-lola-montez",
+   "artist": "Volbeat",
+   "title": "Lola Montez",
+   "year": 2013
+  },
+  {
+   "id": "system-of-a-down-i-e-a-i-a-i-o",
+   "artist": "System of a Down",
+   "title": "I-E-A-I-A-I-O",
+   "year": 2002
+  },
+  {
+   "id": "bon-jovi-bad-medicine",
+   "artist": "Bon Jovi",
+   "title": "Bad Medicine",
+   "year": 1988
+  },
+  {
+   "id": "theory-of-a-deadman-bad-girlfriend",
+   "artist": "Theory of a Deadman",
+   "title": "Bad Girlfriend",
+   "year": 2009
+  },
+  {
+   "id": "buckcherry-crazy-bitch",
+   "artist": "Buckcherry",
+   "title": "Crazy Bitch",
+   "year": 2006
+  },
+  {
+   "id": "shinedown-cut-the-cord",
+   "artist": "Shinedown",
+   "title": "Cut the Cord",
+   "year": 2015
+  },
+  {
+   "id": "nickelback-something-in-your-mouth",
+   "artist": "Nickelback",
+   "title": "Something in Your Mouth",
+   "year": 2008
+  },
+  {
+   "id": "disturbed-the-vengeful-one",
+   "artist": "Disturbed",
+   "title": "The Vengeful One",
+   "year": 2015
+  },
+  {
+   "id": "billy-squier-the-stroke",
+   "artist": "Billy Squier",
+   "title": "The Stroke",
+   "year": 1981
+  },
+  {
+   "id": "blue-oyster-cult-burnin-for-you",
+   "artist": "Blue Öyster Cult",
+   "title": "Burnin' for You",
+   "year": 1981
+  },
+  {
+   "id": "airbourne-runnin-wild",
+   "artist": "Airbourne",
+   "title": "Runnin' Wild",
+   "year": 2007
+  },
+  {
+   "id": "motley-crue-wild-side",
+   "artist": "Mötley Crüe",
+   "title": "Wild Side",
+   "year": 1987
+  },
+  {
+   "id": "ozzy-osbourne-bark-at-the-moon",
+   "artist": "Ozzy Osbourne",
+   "title": "Bark at the Moon",
+   "year": 1983
+  },
+  {
+   "id": "queens-of-the-stone-age-i-sat-by-the-ocean",
+   "artist": "Queens of the Stone Age",
+   "title": "I Sat by the Ocean",
+   "year": 2013
+  },
+  {
+   "id": "shinedown-devil",
+   "artist": "Shinedown",
+   "title": "Devil",
+   "year": 2018
+  },
+  {
+   "id": "ozzy-osbourne-i-don-t-wanna-stop",
+   "artist": "Ozzy Osbourne",
+   "title": "I Don't Wanna Stop",
+   "year": 2007
+  },
+  {
+   "id": "rev-theory-hell-yeah",
+   "artist": "Rev Theory",
+   "title": "Hell Yeah",
+   "year": 2008
+  },
+  {
+   "id": "the-pretty-reckless-heaven-knows",
+   "artist": "The Pretty Reckless",
+   "title": "Heaven Knows",
+   "year": 2013
+  },
+  {
+   "id": "velvet-revolver-slither",
+   "artist": "Velvet Revolver",
+   "title": "Slither",
+   "year": 2004
+  },
+  {
+   "id": "shinedown-diamond-eyes-boom-lay-boom-lay-boom",
+   "artist": "Shinedown",
+   "title": "Diamond Eyes (Boom-Lay Boom-Lay Boom)",
+   "year": 2010
+  },
+  {
+   "id": "queen-hammer-to-fall",
+   "artist": "Queen",
+   "title": "Hammer to Fall",
+   "year": 1984
+  },
+  {
+   "id": "disturbed-ten-thousand-fists",
+   "artist": "Disturbed",
+   "title": "Ten Thousand Fists",
+   "year": 2006
+  },
+  {
+   "id": "royal-blood-out-of-the-black",
+   "artist": "Royal Blood",
+   "title": "Out of the Black",
+   "year": 2013
+  },
+  {
+   "id": "pat-benatar-heartbreaker",
+   "artist": "Pat Benatar",
+   "title": "Heartbreaker",
+   "year": 1979
+  },
+  {
+   "id": "boston-foreplay-long-time",
+   "artist": "Boston",
+   "title": "Foreplay/Long Time",
+   "year": 1977
+  },
+  {
+   "id": "stone-sour-song-3",
+   "artist": "Stone Sour",
+   "title": "Song #3",
+   "year": 2017
+  },
+  {
+   "id": "iron-maiden-wasting-love",
+   "artist": "Iron Maiden",
+   "title": "Wasting Love",
+   "year": 1992
+  },
+  {
+   "id": "shinedown-simple-man",
+   "artist": "Shinedown",
+   "title": "Simple Man",
+   "year": 2003
+  },
+  {
+   "id": "def-leppard-rock-of-ages",
+   "artist": "Def Leppard",
+   "title": "Rock of Ages",
+   "year": 2012
+  },
+  {
+   "id": "disturbed-warrior",
+   "artist": "Disturbed",
+   "title": "Warrior",
+   "year": 2011
+  },
+  {
+   "id": "foo-fighters-run",
+   "artist": "Foo Fighters",
+   "title": "Run",
+   "year": 2017
+  },
+  {
+   "id": "royal-blood-little-monster",
+   "artist": "Royal Blood",
+   "title": "Little Monster",
+   "year": 2014
+  },
+  {
+   "id": "sixx-a-m-life-is-beautiful",
+   "artist": "Sixx:A.M.",
+   "title": "Life Is Beautiful",
+   "year": 2007
+  },
+  {
+   "id": "bullet-for-my-valentine-you-want-a-battle",
+   "artist": "Bullet for My Valentine",
+   "title": "You Want A Battle",
+   "year": 2015
+  },
+  {
+   "id": "nickelback-figured-you-out",
+   "artist": "Nickelback",
+   "title": "Figured You Out",
+   "year": 2003
+  },
+  {
+   "id": "skillet-legendary",
+   "artist": "Skillet",
+   "title": "Legendary",
+   "year": 2019
+  },
+  {
+   "id": "guns-n-roses-rocket-queen",
+   "artist": "Guns N' Roses",
+   "title": "Rocket Queen",
+   "year": 1987
+  },
+  {
+   "id": "three-days-grace-so-called-life",
+   "artist": "Three Days Grace",
+   "title": "So Called Life",
+   "year": 2021
+  },
+  {
+   "id": "quiet-riot-metal-health-bang-your-head",
+   "artist": "Quiet Riot",
+   "title": "Metal Health (Bang Your Head)",
+   "year": 1983
+  },
+  {
+   "id": "kiss-crazy-crazy-nights",
+   "artist": "Kiss",
+   "title": "Crazy Crazy Nights",
+   "year": 1987
+  },
+  {
+   "id": "hinder-get-stoned",
+   "artist": "Hinder",
+   "title": "Get Stoned",
+   "year": 2005
+  },
+  {
+   "id": "godsmack-love-hate-sex-pain",
+   "artist": "Godsmack",
+   "title": "Love-Hate-Sex-Pain",
+   "year": 2010
+  },
+  {
+   "id": "nickelback-shakin-hands",
+   "artist": "Nickelback",
+   "title": "Shakin' Hands",
+   "year": 2009
+  },
+  {
+   "id": "grand-funk-railroad-we-re-an-american-band",
+   "artist": "Grand Funk Railroad",
+   "title": "We're an American Band",
+   "year": 1973
+  },
+  {
+   "id": "greta-van-fleet-when-the-curtain-falls",
+   "artist": "Greta Van Fleet",
+   "title": "When the Curtain Falls",
+   "year": 2018
+  },
+  {
+   "id": "airbourne-too-much-too-young-too-fast",
+   "artist": "Airbourne",
+   "title": "Too Much, Too Young, Too Fast",
+   "year": 2007
+  },
+  {
+   "id": "buckcherry-lit-up",
+   "artist": "Buckcherry",
+   "title": "Lit Up",
+   "year": 1998
   }
  ]
 }
