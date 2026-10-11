@@ -490,7 +490,7 @@ async function init() {
   if (saved) {
     const resume = $('#resume');
     resume.hidden = false;
-    resume.querySelector('button').textContent = `Fortsätt spelet ${saved.code}`;
+    resume.querySelector('button').textContent = `Tillbaka till ${saved.code}!`;
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
 }
