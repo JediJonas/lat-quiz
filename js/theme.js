@@ -2,48 +2,29 @@
 // Själva valet läses in redan i <head>, så att sidan inte blinkar till.
 
 const THEME_KEY = 'latquiz-tema';
-export const THEME_CHOICES = [['auto', 'Automatiskt (som enheten)'], ['light', 'Ljust'], ['dark', 'Mörkt']];
+const deviceDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-export function currentTheme() {
-  try { return localStorage.getItem(THEME_KEY) || 'auto'; } catch { return 'auto'; }
+function isDark() {
+  const chosen = document.documentElement.dataset.theme;
+  return chosen ? chosen === 'dark' : deviceDark.matches;
 }
 
-export function setTheme(theme) {
-  try {
-    if (theme === 'light' || theme === 'dark') localStorage.setItem(THEME_KEY, theme);
-    else localStorage.removeItem(THEME_KEY);
-  } catch { /* privat läge: valet gäller bara den här sidvisningen */ }
-  if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
-  else delete document.documentElement.dataset.theme;
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  try { localStorage.setItem(THEME_KEY, theme); } catch { /* privat läge: gäller bara den här sidvisningen */ }
 }
 
-export function showThemeSettings() {
-  const current = currentTheme();
-  const dialog = document.createElement('dialog');
-  dialog.className = 'modal settings';
-  dialog.innerHTML = `
-    <form method="dialog">
-      <h2>Inställningar</h2>
-      <label for="setting-theme">Utseende</label>
-      <select id="setting-theme" name="theme">
-        ${THEME_CHOICES.map(([v, text]) => `<option value="${v}"${v === current ? ' selected' : ''}>${text}</option>`).join('')}
-      </select>
-      <div class="modal-actions">
-        <button value="cancel" class="secondary">Avbryt</button>
-        <button value="ok">Spara</button>
-      </div>
-    </form>`;
-  // En rullista skickar inte formuläret med Enter, så Enter sparar här.
-  dialog.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && e.target.tagName === 'SELECT') {
-      e.preventDefault();
-      dialog.querySelector('[value=ok]').click();
-    }
-  });
-  dialog.addEventListener('close', () => {
-    if (dialog.returnValue === 'ok') setTheme(dialog.querySelector('select').value);
-    dialog.remove();
-  }, { once: true });
-  document.body.append(dialog);
-  dialog.showModal();
+// Gör alla knappar med klassen theme-switch till en strömbrytare för mörkt läge.
+export function mountThemeSwitches() {
+  const switches = [...document.querySelectorAll('.theme-switch')];
+  const update = () => {
+    for (const el of switches) el.setAttribute('aria-checked', String(isDark()));
+  };
+  for (const el of switches) {
+    el.innerHTML = '<span class="track" aria-hidden="true"></span>Mörkt läge';
+    el.setAttribute('role', 'switch');
+    el.addEventListener('click', () => { setTheme(isDark() ? 'light' : 'dark'); update(); });
+  }
+  deviceDark.addEventListener('change', update);
+  update();
 }
