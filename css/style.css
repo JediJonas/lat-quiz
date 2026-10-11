@@ -519,7 +519,6 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 8px 0 0; }
 .settings-row .link { flex: none; margin: 0; }
-.modal.settings label:first-of-type { margin-top: 8px; }
 .modal.settings .modal-actions { margin-top: 24px; }
 
 @media (max-width: 760px) {
@@ -539,7 +538,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 }
 .modal::backdrop { background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(3px); }
 .modal[open] { animation: modal-in 0.15s ease-out; }
-.modal h2 { margin: 0 0 8px; }
+.modal h2 { margin: 0 0 20px; }
 .modal p { margin: 0 0 20px; color: var(--muted); }
 .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
 .modal-actions button { width: auto; margin: 0; }
