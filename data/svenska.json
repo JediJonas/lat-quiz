@@ -22,7 +22,7 @@
  },
  {
   "id": "kent-utan-dina-andetag",
-  "artist": "Kent & Sanna Nielsen",
+  "artist": "Kent",
   "title": "Utan dina andetag",
   "year": 1997,
   "spotifyId": "5eJ314ozT4CTPlyjdsGq78"
@@ -36,14 +36,14 @@
  },
  {
   "id": "miss-li-om-du-lamnade-mig-nu",
-  "artist": "Miss Li & Lars Winnerbäck",
+  "artist": "Lars Winnerbäck & Miss Li",
   "title": "Om du lämnade mig nu",
   "year": 2007,
   "spotifyId": "17q9gSD214wClyCjqrhmgH"
  },
  {
   "id": "rasmus-gozzi-rid-mig-som-en-dalahast",
-  "artist": "Rasmus Gozzi & Fröken Snusk",
+  "artist": "Rasmus Gozzi",
   "title": "Rid mig som en dalahäst",
   "year": 2022,
   "spotifyId": "6dP4jUSraFGLZ8onWUAC0z"
@@ -71,7 +71,7 @@
  },
  {
   "id": "abba-ring-ring-bara-du-slog-en-signal",
-  "artist": "ABBA & Abba",
+  "artist": "ABBA",
   "title": "Ring ring (bara du slog en signal)",
   "year": 1973,
   "spotifyId": "5UwxImdvNoElIk7bAgk56p"
@@ -99,7 +99,7 @@
  },
  {
   "id": "amy-deasismont-julen-ar-har",
-  "artist": "Amy Deasismont & Jenny Silver",
+  "artist": "Tommy Körberg",
   "title": "Julen är här",
   "year": 1989,
   "spotifyId": "4cGPWeCfoQTw7i0wqNRcjI"
@@ -120,14 +120,14 @@
  },
  {
   "id": "stefan-borsch-sommaren-ar-kort",
-  "artist": "Stefan Borsch & Lotta Engberg",
+  "artist": "Tomas Ledin",
   "title": "Sommaren är kort",
   "year": 1982,
   "spotifyId": "0mXJHQQsh6gwGtUZKVIf7b"
  },
  {
   "id": "carola-haggkvist-fangad-av-en-stormvind",
-  "artist": "Carola Häggkvist & Black Ingvars",
+  "artist": "Carola Häggkvist",
   "title": "Fångad av en stormvind",
   "year": 1991,
   "spotifyId": "06xX9E1BTTwyOwyaBuszSK"
@@ -183,7 +183,7 @@
  },
  {
   "id": "ole-ivars-jag-trodde-anglarna-fanns",
-  "artist": "Ole Ivars & Bengt Hennings",
+  "artist": "Kamferdrops",
   "title": "Jag trodde änglarna fanns",
   "year": 1999,
   "spotifyId": "3qy7P1Vr6eGIwHP9DCUHwK"
@@ -246,7 +246,7 @@
  },
  {
   "id": "richard-clayderman-himlen-runt-hornet",
-  "artist": "Richard Clayderman & Lisa Nilsson",
+  "artist": "Lisa Nilsson",
   "title": "Himlen runt hörnet",
   "year": 1992,
   "spotifyId": "3KOPtw4AwfNGrP849batuS"
@@ -288,7 +288,7 @@
  },
  {
   "id": "tre-profiler-en-kvall-i-juni",
-  "artist": "Tre Profiler & Lasse Berghagen",
+  "artist": "Lasse Berghagen",
   "title": "En kväll i juni",
   "year": 1971,
   "spotifyId": "7CnVWsiQpuNvoBflQI52qQ"
@@ -344,7 +344,7 @@
  },
  {
   "id": "helen-sjoholm-du-maste-finnas",
-  "artist": "Helen Sjöholm & Anna-Lotta Larsson",
+  "artist": "Helen Sjöholm",
   "title": "Du måste finnas",
   "year": 1995,
   "spotifyId": "0tqCDasLQuA7K0SwK8sYTw"
@@ -365,7 +365,7 @@
  },
  {
   "id": "tomas-andersson-wij-evighet",
-  "artist": "Tomas Andersson Wij & Carola Häggkvist",
+  "artist": "Carola Häggkvist",
   "title": "Evighet",
   "year": 2006,
   "spotifyId": "2AB4PKwOYdIo6grMfQXgYU"
@@ -379,7 +379,7 @@
  },
  {
   "id": "siw-malmkvist-teddybjornen-fredriksson",
-  "artist": "Siw Malmkvist & Lasse Berghagen",
+  "artist": "Lasse Berghagen",
   "title": "Teddybjörnen Fredriksson",
   "year": 1969,
   "spotifyId": "4HecwIfui1kQYNC2q2d1Mu"
@@ -421,7 +421,7 @@
  },
  {
   "id": "petra-marklund-mikrofonkat",
-  "artist": "Petra Marklund & Petter",
+  "artist": "Petter",
   "title": "Mikrofonkåt",
   "year": 1999,
   "spotifyId": "0172j0ShGyeBE1prl6LscT"
@@ -459,7 +459,7 @@
   "artist": "Tommy Körberg",
   "title": "Fattig bonddräng",
   "year": 1971,
-  "spotifyId": "68SZmBvH94tH35ihFb2OIw"
+  "spotifyId": "7oDhs8wtgIlbncVNDDaYs6"
  },
  {
   "id": "hakan-hellstrom-den-fulaste-flickan-i-varlden",
@@ -568,7 +568,7 @@
  },
  {
   "id": "sami-rekik-90-talet",
-  "artist": "Sami Rekik & Christopher Wahlberg",
+  "artist": "WAHL feat. SAMI",
   "title": "90-talet",
   "year": 2021,
   "spotifyId": "6O27WBEqkGeyq3hNYE0BdS"
@@ -631,7 +631,7 @@
  },
  {
   "id": "kikki-danielsson-det-var-dans-bort-i-vagen",
-  "artist": "Kikki Danielsson & Sven-Ingvars",
+  "artist": "Sven-Ingvars",
   "title": "Det var dans bort i vägen",
   "year": 1891,
   "spotifyId": "3yIo0ffpokZKVS1RoOQmy2"
@@ -659,7 +659,7 @@
  },
  {
   "id": "mans-zelmerlow-december",
-  "artist": "Måns Zelmerlöw & Wizex",
+  "artist": "Måns Zelmerlöw",
   "title": "December",
   "year": 2010,
   "spotifyId": "6WG7lWqmHXg9BNBouYNTuJ"
@@ -785,7 +785,7 @@
  },
  {
   "id": "carola-haggkvist-det-gatfulla-folket",
-  "artist": "Carola Häggkvist & Olle Adolphson",
+  "artist": "Carola Häggkvist",
   "title": "Det gåtfulla folket",
   "year": 1959,
   "spotifyId": "0wWyaxbxqvN3XJ9vOeH7Xv"
@@ -820,7 +820,7 @@
  },
  {
   "id": "fredrik-kempe-du-och-jag-mot-varlden",
-  "artist": "Fredrik Kempe & Sanna Nielsen",
+  "artist": "Sanna Nielsen",
   "title": "Du och jag mot världen",
   "year": 2005,
   "spotifyId": "68HY2D0KQtb09O1MhpfuLo"
@@ -897,7 +897,7 @@
  },
  {
   "id": "arvingarna-inbjudan-till-bohuslan",
-  "artist": "Arvingarna & Stefan Sundström",
+  "artist": "Arvingarna",
   "title": "Inbjudan till Bohuslän",
   "year": 1943,
   "spotifyId": "2Q9JZ6czlJkZng6zIKp0I7"
@@ -995,7 +995,7 @@
  },
  {
   "id": "elisabeth-andreassen-klinga-mina-klockor",
-  "artist": "Elisabeth Andreassen & Benny Andersson",
+  "artist": "Benny Anderssons Orkester",
   "title": "Klinga mina klockor",
   "year": 1987,
   "spotifyId": "4ZqocvQswzJtc37drysIRB"
@@ -1030,7 +1030,7 @@
  },
  {
   "id": "stefan-borsch-annu-doftar-karlek",
-  "artist": "Stefan Borsch & Marie Fredriksson",
+  "artist": "Marie Fredriksson",
   "title": "Ännu doftar kärlek",
   "year": 1984,
   "spotifyId": "2cvgUpzXjHLtoE6P8SccL6"
@@ -1065,7 +1065,7 @@
  },
  {
   "id": "freda-i-en-annan-del-av-varlden",
-  "artist": "Freda' & Tomas Andersson Wij",
+  "artist": "Tomas Andersson Wij",
   "title": "I en annan del av världen",
   "year": 1988,
   "spotifyId": "6P5Ig5fST2tDIbwBJYqkA3"
@@ -1079,14 +1079,14 @@
  },
  {
   "id": "marie-fredriksson-tro",
-  "artist": "Marie Fredriksson & Jill Johnson",
+  "artist": "Marie Fredriksson",
   "title": "Tro",
   "year": 1996,
   "spotifyId": "5pkO17U6riaIaaTvT7GwCn"
  },
  {
   "id": "gunnar-wiklund-regntunga-skyar",
-  "artist": "Gunnar Wiklund & Annika Paulsson",
+  "artist": "Robyn",
   "title": "Regntunga skyar",
   "year": 1940,
   "spotifyId": "6bw9R3iFXlPO5PhqVju4y5"
@@ -1135,7 +1135,7 @@
  },
  {
   "id": "pugh-rogefeldt-hog-farm",
-  "artist": "Pugh Rogefeldt & Magnus Uggla",
+  "artist": "Magnus Uggla",
   "title": "Hog Farm",
   "year": 1974,
   "spotifyId": "3C9oZ5TEwBW47D2DzZAKsm"
@@ -1156,14 +1156,14 @@
  },
  {
   "id": "kikki-danielsson-papaya-coconut",
-  "artist": "Kikki Danielsson & Larz-Kristerz",
+  "artist": "Kikki Danielsson",
   "title": "Papaya Coconut",
   "year": 1986,
   "spotifyId": "6i5YS44UNyJul0l9M0zqqu"
  },
  {
   "id": "marie-fredriksson-sa-skimrande-var-aldrig-havet",
-  "artist": "Marie Fredriksson & Elisabeth Andreassen",
+  "artist": "Marie Fredriksson",
   "title": "Så skimrande var aldrig havet",
   "year": 1948,
   "spotifyId": "4p1LKZie1pNqfzzCYRrqmD"

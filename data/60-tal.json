@@ -57,7 +57,7 @@
  },
  {
   "id": "roy-orbison-oh-pretty-woman",
-  "artist": "Roy Orbison & Tonix",
+  "artist": "Roy Orbison",
   "title": "Oh, Pretty Woman",
   "year": 1964,
   "spotifyId": "48i055G1OT5KxGGftwFxWy"
@@ -68,13 +68,6 @@
   "title": "Congratulations",
   "year": 1968,
   "spotifyId": "2qs5ZcLByNTctJKbhAZ9JE"
- },
- {
-  "id": "rod-stewart-the-first-cut-is-the-deepest",
-  "artist": "Rod Stewart & P. P. Arnold",
-  "title": "The First Cut Is the Deepest",
-  "year": 1967,
-  "spotifyId": "7gN24J8E0pR3G2nsbhkcjw"
  },
  {
   "id": "buffalo-springfield-for-what-it-s-worth",
@@ -123,7 +116,7 @@
   "artist": "Tommy James & the Shondells",
   "title": "I Think We're Alone Now",
   "year": 1967,
-  "spotifyId": "25euupArYi81fOtd0ENJ64"
+  "spotifyId": "0jfOA16bjZxrkIzibPcl6U"
  },
  {
   "id": "canned-heat-on-the-road-again",
@@ -141,7 +134,7 @@
  },
  {
   "id": "the-rolling-stones-out-of-time",
-  "artist": "The Rolling Stones & Chris Farlowe",
+  "artist": "The Rolling Stones",
   "title": "Out of Time",
   "year": 1966,
   "spotifyId": "5RFYhFsx88Ged9UNmv5ORj"
@@ -154,13 +147,6 @@
   "spotifyId": "4eAtLSxLcIs0Ro4iRaEfqH"
  },
  {
-  "id": "susan-boyle-oh-happy-day",
-  "artist": "Susan Boyle & Edwin Hawkins",
-  "title": "Oh Happy Day",
-  "year": 1967,
-  "spotifyId": "2zGqOcscnF21a8xfZPqGFv"
- },
- {
   "id": "the-kinks-all-day-and-all-of-the-night",
   "artist": "The Kinks",
   "title": "All Day and All of the Night",
@@ -169,7 +155,7 @@
  },
  {
   "id": "the-animals-boom-boom",
-  "artist": "The Animals & John Lee Hooker",
+  "artist": "The Animals",
   "title": "Boom Boom",
   "year": 1962,
   "spotifyId": "0oUIlpJhF6UE7rNlFS2cxP"
@@ -190,7 +176,7 @@
  },
  {
   "id": "eric-clapton-after-midnight",
-  "artist": "Eric Clapton & J.J. Cale",
+  "artist": "Eric Clapton",
   "title": "After Midnight",
   "year": 1966,
   "spotifyId": "4dYLOPfFc3mAErEJwr2Oo2"
@@ -225,17 +211,17 @@
  },
  {
   "id": "deep-purple-kentucky-woman",
-  "artist": "Deep Purple & Neil Diamond",
+  "artist": "Deep Purple",
   "title": "Kentucky Woman",
   "year": 1967,
   "spotifyId": "3rI5e4tFTlWEwJi4TjLeGT"
  },
  {
   "id": "aqua-roses-are-red",
-  "artist": "Aqua & Bobby Vinton",
+  "artist": "Bobby Vinton",
   "title": "Roses Are Red",
   "year": 1962,
-  "spotifyId": "0tIqERCyX2ogv5Yn00kswb"
+  "spotifyId": "2onW6h6phl4SKSiBqLWgit"
  },
  {
   "id": "fleetwood-mac-albatross",
@@ -280,13 +266,6 @@
   "spotifyId": "7E3rc13GL2I5wA6CIFXaxs"
  },
  {
-  "id": "dusty-springfield-goin-back",
-  "artist": "Dusty Springfield & Larry Lurex",
-  "title": "Goin' Back",
-  "year": 1966,
-  "spotifyId": "2NY3bg5KBS821tWJJjwcvn"
- },
- {
   "id": "bob-earl-harlem-shuffle",
   "artist": "Bob & Earl",
   "title": "Harlem Shuffle",
@@ -316,7 +295,7 @@
  },
  {
   "id": "neil-young-mr-soul",
-  "artist": "Neil Young & Buffalo Springfield",
+  "artist": "Buffalo Springfield",
   "title": "Mr. Soul",
   "year": 1967,
   "spotifyId": "042v1NacbKJzCyi6nBme7T"
@@ -327,13 +306,6 @@
   "title": "Sweet Soul Music",
   "year": 1967,
   "spotifyId": "2YuIyYri67bgUXKQW5V9XW"
- },
- {
-  "id": "wayne-cochran-last-kiss",
-  "artist": "Wayne Cochran & Pearl Jam",
-  "title": "Last Kiss",
-  "year": 1961,
-  "spotifyId": "3g5f74RbR1W2p0BkwYRTZ9"
  },
  {
   "id": "the-hollies-bus-stop",
@@ -358,7 +330,7 @@
  },
  {
   "id": "the-rascals-mustang-sally",
-  "artist": "The Rascals & Wilson Pickett",
+  "artist": "Wilson Pickett",
   "title": "Mustang Sally",
   "year": 1966,
   "spotifyId": "5SectrIpir82CkWijPcUkW"
@@ -393,10 +365,10 @@
  },
  {
   "id": "neil-young-i-ve-been-waiting-for-you",
-  "artist": "Neil Young & David Bowie",
+  "artist": "Neil Young",
   "title": "I've Been Waiting for You",
   "year": 1968,
-  "spotifyId": "6vTpx061mQSGK4B6wb63bJ"
+  "spotifyId": "7Mo2Fb4LfnvlBVoWQkQEOD"
  },
  {
   "id": "patty-pravo-la-bambola",
@@ -498,10 +470,10 @@
  },
  {
   "id": "the-specials-a-message-to-you-rudy",
-  "artist": "The Specials & Dandy Livingstone",
+  "artist": "Dandy Livingstone",
   "title": "A Message to You, Rudy",
   "year": 1967,
-  "spotifyId": "0d6EUDTRA9Q94KmiJRU0mL"
+  "spotifyId": "4gukGozFOurNmDXZzgQHaP"
  },
  {
   "id": "the-hollies-i-can-t-let-go",
@@ -588,13 +560,6 @@
   "spotifyId": "6bZlab0NrNteVppLu9C2Zy"
  },
  {
-  "id": "gene-pitney-something-s-gotten-hold-of-my-heart",
-  "artist": "Gene Pitney & Guys 'n' Dolls",
-  "title": "Something's Gotten Hold of My Heart",
-  "year": 1967,
-  "spotifyId": "2OmKDbwrlF1p7w0W14HK8H"
- },
- {
   "id": "the-move-flowers-in-the-rain",
   "artist": "The Move",
   "title": "Flowers in the Rain",
@@ -610,7 +575,7 @@
  },
  {
   "id": "the-shadows-the-young-ones",
-  "artist": "The Shadows & Cliff Richard",
+  "artist": "Cliff Richard & The Shadows",
   "title": "The Young Ones",
   "year": 1962,
   "spotifyId": "0oOeSzS9m2ytkfcgCez5zW"
@@ -645,24 +610,24 @@
  },
  {
   "id": "irma-thomas-breakaway",
-  "artist": "Irma Thomas & Tracey Ullman",
+  "artist": "Irma Thomas",
   "title": "Breakaway",
   "year": 1964,
-  "spotifyId": "6WmnppnGHlSbVzNkOPVZoq"
+  "spotifyId": "2By6r7gmeSfvBMMZYdEVLu"
  },
  {
   "id": "otis-redding-mr-pitiful",
-  "artist": "Otis Redding & Steve Cropper",
+  "artist": "Otis Redding",
   "title": "Mr. Pitiful",
   "year": 1965,
   "spotifyId": "0YO65TbY548F7kSncBMksX"
  },
  {
   "id": "janis-ian-society-s-child",
-  "artist": "Janis Ian & Spooky Tooth",
+  "artist": "Janis Ian",
   "title": "Society's Child",
   "year": 1966,
-  "spotifyId": "3JH4WJ8HqdUrmOzQZXXsqn"
+  "spotifyId": "2isbnzCWTJdPgSuiNGUYcx"
  },
  {
   "id": "fontella-bass-rescue-me",
@@ -816,7 +781,7 @@
   "artist": "Elvis Presley",
   "title": "A Little Less Conversation",
   "year": 1968,
-  "spotifyId": "4rr0gWiMrF4sOIefs3IEvZ"
+  "spotifyId": "0dWEPUSvDyZAFwYKzq7Kir"
  },
  {
   "id": "james-brown-it-s-a-man-s-man-s-man-s-world",
@@ -1348,7 +1313,7 @@
   "artist": "Jimmy Dean",
   "title": "Big Bad John",
   "year": 1961,
-  "spotifyId": "66Ixb62ly6wDLuxjMvphiW"
+  "spotifyId": "4nYZMEIzAhaqyfqTPT2C0V"
  },
  {
   "id": "france-gall-poupee-de-cire-poupee-de-son",
