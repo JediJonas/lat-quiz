@@ -1,5 +1,5 @@
 // Tillgänglighetskontroll med axe-core (WCAG 2.2 AA) genom ett helt spel:
-// startsida, spelledare med inställningar, spelare som går med, gissning
+// startsida, spelledare med inställningar, spelare som går med, gissning hos båda
 // med förslagslistan och rätt svar. Varje vy kontrolleras i ljust och mörkt läge.
 // Kräver att sidorna serveras på BASE och att en PeerJS-server kör på 127.0.0.1:9000.
 import { chromium } from 'playwright-core';
@@ -51,6 +51,7 @@ await host.click('#settings');
 await host.waitForSelector('dialog[open]');
 await check(host, 'Spelledare, inställningar');
 await host.keyboard.press('Escape');
+await host.fill('#host-name', 'Värd');
 await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
 const code = await host.textContent('#code');
@@ -86,6 +87,17 @@ await player.keyboard.press('ArrowDown');
 await player.keyboard.press('Enter');
 if (!(await player.$eval('#artist', (el) => el.classList.contains('chosen')))) {
   problems.push('Förslagslistan: Enter valde inget svar');
+}
+
+// Spelledaren gissar i samma fält som spelarna.
+await host.focus('#artist');
+await host.keyboard.type('the');
+await host.waitForSelector('#artist-suggestions [role=option]');
+await check(host, 'Spelledare, förslagslista');
+await host.keyboard.press('ArrowDown');
+await host.keyboard.press('Enter');
+if (!(await host.$eval('#artist', (el) => el.classList.contains('chosen')))) {
+  problems.push('Spelledarens förslagslista: Enter valde inget svar');
 }
 
 await host.click('#reveal');
