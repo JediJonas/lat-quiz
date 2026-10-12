@@ -5,7 +5,7 @@ import { gzipSync } from 'node:zlib';
 const root = new URL('../', import.meta.url);
 const read = (path) => readFileSync(new URL(path, root));
 const songs = JSON.parse(read('data/categories.json')).map((c) => 'data/' + c.file);
-const common = ['css/style.css', 'vendor/fonts/inter.woff2', 'favicon.svg', 'logo.svg', 'js/theme.js'];
+const common = ['css/style.css', 'vendor/fonts/figtree.woff2', 'favicon.svg', 'logo.svg', 'js/theme.js'];
 const pages = {
   'index.html': [...common],
   'om.html': [...common],
