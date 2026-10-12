@@ -433,16 +433,19 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 #me { letter-spacing: 0.08em; }
 main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
-/* inline-block så att etikettens baslinje är textens, och den linjerar med kategorin. */
 .conn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 3px 10px;
   border-radius: 999px;
   background: var(--surface-2);
   font-size: 0.8rem;
   font-weight: 600;
 }
-.conn::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 6px 0 0; border-radius: 50%; background: currentColor; vertical-align: 0.1em; }
+.conn::before { content: ""; width: 7px; height: 7px; margin: 0 6px 0 0; border-radius: 50%; background: currentColor; }
+/* Etiketten linjerar med kategorin och loggan i rutans underkant, inte i textens baslinje.
+   Ett tomt första element utan text, som räcker ner till rutans underkant, ger etiketten dess baslinje. */
+.conn::after { content: ""; order: -1; align-self: stretch; margin-bottom: -3px; }
 .conn.connected { color: var(--good); background: var(--good-soft); }
 .conn.offline { color: var(--bad); background: var(--bad-soft); }
 
