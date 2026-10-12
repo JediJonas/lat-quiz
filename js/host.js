@@ -6,6 +6,7 @@ import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
+import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
@@ -44,6 +45,15 @@ function loadSettings() {
 
 function saveSettings(settings) {
   storage(() => localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)));
+}
+
+// Okända låtar sparas på den här datorn och gäller alla kommande spel.
+function loadUnknown() {
+  return cleanUnknown(storage(() => JSON.parse(localStorage.getItem(UNKNOWN_KEY)), {}));
+}
+
+function saveUnknown(list) {
+  storage(() => localStorage.setItem(UNKNOWN_KEY, JSON.stringify(list)));
 }
 
 function newCode() {
@@ -187,8 +197,9 @@ async function startGame(categoryId, resumeState) {
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
-  if (game.unplayedSongs(state, songs).length === 0) state.playedIds = [];
-  const song = game.nextSong(state, songs);
+  const playable = withoutUnknown(loadUnknown(), category.id, songs);
+  if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
+  const song = game.nextSong(state, playable);
   if (!song) return;
   if (usesDeezer()) {
     changed();
@@ -297,6 +308,21 @@ function winnerNames() {
   return state.winners.map((id) => state.players[id].name).join(' och ');
 }
 
+// Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
+function unknownClicked() {
+  const song = state.round && state.round.song;
+  if (!song || state.round.phase !== 'revealed') return;
+  const list = toggleUnknown(loadUnknown(), category.id, song);
+  saveUnknown(list);
+  const marked = isUnknown(list, category.id, song.id);
+  $('#unknown').textContent = unknownText(marked);
+  announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
+}
+
+function unknownText(marked) {
+  return marked ? 'Markerad som okänd. Ångra' : 'Okänd låt? Hoppa över den i kommande spel';
+}
+
 function restart() {
   stopClip();
   game.restart(state);
@@ -330,9 +356,54 @@ const SETTING_FIELDS = [
   { key: 'winScore', label: 'Poänggräns', text: (v) => `Först till ${v} poäng` },
 ];
 
+// Okända låtar kopieras som text och skickas vidare, så att de tas bort ur kategorin.
+function unknownSection(count) {
+  if (!count) return '';
+  return `
+    <div class="unknown-songs">
+      <p id="unknown-count">${count === 1 ? '1 låt är markerad' : `${count} låtar är markerade`} som okänd.</p>
+      <p class="unknown-actions">
+        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar</button>
+        <button type="button" id="clear-unknown" class="link">Rensa</button>
+      </p>
+      <p id="unknown-status" class="muted small" role="status"></p>
+      <textarea id="unknown-text" class="unknown-text" readonly rows="6" aria-label="Okända låtar" hidden></textarea>
+    </div>`;
+}
+
+function wireUnknown(dialog, names) {
+  const copy = dialog.querySelector('#copy-unknown');
+  if (!copy) return;
+  const status = dialog.querySelector('#unknown-status');
+  copy.addEventListener('click', async () => {
+    const text = formatUnknown(loadUnknown(), names);
+    try {
+      await navigator.clipboard.writeText(text);
+      status.textContent = 'Kopierat. Klistra in listan i projektet, så tas låtarna bort ur kategorierna.';
+    } catch {
+      // Utan tillgång till urklipp visas texten, så att den kan kopieras för hand.
+      const area = dialog.querySelector('#unknown-text');
+      area.value = text;
+      area.hidden = false;
+      area.focus();
+      area.select();
+      status.textContent = 'Kopiera texten nedan.';
+    }
+  });
+  dialog.querySelector('#clear-unknown').addEventListener('click', async () => {
+    const ok = await showConfirm('Låtarna spelas igen i kommande spel. Kopiera listan först om den inte är skickad.', {
+      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true,
+    });
+    if (!ok) return;
+    saveUnknown({});
+    dialog.querySelector('.unknown-songs').remove();
+  });
+}
+
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
-function showSettings(current, categories = null, categoryId = null) {
+// names: kategoriernas namn, som används när okända låtar kopieras.
+function showSettings(current, categories = null, categoryId = null, names = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -348,6 +419,7 @@ function showSettings(current, categories = null, categoryId = null) {
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
+      ${unknownSection(countUnknown(loadUnknown()))}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
@@ -361,6 +433,7 @@ function showSettings(current, categories = null, categoryId = null) {
       dialog.querySelector('[value=ok]').click();
     }
   });
+  wireUnknown(dialog, names);
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {
@@ -379,8 +452,10 @@ async function editSettings() {
     showAlert('Inställningarna kan ändras när svaret har visats.', { title: 'Låten pågår' });
     return;
   }
-  const categories = state ? await loadCategories() : null;
-  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id);
+  const all = await loadCategories();
+  const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
+  const categories = state ? all : null;
+  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id, names);
   if (!chosen) return;
   const { categoryId, ...settings } = chosen;
   saveSettings(settings);
@@ -514,7 +589,8 @@ function render() {
       ${state.winners
         ? `<div class="winner">${esc(winnerNames())} vinner!</div>
            <button id="restart" class="big huge">Ny match med samma spelare</button>`
-        : '<button id="next" class="big huge">Nästa låt</button>'}`;
+        : '<button id="next" class="big huge">Nästa låt</button>'}
+      <p class="unknown-row"><button id="unknown" class="link">${unknownText(isUnknown(loadUnknown(), category.id, round.song.id))}</button></p>`;
     announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.` + (state.winners ? ` ${winnerNames()} vinner!` : ''));
   }
   renderPlayers();
@@ -531,6 +607,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'reveal') revealNow();
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
+  else if (id === 'unknown') unknownClicked();
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);

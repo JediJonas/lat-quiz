@@ -591,6 +591,13 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .modal-actions button { width: auto; margin: 0; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
 button.danger:hover { filter: brightness(1.08); }
+/* Okända låtar: knappen under rätt svar och listan i Inställningar */
+.unknown-row { margin: 16px 0 0; }
+.unknown-row .link { margin: 0; text-align: left; }
+.unknown-songs { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.modal .unknown-songs p { margin: 0 0 8px; }
+.unknown-actions .link { min-height: 24px; }
+.unknown-text { width: 100%; margin-top: 8px; padding: 8px; font: inherit; font-size: 0.85rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
 @keyframes modal-in {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }

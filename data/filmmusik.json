@@ -240,14 +240,6 @@
   "track": "Tennessee"
  },
  {
-  "id": "oblivion",
-  "artist": "M83",
-  "title": "Oblivion",
-  "year": 2013,
-  "spotifyId": "79npfYK6N5RnBc1jiaoHCr",
-  "track": "Oblivion"
- },
- {
   "id": "harmonica-en-hamnare",
   "artist": "Ennio Morricone",
   "title": "Harmonica - en hämnare",
@@ -262,14 +254,6 @@
   "year": 2013,
   "spotifyId": "0fK6eKxxejDgc8KFfXTJsS",
   "track": "Let It Go"
- },
- {
-  "id": "spirit",
-  "artist": "Bryan Adams",
-  "title": "Spirit",
-  "year": 2002,
-  "spotifyId": "28DYNnXlz9NGlY9wzMK7pK",
-  "track": "Here I Am"
  },
  {
   "id": "the-imitation-game",
@@ -424,14 +408,6 @@
   "track": "Halloween Theme"
  },
  {
-  "id": "extremt-hogt-och-otroligt-nara",
-  "artist": "Alexandre Desplat",
-  "title": "Extremt högt och otroligt nära",
-  "year": 2011,
-  "spotifyId": "4FnK3GEuekjYXavXPIGlmQ",
-  "track": "Extremely Loud and Incredibly Close"
- },
- {
   "id": "rattatouille",
   "artist": "Michael Giacchino",
   "title": "Råttatouille",
@@ -496,14 +472,6 @@
   "track": "Bathroom Dance"
  },
  {
-  "id": "sholay",
-  "artist": "Rahul Dev Burman",
-  "title": "Sholay",
-  "year": 1975,
-  "spotifyId": "7qSO5BdwlMyzpjYNxjijRP",
-  "track": "Mehbooba Mehbooba"
- },
- {
   "id": "x-men",
   "artist": "Henry Jackman",
   "title": "X-Men",
@@ -526,14 +494,6 @@
   "year": 2005,
   "spotifyId": "0RGZCtszeCpGRgbMyVigAG",
   "track": "Sayuri's Theme"
- },
- {
-  "id": "taare-zameen-par",
-  "artist": "Shankar Mahadevan",
-  "title": "Taare Zameen Par",
-  "year": 2007,
-  "spotifyId": "4AJyfRIzHxlpc1BRrkcGiW",
-  "track": "Maa"
  },
  {
   "id": "man-of-steel",
@@ -582,14 +542,6 @@
   "year": 2009,
   "spotifyId": "6fVX8mF9ZqS1V8G2ZFCbLQ",
   "track": "Star Trek Main Theme"
- },
- {
-  "id": "ad-astra",
-  "artist": "Max Richter",
-  "title": "Ad Astra",
-  "year": 2019,
-  "spotifyId": "3qbL24jXy9yKdSvnuV0A8A",
-  "track": "To the Stars"
  },
  {
   "id": "gravity",
@@ -928,14 +880,6 @@
   "track": "Crusaders"
  },
  {
-  "id": "amarcord",
-  "artist": "Nino Rota",
-  "title": "Amarcord",
-  "year": 1973,
-  "spotifyId": "7wjJIZiFfH8o2nBANoz4IG",
-  "track": "Amarcord"
- },
- {
   "id": "radda-menige-ryan",
   "artist": "John Williams",
   "title": "Rädda menige Ryan",
@@ -966,14 +910,6 @@
   "year": 2008,
   "spotifyId": "0CmatMXKunVgbvxWjnxWpq",
   "track": "Edward At Her Bed / Bella's Lullaby"
- },
- {
-  "id": "warcraft-the-beginning",
-  "artist": "Ramin Djawadi",
-  "title": "Warcraft: The Beginning",
-  "year": 2016,
-  "spotifyId": "3EGMNVARma3sKEkFpxHOcy",
-  "track": "Warcraft"
  },
  {
   "id": "the-odyssey",
@@ -1150,14 +1086,6 @@
   "year": 2009,
   "spotifyId": "4u4VElxO7JM4IR4jR4TL1s",
   "track": "Arrival to Earth"
- },
- {
-  "id": "maze-runner",
-  "artist": "John Paesano",
-  "title": "Maze Runner",
-  "year": 2014,
-  "spotifyId": "1NwdCBWf8lK3U0E0NOev6G",
-  "track": "The Maze Runner"
  },
  {
   "id": "for-en-handfull-dollar",

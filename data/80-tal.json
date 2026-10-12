@@ -756,13 +756,6 @@
   "spotifyId": "7yFvSYKk3g5g8e7Ffl16ws"
  },
  {
-  "id": "hall-oates-you-make-my-dreams",
-  "artist": "Hall & Oates",
-  "title": "You Make My Dreams",
-  "year": 1981,
-  "spotifyId": "4Ixhv8TpF3O2KZpYJffezK"
- },
- {
   "id": "crowded-house-don-t-dream-it-s-over",
   "artist": "Crowded House",
   "title": "Don't Dream It's Over",
@@ -840,13 +833,6 @@
   "spotifyId": "02xhLoVqpGmOqvolgrwM8w"
  },
  {
-  "id": "rick-springfield-jessie-s-girl",
-  "artist": "Rick Springfield",
-  "title": "Jessie's Girl",
-  "year": 1981,
-  "spotifyId": "1112HraGFjWfKcuW5npsfV"
- },
- {
   "id": "bruce-springsteen-i-m-on-fire",
   "artist": "Bruce Springsteen",
   "title": "I'm on Fire",
@@ -875,13 +861,6 @@
   "spotifyId": "1H5N26VqHR4JhuaRKY2I0u"
  },
  {
-  "id": "don-henley-the-boys-of-summer",
-  "artist": "Don Henley",
-  "title": "The Boys of Summer",
-  "year": 1984,
-  "spotifyId": "2eoYOeGkEibVPtdp6rima3"
- },
- {
   "id": "the-smiths-this-charming-man",
   "artist": "The Smiths",
   "title": "This Charming Man",
@@ -901,13 +880,6 @@
   "title": "Little Lies",
   "year": 1987,
   "spotifyId": "08o75xMKmGrKny6GsXrNJW"
- },
- {
-  "id": "stevie-nicks-edge-of-seventeen",
-  "artist": "Stevie Nicks",
-  "title": "Edge of Seventeen",
-  "year": 1982,
-  "spotifyId": "3OeHBpJwMsIGcdumxCtzte"
  },
  {
   "id": "kenny-loggins-danger-zone",
@@ -980,25 +952,11 @@
   "spotifyId": "2TE4xW3ImvpltVU0cPcKUn"
  },
  {
-  "id": "men-at-work-who-can-it-be-now",
-  "artist": "Men at Work",
-  "title": "Who Can It Be Now?",
-  "year": 1981,
-  "spotifyId": "5BCykgPXc7zEBg2oU0klvy"
- },
- {
   "id": "bon-jovi-wanted-dead-or-alive",
   "artist": "Bon Jovi",
   "title": "Wanted Dead or Alive",
   "year": 1987,
   "spotifyId": "0O72tzPERufruWbcae6FYL"
- },
- {
-  "id": "journey-any-way-you-want-it",
-  "artist": "Journey",
-  "title": "Any Way You Want It",
-  "year": 1980,
-  "spotifyId": "71SvEDmsOwIWw1IozsZoMA"
  },
  {
   "id": "inxs-never-tear-us-apart",
@@ -1043,13 +1001,6 @@
   "spotifyId": "0e3yhVeNaTfKIWQRw9U9sY"
  },
  {
-  "id": "tom-petty-i-won-t-back-down",
-  "artist": "Tom Petty",
-  "title": "I Won't Back Down",
-  "year": 1989,
-  "spotifyId": "7gSQv1OHpkIoAdUiRLdmI6"
- },
- {
   "id": "lipps-inc-funkytown",
   "artist": "Lipps Inc.",
   "title": "Funkytown",
@@ -1057,32 +1008,11 @@
   "spotifyId": "3JU7GqkbT5S51rgCbYJ20t"
  },
  {
-  "id": "fleetwood-mac-gypsy",
-  "artist": "Fleetwood Mac",
-  "title": "Gypsy",
-  "year": 1982,
-  "spotifyId": "19Ym5Sg0YyOCa6ao21bdoG"
- },
- {
-  "id": "john-mellencamp-jack-diane",
-  "artist": "John Mellencamp",
-  "title": "Jack & Diane",
-  "year": 1982,
-  "spotifyId": "6xrdxmGZnnpScIck7YxCnd"
- },
- {
   "id": "sting-englishman-in-new-york",
   "artist": "Sting",
   "title": "Englishman in New York",
   "year": 1988,
   "spotifyId": "4KFM3A5QF2IMcc6nHsu3Wp"
- },
- {
-  "id": "foreigner-waiting-for-a-girl-like-you",
-  "artist": "Foreigner",
-  "title": "Waiting for a Girl Like You",
-  "year": 1981,
-  "spotifyId": "3iMFYlLWsXk9Rh89QvzBw1"
  },
  {
   "id": "toto-rosanna",
@@ -1099,25 +1029,11 @@
   "spotifyId": "6lK2xptPzLPmvpE29U4mDH"
  },
  {
-  "id": "air-supply-making-love-out-of-nothing-at-all",
-  "artist": "Air Supply",
-  "title": "Making Love Out of Nothing at All",
-  "year": 1983,
-  "spotifyId": "2nalGOJgnscfgwGbd9OYAi"
- },
- {
   "id": "erasure-a-little-respect",
   "artist": "Erasure",
   "title": "A Little Respect",
   "year": 1988,
   "spotifyId": "2RVQIq7bLi4Eu6xHPyQ46t"
- },
- {
-  "id": "journey-separate-ways-worlds-apart",
-  "artist": "Journey",
-  "title": "Separate Ways (Worlds Apart)",
-  "year": 1983,
-  "spotifyId": "1pTw2cNrp9L3esxLAvWnN2"
  },
  {
   "id": "iron-maiden-run-to-the-hills",
@@ -1134,13 +1050,6 @@
   "spotifyId": "2gQaQUhDCNGfBVXTvxAmXQ"
  },
  {
-  "id": "n-w-a-straight-outta-compton",
-  "artist": "N.W.A.",
-  "title": "Straight Outta Compton",
-  "year": 1988,
-  "spotifyId": "3eGBESLT08agei7veoLLlz"
- },
- {
   "id": "midnight-oil-beds-are-burning",
   "artist": "Midnight Oil",
   "title": "Beds Are Burning",
@@ -1155,25 +1064,11 @@
   "spotifyId": "3pHpV3pa96s4vuBP7sQq0V"
  },
  {
-  "id": "rick-james-super-freak",
-  "artist": "Rick James",
-  "title": "Super Freak",
-  "year": 1981,
-  "spotifyId": "0UC4Ph7h1VZSv1LBzEbKGp"
- },
- {
   "id": "modern-talking-brother-louie",
   "artist": "Modern Talking",
   "title": "Brother Louie",
   "year": 1986,
   "spotifyId": "5zWZ9iNevP0397xB3jWV2z"
- },
- {
-  "id": "reo-speedwagon-keep-on-loving-you",
-  "artist": "REO Speedwagon",
-  "title": "Keep On Loving You",
-  "year": 1980,
-  "spotifyId": "6brmgmwUUBlrcS10Ynr8i3"
  },
  {
   "id": "bob-marley-redemption-song",
@@ -1246,39 +1141,11 @@
   "spotifyId": "0ROwoz82DIW4tOzkxYnSjf"
  },
  {
-  "id": "the-j-geils-band-centerfold",
-  "artist": "The J. Geils Band",
-  "title": "Centerfold",
-  "year": 1981,
-  "spotifyId": "1ynmMEK1fkyiZ6Z6F3ThEt"
- },
- {
   "id": "survivor-burning-heart",
   "artist": "Survivor",
   "title": "Burning Heart",
   "year": 1985,
   "spotifyId": "2VN7uPrbryJ7nE2MXX3f9a"
- },
- {
-  "id": "celine-dion-it-s-all-coming-back-to-me-now",
-  "artist": "Céline Dion",
-  "title": "It's All Coming Back to Me Now",
-  "year": 1989,
-  "spotifyId": "5EQzuYfTZt7B2LqlvTF49l"
- },
- {
-  "id": "christopher-cross-sailing",
-  "artist": "Christopher Cross",
-  "title": "Sailing",
-  "year": 1980,
-  "spotifyId": "6YIeSw2cTNQRWbuxWvRPsW"
- },
- {
-  "id": "rush-tom-sawyer",
-  "artist": "Rush",
-  "title": "Tom Sawyer",
-  "year": 1981,
-  "spotifyId": "3QZ7uX97s82HFYSmQUAN1D"
  },
  {
   "id": "john-lennon-woman",
@@ -1335,27 +1202,6 @@
   "title": "Run to You",
   "year": 1984,
   "spotifyId": "4WWNS2a9zbb35jeMHcl7XF"
- },
- {
-  "id": "run-dmc-it-s-tricky",
-  "artist": "Run-DMC",
-  "title": "It's Tricky",
-  "year": 1987,
-  "spotifyId": "4M5zWEgkwY1imdcU6v2Ved"
- },
- {
-  "id": "pat-benatar-hit-me-with-your-best-shot",
-  "artist": "Pat Benatar",
-  "title": "Hit Me with Your Best Shot",
-  "year": 1980,
-  "spotifyId": "579VGLYm9Le6DEWTi98Nt9"
- },
- {
-  "id": "hall-oates-out-of-touch",
-  "artist": "Hall & Oates",
-  "title": "Out of Touch",
-  "year": 1984,
-  "spotifyId": "4LI7LqBRuXxLyEZ2fCQnit"
  },
  {
   "id": "frankie-goes-to-hollywood-relax",

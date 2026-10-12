@@ -63,13 +63,6 @@
   "spotifyId": "07lrQgjirEbzcbIDghngJa"
  },
  {
-  "id": "marcus-martinus-unforgettable",
-  "artist": "Marcus & Martinus",
-  "title": "Unforgettable",
-  "year": 2024,
-  "spotifyId": "0RnJVPoIT2NDRCSsjpd0V7"
- },
- {
   "id": "abba-ring-ring-bara-du-slog-en-signal",
   "artist": "ABBA",
   "title": "Ring ring (bara du slog en signal)",
@@ -168,13 +161,6 @@
   "spotifyId": "4bcnUDksPr6hCr04DwtlY7"
  },
  {
-  "id": "wiktoria-johansson-as-i-lay-me-down",
-  "artist": "Wiktoria Johansson",
-  "title": "As I lay Me Down",
-  "year": 2017,
-  "spotifyId": "4j8ZySp3Y3IJcS5jrfDSt3"
- },
- {
   "id": "magnus-uggla-jag-och-min-far",
   "artist": "Magnus Uggla",
   "title": "Jag och min far",
@@ -231,20 +217,6 @@
   "spotifyId": "70kxhlSyPeEJBdsMUBcm1r"
  },
  {
-  "id": "wiktoria-johansson-save-me",
-  "artist": "Wiktoria Johansson",
-  "title": "Save Me",
-  "year": 2016,
-  "spotifyId": "7fOgrKhpR8n5Va2PLxIofG"
- },
- {
-  "id": "e-type-true-believer",
-  "artist": "E-Type",
-  "title": "True Believer",
-  "year": 2007,
-  "spotifyId": "6wZvrYAir4XFpJNHUaj0r0"
- },
- {
   "id": "richard-clayderman-himlen-runt-hornet",
   "artist": "Lisa Nilsson",
   "title": "Himlen runt hörnet",
@@ -292,13 +264,6 @@
   "title": "En kväll i juni",
   "year": 1971,
   "spotifyId": "7CnVWsiQpuNvoBflQI52qQ"
- },
- {
-  "id": "anna-bergendahl-ashes-to-ashes",
-  "artist": "Anna Bergendahl",
-  "title": "Ashes to Ashes",
-  "year": 2019,
-  "spotifyId": "1iqxk51n6yyc6OIXu7dX8o"
  },
  {
   "id": "hasse-andersson-anglahund",
@@ -595,13 +560,6 @@
   "spotifyId": "5Uak6HFyswEH3JRJaNLHWa"
  },
  {
-  "id": "sanna-nielsen-i-m-in-love",
-  "artist": "Sanna Nielsen",
-  "title": "I'm in Love",
-  "year": 2011,
-  "spotifyId": "3EFdL3Q4mPrjUgfaO7IomQ"
- },
- {
   "id": "thorleifs-stilla-natt",
   "artist": "Thorleifs & Ingvar Wixell",
   "title": "Stilla natt",
@@ -642,13 +600,6 @@
   "title": "Fuldans",
   "year": 2018,
   "spotifyId": "3awvm252RhYY8UJtM9svjY"
- },
- {
-  "id": "the-mamas-in-the-middle",
-  "artist": "The Mamas",
-  "title": "In the Middle",
-  "year": 2021,
-  "spotifyId": "5nBi3tQiXWt70G6UlXB86E"
  },
  {
   "id": "linus-svenning-broder",
@@ -728,13 +679,6 @@
   "spotifyId": "7qgNNLmmB77gVwR45GOcEA"
  },
  {
-  "id": "david-lindgren-we-are-your-tomorrow",
-  "artist": "David Lindgren",
-  "title": "We Are Your Tomorrow",
-  "year": 2016,
-  "spotifyId": "5RDFWDmMES0saxzu2DaH5Z"
- },
- {
   "id": "adolphson-falk-blinkar-bla",
   "artist": "Adolphson & Falk",
   "title": "Blinkar blå",
@@ -763,13 +707,6 @@
   "spotifyId": "3J4rxzorN48mAnv5dU1OZq"
  },
  {
-  "id": "jessica-andersson-party-voice",
-  "artist": "Jessica Andersson",
-  "title": "Party Voice",
-  "year": 2018,
-  "spotifyId": "7J3UCWBsvFa6M0wrGqSc9s"
- },
- {
   "id": "gyllene-tider-solsken",
   "artist": "Gyllene Tider",
   "title": "Solsken",
@@ -796,13 +733,6 @@
   "title": "Jag skulle vilja tänka en underbar tanke",
   "year": 2007,
   "spotifyId": "7FspwM5ZvvVzoUI94xgykk"
- },
- {
-  "id": "icona-pop-don-t-slam-the-door",
-  "artist": "Icona Pop",
-  "title": "Don't Slam the Door",
-  "year": 2017,
-  "spotifyId": "2aaUeZP6WNVnO9QPeOmoZ8"
  },
  {
   "id": "lasse-stefanz-av-hela-mitt-hjarta",
@@ -838,13 +768,6 @@
   "title": "Ring baby ring",
   "year": 2025,
   "spotifyId": "5w8uYlTjQool8wVlcyyblt"
- },
- {
-  "id": "dolly-parton-when-life-is-good-again",
-  "artist": "Dolly Parton",
-  "title": "When Life Is Good Again",
-  "year": 2020,
-  "spotifyId": "7JvmA0O2QcBGOeIpGv78sT"
  },
  {
   "id": "gyllene-tider-chans",
@@ -952,13 +875,6 @@
   "spotifyId": "2gDkutL0Q1UkY7gxzl9JNE"
  },
  {
-  "id": "linda-bengtzing-killer-girl",
-  "artist": "Linda Bengtzing",
-  "title": "Killer Girl",
-  "year": 2016,
-  "spotifyId": "10SICx8mDSnSzX3jvFxlzb"
- },
- {
   "id": "tomas-ledin-pa-vingar-av-stal",
   "artist": "Tomas Ledin",
   "title": "På vingar av stål",
@@ -978,13 +894,6 @@
   "title": "Kärlekssång från mig",
   "year": 2009,
   "spotifyId": "6tcPcq3W2lcoTwwkBdoHoy"
- },
- {
-  "id": "frida-ohrn-we-are-one",
-  "artist": "Frida Öhrn",
-  "title": "We Are One",
-  "year": 2020,
-  "spotifyId": "1UQo1BX4t1st8w4zAWZjIk"
  },
  {
   "id": "freestyle-fantasi",

@@ -308,13 +308,6 @@
   "spotifyId": "6RANU8AS5ICU5PEHh8BYtH"
  },
  {
-  "id": "michael-jackson-just-a-little-bit-of-you",
-  "artist": "Michael Jackson",
-  "title": "Just a Little Bit of You",
-  "year": 1975,
-  "spotifyId": "3Mo6boBCg65i0eLmDKEWdk"
- },
- {
   "id": "wings-silly-love-songs",
   "artist": "Wings",
   "title": "Silly Love Songs",
@@ -378,20 +371,6 @@
   "spotifyId": "5Nq0Axfe30gVlhmWCChY5M"
  },
  {
-  "id": "the-rolling-stones-out-of-time",
-  "artist": "The Rolling Stones",
-  "title": "Out of Time",
-  "year": 1975,
-  "spotifyId": "5RFYhFsx88Ged9UNmv5ORj"
- },
- {
-  "id": "monty-python-the-lumberjack-song",
-  "artist": "Monty Python",
-  "title": "The Lumberjack Song",
-  "year": 1975,
-  "spotifyId": "0MUZgqDmLtFaXVJyZYK5ml"
- },
- {
   "id": "eagles-tequila-sunrise",
   "artist": "Eagles",
   "title": "Tequila Sunrise",
@@ -448,13 +427,6 @@
   "spotifyId": "3vkjiMiSzCAi0G4AaWbkaM"
  },
  {
-  "id": "black-sabbath-into-the-void",
-  "artist": "Black Sabbath",
-  "title": "Into the Void",
-  "year": 1971,
-  "spotifyId": "4chUb38ZUuvL1OST3aa063"
- },
- {
   "id": "skids-the-saints-are-coming",
   "artist": "Skids",
   "title": "The Saints Are Coming",
@@ -490,25 +462,11 @@
   "spotifyId": "2uzyiRdvfNI5WxUiItv1y9"
  },
  {
-  "id": "kiss-strutter",
-  "artist": "Kiss",
-  "title": "Strutter",
-  "year": 1974,
-  "spotifyId": "1qW9V4VHBtrns0YE9LOSk6"
- },
- {
   "id": "ac-dc-rock-n-roll-damnation",
   "artist": "AC/DC",
   "title": "Rock 'n' Roll Damnation",
   "year": 1978,
   "spotifyId": "2308VPPaMh7Q3AX1Zap99A"
- },
- {
-  "id": "ohio-players-love-rollercoaster",
-  "artist": "Ohio Players",
-  "title": "Love Rollercoaster",
-  "year": 1975,
-  "spotifyId": "1zSQdv2KnZVYSOJzrcdh2L"
  },
  {
   "id": "wings-listen-to-what-the-man-said",
@@ -551,13 +509,6 @@
   "title": "Car Wash",
   "year": 1976,
   "spotifyId": "0KDXRSNotSqW3QeA12PQy2"
- },
- {
-  "id": "black-sabbath-neon-knights",
-  "artist": "Black Sabbath",
-  "title": "Neon Knights",
-  "year": 1970,
-  "spotifyId": "7r2QK941qra9MDQIllJdZs"
  },
  {
   "id": "barbra-streisand-you-don-t-bring-me-flowers",
@@ -607,20 +558,6 @@
   "title": "What a Fool Believes",
   "year": 1979,
   "spotifyId": "3994DR2nbuNoDu6au1CfyY"
- },
- {
-  "id": "harry-chapin-cat-s-in-the-cradle",
-  "artist": "Harry Chapin",
-  "title": "Cat's in the Cradle",
-  "year": 1974,
-  "spotifyId": "2obblQ6tcePeOEVJV6nEGD"
- },
- {
-  "id": "francis-cabrel-je-l-aime-a-mourir",
-  "artist": "Francis Cabrel",
-  "title": "Je l'aime à mourir",
-  "year": 1979,
-  "spotifyId": "40U2kuipBVRrReD32J2lmO"
  },
  {
   "id": "sparks-this-town-ain-t-big-enough-for-both-of-us",
@@ -707,13 +644,6 @@
   "spotifyId": "0bRXwKfigvpKZUurwqAlEh"
  },
  {
-  "id": "hall-oates-rich-girl",
-  "artist": "Hall & Oates",
-  "title": "Rich Girl",
-  "year": 1977,
-  "spotifyId": "5Gq5Ozgqqti42kNLVRfkRt"
- },
- {
   "id": "the-doobie-brothers-listen-to-the-music",
   "artist": "The Doobie Brothers",
   "title": "Listen to the Music",
@@ -735,25 +665,11 @@
   "spotifyId": "5i5eA8a5orfvH4QqmhyiG1"
  },
  {
-  "id": "kim-carnes-bette-davis-eyes",
-  "artist": "Kim Carnes",
-  "title": "Bette Davis Eyes",
-  "year": 1974,
-  "spotifyId": "0odIT9B9BvOCnXfS0e4lB5"
- },
- {
   "id": "steve-miller-band-the-joker",
   "artist": "Steve Miller Band",
   "title": "The Joker",
   "year": 1973,
   "spotifyId": "1bp2IO61zbQrbWNmKKxg3f"
- },
- {
-  "id": "looking-glass-brandy-you-re-a-fine-girl",
-  "artist": "Looking Glass",
-  "title": "Brandy (You're a Fine Girl)",
-  "year": 1972,
-  "spotifyId": "2BY7ALEWdloFHgQZG6VMLA"
  },
  {
   "id": "ram-jam-black-betty",
@@ -798,25 +714,11 @@
   "spotifyId": "6y7cf3GYYnJKDdomCIIk8d"
  },
  {
-  "id": "natalie-cole-this-will-be",
-  "artist": "Natalie Cole",
-  "title": "This Will Be",
-  "year": 1975,
-  "spotifyId": "0PDCewmZCp0P5s00bptcdd"
- },
- {
   "id": "bob-seger-old-time-rock-and-roll",
   "artist": "Bob Seger",
   "title": "Old Time Rock and Roll",
   "year": 1979,
   "spotifyId": "7B9n3rcNUkNJiTyAUQ7qA0"
- },
- {
-  "id": "king-harvest-dancing-in-the-moonlight",
-  "artist": "King Harvest",
-  "title": "Dancing in the Moonlight",
-  "year": 1973,
-  "spotifyId": "55GxhCTq6SY3tFTVh7z1nR"
  },
  {
   "id": "ac-dc-dirty-deeds-done-dirt-cheap",
@@ -833,13 +735,6 @@
   "spotifyId": "4a5pNRjwmzYQuEY1E7O6pj"
  },
  {
-  "id": "tom-petty-and-the-heartbreakers-american-girl",
-  "artist": "Tom Petty and the Heartbreakers",
-  "title": "American Girl",
-  "year": 1976,
-  "spotifyId": "4xTAZryRjpJq6JiCCpIQpl"
- },
- {
   "id": "eagles-one-of-these-nights",
   "artist": "Eagles",
   "title": "One of These Nights",
@@ -852,13 +747,6 @@
   "title": "Lean on Me",
   "year": 1972,
   "spotifyId": "3M8FzayQWtkvOhqMn2V4T2"
- },
- {
-  "id": "jim-croce-time-in-a-bottle",
-  "artist": "Jim Croce",
-  "title": "Time in a Bottle",
-  "year": 1973,
-  "spotifyId": "7uWFUpGuEfmxYeymkV95jn"
  },
  {
   "id": "elton-john-crocodile-rock",
@@ -875,53 +763,11 @@
   "spotifyId": "6xE6ZWzK1YDDSYzqOCoQlz"
  },
  {
-  "id": "bob-seger-night-moves",
-  "artist": "Bob Seger",
-  "title": "Night Moves",
-  "year": 1976,
-  "spotifyId": "668iJwiRAiJue1ruAAlzOg"
- },
- {
-  "id": "player-baby-come-back",
-  "artist": "Player",
-  "title": "Baby Come Back",
-  "year": 1977,
-  "spotifyId": "41sGGCCoHI2GLV9qadX80A"
- },
- {
-  "id": "steely-dan-reelin-in-the-years",
-  "artist": "Steely Dan",
-  "title": "Reelin' In the Years",
-  "year": 1973,
-  "spotifyId": "1x1XQqhBViz4opcpwc7FVs"
- },
- {
-  "id": "bobby-caldwell-what-you-won-t-do-for-love",
-  "artist": "Bobby Caldwell",
-  "title": "What You Won't Do for Love",
-  "year": 1978,
-  "spotifyId": "4puLgtddDkkpLSgOQpIIlz"
- },
- {
-  "id": "gladys-knight-the-pips-midnight-train-to-georgia",
-  "artist": "Gladys Knight & the Pips",
-  "title": "Midnight Train to Georgia",
-  "year": 1973,
-  "spotifyId": "0g0ksRcndT468SqM2rwwnp"
- },
- {
   "id": "wild-cherry-play-that-funky-music",
   "artist": "Wild Cherry",
   "title": "Play That Funky Music",
   "year": 1976,
   "spotifyId": "5uuJruktM9fMdN9Va0DUMl"
- },
- {
-  "id": "america-sister-golden-hair",
-  "artist": "America",
-  "title": "Sister Golden Hair",
-  "year": 1975,
-  "spotifyId": "5VSAonaAPhhGn0G7hMYwWK"
  },
  {
   "id": "barry-white-you-re-the-first-the-last-my-everything",
@@ -936,13 +782,6 @@
   "title": "All Right Now",
   "year": 1970,
   "spotifyId": "2Wf4IsWzhBgVR9uUDuktFB"
- },
- {
-  "id": "steely-dan-do-it-again",
-  "artist": "Steely Dan",
-  "title": "Do It Again",
-  "year": 1972,
-  "spotifyId": "2LXISHBkx8FyoxCBkckh19"
  },
  {
   "id": "the-rolling-stones-miss-you",
@@ -1029,25 +868,11 @@
   "spotifyId": "7e4mkEcNTiKt0w4Ya3hHpB"
  },
  {
-  "id": "cheap-trick-surrender",
-  "artist": "Cheap Trick",
-  "title": "Surrender",
-  "year": 1978,
-  "spotifyId": "2ccUQnjjNWT0rsNnsBpsCA"
- },
- {
   "id": "neil-young-old-man",
   "artist": "Neil Young",
   "title": "Old Man",
   "year": 1972,
   "spotifyId": "4rWbao8Vde6ioqH2jZI4ee"
- },
- {
-  "id": "al-green-tired-of-being-alone",
-  "artist": "Al Green",
-  "title": "Tired of Being Alone",
-  "year": 1971,
-  "spotifyId": "10vkYRKw6Jjr7try1ir50G"
  },
  {
   "id": "don-mclean-vincent",
@@ -1064,20 +889,6 @@
   "spotifyId": "21Zx5wInOZEli4HNSiMLEJ"
  },
  {
-  "id": "styx-renegade",
-  "artist": "Styx",
-  "title": "Renegade",
-  "year": 1979,
-  "spotifyId": "1CQqupcyMg7176PPmIVmSj"
- },
- {
-  "id": "the-allman-brothers-band-ramblin-man",
-  "artist": "The Allman Brothers Band",
-  "title": "Ramblin' Man",
-  "year": 1973,
-  "spotifyId": "1ayDPRAjTlTtvh3Oc1Zr3B"
- },
- {
   "id": "bob-dylan-hurricane",
   "artist": "Bob Dylan",
   "title": "Hurricane",
@@ -1092,25 +903,11 @@
   "spotifyId": "0n2pjCIMKwHSXoYfEbYMfX"
  },
  {
-  "id": "heart-crazy-on-you",
-  "artist": "Heart",
-  "title": "Crazy on You",
-  "year": 1976,
-  "spotifyId": "5zH710lFSLtkHbMkslLDjR"
- },
- {
   "id": "the-o-jays-love-train",
   "artist": "The O'Jays",
   "title": "Love Train",
   "year": 1972,
   "spotifyId": "28285KFbyCq8sJofn58qlD"
- },
- {
-  "id": "jimmy-buffett-margaritaville",
-  "artist": "Jimmy Buffett",
-  "title": "Margaritaville",
-  "year": 1977,
-  "spotifyId": "4EEjMyQub6tgFVshlM9j1M"
  },
  {
   "id": "dire-straits-lady-writer",
@@ -1127,20 +924,6 @@
   "spotifyId": "40h65HAR8COEoqkMwUUQHu"
  },
  {
-  "id": "zz-top-tush",
-  "artist": "ZZ Top",
-  "title": "Tush",
-  "year": 1975,
-  "spotifyId": "10h8HmbSFef6FJYcip0M4B"
- },
- {
-  "id": "hall-oates-sara-smile",
-  "artist": "Hall & Oates",
-  "title": "Sara Smile",
-  "year": 1976,
-  "spotifyId": "4DB4IOHzLFfwVK6ZyGQGYs"
- },
- {
   "id": "the-pretenders-brass-in-pocket",
   "artist": "The Pretenders",
   "title": "Brass in Pocket",
@@ -1153,13 +936,6 @@
   "title": "Stir It Up",
   "year": 1972,
   "spotifyId": "1pZl2hgGAouilDmS4QDIif"
- },
- {
-  "id": "boston-peace-of-mind",
-  "artist": "Boston",
-  "title": "Peace of Mind",
-  "year": 1977,
-  "spotifyId": "1GqlvSEtMx5xbGptxOTTyk"
  },
  {
   "id": "bee-gees-too-much-heaven",
@@ -1176,34 +952,6 @@
   "spotifyId": "04RiS8xh9ex5LrLnv4JZLN"
  },
  {
-  "id": "jackson-browne-running-on-empty",
-  "artist": "Jackson Browne",
-  "title": "Running on Empty",
-  "year": 1978,
-  "spotifyId": "6aqm56xP40foYBBtAWWrnY"
- },
- {
-  "id": "bill-withers-use-me",
-  "artist": "Bill Withers",
-  "title": "Use Me",
-  "year": 1972,
-  "spotifyId": "4gRA0i5sxx3jAhHaVjPnUN"
- },
- {
-  "id": "gordon-lightfoot-sundown",
-  "artist": "Gordon Lightfoot",
-  "title": "Sundown",
-  "year": 1974,
-  "spotifyId": "0SjnBEHZVXgCKvOrpvzL2k"
- },
- {
-  "id": "steve-miller-band-take-the-money-and-run",
-  "artist": "Steve Miller Band",
-  "title": "Take the Money and Run",
-  "year": 1976,
-  "spotifyId": "1ZhrREyOOeFV6TxDOyiPwu"
- },
- {
   "id": "eagles-lyin-eyes",
   "artist": "Eagles",
   "title": "Lyin' Eyes",
@@ -1218,25 +966,11 @@
   "spotifyId": "67oyFnjJnn78fZP9KjeZx0"
  },
  {
-  "id": "steve-miller-band-rock-n-me",
-  "artist": "Steve Miller Band",
-  "title": "Rock'n Me",
-  "year": 1976,
-  "spotifyId": "1orVKbp6vqtfAPOmvRofVq"
- },
- {
   "id": "elton-john-daniel",
   "artist": "Elton John",
   "title": "Daniel",
   "year": 1973,
   "spotifyId": "5U6LCxXEQXTKkUS9W9rcTA"
- },
- {
-  "id": "jim-croce-bad-bad-leroy-brown",
-  "artist": "Jim Croce",
-  "title": "Bad, Bad Leroy Brown",
-  "year": 1973,
-  "spotifyId": "2r3XNMon9K7bl2KTtHsaQO"
  },
  {
   "id": "cheap-trick-i-want-you-to-want-me",
@@ -1265,13 +999,6 @@
   "title": "Say You Love Me",
   "year": 1976,
   "spotifyId": "6lrQo6KAYvb92MGk6ZuZlt"
- },
- {
-  "id": "joe-walsh-life-s-been-good",
-  "artist": "Joe Walsh",
-  "title": "Life's Been Good",
-  "year": 1978,
-  "spotifyId": "2wvMC5EyaaYQwBfiwwY2xE"
  },
  {
   "id": "bob-marley-the-wailers-get-up-stand-up",
@@ -1309,13 +1036,6 @@
   "spotifyId": "7ohR0qPH6f2Vuj2pUNanJG"
  },
  {
-  "id": "jim-croce-operator-that-s-not-the-way-it-feels",
-  "artist": "Jim Croce",
-  "title": "Operator (That's Not the Way It Feels)",
-  "year": 1972,
-  "spotifyId": "4mQtXW0vrHC3oTkA1mQsb0"
- },
- {
   "id": "rainbow-since-you-been-gone",
   "artist": "Rainbow",
   "title": "Since You Been Gone",
@@ -1323,25 +1043,11 @@
   "spotifyId": "6xq5DxZWGgdStAxGAil0yw"
  },
  {
-  "id": "lobo-i-d-love-you-to-want-me",
-  "artist": "Lobo",
-  "title": "I'd Love You to Want Me",
-  "year": 1972,
-  "spotifyId": "38NZP090ESU2ukApw2rY7m"
- },
- {
   "id": "earth-wind-fire-after-the-love-has-gone",
   "artist": "Earth, Wind & Fire",
   "title": "After the Love Has Gone",
   "year": 1979,
   "spotifyId": "3cfnGXJ9bmiWvFqEO6ff8B"
- },
- {
-  "id": "the-spinners-the-rubberband-man",
-  "artist": "The Spinners",
-  "title": "The Rubberband Man",
-  "year": 1976,
-  "spotifyId": "0TDwIjNn6evvl5JySl9StA"
  },
  {
   "id": "steve-miller-band-fly-like-an-eagle",
@@ -1358,38 +1064,10 @@
   "spotifyId": "2sfFb4rfoPvYeer3r9pwet"
  },
  {
-  "id": "styx-come-sail-away",
-  "artist": "Styx",
-  "title": "Come Sail Away",
-  "year": 1977,
-  "spotifyId": "0PsbWiVtix5FoTZ1s00mEl"
- },
- {
-  "id": "the-spinners-it-s-a-shame",
-  "artist": "The Spinners",
-  "title": "It's a Shame",
-  "year": 1970,
-  "spotifyId": "6CuLzG8uTpRrnf3LmidY9r"
- },
- {
   "id": "leo-sayer-you-make-me-feel-like-dancing",
   "artist": "Leo Sayer",
   "title": "You Make Me Feel Like Dancing",
   "year": 1976,
   "spotifyId": "6gTrbqZnyljwXdYQTyBkSx"
- },
- {
-  "id": "the-staple-singers-i-ll-take-you-there",
-  "artist": "The Staple Singers",
-  "title": "I'll Take You There",
-  "year": 1972,
-  "spotifyId": "5YLnfy7R2kueN0BRPkjiEG"
- },
- {
-  "id": "john-denver-rocky-mountain-high",
-  "artist": "John Denver",
-  "title": "Rocky Mountain High",
-  "year": 1972,
-  "spotifyId": "4nCSLm8MW2AzNyHURrih15"
  }
 ]
