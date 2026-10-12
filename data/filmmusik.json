@@ -13,7 +13,8 @@
   "title": "Tarzan",
   "year": 1999,
   "spotifyId": "0EgN2Lp17KHLgcO1g1d6bh",
-  "track": "You'll Be in My Heart"
+  "track": "You'll Be in My Heart",
+  "deezerId": 561875132
  },
  {
   "id": "interstellar",
@@ -21,7 +22,8 @@
   "title": "Interstellar",
   "year": 2014,
   "spotifyId": "6pWgRkpqVfxnj3WuIcJ7WP",
-  "track": "Cornfield Chase"
+  "track": "Cornfield Chase",
+  "deezerId": 1137370842
  },
  {
   "id": "ensam-hemma",
@@ -29,7 +31,8 @@
   "title": "Ensam hemma",
   "year": 1990,
   "spotifyId": "1FlxqJmoZWS2q1uRlyZVur",
-  "track": "Somewhere in My Memory"
+  "track": "Somewhere in My Memory",
+  "deezerId": 421551522
  },
  {
   "id": "trassel",
@@ -37,7 +40,8 @@
   "title": "Trassel",
   "year": 2010,
   "spotifyId": "6VogQakFsXcuvOaJwOZAN2",
-  "track": "I See the Light"
+  "track": "I See the Light",
+  "deezerId": 7599985
  },
  {
   "id": "lejonkungen",
@@ -45,7 +49,8 @@
   "title": "Lejonkungen",
   "year": 1994,
   "spotifyId": "6s1KHEalfzcHpOK56RV2rt",
-  "track": "Can You Feel The Love Tonight"
+  "track": "Can You Feel The Love Tonight",
+  "deezerId": 3117869
  },
  {
   "id": "den-lilla-sjojungfrun",
@@ -53,7 +58,8 @@
   "title": "Den lilla sjöjungfrun",
   "year": 1989,
   "spotifyId": "6oYkwjI1TKP9D0Y9II1GT7",
-  "track": "Under the Sea"
+  "track": "Under the Sea",
+  "deezerId": 145187392
  },
  {
   "id": "gladiator",
@@ -61,7 +67,8 @@
   "title": "Gladiator",
   "year": 2000,
   "spotifyId": "3NarImBO8U6KKMs7RXheX9",
-  "track": "Now We Are Free"
+  "track": "Now We Are Free",
+  "deezerId": 3507921871
  },
  {
   "id": "herkules",
@@ -69,7 +76,8 @@
   "title": "Herkules",
   "year": 1997,
   "spotifyId": "2ojNv5xaJsGKOKsR3fXcxd",
-  "track": "Go the Distance"
+  "track": "Go the Distance",
+  "deezerId": 531228861
  },
  {
   "id": "donnie-darko",
@@ -77,7 +85,8 @@
   "title": "Donnie Darko",
   "year": 2001,
   "spotifyId": "1ewqpUUSLANb3jjc4UI8uX",
-  "track": "Mad World"
+  "track": "Mad World",
+  "deezerId": 83151634
  },
  {
   "id": "vaiana",
@@ -93,7 +102,8 @@
   "title": "Pirates of the Caribbean",
   "year": 2003,
   "spotifyId": "3q309qYANeXY2OvmoqqGPm",
-  "track": "He's a Pirate"
+  "track": "He's a Pirate",
+  "deezerId": 24206451
  },
  {
   "id": "oppenheimer",
@@ -101,7 +111,8 @@
   "title": "Oppenheimer",
   "year": 2023,
   "spotifyId": "4VnDmjYCZkyeqeb0NIKqdA",
-  "track": "Can You Hear The Music"
+  "track": "Can You Hear The Music",
+  "deezerId": 2364462315
  },
  {
   "id": "into-the-wild",
@@ -109,7 +120,8 @@
   "title": "Into the Wild",
   "year": 2007,
   "spotifyId": "0fzCtVM9D5UEwiLqcY8Ouq",
-  "track": "Hard Sun"
+  "track": "Hard Sun",
+  "deezerId": 407643962
  },
  {
   "id": "sagan-om-ringen",
@@ -117,7 +129,8 @@
   "title": "Sagan om ringen",
   "year": 2001,
   "spotifyId": "644es5aYPJghtZLjM1rmSP",
-  "track": "Concerning Hobbits"
+  "track": "Concerning Hobbits",
+  "deezerId": 14628816
  },
  {
   "id": "upp",
@@ -133,7 +146,8 @@
   "title": "Avengers",
   "year": 2012,
   "spotifyId": "2exOqFZpfHpQE8E870qz1A",
-  "track": "The Avengers"
+  "track": "The Avengers",
+  "deezerId": 17840804
  },
  {
   "id": "star-wars",
@@ -141,7 +155,8 @@
   "title": "Star Wars",
   "year": 1999,
   "spotifyId": "08n0huWcEnZULHWNvKgvjc",
-  "track": "Star Wars (Main Theme)"
+  "track": "Star Wars (Main Theme)",
+  "deezerId": 74673799
  },
  {
   "id": "amelie-fran-montmartre",
@@ -149,7 +164,8 @@
   "title": "Amelie från Montmartre",
   "year": 2001,
   "spotifyId": "14rZjW3RioG7WesZhYESso",
-  "track": "Comptine d'un autre été, l'après-midi"
+  "track": "Comptine d'un autre été, l'après-midi",
+  "deezerId": 1412033732
  },
  {
   "id": "draktranaren",
@@ -157,7 +173,8 @@
   "title": "Draktränaren",
   "year": 2010,
   "spotifyId": "2QTDuJIGKUjR7E2Q6KupIh",
-  "track": "Test Drive"
+  "track": "Test Drive",
+  "deezerId": 119437636
  },
  {
   "id": "frukost-pa-tiffanys",
@@ -165,7 +182,8 @@
   "title": "Frukost på Tiffany’s",
   "year": 1961,
   "spotifyId": "2crXs3g9eNOORmRZVLF34Z",
-  "track": "Moon River"
+  "track": "Moon River",
+  "deezerId": 13212405
  },
  {
   "id": "jurassic-park",
@@ -173,7 +191,8 @@
   "title": "Jurassic Park",
   "year": 1993,
   "spotifyId": "0BTVwaI1VUhUd1SXGtTzFf",
-  "track": "Theme From Jurassic Park"
+  "track": "Theme From Jurassic Park",
+  "deezerId": 2296192
  },
  {
   "id": "bjornbroder",
@@ -181,7 +200,8 @@
   "title": "Björnbröder",
   "year": 2003,
   "spotifyId": "400abutrj9yS5YBkd3fE6P",
-  "track": "Look Through My Eyes"
+  "track": "Look Through My Eyes",
+  "deezerId": 3190831
  },
  {
   "id": "da-vinci-koden",
@@ -189,7 +209,8 @@
   "title": "Da Vinci-koden",
   "year": 2006,
   "spotifyId": "5CpQKWiwqsUs9IuIIDFn5s",
-  "track": "Chevaliers De Sangreal"
+  "track": "Chevaliers De Sangreal",
+  "deezerId": 2511688
  },
  {
   "id": "the-theory-of-everything",
@@ -197,7 +218,8 @@
   "title": "The Theory of Everything",
   "year": 2014,
   "spotifyId": "5fJD7wh9yoSTpl9d5rgl7l",
-  "track": "The Theory of Everything"
+  "track": "The Theory of Everything",
+  "deezerId": 888607622
  },
  {
   "id": "harry-potter",
@@ -205,7 +227,8 @@
   "title": "Harry Potter",
   "year": 2001,
   "spotifyId": "1n8NKQRg8LVHy7oUhUgbFF",
-  "track": "Hedwig's Theme"
+  "track": "Hedwig's Theme",
+  "deezerId": 661779
  },
  {
   "id": "schindler-s-list",
@@ -213,7 +236,8 @@
   "title": "Schindler's List",
   "year": 1993,
   "spotifyId": "42gZM6AQ9BDMaTyTmMDVlN",
-  "track": "Theme From Schindler's List"
+  "track": "Theme From Schindler's List",
+  "deezerId": 6066638
  },
  {
   "id": "8-mile",
@@ -221,7 +245,8 @@
   "title": "8 Mile",
   "year": 2002,
   "spotifyId": "1v7L65Lzy0j0vdpRjJewt1",
-  "track": "Lose Yourself"
+  "track": "Lose Yourself",
+  "deezerId": 1109731
  },
  {
   "id": "the-nightmare-before-christmas",
@@ -229,7 +254,8 @@
   "title": "The Nightmare Before Christmas",
   "year": 1993,
   "spotifyId": "1CYjYSg9sdtbBoxSf8uhFD",
-  "track": "This is Halloween"
+  "track": "This is Halloween",
+  "deezerId": 1762460387
  },
  {
   "id": "pearl-harbor",
@@ -237,7 +263,8 @@
   "title": "Pearl Harbor",
   "year": 2001,
   "spotifyId": "2O0UWIMFeMtFR0LJMuIPjJ",
-  "track": "Tennessee"
+  "track": "Tennessee",
+  "deezerId": 3598719
  },
  {
   "id": "harmonica-en-hamnare",
@@ -245,7 +272,8 @@
   "title": "Harmonica - en hämnare",
   "year": 1968,
   "spotifyId": "0c89GbbUO3degznx9eYrq0",
-  "track": "Once Upon a Time in the West"
+  "track": "Once Upon a Time in the West",
+  "deezerId": 123798364
  },
  {
   "id": "frost",
@@ -253,7 +281,8 @@
   "title": "Frost",
   "year": 2013,
   "spotifyId": "0fK6eKxxejDgc8KFfXTJsS",
-  "track": "Let It Go"
+  "track": "Let It Go",
+  "deezerId": 72371930
  },
  {
   "id": "the-imitation-game",
@@ -261,7 +290,8 @@
   "title": "The Imitation Game",
   "year": 2014,
   "spotifyId": "0o9ivTBX7mjTnaUYF4Gk6t",
-  "track": "The Imitation Game"
+  "track": "The Imitation Game",
+  "deezerId": 88725241
  },
  {
   "id": "american-beauty",
@@ -269,7 +299,8 @@
   "title": "American Beauty",
   "year": 1999,
   "spotifyId": "6XJGpirOP4Bgurcvkdanxb",
-  "track": "American Beauty"
+  "track": "American Beauty",
+  "deezerId": 561867002
  },
  {
   "id": "den-gode-den-onde-den-fule",
@@ -277,7 +308,8 @@
   "title": "Den gode, den onde, den fule",
   "year": 1966,
   "spotifyId": "1JSIWsJfxOji0FrxFcxdCK",
-  "track": "The Good, The Bad And The Ugly"
+  "track": "The Good, The Bad And The Ugly",
+  "deezerId": 3089012
  },
  {
   "id": "titanic",
@@ -285,7 +317,8 @@
   "title": "Titanic",
   "year": 1997,
   "spotifyId": "2mvcwRdEovxKOdA73pgeNS",
-  "track": "My Heart Will Go On"
+  "track": "My Heart Will Go On",
+  "deezerId": 124187348
  },
  {
   "id": "the-mission",
@@ -293,7 +326,8 @@
   "title": "The Mission",
   "year": 1986,
   "spotifyId": "4tZIHyRe46VpgRYMJWcqPO",
-  "track": "Gabriel's Oboe"
+  "track": "Gabriel's Oboe",
+  "deezerId": 3360270
  },
  {
   "id": "monsters-inc",
@@ -301,7 +335,8 @@
   "title": "Monsters, Inc.",
   "year": 2001,
   "spotifyId": "5e0O7MjhNHq9G67qDFM8nR",
-  "track": "Monsters, Inc."
+  "track": "Monsters, Inc.",
+  "deezerId": 2786250942
  },
  {
   "id": "pacific-rim",
@@ -309,7 +344,8 @@
   "title": "Pacific Rim",
   "year": 2013,
   "spotifyId": "0lEHnMNNYusZtbon9XyA2W",
-  "track": "Pacific Rim"
+  "track": "Pacific Rim",
+  "deezerId": 647363042
  },
  {
   "id": "avatar",
@@ -317,7 +353,8 @@
   "title": "Avatar",
   "year": 2009,
   "spotifyId": "02TVrXmI9EBYpuSdmTr4gn",
-  "track": "I See You"
+  "track": "I See You",
+  "deezerId": 4828165
  },
  {
   "id": "gudfadern",
@@ -325,7 +362,8 @@
   "title": "Gudfadern",
   "year": 1972,
   "spotifyId": "39zu6JGd6tvRNsqyK78RLk",
-  "track": "Love Theme From \"The Godfather\""
+  "track": "Love Theme From \"The Godfather\"",
+  "deezerId": 3040782
  },
  {
   "id": "hostlegender",
@@ -333,7 +371,8 @@
   "title": "Höstlegender",
   "year": 1994,
   "spotifyId": "6vtY2LUeXJ7KISwgiTu0Ph",
-  "track": "The Ludlows"
+  "track": "The Ludlows",
+  "deezerId": 1029388
  },
  {
   "id": "mission-impossible",
@@ -341,7 +380,8 @@
   "title": "Mission: Impossible",
   "year": 2006,
   "spotifyId": "1FL7eUG80aeUeyMO2N4btN",
-  "track": "Mission: Impossible Theme"
+  "track": "Mission: Impossible Theme",
+  "deezerId": 119438044
  },
  {
   "id": "shrek",
@@ -349,7 +389,8 @@
   "title": "Shrek",
   "year": 2001,
   "spotifyId": "1e3hPMCGrwPXYZ1DQhsiCE",
-  "track": "Fairytale"
+  "track": "Fairytale",
+  "deezerId": 117725782
  },
  {
   "id": "chocolat",
@@ -357,7 +398,8 @@
   "title": "Chocolat",
   "year": 2000,
   "spotifyId": "1DdyioI2yXhLwR1pn5Hczk",
-  "track": "Main Title"
+  "track": "Main Title",
+  "deezerId": 70603366
  },
  {
   "id": "wild-wild-west",
@@ -365,7 +407,8 @@
   "title": "Wild Wild West",
   "year": 1999,
   "spotifyId": "5AMvBCtX2rspUdoeJ9IsPN",
-  "track": "Wild Wild West"
+  "track": "Wild Wild West",
+  "deezerId": 13158462
  },
  {
   "id": "her",
@@ -373,7 +416,8 @@
   "title": "Her",
   "year": 2013,
   "spotifyId": "606R1WLtU2hPgl0YNfSJ4j",
-  "track": "Song on the Beach"
+  "track": "Song on the Beach",
+  "deezerId": 1239201142
  },
  {
   "id": "iron-man",
@@ -381,7 +425,8 @@
   "title": "Iron Man",
   "year": 2013,
   "spotifyId": "7u5XBHnht6dyoRXRBb5soK",
-  "track": "Iron Man 3"
+  "track": "Iron Man 3",
+  "deezerId": 66608549
  },
  {
   "id": "edward-scissorhands",
@@ -389,7 +434,8 @@
   "title": "Edward Scissorhands",
   "year": 1990,
   "spotifyId": "6WR3pHbbF4Vov8yuJ275mm",
-  "track": "Ice Dance"
+  "track": "Ice Dance",
+  "deezerId": 1097358
  },
  {
   "id": "love-story",
@@ -405,7 +451,8 @@
   "title": "Alla helgons blodiga natt",
   "year": 1978,
   "spotifyId": "7swocJUCUWTCiRUAU9oerC",
-  "track": "Halloween Theme"
+  "track": "Halloween Theme",
+  "deezerId": 4087971691
  },
  {
   "id": "rattatouille",
@@ -413,7 +460,8 @@
   "title": "Råttatouille",
   "year": 2007,
   "spotifyId": "0AGAl2fZLAoGxGd5dO77Cp",
-  "track": "Ratatouille Main Theme"
+  "track": "Ratatouille Main Theme",
+  "deezerId": 5167628
  },
  {
   "id": "lady-och-lufsen",
@@ -421,7 +469,8 @@
   "title": "Lady och Lufsen",
   "year": 1955,
   "spotifyId": "6suDwyuHm9aTkEGEd5FSNf",
-  "track": "Bella Notte"
+  "track": "Bella Notte",
+  "deezerId": 24473241
  },
  {
   "id": "the-revenant",
@@ -429,7 +478,8 @@
   "title": "The Revenant",
   "year": 2015,
   "spotifyId": "4QrLwgJt0OGkUFBbQKk0fL",
-  "track": "The Revenant Main Theme"
+  "track": "The Revenant Main Theme",
+  "deezerId": 977902872
  },
  {
   "id": "the-dark-knight",
@@ -437,7 +487,8 @@
   "title": "The Dark Knight",
   "year": 2008,
   "spotifyId": "3t0gaIcnwL6LjJSJoDoGgY",
-  "track": "A Dark Knight"
+  "track": "A Dark Knight",
+  "deezerId": 904641
  },
  {
   "id": "the-batman",
@@ -445,7 +496,8 @@
   "title": "The Batman",
   "year": 2022,
   "spotifyId": "1NkI8DtCnjcWVCVLF0gB71",
-  "track": "The Batman"
+  "track": "The Batman",
+  "deezerId": 1676658747
  },
  {
   "id": "batman",
@@ -453,7 +505,8 @@
   "title": "Batman",
   "year": 1989,
   "spotifyId": "50csT5Qb2qOF7lHdDQ1Sbx",
-  "track": "The Batman Theme"
+  "track": "The Batman Theme",
+  "deezerId": 722927
  },
  {
   "id": "goldfinger",
@@ -461,7 +514,8 @@
   "title": "Goldfinger",
   "year": 1964,
   "spotifyId": "6eTD4dVYoq7NLpUxh1NWDr",
-  "track": "Goldfinger"
+  "track": "Goldfinger",
+  "deezerId": 1037311
  },
  {
   "id": "joker",
@@ -469,7 +523,8 @@
   "title": "Joker",
   "year": 2019,
   "spotifyId": "4WiqPbWvLbv317E8fB4SJC",
-  "track": "Bathroom Dance"
+  "track": "Bathroom Dance",
+  "deezerId": 767121772
  },
  {
   "id": "x-men",
@@ -477,7 +532,8 @@
   "title": "X-Men",
   "year": 2011,
   "spotifyId": "5IWmdl33NNTLsKlLT6WSlh",
-  "track": "First Class"
+  "track": "First Class",
+  "deezerId": 12241602
  },
  {
   "id": "tron",
@@ -485,7 +541,8 @@
   "title": "Tron",
   "year": 2010,
   "spotifyId": "69T9xcz6U8GFYmdPLkYn4J",
-  "track": "TRON Legacy (End Titles)"
+  "track": "TRON Legacy (End Titles)",
+  "deezerId": 1173630032
  },
  {
   "id": "en-geishas-memoarer",
@@ -493,7 +550,8 @@
   "title": "En geishas memoarer",
   "year": 2005,
   "spotifyId": "0RGZCtszeCpGRgbMyVigAG",
-  "track": "Sayuri's Theme"
+  "track": "Sayuri's Theme",
+  "deezerId": 8164705
  },
  {
   "id": "man-of-steel",
@@ -501,7 +559,8 @@
   "title": "Man of Steel",
   "year": 2013,
   "spotifyId": "1mUG7ftwIxuq5fhMPkyM02",
-  "track": "Flight"
+  "track": "Flight",
+  "deezerId": 647343082
  },
  {
   "id": "dune",
@@ -509,7 +568,8 @@
   "title": "Dune",
   "year": 2024,
   "spotifyId": "1Qr17u2S9kNDzTeWAJCY5N",
-  "track": "Paul's Dream"
+  "track": "Paul's Dream",
+  "deezerId": 1458338372
  },
  {
   "id": "closer",
@@ -525,7 +585,8 @@
   "title": "The Twilight Saga: New Moon",
   "year": 2009,
   "spotifyId": "5aSyBPvmnd5C6A1bfqH7Ic",
-  "track": "New Moon (The Meadow)"
+  "track": "New Moon (The Meadow)",
+  "deezerId": 14617382
  },
  {
   "id": "berattelsen-om-narnia-haxan-och-lejonet",
@@ -533,7 +594,8 @@
   "title": "Berättelsen om Narnia: Häxan och lejonet",
   "year": 2005,
   "spotifyId": "7zY46aSULMG2pDG2fMlaI7",
-  "track": "Only The Beginning of The Adventure"
+  "track": "Only The Beginning of The Adventure",
+  "deezerId": 11233272
  },
  {
   "id": "star-trek",
@@ -541,7 +603,8 @@
   "title": "Star Trek",
   "year": 2009,
   "spotifyId": "6fVX8mF9ZqS1V8G2ZFCbLQ",
-  "track": "Star Trek Main Theme"
+  "track": "Star Trek Main Theme",
+  "deezerId": 118209944
  },
  {
   "id": "gravity",
@@ -549,7 +612,8 @@
   "title": "Gravity",
   "year": 2013,
   "spotifyId": "2mFea4DOhY3iShay4BQ0se",
-  "track": "Gravity"
+  "track": "Gravity",
+  "deezerId": 647272712
  },
  {
   "id": "anglar-och-demoner",
@@ -557,7 +621,8 @@
   "title": "Änglar och demoner",
   "year": 2009,
   "spotifyId": "14NE9H2mqNnzTPrAKQt479",
-  "track": "503"
+  "track": "503",
+  "deezerId": 3057666
  },
  {
   "id": "the-shape-of-water",
@@ -565,7 +630,8 @@
   "title": "The Shape of Water",
   "year": 2017,
   "spotifyId": "7Hs8rzQRZPAMQoz97S0u8L",
-  "track": "Elisa's Theme"
+  "track": "Elisa's Theme",
+  "deezerId": 1502772072
  },
  {
   "id": "berattelsen-om-pi",
@@ -573,7 +639,8 @@
   "title": "Berättelsen om Pi",
   "year": 2012,
   "spotifyId": "60AU6943h10TVKcXFSc51D",
-  "track": "Pi's Lullaby"
+  "track": "Pi's Lullaby",
+  "deezerId": 61543235
  },
  {
   "id": "once-upon-a-time-in-america",
@@ -581,7 +648,8 @@
   "title": "Once Upon a Time in America",
   "year": 1984,
   "spotifyId": "7uhvELu5SfWKWRPWdO6kye",
-  "track": "Deborah's Theme"
+  "track": "Deborah's Theme",
+  "deezerId": 66001197
  },
  {
   "id": "spider-man",
@@ -589,7 +657,8 @@
   "title": "Spider-Man",
   "year": 2002,
   "spotifyId": "1tzj2vY4twkNmZ5K3DUOPp",
-  "track": "Spider-Man Theme"
+  "track": "Spider-Man Theme",
+  "deezerId": 371523561
  },
  {
   "id": "thor",
@@ -597,7 +666,8 @@
   "title": "Thor",
   "year": 2013,
   "spotifyId": "5rQmuNRjKT6t33JlNJbc6I",
-  "track": "Thor: The Dark World"
+  "track": "Thor: The Dark World",
+  "deezerId": 71705261
  },
  {
   "id": "den-rosa-pantern",
@@ -605,7 +675,8 @@
   "title": "Den rosa pantern",
   "year": 1963,
   "spotifyId": "0juPSJLFnLFim7BK6VzTes",
-  "track": "The Pink Panther Theme"
+  "track": "The Pink Panther Theme",
+  "deezerId": 13163276
  },
  {
   "id": "livet-efter-dig",
@@ -613,7 +684,8 @@
   "title": "Livet efter dig",
   "year": 2016,
   "spotifyId": "28FvLA0GzWlwx8TSTqds9v",
-  "track": "Me Before You Orchestral"
+  "track": "Me Before You Orchestral",
+  "deezerId": 647372932
  },
  {
   "id": "cinema-paradiso",
@@ -621,7 +693,8 @@
   "title": "Cinema Paradiso",
   "year": 1988,
   "spotifyId": "5AqyXfdu5rUfkxV59mDHiu",
-  "track": "Nuovo Cinema Paradiso"
+  "track": "Nuovo Cinema Paradiso",
+  "deezerId": 55132391
  },
  {
   "id": "eternal-sunshine-of-the-spotless-mind",
@@ -629,7 +702,8 @@
   "title": "Eternal Sunshine of the Spotless Mind",
   "year": 2004,
   "spotifyId": "4AQwwsz0ztRx4YKNb1GdBB",
-  "track": "Theme"
+  "track": "Theme",
+  "deezerId": 7289303
  },
  {
   "id": "pianot",
@@ -637,7 +711,8 @@
   "title": "Pianot",
   "year": 1993,
   "spotifyId": "0UxACryJlLw1VzQWe9eA3x",
-  "track": "The Heart Asks Pleasure First"
+  "track": "The Heart Asks Pleasure First",
+  "deezerId": 3358366
  },
  {
   "id": "1917",
@@ -645,7 +720,8 @@
   "title": "1917",
   "year": 2019,
   "spotifyId": "44sVQfPdCTGM5JLBRHUngc",
-  "track": "Come Back to Us"
+  "track": "Come Back to Us",
+  "deezerId": 823113702
  },
  {
   "id": "den-fantastiska-raven",
@@ -653,7 +729,8 @@
   "title": "Den fantastiska räven",
   "year": 2009,
   "spotifyId": "1Clu0gbMFEvJ3bdpgmlMvh",
-  "track": "Mr. Fox in the Fields"
+  "track": "Mr. Fox in the Fields",
+  "deezerId": 10102011
  },
  {
   "id": "mulan",
@@ -661,7 +738,8 @@
   "title": "Mulan",
   "year": 1998,
   "spotifyId": "2AILbz83cBnrAMAG06rZts",
-  "track": "Reflection"
+  "track": "Reflection",
+  "deezerId": 5167566
  },
  {
   "id": "truman-show",
@@ -669,7 +747,8 @@
   "title": "Truman Show",
   "year": 1998,
   "spotifyId": "29S6PLRccSCyKozzwIik0J",
-  "track": "Truman Sleeps"
+  "track": "Truman Sleeps",
+  "deezerId": 1166571922
  },
  {
   "id": "love-actually",
@@ -677,7 +756,8 @@
   "title": "Love Actually",
   "year": 2003,
   "spotifyId": "2LhA68Vm5k6lh0QenNFrDV",
-  "track": "Glasgow Love Theme"
+  "track": "Glasgow Love Theme",
+  "deezerId": 1540441122
  },
  {
   "id": "oliver-ganget",
@@ -693,7 +773,8 @@
   "title": "Hitta Nemo",
   "year": 2003,
   "spotifyId": "4MrXuZ2T6CMD0V5VURGBwx",
-  "track": "Finding Nemo"
+  "track": "Finding Nemo",
+  "deezerId": 5167385
  },
  {
   "id": "the-hunger-games",
@@ -701,7 +782,8 @@
   "title": "The Hunger Games",
   "year": 2012,
   "spotifyId": "416MsJxvxSKY96DCmbJIRs",
-  "track": "The Hanging Tree"
+  "track": "The Hanging Tree",
+  "deezerId": 90379179
  },
  {
   "id": "femtio-nyanser-av-honom",
@@ -709,7 +791,8 @@
   "title": "Femtio nyanser av honom",
   "year": 2015,
   "spotifyId": "05zCWOpwIUf6JY06gSL6uz",
-  "track": "Love Me Like You Do"
+  "track": "Love Me Like You Do",
+  "deezerId": 111780476
  },
  {
   "id": "nyckeln-till-frihet",
@@ -717,7 +800,8 @@
   "title": "Nyckeln till frihet",
   "year": 1994,
   "spotifyId": "5qWFRThiYrdNTFAkvGnlwc",
-  "track": "End Title"
+  "track": "End Title",
+  "deezerId": 4273207
  },
  {
   "id": "unga-kvinnor",
@@ -725,7 +809,8 @@
   "title": "Unga kvinnor",
   "year": 2019,
   "spotifyId": "4xui9WfNYFy7DKZfFBzSQA",
-  "track": "Laurie and Jo on the Hill"
+  "track": "Laurie and Jo on the Hill",
+  "deezerId": 813352972
  },
  {
   "id": "road-to-perdition",
@@ -733,7 +818,8 @@
   "title": "Road to Perdition",
   "year": 2002,
   "spotifyId": "1ybtJbR4ARqmjl6dD2VtYU",
-  "track": "Road To Perdition"
+  "track": "Road To Perdition",
+  "deezerId": 649758372
  },
  {
   "id": "tillbaka-till-framtiden",
@@ -741,7 +827,8 @@
   "title": "Tillbaka till framtiden",
   "year": 1985,
   "spotifyId": "1FI5hblwy9ZwyPg4Jr5hni",
-  "track": "Back to the Future"
+  "track": "Back to the Future",
+  "deezerId": 119871328
  },
  {
   "id": "toy-story",
@@ -749,7 +836,8 @@
   "title": "Toy Story",
   "year": 2010,
   "spotifyId": "5aaUXcrsXI477I93yBE8lu",
-  "track": "You've Got a Friend in Me"
+  "track": "You've Got a Friend in Me",
+  "deezerId": 131867198
  },
  {
   "id": "good-bye-lenin",
@@ -757,7 +845,8 @@
   "title": "Good Bye Lenin!",
   "year": 2003,
   "spotifyId": "35fKXUJk1yDn3LVr6MbSHm",
-  "track": "Mother's Journey"
+  "track": "Mother's Journey",
+  "deezerId": 3090544
  },
  {
   "id": "spider-verse",
@@ -765,7 +854,8 @@
   "title": "Spider-Verse",
   "year": 2018,
   "spotifyId": "0RiRZpuVRbi7oqRdSMwhQY",
-  "track": "Sunflower"
+  "track": "Sunflower",
+  "deezerId": 602456552
  },
  {
   "id": "the-grand-budapest-hotel",
@@ -773,7 +863,8 @@
   "title": "The Grand Budapest Hotel",
   "year": 2014,
   "spotifyId": "1uNhvxpkPrNHUNfeclo6xD",
-  "track": "Mr. Moustafa"
+  "track": "Mr. Moustafa",
+  "deezerId": 74929085
  },
  {
   "id": "det-ljuva-livet",
@@ -781,7 +872,8 @@
   "title": "Det ljuva livet",
   "year": 1960,
   "spotifyId": "1ttC2dGMDxbgtylVoLBypR",
-  "track": "La dolce vita"
+  "track": "La dolce vita",
+  "deezerId": 267584
  },
  {
   "id": "west-side-story",
@@ -789,7 +881,8 @@
   "title": "West Side Story",
   "year": 1961,
   "spotifyId": "1RZ6jzlPeEaDeKYe7IJ792",
-  "track": "America"
+  "track": "America",
+  "deezerId": 66679852
  },
  {
   "id": "captain-america",
@@ -797,7 +890,8 @@
   "title": "Captain America",
   "year": 2014,
   "spotifyId": "4V2s08BMEqJWIfa3PcNOpR",
-  "track": "Captain America"
+  "track": "Captain America",
+  "deezerId": 60724056
  },
  {
   "id": "eyes-wide-shut",
@@ -805,7 +899,8 @@
   "title": "Eyes Wide Shut",
   "year": 1999,
   "spotifyId": "4bgyv4pOiNgNZTN7BMLRuW",
-  "track": "Waltz No. 2"
+  "track": "Waltz No. 2",
+  "deezerId": 6944627
  },
  {
   "id": "en-prinsessas-dagbok",
@@ -813,7 +908,8 @@
   "title": "En prinsessas dagbok",
   "year": 2001,
   "spotifyId": "60vDJQPOMYUkL388zPpuNT",
-  "track": "The Princess Diaries Waltz"
+  "track": "The Princess Diaries Waltz",
+  "deezerId": 355708911
  },
  {
   "id": "for-nagra-fa-dollar-mer",
@@ -821,7 +917,8 @@
   "title": "För några få dollar mer",
   "year": 1965,
   "spotifyId": "0GLA1Xd7KWwR8H3e6lz3jm",
-  "track": "Per Qualche Dollaro in Più"
+  "track": "Per Qualche Dollaro in Più",
+  "deezerId": 3221383301
  },
  {
   "id": "encanto",
@@ -829,7 +926,8 @@
   "title": "Encanto",
   "year": 2021,
   "spotifyId": "52xJxFP6TqMuO4Yt0eOkMz",
-  "track": "We Don't Talk About Bruno"
+  "track": "We Don't Talk About Bruno",
+  "deezerId": 2768464301
  },
  {
   "id": "superman",
@@ -837,7 +935,8 @@
   "title": "Superman",
   "year": 1978,
   "spotifyId": "4tABZngfyleLXr5wxHgRxZ",
-  "track": "Theme from Superman"
+  "track": "Theme from Superman",
+  "deezerId": 3579856
  },
  {
   "id": "black-panther-wakanda-forever",
@@ -845,7 +944,8 @@
   "title": "Black Panther: Wakanda Forever",
   "year": 2022,
   "spotifyId": "6sCvvleqKbeyOkQDieBYgp",
-  "track": "Lift Me Up"
+  "track": "Lift Me Up",
+  "deezerId": 2006884037
  },
  {
   "id": "wall-e",
@@ -853,7 +953,8 @@
   "title": "WALL-E",
   "year": 2008,
   "spotifyId": "6QGWsMkxSv2l3Ae3jlsENi",
-  "track": "Down to Earth"
+  "track": "Down to Earth",
+  "deezerId": 602440142
  },
  {
   "id": "ar-2001-ett-rymdaventyr",
@@ -861,7 +962,8 @@
   "title": "År 2001 – Ett rymdäventyr",
   "year": 1968,
   "spotifyId": "2XoV6mbo3WDokoaW49fFAf",
-  "track": "Also sprach Zarathustra"
+  "track": "Also sprach Zarathustra",
+  "deezerId": 66644254
  },
  {
   "id": "bilar",
@@ -869,7 +971,8 @@
   "title": "Bilar",
   "year": 2006,
   "spotifyId": "4jfyNbgsMzGaFYfyeiIRp4",
-  "track": "Life Is A Highway"
+  "track": "Life Is A Highway",
+  "deezerId": 3182179
  },
  {
   "id": "kingdom-of-heaven",
@@ -877,7 +980,8 @@
   "title": "Kingdom of Heaven",
   "year": 2005,
   "spotifyId": "1NpSdOfFA7XPpEKlTV4OTr",
-  "track": "Crusaders"
+  "track": "Crusaders",
+  "deezerId": 71397115
  },
  {
   "id": "radda-menige-ryan",
@@ -885,7 +989,8 @@
   "title": "Rädda menige Ryan",
   "year": 1998,
   "spotifyId": "71zPpqRMdkEUCl7cPQIBrV",
-  "track": "Hymn To The Fallen"
+  "track": "Hymn To The Fallen",
+  "deezerId": 1108040
  },
  {
   "id": "polarexpressen",
@@ -893,7 +998,8 @@
   "title": "Polarexpressen",
   "year": 2004,
   "spotifyId": "2vJAjPkVMPKkR3xd2wacZa",
-  "track": "Believe"
+  "track": "Believe",
+  "deezerId": 788266
  },
  {
   "id": "fantastiska-vidunder-och-var-man-hittar-dem",
@@ -901,7 +1007,8 @@
   "title": "Fantastiska vidunder och var man hittar dem",
   "year": 2016,
   "spotifyId": "4Pk1KXtkFTJNKLqwHhD3Zn",
-  "track": "Main Titles"
+  "track": "Main Titles",
+  "deezerId": 647335342
  },
  {
   "id": "twilight",
@@ -917,7 +1024,8 @@
   "title": "The Odyssey",
   "year": 2026,
   "spotifyId": "4cNfcmyCGw53tOSOsRI3z8",
-  "track": "Odysseus"
+  "track": "Odysseus",
+  "deezerId": 4152514422
  },
  {
   "id": "tenet",
@@ -925,7 +1033,8 @@
   "title": "Tenet",
   "year": 2020,
   "spotifyId": "5r6l0sPvfeAPjQ67fCgOwG",
-  "track": "Rainy Night in Tallinn"
+  "track": "Rainy Night in Tallinn",
+  "deezerId": 1130197812
  },
  {
   "id": "pocahontas",
@@ -933,7 +1042,8 @@
   "title": "Pocahontas",
   "year": 1995,
   "spotifyId": "2fPseZqRmt7f8xJ6LE4PYQ",
-  "track": "Colors of the Wind"
+  "track": "Colors of the Wind",
+  "deezerId": 2485963951
  },
  {
   "id": "den-grona-milen",
@@ -941,7 +1051,8 @@
   "title": "Den gröna milen",
   "year": 1999,
   "spotifyId": "0itndpPjxQrWj1mDENoKmG",
-  "track": "The Green Mile"
+  "track": "The Green Mile",
+  "deezerId": 7337321
  },
  {
   "id": "lady-bird",
@@ -949,7 +1060,8 @@
   "title": "Lady Bird",
   "year": 2017,
   "spotifyId": "6yzzno5cXBkh5c6UzRxcyM",
-  "track": "Lady Bird"
+  "track": "Lady Bird",
+  "deezerId": 424999642
  },
  {
   "id": "modig",
@@ -957,7 +1069,8 @@
   "title": "Modig",
   "year": 2012,
   "spotifyId": "3A4NJgft533HGgffw0AoTf",
-  "track": "Touch The Sky"
+  "track": "Touch The Sky",
+  "deezerId": 35087811
  },
  {
   "id": "black-panther",
@@ -965,7 +1078,8 @@
   "title": "Black Panther",
   "year": 2018,
   "spotifyId": "2mjbf9ZvCoYqTi0RZ2FTUJ",
-  "track": "Wakanda"
+  "track": "Wakanda",
+  "deezerId": 462106672
  },
  {
   "id": "mitt-afrika",
@@ -973,7 +1087,8 @@
   "title": "Mitt Afrika",
   "year": 1985,
   "spotifyId": "6qLLYJGpPhHPF7M4o53qJB",
-  "track": "I Had a Farm (Main Title)"
+  "track": "I Had a Farm (Main Title)",
+  "deezerId": 119876610
  },
  {
   "id": "e-t-the-extra-terrestrial",
@@ -981,7 +1096,8 @@
   "title": "E.T. the Extra-Terrestrial",
   "year": 1982,
   "spotifyId": "48YZO1IOz04bN9PY2tKB21",
-  "track": "Flying Theme"
+  "track": "Flying Theme",
+  "deezerId": 13143577
  },
  {
   "id": "ett-smakryps-liv",
@@ -989,7 +1105,8 @@
   "title": "Ett småkryps liv",
   "year": 1998,
   "spotifyId": "33GqT5sh9PQq8mnTPWUkco",
-  "track": "The Time Of Your Life"
+  "track": "The Time Of Your Life",
+  "deezerId": 1761725407
  },
  {
   "id": "the-king-s-speech",
@@ -997,7 +1114,8 @@
   "title": "The King's Speech",
   "year": 2010,
   "spotifyId": "2QuAEMde7n93aiccKL9jUj",
-  "track": "The King's Speech"
+  "track": "The King's Speech",
+  "deezerId": 1174057932
  },
  {
   "id": "taxi-driver",
@@ -1005,7 +1123,8 @@
   "title": "Taxi Driver",
   "year": 1976,
   "spotifyId": "7xPefqZB6BBosOdfKJh9nJ",
-  "track": "Main Title"
+  "track": "Main Title",
+  "deezerId": 958971
  },
  {
   "id": "beetlejuice",
@@ -1013,7 +1132,8 @@
   "title": "Beetlejuice",
   "year": 1988,
   "spotifyId": "64ByydKWf67CJfIoPc8uLJ",
-  "track": "Main Titles"
+  "track": "Main Titles",
+  "deezerId": 84605675
  },
  {
   "id": "den-siste-mohikanen",
@@ -1021,7 +1141,8 @@
   "title": "Den siste mohikanen",
   "year": 1992,
   "spotifyId": "58vvywipieBzdHhlpr6HPq",
-  "track": "Main Title"
+  "track": "Main Title",
+  "deezerId": 584306922
  },
  {
   "id": "28-dagar-senare",
@@ -1029,7 +1150,8 @@
   "title": "28 dagar senare",
   "year": 2002,
   "spotifyId": "6zUqWvzcvVQyWU36c7WXDC",
-  "track": "In the House - In a Heartbeat"
+  "track": "In the House - In a Heartbeat",
+  "deezerId": 72691490
  },
  {
   "id": "braveheart",
@@ -1037,7 +1159,8 @@
   "title": "Braveheart",
   "year": 1995,
   "spotifyId": "2fXvAWQlomB2ZUfHPSqi5S",
-  "track": "For the Love of a Princess"
+  "track": "For the Love of a Princess",
+  "deezerId": 65442214
  },
  {
   "id": "aladdin",
@@ -1045,7 +1168,8 @@
   "title": "Aladdin",
   "year": 2019,
   "spotifyId": "1hwdPQtFHISvZ9SXMkNrIK",
-  "track": "A Whole New World"
+  "track": "A Whole New World",
+  "deezerId": 120917666
  },
  {
   "id": "lemony-snickets-berattelse-om-syskonen-baudelaires-olycksaliga-liv",
@@ -1053,7 +1177,8 @@
   "title": "Lemony Snickets berättelse om syskonen Baudelaires olycksaliga liv",
   "year": 2004,
   "spotifyId": "32YVCuvm2iXGkNIDDmSX0j",
-  "track": "The Letter That Never Came"
+  "track": "The Letter That Never Came",
+  "deezerId": 595397
  },
  {
   "id": "timmarna",
@@ -1061,7 +1186,8 @@
   "title": "Timmarna",
   "year": 2002,
   "spotifyId": "2vHxeotyQDiCsKaYsaDG5P",
-  "track": "The Hours"
+  "track": "The Hours",
+  "deezerId": 742481
  },
  {
   "id": "prometheus",
@@ -1069,7 +1195,8 @@
   "title": "Prometheus",
   "year": 2012,
   "spotifyId": "3Y4l9bwg4IXJPq2WYsXeNB",
-  "track": "Life"
+  "track": "Life",
+  "deezerId": 31721191
  },
  {
   "id": "natt-pa-museet",
@@ -1077,7 +1204,8 @@
   "title": "Natt på museet",
   "year": 2006,
   "spotifyId": "1r8Qi1Q8V6l7hpZwmAJ1pL",
-  "track": "Night At The Museum"
+  "track": "Night At The Museum",
+  "deezerId": 118583960
  },
  {
   "id": "transformers",
@@ -1085,7 +1213,8 @@
   "title": "Transformers",
   "year": 2009,
   "spotifyId": "4u4VElxO7JM4IR4jR4TL1s",
-  "track": "Arrival to Earth"
+  "track": "Arrival to Earth",
+  "deezerId": 3583337
  },
  {
   "id": "for-en-handfull-dollar",
@@ -1093,7 +1222,8 @@
   "title": "För en handfull dollar",
   "year": 1964,
   "spotifyId": "3WySGomfHajTtIG8mUyD5W",
-  "track": "A Fistful of Dollars"
+  "track": "A Fistful of Dollars",
+  "deezerId": 25233361
  },
  {
   "id": "mot-joe-black",
@@ -1101,7 +1231,8 @@
   "title": "Möt Joe Black",
   "year": 1998,
   "spotifyId": "7ARw6x2QYlbbNbzm27z0BW",
-  "track": "Whisper of a Thrill"
+  "track": "Whisper of a Thrill",
+  "deezerId": 908123
  },
  {
   "id": "kalle-och-chokladfabriken",
@@ -1109,7 +1240,8 @@
   "title": "Kalle och chokladfabriken",
   "year": 2005,
   "spotifyId": "36Or2BETVOkRQpw39sZHI4",
-  "track": "Main Titles"
+  "track": "Main Titles",
+  "deezerId": 647414792
  },
  {
   "id": "sjalen",
@@ -1117,7 +1249,8 @@
   "title": "Själen",
   "year": 2020,
   "spotifyId": "1q1T0TbFO2fWkDmgCKwTB0",
-  "track": "Epiphany"
+  "track": "Epiphany",
+  "deezerId": 1173679662
  },
  {
   "id": "rojar-ralf",
@@ -1125,7 +1258,8 @@
   "title": "Röjar-Ralf",
   "year": 2012,
   "spotifyId": "46XRlhMVNU38v5ZvDrQSHB",
-  "track": "Wreck-It Ralph"
+  "track": "Wreck-It Ralph",
+  "deezerId": 61289644
  },
  {
   "id": "arrival",
@@ -1133,7 +1267,8 @@
   "title": "Arrival",
   "year": 2016,
   "spotifyId": "79MKKQE73OQLZrC4BPboEw",
-  "track": "On the Nature of Daylight"
+  "track": "On the Nature of Daylight",
+  "deezerId": 497150662
  },
  {
   "id": "hajen",
@@ -1141,7 +1276,8 @@
   "title": "Hajen",
   "year": 1975,
   "spotifyId": "50Khn0ju21N6pl6qepz3XD",
-  "track": "Main Title"
+  "track": "Main Title",
+  "deezerId": 93631710
  },
  {
   "id": "indiana-jones",
@@ -1149,7 +1285,8 @@
   "title": "Indiana Jones",
   "year": 1984,
   "spotifyId": "5duZVZ4m1TaJDTCbeHG8TG",
-  "track": "Raiders March"
+  "track": "Raiders March",
+  "deezerId": 8146546
  },
  {
   "id": "skonheten-och-odjuret",
@@ -1157,7 +1294,8 @@
   "title": "Skönheten och odjuret",
   "year": 1991,
   "spotifyId": "2OVoymQ9nWnRAtQf1h0Ztc",
-  "track": "Beauty and the Beast"
+  "track": "Beauty and the Beast",
+  "deezerId": 2381496005
  },
  {
   "id": "blade-runner",
@@ -1165,7 +1303,8 @@
   "title": "Blade Runner",
   "year": 1982,
   "spotifyId": "6baN5nSUIVTsUyugSuAj7U",
-  "track": "Main Titles"
+  "track": "Main Titles",
+  "deezerId": 68763198
  },
  {
   "id": "inception",
@@ -1173,7 +1312,8 @@
   "title": "Inception",
   "year": 2010,
   "spotifyId": "6ZFbXIJkuI1dVNWvzJzown",
-  "track": "Time"
+  "track": "Time",
+  "deezerId": 6524423
  },
  {
   "id": "trollkarlen-fran-oz",
@@ -1189,7 +1329,8 @@
   "title": "Sound of Music",
   "year": 1965,
   "spotifyId": "6yxhNgxXXDvJqiP0Y20QrY",
-  "track": "The Sound of Music"
+  "track": "The Sound of Music",
+  "deezerId": 2556320062
  },
  {
   "id": "min-granne-totoro",
@@ -1197,7 +1338,8 @@
   "title": "Min granne Totoro",
   "year": 1988,
   "spotifyId": "42c56HKycty0CsHd5iPuiP",
-  "track": "My Neighbour Totoro"
+  "track": "My Neighbour Totoro",
+  "deezerId": 879780702
  },
  {
   "id": "psycho",
@@ -1205,7 +1347,8 @@
   "title": "Psycho",
   "year": 1960,
   "spotifyId": "3kOLSO0EZvDZvJh1uX3J5X",
-  "track": "Prelude"
+  "track": "Prelude",
+  "deezerId": 123818654
  },
  {
   "id": "slumdog-millionaire",
@@ -1213,7 +1356,8 @@
   "title": "Slumdog Millionaire",
   "year": 2008,
   "spotifyId": "3MxLT7m4BjAA0lQl9lVBcM",
-  "track": "Jai Ho"
+  "track": "Jai Ho",
+  "deezerId": 3183931071
  },
  {
   "id": "insidan-ut",
@@ -1221,7 +1365,8 @@
   "title": "Insidan ut",
   "year": 2015,
   "spotifyId": "3eTgg18rKBD30Hef1gv0wz",
-  "track": "Bundle of Joy"
+  "track": "Bundle of Joy",
+  "deezerId": 101112858
  },
  {
   "id": "dansar-med-vargar",
@@ -1229,6 +1374,7 @@
   "title": "Dansar med vargar",
   "year": 1990,
   "spotifyId": "4NzyM0AAmN2ucaBlTXbQQT",
-  "track": "The John Dunbar Theme"
+  "track": "The John Dunbar Theme",
+  "deezerId": 581575
  }
 ]
