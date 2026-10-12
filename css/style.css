@@ -6,12 +6,17 @@
 }
 
 :root {
-  --bg: #f5f5f7;
-  --surface: #ffffff;
-  --surface-2: #f0f0f3;
-  --text: #16161a;
-  --muted: #5f5f69;
-  --border: #e4e4ea;
+  /* Scenljus: ljus i lila, rosa och grönt bakom halvgenomskinliga ytor. */
+  --bg: #f4f1fb;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-solid: #fbfaff;
+  --surface-2: #ece8f7;
+  --text: #1a1530;
+  --muted: #5a5470;
+  --border: rgba(60, 40, 120, 0.12);
+  --glow-1: rgba(124, 77, 255, 0.2);
+  --glow-2: rgba(18, 170, 80, 0.16);
+  --glow-3: rgba(255, 90, 170, 0.1);
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -27,22 +32,26 @@
   --bonus-soft: rgba(138, 82, 0, 0.12);
   --answered: #ffffff;
   --answered-soft: #55555f;
-  --shadow-sm: 0 1px 2px rgba(16, 16, 24, 0.06);
-  --shadow: 0 1px 2px rgba(16, 16, 24, 0.04), 0 8px 24px rgba(16, 16, 24, 0.06);
+  --shadow-sm: 0 1px 2px rgba(40, 20, 90, 0.06);
+  --shadow: 0 1px 2px rgba(40, 20, 90, 0.05), 0 12px 32px rgba(70, 40, 160, 0.1);
   --radius: 14px;
-  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235f5f69' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235a5470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   color-scheme: light dark;
 }
 
 /* Mörkt läge: enhetens inställning, om inte spelaren valt något annat. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f0f12;
-    --surface: #1a1a1f;
-    --surface-2: #232329;
-    --text: #f2f2f5;
-    --muted: #9a9aa6;
-    --border: #2c2c34;
+    --bg: #0c0a18;
+    --surface: rgba(255, 255, 255, 0.055);
+    --surface-solid: #16132a;
+    --surface-2: rgba(255, 255, 255, 0.09);
+    --text: #f1eefb;
+    --muted: #a49fbd;
+    --border: rgba(255, 255, 255, 0.1);
+    --glow-1: rgba(124, 77, 255, 0.38);
+    --glow-2: rgba(30, 215, 96, 0.2);
+    --glow-3: rgba(255, 90, 170, 0.16);
     --accent: #1ed760;
     --accent-hover: #3be477;
     --accent-soft: rgba(30, 215, 96, 0.14);
@@ -58,18 +67,22 @@
     --answered: #16161a;
     --answered-soft: #b4b4be;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-    --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239a9aa6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23a49fbd' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0f0f12;
-  --surface: #1a1a1f;
-  --surface-2: #232329;
-  --text: #f2f2f5;
-  --muted: #9a9aa6;
-  --border: #2c2c34;
+  --bg: #0c0a18;
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-solid: #16132a;
+  --surface-2: rgba(255, 255, 255, 0.09);
+  --text: #f1eefb;
+  --muted: #a49fbd;
+  --border: rgba(255, 255, 255, 0.1);
+  --glow-1: rgba(124, 77, 255, 0.38);
+  --glow-2: rgba(30, 215, 96, 0.2);
+  --glow-3: rgba(255, 90, 170, 0.16);
   --accent: #1ed760;
   --accent-hover: #3be477;
   --accent-soft: rgba(30, 215, 96, 0.14);
@@ -85,8 +98,8 @@
   --answered: #16161a;
   --answered-soft: #b4b4be;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239a9aa6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23a49fbd' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   color-scheme: dark;
 }
 
@@ -96,7 +109,13 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(60vmax 45vmax at 10% -10%, var(--glow-1), transparent 70%),
+    radial-gradient(50vmax 40vmax at 110% 40%, var(--glow-3), transparent 70%),
+    radial-gradient(60vmax 45vmax at 30% 120%, var(--glow-2), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   font: 1rem/1.5 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-feature-settings: "cv11", "ss01";
@@ -107,7 +126,7 @@ main { padding: 24px 16px; }
 .narrow { max-width: 460px; margin: 0 auto; }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 /* h1 och h2 ser likadana ut: sidans rubrik och rubrikerna i modalerna. Spelarens kategori är lika stor som löptexten. */
-h1, h2 { font-size: 1.1rem; font-weight: 700; margin: 0.2em 0 0.5em; }
+h1, h2 { font-size: 1.1rem; font-weight: 800; margin: 0.2em 0 0.5em; }
 @media (min-width: 761px) { h1, h2 { font-size: 1.3rem; } }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
 .logo {
@@ -200,6 +219,7 @@ button:active, .button:active { transform: scale(0.98); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 input:focus-visible, select:focus-visible { outline: none; }
 .big { padding: 16px; font-size: 1.05rem; }
+button.big, .button.big { box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent); }
 /* Mer luft mellan formulärets fält och huvudknappen. */
 #create, #join-form .big { margin-top: 28px; }
 .huge { padding: 22px; font-size: 1.3rem; border-radius: 16px; letter-spacing: -0.01em; }
@@ -270,9 +290,11 @@ main:has(#lobby:not([hidden])) .join-only { display: none; }
 .theme-switch[aria-checked="true"] .track::after { transform: translateX(14px); }
 
 .card {
+  position: relative;
+  z-index: 1; /* Förslagslistan hamnar över poängtabellen trots glaseffekten. */
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 22px;
   box-shadow: var(--shadow);
   padding: 20px;
   margin: 16px 0;
@@ -318,7 +340,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .ring { position: relative; width: 200px; height: 200px; margin: 8px auto 16px; }
 .ring svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
 .ring circle { fill: none; stroke-width: 7; }
-.ring-track { stroke: var(--surface-2); }
+.ring-track { stroke: color-mix(in srgb, #7c4dff 22%, transparent); }
 .ring { --ring-color: hsl(135 80% 45%); }
 .ring-bar { stroke: var(--ring-color); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear, stroke 0.25s linear; }
 .ring-num {
@@ -345,7 +367,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .round-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 
 /* Rätt svar */
-.answer { text-align: center; margin: 12px 0 16px; padding: 24px 16px; border-radius: var(--radius); background: var(--accent-soft); }
+.answer { text-align: center; margin: 12px 0 16px; padding: 24px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
 .answer .title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; }
 .answer .artist { font-size: 1.1rem; color: var(--muted); margin-top: 4px; }
 .reveal { animation: reveal 0.35s ease-out; }
@@ -385,7 +407,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   margin: 6px 0 0;
   padding: 6px;
   list-style: none;
-  background: var(--surface);
+  background: var(--surface-solid);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
@@ -450,7 +472,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 }
 
 /* Startsidan */
-.lead { font-size: 1.1rem; color: var(--text); margin: 0 0 24px; }
+.lead { font-size: 1.25rem; font-weight: 600; color: var(--text); margin: 0 0 24px; }
 
 /* Spelledarvyn på dator */
 .host { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; max-width: 1040px; margin: 0 auto; padding-top: 32px; }
@@ -465,7 +487,9 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   box-shadow: var(--shadow);
   padding: 20px;
 }
-.join-info { padding-top: 44px; }
+.join-info { padding-top: 44px; border-radius: 22px; }
+/* Glasytor: bakgrundens ljus skymtar mjukt igenom. */
+.card, .stage, .join-info { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 .host.qr-hidden { grid-template-columns: 1fr; max-width: 720px; }
 .close-qr {
   position: absolute;
@@ -503,7 +527,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .stage {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 22px;
   box-shadow: var(--shadow);
   padding: 28px;
 }
@@ -532,7 +556,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   padding: 24px;
   border: 1px solid var(--border);
   border-radius: 16px;
-  background: var(--surface);
+  background: var(--surface-solid);
   color: var(--text);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
