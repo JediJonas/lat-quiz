@@ -265,8 +265,10 @@ button.theme-switch {
 button.theme-switch:hover { background: none; color: var(--text); }
 button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
-.theme-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin: 24px 0 0; }
-.theme-row .row-end { display: flex; flex: none; gap: 20px; margin-left: auto; }
+/* Länkarna längst ner fördelas jämnt över hela bredden. En ensam länk står till höger. */
+.theme-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin: 24px 0 0; }
+.theme-row .row-end { display: contents; }
+.theme-row > .row-end:only-child { display: flex; margin-left: auto; }
 .theme-row .row-end .link, .theme-row > .link { margin: 0; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
