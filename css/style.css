@@ -358,6 +358,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .mid-ring circle { stroke-width: 8; }
 .mid-ring .ring-num { font-size: 2.8rem; }
 #standings td { padding-left: 8px; padding-right: 8px; }
+/* Mer luft mot radens kanter. */
+#standings td:first-child { padding-left: 16px; }
+#standings td:last-child { padding-right: 16px; }
 #standings td.status { text-align: right; padding-right: 4px; white-space: nowrap; }
 #standings td.name { width: 100%; overflow-wrap: break-word; }
 #standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
@@ -422,8 +425,6 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; }
-/* Långa kategorinamn kortas med … så att de inte krockar med Ansluten, även med Stor text. */
-.player-head .who h1 { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .player-head .conn { flex: none; }
 .player-head .who h1:empty { display: none; }
 /* Spelarens kod och inställningar som vanlig grå text. Länkar är understrukna, så den syns inte som en länk. */
@@ -508,6 +509,9 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 }
 .close-qr:hover { background: var(--surface-2); color: var(--text); }
 .game-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+/* Får kategorin inte plats bredvid loggan hamnar den på en egen rad under, i stället för att kortas eller brytas. */
+.who { flex-wrap: wrap; row-gap: 4px; }
+.who h1 { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .code-link {
   width: auto;
   margin: 0;
@@ -540,7 +544,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .actions { margin-top: 24px; }
 .game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 20px; }
 .game-head p { margin: 0; }
-#game-settings-summary { text-align: right; }
+/* Kategorin får plats först, och inställningarna får det som blir över. */
+#game-settings-summary { flex: 1 1 0; min-width: 12em; text-align: right; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 8px 0 0; }
 .settings-row .link { flex: none; margin: 0; }
