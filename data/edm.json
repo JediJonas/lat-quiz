@@ -4,14 +4,16 @@
   "artist": "Above & Beyond",
   "title": "Sun & Moon",
   "year": 2011,
-  "spotifyId": "4rfhAoZjGwraqwX1w47uij"
+  "spotifyId": "4rfhAoZjGwraqwX1w47uij",
+  "deezerId": 4241355562
  },
  {
   "id": "alan-walker-faded",
   "artist": "Alan Walker",
   "title": "Faded",
   "year": 2015,
-  "spotifyId": "698ItKASDavgwZ3WjaWjtz"
+  "spotifyId": "698ItKASDavgwZ3WjaWjtz",
+  "deezerId": 140295501
  },
  {
   "id": "alesso-onerepublic-if-i-lose-myself",
@@ -25,196 +27,224 @@
   "artist": "Alexandra Stan",
   "title": "Mr. Saxobeat",
   "year": 2010,
-  "spotifyId": "6HTprulGfeFVrLLvfi3t8a"
+  "spotifyId": "6HTprulGfeFVrLLvfi3t8a",
+  "deezerId": 1077700822
  },
  {
   "id": "alice-deejay-better-off-alone",
   "artist": "Alice Deejay",
   "title": "Better Off Alone",
   "year": 1998,
-  "spotifyId": "0pMUR7Uvp6vxlbG0qBFvgM"
+  "spotifyId": "0pMUR7Uvp6vxlbG0qBFvgM",
+  "deezerId": 1802291377
  },
  {
   "id": "armin-van-buuren-this-is-what-it-feels-like",
   "artist": "Armin van Buuren",
   "title": "This Is What It Feels Like",
   "year": 2013,
-  "spotifyId": "5GjnIpUlLGEIYk052ISOw9"
+  "spotifyId": "5GjnIpUlLGEIYk052ISOw9",
+  "deezerId": 72327967
  },
  {
   "id": "atb-9-pm-till-i-come",
   "artist": "ATB",
   "title": "9 PM (Till I Come)",
   "year": 1998,
-  "spotifyId": "1CgbwsrNDlFrRuk2ebQ7zr"
+  "spotifyId": "1CgbwsrNDlFrRuk2ebQ7zr",
+  "deezerId": 61639624
  },
  {
   "id": "avicii-wake-me-up",
   "artist": "Avicii",
   "title": "Wake Me Up",
   "year": 2013,
-  "spotifyId": "0nrRP2bk19rLc0orkWPQk2"
+  "spotifyId": "0nrRP2bk19rLc0orkWPQk2",
+  "deezerId": 70266756
  },
  {
   "id": "calvin-harris-feel-so-close",
   "artist": "Calvin Harris",
   "title": "Feel So Close",
   "year": 2011,
-  "spotifyId": "1gihuPhrLraKYrJMAEONyc"
+  "spotifyId": "1gihuPhrLraKYrJMAEONyc",
+  "deezerId": 13040252
  },
  {
   "id": "calvin-harris-summer",
   "artist": "Calvin Harris",
   "title": "Summer",
   "year": 2014,
-  "spotifyId": "6YUTL4dYpB9xZO5qExPf05"
+  "spotifyId": "6YUTL4dYpB9xZO5qExPf05",
+  "deezerId": 88936747
  },
  {
   "id": "calvin-harris-alesso-under-control",
   "artist": "Calvin Harris & Alesso",
   "title": "Under Control",
   "year": 2013,
-  "spotifyId": "4J7CKHCF3mdL4diUsmW8lq"
+  "spotifyId": "4J7CKHCF3mdL4diUsmW8lq",
+  "deezerId": 71294452
  },
  {
   "id": "chrystal-the-days",
   "artist": "Chrystal",
   "title": "The Days",
   "year": 2024,
-  "spotifyId": "2FAZskT9yRjp2Oow9szJD8"
+  "spotifyId": "2FAZskT9yRjp2Oow9szJD8",
+  "deezerId": 3024032431
  },
  {
   "id": "daft-punk-around-the-world",
   "artist": "Daft Punk",
   "title": "Around the World",
   "year": 1997,
-  "spotifyId": "1pKYYY0dkg23sQQXi0Q5zN"
+  "spotifyId": "1pKYYY0dkg23sQQXi0Q5zN",
+  "deezerId": 3129775
  },
  {
   "id": "daft-punk-one-more-time",
   "artist": "Daft Punk",
   "title": "One More Time",
   "year": 2000,
-  "spotifyId": "0DiWol3AO6WpXZgp0goxAV"
+  "spotifyId": "0DiWol3AO6WpXZgp0goxAV",
+  "deezerId": 3135553
  },
  {
   "id": "daft-punk-get-lucky",
   "artist": "Daft Punk",
   "title": "Get Lucky",
   "year": 2013,
-  "spotifyId": "2Foc5Q5nqNiosCNqttzHof"
+  "spotifyId": "2Foc5Q5nqNiosCNqttzHof",
+  "deezerId": 66609426
  },
  {
   "id": "david-guetta-titanium",
   "artist": "David Guetta",
   "title": "Titanium",
   "year": 2011,
-  "spotifyId": "0lHAMNU8RGiIObScrsRgmP"
+  "spotifyId": "0lHAMNU8RGiIObScrsRgmP",
+  "deezerId": 62847142
  },
  {
   "id": "disco-lines-tinashe-no-broke-boys",
   "artist": "Disco Lines & Tinashe",
   "title": "No Broke Boys",
   "year": 2025,
-  "spotifyId": "3cZajhyr8LmtPfHZ9296tj"
+  "spotifyId": "3cZajhyr8LmtPfHZ9296tj",
+  "deezerId": 3410229851
  },
  {
   "id": "dj-snake-lil-jon-turn-down-for-what",
   "artist": "DJ Snake & Lil Jon",
   "title": "Turn Down for What",
   "year": 2013,
-  "spotifyId": "67awxiNHNyjMXhVgsHuIrs"
+  "spotifyId": "67awxiNHNyjMXhVgsHuIrs",
+  "deezerId": 73707710
  },
  {
   "id": "donna-summer-i-feel-love",
   "artist": "Donna Summer",
   "title": "I Feel Love",
   "year": 1977,
-  "spotifyId": "1vCBk33l9HaWp5FOnhSGxk"
+  "spotifyId": "1vCBk33l9HaWp5FOnhSGxk",
+  "deezerId": 1560033
  },
  {
   "id": "edward-maya-vika-jigulina-stereo-love",
   "artist": "Edward Maya & Vika Jigulina",
   "title": "Stereo Love",
   "year": 2009,
-  "spotifyId": "11Iv8RCFmeImLOpaHYxKb4"
+  "spotifyId": "11Iv8RCFmeImLOpaHYxKb4",
+  "deezerId": 2806492812
  },
  {
   "id": "eiffel-65-blue-da-ba-dee",
   "artist": "Eiffel 65",
   "title": "Blue (Da Ba Dee)",
   "year": 1998,
-  "spotifyId": "2yAVzRiEQooPEJ9SYx11L3"
+  "spotifyId": "2yAVzRiEQooPEJ9SYx11L3",
+  "deezerId": 89629797
  },
  {
   "id": "eric-prydz-call-on-me",
   "artist": "Eric Prydz",
   "title": "Call on Me",
   "year": 2004,
-  "spotifyId": "1xNcBAoUw8Hz6LqK2jt4Ff"
+  "spotifyId": "1xNcBAoUw8Hz6LqK2jt4Ff",
+  "deezerId": 14888231
  },
  {
   "id": "eric-prydz-pjanoo",
   "artist": "Eric Prydz",
   "title": "Pjanoo",
   "year": 2008,
-  "spotifyId": "0F2BxpbxH8Yc3pLub48hrb"
+  "spotifyId": "0F2BxpbxH8Yc3pLub48hrb",
+  "deezerId": 144535404
  },
  {
   "id": "galantis-runaway-u-i",
   "artist": "Galantis",
   "title": "Runaway (U & I)",
   "year": 2014,
-  "spotifyId": "46lFttIf5hnUZMGvjK0Wxo"
+  "spotifyId": "46lFttIf5hnUZMGvjK0Wxo",
+  "deezerId": 86453925
  },
  {
   "id": "gigi-d-agostino-l-amour-toujours",
   "artist": "Gigi D'Agostino",
   "title": "L'Amour Toujours",
   "year": 1999,
-  "spotifyId": "52LJ3hyknOijCrE5gCD0rE"
+  "spotifyId": "52LJ3hyknOijCrE5gCD0rE",
+  "deezerId": 61751399
  },
  {
   "id": "jack-u-where-are-u-now",
   "artist": "Jack Ü",
   "title": "Where Are Ü Now",
   "year": 2015,
-  "spotifyId": "66hayvUbTotekKU3H4ta1f"
+  "spotifyId": "66hayvUbTotekKU3H4ta1f",
+  "deezerId": 95963378
  },
  {
   "id": "john-summit-where-you-are",
   "artist": "John Summit",
   "title": "Where You Are",
   "year": 2023,
-  "spotifyId": "3pUz2qJe5nqZemi3hhIxMk"
+  "spotifyId": "3pUz2qJe5nqZemi3hhIxMk",
+  "deezerId": 2164533907
  },
  {
   "id": "justice-d-a-n-c-e",
   "artist": "Justice",
   "title": "D.A.N.C.E.",
   "year": 2007,
-  "spotifyId": "33yAEqzKXexYM3WlOYtTfQ"
+  "spotifyId": "33yAEqzKXexYM3WlOYtTfQ",
+  "deezerId": 10284909
  },
  {
   "id": "krewella-alive",
   "artist": "Krewella",
   "title": "Alive",
   "year": 2012,
-  "spotifyId": "2SHnUyZq0zwmvRIl4WY77G"
+  "spotifyId": "2SHnUyZq0zwmvRIl4WY77G",
+  "deezerId": 38019911
  },
  {
   "id": "kygo-firestone",
   "artist": "Kygo",
   "title": "Firestone",
   "year": 2014,
-  "spotifyId": "1I8tHoNBFTuoJAlh4hfVVE"
+  "spotifyId": "1I8tHoNBFTuoJAlh4hfVVE",
+  "deezerId": 90726629
  },
  {
   "id": "lana-del-rey-summertime-sadness",
   "artist": "Lana Del Rey",
   "title": "Summertime Sadness",
   "year": 2013,
-  "spotifyId": "6PUIzlqotEmPuBfjbwYWOB"
+  "spotifyId": "6PUIzlqotEmPuBfjbwYWOB",
+  "deezerId": 96973390
  },
  {
   "id": "m83-midnight-city",
@@ -228,21 +258,24 @@
   "artist": "Marshmello & Bastille",
   "title": "Happier",
   "year": 2018,
-  "spotifyId": "2dpaYNEQHiRxtZbfNsse99"
+  "spotifyId": "2dpaYNEQHiRxtZbfNsse99",
+  "deezerId": 2441318935
  },
  {
   "id": "martin-garrix-animals",
   "artist": "Martin Garrix",
   "title": "Animals",
   "year": 2013,
-  "spotifyId": "4g6m1iaAsgdgDqgxGtvY0C"
+  "spotifyId": "4g6m1iaAsgdgDqgxGtvY0C",
+  "deezerId": 2102633427
  },
  {
   "id": "martin-garrix-bebe-rexha-in-the-name-of-love",
   "artist": "Martin Garrix & Bebe Rexha",
   "title": "In the Name of Love",
   "year": 2016,
-  "spotifyId": "23L5CiUhw2jV1OIMwthR3S"
+  "spotifyId": "23L5CiUhw2jV1OIMwthR3S",
+  "deezerId": 129313094
  },
  {
   "id": "mk-push-the-feeling-on",
@@ -256,7 +289,8 @@
   "artist": "Modjo",
   "title": "Lady (Hear Me Tonight)",
   "year": 2000,
-  "spotifyId": "49X0LAl6faAusYq02PRAY6"
+  "spotifyId": "49X0LAl6faAusYq02PRAY6",
+  "deezerId": 70179720
  },
  {
   "id": "nero-promises",
@@ -270,49 +304,56 @@
   "artist": "Oliver Heldens",
   "title": "Gecko (Overdrive)",
   "year": 2014,
-  "spotifyId": "483XiZ5o13Cc1zoWV7jGml"
+  "spotifyId": "483XiZ5o13Cc1zoWV7jGml",
+  "deezerId": 78974349
  },
  {
   "id": "ookay-thief",
   "artist": "Ookay",
   "title": "Thief",
   "year": 2015,
-  "spotifyId": "5Ce9z7GqSknXccyppRxNLY"
+  "spotifyId": "5Ce9z7GqSknXccyppRxNLY",
+  "deezerId": 131337372
  },
  {
   "id": "porter-robinson-language",
   "artist": "Porter Robinson",
   "title": "Language",
   "year": 2012,
-  "spotifyId": "3NRDLYyqIXja0UElvdzjkB"
+  "spotifyId": "3NRDLYyqIXja0UElvdzjkB",
+  "deezerId": 937856142
  },
  {
   "id": "rihanna-we-found-love",
   "artist": "Rihanna",
   "title": "We Found Love",
   "year": 2011,
-  "spotifyId": "6qn9YLKt13AGvpq9jfO8py"
+  "spotifyId": "6qn9YLKt13AGvpq9jfO8py",
+  "deezerId": 14525574
  },
  {
   "id": "robert-miles-children",
   "artist": "Robert Miles",
   "title": "Children",
   "year": 1995,
-  "spotifyId": "4wtR6HB3XekEengMX17cpc"
+  "spotifyId": "4wtR6HB3XekEengMX17cpc",
+  "deezerId": 1628123602
  },
  {
   "id": "robin-s-show-me-love",
   "artist": "Robin S",
   "title": "Show Me Love",
   "year": 1993,
-  "spotifyId": "4t0UsYzmmmZRMTWn77jiGF"
+  "spotifyId": "4t0UsYzmmmZRMTWn77jiGF",
+  "deezerId": 6628158
  },
  {
   "id": "sandro-silva-quintino-epic",
   "artist": "Sandro Silva & Quintino",
   "title": "Epic",
   "year": 2011,
-  "spotifyId": "05ityhGhHQfqRzJnjP0U3G"
+  "spotifyId": "05ityhGhHQfqRzJnjP0U3G",
+  "deezerId": 776083852
  },
  {
   "id": "skrillex-scary-monsters-and-nice-sprites",
@@ -326,69 +367,79 @@
   "artist": "Skrillex",
   "title": "Bangarang",
   "year": 2011,
-  "spotifyId": "6VRhkROS2SZHGlp0pxndbJ"
+  "spotifyId": "6VRhkROS2SZHGlp0pxndbJ",
+  "deezerId": 15781392
  },
  {
   "id": "snap-rhythm-is-a-dancer",
   "artist": "Snap!",
   "title": "Rhythm Is a Dancer",
   "year": 1992,
-  "spotifyId": "5mFQCdbvuzVATC7tP7XsPp"
+  "spotifyId": "5mFQCdbvuzVATC7tP7XsPp",
+  "deezerId": 3785942552
  },
  {
   "id": "stardust-music-sounds-better-with-you",
   "artist": "Stardust",
   "title": "Music Sounds Better With You",
   "year": 1998,
-  "spotifyId": "1mv4lh1rW1K6xhxhJmEezy"
+  "spotifyId": "1mv4lh1rW1K6xhxhJmEezy",
+  "deezerId": 695110932
  },
  {
   "id": "swedish-house-mafia-don-t-you-worry-child",
   "artist": "Swedish House Mafia",
   "title": "Don't You Worry Child",
   "year": 2012,
-  "spotifyId": "2V65y3PX4DkRhy1djlxd9p"
+  "spotifyId": "2V65y3PX4DkRhy1djlxd9p",
+  "deezerId": 60842360
  },
  {
   "id": "the-chainsmokers-closer",
   "artist": "The Chainsmokers",
   "title": "Closer",
   "year": 2016,
-  "spotifyId": "7BKLCZ1jbUBVqRi2FVlTVw"
+  "spotifyId": "7BKLCZ1jbUBVqRi2FVlTVw",
+  "deezerId": 129310248
  },
  {
   "id": "the-chemical-brothers-hey-boy-hey-girl",
   "artist": "The Chemical Brothers",
   "title": "Hey Boy Hey Girl",
   "year": 1999,
-  "spotifyId": "7kXmJwrZGIhDaLT9sNo3ut"
+  "spotifyId": "7kXmJwrZGIhDaLT9sNo3ut",
+  "deezerId": 3135034
  },
  {
   "id": "the-prodigy-smack-my-bitch-up",
   "artist": "The Prodigy",
   "title": "Smack My Bitch Up",
   "year": 1997,
-  "spotifyId": "2iwGE4y7yF8qzKc5WZ2Z8R"
+  "spotifyId": "2iwGE4y7yF8qzKc5WZ2Z8R",
+  "deezerId": 62126184
  },
  {
   "id": "yeah-yeah-yeahs-heads-will-roll",
   "artist": "Yeah Yeah Yeahs",
   "title": "Heads Will Roll",
   "year": 2009,
-  "spotifyId": "0vBpyfpW2lARGh3AZFtWRi"
+  "spotifyId": "0vBpyfpW2lARGh3AZFtWRi",
+  "deezerId": 555639002
  },
  {
   "id": "zedd-clarity",
   "artist": "Zedd",
   "title": "Clarity",
   "year": 2012,
-  "spotifyId": "60wwxj6Dd9NJlirf84wr2c"
+  "spotifyId": "60wwxj6Dd9NJlirf84wr2c",
+  "deezerId": 60904700
  },
  {
   "id": "zombie-nation-kernkraft-400",
   "artist": "Zombie Nation",
   "title": "Kernkraft 400",
   "year": 1999,
-  "spotifyId": "7g8cjrj0sXScNE727685JE"
+  "spotifyId": "7g8cjrj0sXScNE727685JE",
+  "deezerId": 7121774
  }
 ]

@@ -52,6 +52,8 @@ await host.waitForSelector('dialog[open]');
 await check(host, 'Spelledare, inställningar');
 await host.keyboard.press('Escape');
 await host.fill('#host-name', 'Värd');
+// Alla låtar i Deezer-test har ett fast Deezer-ID, så klippet hittas alltid.
+await host.selectOption('#category-select', 'deezer-test');
 await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
 const code = await host.textContent('#code');
@@ -65,6 +67,19 @@ await player.fill('#code-input', code);
 await player.click('#join-form button');
 await player.waitForSelector('#conn.connected', { timeout: 20000 });
 await check(player, 'Spelare, väntar');
+
+// Deezer nås inte här. Låten besvaras med ett klipp som är en kort tystnad.
+const PREVIEW = 'https://cdnt-preview.dzcdn.net/test.wav';
+const silence = Buffer.alloc(44 + 8000, 128);
+silence.write('RIFF', 0); silence.writeUInt32LE(36 + 8000, 4); silence.write('WAVEfmt ', 8);
+silence.writeUInt32LE(16, 16); silence.writeUInt16LE(1, 20); silence.writeUInt16LE(1, 22);
+silence.writeUInt32LE(8000, 24); silence.writeUInt32LE(8000, 28); silence.writeUInt16LE(1, 32);
+silence.writeUInt16LE(8, 34); silence.write('data', 36); silence.writeUInt32LE(8000, 40);
+await host.route('https://api.deezer.com/**', (route) => {
+  const callback = new URL(route.request().url()).searchParams.get('callback');
+  route.fulfill({ contentType: 'application/javascript', body: `${callback}(${JSON.stringify({ id: 1, preview: PREVIEW })})` });
+});
+await host.route(PREVIEW, (route) => route.fulfill({ contentType: 'audio/wav', body: silence }));
 
 // Spotify kan inte öppnas här, så länken till appen stängs av.
 await host.evaluate(() => {

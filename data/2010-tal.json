@@ -25,119 +25,136 @@
   "artist": "Adele",
   "title": "Skyfall",
   "year": 2012,
-  "spotifyId": "3mr584ZFSkZrWja9kJAzlb"
+  "spotifyId": "3mr584ZFSkZrWja9kJAzlb",
+  "deezerId": 82715364
  },
  {
   "id": "avicii-wake-me-up",
   "artist": "Avicii",
   "title": "Wake Me Up",
   "year": 2013,
-  "spotifyId": "0nrRP2bk19rLc0orkWPQk2"
+  "spotifyId": "0nrRP2bk19rLc0orkWPQk2",
+  "deezerId": 70266756
  },
  {
   "id": "avicii-hey-brother",
   "artist": "Avicii",
   "title": "Hey Brother",
   "year": 2013,
-  "spotifyId": "5LM2wq1AYeNnGq9J0nyxnj"
+  "spotifyId": "5LM2wq1AYeNnGq9J0nyxnj",
+  "deezerId": 70266758
  },
  {
   "id": "avicii-the-nights",
   "artist": "Avicii",
   "title": "The Nights",
   "year": 2014,
-  "spotifyId": "0ct6r3EGTcMLPtrXHDvVjc"
+  "spotifyId": "0ct6r3EGTcMLPtrXHDvVjc",
+  "deezerId": 90632837
  },
  {
   "id": "avicii-waiting-for-love",
   "artist": "Avicii",
   "title": "Waiting for Love",
   "year": 2015,
-  "spotifyId": "157ql7EXhncV2pTlYkiM3d"
+  "spotifyId": "157ql7EXhncV2pTlYkiM3d",
+  "deezerId": 107346368
  },
  {
   "id": "pharrell-williams-happy",
   "artist": "Pharrell Williams",
   "title": "Happy",
   "year": 2013,
-  "spotifyId": "60nZcImufyMA1MKQY3dcCH"
+  "spotifyId": "60nZcImufyMA1MKQY3dcCH",
+  "deezerId": 701326562
  },
  {
   "id": "mark-ronson-uptown-funk",
   "artist": "Mark Ronson",
   "title": "Uptown Funk",
   "year": 2014,
-  "spotifyId": "32OlwWuMpZ6b0aN2RZOeMS"
+  "spotifyId": "32OlwWuMpZ6b0aN2RZOeMS",
+  "deezerId": 92734438
  },
  {
   "id": "ed-sheeran-shape-of-you",
   "artist": "Ed Sheeran",
   "title": "Shape of You",
   "year": 2017,
-  "spotifyId": "0FE9t6xYkqWXU2ahLh6D8X"
+  "spotifyId": "0FE9t6xYkqWXU2ahLh6D8X",
+  "deezerId": 139470659
  },
  {
   "id": "ed-sheeran-thinking-out-loud",
   "artist": "Ed Sheeran",
   "title": "Thinking Out Loud",
   "year": 2014,
-  "spotifyId": "7iIrkIn7Iba9u6vPI6lsoP"
+  "spotifyId": "7iIrkIn7Iba9u6vPI6lsoP",
+  "deezerId": 79875064
  },
  {
   "id": "ed-sheeran-perfect",
   "artist": "Ed Sheeran",
   "title": "Perfect",
   "year": 2017,
-  "spotifyId": "0tgVpDi06FyKpA1z0VMD4v"
+  "spotifyId": "0tgVpDi06FyKpA1z0VMD4v",
+  "deezerId": 142986206
  },
  {
   "id": "ed-sheeran-castle-on-the-hill",
   "artist": "Ed Sheeran",
   "title": "Castle on the Hill",
   "year": 2017,
-  "spotifyId": "66qlqxhEMpSHOzjRK4il0b"
+  "spotifyId": "66qlqxhEMpSHOzjRK4il0b",
+  "deezerId": 142986200
  },
  {
   "id": "ed-sheeran-photograph",
   "artist": "Ed Sheeran",
   "title": "Photograph",
   "year": 2014,
-  "spotifyId": "1uswaYRxN8f1Qp6hQRF7yL"
+  "spotifyId": "1uswaYRxN8f1Qp6hQRF7yL",
+  "deezerId": 79875054
  },
  {
   "id": "taylor-swift-shake-it-off",
   "artist": "Taylor Swift",
   "title": "Shake It Off",
   "year": 2014,
-  "spotifyId": "0cqRj7pUJDkTCEsJkx8snD"
+  "spotifyId": "0cqRj7pUJDkTCEsJkx8snD",
+  "deezerId": 2512293231
  },
  {
   "id": "taylor-swift-blank-space",
   "artist": "Taylor Swift",
   "title": "Blank Space",
   "year": 2014,
-  "spotifyId": "1G2JHXxbKpFIuJNpmv3yU8"
+  "spotifyId": "1G2JHXxbKpFIuJNpmv3yU8",
+  "deezerId": 602092412
  },
  {
   "id": "taylor-swift-bad-blood",
   "artist": "Taylor Swift",
   "title": "Bad Blood",
   "year": 2015,
-  "spotifyId": "0BThmcV5jOQywT3aEX84zA"
+  "spotifyId": "0BThmcV5jOQywT3aEX84zA",
+  "deezerId": 372049961
  },
  {
   "id": "taylor-swift-we-are-never-ever-getting-back-together",
   "artist": "Taylor Swift",
   "title": "We Are Never Ever Getting Back Together",
   "year": 2012,
-  "spotifyId": "0VwNdo84DaVYLIkbVO86ND"
+  "spotifyId": "0VwNdo84DaVYLIkbVO86ND",
+  "deezerId": 1550966382
  },
  {
   "id": "taylor-swift-style",
   "artist": "Taylor Swift",
   "title": "Style",
   "year": 2014,
-  "spotifyId": "0dhf6NFP54TTBeAEJ1VZPe"
+  "spotifyId": "0dhf6NFP54TTBeAEJ1VZPe",
+  "deezerId": 602092432
  },
  {
   "id": "bruno-mars-just-the-way-you-are",
@@ -151,7 +168,8 @@
   "artist": "Bruno Mars",
   "title": "Locked Out of Heaven",
   "year": 2012,
-  "spotifyId": "3w3y8KPTfNeOKPiqUTakBh"
+  "spotifyId": "3w3y8KPTfNeOKPiqUTakBh",
+  "deezerId": 62724015
  },
  {
   "id": "bruno-mars-grenade",
@@ -165,49 +183,56 @@
   "artist": "Bruno Mars",
   "title": "When I Was Your Man",
   "year": 2013,
-  "spotifyId": "0nJW01T7XtvILxQgC5J7Wh"
+  "spotifyId": "0nJW01T7XtvILxQgC5J7Wh",
+  "deezerId": 62724019
  },
  {
   "id": "bruno-mars-24k-magic",
   "artist": "Bruno Mars",
   "title": "24K Magic",
   "year": 2016,
-  "spotifyId": "1xzoV5xselLn5rEwYa7eEn"
+  "spotifyId": "1xzoV5xselLn5rEwYa7eEn",
+  "deezerId": 136336110
  },
  {
   "id": "bruno-mars-that-s-what-i-like",
   "artist": "Bruno Mars",
   "title": "That's What I Like",
   "year": 2016,
-  "spotifyId": "0KKkJNfGyhkQ5aFogxQAPU"
+  "spotifyId": "0KKkJNfGyhkQ5aFogxQAPU",
+  "deezerId": 136336116
  },
  {
   "id": "katy-perry-firework",
   "artist": "Katy Perry",
   "title": "Firework",
   "year": 2010,
-  "spotifyId": "2G6yyJJ1zElkVeGKSoRx8K"
+  "spotifyId": "2G6yyJJ1zElkVeGKSoRx8K",
+  "deezerId": 3892384211
  },
  {
   "id": "katy-perry-roar",
   "artist": "Katy Perry",
   "title": "Roar",
   "year": 2013,
-  "spotifyId": "27tNWlhdAryQY04Gb2ZhUI"
+  "spotifyId": "27tNWlhdAryQY04Gb2ZhUI",
+  "deezerId": 71645431
  },
  {
   "id": "katy-perry-teenage-dream",
   "artist": "Katy Perry",
   "title": "Teenage Dream",
   "year": 2010,
-  "spotifyId": "4C6hUow5uc40ExxzLrrEmP"
+  "spotifyId": "4C6hUow5uc40ExxzLrrEmP",
+  "deezerId": 17135108
  },
  {
   "id": "katy-perry-dark-horse",
   "artist": "Katy Perry",
   "title": "Dark Horse",
   "year": 2013,
-  "spotifyId": "5jrdCoLpJSvHHorevXBATy"
+  "spotifyId": "5jrdCoLpJSvHHorevXBATy",
+  "deezerId": 71645391
  },
  {
   "id": "lady-gaga-born-this-way",
@@ -221,14 +246,16 @@
   "artist": "Lady Gaga",
   "title": "Telephone",
   "year": 2010,
-  "spotifyId": "4TCL0qqKyqsMZml0G3M9IM"
+  "spotifyId": "4TCL0qqKyqsMZml0G3M9IM",
+  "deezerId": 734508702
  },
  {
   "id": "rihanna-we-found-love",
   "artist": "Rihanna",
   "title": "We Found Love",
   "year": 2011,
-  "spotifyId": "6qn9YLKt13AGvpq9jfO8py"
+  "spotifyId": "6qn9YLKt13AGvpq9jfO8py",
+  "deezerId": 14525574
  },
  {
   "id": "gotye-somebody-that-i-used-to-know",
@@ -249,21 +276,24 @@
   "artist": "PSY",
   "title": "Gangnam Style",
   "year": 2012,
-  "spotifyId": "03UrZgTINDqvnUMbbIMhql"
+  "spotifyId": "03UrZgTINDqvnUMbbIMhql",
+  "deezerId": 60726278
  },
  {
   "id": "daft-punk-get-lucky",
   "artist": "Daft Punk",
   "title": "Get Lucky",
   "year": 2013,
-  "spotifyId": "2olIQt0rL0hOHau1SJ4xf2"
+  "spotifyId": "2olIQt0rL0hOHau1SJ4xf2",
+  "deezerId": 67238735
  },
  {
   "id": "imagine-dragons-radioactive",
   "artist": "Imagine Dragons",
   "title": "Radioactive",
   "year": 2012,
-  "spotifyId": "62yJjFtgkhUrXktIoSjgP2"
+  "spotifyId": "62yJjFtgkhUrXktIoSjgP2",
+  "deezerId": 74506420
  },
  {
   "id": "imagine-dragons-demons",
@@ -277,28 +307,32 @@
   "artist": "Imagine Dragons",
   "title": "Believer",
   "year": 2017,
-  "spotifyId": "15bWckhU6MlGQ0or1GFWtn"
+  "spotifyId": "15bWckhU6MlGQ0or1GFWtn",
+  "deezerId": 528330441
  },
  {
   "id": "imagine-dragons-thunder",
   "artist": "Imagine Dragons",
   "title": "Thunder",
   "year": 2017,
-  "spotifyId": "2gUkMZoKC9M6312WMRULel"
+  "spotifyId": "2gUkMZoKC9M6312WMRULel",
+  "deezerId": 528330501
  },
  {
   "id": "coldplay-paradise",
   "artist": "Coldplay",
   "title": "Paradise",
   "year": 2011,
-  "spotifyId": "0s0QstFpBjzpiANqoxBkJR"
+  "spotifyId": "0s0QstFpBjzpiANqoxBkJR",
+  "deezerId": 14299589
  },
  {
   "id": "coldplay-a-sky-full-of-stars",
   "artist": "Coldplay",
   "title": "A Sky Full of Stars",
   "year": 2014,
-  "spotifyId": "0FDzzruyVECATHXKHFs9eJ"
+  "spotifyId": "0FDzzruyVECATHXKHFs9eJ",
+  "deezerId": 78129603
  },
  {
   "id": "maroon-5-moves-like-jagger",
@@ -312,238 +346,272 @@
   "artist": "Maroon 5",
   "title": "Sugar",
   "year": 2015,
-  "spotifyId": "2iuZJX9X9P0GKaE93xcPjk"
+  "spotifyId": "2iuZJX9X9P0GKaE93xcPjk",
+  "deezerId": 100004590
  },
  {
   "id": "maroon-5-girls-like-you",
   "artist": "Maroon 5",
   "title": "Girls Like You",
   "year": 2018,
-  "spotifyId": "2Iw2WQAVpHpLqrIaK5fitt"
+  "spotifyId": "2Iw2WQAVpHpLqrIaK5fitt",
+  "deezerId": 498130042
  },
  {
   "id": "maroon-5-memories",
   "artist": "Maroon 5",
   "title": "Memories",
   "year": 2019,
-  "spotifyId": "2b8fOow8UzyDFAE27YhOZM"
+  "spotifyId": "2b8fOow8UzyDFAE27YhOZM",
+  "deezerId": 1400843202
  },
  {
   "id": "justin-bieber-sorry",
   "artist": "Justin Bieber",
   "title": "Sorry",
   "year": 2015,
-  "spotifyId": "2BAE404zzRv7loL51YTEWR"
+  "spotifyId": "2BAE404zzRv7loL51YTEWR",
+  "deezerId": 112662366
  },
  {
   "id": "justin-bieber-love-yourself",
   "artist": "Justin Bieber",
   "title": "Love Yourself",
   "year": 2015,
-  "spotifyId": "1JmCURvhcWKdYF01zG6Ec0"
+  "spotifyId": "1JmCURvhcWKdYF01zG6Ec0",
+  "deezerId": 112662368
  },
  {
   "id": "justin-bieber-baby",
   "artist": "Justin Bieber",
   "title": "Baby",
   "year": 2010,
-  "spotifyId": "5G0A4lFaKNwIBhUEhpdrVs"
+  "spotifyId": "5G0A4lFaKNwIBhUEhpdrVs",
+  "deezerId": 5606967
  },
  {
   "id": "luis-fonsi-despacito",
   "artist": "Luis Fonsi",
   "title": "Despacito",
   "year": 2017,
-  "spotifyId": "6habFhsOp2NvshLv26DqMb"
+  "spotifyId": "6habFhsOp2NvshLv26DqMb",
+  "deezerId": 623698142
  },
  {
   "id": "the-weeknd-blinding-lights",
   "artist": "The Weeknd",
   "title": "Blinding Lights",
   "year": 2019,
-  "spotifyId": "6qYkmqFsXbj8CQjAdbYz07"
+  "spotifyId": "6qYkmqFsXbj8CQjAdbYz07",
+  "deezerId": 908604612
  },
  {
   "id": "the-weeknd-starboy",
   "artist": "The Weeknd",
   "title": "Starboy",
   "year": 2016,
-  "spotifyId": "7MXVkk9YMctZqd1Srtv4MB"
+  "spotifyId": "7MXVkk9YMctZqd1Srtv4MB",
+  "deezerId": 136889400
  },
  {
   "id": "the-weeknd-the-hills",
   "artist": "The Weeknd",
   "title": "The Hills",
   "year": 2015,
-  "spotifyId": "25khomWgBVamSdKw7hzm3l"
+  "spotifyId": "25khomWgBVamSdKw7hzm3l",
+  "deezerId": 106506512
  },
  {
   "id": "billie-eilish-bad-guy",
   "artist": "Billie Eilish",
   "title": "Bad Guy",
   "year": 2019,
-  "spotifyId": "2Fxmhks0bxGSBdJ92vM42m"
+  "spotifyId": "2Fxmhks0bxGSBdJ92vM42m",
+  "deezerId": 655095912
  },
  {
   "id": "lewis-capaldi-someone-you-loved",
   "artist": "Lewis Capaldi",
   "title": "Someone You Loved",
   "year": 2018,
-  "spotifyId": "3cw1VoPVHSUAwwnhiUr4pK"
+  "spotifyId": "3cw1VoPVHSUAwwnhiUr4pK",
+  "deezerId": 582143242
  },
  {
   "id": "dua-lipa-new-rules",
   "artist": "Dua Lipa",
   "title": "New Rules",
   "year": 2017,
-  "spotifyId": "25sOTMPiRwTfMk8YUwG1rG"
+  "spotifyId": "25sOTMPiRwTfMk8YUwG1rG",
+  "deezerId": 366297921
  },
  {
   "id": "dua-lipa-idgaf",
   "artist": "Dua Lipa",
   "title": "IDGAF",
   "year": 2017,
-  "spotifyId": "1ny60YCHhEsxsJXWLhK7b0"
+  "spotifyId": "1ny60YCHhEsxsJXWLhK7b0",
+  "deezerId": 366297871
  },
  {
   "id": "dua-lipa-don-t-start-now",
   "artist": "Dua Lipa",
   "title": "Don't Start Now",
   "year": 2019,
-  "spotifyId": "3oRWl1wBZo9KjZRAwvOFJv"
+  "spotifyId": "3oRWl1wBZo9KjZRAwvOFJv",
+  "deezerId": 1124841652
  },
  {
   "id": "sam-smith-stay-with-me",
   "artist": "Sam Smith",
   "title": "Stay with Me",
   "year": 2014,
-  "spotifyId": "5Nm9ERjJZ5oyfXZTECKmRt"
+  "spotifyId": "5Nm9ERjJZ5oyfXZTECKmRt",
+  "deezerId": 77834704
  },
  {
   "id": "sam-smith-too-good-at-goodbyes",
   "artist": "Sam Smith",
   "title": "Too Good at Goodbyes",
   "year": 2017,
-  "spotifyId": "0mel2N9Ws9r4yLQn5QE21Y"
+  "spotifyId": "0mel2N9Ws9r4yLQn5QE21Y",
+  "deezerId": 422202502
  },
  {
   "id": "sia-cheap-thrills",
   "artist": "Sia",
   "title": "Cheap Thrills",
   "year": 2016,
-  "spotifyId": "7BPw9h8vCIX94N0rjFU12S"
+  "spotifyId": "7BPw9h8vCIX94N0rjFU12S",
+  "deezerId": 115671688
  },
  {
   "id": "david-guetta-titanium",
   "artist": "David Guetta",
   "title": "Titanium",
   "year": 2011,
-  "spotifyId": "0TDLuuLlV54CkRRUOahJb4"
+  "spotifyId": "0TDLuuLlV54CkRRUOahJb4",
+  "deezerId": 62847142
  },
  {
   "id": "calvin-harris-summer",
   "artist": "Calvin Harris",
   "title": "Summer",
   "year": 2014,
-  "spotifyId": "6YUTL4dYpB9xZO5qExPf05"
+  "spotifyId": "6YUTL4dYpB9xZO5qExPf05",
+  "deezerId": 88936747
  },
  {
   "id": "calvin-harris-this-is-what-you-came-for",
   "artist": "Calvin Harris",
   "title": "This Is What You Came For",
   "year": 2016,
-  "spotifyId": "2WGGSeF9vDtuN60h9wa8dE"
+  "spotifyId": "2WGGSeF9vDtuN60h9wa8dE",
+  "deezerId": 123883254
  },
  {
   "id": "the-chainsmokers-closer",
   "artist": "The Chainsmokers",
   "title": "Closer",
   "year": 2016,
-  "spotifyId": "7BKLCZ1jbUBVqRi2FVlTVw"
+  "spotifyId": "7BKLCZ1jbUBVqRi2FVlTVw",
+  "deezerId": 129310248
  },
  {
   "id": "zara-larsson-lush-life",
   "artist": "Zara Larsson",
   "title": "Lush Life",
   "year": 2015,
-  "spotifyId": "1rIKgCH4H52lrvDcz50hS8"
+  "spotifyId": "1rIKgCH4H52lrvDcz50hS8",
+  "deezerId": 144389048
  },
  {
   "id": "zara-larsson-never-forget-you",
   "artist": "Zara Larsson",
   "title": "Never Forget You",
   "year": 2015,
-  "spotifyId": "0k1qJaNhF5yTZvd4E8NgKL"
+  "spotifyId": "0k1qJaNhF5yTZvd4E8NgKL",
+  "deezerId": 144389058
  },
  {
   "id": "tove-lo-habits-stay-high",
   "artist": "Tove Lo",
   "title": "Habits (Stay High)",
   "year": 2013,
-  "spotifyId": "18AJRdgUoO9EYn11N7xzaT"
+  "spotifyId": "18AJRdgUoO9EYn11N7xzaT",
+  "deezerId": 2189731047
  },
  {
   "id": "loreen-euphoria",
   "artist": "Loreen",
   "title": "Euphoria",
   "year": 2012,
-  "spotifyId": "2knr7ikPt4l7bk92qS4ZXW"
+  "spotifyId": "2knr7ikPt4l7bk92qS4ZXW",
+  "deezerId": 67466760
  },
  {
   "id": "mans-zelmerlow-heroes",
   "artist": "Måns Zelmerlöw",
   "title": "Heroes",
   "year": 2015,
-  "spotifyId": "4ciaNqHWA2IzHphZaVRzHI"
+  "spotifyId": "4ciaNqHWA2IzHphZaVRzHI",
+  "deezerId": 95585876
  },
  {
   "id": "kygo-stole-the-show",
   "artist": "Kygo",
   "title": "Stole the Show",
   "year": 2015,
-  "spotifyId": "1qf3DA2eEa6ONeV2G208sC"
+  "spotifyId": "1qf3DA2eEa6ONeV2G208sC",
+  "deezerId": 96818170
  },
  {
   "id": "alan-walker-faded",
   "artist": "Alan Walker",
   "title": "Faded",
   "year": 2015,
-  "spotifyId": "7gHs73wELdeycvS48JfIos"
+  "spotifyId": "7gHs73wELdeycvS48JfIos",
+  "deezerId": 140295501
  },
  {
   "id": "onerepublic-counting-stars",
   "artist": "OneRepublic",
   "title": "Counting Stars",
   "year": 2013,
-  "spotifyId": "1QzFhzIOW7CyRJLpmq5CM0"
+  "spotifyId": "1QzFhzIOW7CyRJLpmq5CM0",
+  "deezerId": 65759979
  },
  {
   "id": "fun-some-nights",
   "artist": "fun.",
   "title": "Some Nights",
   "year": 2012,
-  "spotifyId": "0kR4Gn7FljUY4t8SKIFyZh"
+  "spotifyId": "0kR4Gn7FljUY4t8SKIFyZh",
+  "deezerId": 16501727
  },
  {
   "id": "macklemore-ryan-lewis-thrift-shop",
   "artist": "Macklemore & Ryan Lewis",
   "title": "Thrift Shop",
   "year": 2012,
-  "spotifyId": "1CmUZGtH29Kx36C1Hleqlz"
+  "spotifyId": "1CmUZGtH29Kx36C1Hleqlz",
+  "deezerId": 61424045
  },
  {
   "id": "macklemore-ryan-lewis-can-t-hold-us",
   "artist": "Macklemore & Ryan Lewis",
   "title": "Can't Hold Us",
   "year": 2011,
-  "spotifyId": "22skzmqfdWrjJylampe0kt"
+  "spotifyId": "22skzmqfdWrjJylampe0kt",
+  "deezerId": 61424044
  },
  {
   "id": "meghan-trainor-all-about-that-bass",
   "artist": "Meghan Trainor",
   "title": "All About That Bass",
   "year": 2014,
-  "spotifyId": "4UFfkQj7bkQmqO9GF52rTq"
+  "spotifyId": "4UFfkQj7bkQmqO9GF52rTq",
+  "deezerId": 113420702
  },
  {
   "id": "hozier-take-me-to-church",
@@ -557,21 +625,24 @@
   "artist": "John Legend",
   "title": "All of Me",
   "year": 2013,
-  "spotifyId": "3U4isOIWM3VvDubwSI3y7a"
+  "spotifyId": "3U4isOIWM3VvDubwSI3y7a",
+  "deezerId": 70079770
  },
  {
   "id": "lorde-royals",
   "artist": "Lorde",
   "title": "Royals",
   "year": 2013,
-  "spotifyId": "4SDWMFvYJKtK1QPhIOeZhd"
+  "spotifyId": "4SDWMFvYJKtK1QPhIOeZhd",
+  "deezerId": 70403437
  },
  {
   "id": "lana-del-rey-video-games",
   "artist": "Lana Del Rey",
   "title": "Video Games",
   "year": 2011,
-  "spotifyId": "5xTEkzHycz81QTcqCS9oVv"
+  "spotifyId": "5xTEkzHycz81QTcqCS9oVv",
+  "deezerId": 1276136622
  },
  {
   "id": "mumford-sons-i-will-wait",
@@ -585,7 +656,8 @@
   "artist": "Of Monsters and Men",
   "title": "Little Talks",
   "year": 2011,
-  "spotifyId": "2vUB3fStz1h1aAGJLSM2fP"
+  "spotifyId": "2vUB3fStz1h1aAGJLSM2fP",
+  "deezerId": 17615568
  },
  {
   "id": "passenger-let-her-go",
@@ -599,21 +671,24 @@
   "artist": "George Ezra",
   "title": "Budapest",
   "year": 2014,
-  "spotifyId": "0ZnnRLXJnzmWG0bRNUCW8J"
+  "spotifyId": "0ZnnRLXJnzmWG0bRNUCW8J",
+  "deezerId": 71220746
  },
  {
   "id": "george-ezra-shotgun",
   "artist": "George Ezra",
   "title": "Shotgun",
   "year": 2018,
-  "spotifyId": "4ofwffwvvnbSkrMSCKQDaC"
+  "spotifyId": "4ofwffwvvnbSkrMSCKQDaC",
+  "deezerId": 472898512
  },
  {
   "id": "ellie-goulding-love-me-like-you-do",
   "artist": "Ellie Goulding",
   "title": "Love Me like You Do",
   "year": 2015,
-  "spotifyId": "0Cy7wt6IlRfBPHXXjmZbcP"
+  "spotifyId": "0Cy7wt6IlRfBPHXXjmZbcP",
+  "deezerId": 111780476
  },
  {
   "id": "ellie-goulding-burn",
@@ -627,98 +702,112 @@
   "artist": "Clean Bandit",
   "title": "Rather Be",
   "year": 2014,
-  "spotifyId": "61dCUoMCg28qEBzrW6htYM"
+  "spotifyId": "61dCUoMCg28qEBzrW6htYM",
+  "deezerId": 73982869
  },
  {
   "id": "clean-bandit-rockabye",
   "artist": "Clean Bandit",
   "title": "Rockabye",
   "year": 2016,
-  "spotifyId": "2hrUO4drrO63i7FYbCLBl2"
+  "spotifyId": "2hrUO4drrO63i7FYbCLBl2",
+  "deezerId": 134527024
  },
  {
   "id": "rita-ora-anywhere",
   "artist": "Rita Ora",
   "title": "Anywhere",
   "year": 2017,
-  "spotifyId": "7srDqJsF7Tx33VSlYi0qdq"
+  "spotifyId": "7srDqJsF7Tx33VSlYi0qdq",
+  "deezerId": 416461342
  },
  {
   "id": "jessie-j-price-tag",
   "artist": "Jessie J",
   "title": "Price Tag",
   "year": 2011,
-  "spotifyId": "4MQXG2TXflm6IxGV85y0SN"
+  "spotifyId": "4MQXG2TXflm6IxGV85y0SN",
+  "deezerId": 1116822242
  },
  {
   "id": "jessie-j-bang-bang",
   "artist": "Jessie J",
   "title": "Bang Bang",
   "year": 2014,
-  "spotifyId": "0n0RIL4QDgDNEfuA3hey4a"
+  "spotifyId": "0n0RIL4QDgDNEfuA3hey4a",
+  "deezerId": 1154215682
  },
  {
   "id": "ariana-grande-thank-u-next",
   "artist": "Ariana Grande",
   "title": "Thank U, Next",
   "year": 2018,
-  "spotifyId": "2rPE9A1vEgShuZxxzR2tZH"
+  "spotifyId": "2rPE9A1vEgShuZxxzR2tZH",
+  "deezerId": 629899852
  },
  {
   "id": "ariana-grande-problem",
   "artist": "Ariana Grande",
   "title": "Problem",
   "year": 2014,
-  "spotifyId": "0NCEyOzVW7FF5nL1MBecM7"
+  "spotifyId": "0NCEyOzVW7FF5nL1MBecM7",
+  "deezerId": 83837258
  },
  {
   "id": "ariana-grande-no-tears-left-to-cry",
   "artist": "Ariana Grande",
   "title": "No Tears Left to Cry",
   "year": 2018,
-  "spotifyId": "5SxkdsY1ufZzoq9iXceLw9"
+  "spotifyId": "5SxkdsY1ufZzoq9iXceLw9",
+  "deezerId": 504055952
  },
  {
   "id": "shawn-mendes-stitches",
   "artist": "Shawn Mendes",
   "title": "Stitches",
   "year": 2015,
-  "spotifyId": "6Bi7jsxAnE1itxkuZOmf1K"
+  "spotifyId": "6Bi7jsxAnE1itxkuZOmf1K",
+  "deezerId": 113418500
  },
  {
   "id": "shawn-mendes-treat-you-better",
   "artist": "Shawn Mendes",
   "title": "Treat You Better",
   "year": 2016,
-  "spotifyId": "4bpQqWyEPdWJu2qmYGpXs4"
+  "spotifyId": "4bpQqWyEPdWJu2qmYGpXs4",
+  "deezerId": 351594981
  },
  {
   "id": "shawn-mendes-senorita",
   "artist": "Shawn Mendes",
   "title": "Señorita",
   "year": 2019,
-  "spotifyId": "0TK2YIli7K1leLovkQiNik"
+  "spotifyId": "0TK2YIli7K1leLovkQiNik",
+  "deezerId": 698905582
  },
  {
   "id": "the-neighbourhood-sweater-weather",
   "artist": "The Neighbourhood",
   "title": "Sweater Weather",
   "year": 2012,
-  "spotifyId": "00xYOITpx6SEi1ntfdlA39"
+  "spotifyId": "00xYOITpx6SEi1ntfdlA39",
+  "deezerId": 52597881
  },
  {
   "id": "lord-huron-the-night-we-met",
   "artist": "Lord Huron",
   "title": "The Night We Met",
   "year": 2015,
-  "spotifyId": "3hRV0jL3vUpRrcy398teAU"
+  "spotifyId": "3hRV0jL3vUpRrcy398teAU",
+  "deezerId": 499988832
  },
  {
   "id": "vance-joy-riptide",
   "artist": "Vance Joy",
   "title": "Riptide",
   "year": 2013,
-  "spotifyId": "2uXlHCUbq9OMUwx3hrk06o"
+  "spotifyId": "2uXlHCUbq9OMUwx3hrk06o",
+  "deezerId": 83841464
  },
  {
   "id": "the-chainsmokers-something-just-like-this",
@@ -732,63 +821,72 @@
   "artist": "Tom Odell",
   "title": "Another Love",
   "year": 2012,
-  "spotifyId": "3JvKfv6T31zO0ini8iNItO"
+  "spotifyId": "3JvKfv6T31zO0ini8iNItO",
+  "deezerId": 65723649
  },
  {
   "id": "tones-and-i-dance-monkey",
   "artist": "Tones and I",
   "title": "Dance Monkey",
   "year": 2019,
-  "spotifyId": "2N8m6CYs74qQO4mjVcXO30"
+  "spotifyId": "2N8m6CYs74qQO4mjVcXO30",
+  "deezerId": 739870792
  },
  {
   "id": "harry-styles-watermelon-sugar",
   "artist": "Harry Styles",
   "title": "Watermelon Sugar",
   "year": 2019,
-  "spotifyId": "6UelLqGlWMcVH1E5c4H7lY"
+  "spotifyId": "6UelLqGlWMcVH1E5c4H7lY",
+  "deezerId": 830336922
  },
  {
   "id": "drake-god-s-plan",
   "artist": "Drake",
   "title": "God's Plan",
   "year": 2018,
-  "spotifyId": "6DCZcSspjsKoFjzjrWoCdn"
+  "spotifyId": "6DCZcSspjsKoFjzjrWoCdn",
+  "deezerId": 533609232
  },
  {
   "id": "twenty-one-pilots-stressed-out",
   "artist": "Twenty One Pilots",
   "title": "Stressed Out",
   "year": 2015,
-  "spotifyId": "3CRDbSIZ4r5MsZ0YwxuEkn"
+  "spotifyId": "3CRDbSIZ4r5MsZ0YwxuEkn",
+  "deezerId": 99976952
  },
  {
   "id": "arctic-monkeys-do-i-wanna-know",
   "artist": "Arctic Monkeys",
   "title": "Do I Wanna Know?",
   "year": 2013,
-  "spotifyId": "5FVd6KXrgO9B3JPmC8OPst"
+  "spotifyId": "5FVd6KXrgO9B3JPmC8OPst",
+  "deezerId": 70322130
  },
  {
   "id": "shawn-mendes-there-s-nothing-holdin-me-back",
   "artist": "Shawn Mendes",
   "title": "There's Nothing Holdin' Me Back",
   "year": 2017,
-  "spotifyId": "3bBknFVxhFjBIFX91HcneQ"
+  "spotifyId": "3bBknFVxhFjBIFX91HcneQ",
+  "deezerId": 351595631
  },
  {
   "id": "maroon-5-payphone",
   "artist": "Maroon 5",
   "title": "Payphone",
   "year": 2012,
-  "spotifyId": "1XGmzt0PVuFgQYYnV2It7A"
+  "spotifyId": "1XGmzt0PVuFgQYYnV2It7A",
+  "deezerId": 1394186132
  },
  {
   "id": "major-lazer-lean-on",
   "artist": "Major Lazer",
   "title": "Lean On",
   "year": 2015,
-  "spotifyId": "7LHhNWdKxgg3yxBhfF1Onq"
+  "spotifyId": "7LHhNWdKxgg3yxBhfF1Onq",
+  "deezerId": 657813082
  },
  {
   "id": "don-omar-danza-kuduro",
@@ -802,28 +900,32 @@
   "artist": "Charlie Puth",
   "title": "We Don't Talk Anymore",
   "year": 2016,
-  "spotifyId": "54PbBpquVfhfrwRwvjSXbI"
+  "spotifyId": "54PbBpquVfhfrwRwvjSXbI",
+  "deezerId": 136258284
  },
  {
   "id": "one-direction-night-changes",
   "artist": "One Direction",
   "title": "Night Changes",
   "year": 2014,
-  "spotifyId": "5O2P9iiztwhomNh8xkR9lJ"
+  "spotifyId": "5O2P9iiztwhomNh8xkR9lJ",
+  "deezerId": 90248141
  },
  {
   "id": "travis-scott-sicko-mode",
   "artist": "Travis Scott",
   "title": "Sicko Mode",
   "year": 2018,
-  "spotifyId": "1YfBk0pJhG9JHV5Ni60IDZ"
+  "spotifyId": "1YfBk0pJhG9JHV5Ni60IDZ",
+  "deezerId": 536421002
  },
  {
   "id": "charlie-puth-attention",
   "artist": "Charlie Puth",
   "title": "Attention",
   "year": 2017,
-  "spotifyId": "5cF0dROlMOK5uNZtivgu50"
+  "spotifyId": "5cF0dROlMOK5uNZtivgu50",
+  "deezerId": 349385251
  },
  {
   "id": "lukas-graham-7-years",
@@ -837,119 +939,136 @@
   "artist": "Foster the People",
   "title": "Pumped Up Kicks",
   "year": 2010,
-  "spotifyId": "7w87IxuO7BDcJ3YUqCyMTT"
+  "spotifyId": "7w87IxuO7BDcJ3YUqCyMTT",
+  "deezerId": 15546830
  },
  {
   "id": "sam-smith-i-m-not-the-only-one",
   "artist": "Sam Smith",
   "title": "I'm Not the Only One",
   "year": 2014,
-  "spotifyId": "7795WJLVKJoAyVoOtCWqXN"
+  "spotifyId": "7795WJLVKJoAyVoOtCWqXN",
+  "deezerId": 111780380
  },
  {
   "id": "lil-uzi-vert-xo-tour-llif3",
   "artist": "Lil Uzi Vert",
   "title": "XO Tour Llif3",
   "year": 2017,
-  "spotifyId": "3EWaR09H3TkRgaLTIheYFr"
+  "spotifyId": "3EWaR09H3TkRgaLTIheYFr",
+  "deezerId": 144949268
  },
  {
   "id": "xxxtentacion-sad",
   "artist": "XXXTentacion",
   "title": "SAD!",
   "year": 2018,
-  "spotifyId": "3ee8Jmje8o58CHK66QrVC2"
+  "spotifyId": "3ee8Jmje8o58CHK66QrVC2",
+  "deezerId": 472992602
  },
  {
   "id": "camila-cabello-havana",
   "artist": "Camila Cabello",
   "title": "Havana",
   "year": 2017,
-  "spotifyId": "1rfofaqEpACxVEHIZBJe6W"
+  "spotifyId": "1rfofaqEpACxVEHIZBJe6W",
+  "deezerId": 447098092
  },
  {
   "id": "mike-posner-i-took-a-pill-in-ibiza",
   "artist": "Mike Posner",
   "title": "I Took a Pill in Ibiza",
   "year": 2015,
-  "spotifyId": "0vbtURX4qv1l7besfwmnD8"
+  "spotifyId": "0vbtURX4qv1l7besfwmnD8",
+  "deezerId": 124550818
  },
  {
   "id": "xxxtentacion-moonlight",
   "artist": "XXXTentacion",
   "title": "Moonlight",
   "year": 2018,
-  "spotifyId": "0JP9xo3adEtGSdUEISiszL"
+  "spotifyId": "0JP9xo3adEtGSdUEISiszL",
+  "deezerId": 472992592
  },
  {
   "id": "the-chainsmokers-don-t-let-me-down",
   "artist": "The Chainsmokers",
   "title": "Don't Let Me Down",
   "year": 2016,
-  "spotifyId": "1i1fxkWeaMmKEB4T7zqbzK"
+  "spotifyId": "1i1fxkWeaMmKEB4T7zqbzK",
+  "deezerId": 119302924
  },
  {
   "id": "lana-del-rey-summertime-sadness",
   "artist": "Lana Del Rey",
   "title": "Summertime Sadness",
   "year": 2012,
-  "spotifyId": "5dUYmMxjCF7PY9CU4swHuJ"
+  "spotifyId": "5dUYmMxjCF7PY9CU4swHuJ",
+  "deezerId": 96973390
  },
  {
   "id": "walk-the-moon-shut-up-and-dance",
   "artist": "Walk the Moon",
   "title": "Shut Up and Dance",
   "year": 2014,
-  "spotifyId": "4kbj5MwxO1bq9wjT5g9HaA"
+  "spotifyId": "4kbj5MwxO1bq9wjT5g9HaA",
+  "deezerId": 90326361
  },
  {
   "id": "lewis-capaldi-before-you-go",
   "artist": "Lewis Capaldi",
   "title": "Before You Go",
   "year": 2019,
-  "spotifyId": "2gMXnyrvIjhVBUZwvLZDMP"
+  "spotifyId": "2gMXnyrvIjhVBUZwvLZDMP",
+  "deezerId": 807205422
  },
  {
   "id": "harry-styles-sign-of-the-times",
   "artist": "Harry Styles",
   "title": "Sign of the Times",
   "year": 2017,
-  "spotifyId": "5Ohxk2dO5COHF1krpoPigN"
+  "spotifyId": "5Ohxk2dO5COHF1krpoPigN",
+  "deezerId": 360301951
  },
  {
   "id": "arctic-monkeys-why-d-you-only-call-me-when-you-re-high",
   "artist": "Arctic Monkeys",
   "title": "Why'd You Only Call Me When You're High?",
   "year": 2013,
-  "spotifyId": "086myS9r57YsLbJpU0TgK9"
+  "spotifyId": "086myS9r57YsLbJpU0TgK9",
+  "deezerId": 70322139
  },
  {
   "id": "drake-passionfruit",
   "artist": "Drake",
   "title": "Passionfruit",
   "year": 2017,
-  "spotifyId": "5mCPDVBb16L4XQwDdbRUpz"
+  "spotifyId": "5mCPDVBb16L4XQwDdbRUpz",
+  "deezerId": 144572210
  },
  {
   "id": "christina-perri-a-thousand-years",
   "artist": "Christina Perri",
   "title": "A Thousand Years",
   "year": 2011,
-  "spotifyId": "6lanRgr6wXibZr8KgzXxBl"
+  "spotifyId": "6lanRgr6wXibZr8KgzXxBl",
+  "deezerId": 14499484
  },
  {
   "id": "twenty-one-pilots-ride",
   "artist": "Twenty One Pilots",
   "title": "Ride",
   "year": 2016,
-  "spotifyId": "2Z8WuEywRWYTKe1NybPQEW"
+  "spotifyId": "2Z8WuEywRWYTKe1NybPQEW",
+  "deezerId": 99976954
  },
  {
   "id": "eminem-love-the-way-you-lie",
   "artist": "Eminem",
   "title": "Love the Way You Lie",
   "year": 2010,
-  "spotifyId": "15JINEqzVMv3SvJTAXAKED"
+  "spotifyId": "15JINEqzVMv3SvJTAXAKED",
+  "deezerId": 6461440
  },
  {
   "id": "sia-chandelier",
@@ -963,14 +1082,16 @@
   "artist": "Travis Scott",
   "title": "Highest in the Room",
   "year": 2019,
-  "spotifyId": "3eekarcy7kvN4yt5ZFzltW"
+  "spotifyId": "3eekarcy7kvN4yt5ZFzltW",
+  "deezerId": 767583072
  },
  {
   "id": "twenty-one-pilots-heathens",
   "artist": "Twenty One Pilots",
   "title": "Heathens",
   "year": 2016,
-  "spotifyId": "6i0V12jOa3mr6uu4WYhUBr"
+  "spotifyId": "6i0V12jOa3mr6uu4WYhUBr",
+  "deezerId": 126884459
  },
  {
   "id": "omi-cheerleader",
@@ -984,84 +1105,96 @@
   "artist": "Zayn Malik",
   "title": "Dusk Till Dawn",
   "year": 2017,
-  "spotifyId": "3e7sxremeOE3wTySiOhGiP"
+  "spotifyId": "3e7sxremeOE3wTySiOhGiP",
+  "deezerId": 504986052
  },
  {
   "id": "lana-del-rey-young-and-beautiful",
   "artist": "Lana Del Rey",
   "title": "Young and Beautiful",
   "year": 2013,
-  "spotifyId": "2nMeu6UenVvwUktBCpLMK9"
+  "spotifyId": "2nMeu6UenVvwUktBCpLMK9",
+  "deezerId": 66660698
  },
  {
   "id": "magic-rude",
   "artist": "Magic!",
   "title": "Rude",
   "year": 2014,
-  "spotifyId": "6RtPijgfPKROxEzTHNRiDp"
+  "spotifyId": "6RtPijgfPKROxEzTHNRiDp",
+  "deezerId": 79845486
  },
  {
   "id": "alec-benjamin-let-me-down-slowly",
   "artist": "Alec Benjamin",
   "title": "Let Me Down Slowly",
   "year": 2018,
-  "spotifyId": "2qxmye6gAegTMjLKEBoR3d"
+  "spotifyId": "2qxmye6gAegTMjLKEBoR3d",
+  "deezerId": 504313072
  },
  {
   "id": "ariana-grande-one-last-time",
   "artist": "Ariana Grande",
   "title": "One Last Time",
   "year": 2015,
-  "spotifyId": "7xoUc6faLbCqZO6fQEYprd"
+  "spotifyId": "7xoUc6faLbCqZO6fQEYprd",
+  "deezerId": 83837260
  },
  {
   "id": "5-seconds-of-summer-youngblood",
   "artist": "5 Seconds of Summer",
   "title": "Youngblood",
   "year": 2018,
-  "spotifyId": "2iUXsYOEPhVqEBwsqP70rE"
+  "spotifyId": "2iUXsYOEPhVqEBwsqP70rE",
+  "deezerId": 483399272
  },
  {
   "id": "zayn-malik-i-don-t-wanna-live-forever",
   "artist": "Zayn Malik",
   "title": "I Don't Wanna Live Forever",
   "year": 2016,
-  "spotifyId": "55n9yjI6qqXh5F2mYvUc2y"
+  "spotifyId": "55n9yjI6qqXh5F2mYvUc2y",
+  "deezerId": 595112162
  },
  {
   "id": "xxxtentacion-fuck-love",
   "artist": "XXXTentacion",
   "title": "Fuck Love",
   "year": 2018,
-  "spotifyId": "7AQim7LbvFVZJE3O8TYgf2"
+  "spotifyId": "7AQim7LbvFVZJE3O8TYgf2",
+  "deezerId": 398055742
  },
  {
   "id": "ava-max-sweet-but-psycho",
   "artist": "Ava Max",
   "title": "Sweet but Psycho",
   "year": 2018,
-  "spotifyId": "7DnAm9FOTWE3cUvso43HhI"
+  "spotifyId": "7DnAm9FOTWE3cUvso43HhI",
+  "deezerId": 539562302
  },
  {
   "id": "ariana-grande-into-you",
   "artist": "Ariana Grande",
   "title": "Into You",
   "year": 2016,
-  "spotifyId": "76FZM38RC8XaAjJ77CVTNe"
+  "spotifyId": "76FZM38RC8XaAjJ77CVTNe",
+  "deezerId": 1375215242
  },
  {
   "id": "bastille-pompeii",
   "artist": "Bastille",
   "title": "Pompeii",
   "year": 2013,
-  "spotifyId": "1bwFfoGw6mJHqM6VjIZ5KN"
+  "spotifyId": "1bwFfoGw6mJHqM6VjIZ5KN",
+  "deezerId": 63034985
  },
  {
   "id": "dnce-cake-by-the-ocean",
   "artist": "DNCE",
   "title": "Cake by the Ocean",
   "year": 2015,
-  "spotifyId": "7c46klcGqXm2ywnAKy19do"
+  "spotifyId": "7c46klcGqXm2ywnAKy19do",
+  "deezerId": 136341758
  },
  {
   "id": "pink-just-give-me-a-reason",
@@ -1075,70 +1208,80 @@
   "artist": "Khalid",
   "title": "Young Dumb & Broke",
   "year": 2017,
-  "spotifyId": "5Z3GHaZ6ec9bsiI5BenrbY"
+  "spotifyId": "5Z3GHaZ6ec9bsiI5BenrbY",
+  "deezerId": 143172406
  },
  {
   "id": "katy-perry-last-friday-night-t-g-i-f",
   "artist": "Katy Perry",
   "title": "Last Friday Night (T.G.I.F.)",
   "year": 2011,
-  "spotifyId": "4Ky5Y0DJcNBp42P0XHvFtE"
+  "spotifyId": "4Ky5Y0DJcNBp42P0XHvFtE",
+  "deezerId": 17135109
  },
  {
   "id": "sia-unstoppable",
   "artist": "Sia",
   "title": "Unstoppable",
   "year": 2016,
-  "spotifyId": "059ACLUOyEcdruA2m9f2jd"
+  "spotifyId": "059ACLUOyEcdruA2m9f2jd",
+  "deezerId": 117708444
  },
  {
   "id": "ne-yo-time-of-our-lives",
   "artist": "Ne-Yo",
   "title": "Time of Our Lives",
   "year": 2014,
-  "spotifyId": "37nfnRVKR6xWartysgLDLd"
+  "spotifyId": "37nfnRVKR6xWartysgLDLd",
+  "deezerId": 89597767
  },
  {
   "id": "coldplay-hymn-for-the-weekend",
   "artist": "Coldplay",
   "title": "Hymn for the Weekend",
   "year": 2016,
-  "spotifyId": "3RiPr603aXAoi4GHyXx0uy"
+  "spotifyId": "3RiPr603aXAoi4GHyXx0uy",
+  "deezerId": 114811546
  },
  {
   "id": "one-direction-story-of-my-life",
   "artist": "One Direction",
   "title": "Story of My Life",
   "year": 2013,
-  "spotifyId": "4nVBt6MZDDP6tRVdQTgxJg"
+  "spotifyId": "4nVBt6MZDDP6tRVdQTgxJg",
+  "deezerId": 72544949
  },
  {
   "id": "one-direction-what-makes-you-beautiful",
   "artist": "One Direction",
   "title": "What Makes You Beautiful",
   "year": 2011,
-  "spotifyId": "4cluDES4hQEUhmXj6TXkSo"
+  "spotifyId": "4cluDES4hQEUhmXj6TXkSo",
+  "deezerId": 16667911
  },
  {
   "id": "clean-bandit-symphony",
   "artist": "Clean Bandit",
   "title": "Symphony",
   "year": 2017,
-  "spotifyId": "72gv4zhNvRVdQA0eOenCal"
+  "spotifyId": "72gv4zhNvRVdQA0eOenCal",
+  "deezerId": 144393668
  },
  {
   "id": "capital-cities-safe-and-sound",
   "artist": "Capital Cities",
   "title": "Safe and Sound",
   "year": 2011,
-  "spotifyId": "5JVbvCHX10U2pLa5DEqGav"
+  "spotifyId": "5JVbvCHX10U2pLa5DEqGav",
+  "deezerId": 2976584651
  },
  {
   "id": "xxxtentacion-revenge",
   "artist": "XXXTentacion",
   "title": "Revenge",
   "year": 2017,
-  "spotifyId": "5TXDeTFVRVY7Cvt0Dw4vWW"
+  "spotifyId": "5TXDeTFVRVY7Cvt0Dw4vWW",
+  "deezerId": 398055712
  },
  {
   "id": "major-lazer-cold-water",
@@ -1152,49 +1295,56 @@
   "artist": "Gym Class Heroes",
   "title": "Stereo Hearts",
   "year": 2011,
-  "spotifyId": "0qOnSQQF0yzuPWsXrQ9paz"
+  "spotifyId": "0qOnSQQF0yzuPWsXrQ9paz",
+  "deezerId": 14495564
  },
  {
   "id": "anne-marie-2002",
   "artist": "Anne-Marie",
   "title": "2002",
   "year": 2018,
-  "spotifyId": "2BgEsaKNfHUdlh97KmvFyo"
+  "spotifyId": "2BgEsaKNfHUdlh97KmvFyo",
+  "deezerId": 487381362
  },
  {
   "id": "snoop-dogg-young-wild-free",
   "artist": "Snoop Dogg",
   "title": "Young, Wild & Free",
   "year": 2011,
-  "spotifyId": "6RrCh7L1a0SQEZOHPThVKB"
+  "spotifyId": "6RrCh7L1a0SQEZOHPThVKB",
+  "deezerId": 14954267
  },
  {
   "id": "alessia-cara-scars-to-your-beautiful",
   "artist": "Alessia Cara",
   "title": "Scars to Your Beautiful",
   "year": 2016,
-  "spotifyId": "42ydLwx4i5V49RXHOozJZq"
+  "spotifyId": "42ydLwx4i5V49RXHOozJZq",
+  "deezerId": 120739016
  },
  {
   "id": "zedd-the-middle",
   "artist": "Zedd",
   "title": "The Middle",
   "year": 2018,
-  "spotifyId": "09IStsImFySgyp0pIQdqAc"
+  "spotifyId": "09IStsImFySgyp0pIQdqAc",
+  "deezerId": 451254022
  },
  {
   "id": "martin-garrix-in-the-name-of-love",
   "artist": "Martin Garrix",
   "title": "In the Name of Love",
   "year": 2016,
-  "spotifyId": "23L5CiUhw2jV1OIMwthR3S"
+  "spotifyId": "23L5CiUhw2jV1OIMwthR3S",
+  "deezerId": 129313094
  },
  {
   "id": "zayn-malik-pillowtalk",
   "artist": "Zayn Malik",
   "title": "Pillowtalk",
   "year": 2016,
-  "spotifyId": "0PDUDa38GO8lMxLCRc4lL1"
+  "spotifyId": "0PDUDa38GO8lMxLCRc4lL1",
+  "deezerId": 118204446
  },
  {
   "id": "kygo-it-ain-t-me",
@@ -1208,84 +1358,96 @@
   "artist": "Fifth Harmony",
   "title": "Work from Home",
   "year": 2016,
-  "spotifyId": "4tCtwWceOPWzenK2HAIJSb"
+  "spotifyId": "4tCtwWceOPWzenK2HAIJSb",
+  "deezerId": 125513414
  },
  {
   "id": "shawn-mendes-mercy",
   "artist": "Shawn Mendes",
   "title": "Mercy",
   "year": 2016,
-  "spotifyId": "6EKvI1Beyh29HJoLJOdfw2"
+  "spotifyId": "6EKvI1Beyh29HJoLJOdfw2",
+  "deezerId": 351594971
  },
  {
   "id": "imagine-dragons-whatever-it-takes",
   "artist": "Imagine Dragons",
   "title": "Whatever It Takes",
   "year": 2017,
-  "spotifyId": "6Qn5zhYkTa37e91HC1D7lb"
+  "spotifyId": "6Qn5zhYkTa37e91HC1D7lb",
+  "deezerId": 528330431
  },
  {
   "id": "drake-hotline-bling",
   "artist": "Drake",
   "title": "Hotline Bling",
   "year": 2015,
-  "spotifyId": "0wwPcA6wtMf6HUMpIRdeP7"
+  "spotifyId": "0wwPcA6wtMf6HUMpIRdeP7",
+  "deezerId": 124603286
  },
  {
   "id": "sam-smith-dancing-with-a-stranger",
   "artist": "Sam Smith",
   "title": "Dancing with a Stranger",
   "year": 2019,
-  "spotifyId": "3xgT3xIlFGqZjYW9QlhJWp"
+  "spotifyId": "3xgT3xIlFGqZjYW9QlhJWp",
+  "deezerId": 613138092
  },
  {
   "id": "lil-nas-x-old-town-road",
   "artist": "Lil Nas X",
   "title": "Old Town Road",
   "year": 2018,
-  "spotifyId": "2YpeDb67231RjR0MgVLzsG"
+  "spotifyId": "2YpeDb67231RjR0MgVLzsG",
+  "deezerId": 699056192
  },
  {
   "id": "xxxtentacion-look-at-me",
   "artist": "XXXTentacion",
   "title": "Look at Me!",
   "year": 2015,
-  "spotifyId": "7floNISpH8VF4z4459Qo18"
+  "spotifyId": "7floNISpH8VF4z4459Qo18",
+  "deezerId": 142594564
  },
  {
   "id": "coldplay-adventure-of-a-lifetime",
   "artist": "Coldplay",
   "title": "Adventure of a Lifetime",
   "year": 2015,
-  "spotifyId": "69uxyAqqPIsUyTO8txoP2M"
+  "spotifyId": "69uxyAqqPIsUyTO8txoP2M",
+  "deezerId": 111482314
  },
  {
   "id": "fun-we-are-young",
   "artist": "Fun",
   "title": "We Are Young",
   "year": 2011,
-  "spotifyId": "5rgy6ghBq1eRApCkeUdJXf"
+  "spotifyId": "5rgy6ghBq1eRApCkeUdJXf",
+  "deezerId": 16501728
  },
  {
   "id": "daddy-yankee-con-calma",
   "artist": "Daddy Yankee",
   "title": "Con Calma",
   "year": 2019,
-  "spotifyId": "5w9c2J52mkdntKOmRLeM2m"
+  "spotifyId": "5w9c2J52mkdntKOmRLeM2m",
+  "deezerId": 619949882
  },
  {
   "id": "g-eazy-me-myself-i",
   "artist": "G-Eazy",
   "title": "Me, Myself & I",
   "year": 2015,
-  "spotifyId": "40YcuQysJ0KlGQTeGUosTC"
+  "spotifyId": "40YcuQysJ0KlGQTeGUosTC",
+  "deezerId": 114395812
  },
  {
   "id": "jonas-brothers-sucker",
   "artist": "Jonas Brothers",
   "title": "Sucker",
   "year": 2019,
-  "spotifyId": "22vgEDb5hykfaTwLuskFGD"
+  "spotifyId": "22vgEDb5hykfaTwLuskFGD",
+  "deezerId": 692002952
  },
  {
   "id": "axwell-ingrosso-more-than-you-know",
@@ -1299,7 +1461,8 @@
   "artist": "Fall Out Boy",
   "title": "Centuries",
   "year": 2014,
-  "spotifyId": "04aAxqtGp5pv12UXAg4pkq"
+  "spotifyId": "04aAxqtGp5pv12UXAg4pkq",
+  "deezerId": 92872156
  },
  {
   "id": "major-lazer-light-it-up",
@@ -1313,28 +1476,32 @@
   "artist": "Robin Schulz",
   "title": "Sugar",
   "year": 2015,
-  "spotifyId": "5tf1VVWniHgryyumXyJM7w"
+  "spotifyId": "5tf1VVWniHgryyumXyJM7w",
+  "deezerId": 107471416
  },
  {
   "id": "bebe-rexha-meant-to-be",
   "artist": "Bebe Rexha",
   "title": "Meant to Be",
   "year": 2017,
-  "spotifyId": "4e4fqjx0Izh4svvTef1z7e"
+  "spotifyId": "4e4fqjx0Izh4svvTef1z7e",
+  "deezerId": 391786232
  },
  {
   "id": "selena-gomez-wolves",
   "artist": "Selena Gomez",
   "title": "Wolves",
   "year": 2017,
-  "spotifyId": "0tBbt8CrmxbjRP0pueQkyU"
+  "spotifyId": "0tBbt8CrmxbjRP0pueQkyU",
+  "deezerId": 420355352
  },
  {
   "id": "swedish-house-mafia-don-t-you-worry-child",
   "artist": "Swedish House Mafia",
   "title": "Don't You Worry Child",
   "year": 2012,
-  "spotifyId": "1MlAkYV0nbRKWhhfvTt3zc"
+  "spotifyId": "1MlAkYV0nbRKWhhfvTt3zc",
+  "deezerId": 60842360
  },
  {
   "id": "m83-midnight-city",
@@ -1348,55 +1515,63 @@
   "artist": "Logic",
   "title": "1-800-273-8255",
   "year": 2017,
-  "spotifyId": "5tz69p7tJuGPeMGwNTxYuV"
+  "spotifyId": "5tz69p7tJuGPeMGwNTxYuV",
+  "deezerId": 357859971
  },
  {
   "id": "martin-garrix-scared-to-be-lonely",
   "artist": "Martin Garrix",
   "title": "Scared to Be Lonely",
   "year": 2017,
-  "spotifyId": "3ebXMykcMXOcLeJ9xZ17XH"
+  "spotifyId": "3ebXMykcMXOcLeJ9xZ17XH",
+  "deezerId": 140856305
  },
  {
   "id": "drake-nice-for-what",
   "artist": "Drake",
   "title": "Nice for What",
   "year": 2018,
-  "spotifyId": "3CA9pLiwRIGtUBiMjbZmRw"
+  "spotifyId": "3CA9pLiwRIGtUBiMjbZmRw",
+  "deezerId": 533609342
  },
  {
   "id": "usher-dj-got-us-fallin-in-love",
   "artist": "Usher",
   "title": "DJ Got Us Fallin' in Love",
   "year": 2010,
-  "spotifyId": "4356Typ82hUiFAynbLYbPn"
+  "spotifyId": "4356Typ82hUiFAynbLYbPn",
+  "deezerId": 15597245
  },
  {
   "id": "eminem-the-monster",
   "artist": "Eminem",
   "title": "The Monster",
   "year": 2013,
-  "spotifyId": "48RrDBpOSSl1aLVCalGl5C"
+  "spotifyId": "48RrDBpOSSl1aLVCalGl5C",
+  "deezerId": 72160317
  },
  {
   "id": "selena-gomez-lose-you-to-love-me",
   "artist": "Selena Gomez",
   "title": "Lose You to Love Me",
   "year": 2019,
-  "spotifyId": "4l0Mvzj72xxOpRrp6h8nHi"
+  "spotifyId": "4l0Mvzj72xxOpRrp6h8nHi",
+  "deezerId": 847637202
  },
  {
   "id": "lilly-wood-and-the-prick-prayer-in-c",
   "artist": "Lilly Wood and the Prick",
   "title": "Prayer in C",
   "year": 2014,
-  "spotifyId": "5HdUMBc7AhPFhlPDZUpSwf"
+  "spotifyId": "5HdUMBc7AhPFhlPDZUpSwf",
+  "deezerId": 7155162
  },
  {
   "id": "sia-snowman",
   "artist": "Sia",
   "title": "Snowman",
   "year": 2017,
-  "spotifyId": "7uoFMmxln0GPXQ0AcCBXRq"
+  "spotifyId": "7uoFMmxln0GPXQ0AcCBXRq",
+  "deezerId": 576178932
  }
 ]

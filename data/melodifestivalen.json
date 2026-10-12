@@ -4,63 +4,72 @@
   "artist": "Loreen",
   "title": "Tattoo",
   "year": 2023,
-  "spotifyId": "1DmW5Ep6ywYwxc2HMT5BG6"
+  "spotifyId": "1DmW5Ep6ywYwxc2HMT5BG6",
+  "deezerId": 2166864777
  },
  {
   "id": "loreen-euphoria",
   "artist": "Loreen",
   "title": "Euphoria",
   "year": 2012,
-  "spotifyId": "3uyAs2gylSSyhNjrogKP59"
+  "spotifyId": "3uyAs2gylSSyhNjrogKP59",
+  "deezerId": 67466760
  },
  {
   "id": "mans-zelmerlow-heroes",
   "artist": "Måns Zelmerlöw",
   "title": "Heroes",
   "year": 2015,
-  "spotifyId": "21BYhl07wWqGRQaj7sUxdV"
+  "spotifyId": "21BYhl07wWqGRQaj7sUxdV",
+  "deezerId": 95585876
  },
  {
   "id": "kaj-bara-bada-bastu",
   "artist": "KAJ",
   "title": "Bara bada bastu",
   "year": 2025,
-  "spotifyId": "6eIzQCYExfnNeM7KOlE3lE"
+  "spotifyId": "6eIzQCYExfnNeM7KOlE3lE",
+  "deezerId": 3226932221
  },
  {
   "id": "sanna-nielsen-undo",
   "artist": "Sanna Nielsen",
   "title": "Undo",
   "year": 2014,
-  "spotifyId": "7LlfGzsJ41WXKlsNV7e4CW"
+  "spotifyId": "7LlfGzsJ41WXKlsNV7e4CW",
+  "deezerId": 75372562
  },
  {
   "id": "cornelia-jakobs-hold-me-closer",
   "artist": "Cornelia Jakobs",
   "title": "Hold Me Closer",
   "year": 2022,
-  "spotifyId": "697bFWgzBRm6bmnYWd8GyD"
+  "spotifyId": "697bFWgzBRm6bmnYWd8GyD",
+  "deezerId": 1635675002
  },
  {
   "id": "marcus-martinus-unforgettable",
   "artist": "Marcus & Martinus",
   "title": "Unforgettable",
   "year": 2024,
-  "spotifyId": "0RnJVPoIT2NDRCSsjpd0V7"
+  "spotifyId": "0RnJVPoIT2NDRCSsjpd0V7",
+  "deezerId": 2684919352
  },
  {
   "id": "hasse-andersson-guld-och-grona-skogar",
   "artist": "Hasse Andersson",
   "title": "Guld och gröna skogar",
   "year": 2015,
-  "spotifyId": "6EnNjWkk1YX3fsTXtwO773"
+  "spotifyId": "6EnNjWkk1YX3fsTXtwO773",
+  "deezerId": 95585878
  },
  {
   "id": "john-lundvik-too-late-for-love",
   "artist": "John Lundvik",
   "title": "Too Late for Love",
   "year": 2019,
-  "spotifyId": "6kIdjk3D8XxA2UafE0THGK"
+  "spotifyId": "6kIdjk3D8XxA2UafE0THGK",
+  "deezerId": 676125412
  },
  {
   "id": "benjamin-ingrosso-dance-you-off",
@@ -74,21 +83,24 @@
   "artist": "Klara Hammarström",
   "title": "Run to the Hills",
   "year": 2022,
-  "spotifyId": "5hEaEP1m20PDOggFmy1wOK"
+  "spotifyId": "5hEaEP1m20PDOggFmy1wOK",
+  "deezerId": 1658069932
  },
  {
   "id": "loreen-my-heart-is-refusing-me",
   "artist": "Loreen",
   "title": "My Heart Is Refusing Me",
   "year": 2011,
-  "spotifyId": "5dmxIlHqqJ8VLqpUXazhfw"
+  "spotifyId": "5dmxIlHqqJ8VLqpUXazhfw",
+  "deezerId": 14671950
  },
  {
   "id": "dolly-style-habibi",
   "artist": "Dolly Style",
   "title": "Habibi",
   "year": 2019,
-  "spotifyId": "0PcnMWhIgWga5G7pck1Fhb"
+  "spotifyId": "0PcnMWhIgWga5G7pck1Fhb",
+  "deezerId": 811667682
  },
  {
   "id": "felicia-eriksson-my-system",
@@ -102,7 +114,8 @@
   "artist": "Sean Banan",
   "title": "Sean den förste banan",
   "year": 2012,
-  "spotifyId": "5J2UfqBylH8jDQZJnxby81"
+  "spotifyId": "5J2UfqBylH8jDQZJnxby81",
+  "deezerId": 16334737
  },
  {
   "id": "danny-saucedo-amazing",
@@ -116,21 +129,24 @@
   "artist": "Molly Sandén",
   "title": "Why Am I Crying",
   "year": 2012,
-  "spotifyId": "0hNu9mP4Fp5hqiitdrzDKo"
+  "spotifyId": "0hNu9mP4Fp5hqiitdrzDKo",
+  "deezerId": 16328423
  },
  {
   "id": "medina-que-sera",
   "artist": "Medina",
   "title": "Que Sera",
   "year": 2024,
-  "spotifyId": "4kqkGUxHHAqJMtpsHMvLTQ"
+  "spotifyId": "4kqkGUxHHAqJMtpsHMvLTQ",
+  "deezerId": 2643032392
  },
  {
   "id": "frans-if-i-were-sorry",
   "artist": "Frans",
   "title": "If I Were Sorry",
   "year": 2016,
-  "spotifyId": "6oDkCmfVcSd9NXAKk1b4Ll"
+  "spotifyId": "6oDkCmfVcSd9NXAKk1b4Ll",
+  "deezerId": 120037738
  },
  {
   "id": "sean-banan-copacabanana",
@@ -144,112 +160,128 @@
   "artist": "Dead by April",
   "title": "Mystery",
   "year": 2012,
-  "spotifyId": "5obeSir74lcMTrdsLh7d7p"
+  "spotifyId": "5obeSir74lcMTrdsLh7d7p",
+  "deezerId": 16582764
  },
  {
   "id": "arvingarna-i-do",
   "artist": "Arvingarna",
   "title": "I Do",
   "year": 2019,
-  "spotifyId": "0pGX4KgirIW7JAHh93rzPU"
+  "spotifyId": "0pGX4KgirIW7JAHh93rzPU",
+  "deezerId": 639188232
  },
  {
   "id": "panetoz-hall-om-mig-hart",
   "artist": "Panetoz",
   "title": "Håll om mig hårt",
   "year": 2016,
-  "spotifyId": "5jotZI4T62wRtaw3jXCogu"
+  "spotifyId": "5jotZI4T62wRtaw3jXCogu",
+  "deezerId": 118884678
  },
  {
   "id": "marcus-martinus-air",
   "artist": "Marcus & Martinus",
   "title": "Air",
   "year": 2023,
-  "spotifyId": "7af98K7GaM4GOipgDb2OSz"
+  "spotifyId": "7af98K7GaM4GOipgDb2OSz",
+  "deezerId": 2816355462
  },
  {
   "id": "margaret-in-my-cabana",
   "artist": "Margaret",
   "title": "In My Cabana",
   "year": 2018,
-  "spotifyId": "4QQNLEpCHjwovArZsDIUD6"
+  "spotifyId": "4QQNLEpCHjwovArZsDIUD6",
+  "deezerId": 457581262
  },
  {
   "id": "anis-don-demina-vem-e-som-oss",
   "artist": "Anis Don Demina",
   "title": "Vem e som oss",
   "year": 2020,
-  "spotifyId": "20052FYa2SF5Lkp9VZTLJX"
+  "spotifyId": "20052FYa2SF5Lkp9VZTLJX",
+  "deezerId": 878694252
  },
  {
   "id": "dotter-bulletproof",
   "artist": "Dotter",
   "title": "Bulletproof",
   "year": 2020,
-  "spotifyId": "1FcnKSUsAoHRc9Yww8WUbv"
+  "spotifyId": "1FcnKSUsAoHRc9Yww8WUbv",
+  "deezerId": 871921772
  },
  {
   "id": "mohombi-hello",
   "artist": "Mohombi",
   "title": "Hello",
   "year": 2019,
-  "spotifyId": "0vC9UoQ54Ab5ZYZQkAvsZM"
+  "spotifyId": "0vC9UoQ54Ab5ZYZQkAvsZM",
+  "deezerId": 638426882
  },
  {
   "id": "dolly-style-yihaa",
   "artist": "Dolly Style",
   "title": "YIHAA",
   "year": 2025,
-  "spotifyId": "2CMLgiwaTlemYqc7llxO6i"
+  "spotifyId": "2CMLgiwaTlemYqc7llxO6i",
+  "deezerId": 3232055711
  },
  {
   "id": "mans-zelmerlow-cara-mia",
   "artist": "Måns Zelmerlöw",
   "title": "Cara Mia",
   "year": 2007,
-  "spotifyId": "4vxn2p4GbiFhnVsIASACrf"
+  "spotifyId": "4vxn2p4GbiFhnVsIASACrf",
+  "deezerId": 3615085
  },
  {
   "id": "samir-viktor-bada-nakna",
   "artist": "Samir & Viktor",
   "title": "Bada nakna",
   "year": 2016,
-  "spotifyId": "68jkh9nqSjpmRtkkA9f0ld"
+  "spotifyId": "68jkh9nqSjpmRtkkA9f0ld",
+  "deezerId": 118281958
  },
  {
   "id": "klara-hammarstrom-on-and-on-and-on",
   "artist": "Klara Hammarström",
   "title": "On and On and On",
   "year": 2025,
-  "spotifyId": "7aLXAoR6RB5qQmBRvKE2kO"
+  "spotifyId": "7aLXAoR6RB5qQmBRvKE2kO",
+  "deezerId": 3210687541
  },
  {
   "id": "samir-viktor-shuffla",
   "artist": "Samir & Viktor",
   "title": "Shuffla",
   "year": 2018,
-  "spotifyId": "3bnS9O5Q9Zn9MD4Z3zDV62"
+  "spotifyId": "3bnS9O5Q9Zn9MD4Z3zDV62",
+  "deezerId": 457578782
  },
  {
   "id": "panetoz-efter-solsken",
   "artist": "Panetoz",
   "title": "Efter solsken",
   "year": 2014,
-  "spotifyId": "55ER2OV1py534TCDq8n97g"
+  "spotifyId": "55ER2OV1py534TCDq8n97g",
+  "deezerId": 75169010
  },
  {
   "id": "robin-bengtsson-constellation-prize",
   "artist": "Robin Bengtsson",
   "title": "Constellation Prize",
   "year": 2016,
-  "spotifyId": "1iDf4IMFtfMQOYNtiRzoJu"
+  "spotifyId": "1iDf4IMFtfMQOYNtiRzoJu",
+  "deezerId": 120087714
  },
  {
   "id": "john-lundvik-my-turn",
   "artist": "John Lundvik",
   "title": "My Turn",
   "year": 2018,
-  "spotifyId": "2g2fTz4wEnrDWin9eMtrGI"
+  "spotifyId": "2g2fTz4wEnrDWin9eMtrGI",
+  "deezerId": 676125432
  },
  {
   "id": "felix-sandman-every-single-day",
@@ -270,7 +302,8 @@
   "artist": "Tusse",
   "title": "Voices",
   "year": 2021,
-  "spotifyId": "5zxZ7M4RgWZUHlMEwac8vt"
+  "spotifyId": "5zxZ7M4RgWZUHlMEwac8vt",
+  "deezerId": 1259074852
  },
  {
   "id": "wiktoria-as-i-lay-me-down",
@@ -284,84 +317,96 @@
   "artist": "Anna Bergendahl",
   "title": "Ashes to Ashes",
   "year": 2019,
-  "spotifyId": "1iqxk51n6yyc6OIXu7dX8o"
+  "spotifyId": "1iqxk51n6yyc6OIXu7dX8o",
+  "deezerId": 627380512
  },
  {
   "id": "anna-bergendahl-this-is-my-life",
   "artist": "Anna Bergendahl",
   "title": "This Is My Life",
   "year": 2010,
-  "spotifyId": "5Hdi8Nr6VtgSCHdG7VXcX5"
+  "spotifyId": "5Hdi8Nr6VtgSCHdG7VXcX5",
+  "deezerId": 1371776192
  },
  {
   "id": "medina-in-i-dimman",
   "artist": "Medina",
   "title": "In i dimman",
   "year": 2022,
-  "spotifyId": "095zAxJmG96ap3ol3zVRZs"
+  "spotifyId": "095zAxJmG96ap3ol3zVRZs",
+  "deezerId": 1658057702
  },
  {
   "id": "ace-wilder-busy-doin-nothin",
   "artist": "Ace Wilder",
   "title": "Busy Doin' Nothin'",
   "year": 2014,
-  "spotifyId": "1zSXQIah3KQsjvo5sRNRq7"
+  "spotifyId": "1zSXQIah3KQsjvo5sRNRq7",
+  "deezerId": 74969126
  },
  {
   "id": "dolly-style-rollercoaster",
   "artist": "Dolly Style",
   "title": "Rollercoaster",
   "year": 2016,
-  "spotifyId": "2quKrwqzcvfD0RLcP2cVSq"
+  "spotifyId": "2quKrwqzcvfD0RLcP2cVSq",
+  "deezerId": 120057582
  },
  {
   "id": "de-vet-du-road-trip",
   "artist": "De Vet Du",
   "title": "Road Trip",
   "year": 2017,
-  "spotifyId": "151bTeRqip3e1i36xZ8IcB"
+  "spotifyId": "151bTeRqip3e1i36xZ8IcB",
+  "deezerId": 2560955082
  },
  {
   "id": "brandsta-city-slackers-kom-och-ta-mig",
   "artist": "Brandsta City Släckers",
   "title": "Kom och ta mig",
   "year": 2002,
-  "spotifyId": "22T3LCFXjOfxkiq5JgJacE"
+  "spotifyId": "22T3LCFXjOfxkiq5JgJacE",
+  "deezerId": 982231352
  },
  {
   "id": "alcazar-blame-it-on-the-disco",
   "artist": "Alcazar",
   "title": "Blame It on the Disco",
   "year": 2014,
-  "spotifyId": "4IZy2nI5mAxLtlLPbcErqc"
+  "spotifyId": "4IZy2nI5mAxLtlLPbcErqc",
+  "deezerId": 75245489
  },
  {
   "id": "jay-smith-back-to-my-roots",
   "artist": "Jay Smith",
   "title": "Back to My Roots",
   "year": 2024,
-  "spotifyId": "5Pw1h7bDjw7YeuXdOUgzBi"
+  "spotifyId": "5Pw1h7bDjw7YeuXdOUgzBi",
+  "deezerId": 2684919282
  },
  {
   "id": "sarah-dawn-finer-moving-on",
   "artist": "Sarah Dawn Finer",
   "title": "Moving On",
   "year": 2009,
-  "spotifyId": "2cFu6ZnctyXKApy8UfRjLk"
+  "spotifyId": "2cFu6ZnctyXKApy8UfRjLk",
+  "deezerId": 68605469
  },
  {
   "id": "anna-bergendahl-kingdom-come",
   "artist": "Anna Bergendahl",
   "title": "Kingdom Come",
   "year": 2020,
-  "spotifyId": "0ZoxdGmVIGzxUSi6nkQ98G"
+  "spotifyId": "0ZoxdGmVIGzxUSi6nkQ98G",
+  "deezerId": 871921752
  },
  {
   "id": "smash-into-pieces-six-feet-under",
   "artist": "Smash Into Pieces",
   "title": "Six Feet Under",
   "year": 2023,
-  "spotifyId": "5DYCuzBPf13q0QZwQvjYzi"
+  "spotifyId": "5DYCuzBPf13q0QZwQvjYzi",
+  "deezerId": 2135217017
  },
  {
   "id": "jon-henrik-fjallgren-where-you-are-savezan",
@@ -375,35 +420,40 @@
   "artist": "Jon Henrik Fjällgren",
   "title": "Jag är fri (Manne Leam Frijje)",
   "year": 2015,
-  "spotifyId": "16wsshdY3nqCoG9yCJIMEP"
+  "spotifyId": "16wsshdY3nqCoG9yCJIMEP",
+  "deezerId": 95475976
  },
  {
   "id": "dolly-style-hello-hi",
   "artist": "Dolly Style",
   "title": "Hello Hi",
   "year": 2015,
-  "spotifyId": "4l1Hkv9tHmnqsoX4HaxDqp"
+  "spotifyId": "4l1Hkv9tHmnqsoX4HaxDqp",
+  "deezerId": 2215455567
  },
  {
   "id": "meira-omar-hush-hush",
   "artist": "Meira Omar",
   "title": "Hush Hush",
   "year": 2025,
-  "spotifyId": "3kzhtJH4jrnKQmuE8ai8ob"
+  "spotifyId": "3kzhtJH4jrnKQmuE8ai8ob",
+  "deezerId": 3188611391
  },
  {
   "id": "hanna-ferm-brave",
   "artist": "Hanna Ferm",
   "title": "Brave",
   "year": 2020,
-  "spotifyId": "7oNRF4LJHL5aC2zTU66UN1"
+  "spotifyId": "7oNRF4LJHL5aC2zTU66UN1",
+  "deezerId": 886168132
  },
  {
   "id": "jon-henrik-fjallgren-norrsken",
   "artist": "Jon Henrik Fjällgren",
   "title": "Norrsken",
   "year": 2019,
-  "spotifyId": "7v10xmPWDwFiQDJuAZClBs"
+  "spotifyId": "7v10xmPWDwFiQDJuAZClBs",
+  "deezerId": 633627092
  },
  {
   "id": "carola-haggkvist-evighet",
@@ -417,7 +467,8 @@
   "artist": "Dotter",
   "title": "Little Tot",
   "year": 2021,
-  "spotifyId": "4lk0kyckhqlpWsdlUpsuCf"
+  "spotifyId": "4lk0kyckhqlpWsdlUpsuCf",
+  "deezerId": 1235048642
  },
  {
   "id": "theoz-mer-av-dig",
@@ -431,56 +482,64 @@
   "artist": "Måns Zelmerlöw",
   "title": "Revolution",
   "year": 2025,
-  "spotifyId": "1xYhFfJInHS8hsGfrJW4lI"
+  "spotifyId": "1xYhFfJInHS8hsGfrJW4lI",
+  "deezerId": 3223797171
  },
  {
   "id": "froken-snusk-unga-fria",
   "artist": "FRÖKEN SNUSK",
   "title": "Unga & fria",
   "year": 2024,
-  "spotifyId": "2ArX0SzCSHXytmAg36BIev"
+  "spotifyId": "2ArX0SzCSHXytmAg36BIev",
+  "deezerId": 2633706942
  },
  {
   "id": "clara-klingenstrom-behover-inte-dig-idag",
   "artist": "Clara Klingenström",
   "title": "Behöver inte dig idag",
   "year": 2021,
-  "spotifyId": "61YmcO62hGjw1RlDHZ0XEg"
+  "spotifyId": "61YmcO62hGjw1RlDHZ0XEg",
+  "deezerId": 1238690772
  },
  {
   "id": "paul-rey-talking-in-my-sleep",
   "artist": "Paul Rey",
   "title": "Talking in My Sleep",
   "year": 2020,
-  "spotifyId": "3RDZ1tmyih1KHQMj6gpgD4"
+  "spotifyId": "3RDZ1tmyih1KHQMj6gpgD4",
+  "deezerId": 871921742
  },
  {
   "id": "saraha-kizunguzungu",
   "artist": "SaRaha",
   "title": "Kizunguzungu",
   "year": 2016,
-  "spotifyId": "54xN08hKKJvg6p5vSXM26g"
+  "spotifyId": "54xN08hKKJvg6p5vSXM26g",
+  "deezerId": 118884648
  },
  {
   "id": "mendez-everyday",
   "artist": "Mendez",
   "title": "Everyday",
   "year": 2018,
-  "spotifyId": "2zJJro5CPAVwwzLQQdcBbu"
+  "spotifyId": "2zJJro5CPAVwwzLQQdcBbu",
+  "deezerId": 463662172
  },
  {
   "id": "nano-hold-on",
   "artist": "Nano",
   "title": "Hold On",
   "year": 2017,
-  "spotifyId": "3mXXkDfLaCN5IaZpHVJPth"
+  "spotifyId": "3mXXkDfLaCN5IaZpHVJPth",
+  "deezerId": 374241611
  },
  {
   "id": "omar-rudberg-moving-like-that",
   "artist": "Omar Rudberg",
   "title": "Moving Like That",
   "year": 2022,
-  "spotifyId": "7i3E3SuLSD7TbrFYMzzT2J"
+  "spotifyId": "7i3E3SuLSD7TbrFYMzzT2J",
+  "deezerId": 3573208201
  },
  {
   "id": "samir-viktor-groupie",
@@ -494,70 +553,80 @@
   "artist": "Elov & Beny",
   "title": "Raggen går",
   "year": 2023,
-  "spotifyId": "5tq2w7SbOai77pCgdi2hcI"
+  "spotifyId": "5tq2w7SbOai77pCgdi2hcI",
+  "deezerId": 2137622227
  },
  {
   "id": "klara-hammarstrom-beat-of-broken-hearts",
   "artist": "Klara Hammarström",
   "title": "Beat of Broken Hearts",
   "year": 2021,
-  "spotifyId": "2QknNfweEEo2wZsUCZbzpo"
+  "spotifyId": "2QknNfweEEo2wZsUCZbzpo",
+  "deezerId": 1238605442
  },
  {
   "id": "danny-saucedo-dandi-dansa",
   "artist": "Danny Saucedo",
   "title": "Dandi dansa",
   "year": 2021,
-  "spotifyId": "7rtuw9ogWCcaDrU88uGxoC"
+  "spotifyId": "7rtuw9ogWCcaDrU88uGxoC",
+  "deezerId": 3812750512
  },
  {
   "id": "wiktoria-save-me",
   "artist": "Wiktoria",
   "title": "Save Me",
   "year": 2016,
-  "spotifyId": "73yNGy3ux79gIXfLBRXuJX"
+  "spotifyId": "73yNGy3ux79gIXfLBRXuJX",
+  "deezerId": 1405436882
  },
  {
   "id": "greczula-believe-me",
   "artist": "Greczula",
   "title": "Believe Me",
   "year": 2025,
-  "spotifyId": "6CshHyQHSzQhwaadpBQhH1"
+  "spotifyId": "6CshHyQHSzQhwaadpBQhH1",
+  "deezerId": 3135871151
  },
  {
   "id": "tone-sekelius-my-way",
   "artist": "Tone Sekelius",
   "title": "My Way",
   "year": 2022,
-  "spotifyId": "4Hvwf40nvjuNtRy5uAxHA2"
+  "spotifyId": "4Hvwf40nvjuNtRy5uAxHA2",
+  "deezerId": 1643126522
  },
  {
   "id": "darin-youre-out-of-my-life",
   "artist": "Darin",
   "title": "You’re Out of My Life",
   "year": 2010,
-  "spotifyId": "5ivItCUwGDJWQ3AStwFQCE"
+  "spotifyId": "5ivItCUwGDJWQ3AStwFQCE",
+  "deezerId": 6822175
  },
  {
   "id": "sarah-dawn-finer-i-remember-love",
   "artist": "Sarah Dawn Finer",
   "title": "I Remember Love",
   "year": 2007,
-  "spotifyId": "4iIIOSSds0SzoaAiWiereA"
+  "spotifyId": "4iIIOSSds0SzoaAiWiereA",
+  "deezerId": 68605481
  },
  {
   "id": "hanna-ferm-liamoo-hold-you",
   "artist": "Hanna Ferm & LIAMOO",
   "title": "Hold You",
   "year": 2019,
-  "spotifyId": "7vwTqBs5KVRlwR2374P9bS"
+  "spotifyId": "7vwTqBs5KVRlwR2374P9bS",
+  "deezerId": 638900542
  },
  {
   "id": "ida-lova-lat-hela-stan-se-pa",
   "artist": "Ida-Lova",
   "title": "Låt hela stan se på",
   "year": 2023,
-  "spotifyId": "1ZmXkSbIt88oScLQlkU8so"
+  "spotifyId": "1ZmXkSbIt88oScLQlkU8so",
+  "deezerId": 2156438577
  },
  {
   "id": "theoz-som-du-vill",
@@ -571,105 +640,120 @@
   "artist": "Dotter",
   "title": "It’s Not Easy to Write a Love Song",
   "year": 2024,
-  "spotifyId": "6rOuxWBbbGG61MoEpfnzoI"
+  "spotifyId": "6rOuxWBbbGG61MoEpfnzoI",
+  "deezerId": 2682607572
  },
  {
   "id": "nordman-odet-var-min-vag",
   "artist": "Nordman",
   "title": "Ödet var min väg",
   "year": 2005,
-  "spotifyId": "0qNhAdjq0R7iBGOM1X44I4"
+  "spotifyId": "0qNhAdjq0R7iBGOM1X44I4",
+  "deezerId": 10599301
  },
  {
   "id": "malou-prytz-i-do-me",
   "artist": "Malou Prytz",
   "title": "I Do Me",
   "year": 2019,
-  "spotifyId": "3dlu81sbakUxdtEHFnTJmz"
+  "spotifyId": "3dlu81sbakUxdtEHFnTJmz",
+  "deezerId": 638426912
  },
  {
   "id": "panetoz-on-my-way",
   "artist": "Panetoz",
   "title": "On My Way",
   "year": 2023,
-  "spotifyId": "710xi8haZ3Os0wip67GcmY"
+  "spotifyId": "710xi8haZ3Os0wip67GcmY",
+  "deezerId": 2166864797
  },
  {
   "id": "nordman-i-lagornas-sken",
   "artist": "Nordman",
   "title": "I lågornas sken",
   "year": 2008,
-  "spotifyId": "4HsSrN8zxZx7arACiMYhZu"
+  "spotifyId": "4HsSrN8zxZx7arACiMYhZu",
+  "deezerId": 894100
  },
  {
   "id": "sanna-nielsen-empty-room",
   "artist": "Sanna Nielsen",
   "title": "Empty Room",
   "year": 2008,
-  "spotifyId": "22GUo3v9Jh4dziy5scPDig"
+  "spotifyId": "22GUo3v9Jh4dziy5scPDig",
+  "deezerId": 893828
  },
  {
   "id": "anders-bagge-bigger-than-the-universe",
   "artist": "Anders Bagge",
   "title": "Bigger Than the Universe",
   "year": 2022,
-  "spotifyId": "4O1FGUf2xndvsmtMQtHZNp"
+  "spotifyId": "4O1FGUf2xndvsmtMQtHZNp",
+  "deezerId": 1650084612
  },
  {
   "id": "robin-bengtsson-take-a-chance",
   "artist": "Robin Bengtsson",
   "title": "Take a Chance",
   "year": 2020,
-  "spotifyId": "3CiXOKYt9tRSLlDnt0Yxew"
+  "spotifyId": "3CiXOKYt9tRSLlDnt0Yxew",
+  "deezerId": 885757772
  },
  {
   "id": "alcazar-not-a-sinner-nor-a-saint",
   "artist": "Alcazar",
   "title": "Not a Sinner nor a Saint",
   "year": 2003,
-  "spotifyId": "596RGwraSyufAejV8Ak0cn"
+  "spotifyId": "596RGwraSyufAejV8Ak0cn",
+  "deezerId": 604167
  },
  {
   "id": "mans-zelmerlow-hope-and-glory",
   "artist": "Måns Zelmerlöw",
   "title": "Hope and Glory",
   "year": 2009,
-  "spotifyId": "7Cjd4IcQZS0yhk11cQOMBQ"
+  "spotifyId": "7Cjd4IcQZS0yhk11cQOMBQ",
+  "deezerId": 6638337
  },
  {
   "id": "danny-saucedo-happy-that-you-found-me",
   "artist": "Danny Saucedo",
   "title": "Happy That You Found Me",
   "year": 2024,
-  "spotifyId": "2kwqblYAbloVXhyBVcxEw5"
+  "spotifyId": "2kwqblYAbloVXhyBVcxEw5",
+  "deezerId": 4036088681
  },
  {
   "id": "the-mamas-move",
   "artist": "The Mamas",
   "title": "Move",
   "year": 2020,
-  "spotifyId": "19LiotxKSVs7FeVMEdHz63"
+  "spotifyId": "19LiotxKSVs7FeVMEdHz63",
+  "deezerId": 886168152
  },
  {
   "id": "arvingarna-tanker-inte-alls-ga-hem",
   "artist": "Arvingarna",
   "title": "Tänker inte alls gå hem",
   "year": 2021,
-  "spotifyId": "1KvqulVkQYJLDr660ACS2U"
+  "spotifyId": "1KvqulVkQYJLDr660ACS2U",
+  "deezerId": 1236624642
  },
  {
   "id": "saga-ludvigsson-hate-you-so-much",
   "artist": "Saga Ludvigsson",
   "title": "Hate You So Much",
   "year": 2025,
-  "spotifyId": "6nnsohT4FA8gcE6n4a1q7A"
+  "spotifyId": "6nnsohT4FA8gcE6n4a1q7A",
+  "deezerId": 3243749911
  },
  {
   "id": "robin-bengtsson-innocent-love",
   "artist": "Robin Bengtsson",
   "title": "Innocent Love",
   "year": 2022,
-  "spotifyId": "71vojPlEiXkv0ZGWyfWqFj"
+  "spotifyId": "71vojPlEiXkv0ZGWyfWqFj",
+  "deezerId": 1667875682
  },
  {
   "id": "dynazty-land-of-broken-dreams",
@@ -683,63 +767,72 @@
   "artist": "Maria Sur",
   "title": "When I’m Gone",
   "year": 2024,
-  "spotifyId": "3A2aodIVpYnYwCbzmZVxl3"
+  "spotifyId": "3A2aodIVpYnYwCbzmZVxl3",
+  "deezerId": 2633611922
  },
  {
   "id": "john-lundvik-anglavakt",
   "artist": "John Lundvik",
   "title": "Änglavakt",
   "year": 2022,
-  "spotifyId": "61inXZujdBrTs0WJiPjfjJ"
+  "spotifyId": "61inXZujdBrTs0WJiPjfjJ",
+  "deezerId": 1643110142
  },
  {
   "id": "oscar-zia-human",
   "artist": "Oscar Zia",
   "title": "Human",
   "year": 2016,
-  "spotifyId": "5AQhraSIBzrWBIuiGpPl7v"
+  "spotifyId": "5AQhraSIBzrWBIuiGpPl7v",
+  "deezerId": 118179952
  },
  {
   "id": "lia-larsson-30-km-h",
   "artist": "Lia Larsson",
   "title": "30 km/h",
   "year": 2024,
-  "spotifyId": "3qd2d4Mog20jxuQL5OEHE5"
+  "spotifyId": "3qd2d4Mog20jxuQL5OEHE5",
+  "deezerId": 2659484672
  },
  {
   "id": "bishara-on-my-own",
   "artist": "Bishara",
   "title": "On My Own",
   "year": 2019,
-  "spotifyId": "0qJIETfXKVqyaWTyD5zog3"
+  "spotifyId": "0qJIETfXKVqyaWTyD5zog3",
+  "deezerId": 630718782
  },
  {
   "id": "smash-into-pieces-heroes-are-calling",
   "artist": "Smash Into Pieces",
   "title": "Heroes Are Calling",
   "year": 2024,
-  "spotifyId": "0QOEWQEowuJUz7LRIe3F6b"
+  "spotifyId": "0QOEWQEowuJUz7LRIe3F6b",
+  "deezerId": 2620993432
  },
  {
   "id": "erik-segerstedt-show-me-what-love-is",
   "artist": "Erik Segerstedt",
   "title": "Show Me What Love Is",
   "year": 2025,
-  "spotifyId": "3u5p4DCsZ5NF8OVHEahF89"
+  "spotifyId": "3u5p4DCsZ5NF8OVHEahF89",
+  "deezerId": 3200517791
  },
  {
   "id": "cazzi-opeia-i-can-t-get-enough",
   "artist": "Cazzi Opeia",
   "title": "I Can't Get Enough",
   "year": 2022,
-  "spotifyId": "1F3NBThWyr845YUwpm5n1F"
+  "spotifyId": "1F3NBThWyr845YUwpm5n1F",
+  "deezerId": 1661947042
  },
  {
   "id": "eric-saade-every-minute",
   "artist": "Eric Saade",
   "title": "Every Minute",
   "year": 2021,
-  "spotifyId": "7t3VznmzfrDXFyexb2wA0q"
+  "spotifyId": "7t3VznmzfrDXFyexb2wA0q",
+  "deezerId": 1241068372
  },
  {
   "id": "helena-paparizou-survivor",
@@ -753,14 +846,16 @@
   "artist": "Malou Prytz",
   "title": "Ballerina",
   "year": 2020,
-  "spotifyId": "5WlRSquSKNju4JEHkJ9Xh6"
+  "spotifyId": "5WlRSquSKNju4JEHkJ9Xh6",
+  "deezerId": 866197042
  },
  {
   "id": "wiktoria-not-with-me",
   "artist": "Wiktoria",
   "title": "Not With Me",
   "year": 2019,
-  "spotifyId": "4MmdyMZcPEk4Ypv2qcKM3I"
+  "spotifyId": "4MmdyMZcPEk4Ypv2qcKM3I",
+  "deezerId": 625723972
  },
  {
   "id": "anton-hagman-kiss-you-goodbye",
@@ -774,21 +869,24 @@
   "artist": "Maja Ivarsson",
   "title": "Kamikaze Life",
   "year": 2025,
-  "spotifyId": "4HnINBWLNQemWMQXg4fFcS"
+  "spotifyId": "4HnINBWLNQemWMQXg4fFcS",
+  "deezerId": 3200873981
  },
  {
   "id": "liamoo-last-breath",
   "artist": "LIAMOO",
   "title": "Last Breath",
   "year": 2018,
-  "spotifyId": "4hCuE7sLvPBRHXFQar1dgm"
+  "spotifyId": "4hCuE7sLvPBRHXFQar1dgm",
+  "deezerId": 1761348777
  },
  {
   "id": "victor-crone-troubled-waters",
   "artist": "Victor Crone",
   "title": "Troubled Waters",
   "year": 2020,
-  "spotifyId": "1raz4eVynj6vUaJdEDCPcQ"
+  "spotifyId": "1raz4eVynj6vUaJdEDCPcQ",
+  "deezerId": 881038302
  },
  {
   "id": "boris-rene-put-your-love-on-me",
@@ -802,70 +900,80 @@
   "artist": "Benjamin Ingrosso",
   "title": "Good Lovin’",
   "year": 2017,
-  "spotifyId": "4EnYTyWAlXNo3K7Ayxh3NT"
+  "spotifyId": "4EnYTyWAlXNo3K7Ayxh3NT",
+  "deezerId": 816250702
  },
  {
   "id": "maria-sur-never-give-up",
   "artist": "Maria Sur",
   "title": "Never Give Up",
   "year": 2023,
-  "spotifyId": "3Xov23KN1ztHZrLBnhFSc4"
+  "spotifyId": "3Xov23KN1ztHZrLBnhFSc4",
+  "deezerId": 2122351227
  },
  {
   "id": "lisa-ajax-my-heart-wants-me-dead",
   "artist": "Lisa Ajax",
   "title": "My Heart Wants Me Dead",
   "year": 2016,
-  "spotifyId": "6LPI2gtOtoL35INCaUCYlQ"
+  "spotifyId": "6LPI2gtOtoL35INCaUCYlQ",
+  "deezerId": 120088120
  },
  {
   "id": "nordman-slapp-alla-sorger",
   "artist": "Nordman",
   "title": "Släpp alla sorger",
   "year": 2023,
-  "spotifyId": "4lGrF9Fk8wJ6nLgcuRdFre"
+  "spotifyId": "4lGrF9Fk8wJ6nLgcuRdFre",
+  "deezerId": 2156411647
  },
  {
   "id": "eric-saade-sting",
   "artist": "Eric Saade",
   "title": "Sting",
   "year": 2015,
-  "spotifyId": "1bCrjqABEklwllefPAzWbZ"
+  "spotifyId": "1bCrjqABEklwllefPAzWbZ",
+  "deezerId": 108545550
  },
  {
   "id": "molly-sanden-youniverse",
   "artist": "Molly Sandén",
   "title": "Youniverse",
   "year": 2016,
-  "spotifyId": "0Nr7QX7RXlshZPJxSG7HnG"
+  "spotifyId": "0Nr7QX7RXlshZPJxSG7HnG",
+  "deezerId": 120057580
  },
  {
   "id": "molly-sanden-sa-vill-stjarnorna",
   "artist": "Molly Sandén",
   "title": "Så vill stjärnorna",
   "year": 2009,
-  "spotifyId": "0kHzQ0zZPqEu8i6BrpRxKP"
+  "spotifyId": "0kHzQ0zZPqEu8i6BrpRxKP",
+  "deezerId": 14684467
  },
  {
   "id": "cazzi-opeia-give-my-heart-a-break",
   "artist": "Cazzi Opeia",
   "title": "Give My Heart a Break",
   "year": 2024,
-  "spotifyId": "6mY5yB7qMSnGoYphuRqJ1I"
+  "spotifyId": "6mY5yB7qMSnGoYphuRqJ1I",
+  "deezerId": 2686533572
  },
  {
   "id": "scarlet-circus-x",
   "artist": "SCARLET",
   "title": "Circus X",
   "year": 2024,
-  "spotifyId": "0SGMCZngLMlB3w34r0cmaz"
+  "spotifyId": "0SGMCZngLMlB3w34r0cmaz",
+  "deezerId": 3445330291
  },
  {
   "id": "alvaro-estrella-baila-baila",
   "artist": "Alvaro Estrella",
   "title": "Bailá Bailá",
   "year": 2021,
-  "spotifyId": "3MMJuk00QLVAjS6vwBZ67V"
+  "spotifyId": "3MMJuk00QLVAjS6vwBZ67V",
+  "deezerId": 1251407432
  },
  {
   "id": "wahl-feat-sami-90-talet",
@@ -879,175 +987,200 @@
   "artist": "Adam Woods",
   "title": "Supernatural",
   "year": 2024,
-  "spotifyId": "1bNHljyfq75Hcl2selYvLH"
+  "spotifyId": "1bNHljyfq75Hcl2selYvLH",
+  "deezerId": 2632447372
  },
  {
   "id": "jon-henrik-fjallgren-feat-aninia-en-varld-full-av-strider-eatneme-gusnie-jeenh-daaroeh",
   "artist": "Jon Henrik Fjällgren feat. Aninia",
   "title": "En Värld Full Av Strider (Eatneme gusnie jeenh dåaroeh)",
   "year": 2017,
-  "spotifyId": "6EbzYIiVoxMeYig8e5pm1T"
+  "spotifyId": "6EbzYIiVoxMeYig8e5pm1T",
+  "deezerId": 142925284
  },
  {
   "id": "anna-bergendahl-higher-power",
   "artist": "Anna Bergendahl",
   "title": "Higher Power",
   "year": 2022,
-  "spotifyId": "5X72zZ8sbbYXXEARdbZpgG"
+  "spotifyId": "5X72zZ8sbbYXXEARdbZpgG",
+  "deezerId": 1658100462
  },
  {
   "id": "drangarna-piga-drang",
   "artist": "Drängarna",
   "title": "Piga & dräng",
   "year": 2020,
-  "spotifyId": "0fXANVK5oDCujoed5II6La"
+  "spotifyId": "0fXANVK5oDCujoed5II6La",
+  "deezerId": 879947322
  },
  {
   "id": "jacqline-effortless",
   "artist": "Jacqline",
   "title": "Effortless",
   "year": 2024,
-  "spotifyId": "4VVfzoh8MuGWLIpcF8vB1O"
+  "spotifyId": "4VVfzoh8MuGWLIpcF8vB1O",
+  "deezerId": 2684911772
  },
  {
   "id": "omar-rudberg-om-om-och-om-igen",
   "artist": "Omar Rudberg",
   "title": "Om om och om igen",
   "year": 2019,
-  "spotifyId": "40nN2KwKrFviTXxjatspqc"
+  "spotifyId": "40nN2KwKrFviTXxjatspqc",
+  "deezerId": 751858142
  },
  {
   "id": "scarlet-sweet-n-psycho",
   "artist": "SCARLET",
   "title": "Sweet N' Psycho",
   "year": 2025,
-  "spotifyId": "0UvVr7by4E5QEndoWl1Joo"
+  "spotifyId": "0UvVr7by4E5QEndoWl1Joo",
+  "deezerId": 3243749691
  },
  {
   "id": "gunilla-persson-i-wont-shake-la-la-gunilla",
   "artist": "Gunilla Persson",
   "title": "I Won’t Shake (La La Gunilla)",
   "year": 2024,
-  "spotifyId": "1ZZg7lCb29LApbbk8iNmId"
+  "spotifyId": "1ZZg7lCb29LApbbk8iNmId",
+  "deezerId": 2667480292
  },
  {
   "id": "klaudy-for-dig",
   "artist": "Klaudy",
   "title": "För dig",
   "year": 2024,
-  "spotifyId": "0IKIz4G3os1faKY3GjLk3C"
+  "spotifyId": "0IKIz4G3os1faKY3GjLk3C",
+  "deezerId": 2817573112
  },
  {
   "id": "ace-wilder-dont-worry",
   "artist": "Ace Wilder",
   "title": "Don’t Worry",
   "year": 2016,
-  "spotifyId": "2JzVLnk3S8pVxW8qM0dsJ2"
+  "spotifyId": "2JzVLnk3S8pVxW8qM0dsJ2",
+  "deezerId": 118179910
  },
  {
   "id": "lisa-ajax-torn",
   "artist": "Lisa Ajax",
   "title": "Torn",
   "year": 2019,
-  "spotifyId": "7muE2TWLiWW9OutrrhOQ87"
+  "spotifyId": "7muE2TWLiWW9OutrrhOQ87",
+  "deezerId": 640611832
  },
  {
   "id": "sanna-nielsen-i-m-in-love",
   "artist": "Sanna Nielsen",
   "title": "I'm in Love",
   "year": 2011,
-  "spotifyId": "3EFdL3Q4mPrjUgfaO7IomQ"
+  "spotifyId": "3EFdL3Q4mPrjUgfaO7IomQ",
+  "deezerId": 10092793
  },
  {
   "id": "patrik-jean-tears-run-dry",
   "artist": "Patrik Jean",
   "title": "Tears Run Dry",
   "year": 2021,
-  "spotifyId": "0Q16pPyaDTDGh1VjzN7VsG"
+  "spotifyId": "0Q16pPyaDTDGh1VjzN7VsG",
+  "deezerId": 1913701097
  },
  {
   "id": "liamoo-bluffin",
   "artist": "LIAMOO",
   "title": "Bluffin",
   "year": 2022,
-  "spotifyId": "2Cyow8nZDqP9tolduIf2KX"
+  "spotifyId": "2Cyow8nZDqP9tolduIf2KX",
+  "deezerId": 1643116962
  },
  {
   "id": "tone-sekelius-rhythm-of-my-show",
   "artist": "Tone Sekelius",
   "title": "Rhythm of My Show",
   "year": 2023,
-  "spotifyId": "48NRejAH4xS4PNTl3465O5"
+  "spotifyId": "48NRejAH4xS4PNTl3465O5",
+  "deezerId": 2122270037
  },
  {
   "id": "liamoo-dragon",
   "artist": "LIAMOO",
   "title": "Dragon",
   "year": 2024,
-  "spotifyId": "63pVTEqsMeG4IhgWYy0R70"
+  "spotifyId": "63pVTEqsMeG4IhgWYy0R70",
+  "deezerId": 2633707752
  },
  {
   "id": "mohombi-winners",
   "artist": "Mohombi",
   "title": "Winners",
   "year": 2020,
-  "spotifyId": "0vqrCGQwn2B8p5u1ZIFDbo"
+  "spotifyId": "0vqrCGQwn2B8p5u1ZIFDbo",
+  "deezerId": 878694242
  },
  {
   "id": "emil-assergard-om-allting-skiter-sig",
   "artist": "Emil Assergård",
   "title": "Om allting skiter sig",
   "year": 2021,
-  "spotifyId": "4r0VyqkDOosEkG92kx1SL9"
+  "spotifyId": "4r0VyqkDOosEkG92kx1SL9",
+  "deezerId": 1238710482
  },
  {
   "id": "lillasyster-pretender",
   "artist": "Lillasyster",
   "title": "Pretender",
   "year": 2021,
-  "spotifyId": "43S6EtJ38gARKKLvdbQd31"
+  "spotifyId": "43S6EtJ38gARKKLvdbQd31",
+  "deezerId": 1230326012
  },
  {
   "id": "rolandz-fuldans",
   "artist": "Rolandz",
   "title": "Fuldans",
   "year": 2018,
-  "spotifyId": "3awvm252RhYY8UJtM9svjY"
+  "spotifyId": "3awvm252RhYY8UJtM9svjY",
+  "deezerId": 466188342
  },
  {
   "id": "vilhelm-buchaus-im-yours",
   "artist": "Vilhelm Buchaus",
   "title": "I’m Yours",
   "year": 2025,
-  "spotifyId": "2LbZzonnjQzdNUPWzg8Vrw"
+  "spotifyId": "2LbZzonnjQzdNUPWzg8Vrw",
+  "deezerId": 3228405511
  },
  {
   "id": "mariette-a-million-years",
   "artist": "Mariette",
   "title": "A Million Years",
   "year": 2017,
-  "spotifyId": "5Ba9wvTCOui7xlPtwoUmaR"
+  "spotifyId": "5Ba9wvTCOui7xlPtwoUmaR",
+  "deezerId": 142915708
  },
  {
   "id": "klara-hammarstrom-nobody",
   "artist": "Klara Hammarström",
   "title": "Nobody",
   "year": 2020,
-  "spotifyId": "2HsZAuRRKvfsmXswcKt0sF"
+  "spotifyId": "2HsZAuRRKvfsmXswcKt0sF",
+  "deezerId": 871921762
  },
  {
   "id": "the-mamas-in-the-middle",
   "artist": "The Mamas",
   "title": "In the Middle",
   "year": 2021,
-  "spotifyId": "5nBi3tQiXWt70G6UlXB86E"
+  "spotifyId": "5nBi3tQiXWt70G6UlXB86E",
+  "deezerId": 1272793432
  },
  {
   "id": "annika-wickihalder-light",
   "artist": "Annika Wickihalder",
   "title": "Light",
   "year": 2024,
-  "spotifyId": "6H19ohMkGqD9PmcUUa0MdF"
+  "spotifyId": "6H19ohMkGqD9PmcUUa0MdF",
+  "deezerId": 2641338402
  },
  {
   "id": "linus-svenning-broder",
@@ -1061,7 +1194,8 @@
   "artist": "Loreen",
   "title": "Statements",
   "year": 2017,
-  "spotifyId": "0tUh8HzIVpZPFW7HzE5Vhk"
+  "spotifyId": "0tUh8HzIVpZPFW7HzE5Vhk",
+  "deezerId": 142915722
  },
  {
   "id": "linus-svenning-forever-starts-today",
@@ -1082,91 +1216,104 @@
   "artist": "Dotter",
   "title": "Cry",
   "year": 2018,
-  "spotifyId": "24yeRS5J8SctEKZVptnSld"
+  "spotifyId": "24yeRS5J8SctEKZVptnSld",
+  "deezerId": 458937802
  },
  {
   "id": "mendez-feat-alvaro-estrella-vamos-amigos",
   "artist": "Mendez feat. Alvaro Estrella",
   "title": "Vamos amigos",
   "year": 2020,
-  "spotifyId": "60Qib6jBxNJGCxVk8mJeRI"
+  "spotifyId": "60Qib6jBxNJGCxVk8mJeRI",
+  "deezerId": 872967282
  },
  {
   "id": "oscar-enestad-i-love-it",
   "artist": "Oscar Enestad",
   "title": "I Love It",
   "year": 2019,
-  "spotifyId": "0twjbHpAqJ7oE0rVCWNvVO"
+  "spotifyId": "0twjbHpAqJ7oE0rVCWNvVO",
+  "deezerId": 751897242
  },
  {
   "id": "lasse-stefanz-en-sang-om-sommaren",
   "artist": "Lasse Stefanz",
   "title": "En sång om sommaren",
   "year": 2024,
-  "spotifyId": "1QNcq6ytcymUbBM43nUjeX"
+  "spotifyId": "1QNcq6ytcymUbBM43nUjeX",
+  "deezerId": 4075261421
  },
  {
   "id": "kiana-where-did-you-go",
   "artist": "Kiana",
   "title": "Where Did You Go",
   "year": 2023,
-  "spotifyId": "1tPzSRXNZbPKQbVh3yv7rs"
+  "spotifyId": "1tPzSRXNZbPKQbVh3yv7rs",
+  "deezerId": 2165402837
  },
  {
   "id": "felix-sandman-boys-with-emotions",
   "artist": "FELIX SANDMAN",
   "title": "BOYS WITH EMOTIONS",
   "year": 2020,
-  "spotifyId": "22K6G9TGc7uYaAao3h6IHA"
+  "spotifyId": "22K6G9TGc7uYaAao3h6IHA",
+  "deezerId": 2675463832
  },
  {
   "id": "paul-rey-the-missing-piece",
   "artist": "Paul Rey",
   "title": "The Missing Piece",
   "year": 2021,
-  "spotifyId": "1nP79zXOucRp8lBoT52U5M"
+  "spotifyId": "1nP79zXOucRp8lBoT52U5M",
+  "deezerId": 1235115912
  },
  {
   "id": "niello-lisa-ajax-tror-du-att-jag-bryr-mig",
   "artist": "Niello & Lisa Ajax",
   "title": "Tror du att jag bryr mig",
   "year": 2022,
-  "spotifyId": "1E2reoDjfG9W2LgeZE0wrJ"
+  "spotifyId": "1E2reoDjfG9W2LgeZE0wrJ",
+  "deezerId": 1654109162
  },
  {
   "id": "renaida-all-the-feels",
   "artist": "Renaida",
   "title": "All the Feels",
   "year": 2018,
-  "spotifyId": "14BJEmweSNLrdekZDF9j8V"
+  "spotifyId": "14BJEmweSNLrdekZDF9j8V",
+  "deezerId": 458552912
  },
  {
   "id": "malou-prytz-bananas",
   "artist": "Malou Prytz",
   "title": "Bananas",
   "year": 2022,
-  "spotifyId": "52DKkQDdw0VjvoHbIDkLmF"
+  "spotifyId": "52DKkQDdw0VjvoHbIDkLmF",
+  "deezerId": 1647078222
  },
  {
   "id": "nano-chasing-rivers",
   "artist": "Nano",
   "title": "Chasing Rivers",
   "year": 2019,
-  "spotifyId": "36mX6giwfz8BdZqWy0uhiy"
+  "spotifyId": "36mX6giwfz8BdZqWy0uhiy",
+  "deezerId": 627454252
  },
  {
   "id": "john-lundvik-voice-of-the-silent",
   "artist": "John Lundvik",
   "title": "Voice of the Silent",
   "year": 2025,
-  "spotifyId": "4E0st5Y809Aro5GG7oEzas"
+  "spotifyId": "4E0st5Y809Aro5GG7oEzas",
+  "deezerId": 3378221691
  },
  {
   "id": "laurell-sober",
   "artist": "Laurell",
   "title": "Sober",
   "year": 2023,
-  "spotifyId": "0vuyiZejJnlgQpxy6XK7u2"
+  "spotifyId": "0vuyiZejJnlgQpxy6XK7u2",
+  "deezerId": 2156414257
  },
  {
   "id": "sigrid-bernson-patrick-swayze",
@@ -1180,49 +1327,56 @@
   "artist": "Alvaro Estrella",
   "title": "Suave",
   "year": 2022,
-  "spotifyId": "5Jh0GuUTOa4ElVvBcbiRfx"
+  "spotifyId": "5Jh0GuUTOa4ElVvBcbiRfx",
+  "deezerId": 1654111442
  },
  {
   "id": "ella-tiritiello-bara-du-ar-dar",
   "artist": "Ella Tiritiello",
   "title": "Bara du är där",
   "year": 2025,
-  "spotifyId": "3zYTYk15l0ahY6cJ9MFrNT"
+  "spotifyId": "3zYTYk15l0ahY6cJ9MFrNT",
+  "deezerId": 3188181451
  },
  {
   "id": "robin-stjernberg-you",
   "artist": "Robin Stjernberg",
   "title": "You",
   "year": 2013,
-  "spotifyId": "7cOos3Ax3CWrgvbKKoQElr"
+  "spotifyId": "7cOos3Ax3CWrgvbKKoQElr",
+  "deezerId": 64650123
  },
  {
   "id": "victor-crone-diamonds",
   "artist": "Victor Crone",
   "title": "Diamonds",
   "year": 2023,
-  "spotifyId": "5RHkCzmY83IpjWaTxTCubm"
+  "spotifyId": "5RHkCzmY83IpjWaTxTCubm",
+  "deezerId": 2137415607
  },
  {
   "id": "andreas-weise-bring-out-the-fire",
   "artist": "Andreas Weise",
   "title": "Bring Out the Fire",
   "year": 2015,
-  "spotifyId": "25hY5pktjQrV93IwvigiGV"
+  "spotifyId": "25hY5pktjQrV93IwvigiGV",
+  "deezerId": 95344228
  },
  {
   "id": "isa-i-will-wait",
   "artist": "Isa",
   "title": "I Will Wait",
   "year": 2016,
-  "spotifyId": "3RlgiE1WYd8yyaShRV4V0D"
+  "spotifyId": "3RlgiE1WYd8yyaShRV4V0D",
+  "deezerId": 119204762
  },
  {
   "id": "anton-ewald-new-religion",
   "artist": "Anton Ewald",
   "title": "New Religion",
   "year": 2021,
-  "spotifyId": "6McgJF06bnEyIVAfRTaZ4W"
+  "spotifyId": "6McgJF06bnEyIVAfRTaZ4W",
+  "deezerId": 1259043672
  },
  {
   "id": "zeana-feat-anis-don-demina-mina-brander",
@@ -1243,35 +1397,40 @@
   "artist": "David Lindgren",
   "title": "We Are Your Tomorrow",
   "year": 2016,
-  "spotifyId": "5RDFWDmMES0saxzu2DaH5Z"
+  "spotifyId": "5RDFWDmMES0saxzu2DaH5Z",
+  "deezerId": 119954142
  },
  {
   "id": "samir-viktor-hela-varlden-vantar",
   "artist": "Samir & Viktor",
   "title": "Hela världen väntar",
   "year": 2024,
-  "spotifyId": "0KnatBv9CtD7s3LMFfJiAm"
+  "spotifyId": "0KnatBv9CtD7s3LMFfJiAm",
+  "deezerId": 2648339012
  },
  {
   "id": "jakob-karlberg-om-du-tror-att-jag-saknar-dig",
   "artist": "Jakob Karlberg",
   "title": "Om du tror att jag saknar dig",
   "year": 2020,
-  "spotifyId": "5VmBw7puc2zbbNKkKqoYpP"
+  "spotifyId": "5VmBw7puc2zbbNKkKqoYpP",
+  "deezerId": 2006888897
  },
  {
   "id": "dinah-nah-make-me-la-la-la",
   "artist": "Dinah Nah",
   "title": "Make Me (La La La)",
   "year": 2015,
-  "spotifyId": "0Cy9wMOBn3QuhnjCs932Je"
+  "spotifyId": "0Cy9wMOBn3QuhnjCs932Je",
+  "deezerId": 1233016812
  },
  {
   "id": "alcazar-alcastar",
   "artist": "Alcazar",
   "title": "Alcastar",
   "year": 2005,
-  "spotifyId": "262SzTebyPPJ48CW4sezad"
+  "spotifyId": "262SzTebyPPJ48CW4sezad",
+  "deezerId": 3106575171
  },
  {
   "id": "boris-rene-her-kiss",
@@ -1292,90 +1451,103 @@
   "artist": "Jessica Andersson",
   "title": "Party Voice",
   "year": 2018,
-  "spotifyId": "7J3UCWBsvFa6M0wrGqSc9s"
+  "spotifyId": "7J3UCWBsvFa6M0wrGqSc9s",
+  "deezerId": 461059842
  },
  {
   "id": "ace-wilder-wild-child",
   "artist": "Ace Wilder",
   "title": "Wild Child",
   "year": 2017,
-  "spotifyId": "3FtVPxBNvwtRksGhN4oKQz"
+  "spotifyId": "3FtVPxBNvwtRksGhN4oKQz",
+  "deezerId": 142915706
  },
  {
   "id": "malou-prytz-24k-gold",
   "artist": "Malou Prytz",
   "title": "24K Gold",
   "year": 2025,
-  "spotifyId": "78NhuVWEaTukGw1I61Wd1c"
+  "spotifyId": "78NhuVWEaTukGw1I61Wd1c",
+  "deezerId": 3216957831
  },
  {
   "id": "moncho-cuba-libre",
   "artist": "Moncho",
   "title": "Cuba Libre",
   "year": 2018,
-  "spotifyId": "4gER9UA4AzZJ52UUV49roQ"
+  "spotifyId": "4gER9UA4AzZJ52UUV49roQ",
+  "deezerId": 463662192
  },
  {
   "id": "axel-schylstrom-nar-ingen-ser",
   "artist": "Axel Schylström",
   "title": "När ingen ser",
   "year": 2017,
-  "spotifyId": "5cAgat02lrCcVVogqn1qsu"
+  "spotifyId": "5cAgat02lrCcVVogqn1qsu",
+  "deezerId": 142915720
  },
  {
   "id": "efraim-leo-best-of-me",
   "artist": "Efraim Leo",
   "title": "Best of Me",
   "year": 2021,
-  "spotifyId": "487FnTfh3G1qe0neVvkGb3"
+  "spotifyId": "487FnTfh3G1qe0neVvkGb3",
+  "deezerId": 1279728182
  },
  {
   "id": "danne-strahed-hallabaloo",
   "artist": "Danne Stråhed",
   "title": "Hallabaloo",
   "year": 2022,
-  "spotifyId": "03jodq9I7XgEdouxH230fd"
+  "spotifyId": "03jodq9I7XgEdouxH230fd",
+  "deezerId": 1635449532
  },
  {
   "id": "sanna-nielsen-hela-varlden-for-mig",
   "artist": "Sanna Nielsen",
   "title": "Hela världen för mig",
   "year": 2003,
-  "spotifyId": "2lj4kO5PdVBbvIifZIAL2D"
+  "spotifyId": "2lj4kO5PdVBbvIifZIAL2D",
+  "deezerId": 3615066
  },
  {
   "id": "arwin-this-dream-of-mine",
   "artist": "Arwin",
   "title": "This Dream of Mine",
   "year": 2025,
-  "spotifyId": "1dcrRyyskejIMghU0L96dH"
+  "spotifyId": "1dcrRyyskejIMghU0L96dH",
+  "deezerId": 3239601511
  },
  {
   "id": "annika-wickihalder-life-again",
   "artist": "Annika Wickihalder",
   "title": "Life Again",
   "year": 2025,
-  "spotifyId": "3ehCOa89sOvJicgLLUTgNe"
+  "spotifyId": "3ehCOa89sOvJicgLLUTgNe",
+  "deezerId": 3193874461
  },
  {
   "id": "lisa-ajax-awful-liar",
   "artist": "Lisa Ajax",
   "title": "Awful Liar",
   "year": 2024,
-  "spotifyId": "4UXJYpHAyh1Y7tXvhKWyc2"
+  "spotifyId": "4UXJYpHAyh1Y7tXvhKWyc2",
+  "deezerId": 2638769072
  },
  {
   "id": "eva-rydberg-ewa-roos-rena-rama-ding-dong",
   "artist": "Eva Rydberg & Ewa Roos",
   "title": "Rena rama ding dong",
   "year": 2021,
-  "spotifyId": "1DT1yVnRlV3kV2gSHvf31Q"
+  "spotifyId": "1DT1yVnRlV3kV2gSHvf31Q",
+  "deezerId": 3591461342
  },
  {
   "id": "lovad-allting-ar-precis-likadant",
   "artist": "lovad",
   "title": "Allting är precis likadant",
   "year": 2021,
-  "spotifyId": "7d32oBYefxvVO5efdRUuSX"
+  "spotifyId": "7d32oBYefxvVO5efdRUuSX",
+  "deezerId": 1233914132
  }
 ]

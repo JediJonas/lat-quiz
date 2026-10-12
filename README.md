@@ -1,14 +1,14 @@
 # Låtquiz
 
-En webbapp för låtquiz med familj och vänner. Spelledaren spelar låtar i Spotify, och spelarna gissar artist och titel i sina egna mobiler.
+En webbapp för låtquiz med familj och vänner. Spelledaren spelar klipp från Deezer, eller låtar i Spotify, och spelarna gissar artist och titel i sina egna mobiler.
 
 Ändringar görs via pull requests mot `main`.
 
 ## Så spelar man
 
-1. Spelledaren öppnar `host.html` på en dator med Spotify, väljer kategori och trycker på **Dra igång!**.
+1. Spelledaren öppnar `host.html` på en dator, väljer kategori och trycker på **Dra igång!**.
 2. Spelarna skannar QR-koden, eller öppnar `play.html` och skriver in koden.
-3. Spelledaren trycker på **Nästa låt**. Låten öppnas i Spotify-appen, och klicket startar en timer på 30 sekunder. Spelledaren stoppar låten själv när tiden har gått ut.
+3. Spelledaren trycker på **Nästa låt**. I de flesta kategorier spelas ett 30 sekunders klipp från Deezer direkt i spelledarvyn, och timern på 30 sekunder startar när det hörs. I övriga kategorier, eller om Deezer saknar låten, öppnas den i Spotify-appen och klicket startar timern. Spelledaren stoppar då låten själv.
 4. Spelarna väljer artist och titel ur listan. Rätt svar visas när tiden är slut, eller när alla har svarat.
 
 Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt inom 15 sekunder. Först till 10 poäng vinner.
@@ -22,7 +22,8 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
-- `js/deezer.js`: förhandsklipp från Deezer, på prov i kategorin Deezer-test. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp används Spotify som vanligt.
+- `js/deezer.js`: förhandsklipp från Deezer i kategorier med `"audio": "deezer"`. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp används Spotify som vanligt.
+- `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.
 - `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Inter (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
 
 ## Köra lokalt
@@ -81,3 +82,13 @@ node verktyg/hamta-id.mjs data/kandidater/<kategori>.json 100
 ```
 
 Skriptet söker först i Wikidata och sedan bland inspelningar i MusicBrainz som har en Spotify-länk. Klassiska verk hittas via verket i MusicBrainz, och första satsen eller den del som titeln nämner väljs, helst med en känd orkester. Claude går igenom träffarna och markerar fel inspelningar med `"skip"` i kandidatlistan, så att de blir lockbeten i stället. Det kräver att miljön når query.wikidata.org och musicbrainz.org.
+
+## Deezer-ID
+
+Varje quizlåt kan ha ett fast `deezerId`, så att rätt inspelning spelas och inte en liveversion eller en cover. Claude hämtar dem med Node:
+
+```
+node verktyg/deezer-id.mjs 80-tal 90-tal
+```
+
+Verktyget slår först upp låtens ISRC i Wikidata via Spotify-ID:t och hämtar exakt den inspelningen från Deezer. Annars söks låten på Deezer med krav på rätt artist och titel, utan live, remix, cover och nyinspelningar, och den mest spelade versionen nära låtens år väljs. Bara inspelningar som går att spela i Sverige tas med. Granskade undantag står i `verktyg/deezer-val.json`, och artisterna i Eurovision står i `verktyg/eurovision-artister.json`. Låtar utan ID söks upp av appen när de spelas.

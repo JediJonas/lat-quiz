@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Låtquiz – Om spelet</title>
-  <meta name="description" content="Hur Låtquiz fungerar tekniskt: statiska sidor, direktkontakt mellan webbläsare med WebRTC och låtar i Spotify.">
+  <meta name="description" content="Hur Låtquiz fungerar tekniskt: statiska sidor, direktkontakt mellan webbläsare med WebRTC och musik från Deezer och Spotify.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
   <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
@@ -21,7 +21,7 @@
     <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och mobilerna ansluter direkt till den med WebRTC via PeerJS.</p>
 
     <h2>Musiken</h2>
-    <p>Spelet öppnar bara en länk till låten i spelledarens Spotify-app, så det behövs ingen inloggning eller koppling till Spotify. Spelarna väljer svar ur en förslagslista där rätt svar blandas med låtar som inte är med.</p>
+    <p>I de flesta kategorier spelas ett förhandsklipp från Deezer direkt i spelledarens webbläsare. I övriga kategorier öppnar spelet bara en länk till låten i spelledarens Spotify-app. Det behövs ingen inloggning eller koppling till Deezer eller Spotify. Spelarna väljer svar ur en förslagslista där rätt svar blandas med låtar som inte är med.</p>
 
     <h2>Kvalitet</h2>
     <p>Varje ändring kontrolleras automatiskt med tester, HTML-validering via W3C, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen via Lighthouse.</p>
