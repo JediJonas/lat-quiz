@@ -563,6 +563,11 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
   .join-info { position: relative; top: auto; margin: 0 0 20px; }
   .qr { max-width: 258px; margin: 0 auto; }
+  /* De fyra länkarna under poänglistan fördelas jämnt på en rad. */
+  .main-col .actions { display: flex; justify-content: space-between; gap: 12px; }
+  .main-col .actions .link { flex: none; margin: 0; }
+  .actions .user-settings { float: none; }
+  .desktop-only { display: none; }
 }
 
 /* Modaler */
