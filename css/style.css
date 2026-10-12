@@ -324,11 +324,11 @@ table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
 td { padding: 11px 12px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 td:first-child { border-left: 1px solid var(--border); border-radius: 12px 0 0 12px; }
 td:last-child { border-right: 1px solid var(--border); border-radius: 0 12px 12px 0; }
-td.place { width: 2.6em; text-align: center; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
-td.place.first { color: var(--bonus); }
 td.name { font-weight: 600; }
-td.score { text-align: right; font-size: 1.15rem; font-weight: 750; font-variant-numeric: tabular-nums; }
-td.status { color: var(--muted); font-size: 0.9rem; }
+/* Poängen står först, med samma avstånd till radens vänsterkant som innehållet har till högerkanten. */
+td.score { width: 1.6em; font-size: 1.15rem; font-weight: 750; font-variant-numeric: tabular-nums; }
+td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
+td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
 tr.me td { background: color-mix(in srgb, var(--accent) 12%, var(--bg)); border-color: transparent; }
 tr.bump td.score { animation: bump 0.7s ease-out; }
@@ -363,7 +363,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 /* Mer luft mot radens kanter. */
 #standings td:first-child { padding-left: 16px; }
 #standings td:last-child { padding-right: 16px; }
-#standings td.status { text-align: right; padding-right: 4px; white-space: nowrap; }
+#standings td.status { white-space: nowrap; }
 #standings td.name { width: 100%; overflow-wrap: break-word; }
 #standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }

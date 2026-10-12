@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderRing, ranks, scoreTracker, settingsSummary, statusTags } from './ui.js';
+import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
@@ -86,12 +86,10 @@ function playerStatus(id) {
 }
 
 function renderStandings() {
-  const places = ranks(view.standings);
-  const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-    <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
+  const rows = view.standings.map((p) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
+    <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
     <td class="name">${esc(p.name)}</td>
-    <td class="status">${playerStatus(p.id)}</td>
-    <td class="score">${p.score}</td></tr>`);
+    <td class="status">${playerStatus(p.id)}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
 

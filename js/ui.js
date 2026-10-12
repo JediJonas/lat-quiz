@@ -53,15 +53,6 @@ export function statusTags({ phase, progress, result, labels, esc, points = true
   return '';
 }
 
-// Placering med delad plats vid lika poäng. Listan ska vara sorterad.
-export function ranks(players) {
-  let place = 0;
-  return players.map((p, i) => {
-    if (i === 0 || p.score !== players[i - 1].score) place = i + 1;
-    return place;
-  });
-}
-
 // Markerar rader vars poäng har ändrats sedan förra visningen.
 export function scoreTracker() {
   const last = new Map();
