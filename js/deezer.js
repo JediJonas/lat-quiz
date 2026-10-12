@@ -3,11 +3,12 @@
 // efter en stund och hämtas därför precis innan låten spelas.
 
 const API = 'https://api.deezer.com/search';
+const API_TRACK = 'https://api.deezer.com/track';
 const TIMEOUT_MS = 8000;
 let counter = 0;
 
 const normalize = (text) => String(text).toLowerCase().normalize('NFD')
-  .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 
 // Väljer en träff av rätt artist med klipp, helst utan live- eller karaokeversion.
 export function pickTrack(results, song) {
@@ -36,7 +37,12 @@ function jsonp(url) {
 }
 
 // Returnerar en färsk klipplänk för låten, eller null om Deezer inte har den.
+// Med ett sparat Deezer-ID hämtas just den inspelningen, annars görs en sökning.
 export async function findPreview(song) {
+  if (song.deezerId) {
+    const track = await jsonp(`${API_TRACK}/${encodeURIComponent(song.deezerId)}?`);
+    return track && track.preview ? track.preview : null;
+  }
   const q = encodeURIComponent(song.artist + ' ' + song.title);
   const data = await jsonp(`${API}?q=${q}&limit=10`);
   const track = pickTrack(data && data.data, song);

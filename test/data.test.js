@@ -20,6 +20,7 @@ test('varje quizlåt har ett unikt id och ett giltigt Spotify-ID', () => {
       assert.ok(!ids.has(song.id), `${category.file}: ${song.id} finns två gånger`);
       ids.add(song.id);
       assert.match(song.spotifyId, /^[A-Za-z0-9]{22}$/, `${category.file}: ${song.id}`);
+      if ('deezerId' in song) assert.match(String(song.deezerId), /^\d+$/, `${category.file}: ${song.id} har ogiltigt Deezer-ID`);
     }
   }
 });
