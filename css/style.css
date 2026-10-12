@@ -568,6 +568,11 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   .main-col .actions .link { flex: none; margin: 0; }
   .actions .user-settings { float: none; }
   .desktop-only { display: none; }
+  /* Det som står uppe till höger (inställningarna, Ansluten) linjerar med loggans överkant. */
+  .game-head, .player-head { align-items: flex-start; }
+  .player-head .conn { align-self: auto; margin-top: calc(88px * 260 / 2814); }
+  /* Textens versalhöjd, inte radens överkant, linjerar med loggan. */
+  #game-settings-summary { margin-top: calc(136px * 260 / 2814 - 0.35em); }
 }
 
 /* Modaler */
