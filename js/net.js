@@ -7,6 +7,8 @@
 const PEER_PREFIX = 'latquiz-v1-';
 const PING_MS = 4000;
 const SILENCE_MS = 12000;
+// Så länge får ett anslutningsförsök ta innan spelaren försöker igen.
+const CONNECT_MS = 8000;
 
 // För lokal testning kan en egen PeerJS-server anges i adressen,
 // till exempel ?peerHost=localhost&peerPort=9000.
@@ -68,7 +70,7 @@ export function createHost(code, handlers) {
         peer.destroy();
         setTimeout(() => !destroyed && open(), 3000);
       } else if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
-        handlers.onError('Kontakten med anslutningsservern bröts. Försöker igen…');
+        handlers.onError('Frånkopplad. Ansluter igen…');
       } else if (err.type !== 'peer-unavailable') {
         handlers.onError('Anslutningsfel: ' + err.type);
       }
@@ -117,42 +119,54 @@ export function createClient(code, handlers) {
   let lastSeen = 0;
   let retryDelay = 1000;
   let retryTimer = null;
+  let attemptTimer = null;
   let destroyed = false;
   let everConnected = false;
 
+  function closePeer() {
+    clearTimeout(attemptTimer);
+    const p = peer;
+    peer = null;
+    conn = null;
+    if (p && !p.destroyed) p.destroy();
+  }
+
+  // Varje försök börjar med en ny Peer, precis som en omladdning av sidan. En gammal Peer
+  // kan ha en död förbindelse till förmedlingsservern utan att märka det, och då kommer
+  // inget svar alls.
   function connect() {
     clearTimeout(retryTimer);
     if (destroyed) return;
     handlers.onStatus('connecting');
-    if (!peer || peer.destroyed) {
-      peer = new Peer(peerOptions());
-      peer.on('open', () => openConnection());
-      peer.on('error', (err) => {
-        // Spelledaren finns inte. Har vi aldrig varit anslutna är koden fel
-        // eller spelet avslutat. Annars laddar spelledaren troligen om sidan.
-        if (err.type === 'peer-unavailable' && !everConnected) {
-          handlers.onNotFound();
-          return;
-        }
-        scheduleRetry();
-      });
-      peer.on('disconnected', () => {
-        if (!destroyed && !peer.destroyed) peer.reconnect();
-      });
-    } else if (peer.disconnected) {
-      peer.reconnect();
-      peer.once('open', () => openConnection());
-    } else {
-      openConnection();
-    }
+    closePeer();
+    const p = new Peer(peerOptions());
+    peer = p;
+    p.on('open', () => { if (peer === p) openConnection(); });
+    p.on('error', (err) => {
+      if (peer !== p) return;
+      // Spelledaren finns inte. Har vi aldrig varit anslutna är koden fel
+      // eller spelet avslutat. Annars laddar spelledaren troligen om sidan.
+      if (err.type === 'peer-unavailable' && !everConnected) {
+        handlers.onNotFound();
+        return;
+      }
+      // Fel mot förmedlingsservern stör inte en öppen förbindelse till spelledaren.
+      if (conn && conn.open) return;
+      scheduleRetry();
+    });
+    p.on('disconnected', () => {
+      if (peer === p && !destroyed) p.reconnect();
+    });
+    // PeerJS har ingen egen tidsgräns. Blir det tyst under uppkopplingen försöker vi igen.
+    attemptTimer = setTimeout(() => { if (peer === p) scheduleRetry(); }, CONNECT_MS);
   }
 
   function openConnection() {
-    if (conn) conn.close();
     const c = peer.connect(PEER_PREFIX + code, { reliable: true });
     conn = c;
     c.on('open', () => {
       if (conn !== c) return;
+      clearTimeout(attemptTimer);
       lastSeen = Date.now();
       retryDelay = 1000;
       everConnected = true;
@@ -171,7 +185,7 @@ export function createClient(code, handlers) {
 
   function scheduleRetry() {
     if (destroyed) return;
-    if (conn) { const c = conn; conn = null; try { c.close(); } catch { /* stängd */ } }
+    closePeer();
     handlers.onStatus('offline');
     clearTimeout(retryTimer);
     retryTimer = setTimeout(connect, retryDelay);
@@ -188,9 +202,6 @@ export function createClient(code, handlers) {
     if (document.visibilityState !== 'visible' || destroyed) return;
     if (!conn || !conn.open || Date.now() - lastSeen > PING_MS * 2) {
       retryDelay = 1000;
-      if (peer && !peer.destroyed) peer.destroy();
-      peer = null;
-      conn = null;
       connect();
     }
   }
@@ -208,7 +219,7 @@ export function createClient(code, handlers) {
       clearInterval(watchdog);
       clearTimeout(retryTimer);
       document.removeEventListener('visibilitychange', onVisible);
-      if (peer) peer.destroy();
+      closePeer();
     },
   };
 }

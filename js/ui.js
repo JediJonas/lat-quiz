@@ -53,15 +53,6 @@ export function statusTags({ phase, progress, result, labels, esc, points = true
   return '';
 }
 
-// Placering med delad plats vid lika poäng. Listan ska vara sorterad.
-export function ranks(players) {
-  let place = 0;
-  return players.map((p, i) => {
-    if (i === 0 || p.score !== players[i - 1].score) place = i + 1;
-    return place;
-  });
-}
-
 // Markerar rader vars poäng har ändrats sedan förra visningen.
 export function scoreTracker() {
   const last = new Map();
@@ -83,7 +74,8 @@ export function announce(text) {
 }
 
 // Kort sammanfattning av inställningarna, t.ex. "Tid 60 s · Bonus 20 s · Först till 10".
+// Varje del hålls ihop på en rad med hårda mellanslag, så att raden bara bryts vid punkterna.
 export function settingsSummary(s) {
   return [`Tid ${s.roundMs / 1000} s`, s.bonusMs ? `Bonus ${s.bonusMs / 1000} s` : 'Ingen bonus',
-    `Först till ${s.winScore}`].join(' · ');
+    `Först till ${s.winScore}`].map((part) => part.replaceAll(' ', '\u00a0')).join(' · ');
 }

@@ -43,10 +43,10 @@
  },
  {
   "id": "pink-floyd-have-a-cigar",
-  "artist": "Pink Floyd & Roy Harper",
+  "artist": "Pink Floyd",
   "title": "Have a Cigar",
   "year": 1973,
-  "spotifyId": "1lygXidK6jEvwzsia3NEad"
+  "spotifyId": "3CmHvyZQQAGkKkTjTBFWN6"
  },
  {
   "id": "queen-liar",
@@ -98,13 +98,6 @@
   "spotifyId": "60e5PcqGmlVFQ0HHgUagCJ"
  },
  {
-  "id": "ahmad-jamal-suicide-is-painless",
-  "artist": "Ahmad Jamal & Johnny Mandel",
-  "title": "Suicide Is Painless",
-  "year": 1970,
-  "spotifyId": "2tUZVeZXhniWSuHx8mBkbq"
- },
- {
   "id": "the-rolling-stones-brown-sugar",
   "artist": "The Rolling Stones",
   "title": "Brown Sugar",
@@ -151,7 +144,7 @@
   "artist": "Elton John & Kiki Dee",
   "title": "Don't Go Breaking My Heart",
   "year": 1976,
-  "spotifyId": "3ZrPmiJe4Zi3JcSanLDVWX"
+  "spotifyId": "5pKJtX4wBeby9qIfFhyOJj"
  },
  {
   "id": "donna-summer-hot-stuff",
@@ -302,7 +295,7 @@
  },
  {
   "id": "susan-boyle-mull-of-kintyre",
-  "artist": "Susan Boyle & Wings",
+  "artist": "Wings",
   "title": "Mull of Kintyre",
   "year": 1977,
   "spotifyId": "66LLeoZCN2JXf4hMZW9uqy"
@@ -386,7 +379,7 @@
  },
  {
   "id": "the-rolling-stones-out-of-time",
-  "artist": "The Rolling Stones & Chris Farlowe",
+  "artist": "The Rolling Stones",
   "title": "Out of Time",
   "year": 1975,
   "spotifyId": "5RFYhFsx88Ged9UNmv5ORj"
@@ -428,21 +421,21 @@
  },
  {
   "id": "carole-king-it-s-too-late",
-  "artist": "Carole King & Gloria Estefan",
+  "artist": "Carole King",
   "title": "It's Too Late",
   "year": 1971,
   "spotifyId": "12q3V8ShACq2PSWINMc2rC"
  },
  {
   "id": "joni-mitchell-woodstock",
-  "artist": "Joni Mitchell & Crosby, Stills & Nash",
+  "artist": "Joni Mitchell",
   "title": "Woodstock",
   "year": 1970,
   "spotifyId": "18o4mqgG9RmPAD8aItmvkO"
  },
  {
   "id": "carola-haggkvist-evergreen-love-theme-from-a-star-is-born",
-  "artist": "Carola Häggkvist & Barbra Streisand",
+  "artist": "Barbra Streisand",
   "title": "Evergreen (Love Theme from A Star Is Born)",
   "year": 1976,
   "spotifyId": "5SuEUz1orwSwkfqgFlJUHG"
@@ -575,7 +568,7 @@
  },
  {
   "id": "the-communards-never-can-say-goodbye",
-  "artist": "The Communards & Gloria Gaynor",
+  "artist": "The Jackson 5",
   "title": "Never Can Say Goodbye",
   "year": 1971,
   "spotifyId": "09SyJxVYFMJzjxQQ0Mb8cL"
@@ -683,7 +676,7 @@
   "artist": "Harold Melvin & the Blue Notes",
   "title": "If You Don't Know Me by Now",
   "year": 1972,
-  "spotifyId": "11Y5pOhc9SU4GkTSlGjxCR"
+  "spotifyId": "5fHtGb0NSObuiqApJl5sK6"
  },
  {
   "id": "bruce-springsteen-spirit-in-the-night",

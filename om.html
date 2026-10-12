@@ -18,25 +18,13 @@
     <p class="lead">Låtquiz är byggt med Claude, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
 
     <h2>Ingen egen server</h2>
-    <p>Spelet består av vanliga webbsidor i HTML, CSS och JavaScript, utan ramverk. Sidorna ligger på GitHub Pages, och allt annat händer i webbläsarna.</p>
-
-    <h2>Direktkontakt mellan webbläsarna</h2>
-    <p>Spelledarens webbläsare håller i spelet: låtar, svar och poäng. Mobilerna ansluter direkt till den med WebRTC, via biblioteket PeerJS. En liten publik server hjälper bara enheterna att hitta varandra med spelkoden. Sedan går all trafik direkt mellan dem.</p>
+    <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och mobilerna ansluter direkt till den med WebRTC via PeerJS.</p>
 
     <h2>Musiken</h2>
-    <p>Låtarna spelas i spelledarens Spotify-app. Spelet öppnar bara en länk till rätt låt, så det behövs ingen inloggning eller koppling till Spotify. Varje kategori är en lista med låtar och deras Spotify-ID.</p>
+    <p>Spelet öppnar bara en länk till låten i spelledarens Spotify-app, så det behövs ingen inloggning eller koppling till Spotify. Spelarna väljer svar ur en förslagslista där rätt svar blandas med låtar som inte är med.</p>
 
-    <h2>Gissningarna</h2>
-    <p>Spelarna väljer artist och titel ur en förslagslista, där riktiga svar blandas med låtar som inte är med. Svaren jämförs utan hänsyn till stora bokstäver, accenter och skiljetecken, så att "Señorita" och "senorita" räknas som samma.</p>
-
-    <h2>Små detaljer</h2>
-    <ul>
-      <li>Nedräkningen går i en Web Worker, så att den håller tiden även när spelledarens flik ligger i bakgrunden.</li>
-      <li>Spelet sparas i webbläsaren, så att spelledaren kan fortsätta efter en omladdning och spelarna återansluts automatiskt.</li>
-      <li>QR-koden ritas i webbläsaren med qrcode-generator, och typsnittet är Figtree. Loggan är ritad med typsnittet Lobster.</li>
-      <li>Ljust och mörkt läge följer enheten tills man väljer själv.</li>
-      <li>Varje ändring kontrolleras automatiskt med tester, HTML-validering, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen.</li>
-    </ul>
+    <h2>Kvalitet</h2>
+    <p>Varje ändring kontrolleras automatiskt med tester, HTML-validering via W3C, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen via Lighthouse.</p>
 
     <p class="theme-row"><span class="row-end"><button class="link user-settings"></button></span></p>
   </main>

@@ -3,12 +3,11 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce, renderRing, ranks, scoreTracker, settingsSummary, statusTags } from './ui.js';
+import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
-const CATEGORIES_KEY = 'latquiz-categories';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -160,6 +159,7 @@ function tick() {
 // ---- Spelets steg ----
 
 async function startGame(categoryId, resumeState) {
+  await scriptsLoaded;
   const categories = await loadCategories();
   category = categories.find((c) => c.id === categoryId) || categories[0];
   songs = await loadSongs(category);
@@ -234,6 +234,7 @@ async function endGame() {
   storage(() => localStorage.removeItem(SAVE_KEY));
   if (net) net.destroy();
   if (ticker) ticker.stop();
+  leaving = true;
   location.href = location.pathname + location.search;
 }
 
@@ -355,8 +356,7 @@ function renderTimer() {
 function renderPlayers() {
   const round = state.round;
   const list = game.standings(state);
-  const places = ranks(list);
-  const rows = list.map((p, i) => {
+  const rows = list.map((p) => {
     const status = round ? statusTags({
       phase: round.phase,
       progress: game.answeredFields(state, p.id),
@@ -365,10 +365,9 @@ function renderPlayers() {
       esc,
     }) : '';
     return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-      <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
+      <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
       <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
-      <td class="status">${status}</td>
-      <td class="score">${p.score}</td></tr>`;
+      <td class="status">${status}</td></tr>`;
   });
   $('#players').innerHTML = rows.length
     ? `<table><tbody>${rows.join('')}</tbody></table>`
@@ -456,30 +455,44 @@ document.addEventListener('keydown', (e) => {
   target.click();
 });
 
+// Varnar om fliken stängs av misstag mitt i ett spel, men inte när
+// spelledaren själv har avslutat det.
+let leaving = false;
+
+// En spotify:-länk räknas av webbläsaren som att sidan lämnas, fast den bara
+// öppnar appen. Varningen hoppas därför över en kort stund efter ett sådant klick.
+let appLinkAt = 0;
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href]');
+  if (link && !/^https?:/.test(link.href)) appLinkAt = Date.now();
+}, true);
+
 window.addEventListener('beforeunload', (e) => {
+  if (leaving || Date.now() - appLinkAt < 1000) return;
   if (state && Object.keys(state.players).length) e.preventDefault();
 });
 
-// Fyller kategorilistan och behåller det val som redan är gjort.
+// Kategorierna står redan i host.html, så att sidan inte blinkar till.
+// Här uppdateras de från listan och det val som redan är gjort behålls.
 function renderCategories(categories) {
   const select = $('#category-select');
-  const chosen = select.disabled ? null : select.value;
+  const chosen = select.value;
   select.innerHTML = categories
     .map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
   if (categories.some((c) => c.id === chosen)) select.value = chosen;
-  select.disabled = false;
-  $('#create').disabled = false;
 }
+
+// PeerJS och QR-koden laddas efter den här modulen, så att startsidan visas utan
+// att vänta på dem. Ett snabbt klick väntar in dem innan spelet startar.
+const scriptsLoaded = new Promise((resolve) => {
+  if (document.readyState === 'complete') resolve();
+  else document.addEventListener('DOMContentLoaded', resolve, { once: true });
+});
 
 async function init() {
   mountUserSettings();
   $('#create').addEventListener('click', () => startGame($('#category-select').value));
-  // Visa förra besökets lista direkt så att rutan inte står tom medan den nya hämtas.
-  const cached = storage(() => JSON.parse(localStorage.getItem(CATEGORIES_KEY)), null);
-  if (Array.isArray(cached) && cached.length) renderCategories(cached);
-  const categories = await loadCategories();
-  renderCategories(categories);
-  storage(() => localStorage.setItem(CATEGORIES_KEY, JSON.stringify(categories)));
   renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
@@ -488,6 +501,7 @@ async function init() {
     resume.querySelector('button').textContent = `Tillbaka till ${saved.code}`;
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
+  renderCategories(await loadCategories());
 }
 
 init().catch((err) => {

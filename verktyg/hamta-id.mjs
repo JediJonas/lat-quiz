@@ -9,6 +9,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { norm, pickWikidataTrack, artistMatches, titleMatches } from '../js/lookup.js';
+import { cleanDecoys, formatForslag } from './lockbeten.mjs';
 
 const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 const CACHE = new URL('./.cache.json', import.meta.url);
@@ -179,10 +180,13 @@ writeFileSync(outPath, JSON.stringify(songs, null, 1) + '\n');
 
 const forslagPath = new URL('../data/forslag.json', import.meta.url);
 const forslag = JSON.parse(readFileSync(forslagPath, 'utf8'));
-const merge = (old, more) => [...new Set([...old, ...more])].sort();
+const merge = (old, more) => [...new Set([...old, ...more])];
 forslag.artists = merge(forslag.artists, missing.map((s) => s.artist));
 forslag.titles = merge(forslag.titles, missing.map((s) => s.title));
-const lines = (items) => items.map((t) => JSON.stringify(t)).join(',\n');
-writeFileSync(forslagPath, `{\n"artists": [\n${lines(forslag.artists)}\n],\n"titles": [\n${lines(forslag.titles)}\n]\n}\n`);
+const allCategories = JSON.parse(readFileSync(new URL('../data/categories.json', import.meta.url), 'utf8')).map((c) => ({
+  id: c.id,
+  songs: JSON.parse(readFileSync(new URL(`../data/${c.file}`, import.meta.url), 'utf8')),
+}));
+writeFileSync(forslagPath, formatForslag(cleanDecoys(forslag, allCategories)));
 
 console.log(`\n${list.name}: ${songs.length} av ${target} låtar har ID. ${missing.length} kandidater utan träff blev lockbeten.`);

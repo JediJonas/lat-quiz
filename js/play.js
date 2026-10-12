@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderRing, ranks, scoreTracker, settingsSummary, statusTags } from './ui.js';
+import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
@@ -86,22 +86,22 @@ function playerStatus(id) {
 }
 
 function renderStandings() {
-  const places = ranks(view.standings);
-  const rows = view.standings.map((p, i) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-    <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
+  const rows = view.standings.map((p) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
+    <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
     <td class="name">${esc(p.name)}</td>
-    <td class="status">${playerStatus(p.id)}</td>
-    <td class="score">${p.score}</td></tr>`);
+    <td class="status">${playerStatus(p.id)}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
 
 // Reglerna i klartext medan spelarna väntar på första låten.
 function rulesText(view) {
   const s = view.settings;
-  if (!s) return `Först till ${view.winScore} poäng vinner.`;
+  if (!s) return `Först till ${view.winScore}\u00a0p vinner. Lycka\u00a0till!`;
   // Hårda mellanslag efter talen, så att ett tal aldrig hamnar ensamt sist på en rad.
-  const bonus = s.bonusMs ? ` och 1\u00a0i bonus om båda är rätt inom ${s.bonusMs / 1000}\u00a0s` : '';
-  return `${s.roundMs / 1000}\u00a0s per låt. 1\u00a0poäng för artist, 1\u00a0för titel${bonus}. Först till ${s.winScore}\u00a0vinner.`;
+  const points = s.bonusMs
+    ? `1\u00a0p för artist, 1\u00a0p för titel och 1\u00a0p i bonus om båda är rätt inom ${s.bonusMs / 1000}\u00a0s`
+    : '1\u00a0p för artist och 1\u00a0p för titel';
+  return `${s.roundMs / 1000}\u00a0s per låt. ${points}. Först till ${s.winScore}\u00a0p vinner. Lycka\u00a0till!`;
 }
 
 function render() {
@@ -112,9 +112,8 @@ function render() {
   $('#waiting-text').textContent = phase === 'ready'
     ? `Låt ${round.number} startar snart…`
     : `Väntar på första låten… ${rulesText(view)}`;
-  // Hårda mellanslag inom varje del, så att raden bara bryts vid ·.
   $('#game-rules').textContent = view.settings
-    ? ' · ' + settingsSummary(view.settings).split(' · ').map((part) => part.replace(/ /g, '\u00a0')).join(' · ') : '';
+    ? ' · ' + settingsSummary(view.settings) : '';
   $('#guess').hidden = phase !== 'playing';
   $('#result').hidden = phase !== 'revealed';
   fields.artist.disable(phase !== 'playing');
