@@ -226,6 +226,7 @@ button:active, .button:active { transform: scale(0.98); }
 input:focus-visible, select:focus-visible { outline: none; }
 .big { padding: 16px; font-size: 1.05rem; }
 button.big, .button.big { box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent); }
+button.secondary.big { box-shadow: var(--shadow-sm); }
 /* Mer luft mellan formulärets fält och huvudknappen. */
 #create, #join-form .big { margin-top: 28px; }
 .huge { padding: 22px; font-size: 1.3rem; border-radius: 16px; letter-spacing: -0.01em; }
@@ -514,8 +515,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
 /* Spelledarens panel under spelvyn */
-.panel-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 40px; margin: 0 0 12px; }
-.panel-head .round-label { margin: 0; }
+.controls > .round-label { margin: 0 0 12px; }
 /* Soptunnan: en knapp som är på eller av. På betyder att låten är markerad som okänd. */
 button.icon-toggle {
   display: grid;
@@ -534,11 +534,13 @@ button.icon-toggle {
 button.icon-toggle:hover { background: var(--surface-2); color: var(--text); }
 button.icon-toggle[aria-pressed="true"] { background: var(--bad); border-color: transparent; color: var(--bad-text); }
 .icon-toggle svg { width: 20px; height: 20px; }
-.panel-links { display: flex; gap: 20px; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
+.panel-links { display: flex; align-items: center; gap: 20px; min-height: 40px; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
+/* Soptunnan står längst till höger på raden. */
+.panel-links .icon-toggle { margin-left: auto; }
 .panel-links .link { margin: 0; }
 #controls > :first-child { margin-top: 0; }
 #controls > :last-child { margin-bottom: 0; }
-.reopen { margin: 16px 0 0; text-align: center; }
+.reopen { margin: 16px 0 0; }
 
 @media (max-width: 760px) {
   /* QR-rutan hamnar under raden med kategorin: kolumnens delar blir egna rader i gridden. */

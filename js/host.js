@@ -337,7 +337,7 @@ const DEEZER_NOTE = '<p class="muted small">Klipp från Deezer, endast för priv
 // Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
 function unknownClicked() {
   const song = state.round && state.round.song;
-  if (!song || state.round.phase !== 'revealed') return;
+  if (!song) return;
   const list = toggleUnknown(loadUnknown(), category.id, song);
   saveUnknown(list);
   const marked = isUnknown(list, category.id, song.id);
@@ -576,7 +576,7 @@ function controls() {
   if (round.phase === 'ready' && usesDeezer()) return clipStage(round) + DEEZER_NOTE;
   if (round.phase === 'ready') return playLinks(round.song);
   if (round.phase === 'playing') {
-    return `<button id="reveal" class="secondary">Visa svar nu</button>
+    return `<button id="reveal" class="secondary big huge">Visa svar nu</button>
       ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
   }
   const left = autoNextLeft();
@@ -591,10 +591,10 @@ function controls() {
 function render() {
   $('#category').textContent = category.name;
   gameView.update(game.playerView(state, state.hostId, Date.now()), state.hostId);
-  // Soptunnan markerar låten som okänd. Den finns bara när svaret visas.
+  // Soptunnan markerar låten som okänd. Den finns så länge det finns en låt.
   const round = state.round;
   const unknown = $('#unknown');
-  unknown.hidden = !round || round.phase !== 'revealed';
+  unknown.hidden = !round;
   if (!unknown.hidden) unknown.setAttribute('aria-pressed', String(isUnknown(loadUnknown(), category.id, round.song.id)));
   const box = $('#controls');
   const html = controls().replace(/<span id="auto-next">\d+<\/span>/, '<span id="auto-next"></span>');
