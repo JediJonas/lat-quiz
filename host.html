@@ -49,19 +49,14 @@
       <p>Kod: <span id="code" class="code"></span></p>
     </section>
     <section class="main-col">
-      <div class="game-head">
+      <header class="player-head">
         <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
-        <p id="game-settings-summary" class="muted small"></p>
-      </div>
+        <span id="conn" class="conn connecting" role="status">Ansluter…</span>
+      </header>
       <div id="stage" class="stage"></div>
       <h2 class="section-title">Poäng</h2>
-      <div id="players"></div>
-      <p class="actions">
-        <button id="show-qr" class="link code-link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button>
-        <button id="game-settings" class="link">Inställningar</button>
-        <button id="end" class="link">Avsluta</button>
-        <button class="link user-settings"></button>
-      </p>
+      <div id="players" class="standings"></div>
+      <p class="theme-row"><button id="show-qr" class="link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button><span class="row-end"><button id="game-settings" class="link">Inställningar</button><button id="end" class="link">Avsluta</button><button class="link user-settings"></button></span></p>
     </section>
   </main>
 

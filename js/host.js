@@ -126,12 +126,12 @@ function onDisconnect(connId) {
 }
 
 function startNetwork() {
-  setNetStatus('Startar…');
+  setConn('connecting');
   net = createHost(state.code, {
-    onReady: () => setNetStatus(''),
+    onReady: () => { setConn('connected'); setNetStatus(''); },
     onMessage,
     onDisconnect,
-    onError: setNetStatus,
+    onError: (text, status) => { setConn(status); setNetStatus(text); },
   });
   ticker = startTicker(tick, 250);
 }
@@ -149,6 +149,13 @@ function startTicker(fn, ms) {
     const id = setInterval(fn, ms);
     return { stop: () => clearInterval(id) };
   }
+}
+
+// Samma etikett som hos spelarna. Ansluten betyder att nya spelare kan gå med.
+function setConn(status) {
+  const el = $('#conn');
+  el.className = 'conn ' + status;
+  el.textContent = { connecting: 'Ansluter…', connected: 'Ansluten', offline: 'Frånkopplad' }[status];
 }
 
 function setNetStatus(text) {
@@ -528,7 +535,7 @@ function renderPlayers() {
     }) : '';
     return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
       <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
-      <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
+      <td class="name">${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</td>
       <td class="status">${status}</td></tr>`;
   });
   $('#players').innerHTML = rows.length
@@ -594,7 +601,6 @@ function render() {
     announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.` + (state.winners ? ` ${winnerNames()} vinner!` : ''));
   }
   renderPlayers();
-  $('#game-settings-summary').textContent = settingsSummary(game.cleanSettings(state));
 }
 
 // ---- Start ----
