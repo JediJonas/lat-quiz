@@ -2,6 +2,7 @@
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
+import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
@@ -189,6 +190,11 @@ function nextSong() {
   if (game.unplayedSongs(state, songs).length === 0) state.playedIds = [];
   const song = game.nextSong(state, songs);
   if (!song) return;
+  if (usesDeezer()) {
+    changed();
+    playDeezer(state.round.number);
+    return;
+  }
   // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
   game.startRound(state, Date.now());
   changed();
@@ -209,11 +215,90 @@ function openSpotify(song) {
   link.remove();
 }
 
+// ---- Deezer-klipp (på prov) ----
+
+// En kort tystnad som spelas direkt i klicket. Då räknas ljudet som startat av
+// spelledaren, och klippet får spela fast det hämtas först efteråt (Safari).
+const SILENCE = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
+const clip = { audio: null, round: 0, status: null, error: '' };
+
+function usesDeezer() {
+  return category && category.audio === 'deezer';
+}
+
+function clipAudio() {
+  if (!clip.audio) clip.audio = new Audio();
+  return clip.audio;
+}
+
+function stopClip() {
+  if (clip.audio) clip.audio.pause();
+}
+
+// Måste anropas direkt från klicket.
+async function playDeezer(roundNumber) {
+  const audio = clipAudio();
+  audio.pause();
+  audio.src = SILENCE;
+  audio.play().catch(() => {});
+  Object.assign(clip, { round: roundNumber, status: 'loading', error: '' });
+  render();
+  let url = null;
+  try {
+    url = await findPreview(state.round.song);
+  } catch (err) {
+    clip.error = err.message;
+  }
+  if (!state.round || state.round.number !== roundNumber) return; // spelledaren har gått vidare
+  if (!url) {
+    clip.status = 'missing';
+    render();
+    return;
+  }
+  audio.src = url;
+  startClip();
+}
+
+// Timern startar först när klippet hörs.
+function startClip() {
+  const audio = clipAudio();
+  audio.currentTime = 0;
+  audio.play().then(() => {
+    clip.status = 'playing';
+    if (game.startRound(state, Date.now())) changed();
+  }).catch(() => {
+    clip.status = 'blocked';
+    render();
+  });
+}
+
+function playClipClicked() {
+  const round = state.round;
+  if (!round || round.phase !== 'ready') return;
+  if (clip.round === round.number && clip.audio && clip.audio.src.startsWith('http')) startClip();
+  else playDeezer(round.number);
+}
+
+function clipStage(round) {
+  if (clip.round === round.number && clip.status === 'loading') {
+    return '<p role="status">Hämtar klippet från Deezer…</p>';
+  }
+  if (clip.round === round.number && clip.status === 'missing') {
+    return `<p>${clip.error ? esc(clip.error) : 'Deezer har inget klipp för den här låten.'}
+      Spela den i Spotify i stället.</p>${playLinks(round.song)}`;
+  }
+  return `<p>Klicka på knappen. Klippet spelas här och timern startar.</p>
+    <button id="play-clip" class="big huge">Spela klippet</button>`;
+}
+
+const DEEZER_NOTE = '<p class="muted small">Klipp från Deezer, endast för privat bruk.</p>';
+
 function winnerNames() {
   return state.winners.map((id) => state.players[id].name).join(' och ');
 }
 
 function restart() {
+  stopClip();
   game.restart(state);
   changed();
 }
@@ -232,6 +317,7 @@ async function endGame() {
   });
   if (!ok) return;
   storage(() => localStorage.removeItem(SAVE_KEY));
+  stopClip();
   if (net) net.destroy();
   if (ticker) ticker.stop();
   leaving = true;
@@ -316,6 +402,7 @@ async function switchCategory(chosen) {
   }
   const chosenSongs = await loadSongs(chosen);
   if (!game.changeCategory(state, { categoryId: chosen.id, categoryName: chosen.name, labels: chosen.labels })) return;
+  stopClip();
   category = chosen;
   songs = chosenSongs;
 }
@@ -399,10 +486,16 @@ function render() {
   $('#category').textContent = category.name;
   const stage = $('#stage');
 
-  if (!round) {
+  if (!round && usesDeezer()) {
+    stage.innerHTML = `<p>Vänta tills alla har anslutit och tryck sedan på Nästa låt.
+      Ett klipp på 30 sekunder spelas här och timern startar.</p>
+      <button id="next" class="big huge">Nästa låt</button>${DEEZER_NOTE}`;
+  } else if (!round) {
     stage.innerHTML = `<p>Vänta tills alla har anslutit och tryck sedan på Nästa låt.
       Låten öppnas i Spotify och timern startar. Stoppa låten när tiden har gått ut.</p>
       <button id="next" class="big huge">Nästa låt</button>`;
+  } else if (round.phase === 'ready' && usesDeezer()) {
+    stage.innerHTML = `<h2>Låt ${round.number}</h2>${clipStage(round)}${DEEZER_NOTE}`;
   } else if (round.phase === 'ready') {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <p>Klicka på knappen. Låten öppnas i Spotify och timern startar.
@@ -412,7 +505,7 @@ function render() {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
       <div id="timer" class="ring"></div>
       <button id="reveal" class="secondary">Visa svar nu</button>
-      ${reopenLinks(round.song)}`;
+      ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
     renderTimer();
   } else {
     stage.innerHTML = `<h2>Låt ${round.number}</h2>
@@ -434,6 +527,7 @@ document.addEventListener('click', (e) => {
   const id = e.target.closest('[id]')?.id;
   if (id === 'next') nextSong();
   else if (id === 'play' || id === 'play-web') startRound(); // länken öppnas som vanligt
+  else if (id === 'play-clip') playClipClicked();
   else if (id === 'reveal') revealNow();
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
@@ -443,7 +537,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
-const ENTER_TARGETS = ['#create', '#next', '#play', '#reveal', '#restart'];
+const ENTER_TARGETS = ['#create', '#next', '#play', '#play-clip', '#reveal', '#restart'];
 
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Enter' || e.repeat || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
