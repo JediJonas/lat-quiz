@@ -556,10 +556,12 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .settings-row .link { flex: none; margin: 0; }
 
 @media (max-width: 760px) {
-  .host { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
+  /* QR-rutan hamnar under raden med kategorin: kolumnens delar blir egna rader i gridden. */
+  .host { grid-template-columns: 1fr; gap: 0; padding-top: 16px; }
+  .main-col { display: contents; }
+  .game-head { order: -1; }
   /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
-  /* top från datorlägets sticky-regel skulle annars flytta ned rutan och äta upp mellanrummet under den. */
-  .join-info { position: relative; top: auto; }
+  .join-info { position: relative; top: auto; margin: 0 0 20px; }
   .qr { max-width: 258px; margin: 0 auto; }
 }
 
