@@ -7,16 +7,16 @@
 
 :root {
   /* Scenljus: ljus i lila, rosa och grönt bakom halvgenomskinliga ytor. */
-  --bg: #f4f1fb;
+  --bg: #f1ecfb;
   --surface: rgba(255, 255, 255, 0.78);
   --surface-solid: #fbfaff;
   --surface-2: #ece8f7;
   --text: #1a1530;
   --muted: #5a5470;
   --border: rgba(60, 40, 120, 0.12);
-  --glow-1: rgba(124, 77, 255, 0.2);
-  --glow-2: rgba(18, 170, 80, 0.16);
-  --glow-3: rgba(255, 90, 170, 0.1);
+  --glow-1: rgba(124, 77, 255, 0.36);
+  --glow-2: rgba(18, 170, 80, 0.28);
+  --glow-3: rgba(255, 90, 170, 0.24);
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
