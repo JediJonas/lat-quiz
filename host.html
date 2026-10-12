@@ -38,7 +38,7 @@
         <option value="edm">EDM</option>
         <option value="deezer-test">Deezer-test</option>
       </select>
-      <p class="settings-row"><span id="settings-summary" class="muted small">Tid&nbsp;60&nbsp;s · Bonus&nbsp;15&nbsp;s · Först&nbsp;till&nbsp;10</span></p>
+      <p class="settings-row"><span id="settings-summary" class="muted small">Tid&nbsp;30&nbsp;s · Bonus&nbsp;15&nbsp;s · Först&nbsp;till&nbsp;10</span></p>
       <button id="create" class="big">Dra igång!</button>
     </form>
     <div id="resume" hidden><button class="secondary"></button></div>
@@ -70,12 +70,22 @@
 
       <div id="result" class="card" hidden><div id="result-body"></div></div>
 
-      <!-- Spelledarens knappar flyttas in i den ruta som syns. -->
-      <div id="controls" class="controls"></div>
+      <!-- Spelledarens panel: det som bara spelledaren kan göra med låten. -->
+      <section class="card controls" aria-labelledby="controls-title">
+        <div class="panel-head">
+          <h2 id="controls-title" class="round-label">Spelledare</h2>
+          <button id="unknown" class="icon-toggle" aria-pressed="false" title="Okänd låt: hoppa över den i kommande spel" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="visually-hidden">Okänd låt, hoppa över den i kommande spel</span>
+          </button>
+        </div>
+        <div id="controls"></div>
+        <p class="panel-links"><button id="game-settings" class="link">Inställningar</button><button id="end" class="link">Avsluta</button></p>
+      </section>
 
       <h2 class="section-title">Poäng</h2>
       <div id="standings" class="standings"></div>
-      <p class="theme-row"><button id="show-qr" class="link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button><span class="row-end"><button id="game-settings" class="link">Inställningar</button><button id="end" class="link">Avsluta</button><button class="link user-settings"></button></span></p>
+      <p class="theme-row"><button id="show-qr" class="link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button><span class="row-end"><button class="link user-settings"></button></span></p>
     </section>
   </main>
 

@@ -127,7 +127,5 @@ export function createGameView({ onAnswer, onError, host = false }) {
     },
     // De svar som är valda just nu, till exempel för att skicka dem igen efter ett avbrott.
     answers: () => ({ ...local }),
-    // Den ruta som syns just nu, så att spelledarens knappar kan läggas i den.
-    visibleCard: () => ['#waiting', '#guess', '#result'].map($).find((el) => !el.hidden),
   };
 }

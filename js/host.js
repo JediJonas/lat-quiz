@@ -177,6 +177,7 @@ function setNetStatus(text) {
 }
 
 function tick() {
+  checkAutoNext();
   if (!state.round || state.round.phase !== 'playing') return;
   if (game.shouldReveal(state, Date.now())) {
     game.reveal(state);
@@ -340,12 +341,8 @@ function unknownClicked() {
   const list = toggleUnknown(loadUnknown(), category.id, song);
   saveUnknown(list);
   const marked = isUnknown(list, category.id, song.id);
-  $('#unknown').textContent = unknownText(marked);
+  $('#unknown').setAttribute('aria-pressed', String(marked));
   announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
-}
-
-function unknownText(marked) {
-  return marked ? 'Markerad som okänd. Ångra' : 'Okänd låt? Hoppa över den i kommande spel';
 }
 
 function restart() {
@@ -376,7 +373,6 @@ async function endGame() {
 }
 
 const SETTING_FIELDS = [
-  { key: 'roundMs', label: 'Betänketid', text: (v) => `${v / 1000} sekunder` },
   { key: 'bonusMs', label: 'Bonus för snabbt svar', text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
   { key: 'winScore', label: 'Poänggräns', text: (v) => `Först till ${v} poäng` },
 ];
@@ -553,6 +549,29 @@ function reopenLinks(song) {
     app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
 }
 
+// Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
+// redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
+const AUTO_NEXT_MS = 30000;
+let autoNext = { round: 0, at: 0 };
+
+function autoNextLeft() {
+  const round = state.round;
+  if (!usesDeezer() || !round || round.phase !== 'revealed' || state.winners) return null;
+  if (autoNext.round !== round.number) autoNext = { round: round.number, at: Date.now() + AUTO_NEXT_MS };
+  return Math.max(0, autoNext.at - Date.now());
+}
+
+// Anropas av tickern. Väntar medan en ruta som Inställningar är öppen.
+function checkAutoNext() {
+  const left = autoNextLeft();
+  if (left === null) return;
+  const el = $('#auto-next');
+  if (el) el.textContent = String(Math.ceil(left / 1000));
+  if (left > 0) return;
+  if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
+  nextSong();
+}
+
 // Spelledarens knappar för den del av omgången som pågår.
 function controls() {
   const round = state.round;
@@ -567,25 +586,29 @@ function controls() {
     return `<button id="reveal" class="secondary">Visa svar nu</button>
       ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
   }
+  const left = autoNextLeft();
   return `${state.winners
     ? '<button id="restart" class="big huge">Ny match med samma spelare</button>'
     : '<button id="next" class="big huge">Nästa låt</button>'}
-    <p class="unknown-row"><button id="unknown" class="link">${unknownText(isUnknown(loadUnknown(), category.id, round.song.id))}</button></p>`;
+    ${left === null ? '' : `<p class="muted small">Nästa låt startar av sig själv om <span id="auto-next">${Math.ceil(left / 1000)}</span>&nbsp;s.</p>`}`;
 }
 
-// Samma vy som spelarna ser, med spelledarens knappar i rutan som syns.
-// Knapparna byggs bara om när de ändras, så att fokus stannar kvar.
+// Samma vy som spelarna ser, och under den spelledarens panel.
+// Panelen byggs bara om när den ändras, så att fokus stannar kvar.
 function render() {
   $('#category').textContent = category.name;
   gameView.update(game.playerView(state, state.hostId, Date.now()), state.hostId);
+  // Soptunnan markerar låten som okänd. Den finns bara när svaret visas.
+  const round = state.round;
+  const unknown = $('#unknown');
+  unknown.hidden = !round || round.phase !== 'revealed';
+  if (!unknown.hidden) unknown.setAttribute('aria-pressed', String(isUnknown(loadUnknown(), category.id, round.song.id)));
   const box = $('#controls');
-  const html = controls();
+  const html = controls().replace(/<span id="auto-next">\d+<\/span>/, '<span id="auto-next"></span>');
   if (box.dataset.html !== html) {
-    box.innerHTML = html;
+    box.innerHTML = controls();
     box.dataset.html = html;
   }
-  const card = gameView.visibleCard();
-  if (box.parentElement !== card) card.append(box);
 }
 
 function showError(err) {
