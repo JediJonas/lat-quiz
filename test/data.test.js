@@ -39,3 +39,32 @@ test('standardinställningarna i host.html stämmer med spelet', async () => {
   const text = settingsSummary(DEFAULT_SETTINGS).replaceAll('\u00a0', '&nbsp;');
   assert.ok(html.includes(`<span id="settings-summary" class="muted small">${text}</span>`));
 });
+
+test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', async () => {
+  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const forslag = read('data/forslag.json');
+  const categories = read('data/categories.json').map((c) => ({ id: c.id, songs: read('data/' + c.file) }));
+  const clean = cleanDecoys(forslag, categories);
+  for (const key of ['artists', 'titles']) {
+    const kept = new Set(clean[key]);
+    const bad = forslag[key].filter((x) => !kept.has(x));
+    assert.deepEqual(bad, [], `Kör cleanDecoys i verktyg/lockbeten.mjs på data/forslag.json (${key})`);
+  }
+});
+
+test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
+  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const categories = [
+    { id: 'eurovision', songs: [{ artist: 'Azerbajdzjan', title: 'Drip' }] },
+    { id: 'filmmusik', songs: [{ artist: 'Brian Tyler', title: 'Thor' }] },
+    { id: 'svenska', songs: [{ artist: 'E-Type', title: 'Välkommen hem' }] },
+  ];
+  const result = cleanDecoys({
+    artists: ['Azerbajdzjans bidrag i Eurovision Song Contest', 'E-Type feat. Na Na', 'ABBA & Abba', 'Eric Saade & Dev'],
+    titles: ['Thor: En mörk värld', 'Välkommen hem / Välkommen hem (singback)', 'Carina (karaokeversion)',
+      'Light Me Up (Gromee song)', 'Denmark in the Eurovision Song Contest 1957',
+      "Hey Mr. DJ (Won't You Play Another Love Song)", 'Thorns'],
+  }, categories);
+  assert.deepEqual(result.artists, ['ABBA', 'Eric Saade & Dev']);
+  assert.deepEqual(result.titles, ['Carina', "Hey Mr. DJ (Won't You Play Another Love Song)", 'Light Me Up', 'Thorns']);
+});
