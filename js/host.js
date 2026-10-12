@@ -8,7 +8,6 @@ import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
 const SETTINGS_KEY = 'latquiz-settings';
-const CATEGORIES_KEY = 'latquiz-categories';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -160,6 +159,7 @@ function tick() {
 // ---- Spelets steg ----
 
 async function startGame(categoryId, resumeState) {
+  await scriptsLoaded;
   const categories = await loadCategories();
   category = categories.find((c) => c.id === categoryId) || categories[0];
   songs = await loadSongs(category);
@@ -460,26 +460,26 @@ window.addEventListener('beforeunload', (e) => {
   if (state && Object.keys(state.players).length) e.preventDefault();
 });
 
-// Fyller kategorilistan och behåller det val som redan är gjort.
+// Kategorierna står redan i host.html, så att sidan inte blinkar till.
+// Här uppdateras de från listan och det val som redan är gjort behålls.
 function renderCategories(categories) {
   const select = $('#category-select');
-  const chosen = select.disabled ? null : select.value;
+  const chosen = select.value;
   select.innerHTML = categories
     .map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
   if (categories.some((c) => c.id === chosen)) select.value = chosen;
-  select.disabled = false;
-  $('#create').disabled = false;
 }
+
+// PeerJS och QR-koden laddas efter den här modulen, så att startsidan visas utan
+// att vänta på dem. Ett snabbt klick väntar in dem innan spelet startar.
+const scriptsLoaded = new Promise((resolve) => {
+  if (document.readyState === 'complete') resolve();
+  else document.addEventListener('DOMContentLoaded', resolve, { once: true });
+});
 
 async function init() {
   mountUserSettings();
   $('#create').addEventListener('click', () => startGame($('#category-select').value));
-  // Visa förra besökets lista direkt så att rutan inte står tom medan den nya hämtas.
-  const cached = storage(() => JSON.parse(localStorage.getItem(CATEGORIES_KEY)), null);
-  if (Array.isArray(cached) && cached.length) renderCategories(cached);
-  const categories = await loadCategories();
-  renderCategories(categories);
-  storage(() => localStorage.setItem(CATEGORIES_KEY, JSON.stringify(categories)));
   renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
@@ -488,6 +488,7 @@ async function init() {
     resume.querySelector('button').textContent = `Tillbaka till ${saved.code}`;
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
+  renderCategories(await loadCategories());
 }
 
 init().catch((err) => {

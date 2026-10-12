@@ -59,8 +59,12 @@ function showUserSettings() {
   // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.
   dialog.addEventListener('keydown', (e) => e.stopPropagation());
   dialog.addEventListener('close', () => dialog.remove(), { once: true });
+  // Rutan själv får fokus, inte första strömbrytaren, så att inget ser valt ut i mobilen.
+  // Skärmläsaren läser rubriken, och Tab går till strömbrytarna.
+  dialog.tabIndex = -1;
   document.body.append(dialog);
   dialog.showModal();
+  dialog.focus();
 }
 
 // Gör alla knappar med klassen user-settings till länken Utseende.
