@@ -154,7 +154,7 @@ h1.logo { margin: 16px 0 8px; }
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
 .logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
-h3, .section-title, .round-label, .stage h2 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 h3, .section-title { margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
 @media (hover: hover) { a:not(.button):hover { color: var(--text); } }
@@ -270,7 +270,6 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .theme-row .row-end .link, .theme-row > .link { margin: 0; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
-main:has(#lobby:not([hidden])) .join-only { display: none; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
 .about ul { padding-left: 1.2em; }
@@ -512,13 +511,11 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
-.stage > :first-child { margin-top: 0; }
-.stage .huge { margin-bottom: 0; }
-.stage > .secondary { width: auto; margin: 0 auto 12px; padding-inline: 24px; }
-.stage .answer .title { font-size: 2.4rem; }
-.host .ring { width: 240px; height: 240px; }
-.host .ring-num { font-size: 5rem; }
-.reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
+.controls { margin-top: 16px; }
+.controls > :last-child { margin-bottom: 0; }
+.controls > .huge { margin-top: 0; }
+.controls > .secondary { margin-top: 0; }
+.reopen { margin: 16px 0 0; text-align: center; }
 .settings-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 8px 0 0; }
 .settings-row .link { flex: none; margin: 0; }
 

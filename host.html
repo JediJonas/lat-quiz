@@ -18,27 +18,31 @@
       <a class="logo" href="index.html"><span class="visually-hidden">Låtquiz, till startsidan</span></a>
       <h1 class="page-title">Starta spel</h1>
     </header>
-    <label for="category-select">Kategori</label>
-    <select id="category-select">
-      <option value="60-tal">60-tal</option>
-      <option value="70-tal">70-tal</option>
-      <option value="80-tal">80-tal</option>
-      <option value="90-tal">90-tal</option>
-      <option value="2000-tal">2000-tal</option>
-      <option value="2010-tal">2010-tal</option>
-      <option value="svenska">Svenska klassiker</option>
-      <option value="melodifestivalen">Melodifestivalen</option>
-      <option value="eurovision">Eurovision</option>
-      <option value="hardrock">Hårdrock och metal</option>
-      <option value="filmmusik">Filmmusik</option>
-      <option value="klassiskt">Klassisk musik</option>
-      <option value="edm">EDM</option>
-      <option value="deezer-test">Deezer-test</option>
-    </select>
-    <p class="settings-row"><span id="settings-summary" class="muted small">Tid&nbsp;60&nbsp;s · Bonus&nbsp;15&nbsp;s · Först&nbsp;till&nbsp;10</span></p>
-    <button id="create" class="big">Dra igång!</button>
+    <form id="setup-form">
+      <label for="host-name">Ditt namn</label>
+      <input id="host-name" maxlength="10" required autocomplete="nickname">
+      <label for="category-select">Kategori</label>
+      <select id="category-select">
+        <option value="60-tal">60-tal</option>
+        <option value="70-tal">70-tal</option>
+        <option value="80-tal">80-tal</option>
+        <option value="90-tal">90-tal</option>
+        <option value="2000-tal">2000-tal</option>
+        <option value="2010-tal">2010-tal</option>
+        <option value="svenska">Svenska klassiker</option>
+        <option value="melodifestivalen">Melodifestivalen</option>
+        <option value="eurovision">Eurovision</option>
+        <option value="hardrock">Hårdrock och metal</option>
+        <option value="filmmusik">Filmmusik</option>
+        <option value="klassiskt">Klassisk musik</option>
+        <option value="edm">EDM</option>
+        <option value="deezer-test">Deezer-test</option>
+      </select>
+      <p class="settings-row"><span id="settings-summary" class="muted small">Tid&nbsp;60&nbsp;s · Bonus&nbsp;15&nbsp;s · Först&nbsp;till&nbsp;10</span></p>
+      <button id="create" class="big">Dra igång!</button>
+    </form>
     <div id="resume" hidden><button class="secondary"></button></div>
-    <p class="theme-row"><button id="settings" class="link">Inställningar</button><span class="row-end"><a class="quiet-link" href="om.html">Om spelet</a><button class="link user-settings"></button></span></p>
+    <p class="theme-row"><button id="settings" class="link">Inställningar</button><span class="row-end"><button class="link user-settings"></button></span></p>
   </main>
 
   <main id="game" class="host" hidden>
@@ -53,9 +57,24 @@
         <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
         <span id="conn" class="conn connecting" role="status">Ansluter…</span>
       </header>
-      <div id="stage" class="card stage"></div>
+      <div id="waiting" class="card"><p id="waiting-text"></p></div>
+
+      <div id="guess" class="card" hidden>
+        <h2 id="round-title" class="round-label"></h2>
+        <div id="timer" class="ring mid-ring"></div>
+        <label for="artist">Artist</label>
+        <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
+        <label for="title">Titel</label>
+        <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
+      </div>
+
+      <div id="result" class="card" hidden><div id="result-body"></div></div>
+
+      <!-- Spelledarens knappar flyttas in i den ruta som syns. -->
+      <div id="controls" class="controls"></div>
+
       <h2 class="section-title">Poäng</h2>
-      <div id="players" class="standings"></div>
+      <div id="standings" class="standings"></div>
       <p class="theme-row"><button id="show-qr" class="link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button><span class="row-end"><button id="game-settings" class="link">Inställningar</button><button id="end" class="link">Avsluta</button><button class="link user-settings"></button></span></p>
     </section>
   </main>
