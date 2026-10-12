@@ -5,16 +5,17 @@
 
 import { normalize } from './text.js';
 
-export const ROUND_MS = 60000;
+// Alltid 30 sekunder per låt, lika långt som Deezers klipp.
+export const ROUND_MS = 30000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
 export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
 export const MAX_NAME = 10;
 
-// Inställningar som spelledaren kan välja. Bonus 0 betyder ingen bonus.
+// Inställningar som spelledaren kan välja. Bonus 0 betyder ingen bonus. Tiden går inte att ändra.
 export const SETTING_CHOICES = {
-  roundMs: [30000, 45000, 60000, 90000, 120000],
-  bonusMs: [0, 10000, 15000, 20000, 30000],
+  roundMs: [ROUND_MS],
+  bonusMs: [0, 10000, 15000, 20000],
   winScore: [5, 10, 15, 20, 30],
 };
 export const DEFAULT_SETTINGS = { roundMs: ROUND_MS, bonusMs: BONUS_MS, winScore: WIN_SCORE };

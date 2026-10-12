@@ -4,17 +4,18 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
+import { announce, settingsSummary } from './ui.js';
+import { createGameView, esc } from './spelvy.js';
 import { mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
 const SAVE_KEY = 'latquiz-host';
+const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
 const $ = (sel) => document.querySelector(sel);
-const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 let state = null;
 let songs = [];
@@ -22,7 +23,8 @@ let category = null;
 let net = null;
 const connToPlayer = new Map();
 let ticker = null;
-const scoreChanged = scoreTracker();
+// Spelledaren spelar med och gissar i samma vy som spelarna.
+let gameView = null;
 
 function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
@@ -45,6 +47,16 @@ function loadSettings() {
 
 function saveSettings(settings) {
   storage(() => localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)));
+}
+
+// Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
+function loadName() {
+  return storage(() => localStorage.getItem(NAME_KEY), null)
+    || storage(() => JSON.parse(localStorage.getItem('latquiz-player')).name, '') || '';
+}
+
+function newId() {
+  return 'spelledare-' + ((crypto.randomUUID && crypto.randomUUID()) || String(Math.random()).slice(2));
 }
 
 // Okända låtar sparas på den här datorn och gäller alla kommande spel.
@@ -165,18 +177,25 @@ function setNetStatus(text) {
 }
 
 function tick() {
+  checkAutoNext();
   if (!state.round || state.round.phase !== 'playing') return;
   if (game.shouldReveal(state, Date.now())) {
     game.reveal(state);
     changed();
-  } else {
-    renderTimer();
   }
+}
+
+// Spelledarens eget svar, som om det kom från en spelare.
+function hostAnswer(field, value) {
+  if (!state) return;
+  game.submitAnswer(state, state.hostId, field, value.slice(0, 200), Date.now());
+  if (game.shouldReveal(state, Date.now())) game.reveal(state);
+  changed();
 }
 
 // ---- Spelets steg ----
 
-async function startGame(categoryId, resumeState) {
+async function startGame(categoryId, resumeState, name) {
   await scriptsLoaded;
   const categories = await loadCategories();
   category = categories.find((c) => c.id === categoryId) || categories[0];
@@ -191,12 +210,16 @@ async function startGame(categoryId, resumeState) {
       settings: loadSettings(),
     });
   }
+  // Spelledaren är en spelare som alltid är ansluten. Ett äldre sparat spel får spelledaren nu.
+  if (!state.hostId) state.hostId = newId();
+  game.addPlayer(state, { id: state.hostId, name: name || state.players[state.hostId]?.name || loadName() || 'Spelledare' });
   // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
   state.categoryName = category.name;
   save();
   $('#setup').hidden = true;
   $('#game').hidden = false;
   showJoinInfo();
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, host: true });
   startNetwork();
   render();
 }
@@ -311,10 +334,6 @@ function clipStage(round) {
 
 const DEEZER_NOTE = '<p class="muted small">Klipp från Deezer, endast för privat bruk.</p>';
 
-function winnerNames() {
-  return state.winners.map((id) => state.players[id].name).join(' och ');
-}
-
 // Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
 function unknownClicked() {
   const song = state.round && state.round.song;
@@ -322,12 +341,8 @@ function unknownClicked() {
   const list = toggleUnknown(loadUnknown(), category.id, song);
   saveUnknown(list);
   const marked = isUnknown(list, category.id, song.id);
-  $('#unknown').textContent = unknownText(marked);
+  $('#unknown').setAttribute('aria-pressed', String(marked));
   announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
-}
-
-function unknownText(marked) {
-  return marked ? 'Markerad som okänd. Ångra' : 'Okänd låt? Hoppa över den i kommande spel';
 }
 
 function restart() {
@@ -358,7 +373,6 @@ async function endGame() {
 }
 
 const SETTING_FIELDS = [
-  { key: 'roundMs', label: 'Betänketid', text: (v) => `${v / 1000} sekunder` },
   { key: 'bonusMs', label: 'Bonus för snabbt svar', text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
   { key: 'winScore', label: 'Poänggräns', text: (v) => `Först till ${v} poäng` },
 ];
@@ -515,34 +529,6 @@ function setQrVisible(visible) {
   $('#show-qr').setAttribute('aria-expanded', String(visible));
 }
 
-function renderTimer() {
-  const el = $('#timer');
-  if (!el) return;
-  const ms = game.remainingMs(state, Date.now());
-  renderRing(el, ms, state.roundMs, state.bonusMs > 0 && state.roundMs - ms <= state.bonusMs);
-}
-
-function renderPlayers() {
-  const round = state.round;
-  const list = game.standings(state);
-  const rows = list.map((p) => {
-    const status = round ? statusTags({
-      phase: round.phase,
-      progress: game.answeredFields(state, p.id),
-      result: round.results && round.results[p.id],
-      labels: state.labels || game.DEFAULT_LABELS,
-      esc,
-    }) : '';
-    return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-      <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
-      <td class="name">${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</td>
-      <td class="status">${status}</td></tr>`;
-  });
-  $('#players').innerHTML = rows.length
-    ? `<table><tbody>${rows.join('')}</tbody></table>`
-    : '<p class="muted">Inga spelare ännu. Be dem skanna QR-koden.</p>';
-}
-
 // Med Spotify-ID öppnas låten i appen, med webbspelaren som reserv.
 function playLinks(song) {
   const app = spotifyAppUrl(song);
@@ -563,44 +549,70 @@ function reopenLinks(song) {
     app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
 }
 
-function render() {
-  const round = state.round;
-  $('#category').textContent = category.name;
-  const stage = $('#stage');
+// Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
+// redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
+const AUTO_NEXT_MS = 30000;
+let autoNext = { round: 0, at: 0 };
 
-  if (!round && usesDeezer()) {
-    stage.innerHTML = `<p>Vänta tills alla har anslutit och tryck sedan på Nästa låt.
-      Ett klipp på 30 sekunder spelas här och timern startar.</p>
-      <button id="next" class="big huge">Nästa låt</button>${DEEZER_NOTE}`;
-  } else if (!round) {
-    stage.innerHTML = `<p>Vänta tills alla har anslutit och tryck sedan på Nästa låt.
-      Låten öppnas i Spotify och timern startar. Stoppa låten när tiden har gått ut.</p>
-      <button id="next" class="big huge">Nästa låt</button>`;
-  } else if (round.phase === 'ready' && usesDeezer()) {
-    stage.innerHTML = `<h2>Låt ${round.number}</h2>${clipStage(round)}${DEEZER_NOTE}`;
-  } else if (round.phase === 'ready') {
-    stage.innerHTML = `<h2>Låt ${round.number}</h2>
-      <p>Klicka på knappen. Låten öppnas i Spotify och timern startar.
-      Stoppa låten när tiden har gått ut.</p>
-      ${playLinks(round.song)}`;
-  } else if (round.phase === 'playing') {
-    stage.innerHTML = `<h2>Låt ${round.number}</h2>
-      <div id="timer" class="ring"></div>
-      <button id="reveal" class="secondary">Visa svar nu</button>
-      ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
-    renderTimer();
-  } else {
-    stage.innerHTML = `<h2>Låt ${round.number}</h2>
-      <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
-      <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
-      ${state.winners
-        ? `<div class="winner">${esc(winnerNames())} vinner!</div>
-           <button id="restart" class="big huge">Ny match med samma spelare</button>`
-        : '<button id="next" class="big huge">Nästa låt</button>'}
-      <p class="unknown-row"><button id="unknown" class="link">${unknownText(isUnknown(loadUnknown(), category.id, round.song.id))}</button></p>`;
-    announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.` + (state.winners ? ` ${winnerNames()} vinner!` : ''));
+function autoNextLeft() {
+  const round = state.round;
+  if (!usesDeezer() || !round || round.phase !== 'revealed' || state.winners) return null;
+  if (autoNext.round !== round.number) autoNext = { round: round.number, at: Date.now() + AUTO_NEXT_MS };
+  return Math.max(0, autoNext.at - Date.now());
+}
+
+// Anropas av tickern. Väntar medan en ruta som Inställningar är öppen.
+function checkAutoNext() {
+  const left = autoNextLeft();
+  if (left === null) return;
+  const el = $('#auto-next');
+  if (el) el.textContent = String(Math.ceil(left / 1000));
+  if (left > 0) return;
+  if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
+  nextSong();
+}
+
+// Spelledarens knappar för den del av omgången som pågår.
+function controls() {
+  const round = state.round;
+  if (!round) {
+    return `<button id="next" class="big huge">Nästa låt</button>
+      <p class="muted small">${usesDeezer() ? 'Ett klipp spelas här' : 'Låten öppnas i Spotify'} och timern startar.</p>
+      ${usesDeezer() ? DEEZER_NOTE : ''}`;
   }
-  renderPlayers();
+  if (round.phase === 'ready' && usesDeezer()) return clipStage(round) + DEEZER_NOTE;
+  if (round.phase === 'ready') return playLinks(round.song);
+  if (round.phase === 'playing') {
+    return `<button id="reveal" class="secondary">Visa svar nu</button>
+      ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
+  }
+  const left = autoNextLeft();
+  return `${state.winners
+    ? '<button id="restart" class="big huge">Ny match med samma spelare</button>'
+    : '<button id="next" class="big huge">Nästa låt</button>'}
+    ${left === null ? '' : `<p class="muted small">Nästa låt startar av sig själv om <span id="auto-next">${Math.ceil(left / 1000)}</span>&nbsp;s.</p>`}`;
+}
+
+// Samma vy som spelarna ser, och under den spelledarens panel.
+// Panelen byggs bara om när den ändras, så att fokus stannar kvar.
+function render() {
+  $('#category').textContent = category.name;
+  gameView.update(game.playerView(state, state.hostId, Date.now()), state.hostId);
+  // Soptunnan markerar låten som okänd. Den finns bara när svaret visas.
+  const round = state.round;
+  const unknown = $('#unknown');
+  unknown.hidden = !round || round.phase !== 'revealed';
+  if (!unknown.hidden) unknown.setAttribute('aria-pressed', String(isUnknown(loadUnknown(), category.id, round.song.id)));
+  const box = $('#controls');
+  const html = controls().replace(/<span id="auto-next">\d+<\/span>/, '<span id="auto-next"></span>');
+  if (box.dataset.html !== html) {
+    box.innerHTML = controls();
+    box.dataset.html = html;
+  }
+}
+
+function showError(err) {
+  document.body.insertAdjacentHTML('afterbegin', `<p class="error" role="alert">${esc(err.message)}</p>`);
 }
 
 // ---- Start ----
@@ -647,7 +659,7 @@ document.addEventListener('click', (e) => {
 
 window.addEventListener('beforeunload', (e) => {
   if (leaving || Date.now() - appLinkAt < 1000) return;
-  if (state && Object.keys(state.players).length) e.preventDefault();
+  if (state) e.preventDefault();
 });
 
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
@@ -669,7 +681,14 @@ const scriptsLoaded = new Promise((resolve) => {
 
 async function init() {
   mountUserSettings();
-  $('#create').addEventListener('click', () => startGame($('#category-select').value));
+  $('#host-name').value = loadName();
+  $('#setup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('#host-name').value.trim().slice(0, game.MAX_NAME);
+    if (!name) return;
+    storage(() => localStorage.setItem(NAME_KEY, name));
+    startGame($('#category-select').value, null, name);
+  });
   renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
@@ -681,6 +700,4 @@ async function init() {
   renderCategories(await loadCategories());
 }
 
-init().catch((err) => {
-  document.body.insertAdjacentHTML('afterbegin', `<p class="error" role="alert">${esc(err.message)}</p>`);
-});
+init().catch(showError);

@@ -1,25 +1,18 @@
 // Spelarvyn i mobilen.
 import { createClient } from './net.js';
-import { loadSuggestions } from './data.js';
-import { autocomplete } from './autocomplete.js';
-import { announce, renderRing, scoreTracker, statusTags } from './ui.js';
+import { createGameView, esc } from './spelvy.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;
 const $ = (sel) => document.querySelector(sel);
-const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 let me = null; // { playerId, name, code }
 let net = null;
 let view = null;
-let roundNumber = null;
-let deadline = 0;
-const local = { artist: '', title: '' };
-let fields = null;
+let gameView = null;
 // Sant medan formuläret väntar på att spelledaren godkänner namnet.
 let pending = false;
-const scoreChanged = scoreTracker();
 
 function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
@@ -29,16 +22,17 @@ function newId() {
   return (crypto.randomUUID && crypto.randomUUID()) || String(Math.random()).slice(2) + Date.now();
 }
 
-function sendAnswer(field) {
-  if (net) net.send({ type: 'answer', field, value: local[field] });
+function sendAnswer(field, value) {
+  if (net) net.send({ type: 'answer', field, value });
 }
 
 function onOpen() {
   net.send({ type: 'hello', playerId: me.playerId, name: me.name });
   // Svar som valdes medan anslutningen var nere skickas nu.
   if (view && view.round && view.round.phase === 'playing') {
-    sendAnswer('artist');
-    sendAnswer('title');
+    const answers = gameView.answers();
+    sendAnswer('artist', answers.artist);
+    sendAnswer('title', answers.title);
   }
 }
 
@@ -48,98 +42,13 @@ function onMessage(msg) {
   if (pending) showLobby();
   view = msg.view;
   $('#category-name').textContent = view.categoryName || '';
-  const round = view.round;
-  if (round && round.number !== roundNumber) {
-    roundNumber = round.number;
-    local.artist = round.answer ? round.answer.artist : '';
-    local.title = round.answer ? round.answer.title : '';
-    fields.artist.set(local.artist);
-    fields.title.set(local.title);
-  }
-  deadline = round && round.phase === 'playing' ? Date.now() + round.remainingMs : 0;
-  render();
+  gameView.update(view, me.playerId);
 }
 
 function onStatus(status) {
   const el = $('#conn');
   el.className = 'conn ' + status;
   el.textContent = { connecting: 'Ansluter…', connected: 'Ansluten', offline: 'Frånkopplad' }[status];
-}
-
-function renderTimer() {
-  const el = $('#timer');
-  if (!view || !view.round || view.round.phase !== 'playing') return;
-  const ms = Math.max(0, deadline - Date.now());
-  renderRing(el, ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
-}
-
-function playerStatus(id) {
-  const round = view.round;
-  if (!round) return '';
-  return statusTags({
-    phase: round.phase,
-    progress: round.progress && round.progress[id],
-    result: round.results && round.results[id],
-    labels: view.labels,
-    esc,
-  });
-}
-
-function renderStandings() {
-  const rows = view.standings.map((p) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-    <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
-    <td class="name">${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</td>
-    <td class="status">${playerStatus(p.id)}</td></tr>`);
-  $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
-}
-
-// Reglerna i klartext medan spelarna väntar på första låten.
-function rulesText(view) {
-  const s = view.settings;
-  if (!s) return `Först till ${view.winScore}\u00a0p vinner. Lycka\u00a0till!`;
-  // Hårda mellanslag efter talen, så att ett tal aldrig hamnar ensamt sist på en rad.
-  const points = s.bonusMs
-    ? `1\u00a0p för artist, 1\u00a0p för titel och 1\u00a0p i bonus om båda är rätt inom ${s.bonusMs / 1000}\u00a0s`
-    : '1\u00a0p för artist och 1\u00a0p för titel';
-  return `${s.roundMs / 1000}\u00a0s per låt. ${points}. Först till ${s.winScore}\u00a0p vinner. Lycka\u00a0till!`;
-}
-
-function render() {
-  if (!view) return;
-  const round = view.round;
-  const phase = round ? round.phase : 'waiting';
-  $('#waiting').hidden = !(phase === 'waiting' || phase === 'ready');
-  $('#waiting-text').textContent = phase === 'ready'
-    ? `Låt ${round.number} startar snart…`
-    : `Väntar på första låten… ${rulesText(view)}`;
-  $('#guess').hidden = phase !== 'playing';
-  $('#result').hidden = phase !== 'revealed';
-  fields.artist.disable(phase !== 'playing');
-  fields.title.disable(phase !== 'playing');
-  $('label[for=artist]').textContent = view.labels.artist;
-  $('label[for=title]').textContent = view.labels.title;
-
-  if (phase === 'playing') {
-    $('#round-title').textContent = `Låt ${round.number}`;
-    announce(`Låt ${round.number} har börjat. Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.`);
-    renderTimer();
-  } else if (phase === 'revealed') {
-    const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
-    const mine = round.answer || { artist: '', title: '' };
-    $('#result').innerHTML = `<h2 class="round-label">Låt ${round.number}</h2>
-      <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
-      <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
-      <ul class="mine">
-        <li class="${r.artist ? 'right' : 'wrong'}"><span>${esc(view.labels.artist)}</span>${esc(mine.artist || '–')}</li>
-        <li class="${r.title ? 'right' : 'wrong'}"><span>${esc(view.labels.title)}</span>${esc(mine.title || '–')}</li>
-        ${r.bonus ? '<li class="right bonus"><span>Bonus</span>Snabbt svar</li>' : ''}
-      </ul>
-      <p class="points">+${r.points} poäng</p>
-      ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
-    announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
-      + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
-  }
-  renderStandings();
 }
 
 // Från formuläret stannar man kvar där tills spelledaren har svarat, så att ett upptaget namn
@@ -195,16 +104,7 @@ function leave(message, clearCode) {
 }
 
 async function init() {
-  // Förslagslistan är stor. Den laddas i bakgrunden, så att kodsidan visas direkt.
-  fields = {
-    artist: autocomplete($('#artist'), [], (v) => { local.artist = v; sendAnswer('artist'); render(); }),
-    title: autocomplete($('#title'), [], (v) => { local.title = v; sendAnswer('title'); render(); }),
-  };
-  loadSuggestions().then((suggestions) => {
-    fields.artist.setList(suggestions.artists);
-    fields.title.setList(suggestions.titles);
-  }).catch(showError);
-  setInterval(renderTimer, 250);
+  gameView = createGameView({ onAnswer: sendAnswer, onError: showError });
 
   const params = new URLSearchParams(location.search);
   const code = (params.get('kod') || '').toUpperCase();

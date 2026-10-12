@@ -63,22 +63,22 @@ test('svar tas inte emot före start, efter tidens slut eller efter visat svar',
   nextSong(state, songs, () => 0);
   assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 500), false);
   startRound(state, 1000);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 61001), false);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 61000), true);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 31001), false);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 31000), true);
   reveal(state);
-  assert.equal(submitAnswer(state, 'p1', 'title', 'Take On Me', 61000), false);
+  assert.equal(submitAnswer(state, 'p1', 'title', 'Take On Me', 31000), false);
 });
 
 test('svaret visas när tiden är slut eller när alla anslutna har svarat', () => {
   const state = setup();
-  assert.equal(shouldReveal(state, 60999), false);
-  assert.equal(shouldReveal(state, 61000), true);
+  assert.equal(shouldReveal(state, 30999), false);
+  assert.equal(shouldReveal(state, 31000), true);
   submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
   submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
   assert.equal(shouldReveal(state, 3000), false);
   setConnected(state, 'p2', false);
   assert.equal(shouldReveal(state, 3000), true);
-  assert.equal(remainingMs(state, 3000), 58000);
+  assert.equal(remainingMs(state, 3000), 28000);
 });
 
 test('spelade låtar slumpas inte igen, och null när alla är spelade', () => {
@@ -175,14 +175,14 @@ test('kategorins rubriker skickas till spelarna', () => {
 });
 
 test('inställningar: utan sparade värden gäller standard, även för bonus', () => {
-  assert.deepEqual(cleanSettings(null), { roundMs: 60000, bonusMs: 15000, winScore: 10 });
-  assert.deepEqual(cleanSettings({ bonusMs: null }), { roundMs: 60000, bonusMs: 15000, winScore: 10 });
+  assert.deepEqual(cleanSettings(null), { roundMs: 30000, bonusMs: 15000, winScore: 10 });
+  assert.deepEqual(cleanSettings({ bonusMs: null }), { roundMs: 30000, bonusMs: 15000, winScore: 10 });
   assert.deepEqual(cleanSettings({ bonusMs: '0' }).bonusMs, 0);
 });
 
 test('inställningar: okända värden ersätts med standard, bonus 0 betyder ingen bonus', () => {
   assert.deepEqual(cleanSettings({ roundMs: 45000, bonusMs: 7, winScore: '20' }),
-    { roundMs: 45000, bonusMs: 15000, winScore: 20 });
+    { roundMs: 30000, bonusMs: 15000, winScore: 20 });
   const state = createGame({ code: 'ABCD', categoryId: '80-tal', settings: { bonusMs: 0, winScore: 5 } });
   assert.equal(state.winScore, 5);
   addPlayer(state, { id: 'p1', name: 'Anna' });
