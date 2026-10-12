@@ -2,7 +2,7 @@
 import { createClient } from './net.js';
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
+import { announce, renderRing, scoreTracker, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
@@ -88,7 +88,7 @@ function playerStatus(id) {
 function renderStandings() {
   const rows = view.standings.map((p) => `<tr class="${p.id === me.playerId ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
     <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
-    <td class="name">${esc(p.name)}</td>
+    <td class="name">${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</td>
     <td class="status">${playerStatus(p.id)}</td></tr>`);
   $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
 }
@@ -112,8 +112,6 @@ function render() {
   $('#waiting-text').textContent = phase === 'ready'
     ? `Låt ${round.number} startar snart…`
     : `Väntar på första låten… ${rulesText(view)}`;
-  $('#game-rules').textContent = view.settings
-    ? ' · ' + settingsSummary(view.settings) : '';
   $('#guess').hidden = phase !== 'playing';
   $('#result').hidden = phase !== 'revealed';
   fields.artist.disable(phase !== 'playing');

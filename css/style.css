@@ -148,7 +148,6 @@ h1.logo { margin: 16px 0 8px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
 .logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-.game-head .logo-small { --w: 136px; margin-right: 8px; }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
 h3, .section-title, .round-label, .stage h2 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 h3, .section-title { margin: 2em 0 0.6em; }
@@ -261,9 +260,9 @@ button.theme-switch {
 button.theme-switch:hover { background: none; color: var(--text); }
 button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
-.theme-row { display: flex; align-items: baseline; gap: 16px; margin: 24px 0 0; }
+.theme-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin: 24px 0 0; }
 .theme-row .row-end { display: flex; flex: none; gap: 20px; margin-left: auto; }
-.theme-row .row-end .link { margin: 0; }
+.theme-row .row-end .link, .theme-row > .link { margin: 0; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 main:has(#lobby:not([hidden])) .join-only { display: none; }
@@ -271,7 +270,6 @@ main:has(#lobby:not([hidden])) .join-only { display: none; }
 .about p, .about li { color: var(--text); }
 .about ul { padding-left: 1.2em; }
 .about li { margin: 0.4em 0; }
-.actions .user-settings { float: right; margin-right: 0; }
 /* Stor text: allt utom kanter och avstånd i px skalar med rotens storlek. */
 :root[data-text="large"] { font-size: 120%; }
 .switches { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin: 8px 0 0; }
@@ -360,13 +358,13 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
 .mid-ring circle { stroke-width: 8; }
 .mid-ring .ring-num { font-size: 2.8rem; }
-/* Tätare mellan kolumnerna i mobilen, men samma kantluft som hos spelledaren. */
-#standings td { padding-left: 8px; padding-right: 8px; }
-#standings td:first-child { padding-left: 16px; }
-#standings td:last-child { padding-right: 16px; }
-#standings td.status { white-space: nowrap; }
-#standings td.name { width: 100%; overflow-wrap: break-word; }
-#standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
+/* Poänglistan ser likadan ut hos spelledaren och spelarna: tätt mellan kolumnerna, luft mot kanterna. */
+.standings td { padding-left: 8px; padding-right: 8px; }
+.standings td:first-child { padding-left: 16px; }
+.standings td:last-child { padding-right: 16px; }
+.standings td.status { white-space: nowrap; }
+.standings td.name { width: 100%; overflow-wrap: break-word; }
+.standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -424,7 +422,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .suggestions li.empty { color: var(--muted); cursor: default; }
 .suggestions li.empty:hover { background: none; }
 
-/* Spelarens rubrikrad */
+/* Rubrikraden med loggan, kategorin och anslutningen, samma hos spelledaren och spelarna */
 .player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; }
@@ -480,7 +478,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .lead { font-size: 1.25rem; font-weight: 600; color: var(--text); margin: 0 0 24px; }
 
 /* Spelledarvyn på dator */
-.host { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; max-width: 1040px; margin: 0 auto; padding-top: 32px; }
+.host { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; max-width: 1040px; margin: 0 auto; }
 .join-info {
   align-self: start;
   position: sticky;
@@ -496,6 +494,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 /* Glasytor: bakgrundens ljus skymtar mjukt igenom. */
 .card, .stage, .join-info { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 .host.qr-hidden { grid-template-columns: 1fr; max-width: 720px; }
+/* Samma avstånd mellan rubrikraden och rutan under som hos spelarna. */
+.host .player-head { margin-bottom: 16px; }
 .close-qr {
   position: absolute;
   top: 6px;
@@ -512,26 +512,13 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   line-height: 1;
 }
 .close-qr:hover { background: var(--surface-2); color: var(--text); }
-.game-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 /* Får kategorin inte plats bredvid loggan hamnar den på en egen rad under, i stället för att kortas eller brytas. */
 .who { flex-wrap: wrap; row-gap: 4px; }
 .who h1 { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.code-link {
-  width: auto;
-  margin: 0;
-  padding: 0;
-  background: none;
-  box-shadow: none;
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-@media (hover: hover) { .code-link:hover { background: none; color: var(--text); } }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
-#category { margin: 0; color: var(--text); }
 .stage {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -545,31 +532,19 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .stage .answer .title { font-size: 2.4rem; }
 .host .ring { width: 240px; height: 240px; }
 .host .ring-num { font-size: 5rem; }
-.actions { margin-top: 24px; }
-.game-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0 0 20px; }
-.game-head p { margin: 0; }
-/* Kategorin får plats först, och inställningarna får det som blir över. */
-#game-settings-summary { flex: 1 1 0; min-width: 12em; text-align: right; }
 .reopen { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
 .settings-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 8px 0 0; }
 .settings-row .link { flex: none; margin: 0; }
 
 @media (max-width: 760px) {
   /* QR-rutan hamnar under raden med kategorin: kolumnens delar blir egna rader i gridden. */
-  .host { grid-template-columns: 1fr; gap: 0; padding-top: 16px; }
+  .host { grid-template-columns: 1fr; gap: 0; }
   .main-col { display: contents; }
-  .game-head { order: -1; }
+  .host .player-head { order: -1; }
   /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
-  .join-info { position: relative; top: auto; margin: 0 0 20px; }
+  .join-info { position: relative; top: auto; margin: 0 0 16px; }
+  .stage { padding: 20px; }
   .qr { max-width: 258px; margin: 0 auto; }
-  /* De fyra länkarna under poänglistan fördelas jämnt på en rad. */
-  .main-col .actions { display: flex; justify-content: space-between; gap: 12px; }
-  .main-col .actions .link { flex: none; margin: 0; }
-  .actions .user-settings { float: none; }
-  /* Sammanfattningen av inställningarna linjerar med loggans överkant, som Ansluten hos spelaren. */
-  .game-head { align-items: flex-start; }
-  /* Textens versalhöjd, inte radens överkant, linjerar med loggan. */
-  #game-settings-summary { margin-top: calc(136px * 260 / 2814 - 0.35em); }
 }
 
 /* Modaler */
