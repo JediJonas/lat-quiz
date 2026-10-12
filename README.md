@@ -66,7 +66,7 @@ Så tas en kategori fram:
 
 1. Claude skriver en kandidatlista i `data/kandidater/<kategori>.json` med cirka 200 låtar och lägger till filen i `data/kandidater/index.json`.
 2. `verktyg/spotify-id.html` går igenom kandidaterna i ordning och hämtar Spotify-ID från Wikidata. Det stannar när kategorin har nått målet, normalt 100 låtar. Låtar som redan finns i kategorin behålls.
-3. Sidan laddar ner kategorifilen med bara låtar som har ID. Den ersätter filen i `data/`, och en ny kategori läggs till i `data/categories.json`. Kandidater som söktes men inte hittades läggs i `data/forslag.json` som lockbeten.
+3. Sidan laddar ner kategorifilen med bara låtar som har ID. Den ersätter filen i `data/`, och en ny kategori läggs till i `data/categories.json`. Kandidater som söktes men inte hittades läggs i `data/forslag.json` som lockbeten, städade av `verktyg/lockbeten.mjs` så att b-sidor, karaokeversioner, artikelrubriker och filmuppföljare inte kan förväxlas med rätt svar.
 
 En kategori kan döpa om fälten med `labels`, till exempel Kompositör och Verk för klassisk musik. Verktyget matchar då mot kompositören i Wikidata.
 
