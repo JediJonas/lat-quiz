@@ -72,10 +72,3 @@ export function announce(text) {
   lastAnnounced = text;
   el.textContent = text;
 }
-
-// Kort sammanfattning av inställningarna, t.ex. "Tid 30 s · Bonus 20 s · Först till 10".
-// Varje del hålls ihop på en rad med hårda mellanslag, så att raden bara bryts vid punkterna.
-export function settingsSummary(s) {
-  return [`Tid ${s.roundMs / 1000} s`, s.bonusMs ? `Bonus ${s.bonusMs / 1000} s` : 'Ingen bonus',
-    `Först till ${s.winScore}`].map((part) => part.replaceAll(' ', '\u00a0')).join(' · ');
-}

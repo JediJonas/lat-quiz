@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce, settingsSummary } from './ui.js';
+import { announce } from './ui.js';
 import { createGameView, esc } from './spelvy.js';
 import { mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -480,10 +480,7 @@ async function editSettings() {
   if (!chosen) return;
   const { categoryId, ...settings } = chosen;
   saveSettings(settings);
-  if (!state) {
-    renderSetupSummary();
-    return;
-  }
+  if (!state) return;
   game.applySettings(state, settings);
   if (categoryId && categoryId !== category.id) await switchCategory(categories.find((c) => c.id === categoryId));
   changed();
@@ -501,10 +498,6 @@ async function switchCategory(chosen) {
   stopClip();
   category = chosen;
   songs = chosenSongs;
-}
-
-function renderSetupSummary() {
-  $('#settings-summary').textContent = settingsSummary(loadSettings());
 }
 
 // ---- Visning ----
@@ -689,7 +682,6 @@ async function init() {
     storage(() => localStorage.setItem(NAME_KEY, name));
     startGame($('#category-select').value, null, name);
   });
-  renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');

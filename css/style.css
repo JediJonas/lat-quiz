@@ -539,8 +539,6 @@ button.icon-toggle[aria-pressed="true"] { background: var(--bad); border-color: 
 #controls > :first-child { margin-top: 0; }
 #controls > :last-child { margin-bottom: 0; }
 .reopen { margin: 16px 0 0; text-align: center; }
-.settings-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 8px 0 0; }
-.settings-row .link { flex: none; margin: 0; }
 
 @media (max-width: 760px) {
   /* QR-rutan hamnar under raden med kategorin: kolumnens delar blir egna rader i gridden. */
