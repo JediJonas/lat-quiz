@@ -70,7 +70,7 @@ export function createHost(code, handlers) {
         peer.destroy();
         setTimeout(() => !destroyed && open(), 3000);
       } else if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
-        handlers.onError('Kontakten med anslutningsservern bröts. Försöker igen…');
+        handlers.onError('Anslutningen bröts. Försöker igen…');
       } else if (err.type !== 'peer-unavailable') {
         handlers.onError('Anslutningsfel: ' + err.type);
       }
