@@ -68,3 +68,9 @@ test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
   assert.deepEqual(result.artists, ['ABBA', 'Eric Saade & Dev']);
   assert.deepEqual(result.titles, ['Carina', "Hey Mr. DJ (Won't You Play Another Love Song)", 'Light Me Up', 'Thorns']);
 });
+
+test('varje filmmusiklåt har ledmotivets spårnamn', () => {
+  for (const song of read('data/filmmusik.json')) {
+    assert.ok(typeof song.track === 'string' && song.track.trim(), `filmmusik.json: ${song.id} saknar track`);
+  }
+});
