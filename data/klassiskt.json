@@ -378,13 +378,6 @@
   "spotifyId": "1kEIUefcXQI23X8LrcwXXz"
  },
  {
-  "id": "haydn-the-creation",
-  "artist": "Joseph Haydn",
-  "title": "The Creation",
-  "year": 1798,
-  "spotifyId": "3BavPsTLnZHmfQjLZp0z46"
- },
- {
   "id": "beethoven-symphony-no-9",
   "artist": "Ludwig van Beethoven",
   "title": "Symphony No. 9",
@@ -630,13 +623,6 @@
   "spotifyId": "3385ey9mfnBLldyUbfsBhK"
  },
  {
-  "id": "shostakovich-symphony-no-7",
-  "artist": "Dmitri Shostakovich",
-  "title": "Symphony No. 7",
-  "year": 1941,
-  "spotifyId": "2LJV4iM6jjdqLERbuYWc7D"
- },
- {
   "id": "sibelius-karelia-suite",
   "artist": "Jean Sibelius",
   "title": "Karelia Suite",
@@ -663,13 +649,6 @@
   "title": "Christmas Concerto",
   "year": 1714,
   "spotifyId": "5teHcwMYiqm5JjQy4QUAr8"
- },
- {
-  "id": "monteverdi-l-orfeo",
-  "artist": "Claudio Monteverdi",
-  "title": "L'Orfeo",
-  "year": 1607,
-  "spotifyId": "0P4CYNN5G2zdWZ4ZwrAzEw"
  },
  {
   "id": "humperdinck-hansel-and-gretel",
@@ -714,25 +693,11 @@
   "spotifyId": "1uu51I3m4d7qsuLRl51hEA"
  },
  {
-  "id": "ravel-miroirs",
-  "artist": "Maurice Ravel",
-  "title": "Miroirs",
-  "year": 1905,
-  "spotifyId": "4JOEMgLkrHp8K1XNmyNffH"
- },
- {
   "id": "chopin-prelude-no-4-in-e-minor-op-28",
   "artist": "Frédéric Chopin",
   "title": "Prélude no. 4 in E minor, op. 28",
   "year": 1838,
   "spotifyId": "0B5xalvQGHip7iQZbTkaLe"
- },
- {
-  "id": "gluck-orfeo-ed-euridice",
-  "artist": "Christoph Willibald von Gluck",
-  "title": "Orfeo ed Euridice",
-  "year": 1762,
-  "spotifyId": "3KghHt657FrbphwVSKROFw"
  },
  {
   "id": "prokofiev-romeo-and-juliet",
@@ -805,13 +770,6 @@
   "spotifyId": "5ognTTeiL1cxUSD8bQtVDS"
  },
  {
-  "id": "ravel-ma-mere-l-oye",
-  "artist": "Maurice Ravel",
-  "title": "Ma mère l'oye",
-  "year": 1910,
-  "spotifyId": "4k2uu9nsoueK2HWJJKtk0E"
- },
- {
   "id": "verdi-nabucco",
   "artist": "Giuseppe Verdi",
   "title": "Nabucco",
@@ -831,13 +789,6 @@
   "title": "William Tell",
   "year": 1828,
   "spotifyId": "04OI7MCwzUE1SSAJRSjw3R"
- },
- {
-  "id": "prokofiev-piano-concerto-no-3",
-  "artist": "Sergei Prokofiev",
-  "title": "Piano Concerto No. 3",
-  "year": 1921,
-  "spotifyId": "4gbExCdPeoiQqkLOULoVhc"
  },
  {
   "id": "satie-gymnopedie-no-1",

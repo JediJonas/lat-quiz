@@ -1,12 +1,5 @@
 [
  {
-  "id": "michael-jackson-beat-it",
-  "artist": "Michael Jackson",
-  "title": "Beat It",
-  "year": 1983,
-  "spotifyId": "0vAZAAtJptSeLLP4NUXNY4"
- },
- {
   "id": "queen-the-show-must-go-on",
   "artist": "Queen",
   "title": "The Show Must Go On",
@@ -28,25 +21,11 @@
   "spotifyId": "2htmMitogin6NMGABye6YG"
  },
  {
-  "id": "michael-jackson-they-don-t-care-about-us",
-  "artist": "Michael Jackson",
-  "title": "They Don't Care About Us",
-  "year": 1996,
-  "spotifyId": "3wuCCNCnBhJlwkIJTBZFiv"
- },
- {
   "id": "metallica-enter-sandman",
   "artist": "Metallica",
   "title": "Enter Sandman",
   "year": 1991,
   "spotifyId": "1hKdDCpiI9mqz1jVHRKG0E"
- },
- {
-  "id": "kimbra-somebody-that-i-used-to-know",
-  "artist": "Three Days Grace",
-  "title": "Somebody That I Used to Know",
-  "year": 2011,
-  "spotifyId": "100lHmeZbp3OvinYgotmVc"
  },
  {
   "id": "metallica-fade-to-black",
@@ -175,13 +154,6 @@
   "spotifyId": "7x8dCjCr0x6x2lXKujYD34"
  },
  {
-  "id": "lavina-kraj-mene",
-  "artist": "Lavina",
-  "title": "Kraj mene",
-  "year": 2026,
-  "spotifyId": "3cnVAUGWZcXNqojO8PfYOu"
- },
- {
   "id": "bon-jovi-i-ll-be-there-for-you",
   "artist": "Bon Jovi",
   "title": "I'll Be There for You",
@@ -201,13 +173,6 @@
   "title": "The Boys Are Back in Town",
   "year": 1976,
   "spotifyId": "43DeSV93pJPT4lCZaWZ6b1"
- },
- {
-  "id": "eminem-berzerk",
-  "artist": "Eminem",
-  "title": "Berzerk",
-  "year": 2013,
-  "spotifyId": "07CFyqCp3ScKIrZQLDd48J"
  },
  {
   "id": "ozzy-osbourne-mr-crowley",
@@ -280,13 +245,6 @@
   "spotifyId": "1l6DV8qhmCdgOKLSAFzPOe"
  },
  {
-  "id": "elton-john-the-bitch-is-back",
-  "artist": "Elton John",
-  "title": "The Bitch Is Back",
-  "year": 1974,
-  "spotifyId": "40tnCfx2mTtHozyaRDcYC5"
- },
- {
   "id": "kiss-rock-and-roll-all-nite",
   "artist": "Kiss",
   "title": "Rock and Roll All Nite",
@@ -357,20 +315,6 @@
   "spotifyId": "7r2QK941qra9MDQIllJdZs"
  },
  {
-  "id": "babymetal-headbangeeeeerrrrr",
-  "artist": "Babymetal",
-  "title": "Headbangeeeeerrrrr!!!!!",
-  "year": 2012,
-  "spotifyId": "10aksQNPKyp3PnVvEY4FMe"
- },
- {
-  "id": "babymetal-ijime-dame-zettai",
-  "artist": "Babymetal",
-  "title": "Ijime, Dame, Zettai",
-  "year": 2013,
-  "spotifyId": "14kftrUAV4BWqIDUvmFeD2"
- },
- {
   "id": "babymetal-megitsune",
   "artist": "Babymetal",
   "title": "Megitsune",
@@ -383,13 +327,6 @@
   "title": "Is This Love",
   "year": 1987,
   "spotifyId": "3pHpV3pa96s4vuBP7sQq0V"
- },
- {
-  "id": "katy-perry-hummingbird-heartbeat",
-  "artist": "Katy Perry",
-  "title": "Hummingbird Heartbeat",
-  "year": 2012,
-  "spotifyId": "1uM6OE2RizZJBzbZ4NqfaQ"
  },
  {
   "id": "kiss-strutter",
@@ -532,20 +469,6 @@
   "spotifyId": "1xn6RBUCgZBYyaNRaqeVWP"
  },
  {
-  "id": "babymetal-doki-doki-morning",
-  "artist": "Babymetal",
-  "title": "Doki Doki Morning",
-  "year": 2011,
-  "spotifyId": "1XxgpRtYbcGKgyfjDY4qrI"
- },
- {
-  "id": "deep-purple-kentucky-woman",
-  "artist": "Deep Purple",
-  "title": "Kentucky Woman",
-  "year": 1967,
-  "spotifyId": "3rI5e4tFTlWEwJi4TjLeGT"
- },
- {
   "id": "golden-earring-radar-love",
   "artist": "Golden Earring",
   "title": "Radar Love",
@@ -663,13 +586,6 @@
   "title": "Jailbreak",
   "year": 1976,
   "spotifyId": "4qbiCq2xkNPyojuZFeNeqx"
- },
- {
-  "id": "mike-oldfield-shadow-on-the-wall",
-  "artist": "Mike Oldfield",
-  "title": "Shadow on the Wall",
-  "year": 1983,
-  "spotifyId": "4R5dJUADOn8FqPen4Dv1nJ"
  },
  {
   "id": "zz-top-got-me-under-pressure",
@@ -833,13 +749,6 @@
   "spotifyId": "7zAt4tdL44D3VuzsvM0N8n"
  },
  {
-  "id": "danzig-mother",
-  "artist": "Danzig",
-  "title": "Mother",
-  "year": 1994,
-  "spotifyId": "7txxAtOMwLLnQTpKeBL6bp"
- },
- {
   "id": "wolfmother-joker-the-thief",
   "artist": "Wolfmother",
   "title": "Joker & the Thief",
@@ -903,13 +812,6 @@
   "spotifyId": "139vZye7kKfLw1dYITnaVW"
  },
  {
-  "id": "saving-abel-addicted",
-  "artist": "Saving Abel",
-  "title": "Addicted",
-  "year": 2008,
-  "spotifyId": "3pxCXv0NACYfYnLjFcQW5D"
- },
- {
   "id": "styx-renegade",
   "artist": "Styx",
   "title": "Renegade",
@@ -952,27 +854,6 @@
   "spotifyId": "5UtT4muzCy1mHkzA7ZRksv"
  },
  {
-  "id": "theory-of-a-deadman-bad-girlfriend",
-  "artist": "Theory of a Deadman",
-  "title": "Bad Girlfriend",
-  "year": 2009,
-  "spotifyId": "5ynWvN3bQymHVThxutO4hG"
- },
- {
-  "id": "buckcherry-crazy-bitch",
-  "artist": "Buckcherry",
-  "title": "Crazy Bitch",
-  "year": 2006,
-  "spotifyId": "1gtHjIoQIU5XIcRGjn7DfH"
- },
- {
-  "id": "shinedown-cut-the-cord",
-  "artist": "Shinedown",
-  "title": "Cut the Cord",
-  "year": 2015,
-  "spotifyId": "1RcABeMCAH0UQi0yF4drXj"
- },
- {
   "id": "avenged-sevenfold-welcome-to-the-family",
   "artist": "Avenged Sevenfold",
   "title": "Welcome to the Family",
@@ -1013,20 +894,6 @@
   "title": "The Vengeful One",
   "year": 2015,
   "spotifyId": "3jjU4Pky1ja5J1onU6ei4T"
- },
- {
-  "id": "shinedown-45",
-  "artist": "Shinedown",
-  "title": "45",
-  "year": 2003,
-  "spotifyId": "420JGkyLfLUZcgBHKiIK9v"
- },
- {
-  "id": "billy-squier-the-stroke",
-  "artist": "Billy Squier",
-  "title": "The Stroke",
-  "year": 1981,
-  "spotifyId": "4wwMbUJC9tbhUO0shXSxv3"
  },
  {
   "id": "3-doors-down-it-s-not-my-time",
@@ -1106,25 +973,11 @@
   "spotifyId": "1Jrt2fqQm5JEKlAPMYG2nD"
  },
  {
-  "id": "shinedown-devil",
-  "artist": "Shinedown",
-  "title": "Devil",
-  "year": 2018,
-  "spotifyId": "2hEYslbdYWFSIA6JboUvnR"
- },
- {
   "id": "ozzy-osbourne-i-don-t-wanna-stop",
   "artist": "Ozzy Osbourne",
   "title": "I Don't Wanna Stop",
   "year": 2007,
   "spotifyId": "5axOkQnmQmwtjr4bv1Xt7i"
- },
- {
-  "id": "rev-theory-hell-yeah",
-  "artist": "Rev Theory",
-  "title": "Hell Yeah",
-  "year": 2008,
-  "spotifyId": "2DK7d4rQkTpZ7P81M0Sjou"
  },
  {
   "id": "the-pretty-reckless-heaven-knows",
@@ -1139,13 +992,6 @@
   "title": "Slither",
   "year": 2004,
   "spotifyId": "1ugRmaf5TDDf1fO3hFSIs1"
- },
- {
-  "id": "shinedown-diamond-eyes-boom-lay-boom-lay-boom",
-  "artist": "Shinedown",
-  "title": "Diamond Eyes (Boom-Lay Boom-Lay Boom)",
-  "year": 2010,
-  "spotifyId": "1PLMK1ui86iHHG3FM1N7ue"
  },
  {
   "id": "queen-hammer-to-fall",
@@ -1204,13 +1050,6 @@
   "spotifyId": "2KKLuHN6zDxVnWtFKO8vo4"
  },
  {
-  "id": "shinedown-simple-man",
-  "artist": "Shinedown",
-  "title": "Simple Man",
-  "year": 2003,
-  "spotifyId": "7gmfoXsjwQYn6HeHUYRpY2"
- },
- {
   "id": "def-leppard-rock-of-ages",
   "artist": "Def Leppard",
   "title": "Rock of Ages",
@@ -1251,13 +1090,6 @@
   "title": "Little Monster",
   "year": 2014,
   "spotifyId": "0LHni3bdbwZASRHf8RYlXK"
- },
- {
-  "id": "sixx-a-m-life-is-beautiful",
-  "artist": "Sixx:A.M.",
-  "title": "Life Is Beautiful",
-  "year": 2007,
-  "spotifyId": "3XKh4x3f0o8V0VZrgAqaGT"
  },
  {
   "id": "bullet-for-my-valentine-you-want-a-battle",
@@ -1337,13 +1169,6 @@
   "spotifyId": "5llPm5KlNNlMWMVOLZ5lMo"
  },
  {
-  "id": "hinder-get-stoned",
-  "artist": "Hinder",
-  "title": "Get Stoned",
-  "year": 2005,
-  "spotifyId": "1IEhKPgUratgeMTm9G1kWt"
- },
- {
   "id": "volbeat-heaven-nor-hell",
   "artist": "Volbeat",
   "title": "Heaven Nor Hell",
@@ -1351,25 +1176,11 @@
   "spotifyId": "5Hgx4ssabqTTD1fmGFTmi2"
  },
  {
-  "id": "godsmack-love-hate-sex-pain",
-  "artist": "Godsmack",
-  "title": "Love-Hate-Sex-Pain",
-  "year": 2010,
-  "spotifyId": "36QG29bbGuJkxNgzY6o9Mu"
- },
- {
   "id": "nickelback-shakin-hands",
   "artist": "Nickelback",
   "title": "Shakin' Hands",
   "year": 2009,
   "spotifyId": "4Jn9QEd4nKFPqeCdL4TsZM"
- },
- {
-  "id": "grand-funk-railroad-we-re-an-american-band",
-  "artist": "Grand Funk Railroad",
-  "title": "We're an American Band",
-  "year": 1973,
-  "spotifyId": "3bIgVAJqxzUKUIg5Wj72C8"
  },
  {
   "id": "greta-van-fleet-when-the-curtain-falls",
@@ -1391,12 +1202,5 @@
   "title": "Balls to the Wall",
   "year": 1984,
   "spotifyId": "3XpE0yzmb4s0jHepk0xzRi"
- },
- {
-  "id": "buckcherry-lit-up",
-  "artist": "Buckcherry",
-  "title": "Lit Up",
-  "year": 1998,
-  "spotifyId": "1OBMSzh2ocRqK2gUFaMBSM"
  }
 ]

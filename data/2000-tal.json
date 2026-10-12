@@ -1,7 +1,7 @@
 [
  {
   "id": "colby-o-donis-just-dance",
-  "artist": "Colby O'Donis",
+  "artist": "Lady Gaga",
   "title": "Just Dance",
   "year": 2008,
   "spotifyId": "3QuEpyj4kTRWiWuckd1hcK"
@@ -196,13 +196,6 @@
   "spotifyId": "3ZffCQKLFLUvYM59XKLbVm"
  },
  {
-  "id": "madonna-miles-away",
-  "artist": "Madonna",
-  "title": "Miles Away",
-  "year": 2008,
-  "spotifyId": "3YTXrxW9cTo2FhcbTs8pmM"
- },
- {
   "id": "eminem-stan",
   "artist": "Eminem & Dido",
   "title": "Stan",
@@ -259,25 +252,11 @@
   "spotifyId": "4w9PMH1CwlTQB8ErOOnlt7"
  },
  {
-  "id": "michael-jackson-butterflies",
-  "artist": "Michael Jackson",
-  "title": "Butterflies",
-  "year": 2002,
-  "spotifyId": "0rT9f5BSZrZ6DvzfBEckG0"
- },
- {
   "id": "katy-perry-waking-up-in-vegas",
   "artist": "Katy Perry",
   "title": "Waking Up in Vegas",
   "year": 2009,
   "spotifyId": "0CINJz55gaKzuAsqhZ0hEU"
- },
- {
-  "id": "taylor-swift-tim-mcgraw",
-  "artist": "Taylor Swift",
-  "title": "Tim McGraw",
-  "year": 2006,
-  "spotifyId": "0Om9WAB5RS09L80DyOfTNa"
  },
  {
   "id": "evanescence-my-immortal",
@@ -371,13 +350,6 @@
   "spotifyId": "3Q0kSmKpkffn4aWkYkWwet"
  },
  {
-  "id": "michael-jackson-one-more-chance",
-  "artist": "Michael Jackson",
-  "title": "One More Chance",
-  "year": 2003,
-  "spotifyId": "7uyivkbdc8iH8wyBGBhlXV"
- },
- {
   "id": "miley-cyrus-see-you-again",
   "artist": "Miley Cyrus",
   "title": "See You Again",
@@ -427,13 +399,6 @@
   "spotifyId": "2piq6TyDZS67ibDy5SUVqA"
  },
  {
-  "id": "urban-symphony-randajad",
-  "artist": "Urban Symphony",
-  "title": "Rändajad",
-  "year": 2009,
-  "spotifyId": "6IiZBBFqyyK3CLo9BqmmAH"
- },
- {
   "id": "nightwish-wish-i-had-an-angel",
   "artist": "Nightwish",
   "title": "Wish I Had an Angel",
@@ -453,13 +418,6 @@
   "title": "Mr. Brightside",
   "year": 2003,
   "spotifyId": "003vvx7Niy0yvhvHt4a68B"
- },
- {
-  "id": "taylor-swift-our-song",
-  "artist": "Taylor Swift",
-  "title": "Our Song",
-  "year": 2001,
-  "spotifyId": "15DeqWWQB4dcEWzJg15VrN"
  },
  {
   "id": "katy-perry-if-we-ever-meet-again",
@@ -511,13 +469,6 @@
   "spotifyId": "0EWISwkXBo8HJaBBxZhoWj"
  },
  {
-  "id": "taylor-swift-picture-to-burn",
-  "artist": "Taylor Swift",
-  "title": "Picture to Burn",
-  "year": 2008,
-  "spotifyId": "32mVHdy0bi1XKgr0ajsBlG"
- },
- {
   "id": "arctic-monkeys-i-bet-you-look-good-on-the-dancefloor",
   "artist": "Arctic Monkeys",
   "title": "I Bet You Look Good on the Dancefloor",
@@ -560,13 +511,6 @@
   "spotifyId": "5O8L4I2S4izFGDjvP7xAKv"
  },
  {
-  "id": "cangaia-de-jegue-ai-se-eu-te-pego",
-  "artist": "Cangaia de Jegue",
-  "title": "Ai Se Eu Te Pego",
-  "year": 2008,
-  "spotifyId": "46aIq2GKW7Vr6i4g2Vvycd"
- },
- {
   "id": "the-pussycat-dolls-don-t-cha",
   "artist": "The Pussycat Dolls",
   "title": "Don't Cha",
@@ -596,7 +540,7 @@
  },
  {
   "id": "kelly-rowland-dilemma",
-  "artist": "Kelly Rowland",
+  "artist": "Nelly",
   "title": "Dilemma",
   "year": 2002,
   "spotifyId": "0ARK753YaiJbpLUk7z5yIM"
@@ -624,7 +568,7 @@
  },
  {
   "id": "slim-thug-check-on-it",
-  "artist": "Slim Thug",
+  "artist": "Beyoncé",
   "title": "Check on It",
   "year": 2005,
   "spotifyId": "49YeEoXjdJBaVOjghMPEdR"
@@ -638,7 +582,7 @@
  },
  {
   "id": "kesha-right-round",
-  "artist": "Kesha",
+  "artist": "Flo Rida",
   "title": "Right Round",
   "year": 2009,
   "spotifyId": "0wruS6JEQCGeYrvsCIdG0Z"
@@ -649,13 +593,6 @@
   "title": "Somewhere Only We Know",
   "year": 2004,
   "spotifyId": "1mZim3jV9mFvTlf52pnM5H"
- },
- {
-  "id": "annie-lennox-into-the-west",
-  "artist": "Annie Lennox",
-  "title": "Into the West",
-  "year": 2003,
-  "spotifyId": "78LWZ7WT4s7QDa9zzTLH5Y"
  },
  {
   "id": "dr-dre-the-next-episode",
@@ -691,13 +628,6 @@
   "title": "Everybody's Fool",
   "year": 2004,
   "spotifyId": "0tWEB6BxbI48XN79QE1JbT"
- },
- {
-  "id": "nightwish-kuolema-tekee-taiteilijan",
-  "artist": "Nightwish",
-  "title": "Kuolema Tekee Taiteilijan",
-  "year": 2005,
-  "spotifyId": "0k8j472pNJk5cWj5tXEHNL"
  },
  {
   "id": "linkin-park-numb",
@@ -824,13 +754,6 @@
   "title": "Gasolina",
   "year": 2004,
   "spotifyId": "5YoITs1m0q8UOQ4AW7N5ga"
- },
- {
-  "id": "mario-let-me-love-you",
-  "artist": "Mario",
-  "title": "Let Me Love You",
-  "year": 2004,
-  "spotifyId": "5WphWTUIfRe7x8NZss79cY"
  },
  {
   "id": "red-hot-chili-peppers-snow-hey-oh",
@@ -966,13 +889,6 @@
   "spotifyId": "7e8utCy2JlSB8dRHKi49xM"
  },
  {
-  "id": "the-game-hate-it-or-love-it",
-  "artist": "The Game",
-  "title": "Hate It or Love It",
-  "year": 2005,
-  "spotifyId": "2wGSgTmgSF3xjRrHkTc25R"
- },
- {
   "id": "weezer-island-in-the-sun",
   "artist": "Weezer",
   "title": "Island in the Sun",
@@ -992,13 +908,6 @@
   "title": "My Boo",
   "year": 2004,
   "spotifyId": "68vgtRHr7iZHpzGpon6Jlo"
- },
- {
-  "id": "skillet-monster",
-  "artist": "Skillet",
-  "title": "Monster",
-  "year": 2009,
-  "spotifyId": "2UREu1Y8CO4jXkbvqAtP7g"
  },
  {
   "id": "black-eyed-peas-pump-it",
@@ -1092,13 +1001,6 @@
   "spotifyId": "3wnwq6OjbXRkmPaXy5blR6"
  },
  {
-  "id": "soulja-boy-kiss-me-thru-the-phone",
-  "artist": "Soulja Boy",
-  "title": "Kiss Me thru the Phone",
-  "year": 2008,
-  "spotifyId": "2q4rjDy9WhaN3o9MvDbO21"
- },
- {
   "id": "foo-fighters-the-pretender",
   "artist": "Foo Fighters",
   "title": "The Pretender",
@@ -1148,13 +1050,6 @@
   "spotifyId": "5qII2n90lVdPDcgXEEVHNy"
  },
  {
-  "id": "rise-against-savior",
-  "artist": "Rise Against",
-  "title": "Savior",
-  "year": 2009,
-  "spotifyId": "1vcxF91pWs9uNwDROuiCPB"
- },
- {
   "id": "cascada-everytime-we-touch",
   "artist": "Cascada",
   "title": "Everytime We Touch",
@@ -1190,13 +1085,6 @@
   "spotifyId": "67T6l4q3zVjC5nZZPXByU8"
  },
  {
-  "id": "drake-best-i-ever-had",
-  "artist": "Drake",
-  "title": "Best I Ever Had",
-  "year": 2009,
-  "spotifyId": "1GxHeBvQ9935Dd3cSfsfBa"
- },
- {
   "id": "jet-are-you-gonna-be-my-girl",
   "artist": "Jet",
   "title": "Are You Gonna Be My Girl",
@@ -1230,20 +1118,6 @@
   "title": "Secrets",
   "year": 2009,
   "spotifyId": "1NhPKVLsHhFUHIOZ32QnS2"
- },
- {
-  "id": "carrie-underwood-before-he-cheats",
-  "artist": "Carrie Underwood",
-  "title": "Before He Cheats",
-  "year": 2006,
-  "spotifyId": "3WG0wt9NlTya3hzT8VGzfT"
- },
- {
-  "id": "breaking-benjamin-the-diary-of-jane",
-  "artist": "Breaking Benjamin",
-  "title": "The Diary of Jane",
-  "year": 2006,
-  "spotifyId": "0faXHILILebCGnJBPU6KJJ"
  },
  {
   "id": "taio-cruz-break-your-heart",
@@ -1288,13 +1162,6 @@
   "spotifyId": "05tlUh0E6IFks9sCQguQKN"
  },
  {
-  "id": "cassie-ventura-me-u",
-  "artist": "Cassie Ventura",
-  "title": "Me & U",
-  "year": 2006,
-  "spotifyId": "7k6IzwMGpxnRghE7YosnXT"
- },
- {
   "id": "foo-fighters-best-of-you",
   "artist": "Foo Fighters",
   "title": "Best of You",
@@ -1323,25 +1190,11 @@
   "spotifyId": "2u9v2LS9eZJkNBf6BVrhYs"
  },
  {
-  "id": "drake-forever",
-  "artist": "Drake",
-  "title": "Forever",
-  "year": 2009,
-  "spotifyId": "4O3nAQfOC9PN5ElMEcAJb9"
- },
- {
   "id": "colbie-caillat-bubbly",
   "artist": "Colbie Caillat",
   "title": "Bubbly",
   "year": 2007,
   "spotifyId": "1lkvpmrCaXK8QtliFDcHBO"
- },
- {
-  "id": "juanes-es-por-ti",
-  "artist": "Juanes",
-  "title": "Es Por Ti",
-  "year": 2002,
-  "spotifyId": "3b1IQflSLrgzYQPGFzI9cl"
  },
  {
   "id": "soulja-boy-crank-that",
@@ -1377,13 +1230,6 @@
   "title": "Skinny Love",
   "year": 2008,
   "spotifyId": "3B3eOgLJSqPEA0RfboIQVM"
- },
- {
-  "id": "t-i-live-your-life",
-  "artist": "T.I.",
-  "title": "Live Your Life",
-  "year": 2008,
-  "spotifyId": "3jlbL2OTD5YmIunYzgQTAN"
  },
  {
   "id": "ne-yo-because-of-you",

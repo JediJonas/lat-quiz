@@ -287,13 +287,6 @@
   "spotifyId": "0oRxS5Hfo2cAfU2mlHYE8o"
  },
  {
-  "id": "marc-anthony-no-me-ames",
-  "artist": "Jennifer Lopez & Marc Anthony",
-  "title": "No Me Ames",
-  "year": 1999,
-  "spotifyId": "3G1BywM43AO7Hqw4Z5hK1j"
- },
- {
   "id": "green-day-longview",
   "artist": "Green Day",
   "title": "Longview",
@@ -322,13 +315,6 @@
   "spotifyId": "4XraCMzmof2FVsczM5T0ai"
  },
  {
-  "id": "rob-thomas-smooth",
-  "artist": "Santana",
-  "title": "Smooth",
-  "year": 1999,
-  "spotifyId": "5YAffwDOmZ4qW0xknGzxEM"
- },
- {
   "id": "green-day-when-i-come-around",
   "artist": "Green Day",
   "title": "When I Come Around",
@@ -343,13 +329,6 @@
   "spotifyId": "0YrqlzPliyMZJ3IN8HbKbW"
  },
  {
-  "id": "ol-dirty-bastard-fantasy",
-  "artist": "Ol' Dirty Bastard",
-  "title": "Fantasy",
-  "year": 1995,
-  "spotifyId": "1IMWrhSDUDmaZqnG2PdWAQ"
- },
- {
   "id": "beck-loser",
   "artist": "Beck",
   "title": "Loser",
@@ -362,13 +341,6 @@
   "title": "Be Quick or Be Dead",
   "year": 1992,
   "spotifyId": "7xa3dJQMzBVzsrZ81tNcHP"
- },
- {
-  "id": "the-rolling-stones-anybody-seen-my-baby",
-  "artist": "The Rolling Stones",
-  "title": "Anybody Seen My Baby?",
-  "year": 1997,
-  "spotifyId": "4MhlFfh4pa2rONBQmh6RpH"
  },
  {
   "id": "foo-fighters-everlong",
@@ -420,13 +392,6 @@
   "spotifyId": "4ypF2ciZ4VtYDS8oEp6h4i"
  },
  {
-  "id": "elizabeth-fraser-teardrop",
-  "artist": "Massive Attack",
-  "title": "Teardrop",
-  "year": 1998,
-  "spotifyId": "67Hna13dNDkZvBpTXRIaOJ"
- },
- {
   "id": "smash-mouth-all-star",
   "artist": "Smash Mouth",
   "title": "All Star",
@@ -474,13 +439,6 @@
   "title": "Alive",
   "year": 1991,
   "spotifyId": "1L94M3KIu7QluZe63g64rv"
- },
- {
-  "id": "coldplay-brothers-sisters",
-  "artist": "Coldplay",
-  "title": "Brothers & Sisters",
-  "year": 1999,
-  "spotifyId": "6BMIgTmZAihjW5MKEo7gvV"
  },
  {
   "id": "goo-goo-dolls-iris",
@@ -558,13 +516,6 @@
   "title": "Around the World",
   "year": 1997,
   "spotifyId": "1pKYYY0dkg23sQQXi0Q5zN"
- },
- {
-  "id": "da-brat-heartbreaker",
-  "artist": "Da Brat",
-  "title": "Heartbreaker",
-  "year": 1999,
-  "spotifyId": "2HM5J4WkBzvAc0cUQU12S3"
  },
  {
   "id": "crash-test-dummies-mmm-mmm-mmm-mmm",
@@ -742,13 +693,6 @@
   "spotifyId": "2hnMS47jN0etwvFPzYk11f"
  },
  {
-  "id": "the-smiths-there-is-a-light-that-never-goes-out",
-  "artist": "The Smiths",
-  "title": "There Is a Light That Never Goes Out",
-  "year": 1992,
-  "spotifyId": "0WQiDwKJclirSYG9v5tayI"
- },
- {
   "id": "blackstreet-no-diggity",
   "artist": "Blackstreet",
   "title": "No Diggity",
@@ -761,13 +705,6 @@
   "title": "Mr. Jones",
   "year": 1993,
   "spotifyId": "5DiXcVovI0FcY2s0icWWUu"
- },
- {
-  "id": "tupac-shakur-hit-em-up",
-  "artist": "Tupac Shakur",
-  "title": "Hit 'Em Up",
-  "year": 1996,
-  "spotifyId": "0Z2J91b2iTGLVTZC4fKgxf"
  },
  {
   "id": "blink-182-what-s-my-age-again",
@@ -796,13 +733,6 @@
   "title": "Even Flow",
   "year": 1992,
   "spotifyId": "6QewNVIDKdSl8Y3ycuHIei"
- },
- {
-  "id": "ice-cube-you-know-how-we-do-it",
-  "artist": "Ice Cube",
-  "title": "You Know How We Do It",
-  "year": 1994,
-  "spotifyId": "67ncYmW29pNJJY2yXuLPwT"
  },
  {
   "id": "sean-combs-i-ll-be-missing-you",
@@ -889,13 +819,6 @@
   "spotifyId": "1158ckiB5S4cpsdYHDB9IF"
  },
  {
-  "id": "alejandro-sanz-corazon-partio",
-  "artist": "Alejandro Sanz",
-  "title": "Corazón Partío",
-  "year": 1997,
-  "spotifyId": "0wQCKR9OFjYu5Kzrk7WivJ"
- },
- {
   "id": "spin-doctors-two-princes",
   "artist": "Spin Doctors",
   "title": "Two Princes",
@@ -938,32 +861,11 @@
   "spotifyId": "15DLl1r2zi07Ssq5RT1yT0"
  },
  {
-  "id": "mana-en-el-muelle-de-san-blas",
-  "artist": "Maná",
-  "title": "En el muelle de San Blas",
-  "year": 1998,
-  "spotifyId": "0mvocLIWUnT10znvIXwHGr"
- },
- {
-  "id": "rusted-root-send-me-on-my-way",
-  "artist": "Rusted Root",
-  "title": "Send Me On My Way",
-  "year": 1995,
-  "spotifyId": "6XK6Zw6JkFsHXzAcMWNiIr"
- },
- {
   "id": "darude-sandstorm",
   "artist": "Darude",
   "title": "Sandstorm",
   "year": 1999,
   "spotifyId": "3dxDj8pDPlIHCIrUPXuCeG"
- },
- {
-  "id": "mana-clavado-en-un-bar",
-  "artist": "Maná",
-  "title": "Clavado En Un Bar",
-  "year": 1997,
-  "spotifyId": "78DVpEWwmJFC25KGz8fJuE"
  },
  {
   "id": "weezer-buddy-holly",
@@ -1001,13 +903,6 @@
   "spotifyId": "2itcYu5GSP50cfgY2Un2Ak"
  },
  {
-  "id": "stone-temple-pilots-interstate-love-song",
-  "artist": "Stone Temple Pilots",
-  "title": "Interstate Love Song",
-  "year": 1994,
-  "spotifyId": "6qLEOZvf5gI7kWE63JE7p3"
- },
- {
   "id": "santana-smooth",
   "artist": "Santana",
   "title": "Smooth",
@@ -1020,13 +915,6 @@
   "title": "Mary Jane's Last Dance",
   "year": 1993,
   "spotifyId": "0UWhRKpZxLEUZhmku98WcH"
- },
- {
-  "id": "wu-tang-clan-c-r-e-a-m",
-  "artist": "Wu-Tang Clan",
-  "title": "C.R.E.A.M.",
-  "year": 1994,
-  "spotifyId": "119c93MHjrDLJTApCVGpvx"
  },
  {
   "id": "rage-against-the-machine-bulls-on-parade",
@@ -1071,25 +959,11 @@
   "spotifyId": "0EgN2Lp17KHLgcO1g1d6bh"
  },
  {
-  "id": "creed-higher",
-  "artist": "Creed",
-  "title": "Higher",
-  "year": 1999,
-  "spotifyId": "1ZozJfi8u9cO2Ob8KwiwNT"
- },
- {
   "id": "sting-fields-of-gold",
   "artist": "Sting",
   "title": "Fields of Gold",
   "year": 1993,
   "spotifyId": "0I1DJdLt9BKOb7GWmWxCjo"
- },
- {
-  "id": "tupac-shakur-do-for-love",
-  "artist": "Tupac Shakur",
-  "title": "Do for Love",
-  "year": 1997,
-  "spotifyId": "4AE7Lj39VnSZNOmGH2iZaq"
  },
  {
   "id": "corona-the-rhythm-of-the-night",
@@ -1183,13 +1057,6 @@
   "spotifyId": "65krtHkaYLPr0mEbjL61UP"
  },
  {
-  "id": "stone-temple-pilots-plush",
-  "artist": "Stone Temple Pilots",
-  "title": "Plush",
-  "year": 1993,
-  "spotifyId": "2TAQ9YGehOKWDqDak5DuXc"
- },
- {
   "id": "korn-falling-away-from-me",
   "artist": "Korn",
   "title": "Falling Away from Me",
@@ -1202,13 +1069,6 @@
   "title": "End of the Road",
   "year": 1992,
   "spotifyId": "794U3ttupMPMfgZo0CT6NF"
- },
- {
-  "id": "tupac-shakur-hail-mary",
-  "artist": "Tupac Shakur",
-  "title": "Hail Mary",
-  "year": 1997,
-  "spotifyId": "2zoobJFEB9h15fjYjRd6oP"
  },
  {
   "id": "r-e-m-shiny-happy-people",
@@ -1295,13 +1155,6 @@
   "spotifyId": "6iXcPsToMyTheci6e1L2ya"
  },
  {
-  "id": "boyz-ii-men-on-bended-knee",
-  "artist": "Boyz II Men",
-  "title": "On Bended Knee",
-  "year": 1994,
-  "spotifyId": "4Gmkqn3V7IMTkOmmiX7cbb"
- },
- {
   "id": "alice-in-chains-rooster",
   "artist": "Alice in Chains",
   "title": "Rooster",
@@ -1363,20 +1216,6 @@
   "title": "I Knew I Loved You",
   "year": 1999,
   "spotifyId": "6nozDLxeL0TE4MS9GqYU1v"
- },
- {
-  "id": "lonestar-amazed",
-  "artist": "Lonestar",
-  "title": "Amazed",
-  "year": 1999,
-  "spotifyId": "1cJZes1ja4KWvfZ32BCU5O"
- },
- {
-  "id": "snoop-dogg-who-am-i-what-s-my-name",
-  "artist": "Snoop Dogg",
-  "title": "Who Am I? (What's My Name?)",
-  "year": 1993,
-  "spotifyId": "2wnerq8dq5rO4wDNqu4Ff4"
  },
  {
   "id": "boyz-ii-men-i-ll-make-love-to-you",
