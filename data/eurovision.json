@@ -104,13 +104,6 @@
   "deezerId": 3226932221
  },
  {
-  "id": "estland-espresso-macchiato",
-  "artist": "Estland",
-  "title": "Espresso Macchiato",
-  "year": 2025,
-  "spotifyId": "4f5sxA4nQywcBlU05Ixdc7"
- },
- {
   "id": "italien-la-noia",
   "artist": "Italien",
   "title": "La noia",
@@ -1135,13 +1128,6 @@
   "deezerId": 1596460562
  },
  {
-  "id": "belgien-miss-you",
-  "artist": "Belgien",
-  "title": "Miss You",
-  "year": 2022,
-  "spotifyId": "4VgSGm7CroAlCCt9GKQ75Z"
- },
- {
   "id": "rumanien-llamame",
   "artist": "Rumänien",
   "title": "Llámame",
@@ -1172,13 +1158,6 @@
   "year": 2022,
   "spotifyId": "0tOKpglJb9cza4WdTtxsv7",
   "deezerId": 1662705882
- },
- {
-  "id": "frankrike-mercy",
-  "artist": "Frankrike",
-  "title": "Mercy",
-  "year": 2018,
-  "spotifyId": "06GLoUz0gyKp3jQWTXiv0P"
  },
  {
   "id": "frankrike-fulenn",

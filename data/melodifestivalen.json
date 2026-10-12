@@ -72,13 +72,6 @@
   "deezerId": 676125412
  },
  {
-  "id": "benjamin-ingrosso-dance-you-off",
-  "artist": "Benjamin Ingrosso",
-  "title": "Dance You Off",
-  "year": 2018,
-  "spotifyId": "3vTjWoUhHFbZa8bSDWuEW0"
- },
- {
   "id": "klara-hammarstrom-run-to-the-hills",
   "artist": "Klara Hammarström",
   "title": "Run to the Hills",
@@ -103,26 +96,12 @@
   "deezerId": 811667682
  },
  {
-  "id": "felicia-eriksson-my-system",
-  "artist": "Felicia Eriksson",
-  "title": "My System",
-  "year": 2026,
-  "spotifyId": "2NPUh6DgaU79tNHJLrBYPp"
- },
- {
   "id": "sean-banan-sean-den-forste-banan",
   "artist": "Sean Banan",
   "title": "Sean den förste banan",
   "year": 2012,
   "spotifyId": "5J2UfqBylH8jDQZJnxby81",
   "deezerId": 16334737
- },
- {
-  "id": "danny-saucedo-amazing",
-  "artist": "Danny Saucedo",
-  "title": "Amazing",
-  "year": 2012,
-  "spotifyId": "33qw98yPnShEQMoF72ORUa"
  },
  {
   "id": "molly-sanden-why-am-i-crying",
@@ -147,13 +126,6 @@
   "year": 2016,
   "spotifyId": "6oDkCmfVcSd9NXAKk1b4Ll",
   "deezerId": 120037738
- },
- {
-  "id": "sean-banan-copacabanana",
-  "artist": "Sean Banan",
-  "title": "Copacabanana",
-  "year": 2013,
-  "spotifyId": "792VMoWC2A4GIRHooEawqR"
  },
  {
   "id": "dead-by-april-mystery",
@@ -284,33 +256,12 @@
   "deezerId": 676125432
  },
  {
-  "id": "felix-sandman-every-single-day",
-  "artist": "Felix Sandman",
-  "title": "Every Single Day",
-  "year": 2018,
-  "spotifyId": "5Ly489ABFjUgUQDXd1W2c5"
- },
- {
-  "id": "alcazar-stay-the-night",
-  "artist": "Alcazar",
-  "title": "Stay the Night",
-  "year": 2009,
-  "spotifyId": "1T8FnxihBxRwXz1n9SfDf3"
- },
- {
   "id": "tusse-voices",
   "artist": "Tusse",
   "title": "Voices",
   "year": 2021,
   "spotifyId": "5zxZ7M4RgWZUHlMEwac8vt",
   "deezerId": 1259074852
- },
- {
-  "id": "wiktoria-as-i-lay-me-down",
-  "artist": "Wiktoria",
-  "title": "As I Lay Me Down",
-  "year": 2017,
-  "spotifyId": "5VIZcrKXPd9wL4hqE4YN8z"
  },
  {
   "id": "anna-bergendahl-ashes-to-ashes",
@@ -409,13 +360,6 @@
   "deezerId": 2135217017
  },
  {
-  "id": "jon-henrik-fjallgren-where-you-are-savezan",
-  "artist": "Jon Henrik Fjällgren",
-  "title": "Where You Are (Sávežan)",
-  "year": 2023,
-  "spotifyId": "4zPqv04ddAFwk2Pgz3jC9U"
- },
- {
   "id": "jon-henrik-fjallgren-jag-ar-fri-manne-leam-frijje",
   "artist": "Jon Henrik Fjällgren",
   "title": "Jag är fri (Manne Leam Frijje)",
@@ -456,26 +400,12 @@
   "deezerId": 633627092
  },
  {
-  "id": "carola-haggkvist-evighet",
-  "artist": "Carola Häggkvist",
-  "title": "Evighet",
-  "year": 2006,
-  "spotifyId": "2AB4PKwOYdIo6grMfQXgYU"
- },
- {
   "id": "dotter-little-tot",
   "artist": "Dotter",
   "title": "Little Tot",
   "year": 2021,
   "spotifyId": "4lk0kyckhqlpWsdlUpsuCf",
   "deezerId": 1235048642
- },
- {
-  "id": "theoz-mer-av-dig",
-  "artist": "Theoz",
-  "title": "Mer av dig",
-  "year": 2023,
-  "spotifyId": "7xzgJNufqvox5oQQa1dP1O"
  },
  {
   "id": "mans-zelmerlow-revolution",
@@ -540,13 +470,6 @@
   "year": 2022,
   "spotifyId": "7i3E3SuLSD7TbrFYMzzT2J",
   "deezerId": 3573208201
- },
- {
-  "id": "samir-viktor-groupie",
-  "artist": "Samir & Viktor",
-  "title": "Groupie",
-  "year": 2015,
-  "spotifyId": "4ldXgqnQ9jJ1mYRTmg9O9B"
  },
  {
   "id": "elov-beny-raggen-gar",
@@ -627,13 +550,6 @@
   "year": 2023,
   "spotifyId": "1ZmXkSbIt88oScLQlkU8so",
   "deezerId": 2156438577
- },
- {
-  "id": "theoz-som-du-vill",
-  "artist": "Theoz",
-  "title": "Som du vill",
-  "year": 2022,
-  "spotifyId": "12fYEY6L7M2k7qFWgMEwXn"
  },
  {
   "id": "dotter-its-not-easy-to-write-a-love-song",
@@ -756,13 +672,6 @@
   "deezerId": 1667875682
  },
  {
-  "id": "dynazty-land-of-broken-dreams",
-  "artist": "Dynazty",
-  "title": "Land of Broken Dreams",
-  "year": 2012,
-  "spotifyId": "0XkoLEGxMa3Ki5NNYnv9Y8"
- },
- {
   "id": "maria-sur-when-im-gone",
   "artist": "Maria Sur",
   "title": "When I’m Gone",
@@ -835,13 +744,6 @@
   "deezerId": 1241068372
  },
  {
-  "id": "helena-paparizou-survivor",
-  "artist": "Helena Paparizou",
-  "title": "Survivor",
-  "year": 2014,
-  "spotifyId": "11IOkeOe0WeRLpmyWZz8Bv"
- },
- {
   "id": "malou-prytz-ballerina",
   "artist": "Malou Prytz",
   "title": "Ballerina",
@@ -856,13 +758,6 @@
   "year": 2019,
   "spotifyId": "4MmdyMZcPEk4Ypv2qcKM3I",
   "deezerId": 625723972
- },
- {
-  "id": "anton-hagman-kiss-you-goodbye",
-  "artist": "Anton Hagman",
-  "title": "Kiss You Goodbye",
-  "year": 2017,
-  "spotifyId": "2CKFFnG21nC5ssngZV8Yi5"
  },
  {
   "id": "maja-ivarsson-kamikaze-life",
@@ -887,13 +782,6 @@
   "year": 2020,
   "spotifyId": "1raz4eVynj6vUaJdEDCPcQ",
   "deezerId": 881038302
- },
- {
-  "id": "boris-rene-put-your-love-on-me",
-  "artist": "Boris René",
-  "title": "Put Your Love On Me",
-  "year": 2016,
-  "spotifyId": "3NdVZFFoFxTnkdjWOYqX5y"
  },
  {
   "id": "benjamin-ingrosso-good-lovin",
@@ -974,13 +862,6 @@
   "year": 2021,
   "spotifyId": "3MMJuk00QLVAjS6vwBZ67V",
   "deezerId": 1251407432
- },
- {
-  "id": "wahl-feat-sami-90-talet",
-  "artist": "WAHL feat. SAMI",
-  "title": "90-talet",
-  "year": 2021,
-  "spotifyId": "6O27WBEqkGeyq3hNYE0BdS"
  },
  {
   "id": "adam-woods-supernatural",
@@ -1183,33 +1064,12 @@
   "deezerId": 2641338402
  },
  {
-  "id": "linus-svenning-broder",
-  "artist": "Linus Svenning",
-  "title": "Bröder",
-  "year": 2014,
-  "spotifyId": "1TZtXdQwnbk1jOXnfyShRb"
- },
- {
   "id": "loreen-statements",
   "artist": "Loreen",
   "title": "Statements",
   "year": 2017,
   "spotifyId": "0tUh8HzIVpZPFW7HzE5Vhk",
   "deezerId": 142915722
- },
- {
-  "id": "linus-svenning-forever-starts-today",
-  "artist": "Linus Svenning",
-  "title": "Forever Starts Today",
-  "year": 2015,
-  "spotifyId": "3eazAvYV0YA3qEObBubD24"
- },
- {
-  "id": "mariette-hansson-for-you",
-  "artist": "Mariette Hansson",
-  "title": "For You",
-  "year": 2018,
-  "spotifyId": "7zZ3ZIEOoZ5CDVQdmNWSzD"
  },
  {
   "id": "dotter-cry",
@@ -1316,13 +1176,6 @@
   "deezerId": 2156414257
  },
  {
-  "id": "sigrid-bernson-patrick-swayze",
-  "artist": "Sigrid Bernson",
-  "title": "Patrick Swayze",
-  "year": 2018,
-  "spotifyId": "6eanZA5ozEZEiQuj3fgQzv"
- },
- {
   "id": "alvaro-estrella-suave",
   "artist": "Alvaro Estrella",
   "title": "Suave",
@@ -1379,20 +1232,6 @@
   "deezerId": 1259043672
  },
  {
-  "id": "zeana-feat-anis-don-demina-mina-brander",
-  "artist": "Zeana feat. Anis Don Demina",
-  "title": "Mina bränder",
-  "year": 2019,
-  "spotifyId": "2JLp01p1NG7wg0vNqNpOC1"
- },
- {
-  "id": "isa-don-t-stop",
-  "artist": "Isa",
-  "title": "Don't Stop",
-  "year": 2015,
-  "spotifyId": "3ytY8oGSrFjzdoe0ub3B8j"
- },
- {
   "id": "david-lindgren-we-are-your-tomorrow",
   "artist": "David Lindgren",
   "title": "We Are Your Tomorrow",
@@ -1431,20 +1270,6 @@
   "year": 2005,
   "spotifyId": "262SzTebyPPJ48CW4sezad",
   "deezerId": 3106575171
- },
- {
-  "id": "boris-rene-her-kiss",
-  "artist": "Boris René",
-  "title": "Her Kiss",
-  "year": 2017,
-  "spotifyId": "6X6kCTsrpTZFDDfrlH2wLV"
- },
- {
-  "id": "linnea-henriksson-den-kanslan",
-  "artist": "Linnea Henriksson",
-  "title": "Den känslan",
-  "year": 2025,
-  "spotifyId": "3J4rxzorN48mAnv5dU1OZq"
  },
  {
   "id": "jessica-andersson-party-voice",

@@ -40,20 +40,6 @@
   "deezerId": 4603398
  },
  {
-  "id": "metallica-nothing-else-matters",
-  "artist": "Metallica",
-  "title": "Nothing Else Matters",
-  "year": 1992,
-  "spotifyId": "2CtemffYhT0DJWcT1XW047"
- },
- {
-  "id": "metallica-enter-sandman",
-  "artist": "Metallica",
-  "title": "Enter Sandman",
-  "year": 1991,
-  "spotifyId": "1hKdDCpiI9mqz1jVHRKG0E"
- },
- {
   "id": "coolio-gangsta-s-paradise",
   "artist": "Coolio",
   "title": "Gangsta's Paradise",
@@ -134,13 +120,6 @@
   "deezerId": 678044
  },
  {
-  "id": "metallica-until-it-sleeps",
-  "artist": "Metallica",
-  "title": "Until It Sleeps",
-  "year": 1996,
-  "spotifyId": "2Iv4HSoMX2fDeXFcOJWyWX"
- },
- {
   "id": "madonna-ray-of-light",
   "artist": "Madonna",
   "title": "Ray of Light",
@@ -203,13 +182,6 @@
   "year": 1992,
   "spotifyId": "3FUS56gKr9mVBmzvlnodlh",
   "deezerId": 62082829
- },
- {
-  "id": "metallica-sad-but-true",
-  "artist": "Metallica",
-  "title": "Sad but True",
-  "year": 1993,
-  "spotifyId": "5UaDi8KzCGJqFfVAOBfXhi"
  },
  {
   "id": "whitney-houston-when-you-believe",
@@ -292,13 +264,6 @@
   "deezerId": 128743581
  },
  {
-  "id": "kylie-minogue-confide-in-me",
-  "artist": "Kylie Minogue",
-  "title": "Confide in Me",
-  "year": 1994,
-  "spotifyId": "66uM35rIMAxzilFFAHcDU7"
- },
- {
   "id": "jennifer-lopez-waiting-for-tonight",
   "artist": "Jennifer Lopez",
   "title": "Waiting for Tonight",
@@ -377,13 +342,6 @@
   "year": 1994,
   "spotifyId": "5NTZM8YYeKM2YsGSffVIge",
   "deezerId": 422033092
- },
- {
-  "id": "iron-maiden-be-quick-or-be-dead",
-  "artist": "Iron Maiden",
-  "title": "Be Quick or Be Dead",
-  "year": 1992,
-  "spotifyId": "7xa3dJQMzBVzsrZ81tNcHP"
  },
  {
   "id": "foo-fighters-everlong",
@@ -466,13 +424,6 @@
   "deezerId": 137233982
  },
  {
-  "id": "the-cure-friday-i-m-in-love",
-  "artist": "The Cure",
-  "title": "Friday I'm in Love",
-  "year": 1992,
-  "spotifyId": "4QlzkaRHtU8gAdwqjWmO8n"
- },
- {
   "id": "the-prodigy-smack-my-bitch-up",
   "artist": "The Prodigy",
   "title": "Smack My Bitch Up",
@@ -519,13 +470,6 @@
   "year": 1996,
   "spotifyId": "3h5zik31hTTat9jmpCZZNC",
   "deezerId": 2435092375
- },
- {
-  "id": "iron-maiden-bring-your-daughter-to-the-slaughter",
-  "artist": "Iron Maiden",
-  "title": "Bring Your Daughter... to the Slaughter",
-  "year": 1990,
-  "spotifyId": "40j3GW7l0R4EM12fHqNqM2"
  },
  {
   "id": "destiny-s-child-bills-bills",
@@ -688,13 +632,6 @@
   "deezerId": 62126185
  },
  {
-  "id": "iron-maiden-lord-of-the-flies",
-  "artist": "Iron Maiden",
-  "title": "Lord of the Flies",
-  "year": 1995,
-  "spotifyId": "64UzowAmV21rzFJpJFb5AM"
- },
- {
   "id": "korn-freak-on-a-leash",
   "artist": "Korn",
   "title": "Freak on a Leash",
@@ -741,13 +678,6 @@
   "year": 1990,
   "spotifyId": "57bgtoPSgt236HzfBOd8kj",
   "deezerId": 92720102
- },
- {
-  "id": "ice-cube-it-was-a-good-day",
-  "artist": "Ice Cube",
-  "title": "It Was a Good Day",
-  "year": 1993,
-  "spotifyId": "2qOm7ukLyHUXWyR4ZWLwxA"
  },
  {
   "id": "the-cranberries-linger",
@@ -830,13 +760,6 @@
   "deezerId": 7675129
  },
  {
-  "id": "sean-combs-i-ll-be-missing-you",
-  "artist": "Sean Combs",
-  "title": "I'll Be Missing You",
-  "year": 1997,
-  "spotifyId": "0oTxy9mmapg2BYhf8wB90w"
- },
- {
   "id": "the-offspring-self-esteem",
   "artist": "The Offspring",
   "title": "Self Esteem",
@@ -901,20 +824,6 @@
   "deezerId": 2307303
  },
  {
-  "id": "metallica-the-unforgiven",
-  "artist": "Metallica",
-  "title": "The Unforgiven",
-  "year": 1991,
-  "spotifyId": "4aYLAF6ckQ5ooGGGM7sWAa"
- },
- {
-  "id": "tupac-shakur-changes",
-  "artist": "Tupac Shakur",
-  "title": "Changes",
-  "year": 1998,
-  "spotifyId": "1ofhfV90EnYhEr7Un2fWiv"
- },
- {
   "id": "deftones-my-own-summer-shove-it",
   "artist": "Deftones",
   "title": "My Own Summer (Shove It)",
@@ -929,13 +838,6 @@
   "year": 1993,
   "spotifyId": "0cuq829zRNq4AEdmDJA4aw",
   "deezerId": 831294
- },
- {
-  "id": "weezer-say-it-ain-t-so",
-  "artist": "Weezer",
-  "title": "Say It Ain't So",
-  "year": 1995,
-  "spotifyId": "6VoIBz0VhCyz7OdEoRYDiA"
  },
  {
   "id": "savage-garden-truly-madly-deeply",
@@ -1056,13 +958,6 @@
   "year": 1994,
   "spotifyId": "0CiRycYNoY9fZYayFJsp8C",
   "deezerId": 2182691847
- },
- {
-  "id": "will-smith-miami",
-  "artist": "Will Smith",
-  "title": "Miami",
-  "year": 1998,
-  "spotifyId": "6e8Ou0wiqAzIpWb2eSxll8"
  },
  {
   "id": "sinead-o-connor-nothing-compares-2-u",
@@ -1295,13 +1190,6 @@
   "year": 1993,
   "spotifyId": "0u5aO1GYsIhAWCPuXdwnak",
   "deezerId": 15715634
- },
- {
-  "id": "tupac-shakur-dear-mama",
-  "artist": "Tupac Shakur",
-  "title": "Dear Mama",
-  "year": 1995,
-  "spotifyId": "6iXcPsToMyTheci6e1L2ya"
  },
  {
   "id": "alice-in-chains-rooster",

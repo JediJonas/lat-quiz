@@ -1,13 +1,5 @@
 [
  {
-  "id": "call-me-by-your-name",
-  "artist": "Sufjan Stevens",
-  "title": "Call Me by Your Name",
-  "year": 2017,
-  "spotifyId": "0oTtnnedK0C4unALxVTPhz",
-  "track": "Mystery of Love"
- },
- {
   "id": "tarzan",
   "artist": "Phil Collins",
   "title": "Tarzan",
@@ -89,14 +81,6 @@
   "deezerId": 83151634
  },
  {
-  "id": "vaiana",
-  "artist": "Lin-Manuel Miranda",
-  "title": "Vaiana",
-  "year": 2016,
-  "spotifyId": "0HT6xI2MTQ7qk4yNA1IZUd",
-  "track": "How Far I'll Go"
- },
- {
   "id": "pirates-of-the-caribbean",
   "artist": "Hans Zimmer",
   "title": "Pirates of the Caribbean",
@@ -131,14 +115,6 @@
   "spotifyId": "644es5aYPJghtZLjM1rmSP",
   "track": "Concerning Hobbits",
   "deezerId": 14628816
- },
- {
-  "id": "upp",
-  "artist": "Michael Giacchino",
-  "title": "Upp",
-  "year": 2009,
-  "spotifyId": "7iocNjLrxPHLl8njgRlv5U",
-  "track": "Married Life"
  },
  {
   "id": "avengers",
@@ -438,14 +414,6 @@
   "deezerId": 1097358
  },
  {
-  "id": "love-story",
-  "artist": "Francis Lai",
-  "title": "Love Story",
-  "year": 1970,
-  "spotifyId": "3Otarl1hRJ0ZsgMHiQ1mrP",
-  "track": "Where Do I Begin"
- },
- {
   "id": "alla-helgons-blodiga-natt",
   "artist": "John Carpenter",
   "title": "Alla helgons blodiga natt",
@@ -570,14 +538,6 @@
   "spotifyId": "1Qr17u2S9kNDzTeWAJCY5N",
   "track": "Paul's Dream",
   "deezerId": 1458338372
- },
- {
-  "id": "closer",
-  "artist": "Damien Rice",
-  "title": "Closer",
-  "year": 2004,
-  "spotifyId": "4B2lJinAkeNLSJjcq3dg8Q",
-  "track": "The Blower's Daughter"
  },
  {
   "id": "the-twilight-saga-new-moon",
@@ -758,14 +718,6 @@
   "spotifyId": "2LhA68Vm5k6lh0QenNFrDV",
   "track": "Glasgow Love Theme",
   "deezerId": 1540441122
- },
- {
-  "id": "oliver-ganget",
-  "artist": "Dan Hartman",
-  "title": "Oliver & gänget",
-  "year": 1988,
-  "spotifyId": "3gH3AxHKptBuYVcJilLCeR",
-  "track": "Why Should I Worry"
  },
  {
   "id": "hitta-nemo",
@@ -1009,14 +961,6 @@
   "spotifyId": "4Pk1KXtkFTJNKLqwHhD3Zn",
   "track": "Main Titles",
   "deezerId": 647335342
- },
- {
-  "id": "twilight",
-  "artist": "Carter Burwell",
-  "title": "Twilight",
-  "year": 2008,
-  "spotifyId": "0CmatMXKunVgbvxWjnxWpq",
-  "track": "Edward At Her Bed / Bella's Lullaby"
  },
  {
   "id": "the-odyssey",
@@ -1314,14 +1258,6 @@
   "spotifyId": "6ZFbXIJkuI1dVNWvzJzown",
   "track": "Time",
   "deezerId": 6524423
- },
- {
-  "id": "trollkarlen-fran-oz",
-  "artist": "Harold Arlen",
-  "title": "Trollkarlen från Oz",
-  "year": 1939,
-  "spotifyId": "568SEFtDjKr7N2PytpA6D5",
-  "track": "Over The Rainbow"
  },
  {
   "id": "sound-of-music",

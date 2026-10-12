@@ -1,12 +1,5 @@
 [
  {
-  "id": "colby-o-donis-just-dance",
-  "artist": "Lady Gaga",
-  "title": "Just Dance",
-  "year": 2008,
-  "spotifyId": "3QuEpyj4kTRWiWuckd1hcK"
- },
- {
   "id": "linkin-park-in-the-end",
   "artist": "Linkin Park",
   "title": "In the End",
@@ -199,13 +192,6 @@
   "deezerId": 2176852
  },
  {
-  "id": "kesha-tik-tok",
-  "artist": "Kesha",
-  "title": "Tik Tok",
-  "year": 2009,
-  "spotifyId": "0HPD5WQqrq7wPWR7P7Dw1i"
- },
- {
   "id": "coldplay-yellow",
   "artist": "Coldplay",
   "title": "Yellow",
@@ -326,13 +312,6 @@
   "deezerId": 559789
  },
  {
-  "id": "taylor-swift-teardrops-on-my-guitar",
-  "artist": "Taylor Swift",
-  "title": "Teardrops on My Guitar",
-  "year": 2007,
-  "spotifyId": "4pJi1rVt9GNegU9kywjg4z"
- },
- {
   "id": "maroon-5-this-love",
   "artist": "Maroon 5",
   "title": "This Love",
@@ -349,13 +328,6 @@
   "deezerId": 3098840
  },
  {
-  "id": "miley-cyrus-party-in-the-u-s-a",
-  "artist": "Miley Cyrus",
-  "title": "Party in the U.S.A.",
-  "year": 2009,
-  "spotifyId": "1Q7apbyCNuDbZbd618dLtT"
- },
- {
   "id": "u2-beautiful-day",
   "artist": "U2",
   "title": "Beautiful Day",
@@ -370,20 +342,6 @@
   "year": 2009,
   "spotifyId": "6V9YrF673stT4rfEk6bgzw",
   "deezerId": 3788287
- },
- {
-  "id": "metallica-the-day-that-never-comes",
-  "artist": "Metallica",
-  "title": "The Day That Never Comes",
-  "year": 2008,
-  "spotifyId": "13Uvqll8OQDjw3wDweIK9y"
- },
- {
-  "id": "black-eyed-peas-i-gotta-feeling",
-  "artist": "Black Eyed Peas",
-  "title": "I Gotta Feeling",
-  "year": 2009,
-  "spotifyId": "0rfhiswwCLv3GobSDffm1Z"
  },
  {
   "id": "eminem-without-me",
@@ -690,13 +648,6 @@
   "deezerId": 71955236
  },
  {
-  "id": "snoop-dogg-buttons",
-  "artist": "The Pussycat Dolls",
-  "title": "Buttons",
-  "year": 2006,
-  "spotifyId": "2njBFTvCkD58XdPyvjsr4E"
- },
- {
   "id": "christina-aguilera-fighter",
   "artist": "Christina Aguilera",
   "title": "Fighter",
@@ -823,13 +774,6 @@
   "year": 2008,
   "spotifyId": "1YLJVmuzeM2YSUkCCaTNUB",
   "deezerId": 7561772
- },
- {
-  "id": "gnarls-barkley-crazy",
-  "artist": "Gnarls Barkley",
-  "title": "Crazy",
-  "year": 2006,
-  "spotifyId": "1vxw6aYJls2oq3gW0DujAo"
  },
  {
   "id": "the-script-the-man-who-can-t-be-moved",
@@ -1040,13 +984,6 @@
   "deezerId": 7375556
  },
  {
-  "id": "panic-at-the-disco-i-write-sins-not-tragedies",
-  "artist": "Panic! at the Disco",
-  "title": "I Write Sins Not Tragedies",
-  "year": 2006,
-  "spotifyId": "5cY8y2XgOfkAh4kSWLFKkz"
- },
- {
   "id": "vanessa-carlton-a-thousand-miles",
   "artist": "Vanessa Carlton",
   "title": "A Thousand Miles",
@@ -1077,13 +1014,6 @@
   "year": 2008,
   "spotifyId": "4ijZ4sCKTLsQJKTJT4psI8",
   "deezerId": 536484
- },
- {
-  "id": "gwen-stefani-the-sweet-escape",
-  "artist": "Gwen Stefani",
-  "title": "The Sweet Escape",
-  "year": 2006,
-  "spotifyId": "07K4GcCDSTiXUF5ssyTRUM"
  },
  {
   "id": "dr-dre-forgot-about-dre",
@@ -1172,13 +1102,6 @@
   "year": 2000,
   "spotifyId": "3IV4swNduIRunHREK80owz",
   "deezerId": 104011168
- },
- {
-  "id": "30-seconds-to-mars-the-kill",
-  "artist": "30 Seconds to Mars",
-  "title": "The Kill",
-  "year": 2006,
-  "spotifyId": "4rRNDclay9ayn1iR1VpMMB"
  },
  {
   "id": "maroon-5-sunday-morning",
@@ -1355,13 +1278,6 @@
   "year": 2007,
   "spotifyId": "1lkvpmrCaXK8QtliFDcHBO",
   "deezerId": 1204618452
- },
- {
-  "id": "soulja-boy-crank-that",
-  "artist": "Soulja Boy",
-  "title": "Crank That",
-  "year": 2007,
-  "spotifyId": "0E0bhsiSasH1vBoWXKk4oB"
  },
  {
   "id": "my-chemical-romance-helena",

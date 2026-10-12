@@ -1,26 +1,5 @@
 [
  {
-  "id": "adele-rolling-in-the-deep",
-  "artist": "Adele",
-  "title": "Rolling in the Deep",
-  "year": 2010,
-  "spotifyId": "5ei5hxLl7yUk2WplfA42kf"
- },
- {
-  "id": "adele-someone-like-you",
-  "artist": "Adele",
-  "title": "Someone Like You",
-  "year": 2011,
-  "spotifyId": "3bNv3VuUOKgrf5hu3YcuRo"
- },
- {
-  "id": "adele-hello",
-  "artist": "Adele",
-  "title": "Hello",
-  "year": 2015,
-  "spotifyId": "4aebBr4JAihzJQR0CiIZJv"
- },
- {
   "id": "adele-skyfall",
   "artist": "Adele",
   "title": "Skyfall",
@@ -157,26 +136,12 @@
   "deezerId": 602092432
  },
  {
-  "id": "bruno-mars-just-the-way-you-are",
-  "artist": "Bruno Mars",
-  "title": "Just the Way You Are",
-  "year": 2010,
-  "spotifyId": "7BqBn9nzAq8spo5e7cZ0dJ"
- },
- {
   "id": "bruno-mars-locked-out-of-heaven",
   "artist": "Bruno Mars",
   "title": "Locked Out of Heaven",
   "year": 2012,
   "spotifyId": "3w3y8KPTfNeOKPiqUTakBh",
   "deezerId": 62724015
- },
- {
-  "id": "bruno-mars-grenade",
-  "artist": "Bruno Mars",
-  "title": "Grenade",
-  "year": 2010,
-  "spotifyId": "2tJulUYLDKOg9XrtVkMgcJ"
  },
  {
   "id": "bruno-mars-when-i-was-your-man",
@@ -235,13 +200,6 @@
   "deezerId": 71645391
  },
  {
-  "id": "lady-gaga-born-this-way",
-  "artist": "Lady Gaga",
-  "title": "Born This Way",
-  "year": 2011,
-  "spotifyId": "6aDi4gOE2Cfc6ecynvP81R"
- },
- {
   "id": "lady-gaga-telephone",
   "artist": "Lady Gaga",
   "title": "Telephone",
@@ -256,20 +214,6 @@
   "year": 2011,
   "spotifyId": "6qn9YLKt13AGvpq9jfO8py",
   "deezerId": 14525574
- },
- {
-  "id": "gotye-somebody-that-i-used-to-know",
-  "artist": "Gotye",
-  "title": "Somebody That I Used to Know",
-  "year": 2011,
-  "spotifyId": "1qDrWA6lyx8cLECdZE7TV7"
- },
- {
-  "id": "carly-rae-jepsen-call-me-maybe",
-  "artist": "Carly Rae Jepsen",
-  "title": "Call Me Maybe",
-  "year": 2012,
-  "spotifyId": "20I6sIOMTCkB6w7ryavxtO"
  },
  {
   "id": "psy-gangnam-style",
@@ -294,13 +238,6 @@
   "year": 2012,
   "spotifyId": "62yJjFtgkhUrXktIoSjgP2",
   "deezerId": 74506420
- },
- {
-  "id": "imagine-dragons-demons",
-  "artist": "Imagine Dragons",
-  "title": "Demons",
-  "year": 2013,
-  "spotifyId": "2Oehrcv4Kov0SuIgWyQY9e"
  },
  {
   "id": "imagine-dragons-believer",
@@ -333,13 +270,6 @@
   "year": 2014,
   "spotifyId": "0FDzzruyVECATHXKHFs9eJ",
   "deezerId": 78129603
- },
- {
-  "id": "maroon-5-moves-like-jagger",
-  "artist": "Maroon 5",
-  "title": "Moves like Jagger",
-  "year": 2011,
-  "spotifyId": "1YsMJDSKkkyHcEvs52GXAe"
  },
  {
   "id": "maroon-5-sugar",
@@ -614,13 +544,6 @@
   "deezerId": 113420702
  },
  {
-  "id": "hozier-take-me-to-church",
-  "artist": "Hozier",
-  "title": "Take Me to Church",
-  "year": 2013,
-  "spotifyId": "0aOluBqXYd0rFSCsgDyAWX"
- },
- {
   "id": "john-legend-all-of-me",
   "artist": "John Legend",
   "title": "All of Me",
@@ -645,26 +568,12 @@
   "deezerId": 1276136622
  },
  {
-  "id": "mumford-sons-i-will-wait",
-  "artist": "Mumford & Sons",
-  "title": "I Will Wait",
-  "year": 2012,
-  "spotifyId": "1PuLHwFZoh5qYK89I5YBdZ"
- },
- {
   "id": "of-monsters-and-men-little-talks",
   "artist": "Of Monsters and Men",
   "title": "Little Talks",
   "year": 2011,
   "spotifyId": "2vUB3fStz1h1aAGJLSM2fP",
   "deezerId": 17615568
- },
- {
-  "id": "passenger-let-her-go",
-  "artist": "Passenger",
-  "title": "Let Her Go",
-  "year": 2012,
-  "spotifyId": "2pUpNOgJBIBCcjyQZQ00qU"
  },
  {
   "id": "george-ezra-budapest",
@@ -689,13 +598,6 @@
   "year": 2015,
   "spotifyId": "0Cy7wt6IlRfBPHXXjmZbcP",
   "deezerId": 111780476
- },
- {
-  "id": "ellie-goulding-burn",
-  "artist": "Ellie Goulding",
-  "title": "Burn",
-  "year": 2013,
-  "spotifyId": "5lF0pHbsJ0QqyIrLweHJPW"
  },
  {
   "id": "clean-bandit-rather-be",
@@ -810,13 +712,6 @@
   "deezerId": 83841464
  },
  {
-  "id": "the-chainsmokers-something-just-like-this",
-  "artist": "The Chainsmokers",
-  "title": "Something Just Like This",
-  "year": 2017,
-  "spotifyId": "6RUKPb4LETWmmr3iAEQktW"
- },
- {
   "id": "tom-odell-another-love",
   "artist": "Tom Odell",
   "title": "Another Love",
@@ -889,13 +784,6 @@
   "deezerId": 657813082
  },
  {
-  "id": "don-omar-danza-kuduro",
-  "artist": "Don Omar",
-  "title": "Danza Kuduro",
-  "year": 2010,
-  "spotifyId": "3Jp89TtkR1IJAWQE5UDKuk"
- },
- {
   "id": "charlie-puth-we-don-t-talk-anymore",
   "artist": "Charlie Puth",
   "title": "We Don't Talk Anymore",
@@ -926,13 +814,6 @@
   "year": 2017,
   "spotifyId": "5cF0dROlMOK5uNZtivgu50",
   "deezerId": 349385251
- },
- {
-  "id": "lukas-graham-7-years",
-  "artist": "Lukas Graham",
-  "title": "7 Years",
-  "year": 2015,
-  "spotifyId": "0VQjTLPG8l3egUHmIxe265"
  },
  {
   "id": "foster-the-people-pumped-up-kicks",
@@ -1071,13 +952,6 @@
   "deezerId": 6461440
  },
  {
-  "id": "sia-chandelier",
-  "artist": "Sia",
-  "title": "Chandelier",
-  "year": 2014,
-  "spotifyId": "4FMgYCZ5Nb2K5yiciX7JLK"
- },
- {
   "id": "travis-scott-highest-in-the-room",
   "artist": "Travis Scott",
   "title": "Highest in the Room",
@@ -1092,13 +966,6 @@
   "year": 2016,
   "spotifyId": "6i0V12jOa3mr6uu4WYhUBr",
   "deezerId": 126884459
- },
- {
-  "id": "omi-cheerleader",
-  "artist": "Omi",
-  "title": "Cheerleader",
-  "year": 2012,
-  "spotifyId": "1iEUUG0yIpwt6N8Sx40hhH"
  },
  {
   "id": "zayn-malik-dusk-till-dawn",
@@ -1197,13 +1064,6 @@
   "deezerId": 136341758
  },
  {
-  "id": "pink-just-give-me-a-reason",
-  "artist": "Pink",
-  "title": "Just Give Me a Reason",
-  "year": 2013,
-  "spotifyId": "1mKXFLRA179hdOWQBwUk9e"
- },
- {
   "id": "khalid-young-dumb-broke",
   "artist": "Khalid",
   "title": "Young Dumb & Broke",
@@ -1284,13 +1144,6 @@
   "deezerId": 398055712
  },
  {
-  "id": "major-lazer-cold-water",
-  "artist": "Major Lazer",
-  "title": "Cold Water",
-  "year": 2016,
-  "spotifyId": "3Yqsx1OFZqPbULxXPLHlpq"
- },
- {
   "id": "gym-class-heroes-stereo-hearts",
   "artist": "Gym Class Heroes",
   "title": "Stereo Hearts",
@@ -1345,13 +1198,6 @@
   "year": 2016,
   "spotifyId": "0PDUDa38GO8lMxLCRc4lL1",
   "deezerId": 118204446
- },
- {
-  "id": "kygo-it-ain-t-me",
-  "artist": "Kygo",
-  "title": "It Ain't Me",
-  "year": 2017,
-  "spotifyId": "12GEpg2XOPyqk03JZEZnJs"
  },
  {
   "id": "fifth-harmony-work-from-home",
@@ -1450,26 +1296,12 @@
   "deezerId": 692002952
  },
  {
-  "id": "axwell-ingrosso-more-than-you-know",
-  "artist": "Axwell Λ Ingrosso",
-  "title": "More Than You Know",
-  "year": 2017,
-  "spotifyId": "6C09ToLEI6k4HOaXBRW49m"
- },
- {
   "id": "fall-out-boy-centuries",
   "artist": "Fall Out Boy",
   "title": "Centuries",
   "year": 2014,
   "spotifyId": "04aAxqtGp5pv12UXAg4pkq",
   "deezerId": 92872156
- },
- {
-  "id": "major-lazer-light-it-up",
-  "artist": "Major Lazer",
-  "title": "Light It Up",
-  "year": 2015,
-  "spotifyId": "24Hjv1QIJBj9LYQrYNUNLA"
  },
  {
   "id": "robin-schulz-sugar",
@@ -1502,13 +1334,6 @@
   "year": 2012,
   "spotifyId": "1MlAkYV0nbRKWhhfvTt3zc",
   "deezerId": 60842360
- },
- {
-  "id": "m83-midnight-city",
-  "artist": "M83",
-  "title": "Midnight City",
-  "year": 2011,
-  "spotifyId": "6GyFP1nfCDB8lbD2bG0Hq9"
  },
  {
   "id": "logic-1-800-273-8255",

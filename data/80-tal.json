@@ -168,13 +168,6 @@
   "deezerId": 555640
  },
  {
-  "id": "belinda-carlisle-heaven-is-a-place-on-earth",
-  "artist": "Belinda Carlisle",
-  "title": "Heaven Is a Place on Earth",
-  "year": 1987,
-  "spotifyId": "37Q5anxoGWYdRsyeXkkNoI"
- },
- {
   "id": "bananarama-venus",
   "artist": "Bananarama",
   "title": "Venus",
@@ -383,13 +376,6 @@
   "deezerId": 918048
  },
  {
-  "id": "dire-straits-money-for-nothing",
-  "artist": "Dire Straits",
-  "title": "Money for Nothing",
-  "year": 1985,
-  "spotifyId": "4nFNJmjfgBF7jwv2oBC45b"
- },
- {
   "id": "david-bowie-let-s-dance",
   "artist": "David Bowie",
   "title": "Let's Dance",
@@ -460,13 +446,6 @@
   "year": 1985,
   "spotifyId": "1TOme860eWLYhQCkSPpXmE",
   "deezerId": 2173954687
- },
- {
-  "id": "peter-gabriel-sledgehammer",
-  "artist": "Peter Gabriel",
-  "title": "Sledgehammer",
-  "year": 1986,
-  "spotifyId": "2CfavwjTJrKGxy9fiU4otq"
  },
  {
   "id": "murray-head-one-night-in-bangkok",
@@ -709,20 +688,6 @@
   "deezerId": 2477001
  },
  {
-  "id": "yazoo-only-you",
-  "artist": "Yazoo",
-  "title": "Only You",
-  "year": 1982,
-  "spotifyId": "15Mh8m2BGTUptR8yy7fNAS"
- },
- {
-  "id": "yazoo-don-t-go",
-  "artist": "Yazoo",
-  "title": "Don't Go",
-  "year": 1982,
-  "spotifyId": "5JOVSWohrjXW0BFTboh8XO"
- },
- {
   "id": "new-order-blue-monday",
   "artist": "New Order",
   "title": "Blue Monday",
@@ -859,20 +824,6 @@
   "deezerId": 530300641
  },
  {
-  "id": "crowded-house-don-t-dream-it-s-over",
-  "artist": "Crowded House",
-  "title": "Don't Dream It's Over",
-  "year": 1986,
-  "spotifyId": "7G7tgVYORlDuVprcYHuFJh"
- },
- {
-  "id": "hall-oates-maneater",
-  "artist": "Hall & Oates",
-  "title": "Maneater",
-  "year": 1982,
-  "spotifyId": "3DRQ0wNkszkRXblLdc2Mze"
- },
- {
   "id": "kenny-loggins-footloose",
   "artist": "Kenny Loggins",
   "title": "Footloose",
@@ -937,33 +888,12 @@
   "deezerId": 840619282
  },
  {
-  "id": "metallica-one",
-  "artist": "Metallica",
-  "title": "One",
-  "year": 1989,
-  "spotifyId": "02xhLoVqpGmOqvolgrwM8w"
- },
- {
   "id": "bruce-springsteen-i-m-on-fire",
   "artist": "Bruce Springsteen",
   "title": "I'm on Fire",
   "year": 1985,
   "spotifyId": "3PzsbWSQdLCKDLxn7YZfkM",
   "deezerId": 15586369
- },
- {
-  "id": "metallica-for-whom-the-bell-tolls",
-  "artist": "Metallica",
-  "title": "For Whom the Bell Tolls",
-  "year": 1984,
-  "spotifyId": "3LpHzQU2CZzZJGdUWV79SI"
- },
- {
-  "id": "the-human-league-don-t-you-want-me",
-  "artist": "The Human League",
-  "title": "Don't You Want Me",
-  "year": 1981,
-  "spotifyId": "3L7RtEcu1Hw3OXrpnthngx"
  },
  {
   "id": "the-smiths-heaven-knows-i-m-miserable-now",
@@ -1030,26 +960,12 @@
   "deezerId": 353398301
  },
  {
-  "id": "inxs-need-you-tonight",
-  "artist": "INXS",
-  "title": "Need You Tonight",
-  "year": 1987,
-  "spotifyId": "3h04eZTnmFLRMjZajbrp2R"
- },
- {
   "id": "bob-marley-the-wailers-buffalo-soldier",
   "artist": "Bob Marley & The Wailers",
   "title": "Buffalo Soldier",
   "year": 1983,
   "spotifyId": "7BfW1eoDh27W69nxsmRicb",
   "deezerId": 2237439
- },
- {
-  "id": "iron-maiden-the-trooper",
-  "artist": "Iron Maiden",
-  "title": "The Trooper",
-  "year": 1983,
-  "spotifyId": "4OROzZUy6gOWN4UGQVaZMF"
  },
  {
   "id": "ac-dc-hells-bells",
@@ -1082,13 +998,6 @@
   "year": 1987,
   "spotifyId": "0O72tzPERufruWbcae6FYL",
   "deezerId": 538586992
- },
- {
-  "id": "inxs-never-tear-us-apart",
-  "artist": "INXS",
-  "title": "Never Tear Us Apart",
-  "year": 1988,
-  "spotifyId": "1GjbTNFImFrjFsNdleDe78"
  },
  {
   "id": "motorhead-ace-of-spades",
@@ -1163,20 +1072,6 @@
   "deezerId": 636405
  },
  {
-  "id": "erasure-a-little-respect",
-  "artist": "Erasure",
-  "title": "A Little Respect",
-  "year": 1988,
-  "spotifyId": "2RVQIq7bLi4Eu6xHPyQ46t"
- },
- {
-  "id": "iron-maiden-run-to-the-hills",
-  "artist": "Iron Maiden",
-  "title": "Run to the Hills",
-  "year": 1982,
-  "spotifyId": "4Zc7TCHzuNwL0AFBlyLdyr"
- },
- {
   "id": "tears-for-fears-shout",
   "artist": "Tears for Fears",
   "title": "Shout",
@@ -1217,13 +1112,6 @@
   "deezerId": 2542705
  },
  {
-  "id": "metallica-fade-to-black",
-  "artist": "Metallica",
-  "title": "Fade to Black",
-  "year": 1984,
-  "spotifyId": "5nekfiTN45vlxG0eNJQQye"
- },
- {
   "id": "bon-jovi-runaway",
   "artist": "Bon Jovi",
   "title": "Runaway",
@@ -1232,26 +1120,12 @@
   "deezerId": 74628075
  },
  {
-  "id": "the-cure-close-to-me",
-  "artist": "The Cure",
-  "title": "Close to Me",
-  "year": 1985,
-  "spotifyId": "1JcK6hdFLKddUVlm0JQeWj"
- },
- {
   "id": "alannah-myles-black-velvet",
   "artist": "Alannah Myles",
   "title": "Black Velvet",
   "year": 1989,
   "spotifyId": "0AK7RfE9oDgS25LUZtBdtE",
   "deezerId": 4118808
- },
- {
-  "id": "dire-straits-brothers-in-arms",
-  "artist": "Dire Straits",
-  "title": "Brothers in Arms",
-  "year": 1985,
-  "spotifyId": "60bF2b61f7Q5Bt82QCBwvc"
  },
  {
   "id": "george-harrison-got-my-mind-set-on-you",
@@ -1308,13 +1182,6 @@
   "year": 1989,
   "spotifyId": "3620P9KJS2PDebJ9ABFitc",
   "deezerId": 3803468322
- },
- {
-  "id": "dire-straits-romeo-and-juliet",
-  "artist": "Dire Straits",
-  "title": "Romeo and Juliet",
-  "year": 1981,
-  "spotifyId": "57MflfPN3ObQQAQtPUp0WF"
  },
  {
   "id": "lionel-richie-say-you-say-me",
