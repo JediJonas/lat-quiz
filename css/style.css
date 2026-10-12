@@ -428,9 +428,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; }
-/* Etiketten centreras mot loggans mitt. Loggans mitt ligger 765/2814 av loggans bredd (88 px) under radens överkant, eftersom loggan är flyttad ner med sitt nedhäng.
-   Etiketten är en rad plus 3 px luft upptill och nertill hög. 0.6em är reserv för äldre webbläsare utan enheten lh. */
-.player-head .conn { flex: none; align-self: flex-start; margin-top: calc(88px * 765 / 2814 - 0.6em - 3px); margin-top: calc(88px * 765 / 2814 - 0.5lh - 3px); }
+/* Etiketten linjerar med loggans överkant. Loggan är flyttad ner med sitt nedhäng, 260/2814 av loggans bredd (88 px). */
+.player-head .conn { flex: none; align-self: flex-start; margin-top: calc(88px * 260 / 2814); }
 .player-head .who h1:empty { display: none; }
 /* Spelarens kod och inställningar som vanlig grå text. Länkar är understrukna, så den syns inte som en länk. */
 .game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
@@ -567,10 +566,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   .main-col .actions { display: flex; justify-content: space-between; gap: 12px; }
   .main-col .actions .link { flex: none; margin: 0; }
   .actions .user-settings { float: none; }
-  .desktop-only { display: none; }
-  /* Det som står uppe till höger (inställningarna, Ansluten) linjerar med loggans överkant. */
-  .game-head, .player-head { align-items: flex-start; }
-  .player-head .conn { align-self: auto; margin-top: calc(88px * 260 / 2814); }
+  /* Sammanfattningen av inställningarna linjerar med loggans överkant, som Ansluten hos spelaren. */
+  .game-head { align-items: flex-start; }
   /* Textens versalhöjd, inte radens överkant, linjerar med loggan. */
   #game-settings-summary { margin-top: calc(136px * 260 / 2814 - 0.35em); }
 }
