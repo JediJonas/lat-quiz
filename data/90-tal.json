@@ -50,17 +50,17 @@
  },
  {
   "id": "coolio-gangsta-s-paradise",
-  "artist": "Coolio & L.V.",
+  "artist": "Coolio",
   "title": "Gangsta's Paradise",
   "year": 1995,
   "spotifyId": "3P2CQ3VbkRJilviCuOGZl4"
  },
  {
   "id": "nirvana-come-as-you-are",
-  "artist": "Nirvana & Geneviève Racette",
+  "artist": "Nirvana",
   "title": "Come as You Are",
   "year": 1992,
-  "spotifyId": "4jw1Yqx1Z285p0Vu8F10q2"
+  "spotifyId": "2RsAajgo0g7bMCHxwH3Sk0"
  },
  {
   "id": "r-e-m-losing-my-religion",
@@ -158,7 +158,7 @@
   "artist": "Nirvana",
   "title": "Heart-Shaped Box",
   "year": 1993,
-  "spotifyId": "3oawNUge8pbjvHNaIXjyu2"
+  "spotifyId": "66w5OYw2ja8lnmaA3Ns0PU"
  },
  {
   "id": "rammstein-engel",
@@ -288,10 +288,10 @@
  },
  {
   "id": "marc-anthony-no-me-ames",
-  "artist": "Marc Anthony & Jennifer Lopez",
+  "artist": "Jennifer Lopez & Marc Anthony",
   "title": "No Me Ames",
   "year": 1999,
-  "spotifyId": "0eM0meWW6EwGDrWcByAZ6b"
+  "spotifyId": "3G1BywM43AO7Hqw4Z5hK1j"
  },
  {
   "id": "green-day-longview",
@@ -302,7 +302,7 @@
  },
  {
   "id": "enigma-sadeness",
-  "artist": "Enigma & Sandra",
+  "artist": "Enigma",
   "title": "Sadeness",
   "year": 1990,
   "spotifyId": "3MVm36ouM56jbP5rORxbVy"
@@ -316,14 +316,14 @@
  },
  {
   "id": "nightwish-the-carpenter",
-  "artist": "Nightwish & Children of Bodom",
+  "artist": "Nightwish",
   "title": "The Carpenter",
   "year": 1997,
   "spotifyId": "4XraCMzmof2FVsczM5T0ai"
  },
  {
   "id": "rob-thomas-smooth",
-  "artist": "Rob Thomas & Santana",
+  "artist": "Santana",
   "title": "Smooth",
   "year": 1999,
   "spotifyId": "5YAffwDOmZ4qW0xknGzxEM"
@@ -421,7 +421,7 @@
  },
  {
   "id": "elizabeth-fraser-teardrop",
-  "artist": "Elizabeth Fraser & Massive Attack",
+  "artist": "Massive Attack",
   "title": "Teardrop",
   "year": 1998,
   "spotifyId": "67Hna13dNDkZvBpTXRIaOJ"
