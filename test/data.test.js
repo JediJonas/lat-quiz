@@ -33,14 +33,6 @@ test('kategorierna i host.html är desamma som i categories.json', () => {
   assert.deepEqual(options, categories, 'Uppdatera listan i host.html');
 });
 
-test('standardinställningarna i host.html stämmer med spelet', async () => {
-  const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
-  const { settingsSummary } = await import('../js/ui.js');
-  const { DEFAULT_SETTINGS } = await import('../js/game.js');
-  const text = settingsSummary(DEFAULT_SETTINGS).replaceAll('\u00a0', '&nbsp;');
-  assert.ok(html.includes(`<span id="settings-summary" class="muted small">${text}</span>`));
-});
-
 test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', async () => {
   const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
   const forslag = read('data/forslag.json');

@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce, settingsSummary } from './ui.js';
+import { announce } from './ui.js';
 import { createGameView, esc } from './spelvy.js';
 import { mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -334,14 +334,19 @@ function clipStage(round) {
 
 const DEEZER_NOTE = '<p class="muted small">Klipp från Deezer, endast för privat bruk.</p>';
 
-// Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
+// Länken växlar mellan att markera låten som okänd och att ångra det.
+function setUnknownLink(marked) {
+  $('#unknown').textContent = marked ? 'Ångra okänd låt' : 'Okänd låt';
+}
+
+// Uppdaterar bara länken, så att rätt svar inte läses upp igen.
 function unknownClicked() {
   const song = state.round && state.round.song;
-  if (!song || state.round.phase !== 'revealed') return;
+  if (!song) return;
   const list = toggleUnknown(loadUnknown(), category.id, song);
   saveUnknown(list);
   const marked = isUnknown(list, category.id, song.id);
-  $('#unknown').setAttribute('aria-pressed', String(marked));
+  setUnknownLink(marked);
   announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
 }
 
@@ -480,10 +485,7 @@ async function editSettings() {
   if (!chosen) return;
   const { categoryId, ...settings } = chosen;
   saveSettings(settings);
-  if (!state) {
-    renderSetupSummary();
-    return;
-  }
+  if (!state) return;
   game.applySettings(state, settings);
   if (categoryId && categoryId !== category.id) await switchCategory(categories.find((c) => c.id === categoryId));
   changed();
@@ -501,10 +503,6 @@ async function switchCategory(chosen) {
   stopClip();
   category = chosen;
   songs = chosenSongs;
-}
-
-function renderSetupSummary() {
-  $('#settings-summary').textContent = settingsSummary(loadSettings());
 }
 
 // ---- Visning ----
@@ -583,7 +581,7 @@ function controls() {
   if (round.phase === 'ready' && usesDeezer()) return clipStage(round) + DEEZER_NOTE;
   if (round.phase === 'ready') return playLinks(round.song);
   if (round.phase === 'playing') {
-    return `<button id="reveal" class="secondary">Visa svar nu</button>
+    return `<button id="reveal" class="secondary big huge">Visa svar nu</button>
       ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
   }
   const left = autoNextLeft();
@@ -598,11 +596,10 @@ function controls() {
 function render() {
   $('#category').textContent = category.name;
   gameView.update(game.playerView(state, state.hostId, Date.now()), state.hostId);
-  // Soptunnan markerar låten som okänd. Den finns bara när svaret visas.
+  // Okänd låt markerar låten som okänd. Länken finns så länge det finns en låt.
   const round = state.round;
-  const unknown = $('#unknown');
-  unknown.hidden = !round || round.phase !== 'revealed';
-  if (!unknown.hidden) unknown.setAttribute('aria-pressed', String(isUnknown(loadUnknown(), category.id, round.song.id)));
+  $('#unknown').hidden = !round;
+  if (round) setUnknownLink(isUnknown(loadUnknown(), category.id, round.song.id));
   const box = $('#controls');
   const html = controls().replace(/<span id="auto-next">\d+<\/span>/, '<span id="auto-next"></span>');
   if (box.dataset.html !== html) {
@@ -689,7 +686,6 @@ async function init() {
     storage(() => localStorage.setItem(NAME_KEY, name));
     startGame($('#category-select').value, null, name);
   });
-  renderSetupSummary();
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');
