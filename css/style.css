@@ -306,6 +306,8 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
   padding: 20px;
   margin: 16px 0;
 }
+/* Rutan man skriver i lägger sig överst, så att förslagslistan syns över rutorna under. */
+.card:focus-within { z-index: 2; }
 /* Glasytor: bakgrundens ljus skymtar mjukt igenom. */
 .card { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 
@@ -516,27 +518,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 #join-url { word-break: break-all; }
 /* Spelledarens panel under spelvyn */
 .controls > .round-label { margin: 0 0 12px; }
-/* Soptunnan: en knapp som är på eller av. På betyder att låten är markerad som okänd. */
-button.icon-toggle {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: none;
-  box-shadow: none;
-  color: var(--muted);
-}
-button.icon-toggle:hover { background: var(--surface-2); color: var(--text); }
-button.icon-toggle[aria-pressed="true"] { background: var(--bad); border-color: transparent; color: var(--bad-text); }
-.icon-toggle svg { width: 20px; height: 20px; }
-.panel-links { display: flex; align-items: center; gap: 20px; min-height: 40px; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
-/* Soptunnan står längst till höger på raden. */
-.panel-links .icon-toggle { margin-left: auto; }
+/* Länkarna längst ner i panelen */
+.panel-links { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
 .panel-links .link { margin: 0; }
 #controls > :first-child { margin-top: 0; }
 #controls > :last-child { margin-bottom: 0; }

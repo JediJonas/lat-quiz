@@ -74,18 +74,16 @@
         <h2 id="controls-title" class="round-label">Spelledare</h2>
         <div id="controls"></div>
         <div class="panel-links">
+          <button id="unknown" class="link" title="Låten hoppas över i kommande spel" hidden>Okänd låt</button>
           <button id="game-settings" class="link">Inställningar</button>
+          <button id="show-qr" class="link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button>
           <button id="end" class="link">Avsluta</button>
-          <button id="unknown" class="icon-toggle" aria-pressed="false" title="Okänd låt: hoppa över den i kommande spel" hidden>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="visually-hidden">Okänd låt, hoppa över den i kommande spel</span>
-          </button>
         </div>
       </section>
 
       <h2 class="section-title">Poäng</h2>
       <div id="standings" class="standings"></div>
-      <p class="theme-row"><button id="show-qr" class="link" aria-controls="join-info" aria-expanded="true" title="Visa eller dölj QR-koden"></button><span class="row-end"><button class="link user-settings"></button></span></p>
+      <p class="theme-row"><span class="row-end"><button class="link user-settings"></button></span></p>
     </section>
   </main>
 
