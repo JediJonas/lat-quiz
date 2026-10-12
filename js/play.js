@@ -112,9 +112,8 @@ function render() {
   $('#waiting-text').textContent = phase === 'ready'
     ? `Låt ${round.number} startar snart…`
     : `Väntar på första låten… ${rulesText(view)}`;
-  // Hårda mellanslag inom varje del, så att raden bara bryts vid ·.
   $('#game-rules').textContent = view.settings
-    ? ' · ' + settingsSummary(view.settings).split(' · ').map((part) => part.replace(/ /g, '\u00a0')).join(' · ') : '';
+    ? ' · ' + settingsSummary(view.settings) : '';
   $('#guess').hidden = phase !== 'playing';
   $('#result').hidden = phase !== 'revealed';
   fields.artist.disable(phase !== 'playing');

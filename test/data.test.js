@@ -36,5 +36,6 @@ test('standardinställningarna i host.html stämmer med spelet', async () => {
   const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
   const { settingsSummary } = await import('../js/ui.js');
   const { DEFAULT_SETTINGS } = await import('../js/game.js');
-  assert.ok(html.includes(`<span id="settings-summary" class="muted small">${settingsSummary(DEFAULT_SETTINGS)}</span>`));
+  const text = settingsSummary(DEFAULT_SETTINGS).replaceAll('\u00a0', '&nbsp;');
+  assert.ok(html.includes(`<span id="settings-summary" class="muted small">${text}</span>`));
 });
