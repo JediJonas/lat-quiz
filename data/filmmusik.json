@@ -4,1154 +4,1303 @@
   "artist": "Sufjan Stevens",
   "title": "Call Me by Your Name",
   "year": 2017,
-  "spotifyId": "0oTtnnedK0C4unALxVTPhz"
+  "spotifyId": "0oTtnnedK0C4unALxVTPhz",
+  "track": "Mystery of Love"
  },
  {
   "id": "tarzan",
   "artist": "Phil Collins",
   "title": "Tarzan",
   "year": 1999,
-  "spotifyId": "0EgN2Lp17KHLgcO1g1d6bh"
+  "spotifyId": "0EgN2Lp17KHLgcO1g1d6bh",
+  "track": "You'll Be in My Heart"
  },
  {
   "id": "interstellar",
   "artist": "Hans Zimmer",
   "title": "Interstellar",
   "year": 2014,
-  "spotifyId": "6pWgRkpqVfxnj3WuIcJ7WP"
+  "spotifyId": "6pWgRkpqVfxnj3WuIcJ7WP",
+  "track": "Cornfield Chase"
  },
  {
   "id": "ensam-hemma",
   "artist": "John Williams",
   "title": "Ensam hemma",
   "year": 1990,
-  "spotifyId": "4tHqQMWSqmL6YjXwsqthDI"
+  "spotifyId": "1FlxqJmoZWS2q1uRlyZVur",
+  "track": "Somewhere in My Memory"
  },
  {
   "id": "trassel",
   "artist": "Alan Menken",
   "title": "Trassel",
   "year": 2010,
-  "spotifyId": "6VogQakFsXcuvOaJwOZAN2"
+  "spotifyId": "6VogQakFsXcuvOaJwOZAN2",
+  "track": "I See the Light"
  },
  {
   "id": "lejonkungen",
   "artist": "Elton John",
   "title": "Lejonkungen",
   "year": 1994,
-  "spotifyId": "6s1KHEalfzcHpOK56RV2rt"
+  "spotifyId": "6s1KHEalfzcHpOK56RV2rt",
+  "track": "Can You Feel The Love Tonight"
  },
  {
   "id": "den-lilla-sjojungfrun",
   "artist": "Alan Menken",
   "title": "Den lilla sjöjungfrun",
   "year": 1989,
-  "spotifyId": "6oYkwjI1TKP9D0Y9II1GT7"
+  "spotifyId": "6oYkwjI1TKP9D0Y9II1GT7",
+  "track": "Under the Sea"
  },
  {
   "id": "gladiator",
   "artist": "Hans Zimmer",
   "title": "Gladiator",
   "year": 2000,
-  "spotifyId": "3NarImBO8U6KKMs7RXheX9"
+  "spotifyId": "3NarImBO8U6KKMs7RXheX9",
+  "track": "Now We Are Free"
  },
  {
   "id": "herkules",
   "artist": "Alan Menken",
   "title": "Herkules",
   "year": 1997,
-  "spotifyId": "5hEDJNVwVZuAhwejjKcs7Y"
+  "spotifyId": "2ojNv5xaJsGKOKsR3fXcxd",
+  "track": "Go the Distance"
  },
  {
   "id": "donnie-darko",
   "artist": "Michael Andrews",
   "title": "Donnie Darko",
   "year": 2001,
-  "spotifyId": "1ewqpUUSLANb3jjc4UI8uX"
+  "spotifyId": "1ewqpUUSLANb3jjc4UI8uX",
+  "track": "Mad World"
  },
  {
   "id": "vaiana",
-  "artist": "Opetaia Foaʻi",
+  "artist": "Lin-Manuel Miranda",
   "title": "Vaiana",
   "year": 2016,
-  "spotifyId": "5ndV6rlU0LqeJT7PWEYAV1"
+  "spotifyId": "0HT6xI2MTQ7qk4yNA1IZUd",
+  "track": "How Far I'll Go"
  },
  {
   "id": "pirates-of-the-caribbean",
   "artist": "Hans Zimmer",
   "title": "Pirates of the Caribbean",
   "year": 2003,
-  "spotifyId": "3q309qYANeXY2OvmoqqGPm"
+  "spotifyId": "3q309qYANeXY2OvmoqqGPm",
+  "track": "He's a Pirate"
  },
  {
   "id": "oppenheimer",
   "artist": "Ludwig Göransson",
   "title": "Oppenheimer",
   "year": 2023,
-  "spotifyId": "4VnDmjYCZkyeqeb0NIKqdA"
+  "spotifyId": "4VnDmjYCZkyeqeb0NIKqdA",
+  "track": "Can You Hear The Music"
  },
  {
   "id": "into-the-wild",
   "artist": "Eddie Vedder",
   "title": "Into the Wild",
   "year": 2007,
-  "spotifyId": "0fzCtVM9D5UEwiLqcY8Ouq"
+  "spotifyId": "0fzCtVM9D5UEwiLqcY8Ouq",
+  "track": "Hard Sun"
  },
  {
   "id": "sagan-om-ringen",
   "artist": "Howard Shore",
   "title": "Sagan om ringen",
   "year": 2001,
-  "spotifyId": "644es5aYPJghtZLjM1rmSP"
+  "spotifyId": "644es5aYPJghtZLjM1rmSP",
+  "track": "Concerning Hobbits"
  },
  {
   "id": "upp",
   "artist": "Michael Giacchino",
   "title": "Upp",
   "year": 2009,
-  "spotifyId": "7iocNjLrxPHLl8njgRlv5U"
+  "spotifyId": "7iocNjLrxPHLl8njgRlv5U",
+  "track": "Married Life"
  },
  {
   "id": "avengers",
   "artist": "Alan Silvestri",
   "title": "Avengers",
   "year": 2012,
-  "spotifyId": "2exOqFZpfHpQE8E870qz1A"
+  "spotifyId": "2exOqFZpfHpQE8E870qz1A",
+  "track": "The Avengers"
  },
  {
   "id": "star-wars",
   "artist": "John Williams",
   "title": "Star Wars",
   "year": 1999,
-  "spotifyId": "7bOxfICJnT0av0ICxY2tZS"
+  "spotifyId": "08n0huWcEnZULHWNvKgvjc",
+  "track": "Star Wars (Main Theme)"
  },
  {
   "id": "amelie-fran-montmartre",
   "artist": "Yann Tiersen",
   "title": "Amelie från Montmartre",
   "year": 2001,
-  "spotifyId": "6bpmBNPfQ2KFAW0ik6F9Vq"
+  "spotifyId": "14rZjW3RioG7WesZhYESso",
+  "track": "Comptine d'un autre été, l'après-midi"
  },
  {
   "id": "draktranaren",
   "artist": "John Powell",
   "title": "Draktränaren",
   "year": 2010,
-  "spotifyId": "2QTDuJIGKUjR7E2Q6KupIh"
+  "spotifyId": "2QTDuJIGKUjR7E2Q6KupIh",
+  "track": "Test Drive"
  },
  {
   "id": "frukost-pa-tiffanys",
   "artist": "Henry Mancini",
   "title": "Frukost på Tiffany’s",
   "year": 1961,
-  "spotifyId": "2crXs3g9eNOORmRZVLF34Z"
+  "spotifyId": "2crXs3g9eNOORmRZVLF34Z",
+  "track": "Moon River"
  },
  {
   "id": "jurassic-park",
   "artist": "John Williams",
   "title": "Jurassic Park",
   "year": 1993,
-  "spotifyId": "0BTVwaI1VUhUd1SXGtTzFf"
+  "spotifyId": "0BTVwaI1VUhUd1SXGtTzFf",
+  "track": "Theme From Jurassic Park"
  },
  {
   "id": "bjornbroder",
   "artist": "Phil Collins",
   "title": "Björnbröder",
   "year": 2003,
-  "spotifyId": "7wjiMdiSgsL9Vkrwb10Num"
+  "spotifyId": "400abutrj9yS5YBkd3fE6P",
+  "track": "Look Through My Eyes"
  },
  {
   "id": "da-vinci-koden",
   "artist": "Hans Zimmer",
   "title": "Da Vinci-koden",
   "year": 2006,
-  "spotifyId": "5CpQKWiwqsUs9IuIIDFn5s"
+  "spotifyId": "5CpQKWiwqsUs9IuIIDFn5s",
+  "track": "Chevaliers De Sangreal"
  },
  {
   "id": "the-theory-of-everything",
   "artist": "Jóhann Jóhannsson",
   "title": "The Theory of Everything",
   "year": 2014,
-  "spotifyId": "5fJD7wh9yoSTpl9d5rgl7l"
+  "spotifyId": "5fJD7wh9yoSTpl9d5rgl7l",
+  "track": "The Theory of Everything"
  },
  {
   "id": "harry-potter",
   "artist": "John Williams",
   "title": "Harry Potter",
   "year": 2001,
-  "spotifyId": "1n8NKQRg8LVHy7oUhUgbFF"
+  "spotifyId": "1n8NKQRg8LVHy7oUhUgbFF",
+  "track": "Hedwig's Theme"
  },
  {
   "id": "schindler-s-list",
   "artist": "John Williams",
   "title": "Schindler's List",
   "year": 1993,
-  "spotifyId": "42gZM6AQ9BDMaTyTmMDVlN"
+  "spotifyId": "42gZM6AQ9BDMaTyTmMDVlN",
+  "track": "Theme From Schindler's List"
  },
  {
   "id": "8-mile",
   "artist": "Eminem",
   "title": "8 Mile",
   "year": 2002,
-  "spotifyId": "5NmL2zxnlt9GiTB2TQbvFM"
+  "spotifyId": "1v7L65Lzy0j0vdpRjJewt1",
+  "track": "Lose Yourself"
  },
  {
   "id": "the-nightmare-before-christmas",
   "artist": "Danny Elfman",
   "title": "The Nightmare Before Christmas",
   "year": 1993,
-  "spotifyId": "3fytQQcjEOWXlvI9BDXVcK"
+  "spotifyId": "1CYjYSg9sdtbBoxSf8uhFD",
+  "track": "This is Halloween"
  },
  {
   "id": "pearl-harbor",
   "artist": "Hans Zimmer",
   "title": "Pearl Harbor",
   "year": 2001,
-  "spotifyId": "2O0UWIMFeMtFR0LJMuIPjJ"
+  "spotifyId": "2O0UWIMFeMtFR0LJMuIPjJ",
+  "track": "Tennessee"
  },
  {
   "id": "oblivion",
   "artist": "M83",
   "title": "Oblivion",
   "year": 2013,
-  "spotifyId": "79npfYK6N5RnBc1jiaoHCr"
+  "spotifyId": "79npfYK6N5RnBc1jiaoHCr",
+  "track": "Oblivion"
  },
  {
   "id": "harmonica-en-hamnare",
   "artist": "Ennio Morricone",
   "title": "Harmonica - en hämnare",
   "year": 1968,
-  "spotifyId": "6opPrJUpq4Pl5c84eCwLmo"
- },
- {
-  "id": "prinsessan-och-grodan",
-  "artist": "Randy Newman",
-  "title": "Prinsessan och grodan",
-  "year": 2009,
-  "spotifyId": "32y50tctIUzKbg48kEqd50"
+  "spotifyId": "0c89GbbUO3degznx9eYrq0",
+  "track": "Once Upon a Time in the West"
  },
  {
   "id": "frost",
-  "artist": "Christophe Beck",
+  "artist": "Kristen Anderson-Lopez & Robert Lopez",
   "title": "Frost",
   "year": 2013,
-  "spotifyId": "0qnj9ufJJM6Xk4xuoyvHZp"
+  "spotifyId": "0fK6eKxxejDgc8KFfXTJsS",
+  "track": "Let It Go"
  },
  {
   "id": "spirit",
   "artist": "Bryan Adams",
   "title": "Spirit",
   "year": 2002,
-  "spotifyId": "28DYNnXlz9NGlY9wzMK7pK"
+  "spotifyId": "28DYNnXlz9NGlY9wzMK7pK",
+  "track": "Here I Am"
  },
  {
   "id": "the-imitation-game",
   "artist": "Alexandre Desplat",
   "title": "The Imitation Game",
   "year": 2014,
-  "spotifyId": "0o9ivTBX7mjTnaUYF4Gk6t"
+  "spotifyId": "0o9ivTBX7mjTnaUYF4Gk6t",
+  "track": "The Imitation Game"
  },
  {
   "id": "american-beauty",
   "artist": "Thomas Newman",
   "title": "American Beauty",
   "year": 1999,
-  "spotifyId": "6XJGpirOP4Bgurcvkdanxb"
+  "spotifyId": "6XJGpirOP4Bgurcvkdanxb",
+  "track": "American Beauty"
  },
  {
   "id": "den-gode-den-onde-den-fule",
   "artist": "Ennio Morricone",
   "title": "Den gode, den onde, den fule",
   "year": 1966,
-  "spotifyId": "1JSIWsJfxOji0FrxFcxdCK"
+  "spotifyId": "1JSIWsJfxOji0FrxFcxdCK",
+  "track": "The Good, The Bad And The Ugly"
  },
  {
   "id": "titanic",
   "artist": "James Horner",
   "title": "Titanic",
   "year": 1997,
-  "spotifyId": "3HiQozCegeU8MJUzCNguZg"
+  "spotifyId": "2mvcwRdEovxKOdA73pgeNS",
+  "track": "My Heart Will Go On"
  },
  {
   "id": "the-mission",
   "artist": "Ennio Morricone",
   "title": "The Mission",
   "year": 1986,
-  "spotifyId": "4tZIHyRe46VpgRYMJWcqPO"
+  "spotifyId": "4tZIHyRe46VpgRYMJWcqPO",
+  "track": "Gabriel's Oboe"
  },
  {
   "id": "monsters-inc",
   "artist": "Randy Newman",
   "title": "Monsters, Inc.",
   "year": 2001,
-  "spotifyId": "5e0O7MjhNHq9G67qDFM8nR"
+  "spotifyId": "5e0O7MjhNHq9G67qDFM8nR",
+  "track": "Monsters, Inc."
  },
  {
   "id": "pacific-rim",
   "artist": "Ramin Djawadi",
   "title": "Pacific Rim",
   "year": 2013,
-  "spotifyId": "0lEHnMNNYusZtbon9XyA2W"
+  "spotifyId": "0lEHnMNNYusZtbon9XyA2W",
+  "track": "Pacific Rim"
  },
  {
   "id": "avatar",
   "artist": "James Horner",
   "title": "Avatar",
   "year": 2009,
-  "spotifyId": "1UBd7aWHZCz8yirI9KCvAU"
+  "spotifyId": "02TVrXmI9EBYpuSdmTr4gn",
+  "track": "I See You"
  },
  {
   "id": "gudfadern",
   "artist": "Nino Rota",
   "title": "Gudfadern",
   "year": 1972,
-  "spotifyId": "39zu6JGd6tvRNsqyK78RLk"
+  "spotifyId": "39zu6JGd6tvRNsqyK78RLk",
+  "track": "Love Theme From \"The Godfather\""
  },
  {
   "id": "hostlegender",
   "artist": "James Horner",
   "title": "Höstlegender",
   "year": 1994,
-  "spotifyId": "6vtY2LUeXJ7KISwgiTu0Ph"
+  "spotifyId": "6vtY2LUeXJ7KISwgiTu0Ph",
+  "track": "The Ludlows"
  },
  {
   "id": "mission-impossible",
   "artist": "Michael Giacchino",
   "title": "Mission: Impossible",
   "year": 2006,
-  "spotifyId": "1FL7eUG80aeUeyMO2N4btN"
+  "spotifyId": "1FL7eUG80aeUeyMO2N4btN",
+  "track": "Mission: Impossible Theme"
  },
  {
   "id": "shrek",
   "artist": "Harry Gregson-Williams",
   "title": "Shrek",
   "year": 2001,
-  "spotifyId": "1e3hPMCGrwPXYZ1DQhsiCE"
+  "spotifyId": "1e3hPMCGrwPXYZ1DQhsiCE",
+  "track": "Fairytale"
  },
  {
   "id": "chocolat",
   "artist": "Rachel Portman",
   "title": "Chocolat",
   "year": 2000,
-  "spotifyId": "1DdyioI2yXhLwR1pn5Hczk"
+  "spotifyId": "1DdyioI2yXhLwR1pn5Hczk",
+  "track": "Main Title"
  },
  {
   "id": "wild-wild-west",
   "artist": "Will Smith",
   "title": "Wild Wild West",
   "year": 1999,
-  "spotifyId": "5AMvBCtX2rspUdoeJ9IsPN"
+  "spotifyId": "5AMvBCtX2rspUdoeJ9IsPN",
+  "track": "Wild Wild West"
  },
  {
   "id": "her",
   "artist": "Arcade Fire",
   "title": "Her",
   "year": 2013,
-  "spotifyId": "606R1WLtU2hPgl0YNfSJ4j"
+  "spotifyId": "606R1WLtU2hPgl0YNfSJ4j",
+  "track": "Song on the Beach"
  },
  {
   "id": "iron-man",
   "artist": "Brian Tyler",
   "title": "Iron Man",
   "year": 2013,
-  "spotifyId": "7u5XBHnht6dyoRXRBb5soK"
+  "spotifyId": "7u5XBHnht6dyoRXRBb5soK",
+  "track": "Iron Man 3"
  },
  {
   "id": "edward-scissorhands",
   "artist": "Danny Elfman",
   "title": "Edward Scissorhands",
   "year": 1990,
-  "spotifyId": "6WR3pHbbF4Vov8yuJ275mm"
+  "spotifyId": "6WR3pHbbF4Vov8yuJ275mm",
+  "track": "Ice Dance"
  },
  {
   "id": "love-story",
   "artist": "Francis Lai",
   "title": "Love Story",
   "year": 1970,
-  "spotifyId": "3Otarl1hRJ0ZsgMHiQ1mrP"
+  "spotifyId": "3Otarl1hRJ0ZsgMHiQ1mrP",
+  "track": "Where Do I Begin"
  },
  {
   "id": "alla-helgons-blodiga-natt",
   "artist": "John Carpenter",
   "title": "Alla helgons blodiga natt",
   "year": 1978,
-  "spotifyId": "7swocJUCUWTCiRUAU9oerC"
+  "spotifyId": "7swocJUCUWTCiRUAU9oerC",
+  "track": "Halloween Theme"
  },
  {
   "id": "extremt-hogt-och-otroligt-nara",
   "artist": "Alexandre Desplat",
   "title": "Extremt högt och otroligt nära",
   "year": 2011,
-  "spotifyId": "4FnK3GEuekjYXavXPIGlmQ"
+  "spotifyId": "4FnK3GEuekjYXavXPIGlmQ",
+  "track": "Extremely Loud and Incredibly Close"
  },
  {
   "id": "rattatouille",
   "artist": "Michael Giacchino",
   "title": "Råttatouille",
   "year": 2007,
-  "spotifyId": "0AGAl2fZLAoGxGd5dO77Cp"
+  "spotifyId": "0AGAl2fZLAoGxGd5dO77Cp",
+  "track": "Ratatouille Main Theme"
  },
  {
   "id": "lady-och-lufsen",
   "artist": "Peggy Lee",
   "title": "Lady och Lufsen",
   "year": 1955,
-  "spotifyId": "7zwWK53yc1ay0M4OJIEOuc"
+  "spotifyId": "6suDwyuHm9aTkEGEd5FSNf",
+  "track": "Bella Notte"
  },
  {
   "id": "the-revenant",
   "artist": "Ryuichi Sakamoto",
   "title": "The Revenant",
   "year": 2015,
-  "spotifyId": "4QrLwgJt0OGkUFBbQKk0fL"
+  "spotifyId": "4QrLwgJt0OGkUFBbQKk0fL",
+  "track": "The Revenant Main Theme"
  },
  {
   "id": "the-dark-knight",
   "artist": "Hans Zimmer",
   "title": "The Dark Knight",
   "year": 2008,
-  "spotifyId": "3t0gaIcnwL6LjJSJoDoGgY"
+  "spotifyId": "3t0gaIcnwL6LjJSJoDoGgY",
+  "track": "A Dark Knight"
  },
  {
   "id": "the-batman",
   "artist": "Michael Giacchino",
   "title": "The Batman",
   "year": 2022,
-  "spotifyId": "1NkI8DtCnjcWVCVLF0gB71"
+  "spotifyId": "1NkI8DtCnjcWVCVLF0gB71",
+  "track": "The Batman"
  },
  {
   "id": "batman",
   "artist": "Danny Elfman",
   "title": "Batman",
   "year": 1989,
-  "spotifyId": "50csT5Qb2qOF7lHdDQ1Sbx"
+  "spotifyId": "50csT5Qb2qOF7lHdDQ1Sbx",
+  "track": "The Batman Theme"
  },
  {
   "id": "goldfinger",
   "artist": "John Barry",
   "title": "Goldfinger",
   "year": 1964,
-  "spotifyId": "6eTD4dVYoq7NLpUxh1NWDr"
+  "spotifyId": "6eTD4dVYoq7NLpUxh1NWDr",
+  "track": "Goldfinger"
  },
  {
   "id": "joker",
   "artist": "Hildur Guðnadóttir",
   "title": "Joker",
   "year": 2019,
-  "spotifyId": "4WiqPbWvLbv317E8fB4SJC"
+  "spotifyId": "4WiqPbWvLbv317E8fB4SJC",
+  "track": "Bathroom Dance"
  },
  {
   "id": "sholay",
   "artist": "Rahul Dev Burman",
   "title": "Sholay",
   "year": 1975,
-  "spotifyId": "7qSO5BdwlMyzpjYNxjijRP"
+  "spotifyId": "7qSO5BdwlMyzpjYNxjijRP",
+  "track": "Mehbooba Mehbooba"
  },
  {
   "id": "x-men",
   "artist": "Henry Jackman",
   "title": "X-Men",
   "year": 2011,
-  "spotifyId": "5IWmdl33NNTLsKlLT6WSlh"
+  "spotifyId": "5IWmdl33NNTLsKlLT6WSlh",
+  "track": "First Class"
  },
  {
   "id": "tron",
   "artist": "Daft Punk",
   "title": "Tron",
   "year": 2010,
-  "spotifyId": "69T9xcz6U8GFYmdPLkYn4J"
+  "spotifyId": "69T9xcz6U8GFYmdPLkYn4J",
+  "track": "TRON Legacy (End Titles)"
  },
  {
   "id": "en-geishas-memoarer",
   "artist": "John Williams",
   "title": "En geishas memoarer",
   "year": 2005,
-  "spotifyId": "0RGZCtszeCpGRgbMyVigAG"
+  "spotifyId": "0RGZCtszeCpGRgbMyVigAG",
+  "track": "Sayuri's Theme"
  },
  {
   "id": "taare-zameen-par",
   "artist": "Shankar Mahadevan",
   "title": "Taare Zameen Par",
   "year": 2007,
-  "spotifyId": "4AJyfRIzHxlpc1BRrkcGiW"
+  "spotifyId": "4AJyfRIzHxlpc1BRrkcGiW",
+  "track": "Maa"
  },
  {
   "id": "man-of-steel",
   "artist": "Hans Zimmer",
   "title": "Man of Steel",
   "year": 2013,
-  "spotifyId": "6PHMAqyTi2zjs6aXneg0EC"
+  "spotifyId": "1mUG7ftwIxuq5fhMPkyM02",
+  "track": "Flight"
  },
  {
   "id": "dune",
   "artist": "Hans Zimmer",
   "title": "Dune",
   "year": 2024,
-  "spotifyId": "7lG5m4JN0exualOkghSNXq"
+  "spotifyId": "1Qr17u2S9kNDzTeWAJCY5N",
+  "track": "Paul's Dream"
  },
  {
   "id": "closer",
-  "artist": "Morrissey",
+  "artist": "Damien Rice",
   "title": "Closer",
   "year": 2004,
-  "spotifyId": "6j4eSvLSgkb3ehJksCtq3w"
+  "spotifyId": "4B2lJinAkeNLSJjcq3dg8Q",
+  "track": "The Blower's Daughter"
  },
  {
   "id": "the-twilight-saga-new-moon",
   "artist": "Alexandre Desplat",
   "title": "The Twilight Saga: New Moon",
   "year": 2009,
-  "spotifyId": "5aSyBPvmnd5C6A1bfqH7Ic"
+  "spotifyId": "5aSyBPvmnd5C6A1bfqH7Ic",
+  "track": "New Moon (The Meadow)"
  },
  {
   "id": "berattelsen-om-narnia-haxan-och-lejonet",
   "artist": "Harry Gregson-Williams",
   "title": "Berättelsen om Narnia: Häxan och lejonet",
   "year": 2005,
-  "spotifyId": "7zY46aSULMG2pDG2fMlaI7"
- },
- {
-  "id": "robin-hood",
-  "artist": "Marc Streitenfeld",
-  "title": "Robin Hood",
-  "year": 2010,
-  "spotifyId": "1kLma9S0L4y3u5E28ss9Ut"
- },
- {
-  "id": "ice-age",
-  "artist": "John Powell",
-  "title": "Ice Age",
-  "year": 2006,
-  "spotifyId": "7FsuPpJmzsdeB40Q4Nnaq5"
+  "spotifyId": "7zY46aSULMG2pDG2fMlaI7",
+  "track": "Only The Beginning of The Adventure"
  },
  {
   "id": "star-trek",
   "artist": "Michael Giacchino",
   "title": "Star Trek",
   "year": 2009,
-  "spotifyId": "6fVX8mF9ZqS1V8G2ZFCbLQ"
+  "spotifyId": "6fVX8mF9ZqS1V8G2ZFCbLQ",
+  "track": "Star Trek Main Theme"
  },
  {
   "id": "ad-astra",
   "artist": "Max Richter",
   "title": "Ad Astra",
   "year": 2019,
-  "spotifyId": "3qbL24jXy9yKdSvnuV0A8A"
+  "spotifyId": "3qbL24jXy9yKdSvnuV0A8A",
+  "track": "To the Stars"
  },
  {
   "id": "gravity",
   "artist": "Steven Price",
   "title": "Gravity",
   "year": 2013,
-  "spotifyId": "2mFea4DOhY3iShay4BQ0se"
+  "spotifyId": "2mFea4DOhY3iShay4BQ0se",
+  "track": "Gravity"
  },
  {
   "id": "anglar-och-demoner",
   "artist": "Hans Zimmer",
   "title": "Änglar och demoner",
   "year": 2009,
-  "spotifyId": "14NE9H2mqNnzTPrAKQt479"
+  "spotifyId": "14NE9H2mqNnzTPrAKQt479",
+  "track": "503"
  },
  {
   "id": "the-shape-of-water",
   "artist": "Alexandre Desplat",
   "title": "The Shape of Water",
   "year": 2017,
-  "spotifyId": "7Hs8rzQRZPAMQoz97S0u8L"
+  "spotifyId": "7Hs8rzQRZPAMQoz97S0u8L",
+  "track": "Elisa's Theme"
  },
  {
   "id": "berattelsen-om-pi",
   "artist": "Mychael Danna",
   "title": "Berättelsen om Pi",
   "year": 2012,
-  "spotifyId": "1RxaEvQCmT36nIZFYjpk5F"
+  "spotifyId": "60AU6943h10TVKcXFSc51D",
+  "track": "Pi's Lullaby"
  },
  {
   "id": "once-upon-a-time-in-america",
   "artist": "Ennio Morricone",
   "title": "Once Upon a Time in America",
   "year": 1984,
-  "spotifyId": "7uhvELu5SfWKWRPWdO6kye"
+  "spotifyId": "7uhvELu5SfWKWRPWdO6kye",
+  "track": "Deborah's Theme"
  },
  {
   "id": "spider-man",
   "artist": "Michael Giacchino",
   "title": "Spider-Man",
   "year": 2002,
-  "spotifyId": "1tzj2vY4twkNmZ5K3DUOPp"
+  "spotifyId": "1tzj2vY4twkNmZ5K3DUOPp",
+  "track": "Spider-Man Theme"
  },
  {
   "id": "thor",
   "artist": "Brian Tyler",
   "title": "Thor",
   "year": 2013,
-  "spotifyId": "5rQmuNRjKT6t33JlNJbc6I"
+  "spotifyId": "5rQmuNRjKT6t33JlNJbc6I",
+  "track": "Thor: The Dark World"
  },
  {
   "id": "den-rosa-pantern",
   "artist": "Henry Mancini",
   "title": "Den rosa pantern",
   "year": 1963,
-  "spotifyId": "0juPSJLFnLFim7BK6VzTes"
+  "spotifyId": "0juPSJLFnLFim7BK6VzTes",
+  "track": "The Pink Panther Theme"
  },
  {
   "id": "livet-efter-dig",
   "artist": "Craig Armstrong",
   "title": "Livet efter dig",
   "year": 2016,
-  "spotifyId": "28FvLA0GzWlwx8TSTqds9v"
+  "spotifyId": "28FvLA0GzWlwx8TSTqds9v",
+  "track": "Me Before You Orchestral"
  },
  {
   "id": "cinema-paradiso",
   "artist": "Ennio Morricone",
   "title": "Cinema Paradiso",
   "year": 1988,
-  "spotifyId": "5AqyXfdu5rUfkxV59mDHiu"
+  "spotifyId": "5AqyXfdu5rUfkxV59mDHiu",
+  "track": "Nuovo Cinema Paradiso"
  },
  {
   "id": "eternal-sunshine-of-the-spotless-mind",
   "artist": "Jon Brion",
   "title": "Eternal Sunshine of the Spotless Mind",
   "year": 2004,
-  "spotifyId": "4AQwwsz0ztRx4YKNb1GdBB"
+  "spotifyId": "4AQwwsz0ztRx4YKNb1GdBB",
+  "track": "Theme"
  },
  {
   "id": "pianot",
   "artist": "Michael Nyman",
   "title": "Pianot",
   "year": 1993,
-  "spotifyId": "0UxACryJlLw1VzQWe9eA3x"
+  "spotifyId": "0UxACryJlLw1VzQWe9eA3x",
+  "track": "The Heart Asks Pleasure First"
  },
  {
   "id": "1917",
   "artist": "Thomas Newman",
   "title": "1917",
   "year": 2019,
-  "spotifyId": "44sVQfPdCTGM5JLBRHUngc"
+  "spotifyId": "44sVQfPdCTGM5JLBRHUngc",
+  "track": "Come Back to Us"
  },
  {
   "id": "den-fantastiska-raven",
   "artist": "Alexandre Desplat",
   "title": "Den fantastiska räven",
   "year": 2009,
-  "spotifyId": "1Clu0gbMFEvJ3bdpgmlMvh"
+  "spotifyId": "1Clu0gbMFEvJ3bdpgmlMvh",
+  "track": "Mr. Fox in the Fields"
  },
  {
   "id": "mulan",
-  "artist": "Jerry Goldsmith",
+  "artist": "Matthew Wilder",
   "title": "Mulan",
   "year": 1998,
-  "spotifyId": "73JUZhMZLh2BcZSR8oHpXx"
+  "spotifyId": "2AILbz83cBnrAMAG06rZts",
+  "track": "Reflection"
  },
  {
   "id": "truman-show",
   "artist": "Philip Glass",
   "title": "Truman Show",
   "year": 1998,
-  "spotifyId": "29S6PLRccSCyKozzwIik0J"
+  "spotifyId": "29S6PLRccSCyKozzwIik0J",
+  "track": "Truman Sleeps"
  },
  {
   "id": "love-actually",
   "artist": "Craig Armstrong",
   "title": "Love Actually",
   "year": 2003,
-  "spotifyId": "2LhA68Vm5k6lh0QenNFrDV"
+  "spotifyId": "2LhA68Vm5k6lh0QenNFrDV",
+  "track": "Glasgow Love Theme"
  },
  {
   "id": "oliver-ganget",
   "artist": "Dan Hartman",
   "title": "Oliver & gänget",
   "year": 1988,
-  "spotifyId": "3gH3AxHKptBuYVcJilLCeR"
+  "spotifyId": "3gH3AxHKptBuYVcJilLCeR",
+  "track": "Why Should I Worry"
  },
  {
   "id": "hitta-nemo",
   "artist": "Thomas Newman",
   "title": "Hitta Nemo",
   "year": 2003,
-  "spotifyId": "4MrXuZ2T6CMD0V5VURGBwx"
+  "spotifyId": "4MrXuZ2T6CMD0V5VURGBwx",
+  "track": "Finding Nemo"
  },
  {
   "id": "the-hunger-games",
   "artist": "James Newton Howard",
   "title": "The Hunger Games",
   "year": 2012,
-  "spotifyId": "1WvaekR1rFUaQVvaDk9x0Q"
+  "spotifyId": "416MsJxvxSKY96DCmbJIRs",
+  "track": "The Hanging Tree"
  },
  {
   "id": "femtio-nyanser-av-honom",
-  "artist": "Danny Elfman",
+  "artist": "Max Martin",
   "title": "Femtio nyanser av honom",
   "year": 2015,
-  "spotifyId": "41siSuOrlQ6IqLNBbHYaJ9"
+  "spotifyId": "05zCWOpwIUf6JY06gSL6uz",
+  "track": "Love Me Like You Do"
  },
  {
   "id": "nyckeln-till-frihet",
   "artist": "Thomas Newman",
   "title": "Nyckeln till frihet",
   "year": 1994,
-  "spotifyId": "5zMuzsE5kvd54FwraufeeK"
+  "spotifyId": "5qWFRThiYrdNTFAkvGnlwc",
+  "track": "End Title"
  },
  {
   "id": "unga-kvinnor",
   "artist": "Alexandre Desplat",
   "title": "Unga kvinnor",
   "year": 2019,
-  "spotifyId": "4xui9WfNYFy7DKZfFBzSQA"
+  "spotifyId": "4xui9WfNYFy7DKZfFBzSQA",
+  "track": "Laurie and Jo on the Hill"
  },
  {
   "id": "road-to-perdition",
   "artist": "Thomas Newman",
   "title": "Road to Perdition",
   "year": 2002,
-  "spotifyId": "1ybtJbR4ARqmjl6dD2VtYU"
+  "spotifyId": "1ybtJbR4ARqmjl6dD2VtYU",
+  "track": "Road To Perdition"
  },
  {
   "id": "tillbaka-till-framtiden",
   "artist": "Alan Silvestri",
   "title": "Tillbaka till framtiden",
   "year": 1985,
-  "spotifyId": "1FI5hblwy9ZwyPg4Jr5hni"
+  "spotifyId": "1FI5hblwy9ZwyPg4Jr5hni",
+  "track": "Back to the Future"
  },
  {
   "id": "toy-story",
   "artist": "Randy Newman",
   "title": "Toy Story",
   "year": 2010,
-  "spotifyId": "2m1mYan1nvOMORlb12q2Y9"
+  "spotifyId": "5aaUXcrsXI477I93yBE8lu",
+  "track": "You've Got a Friend in Me"
  },
  {
-  "id": "good-bye",
+  "id": "good-bye-lenin",
   "artist": "Yann Tiersen",
-  "title": "Good Bye",
+  "title": "Good Bye Lenin!",
   "year": 2003,
-  "spotifyId": "35fKXUJk1yDn3LVr6MbSHm"
+  "spotifyId": "35fKXUJk1yDn3LVr6MbSHm",
+  "track": "Mother's Journey"
  },
  {
   "id": "spider-verse",
-  "artist": "Daniel Pemberton",
+  "artist": "Post Malone",
   "title": "Spider-Verse",
   "year": 2018,
-  "spotifyId": "0p4G0l12IHsSaNCl66VUnF"
- },
- {
-  "id": "whiplash",
-  "artist": "Justin Hurwitz",
-  "title": "Whiplash",
-  "year": 2014,
-  "spotifyId": "2xYhSrp9lT1DeT3j9k7zoV"
+  "spotifyId": "0RiRZpuVRbi7oqRdSMwhQY",
+  "track": "Sunflower"
  },
  {
   "id": "the-grand-budapest-hotel",
   "artist": "Alexandre Desplat",
   "title": "The Grand Budapest Hotel",
   "year": 2014,
-  "spotifyId": "1uNhvxpkPrNHUNfeclo6xD"
+  "spotifyId": "1uNhvxpkPrNHUNfeclo6xD",
+  "track": "Mr. Moustafa"
  },
  {
   "id": "det-ljuva-livet",
   "artist": "Nino Rota",
   "title": "Det ljuva livet",
   "year": 1960,
-  "spotifyId": "1ttC2dGMDxbgtylVoLBypR"
+  "spotifyId": "1ttC2dGMDxbgtylVoLBypR",
+  "track": "La dolce vita"
  },
  {
   "id": "west-side-story",
   "artist": "Leonard Bernstein",
   "title": "West Side Story",
   "year": 1961,
-  "spotifyId": "1RZ6jzlPeEaDeKYe7IJ792"
- },
- {
-  "id": "madagaskar",
-  "artist": "Hans Zimmer",
-  "title": "Madagaskar",
-  "year": 2008,
-  "spotifyId": "0RWdt99zIBgOp517fywDtT"
+  "spotifyId": "1RZ6jzlPeEaDeKYe7IJ792",
+  "track": "America"
  },
  {
   "id": "captain-america",
-  "artist": "Henry Jackman",
+  "artist": "Alan Silvestri",
   "title": "Captain America",
   "year": 2014,
-  "spotifyId": "6r9gskUHqOtP5rivvZuyEy"
+  "spotifyId": "4V2s08BMEqJWIfa3PcNOpR",
+  "track": "Captain America"
  },
  {
   "id": "eyes-wide-shut",
   "artist": "Dmitri Shostakovich",
   "title": "Eyes Wide Shut",
   "year": 1999,
-  "spotifyId": "4bgyv4pOiNgNZTN7BMLRuW"
+  "spotifyId": "4bgyv4pOiNgNZTN7BMLRuW",
+  "track": "Waltz No. 2"
  },
  {
   "id": "en-prinsessas-dagbok",
   "artist": "John Debney",
   "title": "En prinsessas dagbok",
   "year": 2001,
-  "spotifyId": "60vDJQPOMYUkL388zPpuNT"
+  "spotifyId": "60vDJQPOMYUkL388zPpuNT",
+  "track": "The Princess Diaries Waltz"
  },
  {
   "id": "for-nagra-fa-dollar-mer",
   "artist": "Ennio Morricone",
   "title": "För några få dollar mer",
   "year": 1965,
-  "spotifyId": "0GLA1Xd7KWwR8H3e6lz3jm"
+  "spotifyId": "0GLA1Xd7KWwR8H3e6lz3jm",
+  "track": "Per Qualche Dollaro in Più"
  },
  {
   "id": "encanto",
   "artist": "Lin-Manuel Miranda",
   "title": "Encanto",
   "year": 2021,
-  "spotifyId": "0pwlIJvncDjLAQ5jA8nIDV"
+  "spotifyId": "52xJxFP6TqMuO4Yt0eOkMz",
+  "track": "We Don't Talk About Bruno"
  },
  {
   "id": "superman",
   "artist": "John Williams",
   "title": "Superman",
   "year": 1978,
-  "spotifyId": "4tABZngfyleLXr5wxHgRxZ"
+  "spotifyId": "4tABZngfyleLXr5wxHgRxZ",
+  "track": "Theme from Superman"
  },
  {
   "id": "black-panther-wakanda-forever",
   "artist": "Ludwig Göransson",
   "title": "Black Panther: Wakanda Forever",
   "year": 2022,
-  "spotifyId": "55SCtqrks5WVsUHC2TxnLC"
+  "spotifyId": "6sCvvleqKbeyOkQDieBYgp",
+  "track": "Lift Me Up"
  },
  {
   "id": "wall-e",
   "artist": "Peter Gabriel",
   "title": "WALL-E",
   "year": 2008,
-  "spotifyId": "6QGWsMkxSv2l3Ae3jlsENi"
+  "spotifyId": "6QGWsMkxSv2l3Ae3jlsENi",
+  "track": "Down to Earth"
  },
  {
   "id": "ar-2001-ett-rymdaventyr",
-  "artist": "Johann Strauss II",
+  "artist": "Richard Strauss",
   "title": "År 2001 – Ett rymdäventyr",
   "year": 1968,
-  "spotifyId": "5LYAuItJcXH06adHkebOmf"
+  "spotifyId": "2XoV6mbo3WDokoaW49fFAf",
+  "track": "Also sprach Zarathustra"
  },
  {
   "id": "bilar",
-  "artist": "Randy Newman",
+  "artist": "Tom Cochrane",
   "title": "Bilar",
   "year": 2006,
-  "spotifyId": "47OC0Xl9TIijX4gkafSX1G"
+  "spotifyId": "4jfyNbgsMzGaFYfyeiIRp4",
+  "track": "Life Is A Highway"
  },
  {
   "id": "kingdom-of-heaven",
   "artist": "Harry Gregson-Williams",
   "title": "Kingdom of Heaven",
   "year": 2005,
-  "spotifyId": "1NpSdOfFA7XPpEKlTV4OTr"
+  "spotifyId": "1NpSdOfFA7XPpEKlTV4OTr",
+  "track": "Crusaders"
  },
  {
   "id": "amarcord",
   "artist": "Nino Rota",
   "title": "Amarcord",
   "year": 1973,
-  "spotifyId": "7wjJIZiFfH8o2nBANoz4IG"
+  "spotifyId": "7wjJIZiFfH8o2nBANoz4IG",
+  "track": "Amarcord"
  },
  {
   "id": "radda-menige-ryan",
   "artist": "John Williams",
   "title": "Rädda menige Ryan",
   "year": 1998,
-  "spotifyId": "71zPpqRMdkEUCl7cPQIBrV"
+  "spotifyId": "71zPpqRMdkEUCl7cPQIBrV",
+  "track": "Hymn To The Fallen"
  },
  {
   "id": "polarexpressen",
   "artist": "Alan Silvestri",
   "title": "Polarexpressen",
   "year": 2004,
-  "spotifyId": "3mfEv2KipK7lVWwocNx46Y"
+  "spotifyId": "2vJAjPkVMPKkR3xd2wacZa",
+  "track": "Believe"
  },
  {
   "id": "fantastiska-vidunder-och-var-man-hittar-dem",
   "artist": "James Newton Howard",
   "title": "Fantastiska vidunder och var man hittar dem",
   "year": 2016,
-  "spotifyId": "4Pk1KXtkFTJNKLqwHhD3Zn"
- },
- {
-  "id": "the-fast-and-the-furious-tokyo-drift",
-  "artist": "Brian Tyler",
-  "title": "The Fast and the Furious: Tokyo Drift",
-  "year": 2006,
-  "spotifyId": "1KFg8BWCMwBRmDbEUdorty"
- },
- {
-  "id": "dinosaurier",
-  "artist": "James Newton Howard",
-  "title": "Dinosaurier",
-  "year": 2000,
-  "spotifyId": "5JbuKh2rpieicj3ld8Yy2L"
+  "spotifyId": "4Pk1KXtkFTJNKLqwHhD3Zn",
+  "track": "Main Titles"
  },
  {
   "id": "twilight",
   "artist": "Carter Burwell",
   "title": "Twilight",
   "year": 2008,
-  "spotifyId": "0CmatMXKunVgbvxWjnxWpq"
+  "spotifyId": "0CmatMXKunVgbvxWjnxWpq",
+  "track": "Edward At Her Bed / Bella's Lullaby"
  },
  {
   "id": "warcraft-the-beginning",
   "artist": "Ramin Djawadi",
   "title": "Warcraft: The Beginning",
   "year": 2016,
-  "spotifyId": "3EGMNVARma3sKEkFpxHOcy"
+  "spotifyId": "3EGMNVARma3sKEkFpxHOcy",
+  "track": "Warcraft"
  },
  {
   "id": "the-odyssey",
   "artist": "Ludwig Göransson",
   "title": "The Odyssey",
   "year": 2026,
-  "spotifyId": "4cNfcmyCGw53tOSOsRI3z8"
+  "spotifyId": "4cNfcmyCGw53tOSOsRI3z8",
+  "track": "Odysseus"
  },
  {
   "id": "tenet",
   "artist": "Ludwig Göransson",
   "title": "Tenet",
   "year": 2020,
-  "spotifyId": "5r6l0sPvfeAPjQ67fCgOwG"
+  "spotifyId": "5r6l0sPvfeAPjQ67fCgOwG",
+  "track": "Rainy Night in Tallinn"
  },
  {
   "id": "pocahontas",
   "artist": "Alan Menken",
   "title": "Pocahontas",
   "year": 1995,
-  "spotifyId": "0YlqJkfuox9LpJ5uW3NPM8"
+  "spotifyId": "2fPseZqRmt7f8xJ6LE4PYQ",
+  "track": "Colors of the Wind"
  },
  {
   "id": "den-grona-milen",
   "artist": "Thomas Newman",
   "title": "Den gröna milen",
   "year": 1999,
-  "spotifyId": "0itndpPjxQrWj1mDENoKmG"
+  "spotifyId": "0itndpPjxQrWj1mDENoKmG",
+  "track": "The Green Mile"
  },
  {
   "id": "lady-bird",
   "artist": "Jon Brion",
   "title": "Lady Bird",
   "year": 2017,
-  "spotifyId": "6yzzno5cXBkh5c6UzRxcyM"
+  "spotifyId": "6yzzno5cXBkh5c6UzRxcyM",
+  "track": "Lady Bird"
  },
  {
   "id": "modig",
-  "artist": "Patrick Doyle",
+  "artist": "Alex Mandel",
   "title": "Modig",
   "year": 2012,
-  "spotifyId": "2I5oyql6pcmgjx1yFqrUdE"
+  "spotifyId": "3A4NJgft533HGgffw0AoTf",
+  "track": "Touch The Sky"
  },
  {
   "id": "black-panther",
   "artist": "Ludwig Göransson",
   "title": "Black Panther",
   "year": 2018,
-  "spotifyId": "0w7yUSxpQV3a3HqlprOQUs"
+  "spotifyId": "2mjbf9ZvCoYqTi0RZ2FTUJ",
+  "track": "Wakanda"
  },
  {
   "id": "mitt-afrika",
   "artist": "John Barry",
   "title": "Mitt Afrika",
   "year": 1985,
-  "spotifyId": "6qLLYJGpPhHPF7M4o53qJB"
- },
- {
-  "id": "three-billboards-outside-ebbing-missouri",
-  "artist": "Carter Burwell",
-  "title": "Three Billboards Outside Ebbing, Missouri",
-  "year": 2017,
-  "spotifyId": "3MC1tMZPpGOjHyVkI1kXq9"
+  "spotifyId": "6qLLYJGpPhHPF7M4o53qJB",
+  "track": "I Had a Farm (Main Title)"
  },
  {
   "id": "e-t-the-extra-terrestrial",
   "artist": "John Williams",
   "title": "E.T. the Extra-Terrestrial",
   "year": 1982,
-  "spotifyId": "48YZO1IOz04bN9PY2tKB21"
+  "spotifyId": "48YZO1IOz04bN9PY2tKB21",
+  "track": "Flying Theme"
  },
  {
   "id": "ett-smakryps-liv",
   "artist": "Randy Newman",
   "title": "Ett småkryps liv",
   "year": 1998,
-  "spotifyId": "33GqT5sh9PQq8mnTPWUkco"
+  "spotifyId": "33GqT5sh9PQq8mnTPWUkco",
+  "track": "The Time Of Your Life"
  },
  {
   "id": "the-king-s-speech",
   "artist": "Alexandre Desplat",
   "title": "The King's Speech",
   "year": 2010,
-  "spotifyId": "2QuAEMde7n93aiccKL9jUj"
- },
- {
-  "id": "guardians-of-the-galaxy",
-  "artist": "Tyler Bates",
-  "title": "Guardians of the Galaxy",
-  "year": 2014,
-  "spotifyId": "76MPOMsHa41j0AHZd7oFva"
- },
- {
-  "id": "super-mario-bros-filmen",
-  "artist": "Brian Tyler",
-  "title": "Super Mario Bros. Filmen",
-  "year": 2023,
-  "spotifyId": "4M4R19bQjkABzjResTozBt"
+  "spotifyId": "2QuAEMde7n93aiccKL9jUj",
+  "track": "The King's Speech"
  },
  {
   "id": "taxi-driver",
   "artist": "Bernard Herrmann",
   "title": "Taxi Driver",
   "year": 1976,
-  "spotifyId": "7xPefqZB6BBosOdfKJh9nJ"
+  "spotifyId": "7xPefqZB6BBosOdfKJh9nJ",
+  "track": "Main Title"
  },
  {
   "id": "beetlejuice",
   "artist": "Danny Elfman",
   "title": "Beetlejuice",
   "year": 1988,
-  "spotifyId": "64ByydKWf67CJfIoPc8uLJ"
+  "spotifyId": "64ByydKWf67CJfIoPc8uLJ",
+  "track": "Main Titles"
  },
  {
   "id": "den-siste-mohikanen",
   "artist": "Trevor Jones",
   "title": "Den siste mohikanen",
   "year": 1992,
-  "spotifyId": "58vvywipieBzdHhlpr6HPq"
+  "spotifyId": "58vvywipieBzdHhlpr6HPq",
+  "track": "Main Title"
  },
  {
   "id": "28-dagar-senare",
   "artist": "John Murphy",
   "title": "28 dagar senare",
   "year": 2002,
-  "spotifyId": "6zUqWvzcvVQyWU36c7WXDC"
+  "spotifyId": "6zUqWvzcvVQyWU36c7WXDC",
+  "track": "In the House - In a Heartbeat"
  },
  {
   "id": "braveheart",
   "artist": "James Horner",
   "title": "Braveheart",
   "year": 1995,
-  "spotifyId": "2fXvAWQlomB2ZUfHPSqi5S"
+  "spotifyId": "2fXvAWQlomB2ZUfHPSqi5S",
+  "track": "For the Love of a Princess"
  },
  {
   "id": "aladdin",
   "artist": "Alan Menken",
   "title": "Aladdin",
   "year": 2019,
-  "spotifyId": "7G3wJhkjYz3YJTBlUcfxXO"
+  "spotifyId": "1hwdPQtFHISvZ9SXMkNrIK",
+  "track": "A Whole New World"
  },
  {
   "id": "lemony-snickets-berattelse-om-syskonen-baudelaires-olycksaliga-liv",
   "artist": "Thomas Newman",
   "title": "Lemony Snickets berättelse om syskonen Baudelaires olycksaliga liv",
   "year": 2004,
-  "spotifyId": "32YVCuvm2iXGkNIDDmSX0j"
+  "spotifyId": "32YVCuvm2iXGkNIDDmSX0j",
+  "track": "The Letter That Never Came"
  },
  {
   "id": "timmarna",
   "artist": "Philip Glass",
   "title": "Timmarna",
   "year": 2002,
-  "spotifyId": "2vHxeotyQDiCsKaYsaDG5P"
+  "spotifyId": "2vHxeotyQDiCsKaYsaDG5P",
+  "track": "The Hours"
  },
  {
   "id": "prometheus",
   "artist": "Marc Streitenfeld",
   "title": "Prometheus",
   "year": 2012,
-  "spotifyId": "3Y4l9bwg4IXJPq2WYsXeNB"
+  "spotifyId": "3Y4l9bwg4IXJPq2WYsXeNB",
+  "track": "Life"
  },
  {
   "id": "natt-pa-museet",
   "artist": "Alan Silvestri",
   "title": "Natt på museet",
   "year": 2006,
-  "spotifyId": "1r8Qi1Q8V6l7hpZwmAJ1pL"
+  "spotifyId": "1r8Qi1Q8V6l7hpZwmAJ1pL",
+  "track": "Night At The Museum"
  },
  {
   "id": "transformers",
   "artist": "Steve Jablonsky",
   "title": "Transformers",
   "year": 2009,
-  "spotifyId": "5I9Cov6VfGvpiHe2k9EY9l"
- },
- {
-  "id": "john-wick",
-  "artist": "Tyler Bates",
-  "title": "John Wick",
-  "year": 2017,
-  "spotifyId": "02m6fS1f1bsQxcLPdJvocl"
+  "spotifyId": "4u4VElxO7JM4IR4jR4TL1s",
+  "track": "Arrival to Earth"
  },
  {
   "id": "maze-runner",
   "artist": "John Paesano",
   "title": "Maze Runner",
   "year": 2014,
-  "spotifyId": "1NwdCBWf8lK3U0E0NOev6G"
- },
- {
-  "id": "tornrosa",
-  "artist": "George Bruns",
-  "title": "Törnrosa",
-  "year": 1959,
-  "spotifyId": "0ZZbzAwXodEE2kN07ErPLx"
+  "spotifyId": "1NwdCBWf8lK3U0E0NOev6G",
+  "track": "The Maze Runner"
  },
  {
   "id": "for-en-handfull-dollar",
   "artist": "Ennio Morricone",
   "title": "För en handfull dollar",
   "year": 1964,
-  "spotifyId": "3WySGomfHajTtIG8mUyD5W"
- },
- {
-  "id": "project-hail-mary",
-  "artist": "Daniel Pemberton",
-  "title": "Project Hail Mary",
-  "year": 2026,
-  "spotifyId": "6odjHeBKXP6fvV9v0QRUOw"
+  "spotifyId": "3WySGomfHajTtIG8mUyD5W",
+  "track": "A Fistful of Dollars"
  },
  {
   "id": "mot-joe-black",
   "artist": "Thomas Newman",
   "title": "Möt Joe Black",
   "year": 1998,
-  "spotifyId": "7ARw6x2QYlbbNbzm27z0BW"
+  "spotifyId": "7ARw6x2QYlbbNbzm27z0BW",
+  "track": "Whisper of a Thrill"
  },
  {
   "id": "kalle-och-chokladfabriken",
   "artist": "Danny Elfman",
   "title": "Kalle och chokladfabriken",
   "year": 2005,
-  "spotifyId": "36Or2BETVOkRQpw39sZHI4"
+  "spotifyId": "36Or2BETVOkRQpw39sZHI4",
+  "track": "Main Titles"
  },
  {
   "id": "sjalen",
-  "artist": "Jon Batiste",
+  "artist": "Trent Reznor & Atticus Ross",
   "title": "Själen",
   "year": 2020,
-  "spotifyId": "27CZ07hOirwI4VSCbJVzSv"
+  "spotifyId": "1q1T0TbFO2fWkDmgCKwTB0",
+  "track": "Epiphany"
  },
  {
   "id": "rojar-ralf",
   "artist": "Henry Jackman",
   "title": "Röjar-Ralf",
   "year": 2012,
-  "spotifyId": "46XRlhMVNU38v5ZvDrQSHB"
+  "spotifyId": "46XRlhMVNU38v5ZvDrQSHB",
+  "track": "Wreck-It Ralph"
  },
  {
   "id": "arrival",
-  "artist": "Jóhann Jóhannsson",
+  "artist": "Max Richter",
   "title": "Arrival",
   "year": 2016,
-  "spotifyId": "4KBwrmtoKe5QjfW2RhhpOf"
+  "spotifyId": "79MKKQE73OQLZrC4BPboEw",
+  "track": "On the Nature of Daylight"
  },
  {
-  "id": "maleficent",
-  "artist": "James Newton Howard",
-  "title": "Maleficent",
-  "year": 2014,
-  "spotifyId": "0H9VSFFoi49lyhWd9WQWL6"
+  "id": "hajen",
+  "artist": "John Williams",
+  "title": "Hajen",
+  "year": 1975,
+  "spotifyId": "50Khn0ju21N6pl6qepz3XD",
+  "track": "Main Title"
+ },
+ {
+  "id": "indiana-jones",
+  "artist": "John Williams",
+  "title": "Indiana Jones",
+  "year": 1984,
+  "spotifyId": "5duZVZ4m1TaJDTCbeHG8TG",
+  "track": "Raiders March"
+ },
+ {
+  "id": "skonheten-och-odjuret",
+  "artist": "Alan Menken",
+  "title": "Skönheten och odjuret",
+  "year": 1991,
+  "spotifyId": "2OVoymQ9nWnRAtQf1h0Ztc",
+  "track": "Beauty and the Beast"
+ },
+ {
+  "id": "blade-runner",
+  "artist": "Vangelis",
+  "title": "Blade Runner",
+  "year": 1982,
+  "spotifyId": "6baN5nSUIVTsUyugSuAj7U",
+  "track": "Main Titles"
+ },
+ {
+  "id": "inception",
+  "artist": "Hans Zimmer",
+  "title": "Inception",
+  "year": 2010,
+  "spotifyId": "6ZFbXIJkuI1dVNWvzJzown",
+  "track": "Time"
+ },
+ {
+  "id": "trollkarlen-fran-oz",
+  "artist": "Harold Arlen",
+  "title": "Trollkarlen från Oz",
+  "year": 1939,
+  "spotifyId": "568SEFtDjKr7N2PytpA6D5",
+  "track": "Over The Rainbow"
+ },
+ {
+  "id": "sound-of-music",
+  "artist": "Richard Rodgers",
+  "title": "Sound of Music",
+  "year": 1965,
+  "spotifyId": "6yxhNgxXXDvJqiP0Y20QrY",
+  "track": "The Sound of Music"
+ },
+ {
+  "id": "min-granne-totoro",
+  "artist": "Joe Hisaishi",
+  "title": "Min granne Totoro",
+  "year": 1988,
+  "spotifyId": "42c56HKycty0CsHd5iPuiP",
+  "track": "My Neighbour Totoro"
+ },
+ {
+  "id": "psycho",
+  "artist": "Bernard Herrmann",
+  "title": "Psycho",
+  "year": 1960,
+  "spotifyId": "3kOLSO0EZvDZvJh1uX3J5X",
+  "track": "Prelude"
+ },
+ {
+  "id": "slumdog-millionaire",
+  "artist": "A. R. Rahman",
+  "title": "Slumdog Millionaire",
+  "year": 2008,
+  "spotifyId": "3MxLT7m4BjAA0lQl9lVBcM",
+  "track": "Jai Ho"
+ },
+ {
+  "id": "insidan-ut",
+  "artist": "Michael Giacchino",
+  "title": "Insidan ut",
+  "year": 2015,
+  "spotifyId": "3eTgg18rKBD30Hef1gv0wz",
+  "track": "Bundle of Joy"
+ },
+ {
+  "id": "dansar-med-vargar",
+  "artist": "John Barry",
+  "title": "Dansar med vargar",
+  "year": 1990,
+  "spotifyId": "4NzyM0AAmN2ucaBlTXbQQT",
+  "track": "The John Dunbar Theme"
  }
 ]
