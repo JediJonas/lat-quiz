@@ -427,7 +427,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; }
-.player-head .conn { flex: none; }
+/* Etiketten centreras mot loggans mitt. Loggans mitt ligger 765/2814 av loggans bredd (88 px) under radens överkant, eftersom loggan är flyttad ner med sitt nedhäng.
+   Etiketten är en rad plus 3 px luft upptill och nertill hög. 0.6em är reserv för äldre webbläsare utan enheten lh. */
+.player-head .conn { flex: none; align-self: flex-start; margin-top: calc(88px * 765 / 2814 - 0.6em - 3px); margin-top: calc(88px * 765 / 2814 - 0.5lh - 3px); }
 .player-head .who h1:empty { display: none; }
 /* Spelarens kod och inställningar som vanlig grå text. Länkar är understrukna, så den syns inte som en länk. */
 .game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
@@ -443,9 +445,6 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   font-weight: 600;
 }
 .conn::before { content: ""; width: 7px; height: 7px; margin: 0 6px 0 0; border-radius: 50%; background: currentColor; }
-/* Etiketten linjerar med kategorin och loggan i rutans underkant, inte i textens baslinje.
-   Ett tomt första element utan text, som räcker ner till rutans underkant, ger etiketten dess baslinje. */
-.conn::after { content: ""; order: -1; align-self: stretch; margin-bottom: -3px; }
 .conn.connected { color: var(--good); background: var(--good-soft); }
 .conn.offline { color: var(--bad); background: var(--bad-soft); }
 
