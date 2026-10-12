@@ -22,7 +22,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `js/deezer.js`: förhandsklipp från Deezer, på prov i kategorin Deezer-test. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp används Spotify som vanligt.
-- `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Figtree (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
+- `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Inter (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
 
 ## Köra lokalt
 
