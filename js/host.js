@@ -461,8 +461,18 @@ document.addEventListener('keydown', (e) => {
 // spelledaren själv har avslutat det.
 let leaving = false;
 
+// En spotify:-länk räknas av webbläsaren som att sidan lämnas, fast den bara
+// öppnar appen. Varningen hoppas därför över en kort stund efter ett sådant klick.
+let appLinkAt = 0;
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href]');
+  if (link && !/^https?:/.test(link.href)) appLinkAt = Date.now();
+}, true);
+
 window.addEventListener('beforeunload', (e) => {
-  if (!leaving && state && Object.keys(state.players).length) e.preventDefault();
+  if (leaving || Date.now() - appLinkAt < 1000) return;
+  if (state && Object.keys(state.players).length) e.preventDefault();
 });
 
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
