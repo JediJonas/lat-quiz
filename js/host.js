@@ -234,6 +234,7 @@ async function endGame() {
   storage(() => localStorage.removeItem(SAVE_KEY));
   if (net) net.destroy();
   if (ticker) ticker.stop();
+  leaving = true;
   location.href = location.pathname + location.search;
 }
 
@@ -456,8 +457,12 @@ document.addEventListener('keydown', (e) => {
   target.click();
 });
 
+// Varnar om fliken stängs av misstag mitt i ett spel, men inte när
+// spelledaren själv har avslutat det.
+let leaving = false;
+
 window.addEventListener('beforeunload', (e) => {
-  if (state && Object.keys(state.players).length) e.preventDefault();
+  if (!leaving && state && Object.keys(state.players).length) e.preventDefault();
 });
 
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
