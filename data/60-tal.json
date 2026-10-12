@@ -4,77 +4,88 @@
   "artist": "The Rolling Stones",
   "title": "Paint It Black",
   "year": 1966,
-  "spotifyId": "73SPjNZV2wVy8imEmckGYw"
+  "spotifyId": "73SPjNZV2wVy8imEmckGYw",
+  "deezerId": 7677788
  },
  {
   "id": "david-bowie-space-oddity",
   "artist": "David Bowie",
   "title": "Space Oddity",
   "year": 1969,
-  "spotifyId": "72Z17vmmeQKAg8bptWvpVG"
+  "spotifyId": "72Z17vmmeQKAg8bptWvpVG",
+  "deezerId": 628328152
  },
  {
   "id": "the-beach-boys-good-vibrations",
   "artist": "The Beach Boys",
   "title": "Good Vibrations",
   "year": 1966,
-  "spotifyId": "5t9KYe0Fhd5cW6UYT4qP8f"
+  "spotifyId": "5t9KYe0Fhd5cW6UYT4qP8f",
+  "deezerId": 3091992
  },
  {
   "id": "the-doors-break-on-through",
   "artist": "The Doors",
   "title": "Break On Through",
   "year": 1967,
-  "spotifyId": "3PzsLpCMpHViX7vxPtf4uE"
+  "spotifyId": "3PzsLpCMpHViX7vxPtf4uE",
+  "deezerId": 3614124
  },
  {
   "id": "otis-redding-sittin-on-the-dock-of-the-bay",
   "artist": "Otis Redding",
   "title": "(Sittin' On) The Dock of the Bay",
   "year": 1968,
-  "spotifyId": "2fCOgrM5x9RhUC72ha3tHx"
+  "spotifyId": "2fCOgrM5x9RhUC72ha3tHx",
+  "deezerId": 102249314
  },
  {
   "id": "the-doors-people-are-strange",
   "artist": "The Doors",
   "title": "People Are Strange",
   "year": 1967,
-  "spotifyId": "1XeMOyQZHmmh8S9JcWqeG6"
+  "spotifyId": "1XeMOyQZHmmh8S9JcWqeG6",
+  "deezerId": 3614150
  },
  {
   "id": "otis-redding-respect",
   "artist": "Otis Redding",
   "title": "Respect",
   "year": 1965,
-  "spotifyId": "3XFt75z0kufdYd8AaqCRQR"
+  "spotifyId": "3XFt75z0kufdYd8AaqCRQR",
+  "deezerId": 722615
  },
  {
   "id": "the-doors-love-me-two-times",
   "artist": "The Doors",
   "title": "Love Me Two Times",
   "year": 1967,
-  "spotifyId": "4O2o87FXqkrz2dJrr4HGK1"
+  "spotifyId": "4O2o87FXqkrz2dJrr4HGK1",
+  "deezerId": 3614146
  },
  {
   "id": "roy-orbison-oh-pretty-woman",
   "artist": "Roy Orbison",
   "title": "Oh, Pretty Woman",
   "year": 1964,
-  "spotifyId": "48i055G1OT5KxGGftwFxWy"
+  "spotifyId": "48i055G1OT5KxGGftwFxWy",
+  "deezerId": 78033230
  },
  {
   "id": "cliff-richard-congratulations",
   "artist": "Cliff Richard",
   "title": "Congratulations",
   "year": 1968,
-  "spotifyId": "2qs5ZcLByNTctJKbhAZ9JE"
+  "spotifyId": "2qs5ZcLByNTctJKbhAZ9JE",
+  "deezerId": 3124130
  },
  {
   "id": "buffalo-springfield-for-what-it-s-worth",
   "artist": "Buffalo Springfield",
   "title": "For What It's Worth",
   "year": 1967,
-  "spotifyId": "1qRA5BS78u3gME0loMl9AA"
+  "spotifyId": "1qRA5BS78u3gME0loMl9AA",
+  "deezerId": 3586842
  },
  {
   "id": "cream-sunshine-of-your-love",
@@ -88,28 +99,32 @@
   "artist": "The Band",
   "title": "The Night They Drove Old Dixie Down",
   "year": 1969,
-  "spotifyId": "3R4KSdXIVmVwt08TMSZNPo"
+  "spotifyId": "3R4KSdXIVmVwt08TMSZNPo",
+  "deezerId": 99127688
  },
  {
   "id": "aretha-franklin-think",
   "artist": "Aretha Franklin",
   "title": "Think",
   "year": 1968,
-  "spotifyId": "4yQw7FR9lcvL6RHtegbJBh"
+  "spotifyId": "4yQw7FR9lcvL6RHtegbJBh",
+  "deezerId": 904784
  },
  {
   "id": "the-kinks-waterloo-sunset",
   "artist": "The Kinks",
   "title": "Waterloo Sunset",
   "year": 1967,
-  "spotifyId": "0HfcfN9LpBy8swY7tUOHKE"
+  "spotifyId": "0HfcfN9LpBy8swY7tUOHKE",
+  "deezerId": 3802993412
  },
  {
   "id": "eddie-floyd-knock-on-wood",
   "artist": "Eddie Floyd",
   "title": "Knock on Wood",
   "year": 1966,
-  "spotifyId": "3YJx77Xx8JSwEoxqrkQO5c"
+  "spotifyId": "3YJx77Xx8JSwEoxqrkQO5c",
+  "deezerId": 724607
  },
  {
   "id": "tommy-james-the-shondells-i-think-we-re-alone-now",
@@ -123,49 +138,56 @@
   "artist": "Canned Heat",
   "title": "On the Road Again",
   "year": 1968,
-  "spotifyId": "1GwdWdvSumgsgKorY9qA2g"
+  "spotifyId": "1GwdWdvSumgsgKorY9qA2g",
+  "deezerId": 3718490122
  },
  {
   "id": "lesley-gore-you-don-t-own-me",
   "artist": "Lesley Gore",
   "title": "You Don't Own Me",
   "year": 1963,
-  "spotifyId": "2fleLVES1vmOOZWrE7i4sl"
+  "spotifyId": "2fleLVES1vmOOZWrE7i4sl",
+  "deezerId": 24161451
  },
  {
   "id": "the-rolling-stones-out-of-time",
   "artist": "The Rolling Stones",
   "title": "Out of Time",
   "year": 1966,
-  "spotifyId": "5RFYhFsx88Ged9UNmv5ORj"
+  "spotifyId": "5RFYhFsx88Ged9UNmv5ORj",
+  "deezerId": 9956033
  },
  {
   "id": "cream-white-room",
   "artist": "Cream",
   "title": "White Room",
   "year": 1968,
-  "spotifyId": "4eAtLSxLcIs0Ro4iRaEfqH"
+  "spotifyId": "4eAtLSxLcIs0Ro4iRaEfqH",
+  "deezerId": 4063028981
  },
  {
   "id": "the-kinks-all-day-and-all-of-the-night",
   "artist": "The Kinks",
   "title": "All Day and All of the Night",
   "year": 1964,
-  "spotifyId": "78JmElAFmrPNhLjovDR9Jm"
+  "spotifyId": "78JmElAFmrPNhLjovDR9Jm",
+  "deezerId": 3786363902
  },
  {
   "id": "the-animals-boom-boom",
   "artist": "The Animals",
   "title": "Boom Boom",
   "year": 1962,
-  "spotifyId": "0oUIlpJhF6UE7rNlFS2cxP"
+  "spotifyId": "0oUIlpJhF6UE7rNlFS2cxP",
+  "deezerId": 107659974
  },
  {
   "id": "the-spencer-davis-group-gimme-some-lovin",
   "artist": "The Spencer Davis Group",
   "title": "Gimme Some Lovin'",
   "year": 1966,
-  "spotifyId": "3yobZXbEQQJq7wBazWGDVg"
+  "spotifyId": "3yobZXbEQQJq7wBazWGDVg",
+  "deezerId": 71414429
  },
  {
   "id": "frankie-valli-the-sun-ain-t-gonna-shine-anymore",
@@ -179,28 +201,32 @@
   "artist": "Engelbert Humperdinck",
   "title": "The Last Waltz",
   "year": 1967,
-  "spotifyId": "0mU0uypNXDRrZjS9LUbP4F"
+  "spotifyId": "0mU0uypNXDRrZjS9LUbP4F",
+  "deezerId": 361102651
  },
  {
   "id": "the-jimi-hendrix-experience-crosstown-traffic",
   "artist": "The Jimi Hendrix Experience",
   "title": "Crosstown Traffic",
   "year": 1968,
-  "spotifyId": "1ntxpzIUbSsizvuAy6lTYY"
+  "spotifyId": "1ntxpzIUbSsizvuAy6lTYY",
+  "deezerId": 4952891
  },
  {
   "id": "shirley-bassey-goldfinger",
   "artist": "Shirley Bassey",
   "title": "Goldfinger",
   "year": 1964,
-  "spotifyId": "6ATunTBDuVTPAb3k33Fmlv"
+  "spotifyId": "6ATunTBDuVTPAb3k33Fmlv",
+  "deezerId": 3276735
  },
  {
   "id": "the-velvet-underground-white-light-white-heat",
   "artist": "The Velvet Underground",
   "title": "White Light/White Heat",
   "year": 1968,
-  "spotifyId": "0Evhu0dKCkIuEn88Pmb9mj"
+  "spotifyId": "0Evhu0dKCkIuEn88Pmb9mj",
+  "deezerId": 540154072
  },
  {
   "id": "deep-purple-kentucky-woman",
@@ -214,7 +240,8 @@
   "artist": "Bobby Vinton",
   "title": "Roses Are Red",
   "year": 1962,
-  "spotifyId": "2onW6h6phl4SKSiBqLWgit"
+  "spotifyId": "2onW6h6phl4SKSiBqLWgit",
+  "deezerId": 1693037257
  },
  {
   "id": "fleetwood-mac-albatross",
@@ -228,21 +255,24 @@
   "artist": "The Drifters",
   "title": "Under the Boardwalk",
   "year": 1964,
-  "spotifyId": "12eh3HmFnWCnMhDkg7AqAj"
+  "spotifyId": "12eh3HmFnWCnMhDkg7AqAj",
+  "deezerId": 676880
  },
  {
   "id": "crosby-stills-nash-suite-judy-blue-eyes",
   "artist": "Crosby, Stills & Nash",
   "title": "Suite: Judy Blue Eyes",
   "year": 1969,
-  "spotifyId": "3EuAes08Me9nlJP71ATTIJ"
+  "spotifyId": "3EuAes08Me9nlJP71ATTIJ",
+  "deezerId": 3590415
  },
  {
   "id": "nat-king-cole-l-o-v-e",
   "artist": "Nat King Cole",
   "title": "L-O-V-E",
   "year": 1964,
-  "spotifyId": "7E3rc13GL2I5wA6CIFXaxs"
+  "spotifyId": "7E3rc13GL2I5wA6CIFXaxs",
+  "deezerId": 3158377
  },
  {
   "id": "martha-and-the-vandellas-nowhere-to-run",
@@ -256,35 +286,40 @@
   "artist": "Arthur Conley",
   "title": "Sweet Soul Music",
   "year": 1967,
-  "spotifyId": "2YuIyYri67bgUXKQW5V9XW"
+  "spotifyId": "2YuIyYri67bgUXKQW5V9XW",
+  "deezerId": 6630762
  },
  {
   "id": "the-hollies-bus-stop",
   "artist": "The Hollies",
   "title": "Bus Stop",
   "year": 1966,
-  "spotifyId": "4SF4jHFuGGXOvR3eeHgCjl"
+  "spotifyId": "4SF4jHFuGGXOvR3eeHgCjl",
+  "deezerId": 3358792
  },
  {
   "id": "barbra-streisand-people",
   "artist": "Barbra Streisand",
   "title": "People",
   "year": 1964,
-  "spotifyId": "0s7UEtczBGK68zYCi1y6W8"
+  "spotifyId": "0s7UEtczBGK68zYCi1y6W8",
+  "deezerId": 15217125
  },
  {
   "id": "the-lovin-spoonful-do-you-believe-in-magic",
   "artist": "The Lovin' Spoonful",
   "title": "Do You Believe in Magic",
   "year": 1965,
-  "spotifyId": "33qeTTVK0MglB4QaiPS00E"
+  "spotifyId": "33qeTTVK0MglB4QaiPS00E",
+  "deezerId": 970592
  },
  {
   "id": "the-rascals-mustang-sally",
   "artist": "Wilson Pickett",
   "title": "Mustang Sally",
   "year": 1966,
-  "spotifyId": "5SectrIpir82CkWijPcUkW"
+  "spotifyId": "5SectrIpir82CkWijPcUkW",
+  "deezerId": 676208
  },
  {
   "id": "ray-charles-unchain-my-heart",
@@ -298,343 +333,392 @@
   "artist": "Canned Heat",
   "title": "Going Up the Country",
   "year": 1968,
-  "spotifyId": "6MmEhuhrGUoMgfOzwqMyn5"
+  "spotifyId": "6MmEhuhrGUoMgfOzwqMyn5",
+  "deezerId": 3151773
  },
  {
   "id": "wilson-pickett-in-the-midnight-hour",
   "artist": "Wilson Pickett",
   "title": "In the Midnight Hour",
   "year": 1965,
-  "spotifyId": "4NRQwaks9r58tTDvr4iEyv"
+  "spotifyId": "4NRQwaks9r58tTDvr4iEyv",
+  "deezerId": 39056731
  },
  {
   "id": "jimmy-ruffin-what-becomes-of-the-brokenhearted",
   "artist": "Jimmy Ruffin",
   "title": "What Becomes of the Brokenhearted",
   "year": 1966,
-  "spotifyId": "5OkzRtqPZNpYTXNKg76B9l"
+  "spotifyId": "5OkzRtqPZNpYTXNKg76B9l",
+  "deezerId": 78932979
  },
  {
   "id": "george-baker-selection-little-green-bag",
   "artist": "George Baker Selection",
   "title": "Little Green Bag",
   "year": 1969,
-  "spotifyId": "20jhZ58fJ7xTkTudhxrWQg"
+  "spotifyId": "20jhZ58fJ7xTkTudhxrWQg",
+  "deezerId": 25592431
  },
  {
   "id": "roy-orbison-it-s-over",
   "artist": "Roy Orbison",
   "title": "It's Over",
   "year": 1964,
-  "spotifyId": "0Tbc0KipAAkNHUy74XnSmn"
+  "spotifyId": "0Tbc0KipAAkNHUy74XnSmn",
+  "deezerId": 134945688
  },
  {
   "id": "jethro-tull-living-in-the-past",
   "artist": "Jethro Tull",
   "title": "Living in the Past",
   "year": 1969,
-  "spotifyId": "4a5pd1SqdpXBWl5YXRscrc"
+  "spotifyId": "4a5pd1SqdpXBWl5YXRscrc",
+  "deezerId": 3100967
  },
  {
   "id": "the-animals-it-s-my-life",
   "artist": "The Animals",
   "title": "It's My Life",
   "year": 1965,
-  "spotifyId": "2IXGIhLcTl5WsCcFYuq3Tt"
+  "spotifyId": "2IXGIhLcTl5WsCcFYuq3Tt",
+  "deezerId": 107659982
  },
  {
   "id": "cliff-richard-bachelor-boy",
   "artist": "Cliff Richard & The Shadows",
   "title": "Bachelor Boy",
   "year": 1962,
-  "spotifyId": "6GrY1BDckCW9KnEmMDgSWH"
+  "spotifyId": "6GrY1BDckCW9KnEmMDgSWH",
+  "deezerId": 3124114
  },
  {
   "id": "the-isley-brothers-this-old-heart-of-mine-is-weak-for-you",
   "artist": "The Isley Brothers",
   "title": "This Old Heart of Mine (Is Weak for You)",
   "year": 1966,
-  "spotifyId": "254CRoIVJWVggENjozJjxa"
+  "spotifyId": "254CRoIVJWVggENjozJjxa",
+  "deezerId": 119828116
  },
  {
   "id": "the-lovin-spoonful-daydream",
   "artist": "The Lovin' Spoonful",
   "title": "Daydream",
   "year": 1966,
-  "spotifyId": "7CZYm6y6nqZSeq81dk8cXi"
+  "spotifyId": "7CZYm6y6nqZSeq81dk8cXi",
+  "deezerId": 970192
  },
  {
   "id": "the-specials-a-message-to-you-rudy",
   "artist": "Dandy Livingstone",
   "title": "A Message to You, Rudy",
   "year": 1967,
-  "spotifyId": "4gukGozFOurNmDXZzgQHaP"
+  "spotifyId": "4gukGozFOurNmDXZzgQHaP",
+  "deezerId": 437430642
  },
  {
   "id": "the-hollies-i-can-t-let-go",
   "artist": "The Hollies",
   "title": "I Can't Let Go",
   "year": 1966,
-  "spotifyId": "1HbRAAzSndGFyrEpf57iaN"
+  "spotifyId": "1HbRAAzSndGFyrEpf57iaN",
+  "deezerId": 11220920
  },
  {
   "id": "sly-and-the-family-stone-i-want-to-take-you-higher",
   "artist": "Sly and the Family Stone",
   "title": "I Want to Take You Higher",
   "year": 1969,
-  "spotifyId": "6QzDYLWEh3C2V1OXQmizg5"
+  "spotifyId": "6QzDYLWEh3C2V1OXQmizg5",
+  "deezerId": 857960
  },
  {
   "id": "sly-and-the-family-stone-thank-you-falettinme-be-mice-elf-agin",
   "artist": "Sly and the Family Stone",
   "title": "Thank You (Falettinme Be Mice Elf Agin)",
   "year": 1969,
-  "spotifyId": "06diaBBuLvLGjMIVTIzAnM"
+  "spotifyId": "06diaBBuLvLGjMIVTIzAnM",
+  "deezerId": 3220015471
  },
  {
   "id": "sly-and-the-family-stone-dance-to-the-music",
   "artist": "Sly and the Family Stone",
   "title": "Dance to the Music",
   "year": 1968,
-  "spotifyId": "2eDTkBl2b4OMPXPpudNroM"
+  "spotifyId": "2eDTkBl2b4OMPXPpudNroM",
+  "deezerId": 534574
  },
  {
   "id": "cliff-richard-please-don-t-tease",
   "artist": "Cliff Richard & The Shadows",
   "title": "Please Don't Tease",
   "year": 1960,
-  "spotifyId": "2GzAfAxTX7TR4crqsjvUcK"
+  "spotifyId": "2GzAfAxTX7TR4crqsjvUcK",
+  "deezerId": 3124104
  },
  {
   "id": "nat-king-cole-ramblin-rose",
   "artist": "Nat King Cole",
   "title": "Ramblin' Rose",
   "year": 1962,
-  "spotifyId": "6bZlab0NrNteVppLu9C2Zy"
+  "spotifyId": "6bZlab0NrNteVppLu9C2Zy",
+  "deezerId": 3232783
  },
  {
   "id": "the-move-flowers-in-the-rain",
   "artist": "The Move",
   "title": "Flowers in the Rain",
   "year": 1967,
-  "spotifyId": "150Pg3gbysQH15uBf8ltj7"
+  "spotifyId": "150Pg3gbysQH15uBf8ltj7",
+  "deezerId": 2391903345
  },
  {
   "id": "the-shadows-the-young-ones",
   "artist": "Cliff Richard & The Shadows",
   "title": "The Young Ones",
   "year": 1962,
-  "spotifyId": "0oOeSzS9m2ytkfcgCez5zW"
+  "spotifyId": "0oOeSzS9m2ytkfcgCez5zW",
+  "deezerId": 3124110
  },
  {
   "id": "mary-wells-my-guy",
   "artist": "Mary Wells",
   "title": "My Guy",
   "year": 1964,
-  "spotifyId": "4591VqUIXysNlmI5NcAIUd"
+  "spotifyId": "4591VqUIXysNlmI5NcAIUd",
+  "deezerId": 79083540
  },
  {
   "id": "eddie-cochran-three-steps-to-heaven",
   "artist": "Eddie Cochran",
   "title": "Three Steps to Heaven",
   "year": 1960,
-  "spotifyId": "58Klz81bIPwxLZ3EZzlEs3"
+  "spotifyId": "58Klz81bIPwxLZ3EZzlEs3",
+  "deezerId": 3446003
  },
  {
   "id": "fontella-bass-rescue-me",
   "artist": "Fontella Bass",
   "title": "Rescue Me",
   "year": 1965,
-  "spotifyId": "3RgRyAUWQevozZjzXFNuOD"
+  "spotifyId": "3RgRyAUWQevozZjzXFNuOD",
+  "deezerId": 649747872
  },
  {
   "id": "neil-diamond-cherry-cherry",
   "artist": "Neil Diamond",
   "title": "Cherry, Cherry",
   "year": 1966,
-  "spotifyId": "1tYSzIfeb3EX7jRzuaIyMo"
+  "spotifyId": "1tYSzIfeb3EX7jRzuaIyMo",
+  "deezerId": 529949911
  },
  {
   "id": "van-morrison-brown-eyed-girl",
   "artist": "Van Morrison",
   "title": "Brown Eyed Girl",
   "year": 1967,
-  "spotifyId": "4CNL4GBNTdVIU5Nk6hB4LC"
+  "spotifyId": "4CNL4GBNTdVIU5Nk6hB4LC",
+  "deezerId": 71647249
  },
  {
   "id": "the-ronettes-be-my-baby",
   "artist": "The Ronettes",
   "title": "Be My Baby",
   "year": 1963,
-  "spotifyId": "1WN4uNclrDuczTO3bCr8s1"
+  "spotifyId": "1WN4uNclrDuczTO3bCr8s1",
+  "deezerId": 455992212
  },
  {
   "id": "frankie-valli-can-t-take-my-eyes-off-you",
   "artist": "Frankie Valli",
   "title": "Can't Take My Eyes Off You",
   "year": 1967,
-  "spotifyId": "1WGWauvubSyDZYSCGqZt1k"
+  "spotifyId": "1WGWauvubSyDZYSCGqZt1k",
+  "deezerId": 725689
  },
  {
   "id": "led-zeppelin-whole-lotta-love",
   "artist": "Led Zeppelin",
   "title": "Whole Lotta Love",
   "year": 1969,
-  "spotifyId": "0hCB0YR03f6AmQaHbwWDe8"
+  "spotifyId": "0hCB0YR03f6AmQaHbwWDe8",
+  "deezerId": 78671026
  },
  {
   "id": "simon-garfunkel-mrs-robinson",
   "artist": "Simon & Garfunkel",
   "title": "Mrs. Robinson",
   "year": 1968,
-  "spotifyId": "0iOZM63lendWRTTeKhZBSC"
+  "spotifyId": "0iOZM63lendWRTTeKhZBSC",
+  "deezerId": 717247842
  },
  {
   "id": "the-foundations-build-me-up-buttercup",
   "artist": "The Foundations",
   "title": "Build Me Up Buttercup",
   "year": 1968,
-  "spotifyId": "1tfZtA15BfJHQTUy3dqTKC"
+  "spotifyId": "1tfZtA15BfJHQTUy3dqTKC",
+  "deezerId": 3813135572
  },
  {
   "id": "stevie-wonder-for-once-in-my-life",
   "artist": "Stevie Wonder",
   "title": "For Once in My Life",
   "year": 1968,
-  "spotifyId": "427GV41hHTruW8xvkIFfEi"
+  "spotifyId": "427GV41hHTruW8xvkIFfEi",
+  "deezerId": 6821064
  },
  {
   "id": "the-kinks-you-really-got-me",
   "artist": "The Kinks",
   "title": "You Really Got Me",
   "year": 1964,
-  "spotifyId": "3BjNfUum237WPkFvmxc3Ht"
+  "spotifyId": "3BjNfUum237WPkFvmxc3Ht",
+  "deezerId": 2319655705
  },
  {
   "id": "james-brown-i-got-you-i-feel-good",
   "artist": "James Brown",
   "title": "I Got You (I Feel Good)",
   "year": 1965,
-  "spotifyId": "3W6tpkLXqOP5CApUCbKm1Z"
+  "spotifyId": "3W6tpkLXqOP5CApUCbKm1Z",
+  "deezerId": 598055772
  },
  {
   "id": "the-zombies-time-of-the-season",
   "artist": "The Zombies",
   "title": "Time of the Season",
   "year": 1968,
-  "spotifyId": "6ub8sQIKHkyYK4KlB9gbxh"
+  "spotifyId": "6ub8sQIKHkyYK4KlB9gbxh",
+  "deezerId": 112325658
  },
  {
   "id": "booker-t-the-m-g-s-green-onions",
   "artist": "Booker T. & the M.G.'s",
   "title": "Green Onions",
   "year": 1962,
-  "spotifyId": "3Qu7jb5r6ogYJQqKRbBlEw"
+  "spotifyId": "3Qu7jb5r6ogYJQqKRbBlEw",
+  "deezerId": 358680521
  },
  {
   "id": "the-beach-boys-little-saint-nick",
   "artist": "The Beach Boys",
   "title": "Little Saint Nick",
   "year": 1963,
-  "spotifyId": "606oZBUwOnz47Ei6P8IGgG"
+  "spotifyId": "606oZBUwOnz47Ei6P8IGgG",
+  "deezerId": 3253485
  },
  {
   "id": "sam-dave-hold-on-i-m-comin",
   "artist": "Sam & Dave",
   "title": "Hold On, I'm Comin'",
   "year": 1966,
-  "spotifyId": "6PgVDY8GTkxF3GmhVGPzoB"
+  "spotifyId": "6PgVDY8GTkxF3GmhVGPzoB",
+  "deezerId": 687923
  },
  {
   "id": "steppenwolf-magic-carpet-ride",
   "artist": "Steppenwolf",
   "title": "Magic Carpet Ride",
   "year": 1968,
-  "spotifyId": "4c4jJJoaiY21t2TyRZgdWS"
+  "spotifyId": "4c4jJJoaiY21t2TyRZgdWS",
+  "deezerId": 540201372
  },
  {
   "id": "aretha-franklin-you-make-me-feel-like-a-natural-woman",
   "artist": "Aretha Franklin",
   "title": "(You Make Me Feel Like) A Natural Woman",
   "year": 1967,
-  "spotifyId": "4J0I490wZJa7JcrGPwNhQJ"
+  "spotifyId": "4J0I490wZJa7JcrGPwNhQJ",
+  "deezerId": 761700352
  },
  {
   "id": "elvis-presley-a-little-less-conversation",
   "artist": "Elvis Presley",
   "title": "A Little Less Conversation",
   "year": 1968,
-  "spotifyId": "0dWEPUSvDyZAFwYKzq7Kir"
+  "spotifyId": "0dWEPUSvDyZAFwYKzq7Kir",
+  "deezerId": 15435390
  },
  {
   "id": "james-brown-it-s-a-man-s-man-s-man-s-world",
   "artist": "James Brown",
   "title": "It's a Man's Man's Man's World",
   "year": 1966,
-  "spotifyId": "3BcH252CGECgOWfKBjAaBC"
+  "spotifyId": "3BcH252CGECgOWfKBjAaBC",
+  "deezerId": 31043911
  },
  {
   "id": "stevie-wonder-what-christmas-means-to-me",
   "artist": "Stevie Wonder",
   "title": "What Christmas Means to Me",
   "year": 1967,
-  "spotifyId": "7xZsOJBebpV9lsX3XUV7x3"
+  "spotifyId": "7xZsOJBebpV9lsX3XUV7x3",
+  "deezerId": 608695002
  },
  {
   "id": "chubby-checker-let-s-twist-again",
   "artist": "Chubby Checker",
   "title": "Let's Twist Again",
   "year": 1961,
-  "spotifyId": "4LiP0HRW8NuDXGxidCKAZI"
+  "spotifyId": "4LiP0HRW8NuDXGxidCKAZI",
+  "deezerId": 2800163
  },
  {
   "id": "etta-james-something-s-got-a-hold-on-me",
   "artist": "Etta James",
   "title": "Something's Got a Hold on Me",
   "year": 1962,
-  "spotifyId": "6EAlFsajDK1PVgfhdJbS5Y"
+  "spotifyId": "6EAlFsajDK1PVgfhdJbS5Y",
+  "deezerId": 2231638
  },
  {
   "id": "bobby-hebb-sunny",
   "artist": "Bobby Hebb",
   "title": "Sunny",
   "year": 1966,
-  "spotifyId": "4vju55Ag7apDL2CfotuE7Q"
+  "spotifyId": "4vju55Ag7apDL2CfotuE7Q",
+  "deezerId": 1175777
  },
  {
   "id": "the-righteous-brothers-you-ve-lost-that-lovin-feelin",
   "artist": "The Righteous Brothers",
   "title": "You've Lost That Lovin' Feelin'",
   "year": 1964,
-  "spotifyId": "6AeyHqzNHJthYJbn0tvJ4b"
+  "spotifyId": "6AeyHqzNHJthYJbn0tvJ4b",
+  "deezerId": 4154767032
  },
  {
   "id": "the-temptations-ain-t-too-proud-to-beg",
   "artist": "The Temptations",
   "title": "Ain't Too Proud to Beg",
   "year": 1966,
-  "spotifyId": "0EhKS8KhAJndQ9UY9s3oXX"
+  "spotifyId": "0EhKS8KhAJndQ9UY9s3oXX",
+  "deezerId": 598080652
  },
  {
   "id": "the-doors-touch-me",
   "artist": "The Doors",
   "title": "Touch Me",
   "year": 1968,
-  "spotifyId": "4BVE5tIIpYabZcYCbephNW"
+  "spotifyId": "4BVE5tIIpYabZcYCbephNW",
+  "deezerId": 3614136
  },
  {
   "id": "stevie-wonder-uptight-everything-s-alright",
   "artist": "Stevie Wonder",
   "title": "Uptight (Everything's Alright)",
   "year": 1965,
-  "spotifyId": "45AplSG9SRs0dwvrB8RufC"
+  "spotifyId": "45AplSG9SRs0dwvrB8RufC",
+  "deezerId": 538709512
  },
  {
   "id": "the-four-seasons-sherry",
   "artist": "The Four Seasons",
   "title": "Sherry",
   "year": 1962,
-  "spotifyId": "31owMfJFIIanSzCwaNBJMP"
+  "spotifyId": "31owMfJFIIanSzCwaNBJMP",
+  "deezerId": 1693037507
  },
  {
   "id": "bobby-pickett-monster-mash",
@@ -648,308 +732,352 @@
   "artist": "Dionne Warwick",
   "title": "Walk On By",
   "year": 1964,
-  "spotifyId": "3xsOtNxtBW0oTI1OWKAzTm"
+  "spotifyId": "3xsOtNxtBW0oTI1OWKAzTm",
+  "deezerId": 659255122
  },
  {
   "id": "the-troggs-wild-thing",
   "artist": "The Troggs",
   "title": "Wild Thing",
   "year": 1966,
-  "spotifyId": "269YFW5U6P4JViDkzQ4QRK"
+  "spotifyId": "269YFW5U6P4JViDkzQ4QRK",
+  "deezerId": 729595152
  },
  {
   "id": "john-lee-hooker-boom-boom",
   "artist": "John Lee Hooker",
   "title": "Boom Boom",
   "year": 1962,
-  "spotifyId": "2Mr1bGI2E10K7Mt1UJZ6Mw"
+  "spotifyId": "2Mr1bGI2E10K7Mt1UJZ6Mw",
+  "deezerId": 12291998
  },
  {
   "id": "the-temptations-get-ready",
   "artist": "The Temptations",
   "title": "Get Ready",
   "year": 1966,
-  "spotifyId": "3W0aD18RFO3i4IEfefpsp4"
+  "spotifyId": "3W0aD18RFO3i4IEfefpsp4",
+  "deezerId": 7380053
  },
  {
   "id": "j-j-cale-after-midnight",
   "artist": "J.J. Cale",
   "title": "After Midnight",
   "year": 1966,
-  "spotifyId": "20pdPhoVXGnhjfzBntCAku"
+  "spotifyId": "20pdPhoVXGnhjfzBntCAku",
+  "deezerId": 1172218
  },
  {
   "id": "the-beatles-if-i-fell",
   "artist": "The Beatles",
   "title": "If I Fell",
   "year": 1964,
-  "spotifyId": "1hgvykolO4kBIEozATmpyj"
+  "spotifyId": "1hgvykolO4kBIEozATmpyj",
+  "deezerId": 116348430
  },
  {
   "id": "the-isley-brothers-it-s-your-thing",
   "artist": "The Isley Brothers",
   "title": "It's Your Thing",
   "year": 1969,
-  "spotifyId": "3ZxfehzRtB3oJcBuxWXFZQ"
+  "spotifyId": "3ZxfehzRtB3oJcBuxWXFZQ",
+  "deezerId": 105515976
  },
  {
   "id": "aretha-franklin-chain-of-fools",
   "artist": "Aretha Franklin",
   "title": "Chain of Fools",
   "year": 1967,
-  "spotifyId": "59iDKMurdNQekujZtUQOlv"
+  "spotifyId": "59iDKMurdNQekujZtUQOlv",
+  "deezerId": 2133614
  },
  {
   "id": "james-brown-papa-s-got-a-brand-new-bag",
   "artist": "James Brown",
   "title": "Papa's Got a Brand New Bag",
   "year": 1965,
-  "spotifyId": "5TCUKop09kkEVafBqSXT6s"
+  "spotifyId": "5TCUKop09kkEVafBqSXT6s",
+  "deezerId": 64721459
  },
  {
   "id": "sam-cooke-twistin-the-night-away",
   "artist": "Sam Cooke",
   "title": "Twistin' the Night Away",
   "year": 1962,
-  "spotifyId": "364s5U3vBGBrtWJpFWZkGm"
+  "spotifyId": "364s5U3vBGBrtWJpFWZkGm",
+  "deezerId": 71190932
  },
  {
   "id": "the-miracles-i-second-that-emotion",
   "artist": "The Miracles",
   "title": "I Second That Emotion",
   "year": 1967,
-  "spotifyId": "70IEcHfyWj9dOZWqhRAv9q"
+  "spotifyId": "70IEcHfyWj9dOZWqhRAv9q",
+  "deezerId": 1563776
  },
  {
   "id": "the-beach-boys-california-girls",
   "artist": "The Beach Boys",
   "title": "California Girls",
   "year": 1965,
-  "spotifyId": "12MpjrMqrvZYxEb4NkHWvI"
+  "spotifyId": "12MpjrMqrvZYxEb4NkHWvI",
+  "deezerId": 3166713
  },
  {
   "id": "santana-evil-ways",
   "artist": "Santana",
   "title": "Evil Ways",
   "year": 1969,
-  "spotifyId": "5tmrnhMxx39jnu3kjopMdP"
+  "spotifyId": "5tmrnhMxx39jnu3kjopMdP",
+  "deezerId": 81001880
  },
  {
   "id": "louis-prima-i-wan-na-be-like-you",
   "artist": "Louis Prima",
   "title": "I Wan'na Be Like You",
   "year": 1967,
-  "spotifyId": "6FJmVOcQPaRYGiJQRIpWAL"
+  "spotifyId": "6FJmVOcQPaRYGiJQRIpWAL",
+  "deezerId": 1987106287
  },
  {
   "id": "the-four-seasons-big-girls-don-t-cry",
   "artist": "The Four Seasons",
   "title": "Big Girls Don't Cry",
   "year": 1962,
-  "spotifyId": "7KBn0mQYtuZhknEsjy3QoI"
+  "spotifyId": "7KBn0mQYtuZhknEsjy3QoI",
+  "deezerId": 725620
  },
  {
   "id": "neil-sedaka-breaking-up-is-hard-to-do",
   "artist": "Neil Sedaka",
   "title": "Breaking Up Is Hard to Do",
   "year": 1962,
-  "spotifyId": "2uzXuyNJzGNhRzxEzQmD7I"
+  "spotifyId": "2uzXuyNJzGNhRzxEzQmD7I",
+  "deezerId": 2407563205
  },
  {
   "id": "the-temptations-the-way-you-do-the-things-you-do",
   "artist": "The Temptations",
   "title": "The Way You Do the Things You Do",
   "year": 1964,
-  "spotifyId": "1QvTEJToxfXuQJSLw5atZO"
+  "spotifyId": "1QvTEJToxfXuQJSLw5atZO",
+  "deezerId": 7375117
  },
  {
   "id": "louis-armstrong-hello-dolly",
   "artist": "Louis Armstrong",
   "title": "Hello, Dolly!",
   "year": 1964,
-  "spotifyId": "63kd4m3VFxcJjPVVtbVNAu"
+  "spotifyId": "63kd4m3VFxcJjPVVtbVNAu",
+  "deezerId": 942213762
  },
  {
   "id": "patsy-cline-i-fall-to-pieces",
   "artist": "Patsy Cline",
   "title": "I Fall to Pieces",
   "year": 1961,
-  "spotifyId": "4GSMAsL9wBNGgeNfLOW6Ph"
+  "spotifyId": "4GSMAsL9wBNGgeNfLOW6Ph",
+  "deezerId": 3001601301
  },
  {
   "id": "the-chiffons-one-fine-day",
   "artist": "The Chiffons",
   "title": "One Fine Day",
   "year": 1963,
-  "spotifyId": "5Yf26TduMqHITyOsPS3QhW"
+  "spotifyId": "5Yf26TduMqHITyOsPS3QhW",
+  "deezerId": 3252094
  },
  {
   "id": "the-5th-dimension-aquarius-let-the-sunshine-in",
   "artist": "The 5th Dimension",
   "title": "Aquarius/Let the Sunshine In",
   "year": 1969,
-  "spotifyId": "0HZlND4giwzgolBpaNIRGV"
+  "spotifyId": "0HZlND4giwzgolBpaNIRGV",
+  "deezerId": 13144557
  },
  {
   "id": "herman-s-hermits-i-m-into-something-good",
   "artist": "Herman's Hermits",
   "title": "I'm into Something Good",
   "year": 1964,
-  "spotifyId": "4Vng7f02Hz7XvPFsC1qFjl"
+  "spotifyId": "4Vng7f02Hz7XvPFsC1qFjl",
+  "deezerId": 3177416501
  },
  {
   "id": "the-four-seasons-walk-like-a-man",
   "artist": "The Four Seasons",
   "title": "Walk Like a Man",
   "year": 1963,
-  "spotifyId": "5rBnnCjd3nJP9gJIdKjAO9"
+  "spotifyId": "5rBnnCjd3nJP9gJIdKjAO9",
+  "deezerId": 725627
  },
  {
   "id": "peter-paul-and-mary-puff-the-magic-dragon",
   "artist": "Peter, Paul and Mary",
   "title": "Puff, the Magic Dragon",
   "year": 1963,
-  "spotifyId": "5I6Ql8GtHPfXmvykhHDCNx"
+  "spotifyId": "5I6Ql8GtHPfXmvykhHDCNx",
+  "deezerId": 75457214
  },
  {
   "id": "donovan-hurdy-gurdy-man",
   "artist": "Donovan",
   "title": "Hurdy Gurdy Man",
   "year": 1968,
-  "spotifyId": "4iPmoEO9WdWFMgEMNkoyvJ"
+  "spotifyId": "4iPmoEO9WdWFMgEMNkoyvJ",
+  "deezerId": 1064295
  },
  {
   "id": "the-beach-boys-fun-fun-fun",
   "artist": "The Beach Boys",
   "title": "Fun, Fun, Fun",
   "year": 1964,
-  "spotifyId": "0zpSxRMkSx3yj3gBEGWNb1"
+  "spotifyId": "0zpSxRMkSx3yj3gBEGWNb1",
+  "deezerId": 3091967
  },
  {
   "id": "the-kinks-a-well-respected-man",
   "artist": "The Kinks",
   "title": "A Well Respected Man",
   "year": 1965,
-  "spotifyId": "6OAc0dmKuXQETrSdb8aVl3"
+  "spotifyId": "6OAc0dmKuXQETrSdb8aVl3",
+  "deezerId": 3794177762
  },
  {
   "id": "the-drifters-up-on-the-roof",
   "artist": "The Drifters",
   "title": "Up on the Roof",
   "year": 1962,
-  "spotifyId": "3qfKwjqbVAanebsoPhi4it"
+  "spotifyId": "3qfKwjqbVAanebsoPhi4it",
+  "deezerId": 676896
  },
  {
   "id": "lesley-gore-sunshine-lollipops-and-rainbows",
   "artist": "Lesley Gore",
   "title": "Sunshine, Lollipops and Rainbows",
   "year": 1965,
-  "spotifyId": "0AZb6ryK8LsFcvY1jWHO61"
+  "spotifyId": "0AZb6ryK8LsFcvY1jWHO61",
+  "deezerId": 131743194
  },
  {
   "id": "adriano-celentano-il-ragazzo-della-via-gluck",
   "artist": "Adriano Celentano",
   "title": "Il ragazzo della via Gluck",
   "year": 1966,
-  "spotifyId": "33qXZK7eTBcFhtyVa4JcVT"
+  "spotifyId": "33qXZK7eTBcFhtyVa4JcVT",
+  "deezerId": 3058273411
  },
  {
   "id": "elvis-presley-marie-s-the-name-his-latest-flame",
   "artist": "Elvis Presley",
   "title": "(Marie's the Name) His Latest Flame",
   "year": 1961,
-  "spotifyId": "2pvhQGVgY9J1qbrOdDus5X"
+  "spotifyId": "2pvhQGVgY9J1qbrOdDus5X",
+  "deezerId": 1055478
  },
  {
   "id": "stevie-wonder-i-was-made-to-love-her",
   "artist": "Stevie Wonder",
   "title": "I Was Made to Love Her",
   "year": 1967,
-  "spotifyId": "7iqx86Dkqswx7Hf14IkNq7"
+  "spotifyId": "7iqx86Dkqswx7Hf14IkNq7",
+  "deezerId": 538709402
  },
  {
   "id": "the-yardbirds-heart-full-of-soul",
   "artist": "The Yardbirds",
   "title": "Heart Full of Soul",
   "year": 1965,
-  "spotifyId": "0qN6y7BDZLLDjqoAGKJIOu"
+  "spotifyId": "0qN6y7BDZLLDjqoAGKJIOu",
+  "deezerId": 13021755
  },
  {
   "id": "ike-tina-turner-river-deep-mountain-high-i-ll-keep-you-happy",
   "artist": "Ike & Tina Turner",
   "title": "River Deep - Mountain High / I'll Keep You Happy",
   "year": 1966,
-  "spotifyId": "44BmNSqH9uZV5OfIjGcER3"
+  "spotifyId": "44BmNSqH9uZV5OfIjGcER3",
+  "deezerId": 115704642
  },
  {
   "id": "jackie-wilson-i-get-the-sweetest-feeling",
   "artist": "Jackie Wilson",
   "title": "I Get the Sweetest Feeling",
   "year": 1968,
-  "spotifyId": "7F1eoVZd2ySSJ70iP3PN1m"
+  "spotifyId": "7F1eoVZd2ySSJ70iP3PN1m",
+  "deezerId": 116857734
  },
  {
   "id": "tommy-james-the-shondells-crystal-blue-persuasion",
   "artist": "Tommy James & the Shondells",
   "title": "Crystal Blue Persuasion",
   "year": 1968,
-  "spotifyId": "6FXwTBdpv4wD0G0Sz3Wxn4"
+  "spotifyId": "6FXwTBdpv4wD0G0Sz3Wxn4",
+  "deezerId": 14619490
  },
  {
   "id": "the-shadows-apache",
   "artist": "The Shadows",
   "title": "Apache",
   "year": 1960,
-  "spotifyId": "0sZy1HE2aGBQABHfVRQ4jB"
+  "spotifyId": "0sZy1HE2aGBQABHfVRQ4jB",
+  "deezerId": 3093507
  },
  {
   "id": "aretha-franklin-i-never-loved-a-man-the-way-i-love-you",
   "artist": "Aretha Franklin",
   "title": "I Never Loved a Man (The Way I Love You)",
   "year": 1967,
-  "spotifyId": "1hES47PrbU8GPTI5A9lsr0"
+  "spotifyId": "1hES47PrbU8GPTI5A9lsr0",
+  "deezerId": 2133602
  },
  {
   "id": "the-yardbirds-for-your-love",
   "artist": "The Yardbirds",
   "title": "For Your Love",
   "year": 1965,
-  "spotifyId": "6PYYScrIjbCTUMzt2e92nw"
+  "spotifyId": "6PYYScrIjbCTUMzt2e92nw",
+  "deezerId": 1587110552
  },
  {
   "id": "bobby-vinton-mr-lonely",
   "artist": "Bobby Vinton",
   "title": "Mr. Lonely",
   "year": 1964,
-  "spotifyId": "1PgYN6hOBCpnftBXE1dCux"
+  "spotifyId": "1PgYN6hOBCpnftBXE1dCux",
+  "deezerId": 92982928
  },
  {
   "id": "small-faces-itchycoo-park",
   "artist": "Small Faces",
   "title": "Itchycoo Park",
   "year": 1967,
-  "spotifyId": "5H0laZ62yDUPuKvHef8niK"
+  "spotifyId": "5H0laZ62yDUPuKvHef8niK",
+  "deezerId": 719296262
  },
  {
   "id": "france-gall-poupee-de-cire-poupee-de-son",
   "artist": "France Gall",
   "title": "Poupée de cire, poupée de son",
   "year": 1965,
-  "spotifyId": "0e3LOEZR3NwbbHFGPYr3uQ"
+  "spotifyId": "0e3LOEZR3NwbbHFGPYr3uQ",
+  "deezerId": 639971642
  },
  {
   "id": "the-monkees-last-train-to-clarksville",
   "artist": "The Monkees",
   "title": "Last Train to Clarksville",
   "year": 1966,
-  "spotifyId": "79YI6xs8Kvp4CoOgbuD9sz"
+  "spotifyId": "79YI6xs8Kvp4CoOgbuD9sz",
+  "deezerId": 13549167
  },
  {
   "id": "creedence-clearwater-revival-suzie-q",
   "artist": "Creedence Clearwater Revival",
   "title": "Suzie Q.",
   "year": 1968,
-  "spotifyId": "6Jp0GuFxAYbTdre1uUPgaB"
+  "spotifyId": "6Jp0GuFxAYbTdre1uUPgaB",
+  "deezerId": 1825936627
  },
  {
   "id": "the-everly-brothers-crying-in-the-rain",
@@ -963,20 +1091,23 @@
   "artist": "The Chiffons",
   "title": "He's So Fine",
   "year": 1962,
-  "spotifyId": "2aTgievlQgiNiIZX90fd9p"
+  "spotifyId": "2aTgievlQgiNiIZX90fd9p",
+  "deezerId": 3252093
  },
  {
   "id": "tom-jones-help-yourself",
   "artist": "Tom Jones",
   "title": "Help Yourself",
   "year": 1968,
-  "spotifyId": "5ILqt1uwJGX3dmil1sea1E"
+  "spotifyId": "5ILqt1uwJGX3dmil1sea1E",
+  "deezerId": 2305920
  },
  {
   "id": "the-beach-boys-help-me-rhonda",
   "artist": "The Beach Boys",
   "title": "Help Me, Rhonda",
   "year": 1965,
-  "spotifyId": "4tBFdPrUURShNtgjnjz1uV"
+  "spotifyId": "4tBFdPrUURShNtgjnjz1uV",
+  "deezerId": 3091972
  }
 ]

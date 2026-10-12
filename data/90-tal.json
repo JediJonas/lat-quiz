@@ -4,35 +4,40 @@
   "artist": "Queen",
   "title": "The Show Must Go On",
   "year": 1991,
-  "spotifyId": "0LCWyLFPXIeg1CIC1NS712"
+  "spotifyId": "0LCWyLFPXIeg1CIC1NS712",
+  "deezerId": 4092326741
  },
  {
   "id": "michael-jackson-earth-song",
   "artist": "Michael Jackson",
   "title": "Earth Song",
   "year": 1995,
-  "spotifyId": "2pSccP1kWvZcc9V9vWTfBW"
+  "spotifyId": "2pSccP1kWvZcc9V9vWTfBW",
+  "deezerId": 8164645
  },
  {
   "id": "the-cranberries-zombie",
   "artist": "The Cranberries",
   "title": "Zombie",
   "year": 1994,
-  "spotifyId": "5kWY52e7A2dH11zFeu9nzK"
+  "spotifyId": "5kWY52e7A2dH11zFeu9nzK",
+  "deezerId": 980117
  },
  {
   "id": "michael-jackson-you-are-not-alone",
   "artist": "Michael Jackson",
   "title": "You Are Not Alone",
   "year": 1995,
-  "spotifyId": "3KtIVDOChQMVi3SxHc6RrK"
+  "spotifyId": "3KtIVDOChQMVi3SxHc6RrK",
+  "deezerId": 8164649
  },
  {
   "id": "michael-jackson-they-don-t-care-about-us",
   "artist": "Michael Jackson",
   "title": "They Don't Care About Us",
   "year": 1996,
-  "spotifyId": "3wuCCNCnBhJlwkIJTBZFiv"
+  "spotifyId": "3wuCCNCnBhJlwkIJTBZFiv",
+  "deezerId": 4603398
  },
  {
   "id": "metallica-nothing-else-matters",
@@ -53,70 +58,80 @@
   "artist": "Coolio",
   "title": "Gangsta's Paradise",
   "year": 1995,
-  "spotifyId": "3P2CQ3VbkRJilviCuOGZl4"
+  "spotifyId": "3P2CQ3VbkRJilviCuOGZl4",
+  "deezerId": 1586967592
  },
  {
   "id": "nirvana-come-as-you-are",
   "artist": "Nirvana",
   "title": "Come as You Are",
   "year": 1992,
-  "spotifyId": "2RsAajgo0g7bMCHxwH3Sk0"
+  "spotifyId": "2RsAajgo0g7bMCHxwH3Sk0",
+  "deezerId": 1543592132
  },
  {
   "id": "r-e-m-losing-my-religion",
   "artist": "R.E.M.",
   "title": "Losing My Religion",
   "year": 1991,
-  "spotifyId": "6bCPryuQjsts5cEybA3Nb5"
+  "spotifyId": "6bCPryuQjsts5cEybA3Nb5",
+  "deezerId": 136334560
  },
  {
   "id": "britney-spears-you-drive-me-crazy",
   "artist": "Britney Spears",
   "title": "(You Drive Me) Crazy",
   "year": 1999,
-  "spotifyId": "06DRowADs4L9Udi4mRuOGf"
+  "spotifyId": "06DRowADs4L9Udi4mRuOGf",
+  "deezerId": 540176
  },
  {
   "id": "depeche-mode-enjoy-the-silence",
   "artist": "Depeche Mode",
   "title": "Enjoy the Silence",
   "year": 1990,
-  "spotifyId": "6WK9dVrRABMkUXFLNlgWFh"
+  "spotifyId": "6WK9dVrRABMkUXFLNlgWFh",
+  "deezerId": 68515055
  },
  {
   "id": "rammstein-du-hast",
   "artist": "Rammstein",
   "title": "Du hast",
   "year": 1997,
-  "spotifyId": "5awDvzxWfd53SSrsRZ8pXO"
+  "spotifyId": "5awDvzxWfd53SSrsRZ8pXO",
+  "deezerId": 630595142
  },
  {
   "id": "u2-one",
   "artist": "U2",
   "title": "One",
   "year": 1992,
-  "spotifyId": "2zBirMmlQAIzHGLEfWkYT9"
+  "spotifyId": "2zBirMmlQAIzHGLEfWkYT9",
+  "deezerId": 14343282
  },
  {
   "id": "blur-song-2",
   "artist": "Blur",
   "title": "Song 2",
   "year": 1997,
-  "spotifyId": "1id6H6vcwSB9GGv9NXh5cl"
+  "spotifyId": "1id6H6vcwSB9GGv9NXh5cl",
+  "deezerId": 3102130
  },
  {
   "id": "madonna-you-must-love-me",
   "artist": "Madonna",
   "title": "You Must Love Me",
   "year": 1996,
-  "spotifyId": "0so93w0540zGQohxyf8Fdu"
+  "spotifyId": "0so93w0540zGQohxyf8Fdu",
+  "deezerId": 2794574
  },
  {
   "id": "green-day-basket-case",
   "artist": "Green Day",
   "title": "Basket Case",
   "year": 1994,
-  "spotifyId": "3IVRacQwKGORqcxNEPMXlA"
+  "spotifyId": "3IVRacQwKGORqcxNEPMXlA",
+  "deezerId": 678044
  },
  {
   "id": "metallica-until-it-sleeps",
@@ -130,56 +145,64 @@
   "artist": "Madonna",
   "title": "Ray of Light",
   "year": 1998,
-  "spotifyId": "0vVchT7htyhheP8anAnLMR"
+  "spotifyId": "0vVchT7htyhheP8anAnLMR",
+  "deezerId": 778704
  },
  {
   "id": "christina-aguilera-genie-in-a-bottle",
   "artist": "Christina Aguilera",
   "title": "Genie in a Bottle",
   "year": 1999,
-  "spotifyId": "0E4nanfPDIz7QqUC2pxyt1"
+  "spotifyId": "0E4nanfPDIz7QqUC2pxyt1",
+  "deezerId": 15627386
  },
  {
   "id": "britney-spears-sometimes",
   "artist": "Britney Spears",
   "title": "Sometimes",
   "year": 1999,
-  "spotifyId": "29wNDxsBLNVsajwHGT9y3e"
+  "spotifyId": "29wNDxsBLNVsajwHGT9y3e",
+  "deezerId": 540177
  },
  {
   "id": "madonna-secret",
   "artist": "Madonna",
   "title": "Secret",
   "year": 1994,
-  "spotifyId": "0yv6BYFfviMImtUPwzEXQp"
+  "spotifyId": "0yv6BYFfviMImtUPwzEXQp",
+  "deezerId": 775609
  },
  {
   "id": "nirvana-heart-shaped-box",
   "artist": "Nirvana",
   "title": "Heart-Shaped Box",
   "year": 1993,
-  "spotifyId": "66w5OYw2ja8lnmaA3Ns0PU"
+  "spotifyId": "66w5OYw2ja8lnmaA3Ns0PU",
+  "deezerId": 70466227
  },
  {
   "id": "rammstein-engel",
   "artist": "Rammstein",
   "title": "Engel",
   "year": 1997,
-  "spotifyId": "0xrkyEMkG4dVa5OMLQZOX8"
+  "spotifyId": "0xrkyEMkG4dVa5OMLQZOX8",
+  "deezerId": 630595112
  },
  {
   "id": "the-verve-bitter-sweet-symphony",
   "artist": "The Verve",
   "title": "Bitter Sweet Symphony",
   "year": 1997,
-  "spotifyId": "57iDDD9N9tTWe75x6qhStw"
+  "spotifyId": "57iDDD9N9tTWe75x6qhStw",
+  "deezerId": 398568192
  },
  {
   "id": "rage-against-the-machine-killing-in-the-name",
   "artist": "Rage Against the Machine",
   "title": "Killing in the Name",
   "year": 1992,
-  "spotifyId": "3FUS56gKr9mVBmzvlnodlh"
+  "spotifyId": "3FUS56gKr9mVBmzvlnodlh",
+  "deezerId": 62082829
  },
  {
   "id": "metallica-sad-but-true",
@@ -193,70 +216,80 @@
   "artist": "Whitney Houston",
   "title": "When You Believe",
   "year": 1997,
-  "spotifyId": "2eGxZNPQVTWjXSKazFQOMg"
+  "spotifyId": "2eGxZNPQVTWjXSKazFQOMg",
+  "deezerId": 14882236
  },
  {
   "id": "pearl-jam-jeremy",
   "artist": "Pearl Jam",
   "title": "Jeremy",
   "year": 1992,
-  "spotifyId": "62nQ8UZVqR2RMvkJHkcO2o"
+  "spotifyId": "62nQ8UZVqR2RMvkJHkcO2o",
+  "deezerId": 7675133
  },
  {
   "id": "no-doubt-don-t-speak",
   "artist": "No Doubt",
   "title": "Don't Speak",
   "year": 1996,
-  "spotifyId": "6urCAbunOQI4bLhmGpX7iS"
+  "spotifyId": "6urCAbunOQI4bLhmGpX7iS",
+  "deezerId": 24246391
  },
  {
   "id": "red-hot-chili-peppers-give-it-away",
   "artist": "Red Hot Chili Peppers",
   "title": "Give It Away",
   "year": 1991,
-  "spotifyId": "0uppYCG86ajpV2hSR3dJJ0"
+  "spotifyId": "0uppYCG86ajpV2hSR3dJJ0",
+  "deezerId": 725837
  },
  {
   "id": "oasis-live-forever",
   "artist": "Oasis",
   "title": "Live Forever",
   "year": 1994,
-  "spotifyId": "5IfBLN9VPPJOwcKmAZhdXe"
+  "spotifyId": "5IfBLN9VPPJOwcKmAZhdXe",
+  "deezerId": 987064552
  },
  {
   "id": "red-hot-chili-peppers-under-the-bridge",
   "artist": "Red Hot Chili Peppers",
   "title": "Under the Bridge",
   "year": 1992,
-  "spotifyId": "3d9DChrdc6BOeFsbrZ3Is0"
+  "spotifyId": "3d9DChrdc6BOeFsbrZ3Is0",
+  "deezerId": 785176
  },
  {
   "id": "eminem-my-name-is",
   "artist": "Eminem",
   "title": "My Name Is",
   "year": 1999,
-  "spotifyId": "75IN3CtuZwTHTnZvYM4qnJ"
+  "spotifyId": "75IN3CtuZwTHTnZvYM4qnJ",
+  "deezerId": 1109729
  },
  {
   "id": "system-of-a-down-sugar",
   "artist": "System of a Down",
   "title": "Sugar",
   "year": 1999,
-  "spotifyId": "31RTFPrB7wmYBhlkM2ILXG"
+  "spotifyId": "31RTFPrB7wmYBhlkM2ILXG",
+  "deezerId": 3340663321
  },
  {
   "id": "destiny-s-child-say-my-name",
   "artist": "Destiny's Child",
   "title": "Say My Name",
   "year": 1999,
-  "spotifyId": "7H6ev70Weq6DdpZyyTmUXk"
+  "spotifyId": "7H6ev70Weq6DdpZyyTmUXk",
+  "deezerId": 580936
  },
  {
   "id": "dr-dre-still-d-r-e",
   "artist": "Dr. Dre & Snoop Dogg",
   "title": "Still D.R.E.",
   "year": 1999,
-  "spotifyId": "503OTo2dSqe7qk76rgsbep"
+  "spotifyId": "503OTo2dSqe7qk76rgsbep",
+  "deezerId": 128743581
  },
  {
   "id": "kylie-minogue-confide-in-me",
@@ -270,70 +303,80 @@
   "artist": "Jennifer Lopez",
   "title": "Waiting for Tonight",
   "year": 1999,
-  "spotifyId": "2EkCm7fXsJfEyD7v6uOloK"
+  "spotifyId": "2EkCm7fXsJfEyD7v6uOloK",
+  "deezerId": 15475944
  },
  {
   "id": "red-hot-chili-peppers-scar-tissue",
   "artist": "Red Hot Chili Peppers",
   "title": "Scar Tissue",
   "year": 1999,
-  "spotifyId": "1G391cbiT3v3Cywg8T7DM1"
+  "spotifyId": "1G391cbiT3v3Cywg8T7DM1",
+  "deezerId": 725254
  },
  {
   "id": "nirvana-pennyroyal-tea",
   "artist": "Nirvana",
   "title": "Pennyroyal Tea",
   "year": 1994,
-  "spotifyId": "0oRxS5Hfo2cAfU2mlHYE8o"
+  "spotifyId": "0oRxS5Hfo2cAfU2mlHYE8o",
+  "deezerId": 70466233
  },
  {
   "id": "green-day-longview",
   "artist": "Green Day",
   "title": "Longview",
   "year": 1994,
-  "spotifyId": "0r0Xx1SuWFwb9QQAh7tIdO"
+  "spotifyId": "0r0Xx1SuWFwb9QQAh7tIdO",
+  "deezerId": 678038
  },
  {
   "id": "enigma-sadeness",
   "artist": "Enigma",
   "title": "Sadeness",
   "year": 1990,
-  "spotifyId": "3MVm36ouM56jbP5rORxbVy"
+  "spotifyId": "3MVm36ouM56jbP5rORxbVy",
+  "deezerId": 4621947
  },
  {
   "id": "kylie-minogue-better-the-devil-you-know",
   "artist": "Kylie Minogue",
   "title": "Better the Devil You Know",
   "year": 1990,
-  "spotifyId": "30wgVYurkR22DkbCKRMy5C"
+  "spotifyId": "30wgVYurkR22DkbCKRMy5C",
+  "deezerId": 3120257
  },
  {
   "id": "nightwish-the-carpenter",
   "artist": "Nightwish",
   "title": "The Carpenter",
   "year": 1997,
-  "spotifyId": "4XraCMzmof2FVsczM5T0ai"
+  "spotifyId": "4XraCMzmof2FVsczM5T0ai",
+  "deezerId": 660675362
  },
  {
   "id": "green-day-when-i-come-around",
   "artist": "Green Day",
   "title": "When I Come Around",
   "year": 1995,
-  "spotifyId": "1Dr1fXbc2IxaK1Mu8P8Khz"
+  "spotifyId": "1Dr1fXbc2IxaK1Mu8P8Khz",
+  "deezerId": 678053
  },
  {
   "id": "alanis-morissette-ironic",
   "artist": "Alanis Morissette",
   "title": "Ironic",
   "year": 1996,
-  "spotifyId": "0YrqlzPliyMZJ3IN8HbKbW"
+  "spotifyId": "0YrqlzPliyMZJ3IN8HbKbW",
+  "deezerId": 789250
  },
  {
   "id": "beck-loser",
   "artist": "Beck",
   "title": "Loser",
   "year": 1994,
-  "spotifyId": "5NTZM8YYeKM2YsGSffVIge"
+  "spotifyId": "5NTZM8YYeKM2YsGSffVIge",
+  "deezerId": 422033092
  },
  {
   "id": "iron-maiden-be-quick-or-be-dead",
@@ -347,70 +390,80 @@
   "artist": "Foo Fighters",
   "title": "Everlong",
   "year": 1997,
-  "spotifyId": "5UWwZ5lm5PKu6eKsHAGxOk"
+  "spotifyId": "5UWwZ5lm5PKu6eKsHAGxOk",
+  "deezerId": 4762041
  },
  {
   "id": "bruce-springsteen-streets-of-philadelphia",
   "artist": "Bruce Springsteen",
   "title": "Streets of Philadelphia",
   "year": 1994,
-  "spotifyId": "5Nj8kBJdpJJ4I9wxQyp8JH"
+  "spotifyId": "5Nj8kBJdpJJ4I9wxQyp8JH",
+  "deezerId": 900973
  },
  {
   "id": "guns-n-roses-estranged",
   "artist": "Guns N' Roses",
   "title": "Estranged",
   "year": 1994,
-  "spotifyId": "3s03nrUInN3NAVjQtmnS0O"
+  "spotifyId": "3s03nrUInN3NAVjQtmnS0O",
+  "deezerId": 505510302
  },
  {
   "id": "system-of-a-down-spiders",
   "artist": "System of a Down",
   "title": "Spiders",
   "year": 1999,
-  "spotifyId": "4vAHXnJ5YWLq5hbIVzZS1h"
+  "spotifyId": "4vAHXnJ5YWLq5hbIVzZS1h",
+  "deezerId": 15211808
  },
  {
   "id": "seal-kiss-from-a-rose",
   "artist": "Seal",
   "title": "Kiss from a Rose",
   "year": 1994,
-  "spotifyId": "0AKcA69xtIVPhse3R5INg2"
+  "spotifyId": "0AKcA69xtIVPhse3R5INg2",
+  "deezerId": 730428
  },
  {
   "id": "christina-aguilera-what-a-girl-wants",
   "artist": "Christina Aguilera",
   "title": "What a Girl Wants",
   "year": 1999,
-  "spotifyId": "11mwFrKvLXCbcVGNxffGyP"
+  "spotifyId": "11mwFrKvLXCbcVGNxffGyP",
+  "deezerId": 15627387
  },
  {
   "id": "robert-miles-children",
   "artist": "Robert Miles",
   "title": "Children",
   "year": 1995,
-  "spotifyId": "4ypF2ciZ4VtYDS8oEp6h4i"
+  "spotifyId": "4ypF2ciZ4VtYDS8oEp6h4i",
+  "deezerId": 1628123602
  },
  {
   "id": "smash-mouth-all-star",
   "artist": "Smash Mouth",
   "title": "All Star",
   "year": 1999,
-  "spotifyId": "19fm0eNKTeg1JbHCHwPhLe"
+  "spotifyId": "19fm0eNKTeg1JbHCHwPhLe",
+  "deezerId": 917717
  },
  {
   "id": "ednaswap-torn",
   "artist": "Ednaswap",
   "title": "Torn",
   "year": 1995,
-  "spotifyId": "0KDaN0HL3TcJVTbXlQCEsS"
+  "spotifyId": "0KDaN0HL3TcJVTbXlQCEsS",
+  "deezerId": 7377067
  },
  {
   "id": "the-offspring-pretty-fly-for-a-white-guy",
   "artist": "The Offspring",
   "title": "Pretty Fly (for a White Guy)",
   "year": 1998,
-  "spotifyId": "3SFXsFpeGmBTtQvKiwYMDA"
+  "spotifyId": "3SFXsFpeGmBTtQvKiwYMDA",
+  "deezerId": 137233982
  },
  {
   "id": "the-cure-friday-i-m-in-love",
@@ -424,42 +477,48 @@
   "artist": "The Prodigy",
   "title": "Smack My Bitch Up",
   "year": 1997,
-  "spotifyId": "1JzwR1X7JfMXdN1jaxR528"
+  "spotifyId": "1JzwR1X7JfMXdN1jaxR528",
+  "deezerId": 62126184
  },
  {
   "id": "aerosmith-crazy",
   "artist": "Aerosmith",
   "title": "Crazy",
   "year": 1994,
-  "spotifyId": "3QwuR2BuGsW4bC3P3cnpIN"
+  "spotifyId": "3QwuR2BuGsW4bC3P3cnpIN",
+  "deezerId": 1761381467
  },
  {
   "id": "pearl-jam-alive",
   "artist": "Pearl Jam",
   "title": "Alive",
   "year": 1991,
-  "spotifyId": "1L94M3KIu7QluZe63g64rv"
+  "spotifyId": "1L94M3KIu7QluZe63g64rv",
+  "deezerId": 7675130
  },
  {
   "id": "goo-goo-dolls-iris",
   "artist": "Goo Goo Dolls",
   "title": "Iris",
   "year": 1998,
-  "spotifyId": "2mtVxf50BYsKNtQoz8sfzm"
+  "spotifyId": "2mtVxf50BYsKNtQoz8sfzm",
+  "deezerId": 4290138
  },
  {
   "id": "spice-girls-2-become-1",
   "artist": "Spice Girls",
   "title": "2 Become 1",
   "year": 1996,
-  "spotifyId": "0kc7dzvvcdQKWads7SaCbw"
+  "spotifyId": "0kc7dzvvcdQKWads7SaCbw",
+  "deezerId": 3133740
  },
  {
   "id": "the-smashing-pumpkins-1979",
   "artist": "The Smashing Pumpkins",
   "title": "1979",
   "year": 1996,
-  "spotifyId": "3h5zik31hTTat9jmpCZZNC"
+  "spotifyId": "3h5zik31hTTat9jmpCZZNC",
+  "deezerId": 2435092375
  },
  {
   "id": "iron-maiden-bring-your-daughter-to-the-slaughter",
@@ -473,140 +532,160 @@
   "artist": "Destiny's Child",
   "title": "Bills, Bills",
   "year": 1999,
-  "spotifyId": "1Qh60splxL2eFkttC08AgQ"
+  "spotifyId": "1Qh60splxL2eFkttC08AgQ",
+  "deezerId": 580889
  },
  {
   "id": "tlc-waterfalls",
   "artist": "TLC",
   "title": "Waterfalls",
   "year": 1995,
-  "spotifyId": "0DEvEbv90r6Ex9h9KpaJus"
+  "spotifyId": "0DEvEbv90r6Ex9h9KpaJus",
+  "deezerId": 1043894
  },
  {
   "id": "depeche-mode-walking-in-my-shoes",
   "artist": "Depeche Mode",
   "title": "Walking in My Shoes",
   "year": 1993,
-  "spotifyId": "4lXEE71fm0o3YXhpKhbnzO"
+  "spotifyId": "4lXEE71fm0o3YXhpKhbnzO",
+  "deezerId": 68514166
  },
  {
   "id": "nightwish-sleeping-sun-four-ballads-of-the-eclipse",
   "artist": "Nightwish",
   "title": "Sleeping Sun (Four Ballads of the Eclipse)",
   "year": 1999,
-  "spotifyId": "79SGEmBSzCKi3JMDykd8ZF"
+  "spotifyId": "79SGEmBSzCKi3JMDykd8ZF",
+  "deezerId": 2137813697
  },
  {
   "id": "oasis-supersonic",
   "artist": "Oasis",
   "title": "Supersonic",
   "year": 1994,
-  "spotifyId": "01Ox3uPKBqENtiWNlVaRdD"
+  "spotifyId": "01Ox3uPKBqENtiWNlVaRdD",
+  "deezerId": 985938122
  },
  {
   "id": "bryan-adams-please-forgive-me",
   "artist": "Bryan Adams",
   "title": "Please Forgive Me",
   "year": 1993,
-  "spotifyId": "0POfS30Fom0Tu9hbEWZXVg"
+  "spotifyId": "0POfS30Fom0Tu9hbEWZXVg",
+  "deezerId": 2305577
  },
  {
   "id": "daft-punk-around-the-world",
   "artist": "Daft Punk",
   "title": "Around the World",
   "year": 1997,
-  "spotifyId": "1pKYYY0dkg23sQQXi0Q5zN"
+  "spotifyId": "1pKYYY0dkg23sQQXi0Q5zN",
+  "deezerId": 3129775
  },
  {
   "id": "crash-test-dummies-mmm-mmm-mmm-mmm",
   "artist": "Crash Test Dummies",
   "title": "Mmm Mmm Mmm Mmm",
   "year": 1993,
-  "spotifyId": "31v2AQlx4pDI7kmnLxBkem"
+  "spotifyId": "31v2AQlx4pDI7kmnLxBkem",
+  "deezerId": 15606414
  },
  {
   "id": "spice-girls-who-do-you-think-you-are",
   "artist": "Spice Girls",
   "title": "Who Do You Think You Are",
   "year": 1997,
-  "spotifyId": "11QnBsjuWlMHbC62We6F3r"
+  "spotifyId": "11QnBsjuWlMHbC62We6F3r",
+  "deezerId": 3133744
  },
  {
   "id": "spice-girls-say-you-ll-be-there",
   "artist": "Spice Girls",
   "title": "Say You'll Be There",
   "year": 1996,
-  "spotifyId": "2daljWYp1ls5CAkYftvTeo"
+  "spotifyId": "2daljWYp1ls5CAkYftvTeo",
+  "deezerId": 3264822
  },
  {
   "id": "foo-fighters-learn-to-fly",
   "artist": "Foo Fighters",
   "title": "Learn to Fly",
   "year": 1999,
-  "spotifyId": "5OQsiBsky2k2kDKy2bX2eT"
+  "spotifyId": "5OQsiBsky2k2kDKy2bX2eT",
+  "deezerId": 4311599
  },
  {
   "id": "depeche-mode-policy-of-truth",
   "artist": "Depeche Mode",
   "title": "Policy of Truth",
   "year": 1990,
-  "spotifyId": "3KFQFmTeHEXhzBNG7iFXYH"
+  "spotifyId": "3KFQFmTeHEXhzBNG7iFXYH",
+  "deezerId": 68515056
  },
  {
   "id": "r-e-m-man-on-the-moon",
   "artist": "R.E.M.",
   "title": "Man on the Moon",
   "year": 1992,
-  "spotifyId": "4jLv3tDBu8ww2R07DvL12s"
+  "spotifyId": "4jLv3tDBu8ww2R07DvL12s",
+  "deezerId": 121921384
  },
  {
   "id": "red-hot-chili-peppers-around-the-world",
   "artist": "Red Hot Chili Peppers",
   "title": "Around the World",
   "year": 1999,
-  "spotifyId": "0aGQHMr7bc23Y9Ts84ffop"
+  "spotifyId": "0aGQHMr7bc23Y9Ts84ffop",
+  "deezerId": 725241
  },
  {
   "id": "alice-in-chains-would",
   "artist": "Alice in Chains",
   "title": "Would?",
   "year": 1992,
-  "spotifyId": "60efz9dsKvdsKxjXizj9r2"
+  "spotifyId": "60efz9dsKvdsKxjXizj9r2",
+  "deezerId": 15178233
  },
  {
   "id": "nirvana-on-a-plain",
   "artist": "Nirvana",
   "title": "On a Plain",
   "year": 1991,
-  "spotifyId": "4PvPoT47fABUMGfkMcJOWv"
+  "spotifyId": "4PvPoT47fABUMGfkMcJOWv",
+  "deezerId": 13693534
  },
  {
   "id": "stardust-music-sounds-better-with-you",
   "artist": "Stardust",
   "title": "Music Sounds Better with You",
   "year": 1998,
-  "spotifyId": "1mv4lh1rW1K6xhxhJmEezy"
+  "spotifyId": "1mv4lh1rW1K6xhxhJmEezy",
+  "deezerId": 695110932
  },
  {
   "id": "marilyn-manson-the-beautiful-people",
   "artist": "Marilyn Manson",
   "title": "The Beautiful People",
   "year": 1996,
-  "spotifyId": "2aIB1CdRRG7YLBu9hNw9nR"
+  "spotifyId": "2aIB1CdRRG7YLBu9hNw9nR",
+  "deezerId": 87938845
  },
  {
   "id": "seal-crazy",
   "artist": "Seal",
   "title": "Crazy",
   "year": 1990,
-  "spotifyId": "2F9jMklOJOl65znIH4kc8C"
+  "spotifyId": "2F9jMklOJOl65znIH4kc8C",
+  "deezerId": 4688231
  },
  {
   "id": "the-prodigy-breathe",
   "artist": "The Prodigy",
   "title": "Breathe",
   "year": 1996,
-  "spotifyId": "0Ja4hLKiUSw01E01pJ1yGr"
+  "spotifyId": "0Ja4hLKiUSw01E01pJ1yGr",
+  "deezerId": 62126185
  },
  {
   "id": "iron-maiden-lord-of-the-flies",
@@ -620,42 +699,48 @@
   "artist": "Korn",
   "title": "Freak on a Leash",
   "year": 1999,
-  "spotifyId": "2xxMCCFva1GRQAYl2rlrpM"
+  "spotifyId": "2xxMCCFva1GRQAYl2rlrpM",
+  "deezerId": 134523750
  },
  {
   "id": "u2-mysterious-ways",
   "artist": "U2",
   "title": "Mysterious Ways",
   "year": 1991,
-  "spotifyId": "4DGePNkVwPsNg9tghsuGwg"
+  "spotifyId": "4DGePNkVwPsNg9tghsuGwg",
+  "deezerId": 14343287
  },
  {
   "id": "enrique-iglesias-bailamos",
   "artist": "Enrique Iglesias",
   "title": "Bailamos",
   "year": 1999,
-  "spotifyId": "2bbeNsFmjZqdoDhjLsKNWe"
+  "spotifyId": "2bbeNsFmjZqdoDhjLsKNWe",
+  "deezerId": 2279352
  },
  {
   "id": "aerosmith-amazing",
   "artist": "Aerosmith",
   "title": "Amazing",
   "year": 1993,
-  "spotifyId": "4sjewq2HyPY7QECdCctCey"
+  "spotifyId": "4sjewq2HyPY7QECdCctCey",
+  "deezerId": 2246520717
  },
  {
   "id": "guns-n-roses-patience",
   "artist": "Guns N' Roses",
   "title": "Patience",
   "year": 1991,
-  "spotifyId": "1OEoNpiyqBghuEUaT6Je6U"
+  "spotifyId": "1OEoNpiyqBghuEUaT6Je6U",
+  "deezerId": 1091041532
  },
  {
   "id": "ac-dc-thunderstruck",
   "artist": "AC/DC",
   "title": "Thunderstruck",
   "year": 1990,
-  "spotifyId": "57bgtoPSgt236HzfBOd8kj"
+  "spotifyId": "57bgtoPSgt236HzfBOd8kj",
+  "deezerId": 92720102
  },
  {
   "id": "ice-cube-it-was-a-good-day",
@@ -669,70 +754,80 @@
   "artist": "The Cranberries",
   "title": "Linger",
   "year": 1993,
-  "spotifyId": "1WYrTfvKjQYaYfVziGG1ET"
+  "spotifyId": "1WYrTfvKjQYaYfVziGG1ET",
+  "deezerId": 4022863661
  },
  {
   "id": "sixpence-none-the-richer-kiss-me",
   "artist": "Sixpence None the Richer",
   "title": "Kiss Me",
   "year": 1998,
-  "spotifyId": "4L6edMvUfn5HVfpn30yym5"
+  "spotifyId": "4L6edMvUfn5HVfpn30yym5",
+  "deezerId": 134116940
  },
  {
   "id": "the-offspring-the-kids-aren-t-alright",
   "artist": "The Offspring",
   "title": "The Kids Aren't Alright",
   "year": 1999,
-  "spotifyId": "4bD1TMCIBBOlhjplY7uZLZ"
+  "spotifyId": "4bD1TMCIBBOlhjplY7uZLZ",
+  "deezerId": 137233986
  },
  {
   "id": "sublime-santeria",
   "artist": "Sublime",
   "title": "Santeria",
   "year": 1997,
-  "spotifyId": "2hnMS47jN0etwvFPzYk11f"
+  "spotifyId": "2hnMS47jN0etwvFPzYk11f",
+  "deezerId": 127245051
  },
  {
   "id": "blackstreet-no-diggity",
   "artist": "Blackstreet",
   "title": "No Diggity",
   "year": 1996,
-  "spotifyId": "5tzDYbMDhomaADt9hKhANt"
+  "spotifyId": "5tzDYbMDhomaADt9hKhANt",
+  "deezerId": 916496
  },
  {
   "id": "counting-crows-mr-jones",
   "artist": "Counting Crows",
   "title": "Mr. Jones",
   "year": 1993,
-  "spotifyId": "5DiXcVovI0FcY2s0icWWUu"
+  "spotifyId": "5DiXcVovI0FcY2s0icWWUu",
+  "deezerId": 925653
  },
  {
   "id": "blink-182-what-s-my-age-again",
   "artist": "Blink-182",
   "title": "What's My Age Again?",
   "year": 1999,
-  "spotifyId": "4LJhJ6DQS7NwE7UKtvcM52"
+  "spotifyId": "4LJhJ6DQS7NwE7UKtvcM52",
+  "deezerId": 552496552
  },
  {
   "id": "whitney-houston-i-will-always-love-you",
   "artist": "Whitney Houston",
   "title": "I Will Always Love You",
   "year": 1992,
-  "spotifyId": "1C9si0Wb8eYur0gVYZp6y2"
+  "spotifyId": "1C9si0Wb8eYur0gVYZp6y2",
+  "deezerId": 7675403
  },
  {
   "id": "extreme-more-than-words",
   "artist": "Extreme",
   "title": "More Than Words",
   "year": 1991,
-  "spotifyId": "1gVgkQFOKa8Wc1HYsJtPdH"
+  "spotifyId": "1gVgkQFOKa8Wc1HYsJtPdH",
+  "deezerId": 1579730
  },
  {
   "id": "pearl-jam-even-flow",
   "artist": "Pearl Jam",
   "title": "Even Flow",
   "year": 1992,
-  "spotifyId": "6QewNVIDKdSl8Y3ycuHIei"
+  "spotifyId": "6QewNVIDKdSl8Y3ycuHIei",
+  "deezerId": 7675129
  },
  {
   "id": "sean-combs-i-ll-be-missing-you",
@@ -746,56 +841,64 @@
   "artist": "The Offspring",
   "title": "Self Esteem",
   "year": 1994,
-  "spotifyId": "1FkoVC85Ds3mFoK0fVqEqP"
+  "spotifyId": "1FkoVC85Ds3mFoK0fVqEqP",
+  "deezerId": 378299601
  },
  {
   "id": "gala-freed-from-desire",
   "artist": "Gala",
   "title": "Freed from Desire",
   "year": 1996,
-  "spotifyId": "3Ucr6hQQuY8cZ0UqXV8uO2"
+  "spotifyId": "3Ucr6hQQuY8cZ0UqXV8uO2",
+  "deezerId": 6907162
  },
  {
   "id": "eiffel-65-blue-da-ba-dee",
   "artist": "Eiffel 65",
   "title": "Blue (Da Ba Dee)",
   "year": 1998,
-  "spotifyId": "4GewRLEiI4BDTQsoH8BRVV"
+  "spotifyId": "4GewRLEiI4BDTQsoH8BRVV",
+  "deezerId": 89629797
  },
  {
   "id": "new-radicals-you-get-what-you-give",
   "artist": "New Radicals",
   "title": "You Get What You Give",
   "year": 1998,
-  "spotifyId": "1Cwsd5xI8CajJz795oy4XF"
+  "spotifyId": "1Cwsd5xI8CajJz795oy4XF",
+  "deezerId": 2441438
  },
  {
   "id": "alice-deejay-better-off-alone",
   "artist": "Alice DeeJay",
   "title": "Better Off Alone",
   "year": 1999,
-  "spotifyId": "4u4JMXuhg94qU88lzeiiuq"
+  "spotifyId": "4u4JMXuhg94qU88lzeiiuq",
+  "deezerId": 1802291377
  },
  {
   "id": "house-of-pain-jump-around",
   "artist": "House of Pain",
   "title": "Jump Around",
   "year": 1992,
-  "spotifyId": "6JymsaWDHk2Yj4e0yNBIFH"
+  "spotifyId": "6JymsaWDHk2Yj4e0yNBIFH",
+  "deezerId": 1584589772
  },
  {
   "id": "eagle-eye-cherry-save-tonight",
   "artist": "Eagle-Eye Cherry",
   "title": "Save Tonight",
   "year": 1997,
-  "spotifyId": "7v02Sn9vYRQ6pc1lqhnkWY"
+  "spotifyId": "7v02Sn9vYRQ6pc1lqhnkWY",
+  "deezerId": 1865518437
  },
  {
   "id": "rob-zombie-dragula",
   "artist": "Rob Zombie",
   "title": "Dragula",
   "year": 1998,
-  "spotifyId": "6CDhfV6K4yplWYFR8Ip82v"
+  "spotifyId": "6CDhfV6K4yplWYFR8Ip82v",
+  "deezerId": 2307303
  },
  {
   "id": "metallica-the-unforgiven",
@@ -816,14 +919,16 @@
   "artist": "Deftones",
   "title": "My Own Summer (Shove It)",
   "year": 1997,
-  "spotifyId": "1158ckiB5S4cpsdYHDB9IF"
+  "spotifyId": "1158ckiB5S4cpsdYHDB9IF",
+  "deezerId": 778452
  },
  {
   "id": "spin-doctors-two-princes",
   "artist": "Spin Doctors",
   "title": "Two Princes",
   "year": 1993,
-  "spotifyId": "0cuq829zRNq4AEdmDJA4aw"
+  "spotifyId": "0cuq829zRNq4AEdmDJA4aw",
+  "deezerId": 831294
  },
  {
   "id": "weezer-say-it-ain-t-so",
@@ -837,105 +942,120 @@
   "artist": "Savage Garden",
   "title": "Truly Madly Deeply",
   "year": 1997,
-  "spotifyId": "2ntpyUU3itxHWcJnOJmVic"
+  "spotifyId": "2ntpyUU3itxHWcJnOJmVic",
+  "deezerId": 15177682
  },
  {
   "id": "whitney-houston-i-have-nothing",
   "artist": "Whitney Houston",
   "title": "I Have Nothing",
   "year": 1993,
-  "spotifyId": "31er9IGsfFbwqy1pH4aiTP"
+  "spotifyId": "31er9IGsfFbwqy1pH4aiTP",
+  "deezerId": 7675404
  },
  {
   "id": "warren-g-regulate",
   "artist": "Warren G",
   "title": "Regulate",
   "year": 1994,
-  "spotifyId": "4uIKHABS2ixy0AW0Y31rj4"
+  "spotifyId": "4uIKHABS2ixy0AW0Y31rj4",
+  "deezerId": 2182461297
  },
  {
   "id": "slipknot-wait-and-bleed",
   "artist": "Slipknot",
   "title": "Wait and Bleed",
   "year": 1999,
-  "spotifyId": "15DLl1r2zi07Ssq5RT1yT0"
+  "spotifyId": "15DLl1r2zi07Ssq5RT1yT0",
+  "deezerId": 4197811
  },
  {
   "id": "darude-sandstorm",
   "artist": "Darude",
   "title": "Sandstorm",
   "year": 1999,
-  "spotifyId": "3dxDj8pDPlIHCIrUPXuCeG"
+  "spotifyId": "3dxDj8pDPlIHCIrUPXuCeG",
+  "deezerId": 11390027
  },
  {
   "id": "weezer-buddy-holly",
   "artist": "Weezer",
   "title": "Buddy Holly",
   "year": 1994,
-  "spotifyId": "3mwvKOyMmG77zZRunnxp9E"
+  "spotifyId": "3mwvKOyMmG77zZRunnxp9E",
+  "deezerId": 2542117
  },
  {
   "id": "foo-fighters-my-hero",
   "artist": "Foo Fighters",
   "title": "My Hero",
   "year": 1998,
-  "spotifyId": "7u5dBtASrtOuBTTZjJrvuJ"
+  "spotifyId": "7u5dBtASrtOuBTTZjJrvuJ",
+  "deezerId": 4311598
  },
  {
   "id": "dr-dre-nuthin-but-a-g-thang",
   "artist": "Dr. Dre",
   "title": "Nuthin' but a 'G' Thang",
   "year": 1993,
-  "spotifyId": "5Tbpp3OLLClPJF8t1DmrFD"
+  "spotifyId": "5Tbpp3OLLClPJF8t1DmrFD",
+  "deezerId": 2132919007
  },
  {
   "id": "pantera-walk",
   "artist": "Pantera",
   "title": "Walk",
   "year": 1992,
-  "spotifyId": "7fcfNW0XxTWlwVlftzfDOR"
+  "spotifyId": "7fcfNW0XxTWlwVlftzfDOR",
+  "deezerId": 662879
  },
  {
   "id": "the-smashing-pumpkins-bullet-with-butterfly-wings",
   "artist": "The Smashing Pumpkins",
   "title": "Bullet with Butterfly Wings",
   "year": 1995,
-  "spotifyId": "2itcYu5GSP50cfgY2Un2Ak"
+  "spotifyId": "2itcYu5GSP50cfgY2Un2Ak",
+  "deezerId": 62791738
  },
  {
   "id": "santana-smooth",
   "artist": "Santana",
   "title": "Smooth",
   "year": 1999,
-  "spotifyId": "3i3GeK0qLQybu4ah42YmCY"
+  "spotifyId": "3i3GeK0qLQybu4ah42YmCY",
+  "deezerId": 82241402
  },
  {
   "id": "tom-petty-and-the-heartbreakers-mary-jane-s-last-dance",
   "artist": "Tom Petty and the Heartbreakers",
   "title": "Mary Jane's Last Dance",
   "year": 1993,
-  "spotifyId": "0UWhRKpZxLEUZhmku98WcH"
+  "spotifyId": "0UWhRKpZxLEUZhmku98WcH",
+  "deezerId": 588236412
  },
  {
   "id": "rage-against-the-machine-bulls-on-parade",
   "artist": "Rage Against the Machine",
   "title": "Bulls on Parade",
   "year": 1996,
-  "spotifyId": "0tZ3mElWcr74OOhKEiNz1x"
+  "spotifyId": "0tZ3mElWcr74OOhKEiNz1x",
+  "deezerId": 7675196
  },
  {
   "id": "deftones-be-quiet-and-drive",
   "artist": "Deftones",
   "title": "Be Quiet and Drive",
   "year": 1998,
-  "spotifyId": "4Uiw0Sl9yskBaC6P4DcdVD"
+  "spotifyId": "4Uiw0Sl9yskBaC6P4DcdVD",
+  "deezerId": 778493
  },
  {
   "id": "snoop-dogg-gin-and-juice",
   "artist": "Snoop Dogg",
   "title": "Gin And Juice",
   "year": 1994,
-  "spotifyId": "0CiRycYNoY9fZYayFJsp8C"
+  "spotifyId": "0CiRycYNoY9fZYayFJsp8C",
+  "deezerId": 2182691847
  },
  {
   "id": "will-smith-miami",
@@ -949,203 +1069,232 @@
   "artist": "Sinéad O'Connor",
   "title": "Nothing Compares 2 U",
   "year": 1990,
-  "spotifyId": "5GHY1DFWKz3Prg2V0Iodqo"
+  "spotifyId": "5GHY1DFWKz3Prg2V0Iodqo",
+  "deezerId": 1787569267
  },
  {
   "id": "phil-collins-you-ll-be-in-my-heart",
   "artist": "Phil Collins",
   "title": "You'll Be in My Heart",
   "year": 1999,
-  "spotifyId": "0EgN2Lp17KHLgcO1g1d6bh"
+  "spotifyId": "0EgN2Lp17KHLgcO1g1d6bh",
+  "deezerId": 561875132
  },
  {
   "id": "sting-fields-of-gold",
   "artist": "Sting",
   "title": "Fields of Gold",
   "year": 1993,
-  "spotifyId": "0I1DJdLt9BKOb7GWmWxCjo"
+  "spotifyId": "0I1DJdLt9BKOb7GWmWxCjo",
+  "deezerId": 2525867
  },
  {
   "id": "corona-the-rhythm-of-the-night",
   "artist": "Corona",
   "title": "The Rhythm of the Night",
   "year": 1993,
-  "spotifyId": "5UCPOJs8VJARoIX6acKRuJ"
+  "spotifyId": "5UCPOJs8VJARoIX6acKRuJ",
+  "deezerId": 3413811821
  },
  {
   "id": "the-offspring-why-don-t-you-get-a-job",
   "artist": "The Offspring",
   "title": "Why Don't You Get a Job?",
   "year": 1999,
-  "spotifyId": "5WrYzlJFwLYSOYDAAmH5eT"
+  "spotifyId": "5WrYzlJFwLYSOYDAAmH5eT",
+  "deezerId": 137234014
  },
  {
   "id": "shaggy-boombastic",
   "artist": "Shaggy",
   "title": "Boombastic",
   "year": 1996,
-  "spotifyId": "0GZhr2YID8tNnuExfoT8uu"
+  "spotifyId": "0GZhr2YID8tNnuExfoT8uu",
+  "deezerId": 73323486
  },
  {
   "id": "no-doubt-just-a-girl",
   "artist": "No Doubt",
   "title": "Just a Girl",
   "year": 1995,
-  "spotifyId": "5rIkE2zdyUfdDWfWpSwmge"
+  "spotifyId": "5rIkE2zdyUfdDWfWpSwmge",
+  "deezerId": 24246271
  },
  {
   "id": "marilyn-manson-sweet-dreams",
   "artist": "Marilyn Manson",
   "title": "Sweet Dreams",
   "year": 1995,
-  "spotifyId": "5DKeGyIsvBhASyG2XZbsCB"
+  "spotifyId": "5DKeGyIsvBhASyG2XZbsCB",
+  "deezerId": 1148269522
  },
  {
   "id": "macy-gray-i-try",
   "artist": "Macy Gray",
   "title": "I Try",
   "year": 1999,
-  "spotifyId": "5TAf4lnZCZTLlZHNZMLFLi"
+  "spotifyId": "5TAf4lnZCZTLlZHNZMLFLi",
+  "deezerId": 15175385
  },
  {
   "id": "mr-big-to-be-with-you",
   "artist": "Mr. Big",
   "title": "To Be with You",
   "year": 1991,
-  "spotifyId": "0eifvmNPHWaSh4IKNR4Xva"
+  "spotifyId": "0eifvmNPHWaSh4IKNR4Xva",
+  "deezerId": 394503992
  },
  {
   "id": "bloodhound-gang-the-bad-touch",
   "artist": "Bloodhound Gang",
   "title": "The Bad Touch",
   "year": 1999,
-  "spotifyId": "5EYdTPdJD74r9EVZBztqGG"
+  "spotifyId": "5EYdTPdJD74r9EVZBztqGG",
+  "deezerId": 89748393
  },
  {
   "id": "will-smith-gettin-jiggy-wit-it",
   "artist": "Will Smith",
   "title": "Gettin' Jiggy wit It",
   "year": 1998,
-  "spotifyId": "0weAUscowxeqDtpCgtbpgp"
+  "spotifyId": "0weAUscowxeqDtpCgtbpgp",
+  "deezerId": 626418
  },
  {
   "id": "goo-goo-dolls-slide",
   "artist": "Goo Goo Dolls",
   "title": "Slide",
   "year": 1998,
-  "spotifyId": "0nnwn7LWHCAu09jfuH1xTA"
+  "spotifyId": "0nnwn7LWHCAu09jfuH1xTA",
+  "deezerId": 2680857
  },
  {
   "id": "jamiroquai-virtual-insanity",
   "artist": "Jamiroquai",
   "title": "Virtual Insanity",
   "year": 1996,
-  "spotifyId": "4UQDZlZhGUDoYMohwrY28v"
+  "spotifyId": "4UQDZlZhGUDoYMohwrY28v",
+  "deezerId": 1884719637
  },
  {
   "id": "pantera-cowboys-from-hell",
   "artist": "Pantera",
   "title": "Cowboys from Hell",
   "year": 1990,
-  "spotifyId": "2SgbR6ttzoNlCRGQOKjrop"
+  "spotifyId": "2SgbR6ttzoNlCRGQOKjrop",
+  "deezerId": 714397
  },
  {
   "id": "sade-kiss-of-life",
   "artist": "Sade",
   "title": "Kiss of Life",
   "year": 1993,
-  "spotifyId": "65krtHkaYLPr0mEbjL61UP"
+  "spotifyId": "65krtHkaYLPr0mEbjL61UP",
+  "deezerId": 1030652052
  },
  {
   "id": "korn-falling-away-from-me",
   "artist": "Korn",
   "title": "Falling Away from Me",
   "year": 1999,
-  "spotifyId": "2F6FfZ4w8z3eJpSxPotVO5"
+  "spotifyId": "2F6FfZ4w8z3eJpSxPotVO5",
+  "deezerId": 15175502
  },
  {
   "id": "boyz-ii-men-end-of-the-road",
   "artist": "Boyz II Men",
   "title": "End of the Road",
   "year": 1992,
-  "spotifyId": "794U3ttupMPMfgZo0CT6NF"
+  "spotifyId": "794U3ttupMPMfgZo0CT6NF",
+  "deezerId": 2426056
  },
  {
   "id": "r-e-m-shiny-happy-people",
   "artist": "R.E.M.",
   "title": "Shiny Happy People",
   "year": 1991,
-  "spotifyId": "3AeCgCJyT7ndYsIwTnPOzT"
+  "spotifyId": "3AeCgCJyT7ndYsIwTnPOzT",
+  "deezerId": 136339500
  },
  {
   "id": "ozzy-osbourne-no-more-tears",
   "artist": "Ozzy Osbourne",
   "title": "No More Tears",
   "year": 1991,
-  "spotifyId": "04jqYY1oGk33BL0FtfSUg5"
+  "spotifyId": "04jqYY1oGk33BL0FtfSUg5",
+  "deezerId": 624314
  },
  {
   "id": "oasis-stand-by-me",
   "artist": "Oasis",
   "title": "Stand by Me",
   "year": 1997,
-  "spotifyId": "5WTPhYmwwojFP73O7p3Izi"
+  "spotifyId": "5WTPhYmwwojFP73O7p3Izi",
+  "deezerId": 985721152
  },
  {
   "id": "randy-newman-you-ve-got-a-friend-in-me",
   "artist": "Randy Newman",
   "title": "You've Got a Friend in Me",
   "year": 1995,
-  "spotifyId": "5aaUXcrsXI477I93yBE8lu"
+  "spotifyId": "5aaUXcrsXI477I93yBE8lu",
+  "deezerId": 131867198
  },
  {
   "id": "aerosmith-cryin",
   "artist": "Aerosmith",
   "title": "Cryin'",
   "year": 1993,
-  "spotifyId": "59eQjage6zX73paP0qrNSt"
+  "spotifyId": "59eQjage6zX73paP0qrNSt",
+  "deezerId": 2246520677
  },
  {
   "id": "celine-dion-it-s-all-coming-back-to-me-now",
   "artist": "Céline Dion",
   "title": "It's All Coming Back to Me Now",
   "year": 1996,
-  "spotifyId": "5EQzuYfTZt7B2LqlvTF49l"
+  "spotifyId": "5EQzuYfTZt7B2LqlvTF49l",
+  "deezerId": 714269192
  },
  {
   "id": "neil-young-harvest-moon",
   "artist": "Neil Young",
   "title": "Harvest Moon",
   "year": 1993,
-  "spotifyId": "7sCHy8QQUz3CRvUMp53Cbm"
+  "spotifyId": "7sCHy8QQUz3CRvUMp53Cbm",
+  "deezerId": 677484
  },
  {
   "id": "nine-inch-nails-closer",
   "artist": "Nine Inch Nails",
   "title": "Closer",
   "year": 1994,
-  "spotifyId": "2Mv8In1IykWH5oLDc66PRC"
+  "spotifyId": "2Mv8In1IykWH5oLDc66PRC",
+  "deezerId": 1173960
  },
  {
   "id": "vanilla-ice-ice-ice-baby",
   "artist": "Vanilla Ice",
   "title": "Ice Ice Baby",
   "year": 1990,
-  "spotifyId": "3XVozq1aeqsJwpXrEZrDJ9"
+  "spotifyId": "3XVozq1aeqsJwpXrEZrDJ9",
+  "deezerId": 3366332
  },
  {
   "id": "massive-attack-teardrop",
   "artist": "Massive Attack",
   "title": "Teardrop",
   "year": 1998,
-  "spotifyId": "22fblTirnB2fRQc4Vu41Yn"
+  "spotifyId": "22fblTirnB2fRQc4Vu41Yn",
+  "deezerId": 3129748
  },
  {
   "id": "the-smashing-pumpkins-today",
   "artist": "The Smashing Pumpkins",
   "title": "Today",
   "year": 1993,
-  "spotifyId": "0u5aO1GYsIhAWCPuXdwnak"
+  "spotifyId": "0u5aO1GYsIhAWCPuXdwnak",
+  "deezerId": 15715634
  },
  {
   "id": "tupac-shakur-dear-mama",
@@ -1159,83 +1308,95 @@
   "artist": "Alice in Chains",
   "title": "Rooster",
   "year": 1993,
-  "spotifyId": "0wvIGFIgbyz4JNwQhZgTv2"
+  "spotifyId": "0wvIGFIgbyz4JNwQhZgTv2",
+  "deezerId": 15178364
  },
  {
   "id": "korn-got-the-life",
   "artist": "Korn",
   "title": "Got the Life",
   "year": 1998,
-  "spotifyId": "6nJPHXRpKYv2yqtalEjKy5"
+  "spotifyId": "6nJPHXRpKYv2yqtalEjKy5",
+  "deezerId": 134523754
  },
  {
   "id": "the-offspring-come-out-and-play",
   "artist": "The Offspring",
   "title": "Come Out and Play",
   "year": 1994,
-  "spotifyId": "5JJDu0Z5DKe7mR31MGksSg"
+  "spotifyId": "5JJDu0Z5DKe7mR31MGksSg",
+  "deezerId": 378299591
  },
  {
   "id": "tom-petty-and-the-heartbreakers-learning-to-fly",
   "artist": "Tom Petty and the Heartbreakers",
   "title": "Learning to Fly",
   "year": 1991,
-  "spotifyId": "3NT6qLfnzXYeCzmgOpGeje"
+  "spotifyId": "3NT6qLfnzXYeCzmgOpGeje",
+  "deezerId": 2293281
  },
  {
   "id": "ub40-kingston-town",
   "artist": "UB40",
   "title": "Kingston Town",
   "year": 1990,
-  "spotifyId": "1YGh2uqJYfSpFQ3DDnMJV5"
+  "spotifyId": "1YGh2uqJYfSpFQ3DDnMJV5",
+  "deezerId": 3167612
  },
  {
   "id": "blink-182-dammit",
   "artist": "Blink-182",
   "title": "Dammit",
   "year": 1997,
-  "spotifyId": "6HvUYS1xDfTCGWoeVrv3XS"
+  "spotifyId": "6HvUYS1xDfTCGWoeVrv3XS",
+  "deezerId": 127354201
  },
  {
   "id": "backstreet-boys-quit-playing-games-with-my-heart",
   "artist": "Backstreet Boys",
   "title": "Quit Playing Games (With My Heart)",
   "year": 1996,
-  "spotifyId": "1nRwyxNsqCLeA17qR8Nfxx"
+  "spotifyId": "1nRwyxNsqCLeA17qR8Nfxx",
+  "deezerId": 4274199
  },
  {
   "id": "massive-attack-angel",
   "artist": "Massive Attack",
   "title": "Angel",
   "year": 1998,
-  "spotifyId": "5GoCwYnefTKtNP8kQ9QBBc"
+  "spotifyId": "5GoCwYnefTKtNP8kQ9QBBc",
+  "deezerId": 3129746
  },
  {
   "id": "savage-garden-i-knew-i-loved-you",
   "artist": "Savage Garden",
   "title": "I Knew I Loved You",
   "year": 1999,
-  "spotifyId": "6nozDLxeL0TE4MS9GqYU1v"
+  "spotifyId": "6nozDLxeL0TE4MS9GqYU1v",
+  "deezerId": 117262966
  },
  {
   "id": "boyz-ii-men-i-ll-make-love-to-you",
   "artist": "Boyz II Men",
   "title": "I'll Make Love to You",
   "year": 1994,
-  "spotifyId": "7dfl9X38RhIvB3oSmmneq3"
+  "spotifyId": "7dfl9X38RhIvB3oSmmneq3",
+  "deezerId": 7314701
  },
  {
   "id": "robin-s-show-me-love",
   "artist": "Robin S.",
   "title": "Show Me Love",
   "year": 1992,
-  "spotifyId": "6xucgFvEAA0uKSoYt59kO5"
+  "spotifyId": "6xucgFvEAA0uKSoYt59kO5",
+  "deezerId": 6628158
  },
  {
   "id": "korn-blind",
   "artist": "Korn",
   "title": "Blind",
   "year": 1995,
-  "spotifyId": "1pr9TZGOXeJUggIal1Wq3R"
+  "spotifyId": "1pr9TZGOXeJUggIal1Wq3R",
+  "deezerId": 13378870
  }
 ]

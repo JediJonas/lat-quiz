@@ -233,7 +233,7 @@ function openSpotify(song) {
   link.remove();
 }
 
-// ---- Deezer-klipp (på prov) ----
+// ---- Deezer-klipp ----
 
 // En kort tystnad som spelas direkt i klicket. Då räknas ljudet som startat av
 // spelledaren, och klippet får spela fast det hämtas först efteråt (Safari).

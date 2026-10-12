@@ -1,4 +1,5 @@
-// Förhandsklipp från Deezer, på prov i kategorin Deezer-test.
+// Förhandsklipp från Deezer. Varje quizlåt har helst ett fast Deezer-ID,
+// hämtat med verktyg/deezer-id.mjs, så att rätt inspelning spelas.
 // Deezers API saknar CORS, så sökningen görs med JSONP. Klipplänkarna går ut
 // efter en stund och hämtas därför precis innan låten spelas.
 
@@ -37,11 +38,12 @@ function jsonp(url) {
 }
 
 // Returnerar en färsk klipplänk för låten, eller null om Deezer inte har den.
-// Med ett sparat Deezer-ID hämtas just den inspelningen, annars görs en sökning.
+// Med ett sparat Deezer-ID hämtas just den inspelningen. Saknas ID, eller har
+// inspelningen försvunnit från Deezer, görs en sökning.
 export async function findPreview(song) {
   if (song.deezerId) {
     const track = await jsonp(`${API_TRACK}/${encodeURIComponent(song.deezerId)}?`);
-    return track && track.preview ? track.preview : null;
+    if (track && track.preview) return track.preview;
   }
   const q = encodeURIComponent(song.artist + ' ' + song.title);
   const data = await jsonp(`${API}?q=${q}&limit=10`);
