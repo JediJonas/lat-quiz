@@ -322,8 +322,9 @@ main:has(#lobby:not([hidden])) .join-only { display: none; }
 /* Poängtabell */
 table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
 td { padding: 11px 12px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-td:first-child { border-left: 1px solid var(--border); border-radius: 12px 0 0 12px; }
-td:last-child { border-right: 1px solid var(--border); border-radius: 0 12px 12px 0; }
+/* Lika mycket luft mot radens båda kanter, hos spelledaren och spelarna. */
+td:first-child { padding-left: 16px; border-left: 1px solid var(--border); border-radius: 12px 0 0 12px; }
+td:last-child { padding-right: 16px; border-right: 1px solid var(--border); border-radius: 0 12px 12px 0; }
 td.name { font-weight: 600; }
 /* Poängen står först, med samma avstånd till radens vänsterkant som innehållet har till högerkanten. */
 td.score { width: 1.6em; font-size: 1.15rem; font-weight: 750; font-variant-numeric: tabular-nums; }
@@ -359,8 +360,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
 .mid-ring circle { stroke-width: 8; }
 .mid-ring .ring-num { font-size: 2.8rem; }
+/* Tätare mellan kolumnerna i mobilen, men samma kantluft som hos spelledaren. */
 #standings td { padding-left: 8px; padding-right: 8px; }
-/* Mer luft mot radens kanter. */
 #standings td:first-child { padding-left: 16px; }
 #standings td:last-child { padding-right: 16px; }
 #standings td.status { white-space: nowrap; }
