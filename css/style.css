@@ -557,7 +557,10 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 
 @media (max-width: 760px) {
   .host { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
-  .join-info { position: relative; max-width: 300px; margin: 0 auto; }
+  /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
+  /* top från datorlägets sticky-regel skulle annars flytta ned rutan och äta upp mellanrummet under den. */
+  .join-info { position: relative; top: auto; }
+  .qr { max-width: 258px; margin: 0 auto; }
 }
 
 /* Modaler */
