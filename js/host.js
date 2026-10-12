@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce, renderRing, ranks, scoreTracker, settingsSummary, statusTags } from './ui.js';
+import { announce, renderRing, scoreTracker, settingsSummary, statusTags } from './ui.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-host';
@@ -356,8 +356,7 @@ function renderTimer() {
 function renderPlayers() {
   const round = state.round;
   const list = game.standings(state);
-  const places = ranks(list);
-  const rows = list.map((p, i) => {
+  const rows = list.map((p) => {
     const status = round ? statusTags({
       phase: round.phase,
       progress: game.answeredFields(state, p.id),
@@ -366,10 +365,9 @@ function renderPlayers() {
       esc,
     }) : '';
     return `<tr class="${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-      <td class="place${places[i] === 1 && p.score ? ' first' : ''}">${places[i]}</td>
+      <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
       <td class="name">${esc(p.name)}${p.connected ? '' : ' <small>(frånkopplad)</small>'}</td>
-      <td class="status">${status}</td>
-      <td class="score">${p.score}</td></tr>`;
+      <td class="status">${status}</td></tr>`;
   });
   $('#players').innerHTML = rows.length
     ? `<table><tbody>${rows.join('')}</tbody></table>`
