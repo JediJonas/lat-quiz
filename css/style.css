@@ -185,6 +185,8 @@ select {
   background: var(--surface) var(--chevron) no-repeat right 16px center;
   cursor: pointer;
 }
+/* Rullistans meny ritas av systemet och kan inte visa den genomskinliga ytan. Utan en fast färg blir den vit, med vit text i mörkt läge. */
+select option { background: var(--surface-solid); color: var(--text); }
 input.chosen {
   border-color: var(--good);
   background: var(--good-soft);
