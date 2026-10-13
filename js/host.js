@@ -156,7 +156,7 @@ function onDisconnect(connId) {
 // Spelare som redan är med påverkas inte när kontakten med förmedlingsservern bryts,
 // men nya kan inte gå med förrän den är tillbaka.
 const NET_MESSAGES = {
-  relay: { kind: 'busy', title: 'Nya spelare kan inte gå med just nu', text: 'Ansluter igen…' },
+  relay: { kind: 'busy', title: 'Spelare kan inte ansluta just nu', text: 'Spelet fortsätter för de som är med. Försöker igen…' },
   'unavailable-id': { kind: 'busy', title: 'Väntar på att spelkoden blir ledig…' },
   network: { kind: 'busy', title: 'Ingen anslutning', text: 'Ansluter igen…' },
 };
