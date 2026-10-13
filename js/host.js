@@ -446,26 +446,32 @@ function wireUnknown(dialog, names) {
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
-function showSettings(current, categories = null, categoryId = null, names = {}) {
+// running: ett spel pågår och kan avslutas härifrån. Returnerar då { end: true } om spelledaren avslutar.
+// locked: låten spelas, så inställningarna kan inte ändras just nu.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, locked = false } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
       <h2>Inställningar</h2>
-      ${categories ? `
+      ${locked ? '<p>Inställningarna kan ändras när svaret har visats.</p>' : ''}
+      ${categories && !locked ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select>` : ''}
-      ${SETTING_FIELDS.map(({ key, label, text }) => `
+      ${locked ? '' : SETTING_FIELDS.map(({ key, label, text }) => `
         <label for="setting-${key}">${label}</label>
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
       ${unknownSection(countUnknown(loadUnknown()))}
+      ${running ? `<div class="end-game">
+        <button value="end" class="secondary danger-text">Avsluta spelet</button>
+      </div>` : ''}
       <div class="modal-actions">
-        <button value="cancel" class="secondary">Avbryt</button>
-        <button value="ok">Spara</button>
+        <button value="cancel" class="secondary">${locked ? 'Stäng' : 'Avbryt'}</button>
+        ${locked ? '' : '<button value="ok">Spara</button>'}
       </div>
     </form>`;
   // En rullista skickar inte formuläret med Enter, så Enter sparar här.
@@ -483,23 +489,24 @@ function showSettings(current, categories = null, categoryId = null, names = {})
     dialog.addEventListener('close', () => {
       const form = dialog.querySelector('form');
       const values = Object.fromEntries(new FormData(form));
-      resolve(dialog.returnValue === 'ok'
+      if (dialog.returnValue === 'end') resolve({ end: true });
+      else resolve(dialog.returnValue === 'ok'
         ? { ...game.cleanSettings(values), ...(categories ? { categoryId: values.categoryId } : {}) } : null);
       dialog.remove();
     }, { once: true });
   });
 }
 
+// Under en låt går bara att avsluta spelet. Inställningarna ändras när svaret har visats.
 async function editSettings() {
-  if (state && state.round && state.round.phase === 'playing') {
-    showAlert('Inställningarna kan ändras när svaret har visats.', { title: 'Låten pågår' });
-    return;
-  }
+  const locked = Boolean(state && state.round && state.round.phase === 'playing');
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
   const categories = state ? all : null;
-  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id, names);
+  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id, names,
+    { running: Boolean(state), locked });
   if (!chosen) return;
+  if (chosen.end) { endGame(); return; }
   const { categoryId, ...settings } = chosen;
   saveSettings(settings);
   if (!state) return;

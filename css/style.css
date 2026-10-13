@@ -538,8 +538,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   display: grid;
   place-items: center;
   flex: none;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   margin: 0;
   padding: 0;
   border: 1px solid var(--border);
@@ -550,11 +550,10 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 }
 .icon-btn:hover { background: var(--surface-2); }
 a.icon-btn { text-decoration: none; }
-.icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.icon-btn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .icon-btn .filled { fill: currentColor; }
-.icon-btn.primary { width: 48px; height: 48px; border-color: transparent; background: var(--accent); color: var(--accent-text); box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent); }
+.icon-btn.primary { border-color: transparent; background: var(--accent); color: var(--accent-text); box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent); }
 .icon-btn.primary:hover { background: var(--accent-hover); }
-.icon-btn.primary svg { width: 22px; height: 22px; }
 .icon-btn[aria-pressed="true"] { border-color: var(--text); background: var(--surface-2); }
 #unknown[aria-pressed="true"] { background: var(--bad); color: var(--bad-text); }
 #pause .when-on, #pause[aria-pressed="true"] .when-off { display: none; }
@@ -596,6 +595,9 @@ button.danger:hover { filter: brightness(1.08); }
 .unknown-songs { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .modal .unknown-songs p { margin: 0 0 8px; }
 .unknown-actions .link { min-height: 24px; }
+.end-game { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.end-game button { width: auto; margin: 0; }
+.danger-text { color: var(--bad); }
 .unknown-text { width: 100%; margin-top: 8px; padding: 8px; font: inherit; font-size: 0.85rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
 @keyframes modal-in {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
