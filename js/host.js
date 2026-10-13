@@ -235,6 +235,7 @@ async function startGame(categoryId, resumeState, name) {
 
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
+  if (Date.now() - revealedAt < DOUBLE_TAP_MS) return;
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
   const playable = withoutUnknown(loadUnknown(), category.id, songs);
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
@@ -377,8 +378,14 @@ function togglePause() {
   changed();
 }
 
+// Samma knapp visar svaret och startar nästa låt. Ett dubbeltryck ska inte hoppa över svaret.
+const DOUBLE_TAP_MS = 1000;
+let revealedAt = 0;
+
 function revealNow() {
-  if (game.reveal(state)) changed();
+  if (!game.reveal(state)) return;
+  revealedAt = Date.now();
+  changed();
 }
 
 async function endGame() {
@@ -571,7 +578,6 @@ const svg = (body) => `<svg viewBox="0 0 24 24" aria-hidden="true">${body}</svg>
 const ICONS = {
   next: svg('<path d="M5 5v14l10-7z" class="filled"/><path d="M19 5v14"/>'),
   play: svg('<path d="M7 4.5v15l13-7.5z" class="filled"/>'),
-  reveal: svg('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
   restart: svg('<path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/>'),
   external: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
 };
@@ -602,13 +608,14 @@ function checkAutoNext() {
   nextSong();
 }
 
-// Panelens huvudknapp längst till höger: det spelledaren gör härnäst.
+// Panelens huvudknapp längst till höger: det spelledaren gör härnäst. Spola fram visar
+// svaret under låten och startar nästa låt efter svaret.
 function controls() {
   const round = state.round;
   if (!round) return iconButton('next', 'Nästa låt', ICONS.next, { primary: true });
   if (round.phase === 'ready') return usesDeezer() ? clipButton(round) : playLink(round.song);
   if (round.phase === 'playing') {
-    return (usesDeezer() ? '' : reopenLink(round.song)) + iconButton('reveal', 'Visa svar nu', ICONS.reveal, { primary: true });
+    return (usesDeezer() ? '' : reopenLink(round.song)) + iconButton('reveal', 'Visa svar nu', ICONS.next, { primary: true });
   }
   return state.winners
     ? iconButton('restart', 'Ny match med samma spelare', ICONS.restart, { primary: true })
