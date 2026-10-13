@@ -569,15 +569,15 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
-/* Ikonerna i baren har en tunn ring i stället för en fylld cirkel. */
-.host-bar { --ring: #d6d2e4; --ring-icon: #2a2640; --ring-press: #f1eff6; }
+/* Ikonerna i baren är mörkgrå på ljusgrå cirklar, så att de gröna delarna syns mest. */
+.host-bar { --btn-bg: #eeedf3; --btn-icon: #3b3854; --btn-press: #dfdce9; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .host-bar { --ring: rgba(255, 255, 255, 0.18); --ring-icon: #e6e3f5; --ring-press: rgba(255, 255, 255, 0.08); }
+  :root:not([data-theme="light"]) .host-bar { --btn-bg: rgba(255, 255, 255, 0.09); --btn-icon: #e6e3f5; --btn-press: rgba(255, 255, 255, 0.17); }
 }
-:root[data-theme="dark"] .host-bar { --ring: rgba(255, 255, 255, 0.18); --ring-icon: #e6e3f5; --ring-press: rgba(255, 255, 255, 0.08); }
-.host-bar .icon-btn { background: transparent; color: var(--ring-icon); box-shadow: inset 0 0 0 1.5px var(--ring); }
-@media (hover: hover) { .host-bar .icon-btn:hover { background: var(--ring-press); } }
-.host-bar .icon-btn:active { background: var(--ring-press); }
+:root[data-theme="dark"] .host-bar { --btn-bg: rgba(255, 255, 255, 0.09); --btn-icon: #e6e3f5; --btn-press: rgba(255, 255, 255, 0.17); }
+.host-bar .icon-btn { background: var(--btn-bg); color: var(--btn-icon); }
+@media (hover: hover) { .host-bar .icon-btn:hover { background: var(--btn-press); } }
+.host-bar .icon-btn:active { background: var(--btn-press); }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 /* Knapparna sprids jämnt över raden, så att det blir luft mellan dem. */
