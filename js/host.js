@@ -94,6 +94,7 @@ function viewFor(playerId) {
   const view = game.playerView(state, playerId, Date.now());
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
+  view.deezer = usesDeezer();
   return view;
 }
 
@@ -234,6 +235,7 @@ async function startGame(categoryId, resumeState, name) {
 
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
+  if (Date.now() - revealedAt < DOUBLE_TAP_MS) return;
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
   const playable = withoutUnknown(loadUnknown(), category.id, songs);
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
@@ -328,33 +330,27 @@ function playClipClicked() {
   else playDeezer(round.number);
 }
 
-function clipStage(round) {
-  if (clip.round === round.number && clip.status === 'loading') {
-    return '<p role="status">Hämtar klippet från Deezer…</p>';
-  }
-  if (clip.round === round.number && clip.status === 'missing') {
-    return `<p>${clip.error ? esc(clip.error) : 'Deezer har inget klipp för den här låten.'}
-      Spela den i Spotify i stället.</p>${playLinks(round.song)}`;
-  }
-  return `<p>Klicka på knappen. Klippet spelas här och timern startar.</p>
-    <button id="play-clip" class="big huge">Spela klippet</button>`;
+// Medan klippet hämtas är spela-knappen avstängd. Saknas klippet får spelledaren länkar till Spotify.
+function clipButton(round) {
+  const loading = clip.round === round.number && clip.status === 'loading';
+  if (clip.round === round.number && clip.status === 'missing') return playLink(round.song);
+  return iconButton('play-clip', 'Spela klippet', ICONS.play, { primary: true, disabled: loading });
 }
 
-const DEEZER_NOTE = '<p class="muted small">Klipp från Deezer, endast för privat bruk.</p>';
-
-// Länken växlar mellan att markera låten som okänd och att ångra det.
-function setUnknownLink(marked) {
-  $('#unknown').textContent = marked ? 'Ångra okänd låt' : 'Okänd låt';
+function clipNote(round) {
+  if (clip.round !== round.number || clip.status !== 'missing') return '';
+  return `<p class="muted small panel-note">${clip.error ? esc(clip.error) : 'Deezer har inget klipp för den här låten.'}
+    Spela den i Spotify i stället.</p>`;
 }
 
-// Uppdaterar bara länken, så att rätt svar inte läses upp igen.
+// Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
 function unknownClicked() {
   const song = state.round && state.round.song;
   if (!song) return;
   const list = toggleUnknown(loadUnknown(), category.id, song);
   saveUnknown(list);
   const marked = isUnknown(list, category.id, song.id);
-  setUnknownLink(marked);
+  $('#unknown').setAttribute('aria-pressed', String(marked));
   announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
 }
 
@@ -368,8 +364,28 @@ function startRound() {
   if (game.startRound(state, Date.now())) changed();
 }
 
+// Pausen stoppar timern, klippet och nedräkningen till nästa låt.
+function togglePause() {
+  if (!state.round) return;
+  const playing = state.round.phase === 'playing';
+  if (state.pausedAt) {
+    autoNext.at += game.resume(state, Date.now());
+    if (playing && clip.status === 'playing' && clip.audio) clip.audio.play().catch(() => {});
+  } else {
+    if (!game.pause(state, Date.now())) return;
+    stopClip();
+  }
+  changed();
+}
+
+// Samma knapp visar svaret och startar nästa låt. Ett dubbeltryck ska inte hoppa över svaret.
+const DOUBLE_TAP_MS = 1000;
+let revealedAt = 0;
+
 function revealNow() {
-  if (game.reveal(state)) changed();
+  if (!game.reveal(state)) return;
+  revealedAt = Date.now();
+  changed();
 }
 
 async function endGame() {
@@ -437,26 +453,32 @@ function wireUnknown(dialog, names) {
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
-function showSettings(current, categories = null, categoryId = null, names = {}) {
+// running: ett spel pågår och kan avslutas härifrån. Returnerar då { end: true } om spelledaren avslutar.
+// locked: låten spelas, så inställningarna kan inte ändras just nu.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, locked = false } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
       <h2>Inställningar</h2>
-      ${categories ? `
+      ${locked ? '<p>Inställningarna kan ändras när svaret har visats.</p>' : ''}
+      ${categories && !locked ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select>` : ''}
-      ${SETTING_FIELDS.map(({ key, label, text }) => `
+      ${locked ? '' : SETTING_FIELDS.map(({ key, label, text }) => `
         <label for="setting-${key}">${label}</label>
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
       ${unknownSection(countUnknown(loadUnknown()))}
+      ${running ? `<div class="end-game">
+        <button value="end" class="secondary danger-text">Avsluta spelet</button>
+      </div>` : ''}
       <div class="modal-actions">
-        <button value="cancel" class="secondary">Avbryt</button>
-        <button value="ok">Spara</button>
+        <button value="cancel" class="secondary">${locked ? 'Stäng' : 'Avbryt'}</button>
+        ${locked ? '' : '<button value="ok">Spara</button>'}
       </div>
     </form>`;
   // En rullista skickar inte formuläret med Enter, så Enter sparar här.
@@ -474,23 +496,24 @@ function showSettings(current, categories = null, categoryId = null, names = {})
     dialog.addEventListener('close', () => {
       const form = dialog.querySelector('form');
       const values = Object.fromEntries(new FormData(form));
-      resolve(dialog.returnValue === 'ok'
+      if (dialog.returnValue === 'end') resolve({ end: true });
+      else resolve(dialog.returnValue === 'ok'
         ? { ...game.cleanSettings(values), ...(categories ? { categoryId: values.categoryId } : {}) } : null);
       dialog.remove();
     }, { once: true });
   });
 }
 
+// Under en låt går bara att avsluta spelet. Inställningarna ändras när svaret har visats.
 async function editSettings() {
-  if (state && state.round && state.round.phase === 'playing') {
-    showAlert('Inställningarna kan ändras när svaret har visats.', { title: 'Låten pågår' });
-    return;
-  }
+  const locked = Boolean(state && state.round && state.round.phase === 'playing');
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
   const categories = state ? all : null;
-  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id, names);
+  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id, names,
+    { running: Boolean(state), locked });
   if (!chosen) return;
+  if (chosen.end) { endGame(); return; }
   const { categoryId, ...settings } = chosen;
   saveSettings(settings);
   if (!state) return;
@@ -518,7 +541,7 @@ async function switchCategory(chosen) {
 function showJoinInfo() {
   const url = joinUrl();
   $('#code').textContent = state.code;
-  $('#show-qr').textContent = 'Kod ' + state.code;
+  $('#show-qr').title = `Visa eller dölj QR-koden (kod ${state.code})`;
   setQrVisible(true);
   $('#join-url').textContent = url;
   $('#join-url').href = url;
@@ -535,64 +558,69 @@ function setQrVisible(visible) {
   $('#show-qr').setAttribute('aria-expanded', String(visible));
 }
 
-// Med Spotify-ID öppnas låten i appen, med webbspelaren som reserv.
-function playLinks(song) {
+// Med Spotify-ID öppnas låten i appen, annars som en sökning i webbläsaren.
+function playLink(song) {
   const app = spotifyAppUrl(song);
-  const web = esc(spotifyUrl(song));
-  if (!app) {
-    return `<a id="play" class="button big huge" href="${web}" target="_blank" rel="noopener">Spela låten i Spotify</a>
-      <p class="muted small">Länken öppnar en sökning i Spotify. Välj översta träffen.</p>`;
-  }
-  return `<a id="play" class="button big huge" href="${esc(app)}">Spela låten i Spotify-appen</a>
-    <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
+  const href = esc(app || spotifyUrl(song));
+  const target = app ? '' : ' target="_blank" rel="noopener"';
+  return `<a id="play" class="icon-btn primary" href="${href}"${target} aria-label="Spela låten i Spotify" title="Spela låten i Spotify">${ICONS.play}</a>`;
 }
 
 // Om Spotify inte öppnades av sig själv. Timern går redan.
-function reopenLinks(song) {
+function reopenLink(song) {
   const app = spotifyAppUrl(song);
-  const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
-  return `<p class="muted small reopen">Öppnades inte låten? Öppna den i ${
-    app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
+  const href = esc(app || spotifyUrl(song));
+  const target = app ? '' : ' target="_blank" rel="noopener"';
+  return `<a class="icon-btn" href="${href}"${target} aria-label="Öppna låten i Spotify igen" title="Öppna låten i Spotify igen">${ICONS.external}</a>`;
+}
+
+const svg = (body) => `<svg viewBox="0 -960 960 960" aria-hidden="true">${body}</svg>`;
+// Material Symbols Rounded, fylld variant (Apache 2.0).
+const ICONS = {
+  next: svg('<path d="M680-270v-420q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v420q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37Zm-460-27v-366q0-13.5 9-21.75t21-8.25q5 0 9 1.5t8 4.5l263 182q7 5 10 11.3 3 6.29 3 13.7 0 7.41-3 13.7-3 6.3-10 11.3L267-273q-4 3-8 4.5t-9 1.5q-12 0-21-8.25T220-297Z"/>'),
+  play: svg('<path d="M320-258v-450q0-14 9-22t21-8q4 0 8 1t8 3l354 226q7 5 10.5 11t3.5 14q0 8-3.5 14T720-458L366-232q-4 2-8 3t-8 1q-12 0-21-8t-9-22Z"/>'),
+  restart: svg('<path d="M418-126q-111-21-184.5-109T160-439q0-71 30-134t85-107q8-6 19-5.5t19 8.5q10 10 9 23t-13 23q-42 35-65.5 85.5T220-439q0 94 58 163.5T425-186q11 2 18.5 11t7.5 20q0 14-10 22.5t-23 6.5Zm126 0q-13 2-23-6.5T511-155q0-11 7.5-20t18.5-11q90-20 147-89.5T741-439q0-109-75.5-184.5T481-699h-20l39 39q8 8 8 21t-8 21q-9 9-22 9t-21-9l-91-90q-5-5-7-10t-2-11q0-6 2-11t7-10l91-91q8-8 21-8t22 8q8 9 8 22t-8 21l-39 39h20q134 0 227 93.5T801-439q0 116-73 204T544-126Z"/>'),
+  external: svg('<path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h249q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H180v600h600v-249q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v249q0 24-18 42t-42 18H180Zm600-617L403-360q-9 9-21 8.5t-21-9.5q-9-9-9-21t9-21l377-377H549q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h261q12.75 0 21.38 8.62Q840-822.75 840-810v261q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-188Z"/>'),
+};
+
+function iconButton(id, label, icon, { primary = false, disabled = false } = {}) {
+  return `<button id="${id}" class="icon-btn${primary ? ' primary' : ''}" aria-label="${label}" title="${label}"${disabled ? ' disabled' : ''}>${icon}</button>`;
 }
 
 // Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
 // redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
-const AUTO_NEXT_MS = 30000;
+const AUTO_NEXT_MS = 15000;
 let autoNext = { round: 0, at: 0 };
 
 function autoNextLeft() {
   const round = state.round;
   if (!usesDeezer() || !round || round.phase !== 'revealed' || state.winners) return null;
   if (autoNext.round !== round.number) autoNext = { round: round.number, at: Date.now() + AUTO_NEXT_MS };
-  return Math.max(0, autoNext.at - Date.now());
+  // Under en paus står nedräkningen still.
+  return Math.max(0, autoNext.at - (state.pausedAt || Date.now()));
 }
 
 // Anropas av tickern. Väntar medan en ruta som Inställningar är öppen.
 function checkAutoNext() {
   const left = autoNextLeft();
-  if (left === null) return;
+  if (left === null || state.pausedAt) return;
   if (left > 0) return;
   if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
   nextSong();
 }
 
-// Spelledarens knappar för den del av omgången som pågår.
+// Panelens huvudknapp längst till höger: det spelledaren gör härnäst. Spola fram visar
+// svaret under låten och startar nästa låt efter svaret.
 function controls() {
   const round = state.round;
-  if (!round) {
-    return `<button id="next" class="big huge">Nästa låt</button>
-      <p class="muted small">${usesDeezer() ? 'Ett klipp spelas här' : 'Låten öppnas i Spotify'} och timern startar.</p>
-      ${usesDeezer() ? DEEZER_NOTE : ''}`;
-  }
-  if (round.phase === 'ready' && usesDeezer()) return clipStage(round) + DEEZER_NOTE;
-  if (round.phase === 'ready') return playLinks(round.song);
+  if (!round) return iconButton('next', 'Nästa låt', ICONS.next, { primary: true });
+  if (round.phase === 'ready') return usesDeezer() ? clipButton(round) : playLink(round.song);
   if (round.phase === 'playing') {
-    return `<button id="reveal" class="secondary big huge">Visa svar nu</button>
-      ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
+    return (usesDeezer() ? '' : reopenLink(round.song)) + iconButton('reveal', 'Visa svar nu', ICONS.next, { primary: true });
   }
   return state.winners
-    ? '<button id="restart" class="big huge">Ny match med samma spelare</button>'
-    : '<button id="next" class="big huge">Nästa låt</button>';
+    ? iconButton('restart', 'Ny match med samma spelare', ICONS.restart, { primary: true })
+    : iconButton('next', 'Nästa låt', ICONS.next, { primary: true });
 }
 
 // Samma vy som spelarna ser, och under den spelledarens panel.
@@ -600,16 +628,24 @@ function controls() {
 function render() {
   $('#category').textContent = category.name;
   gameView.update(viewFor(state.hostId), state.hostId);
-  // Okänd låt markerar låten som okänd. Länken finns så länge det finns en låt.
+  // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
-  $('#unknown').hidden = !round;
-  if (round) setUnknownLink(isUnknown(loadUnknown(), category.id, round.song.id));
-  const box = $('#controls');
-  const html = controls();
-  if (box.dataset.html !== html) {
-    box.innerHTML = html;
-    box.dataset.html = html;
-  }
+  const unknown = $('#unknown');
+  unknown.disabled = !round;
+  unknown.setAttribute('aria-pressed', String(Boolean(round) && isUnknown(loadUnknown(), category.id, round.song.id)));
+  const pause = $('#pause');
+  pause.disabled = !round || round.phase === 'ready' || Boolean(state.winners && round.phase === 'revealed');
+  pause.setAttribute('aria-pressed', String(Boolean(state.pausedAt)));
+  pause.title = state.pausedAt ? 'Fortsätt spelet' : 'Pausa spelet';
+  setHtml($('#controls'), controls());
+  setHtml($('#controls-note'), round && round.phase === 'ready' && usesDeezer() ? clipNote(round) : '');
+}
+
+// Byggs bara om när innehållet ändras, så att fokus stannar kvar.
+function setHtml(box, html) {
+  if (box.dataset.html === html) return;
+  box.innerHTML = html;
+  box.dataset.html = html;
 }
 
 function showError(err) {
@@ -627,6 +663,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
   else if (id === 'unknown') unknownClicked();
+  else if (id === 'pause') togglePause();
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);

@@ -13,6 +13,11 @@
   --surface-2: #ece8f7;
   --text: #1a1530;
   --muted: #5a5470;
+  /* Mer diskret text, med minst 4.5:1 i kontrast mot rutorna. */
+  --faint: #6c6784;
+  --tool-bg: #e6defc;
+  --tool-hover: #d9cdfa;
+  --tool-text: #4b2aa8;
   --border: rgba(60, 40, 120, 0.12);
   --glow-1: rgba(124, 77, 255, 0.36);
   --glow-2: rgba(18, 170, 80, 0.28);
@@ -48,6 +53,10 @@
     --surface-2: rgba(255, 255, 255, 0.09);
     --text: #f1eefb;
     --muted: #a49fbd;
+    --faint: #8d88a6;
+    --tool-bg: rgba(124, 77, 255, 0.22);
+    --tool-hover: rgba(124, 77, 255, 0.32);
+    --tool-text: #c9b8ff;
     --border: rgba(255, 255, 255, 0.1);
     --glow-1: rgba(124, 77, 255, 0.38);
     --glow-2: rgba(30, 215, 96, 0.2);
@@ -79,6 +88,10 @@
   --surface-2: rgba(255, 255, 255, 0.09);
   --text: #f1eefb;
   --muted: #a49fbd;
+  --faint: #8d88a6;
+  --tool-bg: rgba(124, 77, 255, 0.22);
+  --tool-hover: rgba(124, 77, 255, 0.32);
+  --tool-text: #c9b8ff;
   --border: rgba(255, 255, 255, 0.1);
   --glow-1: rgba(124, 77, 255, 0.38);
   --glow-2: rgba(30, 215, 96, 0.2);
@@ -200,7 +213,7 @@ input:disabled { opacity: 0.55; }
 /* Svarsfälten väntar bara på att låten startar och ska inte blinka till. */
 #guess input:disabled { opacity: 1; }
 /* Gissningen och svaret är lika höga, så att sidan inte hoppar när svaret visas. */
-#guess, #result { min-height: 24rem; }
+#guess, #result { min-height: 26.5rem; }
 #guess label { margin: 12px 0 4px; }
 #guess input { padding-top: 11px; padding-bottom: 11px; }
 select:disabled { color: var(--muted); cursor: default; }
@@ -360,6 +373,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .ring circle { fill: none; stroke-width: 7; }
 .ring-track { stroke: color-mix(in srgb, #7c4dff 22%, transparent); }
 .ring { --ring-color: hsl(135 80% 45%); }
+/* Under en paus bleknar ringen. */
+.ring.paused .ring-bar { opacity: 0.4; }
 .ring-bar { stroke: var(--ring-color); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear, stroke 0.25s linear; }
 .ring-num {
   position: absolute;
@@ -390,7 +405,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 /* Tiden kvar tills nästa låt startar av sig själv */
 .pie { display: block; width: 22px; height: 22px; margin: -3px 0; flex: none; }
 .pie svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
-.pie-bar { fill: none; stroke: var(--muted); opacity: 0.6; transition: stroke-dashoffset 0.25s linear; }
+.pie-bar { fill: none; stroke: var(--muted); opacity: 0.35; transition: stroke-dashoffset 0.25s linear; }
 
 /* Rätt svar */
 .answer { text-align: center; margin: 12px 0 20px; padding: 24px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
@@ -529,12 +544,39 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 #join-url { word-break: break-all; }
 /* Spelledarens panel under spelvyn */
 .controls > .round-label { margin: 0 0 12px; }
-/* Länkarna längst ner i panelen */
-.panel-links { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
-.panel-links .link { margin: 0; }
-#controls > :first-child { margin-top: 0; }
-#controls > :last-child { margin-bottom: 0; }
-.reopen { margin: 16px 0 0; }
+/* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+/* Knapparna sprids jämnt över raden, så att det blir luft mellan dem. */
+.tool-group, #controls { display: contents; }
+.icon-btn {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--tool-bg);
+  color: var(--tool-text);
+  box-shadow: none;
+}
+.icon-btn:hover { background: var(--tool-hover); }
+a.icon-btn { text-decoration: none; }
+.icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
+.icon-btn.primary { background: var(--accent); color: var(--accent-text); }
+.icon-btn.primary:hover { background: var(--accent-hover); }
+.icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
+#unknown[aria-pressed="true"] { background: var(--bad); color: var(--bad-text); }
+#pause .when-on, #pause[aria-pressed="true"] .when-off { display: none; }
+#pause[aria-pressed="true"] .when-on { display: contents; }
+.icon-btn span { display: contents; }
+.panel-note { margin: 12px 0 0; }
+.clip-note { margin: auto 0 0; padding-top: 16px; text-align: center; font-size: 0.9rem; color: var(--faint); }
+/* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
+#guess, #result, #result-body { display: flex; flex-direction: column; }
+#result-body { flex: 1; }
 
 @media (max-width: 760px) {
   /* QR-rutan hamnar under raden med kategorin: kolumnens delar blir egna rader i gridden. */
@@ -569,6 +611,9 @@ button.danger:hover { filter: brightness(1.08); }
 .unknown-songs { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .modal .unknown-songs p { margin: 0 0 8px; }
 .unknown-actions .link { min-height: 24px; }
+.end-game { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.end-game button { width: auto; margin: 0; }
+.danger-text { color: var(--bad); }
 .unknown-text { width: 100%; margin-top: 8px; padding: 8px; font: inherit; font-size: 0.85rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
 @keyframes modal-in {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
