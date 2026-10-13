@@ -587,7 +587,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   color: var(--tool-text);
   box-shadow: none;
 }
-.icon-btn:hover { background: var(--tool-hover); }
+/* Bara med mus, så att färgen inte fastnar på knappen efter ett tryck på pekskärm. */
+@media (hover: hover) { .icon-btn:hover { background: var(--tool-hover); } }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
