@@ -308,13 +308,20 @@ async function playDeezer(roundNumber) {
   } catch (err) {
     clip.error = err.message;
   }
-  if (!state.round || state.round.number !== roundNumber) return; // spelledaren har gått vidare
+  // Spelledaren har gått vidare, eller visat svaret medan klippet laddades.
+  if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') return;
   if (!url) {
     clip.status = 'missing';
     render();
     return;
   }
   audio.src = url;
+  // Under en paus väntar klippet tills spelledaren fortsätter.
+  if (state.pausedAt) {
+    clip.status = 'loaded';
+    render();
+    return;
+  }
   startClip();
 }
 
@@ -323,6 +330,14 @@ function startClip() {
   const audio = clipAudio();
   audio.currentTime = 0;
   audio.play().then(() => {
+    // Spelledaren kan ha pausat eller visat svaret medan klippet buffrades.
+    if (!state.round || state.round.phase !== 'ready') { audio.pause(); return; }
+    if (state.pausedAt) {
+      audio.pause();
+      clip.status = 'loaded';
+      render();
+      return;
+    }
     clip.status = 'playing';
     if (game.startRound(state, Date.now())) changed();
   }).catch(() => {
@@ -403,6 +418,8 @@ function resumeGame() {
   if (!state.pausedAt) return;
   autoNext.at += game.resume(state, Date.now());
   if (state.round.phase === 'playing' && clip.status === 'playing' && clip.audio) clip.audio.play().catch(() => {});
+  // Pausades spelet medan klippet laddades startar låten nu.
+  if (state.round.phase === 'ready' && clip.round === state.round.number && clip.status === 'loaded') startClip();
   changed();
 }
 
@@ -411,6 +428,11 @@ const DOUBLE_TAP_MS = 1000;
 let revealedAt = 0;
 
 function revealNow() {
+  // Medan klippet laddas har låten inte börjat. Svaret kan ändå visas direkt.
+  if (state.round && state.round.phase === 'ready') {
+    stopClip();
+    game.startRound(state, Date.now());
+  }
   if (!game.reveal(state)) return;
   revealedAt = Date.now();
   changed();
@@ -684,8 +706,8 @@ function playAction() {
 // Spola fram visar svaret under låten och startar nästa låt efter svaret.
 function nextAction() {
   const round = state.round;
-  if (!round || round.phase === 'ready') return null;
-  if (round.phase === 'playing') return { action: 'reveal', label: 'Visa svar nu' };
+  if (!round) return null;
+  if (round.phase !== 'revealed') return { action: 'reveal', label: 'Visa svar nu' };
   return state.winners ? { action: 'restart', label: 'Ny match' } : { action: 'next', label: 'Nästa låt' };
 }
 
@@ -724,7 +746,8 @@ function render() {
   gameView.update(viewFor(state.hostId), state.hostId);
   // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
-  $('#pause').disabled = !round || Boolean(state.pausedAt) || round.phase === 'ready'
+  // Paus och nästa går att använda hela låten, även medan klippet laddas.
+  $('#pause').disabled = !round || Boolean(state.pausedAt)
     || Boolean(state.winners && round.phase === 'revealed');
   const play = playAction();
   setButton($('#play'), play, 'Spela');

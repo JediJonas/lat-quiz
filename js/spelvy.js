@@ -98,7 +98,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('label[for=title]').textContent = view.labels.title;
 
     if (phase === 'ready') {
-      $('#round-title').textContent = `Låt ${round.number}`;
+      $('#round-title').textContent = view.paused ? `Låt ${round.number} · Pausat` : `Låt ${round.number}`;
       renderRing($('#timer'), round.roundMs, round.roundMs, false);
     } else if (phase === 'playing') {
       $('#round-title').textContent = `Låt ${round.number}`;
