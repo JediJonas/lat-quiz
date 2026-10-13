@@ -58,8 +58,8 @@ let showConnecting = false;
 let hostGone = null;
 
 function showHostGone() {
-  if (hostGone === 'ended') showMessage({ key: 'net', kind: 'info', title: 'Spelledaren har avslutat spelet', text: 'Tack för att du var med!' });
-  else showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Du kopplas in igen om spelledaren kommer tillbaka.' });
+  const title = hostGone === 'ended' ? 'Spelledaren har avslutat spelet' : 'Spelledaren har lämnat spelet';
+  showMessage({ key: 'net', kind: 'busy', title, text: 'Väntar på att spelledaren kommer tillbaka.' });
 }
 
 function onStatus(status) {

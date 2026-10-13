@@ -30,7 +30,10 @@ function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
 }
 
+// Inget sparas när spelet har avslutats. Annars sparas det igen när anslutningarna stängs,
+// och knappen för att gå tillbaka till spelet finns kvar.
 function save() {
+  if (leaving) return;
   storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify({ state, savedAt: Date.now() })));
 }
 
@@ -418,6 +421,7 @@ async function endGame() {
     title: 'Avsluta spelet?', okText: 'Avsluta', danger: true,
   });
   if (!ok) return;
+  leaving = true;
   storage(() => localStorage.removeItem(SAVE_KEY));
   stopClip();
   // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
@@ -428,7 +432,6 @@ async function endGame() {
     net.destroy();
   }
   if (ticker) ticker.stop();
-  leaving = true;
   location.href = location.pathname + location.search;
 }
 
