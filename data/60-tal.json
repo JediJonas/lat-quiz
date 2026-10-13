@@ -88,13 +88,6 @@
   "deezerId": 3586842
  },
  {
-  "id": "cream-sunshine-of-your-love",
-  "artist": "Cream",
-  "title": "Sunshine of Your Love",
-  "year": 1968,
-  "spotifyId": "6EthdXeeDRmN2enXANpFiV"
- },
- {
   "id": "the-band-the-night-they-drove-old-dixie-down",
   "artist": "The Band",
   "title": "The Night They Drove Old Dixie Down",
@@ -125,13 +118,6 @@
   "year": 1966,
   "spotifyId": "3YJx77Xx8JSwEoxqrkQO5c",
   "deezerId": 724607
- },
- {
-  "id": "tommy-james-the-shondells-i-think-we-re-alone-now",
-  "artist": "Tommy James & the Shondells",
-  "title": "I Think We're Alone Now",
-  "year": 1967,
-  "spotifyId": "0jfOA16bjZxrkIzibPcl6U"
  },
  {
   "id": "canned-heat-on-the-road-again",
@@ -190,13 +176,6 @@
   "deezerId": 71414429
  },
  {
-  "id": "frankie-valli-the-sun-ain-t-gonna-shine-anymore",
-  "artist": "Frankie Valli",
-  "title": "The Sun Ain't Gonna Shine (Anymore)",
-  "year": 1965,
-  "spotifyId": "0RFpZiKdQ6af5TbfC026u9"
- },
- {
   "id": "engelbert-humperdinck-the-last-waltz",
   "artist": "Engelbert Humperdinck",
   "title": "The Last Waltz",
@@ -229,26 +208,12 @@
   "deezerId": 540154072
  },
  {
-  "id": "deep-purple-kentucky-woman",
-  "artist": "Deep Purple",
-  "title": "Kentucky Woman",
-  "year": 1967,
-  "spotifyId": "3rI5e4tFTlWEwJi4TjLeGT"
- },
- {
   "id": "aqua-roses-are-red",
   "artist": "Bobby Vinton",
   "title": "Roses Are Red",
   "year": 1962,
   "spotifyId": "2onW6h6phl4SKSiBqLWgit",
   "deezerId": 1693037257
- },
- {
-  "id": "fleetwood-mac-albatross",
-  "artist": "Fleetwood Mac",
-  "title": "Albatross",
-  "year": 1968,
-  "spotifyId": "3iZ5twPwvFeOUQA4Deu8tP"
  },
  {
   "id": "the-drifters-under-the-boardwalk",
@@ -273,13 +238,6 @@
   "year": 1964,
   "spotifyId": "7E3rc13GL2I5wA6CIFXaxs",
   "deezerId": 3158377
- },
- {
-  "id": "martha-and-the-vandellas-nowhere-to-run",
-  "artist": "Martha and the Vandellas",
-  "title": "Nowhere to Run",
-  "year": 1965,
-  "spotifyId": "7MuGa8JT2v1kdvzR9yU3ap"
  },
  {
   "id": "arthur-conley-sweet-soul-music",
@@ -320,13 +278,6 @@
   "year": 1966,
   "spotifyId": "5SectrIpir82CkWijPcUkW",
   "deezerId": 676208
- },
- {
-  "id": "ray-charles-unchain-my-heart",
-  "artist": "Ray Charles",
-  "title": "Unchain My Heart",
-  "year": 1961,
-  "spotifyId": "5EpwOn2sBvXXKiwO68g7a1"
  },
  {
   "id": "canned-heat-going-up-the-country",
@@ -721,13 +672,6 @@
   "deezerId": 1693037507
  },
  {
-  "id": "bobby-pickett-monster-mash",
-  "artist": "Bobby Pickett",
-  "title": "Monster Mash",
-  "year": 1962,
-  "spotifyId": "0xxZY5C9xxij3D1HkzbnfC"
- },
- {
   "id": "dionne-warwick-walk-on-by",
   "artist": "Dionne Warwick",
   "title": "Walk On By",
@@ -1078,13 +1022,6 @@
   "year": 1968,
   "spotifyId": "6Jp0GuFxAYbTdre1uUPgaB",
   "deezerId": 1825936627
- },
- {
-  "id": "the-everly-brothers-crying-in-the-rain",
-  "artist": "The Everly Brothers",
-  "title": "Crying in the Rain",
-  "year": 1961,
-  "spotifyId": "3BibKEnaumpC61S7lYaVQt"
  },
  {
   "id": "the-chiffons-he-s-so-fine",

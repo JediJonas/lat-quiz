@@ -7,10 +7,10 @@
   { "id": "2010-tal", "name": "2010-tal", "file": "2010-tal.json", "audio": "deezer" },
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "audio": "deezer" },
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "audio": "deezer" },
-  { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "labels": { "artist": "Land", "title": "Låt" } },
+  { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "audio": "deezer", "labels": { "artist": "Land", "title": "Låt" } },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "audio": "deezer" },
-  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Kompositör", "title": "Film" } },
-  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" } },
+  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Film" } },
+  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Verk" } },
   { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer" },
   { "id": "deezer-test", "name": "Deezer-test", "file": "deezer-test.json", "audio": "deezer" }
 ]

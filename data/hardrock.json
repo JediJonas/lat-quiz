@@ -24,27 +24,6 @@
   "deezerId": 4092337241
  },
  {
-  "id": "metallica-enter-sandman",
-  "artist": "Metallica",
-  "title": "Enter Sandman",
-  "year": 1991,
-  "spotifyId": "1hKdDCpiI9mqz1jVHRKG0E"
- },
- {
-  "id": "metallica-fade-to-black",
-  "artist": "Metallica",
-  "title": "Fade to Black",
-  "year": 1984,
-  "spotifyId": "0dqGfCMAGyDgpUAgLNOjWd"
- },
- {
-  "id": "metallica-until-it-sleeps",
-  "artist": "Metallica",
-  "title": "Until It Sleeps",
-  "year": 1996,
-  "spotifyId": "2Iv4HSoMX2fDeXFcOJWyWX"
- },
- {
   "id": "lynyrd-skynyrd-free-bird",
   "artist": "Lynyrd Skynyrd",
   "title": "Free Bird",
@@ -69,40 +48,12 @@
   "deezerId": 78652582
  },
  {
-  "id": "iron-maiden-run-to-the-hills",
-  "artist": "Iron Maiden",
-  "title": "Run to the Hills",
-  "year": 1982,
-  "spotifyId": "4Zc7TCHzuNwL0AFBlyLdyr"
- },
- {
-  "id": "iron-maiden-the-trooper",
-  "artist": "Iron Maiden",
-  "title": "The Trooper",
-  "year": 1983,
-  "spotifyId": "3JlZD0amss9ftlE836VKx5"
- },
- {
   "id": "ac-dc-hells-bells",
   "artist": "AC/DC",
   "title": "Hells Bells",
   "year": 1980,
   "spotifyId": "2P884dqfjksDMSzUZksfrS",
   "deezerId": 92720036
- },
- {
-  "id": "iron-maiden-2-minutes-to-midnight",
-  "artist": "Iron Maiden",
-  "title": "2 Minutes to Midnight",
-  "year": 1984,
-  "spotifyId": "2SrVGpjv0mqCR6j9EZPSm2"
- },
- {
-  "id": "iron-maiden-wasted-years",
-  "artist": "Iron Maiden",
-  "title": "Wasted Years",
-  "year": 1986,
-  "spotifyId": "1HM7Vp84E4SMzdrZONg6bH"
  },
  {
   "id": "def-leppard-pour-some-sugar-on-me",
@@ -249,13 +200,6 @@
   "deezerId": 3803468322
  },
  {
-  "id": "black-sabbath-sabbath-bloody-sabbath",
-  "artist": "Black Sabbath",
-  "title": "Sabbath Bloody Sabbath",
-  "year": 1973,
-  "spotifyId": "2CzKVfVA9U7OKbIpAVPZOk"
- },
- {
   "id": "zz-top-gimme-all-your-lovin",
   "artist": "ZZ Top",
   "title": "Gimme All Your Lovin'",
@@ -320,13 +264,6 @@
   "deezerId": 2246520637
  },
  {
-  "id": "black-sabbath-into-the-void",
-  "artist": "Black Sabbath",
-  "title": "Into the Void",
-  "year": 1971,
-  "spotifyId": "4chUb38ZUuvL1OST3aa063"
- },
- {
   "id": "ozzy-osbourne-mama-i-m-coming-home",
   "artist": "Ozzy Osbourne",
   "title": "Mama, I'm Coming Home",
@@ -341,13 +278,6 @@
   "year": 1990,
   "spotifyId": "4vJr55lngvhSM8WIh9CjQc",
   "deezerId": 714420
- },
- {
-  "id": "black-sabbath-neon-knights",
-  "artist": "Black Sabbath",
-  "title": "Neon Knights",
-  "year": 1970,
-  "spotifyId": "7r2QK941qra9MDQIllJdZs"
  },
  {
   "id": "babymetal-megitsune",
@@ -428,13 +358,6 @@
   "year": 1992,
   "spotifyId": "5ibELGcXGqX5x9TWFeNPxY",
   "deezerId": 865537
- },
- {
-  "id": "black-sabbath-n-i-b",
-  "artist": "Black Sabbath",
-  "title": "N.I.B.",
-  "year": 2000,
-  "spotifyId": "3XclwoQxz4p6Dl7VUf90KW"
  },
  {
   "id": "def-leppard-photograph",
@@ -539,13 +462,6 @@
   "year": 1984,
   "spotifyId": "0MZmEMfLVAcFIvyoBiV2EU",
   "deezerId": 97098418
- },
- {
-  "id": "scorpions-big-city-nights",
-  "artist": "Scorpions",
-  "title": "Big City Nights",
-  "year": 1984,
-  "spotifyId": "0lts4KdrQAks3PlKN71dZ9"
  },
  {
   "id": "alice-in-chains-check-my-brain",
@@ -732,20 +648,6 @@
   "deezerId": 70078209
  },
  {
-  "id": "metallica-the-unforgiven",
-  "artist": "Metallica",
-  "title": "The Unforgiven",
-  "year": 1991,
-  "spotifyId": "4aYLAF6ckQ5ooGGGM7sWAa"
- },
- {
-  "id": "metallica-whiskey-in-the-jar",
-  "artist": "Metallica",
-  "title": "Whiskey in the Jar",
-  "year": 1999,
-  "spotifyId": "3ZpWy5rBZv2aLQAldnmTsP"
- },
- {
   "id": "ram-jam-black-betty",
   "artist": "Ram Jam",
   "title": "Black Betty",
@@ -792,13 +694,6 @@
   "year": 1976,
   "spotifyId": "2d4e45fmUnguxh6yqC7gNT",
   "deezerId": 92723000
- },
- {
-  "id": "journey-separate-ways-worlds-apart",
-  "artist": "Journey",
-  "title": "Separate Ways (Worlds Apart)",
-  "year": 1983,
-  "spotifyId": "1pTw2cNrp9L3esxLAvWnN2"
  },
  {
   "id": "three-days-grace-riot",
@@ -895,13 +790,6 @@
   "year": 2008,
   "spotifyId": "42ZVk59gT4tMlrZmd8Ijxf",
   "deezerId": 827969
- },
- {
-  "id": "royal-blood-figure-it-out",
-  "artist": "Royal Blood",
-  "title": "Figure It Out",
-  "year": 2014,
-  "spotifyId": "6tPUSaejY2IMpBPFfQqjKd"
  },
  {
   "id": "foreigner-juke-box-hero",
@@ -1104,13 +992,6 @@
   "deezerId": 85575198
  },
  {
-  "id": "the-pretty-reckless-heaven-knows",
-  "artist": "The Pretty Reckless",
-  "title": "Heaven Knows",
-  "year": 2013,
-  "spotifyId": "04w73SmPfQkkmEpKbcrHOL"
- },
- {
   "id": "velvet-revolver-slither",
   "artist": "Velvet Revolver",
   "title": "Slither",
@@ -1133,13 +1014,6 @@
   "year": 2006,
   "spotifyId": "5hkgrWxkobGtg30I7DsfVu",
   "deezerId": 788780
- },
- {
-  "id": "royal-blood-out-of-the-black",
-  "artist": "Royal Blood",
-  "title": "Out of the Black",
-  "year": 2013,
-  "spotifyId": "2nIulsLMiP2SMTDrtxfQXX"
  },
  {
   "id": "pat-benatar-heartbreaker",
@@ -1172,13 +1046,6 @@
   "year": 2017,
   "spotifyId": "5jsDxDkJ1PqyYUWhDMr86B",
   "deezerId": 376068231
- },
- {
-  "id": "iron-maiden-wasting-love",
-  "artist": "Iron Maiden",
-  "title": "Wasting Love",
-  "year": 1992,
-  "spotifyId": "2KKLuHN6zDxVnWtFKO8vo4"
  },
  {
   "id": "def-leppard-rock-of-ages",
@@ -1221,13 +1088,6 @@
   "deezerId": 13142681
  },
  {
-  "id": "royal-blood-little-monster",
-  "artist": "Royal Blood",
-  "title": "Little Monster",
-  "year": 2014,
-  "spotifyId": "0LHni3bdbwZASRHf8RYlXK"
- },
- {
   "id": "bullet-for-my-valentine-you-want-a-battle",
   "artist": "Bullet for My Valentine",
   "title": "You Want A Battle",
@@ -1242,13 +1102,6 @@
   "year": 2003,
   "spotifyId": "1Yuim9eHBfG8YUJII28XDF",
   "deezerId": 71828727
- },
- {
-  "id": "bullet-for-my-valentine-waking-the-demon",
-  "artist": "Bullet for My Valentine",
-  "title": "Waking the Demon",
-  "year": 2008,
-  "spotifyId": "0k6wiMT26Wc3K4B2IiloUw"
  },
  {
   "id": "volbeat-fallen",

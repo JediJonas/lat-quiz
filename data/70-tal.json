@@ -352,33 +352,12 @@
   "deezerId": 676011672
  },
  {
-  "id": "wings-silly-love-songs",
-  "artist": "Wings",
-  "title": "Silly Love Songs",
-  "year": 1976,
-  "spotifyId": "7CqtjUzv9Bfw1zmVyXMrrt"
- },
- {
-  "id": "james-last-the-lonely-shepherd",
-  "artist": "James Last & Gheorghe Zamfir",
-  "title": "The Lonely Shepherd",
-  "year": 1977,
-  "spotifyId": "3OQEVjVEQ6CvfAJ6XhTs6c"
- },
- {
   "id": "chic-good-times",
   "artist": "Chic",
   "title": "Good Times",
   "year": 1979,
   "spotifyId": "0G3fbPbE1vGeABDEZF0jeG",
   "deezerId": 3616131
- },
- {
-  "id": "black-sabbath-sabbath-bloody-sabbath",
-  "artist": "Black Sabbath",
-  "title": "Sabbath Bloody Sabbath",
-  "year": 1973,
-  "spotifyId": "2CzKVfVA9U7OKbIpAVPZOk"
  },
  {
   "id": "the-cure-boys-don-t-cry",
@@ -1005,13 +984,6 @@
   "deezerId": 3166507
  },
  {
-  "id": "joe-cocker-you-are-so-beautiful",
-  "artist": "Joe Cocker",
-  "title": "You Are So Beautiful",
-  "year": 1974,
-  "spotifyId": "21Zx5wInOZEli4HNSiMLEJ"
- },
- {
   "id": "bob-dylan-hurricane",
   "artist": "Bob Dylan",
   "title": "Hurricane",
@@ -1034,13 +1006,6 @@
   "year": 1972,
   "spotifyId": "28285KFbyCq8sJofn58qlD",
   "deezerId": 13183903
- },
- {
-  "id": "dire-straits-lady-writer",
-  "artist": "Dire Straits",
-  "title": "Lady Writer",
-  "year": 1979,
-  "spotifyId": "1ESwWZmndbaAzqaGM7hYAP"
  },
  {
   "id": "eagles-peaceful-easy-feeling",
@@ -1113,13 +1078,6 @@
   "year": 1977,
   "spotifyId": "1JkZg3eMQTmTn93E8Yd3UL",
   "deezerId": 104760756
- },
- {
-  "id": "kc-and-the-sunshine-band-that-s-the-way-i-like-it",
-  "artist": "KC and the Sunshine Band",
-  "title": "That's the Way (I Like It)",
-  "year": 1975,
-  "spotifyId": "3PR79C1jVvLLLmgdyHkXl3"
  },
  {
   "id": "the-doors-love-her-madly",
@@ -1208,12 +1166,5 @@
   "year": 1971,
   "spotifyId": "2sfFb4rfoPvYeer3r9pwet",
   "deezerId": 1133408902
- },
- {
-  "id": "leo-sayer-you-make-me-feel-like-dancing",
-  "artist": "Leo Sayer",
-  "title": "You Make Me Feel Like Dancing",
-  "year": 1976,
-  "spotifyId": "6gTrbqZnyljwXdYQTyBkSx"
  }
 ]
