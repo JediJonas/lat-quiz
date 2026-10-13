@@ -639,37 +639,7 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .unknown-songs p { margin: 0 0 8px; }
 .unknown-actions .link { min-height: 24px; }
 label.check { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-weight: 400; }
-/* Egen kryssruta: de vanliga fältstilarna gav en konstig ruta i iOS. */
-label.check input {
-  -webkit-appearance: none;
-  appearance: none;
-  flex: none;
-  display: grid;
-  place-content: center;
-  width: 22px;
-  height: 22px;
-  margin: 1px 0 0;
-  padding: 0;
-  border: 2px solid var(--muted);
-  border-radius: 6px;
-  background: var(--surface-solid);
-  box-shadow: none;
-  cursor: pointer;
-}
-label.check input::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  background: var(--accent-text);
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
-  transform: scale(0);
-  transition: transform 0.12s ease-out;
-}
-label.check input:checked { background: var(--accent); border-color: var(--accent); }
-label.check input:checked::before { transform: scale(1); }
-label.check input:focus { border-color: var(--muted); box-shadow: none; }
-label.check input:checked:focus { border-color: var(--accent); }
-label.check input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+label.check input { flex: none; width: 22px; height: 22px; margin: 0; padding: 0; box-shadow: none; accent-color: var(--accent); }
 .end-game { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .end-game button { width: auto; margin: 0; }
 .danger-text { color: var(--bad); }
