@@ -120,25 +120,21 @@
 
 * { box-sizing: border-box; }
 
-/* Toningen ligger i ett fast lager som täcker hela skärmen, så att den inte
-   tar slut med en skarp kant när man scrollar (fixed bakgrund saknas i iOS). */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  height: 100lvh;
-  z-index: -1;
-  pointer-events: none;
+/* Toningen ligger på html-elementet och följer med sidan när man scrollar. Varje sken
+   tonar ut till genomskinligt, och bakgrundsfärgen fyller resten, så det blir inga
+   skarpa kanter. Ett fast lager gav kanter i iOS när verktygsfältet ändrade storlek. */
+html {
+  min-height: 100%;
   background:
-    radial-gradient(60vmax 45vmax at 10% -10%, var(--glow-1), transparent 70%),
-    radial-gradient(50vmax 40vmax at 110% 40%, var(--glow-3), transparent 70%),
-    radial-gradient(60vmax 45vmax at 30% 120%, var(--glow-2), transparent 70%);
+    radial-gradient(60vmax 45vmax at 10% -10%, var(--glow-1), transparent 70%) no-repeat,
+    radial-gradient(50vmax 40vmax at 110% 40%, var(--glow-3), transparent 70%) no-repeat,
+    radial-gradient(60vmax 45vmax at 30% 120%, var(--glow-2), transparent 70%) no-repeat,
+    var(--bg);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
   color: var(--text);
   font: 1rem/1.5 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-feature-settings: "cv11", "ss01";
