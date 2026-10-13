@@ -4,9 +4,8 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { announce } from './ui.js';
 import { createGameView, esc } from './spelvy.js';
-import { mountUserSettings } from './theme.js';
+import { mountSwitch, mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
 const SAVE_KEY = 'latquiz-host';
@@ -341,23 +340,24 @@ function clipNote(round) {
     Spela den i Spotify i stället.</p>`;
 }
 
-// Kryssrutan i Inställningar. Gäller direkt, utan att spelledaren behöver spara.
-function setUnknown(marked) {
+// Strömbrytaren i Inställningar, likadan som i Utseende. Gäller direkt, utan att spelledaren behöver spara.
+function currentUnknown() {
   const song = state.round && state.round.song;
-  if (!song || isUnknown(loadUnknown(), category.id, song.id) === marked) return;
-  saveUnknown(toggleUnknown(loadUnknown(), category.id, song));
-  announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
+  return Boolean(song) && isUnknown(loadUnknown(), category.id, song.id);
+}
+
+function toggleCurrentUnknown() {
+  const song = state.round && state.round.song;
+  if (song) saveUnknown(toggleUnknown(loadUnknown(), category.id, song));
 }
 
 // Låtens titel visas inte, eftersom spelledaren också gissar.
 function unknownCheckbox() {
   const song = state && state.round && state.round.song;
   if (!song) return '';
-  const marked = isUnknown(loadUnknown(), category.id, song.id);
   return `
     <div class="current-song">
-      <label class="check"><input type="checkbox" id="mark-unknown"${marked ? ' checked' : ''}>
-        Hoppa över den i kommande spel</label>
+      <button type="button" class="theme-switch" id="mark-unknown"></button>
     </div>`;
 }
 
@@ -506,7 +506,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   });
   wireUnknown(dialog, names);
   const mark = dialog.querySelector('#mark-unknown');
-  if (mark) mark.addEventListener('change', () => setUnknown(mark.checked));
+  if (mark) mountSwitch(mark, 'Hoppa över den i kommande spel', currentUnknown, toggleCurrentUnknown);
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {
@@ -598,7 +598,7 @@ const ICONS = {
 
 // Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
 // redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
-const AUTO_NEXT_MS = 15000;
+const AUTO_NEXT_MS = 10000;
 let autoNext = { round: 0, at: 0 };
 
 function autoNextLeft() {

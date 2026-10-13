@@ -15,7 +15,7 @@ export const MAX_NAME = 10;
 // Inställningar som spelledaren kan välja. Bonus 0 betyder ingen bonus. Tiden går inte att ändra.
 export const SETTING_CHOICES = {
   roundMs: [ROUND_MS],
-  bonusMs: [0, 10000, 15000, 20000],
+  bonusMs: [0, 5000, 10000, 15000, 20000],
   winScore: [5, 10, 15, 20, 30],
 };
 export const DEFAULT_SETTINGS = { roundMs: ROUND_MS, bonusMs: BONUS_MS, winScore: WIN_SCORE };

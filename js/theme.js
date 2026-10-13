@@ -30,7 +30,7 @@ function setTheme(theme) {
 }
 
 // Gör en knapp till en strömbrytare.
-function mountSwitch(el, label, isOn, toggle) {
+export function mountSwitch(el, label, isOn, toggle) {
   const update = () => el.setAttribute('aria-checked', String(isOn()));
   el.innerHTML = `<span class="track" aria-hidden="true"></span>${label}`;
   el.setAttribute('role', 'switch');
