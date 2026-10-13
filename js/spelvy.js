@@ -3,7 +3,7 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderRing, scoreTracker, statusTags } from './ui.js';
+import { announce, renderPie, renderRing, scoreTracker, statusTags } from './ui.js';
 
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -26,6 +26,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
   let me = null;
   let roundNumber = null;
   let deadline = 0;
+  let nextAt = 0;
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
@@ -42,7 +43,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
   setInterval(renderTimer, 250);
 
   function renderTimer() {
-    if (!view || !view.round || view.round.phase !== 'playing') return;
+    if (!view || !view.round) return;
+    const pie = $('#next-pie');
+    if (pie && view.round.phase === 'revealed') renderPie(pie, Math.max(0, nextAt - Date.now()), view.round.nextTotalMs);
+    if (view.round.phase !== 'playing') return;
     const ms = Math.max(0, deadline - Date.now());
     renderRing($('#timer'), ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
   }
@@ -96,7 +100,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
     } else if (phase === 'revealed') {
       const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
       const mine = round.answer || { artist: '', title: '' };
-      $('#result-body').innerHTML = `<h2 class="round-label">Låt ${round.number}</h2>
+      // Den lilla cirkeln äts upp tills nästa låt startar av sig själv.
+      const next = round.nextInMs == null ? '' : `<span id="next-pie" class="pie"></span>
+        <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span>`;
+      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}</h2>${next}</div>
         <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
         <ul class="mine">
@@ -108,6 +115,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
       announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
         + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
+      renderTimer();
     }
     renderStandings();
   }
@@ -126,6 +134,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
         fields.title.set(local.title);
       }
       deadline = round && round.phase === 'playing' ? Date.now() + round.remainingMs : 0;
+      nextAt = round && round.nextInMs != null ? Date.now() + round.nextInMs : 0;
       render();
     },
     // De svar som är valda just nu, till exempel för att skicka dem igen efter ett avbrott.

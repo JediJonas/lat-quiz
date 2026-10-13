@@ -199,6 +199,10 @@ input.chosen {
 input:disabled { opacity: 0.55; }
 /* Svarsfälten väntar bara på att låten startar och ska inte blinka till. */
 #guess input:disabled { opacity: 1; }
+/* Gissningen och svaret är lika höga, så att sidan inte hoppar när svaret visas. */
+#guess, #result { min-height: 24rem; }
+#guess label { margin: 12px 0 4px; }
+#guess input { padding-top: 11px; padding-bottom: 11px; }
 select:disabled { color: var(--muted); cursor: default; }
 button:disabled { opacity: 0.55; pointer-events: none; }
 .code-input { text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600; }
@@ -382,9 +386,15 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
 .round-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.round-head .round-label { margin: 0; }
+/* Tiden kvar tills nästa låt startar av sig själv */
+.pie { display: block; width: 22px; height: 22px; margin: -3px 0; flex: none; }
+.pie svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
+.pie-track { fill: color-mix(in srgb, #7c4dff 18%, transparent); }
+.pie-bar { fill: none; stroke: var(--accent); transition: stroke-dashoffset 0.25s linear; }
 
 /* Rätt svar */
-.answer { text-align: center; margin: 12px 0 16px; padding: 24px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
+.answer { text-align: center; margin: 12px 0 20px; padding: 24px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
 .answer .title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; }
 .answer .artist { font-size: 1.1rem; color: var(--muted); margin-top: 4px; }
 .reveal { animation: reveal 0.35s ease-out; }
@@ -392,8 +402,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }
 }
-.mine { list-style: none; padding: 0; margin: 0 0 12px; }
-.mine li { display: flex; gap: 10px; align-items: baseline; padding: 10px 16px; margin: 6px 0; border-radius: 10px; font-weight: 600; }
+.mine { list-style: none; padding: 0; margin: 0 0 20px; }
+.mine li { display: flex; gap: 10px; align-items: baseline; padding: 10px 16px; margin: 8px 0; border-radius: 10px; font-weight: 600; }
 .mine li span { min-width: 4.5em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 .mine li.right { background: var(--good-soft); color: var(--good); }
 .mine li.wrong { background: var(--bad-soft); color: var(--bad); }
