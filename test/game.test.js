@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, nameTaken,
+  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume,
 } from '../js/game.js';
 
 const songs = [
@@ -252,4 +252,27 @@ test('ett namn som en annan spelare har är upptaget, oavsett stora bokstäver o
   assert.equal(nameTaken(state, { id: 'p2', name: 'Bo' }), false);
   // Samma spelare som ansluter igen får behålla sitt namn.
   assert.equal(nameTaken(state, { id: 'p1', name: 'Åsa' }), false);
+});
+
+test('under en paus står timern still och inga svar tas emot', () => {
+  const state = setup(); // låten startade vid 1000
+  assert.equal(pause(state, 11000), true);
+  assert.equal(remainingMs(state, 50000), 20000);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 12000), false);
+  assert.equal(shouldReveal(state, 99000), false);
+  assert.equal(playerView(state, 'p1', 50000).paused, true);
+  assert.equal(resume(state, 51000), 40000);
+  assert.equal(remainingMs(state, 51000), 20000);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 52000), true);
+  assert.equal(playerView(state, 'p1', 52000).paused, false);
+});
+
+test('nästa låt och svaret avslutar en paus', () => {
+  const state = setup();
+  pause(state, 5000);
+  reveal(state);
+  assert.equal(state.pausedAt, null);
+  pause(state, 6000);
+  nextSong(state, songs, () => 0);
+  assert.equal(state.pausedAt, null);
 });

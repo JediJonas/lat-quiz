@@ -27,6 +27,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
   let roundNumber = null;
   let deadline = 0;
   let nextAt = 0;
+  let wasPaused = null;
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
@@ -44,10 +45,13 @@ export function createGameView({ onAnswer, onError, host = false }) {
 
   function renderTimer() {
     if (!view || !view.round) return;
+    // Under en paus står ringen och cirkeln still på det spelledaren skickade.
     const pie = $('#next-pie');
-    if (pie && view.round.phase === 'revealed') renderPie(pie, Math.max(0, nextAt - Date.now()), view.round.nextTotalMs);
+    const nextMs = view.paused ? view.round.nextInMs : Math.max(0, nextAt - Date.now());
+    if (pie && view.round.phase === 'revealed') renderPie(pie, nextMs, view.round.nextTotalMs);
     if (view.round.phase !== 'playing') return;
-    const ms = Math.max(0, deadline - Date.now());
+    $('#timer').classList.toggle('paused', Boolean(view.paused));
+    const ms = view.paused ? view.round.remainingMs : Math.max(0, deadline - Date.now());
     renderRing($('#timer'), ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
   }
 
@@ -73,7 +77,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
 
   function waitingText() {
     return host
-      ? `Tryck på Nästa låt när alla har gått med. ${rulesText(view)}`
+      ? `Starta första låten med knappen längst till höger i panelen när alla har gått med. ${rulesText(view)}`
       : `Väntar på första låten… ${rulesText(view)}`;
   }
 
@@ -85,8 +89,9 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('#waiting-text').textContent = waitingText();
     $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
-    fields.artist.disable(phase !== 'playing');
-    fields.title.disable(phase !== 'playing');
+    fields.artist.disable(phase !== 'playing' || view.paused);
+    fields.title.disable(phase !== 'playing' || view.paused);
+    $('#clip-note').hidden = !view.deezer;
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
@@ -94,7 +99,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       $('#round-title').textContent = `Låt ${round.number}`;
       renderRing($('#timer'), round.roundMs, round.roundMs, false);
     } else if (phase === 'playing') {
-      $('#round-title').textContent = `Låt ${round.number}`;
+      $('#round-title').textContent = view.paused ? `Låt ${round.number} · Pausat` : `Låt ${round.number}`;
       announce(`Låt ${round.number} har börjat. Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.`);
       renderTimer();
     } else if (phase === 'revealed') {
@@ -103,7 +108,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // Den lilla cirkeln äts upp tills nästa låt startar av sig själv.
       const next = round.nextInMs == null ? '' : `<span id="next-pie" class="pie"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span>`;
-      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}</h2>${next}</div>
+      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}${view.paused ? ' · Pausat' : ''}</h2>${next}</div>
         <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
         <ul class="mine">
@@ -118,6 +123,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
       renderTimer();
     }
     renderStandings();
+    if (wasPaused !== null && view.paused !== wasPaused) announce(view.paused ? 'Spelet är pausat.' : 'Spelet fortsätter.');
+    wasPaused = view.paused;
   }
 
   return {

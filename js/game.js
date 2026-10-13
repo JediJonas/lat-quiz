@@ -105,6 +105,7 @@ export function nextSong(state, songs, random = Math.random) {
   if (left.length === 0 || state.winners) return null;
   const song = left[Math.floor(random() * left.length)];
   state.roundNumber += 1;
+  state.pausedAt = null;
   state.round = {
     number: state.roundNumber,
     song,
@@ -128,13 +129,32 @@ export function startRound(state, now) {
 export function remainingMs(state, now) {
   const round = state.round;
   if (!round || round.phase !== 'playing') return 0;
-  return Math.max(0, round.startedAt + state.roundMs - now);
+  // Under en paus står tiden still där den var.
+  const at = state.pausedAt || now;
+  return Math.max(0, round.startedAt + state.roundMs - at);
+}
+
+// Spelledaren pausar spelet. Timern står still och inga svar tas emot.
+export function pause(state, now) {
+  if (state.pausedAt || !state.round) return false;
+  state.pausedAt = now;
+  return true;
+}
+
+// Spelet fortsätter. Returnerar hur länge pausen varade, eller 0 om spelet inte var pausat.
+export function resume(state, now) {
+  if (!state.pausedAt) return 0;
+  const pausedMs = Math.max(0, now - state.pausedAt);
+  const round = state.round;
+  if (round && round.phase === 'playing') round.startedAt += pausedMs;
+  state.pausedAt = null;
+  return pausedMs;
 }
 
 // field är 'artist' eller 'title'. Ett tomt värde betyder att svaret tas bort.
 export function submitAnswer(state, playerId, field, value, now) {
   const round = state.round;
-  if (!round || round.phase !== 'playing') return false;
+  if (!round || round.phase !== 'playing' || state.pausedAt) return false;
   if (!state.players[playerId]) return false;
   if (field !== 'artist' && field !== 'title') return false;
   if (now > round.startedAt + state.roundMs) return false;
@@ -167,7 +187,7 @@ export function allAnswered(state) {
 
 export function shouldReveal(state, now) {
   const round = state.round;
-  if (!round || round.phase !== 'playing') return false;
+  if (!round || round.phase !== 'playing' || state.pausedAt) return false;
   return remainingMs(state, now) === 0 || allAnswered(state);
 }
 
@@ -191,6 +211,7 @@ export function reveal(state) {
     player.score += result.points;
   }
   round.phase = 'revealed';
+  state.pausedAt = null;
   if (!state.playedIds.includes(round.song.id)) state.playedIds.push(round.song.id);
   state.winners = findWinners(state);
   return true;
@@ -211,6 +232,7 @@ export function restart(state) {
   state.winners = null;
   state.round = null;
   state.roundNumber = 0;
+  state.pausedAt = null;
 }
 
 export function standings(state) {
@@ -230,6 +252,7 @@ export function playerView(state, playerId, now) {
     winScore: state.winScore || WIN_SCORE,
     settings: { roundMs: state.roundMs, bonusMs: state.bonusMs, winScore: state.winScore || WIN_SCORE },
     winners: state.winners ? state.winners.map((id) => state.players[id].name) : null,
+    paused: Boolean(state.pausedAt),
     labels: state.labels || DEFAULT_LABELS,
     round: null,
   };

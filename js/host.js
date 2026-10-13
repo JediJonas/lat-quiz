@@ -94,6 +94,7 @@ function viewFor(playerId) {
   const view = game.playerView(state, playerId, Date.now());
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
+  view.deezer = usesDeezer();
   return view;
 }
 
@@ -328,33 +329,27 @@ function playClipClicked() {
   else playDeezer(round.number);
 }
 
-function clipStage(round) {
-  if (clip.round === round.number && clip.status === 'loading') {
-    return '<p role="status">Hämtar klippet från Deezer…</p>';
-  }
-  if (clip.round === round.number && clip.status === 'missing') {
-    return `<p>${clip.error ? esc(clip.error) : 'Deezer har inget klipp för den här låten.'}
-      Spela den i Spotify i stället.</p>${playLinks(round.song)}`;
-  }
-  return `<p>Klicka på knappen. Klippet spelas här och timern startar.</p>
-    <button id="play-clip" class="big huge">Spela klippet</button>`;
+// Medan klippet hämtas är spela-knappen avstängd. Saknas klippet får spelledaren länkar till Spotify.
+function clipButton(round) {
+  const loading = clip.round === round.number && clip.status === 'loading';
+  if (clip.round === round.number && clip.status === 'missing') return playLink(round.song);
+  return iconButton('play-clip', 'Spela klippet', ICONS.play, { primary: true, disabled: loading });
 }
 
-const DEEZER_NOTE = '<p class="muted small">Klipp från Deezer, endast för privat bruk.</p>';
-
-// Länken växlar mellan att markera låten som okänd och att ångra det.
-function setUnknownLink(marked) {
-  $('#unknown').textContent = marked ? 'Ångra okänd låt' : 'Okänd låt';
+function clipNote(round) {
+  if (clip.round !== round.number || clip.status !== 'missing') return '';
+  return `<p class="muted small panel-note">${clip.error ? esc(clip.error) : 'Deezer har inget klipp för den här låten.'}
+    Spela den i Spotify i stället.</p>`;
 }
 
-// Uppdaterar bara länken, så att rätt svar inte läses upp igen.
+// Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
 function unknownClicked() {
   const song = state.round && state.round.song;
   if (!song) return;
   const list = toggleUnknown(loadUnknown(), category.id, song);
   saveUnknown(list);
   const marked = isUnknown(list, category.id, song.id);
-  setUnknownLink(marked);
+  $('#unknown').setAttribute('aria-pressed', String(marked));
   announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
 }
 
@@ -366,6 +361,20 @@ function restart() {
 
 function startRound() {
   if (game.startRound(state, Date.now())) changed();
+}
+
+// Pausen stoppar timern, klippet och nedräkningen till nästa låt.
+function togglePause() {
+  if (!state.round) return;
+  const playing = state.round.phase === 'playing';
+  if (state.pausedAt) {
+    autoNext.at += game.resume(state, Date.now());
+    if (playing && clip.status === 'playing' && clip.audio) clip.audio.play().catch(() => {});
+  } else {
+    if (!game.pause(state, Date.now())) return;
+    stopClip();
+  }
+  changed();
 }
 
 function revealNow() {
@@ -518,7 +527,7 @@ async function switchCategory(chosen) {
 function showJoinInfo() {
   const url = joinUrl();
   $('#code').textContent = state.code;
-  $('#show-qr').textContent = 'Kod ' + state.code;
+  $('#show-qr').title = `Visa eller dölj QR-koden (kod ${state.code})`;
   setQrVisible(true);
   $('#join-url').textContent = url;
   $('#join-url').href = url;
@@ -535,64 +544,68 @@ function setQrVisible(visible) {
   $('#show-qr').setAttribute('aria-expanded', String(visible));
 }
 
-// Med Spotify-ID öppnas låten i appen, med webbspelaren som reserv.
-function playLinks(song) {
+// Med Spotify-ID öppnas låten i appen, annars som en sökning i webbläsaren.
+function playLink(song) {
   const app = spotifyAppUrl(song);
-  const web = esc(spotifyUrl(song));
-  if (!app) {
-    return `<a id="play" class="button big huge" href="${web}" target="_blank" rel="noopener">Spela låten i Spotify</a>
-      <p class="muted small">Länken öppnar en sökning i Spotify. Välj översta träffen.</p>`;
-  }
-  return `<a id="play" class="button big huge" href="${esc(app)}">Spela låten i Spotify-appen</a>
-    <p class="muted small">Händer inget? <a id="play-web" href="${web}" target="_blank" rel="noopener">Öppna i webbläsaren i stället</a>.</p>`;
+  const href = esc(app || spotifyUrl(song));
+  const target = app ? '' : ' target="_blank" rel="noopener"';
+  return `<a id="play" class="icon-btn primary" href="${href}"${target} aria-label="Spela låten i Spotify" title="Spela låten i Spotify">${ICONS.play}</a>`;
 }
 
 // Om Spotify inte öppnades av sig själv. Timern går redan.
-function reopenLinks(song) {
+function reopenLink(song) {
   const app = spotifyAppUrl(song);
-  const web = `<a href="${esc(spotifyUrl(song))}" target="_blank" rel="noopener">webbläsaren</a>`;
-  return `<p class="muted small reopen">Öppnades inte låten? Öppna den i ${
-    app ? `<a href="${esc(app)}">Spotify-appen</a> eller i ${web}` : web}.</p>`;
+  const href = esc(app || spotifyUrl(song));
+  const target = app ? '' : ' target="_blank" rel="noopener"';
+  return `<a class="icon-btn" href="${href}"${target} aria-label="Öppna låten i Spotify igen" title="Öppna låten i Spotify igen">${ICONS.external}</a>`;
+}
+
+const svg = (body) => `<svg viewBox="0 0 24 24" aria-hidden="true">${body}</svg>`;
+const ICONS = {
+  next: svg('<path d="M5 5v14l10-7z" class="filled"/><path d="M19 5v14"/>'),
+  play: svg('<path d="M7 4.5v15l13-7.5z" class="filled"/>'),
+  reveal: svg('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
+  restart: svg('<path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/>'),
+  external: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
+};
+
+function iconButton(id, label, icon, { primary = false, disabled = false } = {}) {
+  return `<button id="${id}" class="icon-btn${primary ? ' primary' : ''}" aria-label="${label}" title="${label}"${disabled ? ' disabled' : ''}>${icon}</button>`;
 }
 
 // Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
 // redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
-const AUTO_NEXT_MS = 30000;
+const AUTO_NEXT_MS = 15000;
 let autoNext = { round: 0, at: 0 };
 
 function autoNextLeft() {
   const round = state.round;
   if (!usesDeezer() || !round || round.phase !== 'revealed' || state.winners) return null;
   if (autoNext.round !== round.number) autoNext = { round: round.number, at: Date.now() + AUTO_NEXT_MS };
-  return Math.max(0, autoNext.at - Date.now());
+  // Under en paus står nedräkningen still.
+  return Math.max(0, autoNext.at - (state.pausedAt || Date.now()));
 }
 
 // Anropas av tickern. Väntar medan en ruta som Inställningar är öppen.
 function checkAutoNext() {
   const left = autoNextLeft();
-  if (left === null) return;
+  if (left === null || state.pausedAt) return;
   if (left > 0) return;
   if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
   nextSong();
 }
 
-// Spelledarens knappar för den del av omgången som pågår.
+// Panelens huvudknapp längst till höger: det spelledaren gör härnäst.
 function controls() {
   const round = state.round;
-  if (!round) {
-    return `<button id="next" class="big huge">Nästa låt</button>
-      <p class="muted small">${usesDeezer() ? 'Ett klipp spelas här' : 'Låten öppnas i Spotify'} och timern startar.</p>
-      ${usesDeezer() ? DEEZER_NOTE : ''}`;
-  }
-  if (round.phase === 'ready' && usesDeezer()) return clipStage(round) + DEEZER_NOTE;
-  if (round.phase === 'ready') return playLinks(round.song);
+  if (!round) return iconButton('next', 'Nästa låt', ICONS.next, { primary: true });
+  if (round.phase === 'ready') return usesDeezer() ? clipButton(round) : playLink(round.song);
   if (round.phase === 'playing') {
-    return `<button id="reveal" class="secondary big huge">Visa svar nu</button>
-      ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
+    return (usesDeezer() ? '' : reopenLink(round.song)) + iconButton('reveal', 'Visa svar nu', ICONS.reveal, { primary: true });
   }
   return state.winners
-    ? '<button id="restart" class="big huge">Ny match med samma spelare</button>'
-    : '<button id="next" class="big huge">Nästa låt</button>';
+    ? iconButton('restart', 'Ny match med samma spelare', ICONS.restart, { primary: true })
+    : iconButton('next', 'Nästa låt', ICONS.next, { primary: true });
 }
 
 // Samma vy som spelarna ser, och under den spelledarens panel.
@@ -600,16 +613,24 @@ function controls() {
 function render() {
   $('#category').textContent = category.name;
   gameView.update(viewFor(state.hostId), state.hostId);
-  // Okänd låt markerar låten som okänd. Länken finns så länge det finns en låt.
+  // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
-  $('#unknown').hidden = !round;
-  if (round) setUnknownLink(isUnknown(loadUnknown(), category.id, round.song.id));
-  const box = $('#controls');
-  const html = controls();
-  if (box.dataset.html !== html) {
-    box.innerHTML = html;
-    box.dataset.html = html;
-  }
+  const unknown = $('#unknown');
+  unknown.disabled = !round;
+  unknown.setAttribute('aria-pressed', String(Boolean(round) && isUnknown(loadUnknown(), category.id, round.song.id)));
+  const pause = $('#pause');
+  pause.disabled = !round || round.phase === 'ready' || Boolean(state.winners && round.phase === 'revealed');
+  pause.setAttribute('aria-pressed', String(Boolean(state.pausedAt)));
+  pause.title = state.pausedAt ? 'Fortsätt spelet' : 'Pausa spelet';
+  setHtml($('#controls'), controls());
+  setHtml($('#controls-note'), round && round.phase === 'ready' && usesDeezer() ? clipNote(round) : '');
+}
+
+// Byggs bara om när innehållet ändras, så att fokus stannar kvar.
+function setHtml(box, html) {
+  if (box.dataset.html === html) return;
+  box.innerHTML = html;
+  box.dataset.html = html;
 }
 
 function showError(err) {
@@ -627,6 +648,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'end') endGame();
   else if (id === 'restart') restart();
   else if (id === 'unknown') unknownClicked();
+  else if (id === 'pause') togglePause();
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
