@@ -30,7 +30,10 @@ function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
 }
 
+// Inget sparas när spelet har avslutats. Annars sparas det igen när anslutningarna stängs,
+// och knappen för att gå tillbaka till spelet finns kvar.
 function save() {
+  if (leaving) return;
   storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify({ state, savedAt: Date.now() })));
 }
 
@@ -418,11 +421,17 @@ async function endGame() {
     title: 'Avsluta spelet?', okText: 'Avsluta', danger: true,
   });
   if (!ok) return;
+  leaving = true;
   storage(() => localStorage.removeItem(SAVE_KEY));
   stopClip();
-  if (net) net.destroy();
+  // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
+  // En kort stund behövs för att meddelandet ska hinna fram innan anslutningarna stängs.
+  if (net) {
+    for (const connId of connToPlayer.keys()) net.send(connId, { type: 'ended' });
+    await new Promise((resolve) => { setTimeout(resolve, 300); });
+    net.destroy();
+  }
   if (ticker) ticker.stop();
-  leaving = true;
   location.href = location.pathname + location.search;
 }
 
@@ -782,6 +791,13 @@ document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href]');
   if (link && !/^https?:/.test(link.href)) appLinkAt = Date.now();
 }, true);
+
+// Fliken stängs eller sidan laddas om. Spelet kan återupptas, så spelarna får veta att
+// spelledaren har lämnat och kanske kommer tillbaka. Meddelandet hinner inte alltid fram.
+window.addEventListener('pagehide', () => {
+  if (leaving || !net) return;
+  for (const connId of connToPlayer.keys()) net.send(connId, { type: 'leaving' });
+});
 
 window.addEventListener('beforeunload', (e) => {
   if (leaving || Date.now() - appLinkAt < 1000) return;
