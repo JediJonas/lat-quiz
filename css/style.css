@@ -558,23 +558,26 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 #join-url { word-break: break-all; }
 /* Ordet länken i texten kopierar länken. */
 .join-info button.link { margin: 0; font-size: inherit; }
-/* Spelledarens ikonbar, en fristående pärlgrå bar under raden med kategorin. */
+/* Spelledarens ikonbar, en fristående rund bar under raden med kategorin. */
 .host-bar {
-  --bar-bg: #e9e6f2;
-  --bar-btn: #ffffff;
-  --bar-icon: #4a4470;
   margin: 16px 0;
   padding: 8px;
+  border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--bar-bg);
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
+/* Ikonerna i baren är mörkgrå på ljusgrå cirklar, så att de gröna delarna syns mest. */
+.host-bar { --btn-bg: #eeedf3; --btn-icon: #3b3854; --btn-press: #dfdce9; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .host-bar { --bar-bg: rgba(255, 255, 255, 0.08); --bar-btn: rgba(255, 255, 255, 0.08); --bar-icon: #d4cfee; }
+  :root:not([data-theme="light"]) .host-bar { --btn-bg: rgba(255, 255, 255, 0.09); --btn-icon: #e6e3f5; --btn-press: rgba(255, 255, 255, 0.17); }
 }
-:root[data-theme="dark"] .host-bar { --bar-bg: rgba(255, 255, 255, 0.08); --bar-btn: rgba(255, 255, 255, 0.08); --bar-icon: #d4cfee; }
-.host-bar .icon-btn { background: var(--bar-btn); color: var(--bar-icon); }
-.host-bar .icon-btn:hover { background: var(--tool-hover); }
+:root[data-theme="dark"] .host-bar { --btn-bg: rgba(255, 255, 255, 0.09); --btn-icon: #e6e3f5; --btn-press: rgba(255, 255, 255, 0.17); }
+.host-bar .icon-btn { background: var(--btn-bg); color: var(--btn-icon); }
+@media (hover: hover) { .host-bar .icon-btn:hover { background: var(--btn-press); } }
+.host-bar .icon-btn:active { background: var(--btn-press); }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 /* Knapparna sprids jämnt över raden, så att det blir luft mellan dem. */
@@ -593,7 +596,10 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   color: var(--tool-text);
   box-shadow: none;
 }
-.icon-btn:hover { background: var(--tool-hover); }
+/* Bara med mus, så att färgen inte fastnar på knappen efter ett tryck på pekskärm. */
+@media (hover: hover) { .icon-btn:hover { background: var(--tool-hover); } }
+/* Kort återkoppling medan knappen trycks ned, som försvinner när man släpper. */
+.icon-btn:active { background: var(--tool-hover); transform: scale(0.92); }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
