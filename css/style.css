@@ -598,9 +598,10 @@ a.icon-btn { text-decoration: none; }
 #guess, #result, #result-body { display: flex; flex-direction: column; }
 #result-body { flex: 1; }
 
-@media (max-width: 760px) {
-  /* QR-rutan hamnar under raden med kategorin: kolumnens delar blir egna rader i gridden. */
-  .host, .host.qr-hidden { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: 460px; }
+@media (max-width: 1039px) {
+  /* QR-rutan hamnar under raden med kategorin redan när två kolumner inte får plats:
+     kolumnens delar blir egna rader i gridden. */
+  .host, .host.qr-hidden { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: calc(var(--game-width) + 32px); }
   .main-col { display: contents; }
   .host .player-head { order: -1; }
   /* Rutorna är egna rader i gridden, där marginaler inte slås ihop. Bara marginalen ovanför
@@ -609,6 +610,9 @@ a.icon-btn { text-decoration: none; }
   /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
   .join-info { position: relative; top: auto; }
   .qr { max-width: 258px; margin: 0 auto; }
+}
+@media (max-width: 760px) {
+  .host, .host.qr-hidden { max-width: 460px; }
 }
 
 /* Modaler */
