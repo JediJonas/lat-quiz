@@ -298,8 +298,9 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 /* Länkarna längst ner fördelas jämnt över hela bredden. En ensam länk står till höger. */
 .theme-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin: 24px 0 0; }
 .theme-row .row-end { display: contents; }
-.theme-row > .row-end:only-child { display: flex; margin-left: auto; }
-.theme-row .row-end .link, .theme-row > .link { margin: 0; }
+.theme-row .link { margin: 0; }
+/* Utseende står alltid längst till höger, även när det är ensamt på raden. */
+.theme-row .user-settings { margin-left: auto; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
