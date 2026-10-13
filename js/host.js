@@ -612,7 +612,6 @@ const svg = (body) => `<svg viewBox="0 -960 960 960" aria-hidden="true">${body}<
 const ICONS = {
   next: svg('<path d="M680-270v-420q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v420q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37Zm-460-27v-366q0-13.5 9-21.75t21-8.25q5 0 9 1.5t8 4.5l263 182q7 5 10 11.3 3 6.29 3 13.7 0 7.41-3 13.7-3 6.3-10 11.3L267-273q-4 3-8 4.5t-9 1.5q-12 0-21-8.25T220-297Z"/>'),
   play: svg('<path d="M320-258v-450q0-14 9-22t21-8q4 0 8 1t8 3l354 226q7 5 10.5 11t3.5 14q0 8-3.5 14T720-458L366-232q-4 2-8 3t-8 1q-12 0-21-8t-9-22Z"/>'),
-  restart: svg('<path d="M418-126q-111-21-184.5-109T160-439q0-71 30-134t85-107q8-6 19-5.5t19 8.5q10 10 9 23t-13 23q-42 35-65.5 85.5T220-439q0 94 58 163.5T425-186q11 2 18.5 11t7.5 20q0 14-10 22.5t-23 6.5Zm126 0q-13 2-23-6.5T511-155q0-11 7.5-20t18.5-11q90-20 147-89.5T741-439q0-109-75.5-184.5T481-699h-20l39 39q8 8 8 21t-8 21q-9 9-22 9t-21-9l-91-90q-5-5-7-10t-2-11q0-6 2-11t7-10l91-91q8-8 21-8t22 8q8 9 8 22t-8 21l-39 39h20q134 0 227 93.5T801-439q0 116-73 204T544-126Z"/>'),
   external: svg('<path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h249q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H180v600h600v-249q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v249q0 24-18 42t-42 18H180Zm600-617L403-360q-9 9-21 8.5t-21-9.5q-9-9-9-21t9-21l377-377H549q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h261q12.75 0 21.38 8.62Q840-822.75 840-810v261q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-188Z"/>'),
 };
 
@@ -660,7 +659,7 @@ function nextAction() {
   const round = state.round;
   if (!round || round.phase === 'ready') return null;
   if (round.phase === 'playing') return { action: 'reveal', label: 'Visa svar nu' };
-  return state.winners ? { action: 'restart', label: 'Ny match med samma spelare' } : { action: 'next', label: 'Nästa låt' };
+  return state.winners ? { action: 'restart', label: 'Ny match' } : { action: 'next', label: 'Nästa låt' };
 }
 
 function setButton(button, choice, fallback) {
@@ -701,11 +700,11 @@ function render() {
     || Boolean(state.winners && round.phase === 'revealed');
   const play = playAction();
   setButton($('#play'), play, 'Spela');
-  $('#play').classList.toggle('start-hint', Boolean(play && play.action === 'start'));
+  // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
+  $('#start-game').hidden = !(play && play.action === 'start');
   const next = nextAction();
   setButton($('#next'), next, 'Nästa låt');
-  setHtml($('#next'), next && next.action === 'restart' ? ICONS.restart : ICONS.next);
-  // När någon har vunnit syns knappen för en ny match också under vinnaren, med text.
+  setHtml($('#next'), ICONS.next);
   $('#new-match').hidden = !(next && next.action === 'restart');
   setHtml($('#controls-note'), round && round.phase !== 'revealed' && usesDeezer() ? clipNote(round) : '');
 }
@@ -728,8 +727,9 @@ document.addEventListener('click', (e) => {
   if (id === 'play') playClicked();
   else if (id === 'pause') pauseGame();
   else if (id === 'next') nextClicked();
-  // Knappen försvinner med vinnaren, så fokus flyttas till Starta spelet.
-  else if (id === 'new-match') { nextClicked(); $('#play').focus(); }
+  // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare.
+  else if (id === 'start-game') { playClicked(); $('#play').focus(); }
+  else if (id === 'new-match') { nextClicked(); $('#start-game').focus(); }
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
