@@ -58,7 +58,7 @@ let showConnecting = false;
 let hostLeft = false;
 
 function showHostLeft() {
-  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på att spelledaren kommer tillbaka…' });
+  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på spelledaren…' });
 }
 
 // Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
