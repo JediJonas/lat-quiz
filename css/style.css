@@ -586,8 +586,11 @@ a.icon-btn { text-decoration: none; }
 .result-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }
 .result-foot .clip-note { margin: 0 0 0 auto; padding: 0; }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
-#guess, #result, #result-body { display: flex; flex-direction: column; }
-#result-body { flex: 1; }
+#guess, #result { display: flex; flex-direction: column; }
+/* Svarets delar ligger direkt i kortet, så att spelledarens knapp Ny match hamnar ovanför
+   raden längst ner. */
+#result-body { display: contents; }
+.result-foot { order: 1; }
 
 @media (max-width: 1039px) {
   /* QR-rutan hamnar under raden med kategorin redan när två kolumner inte får plats:
