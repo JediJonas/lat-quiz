@@ -705,6 +705,8 @@ function render() {
   const next = nextAction();
   setButton($('#next'), next, 'Nästa låt');
   setHtml($('#next'), next && next.action === 'restart' ? ICONS.restart : ICONS.next);
+  // När någon har vunnit syns knappen för en ny match också under vinnaren, med text.
+  $('#new-match').hidden = !(next && next.action === 'restart');
   setHtml($('#controls-note'), round && round.phase !== 'revealed' && usesDeezer() ? clipNote(round) : '');
 }
 
@@ -726,6 +728,8 @@ document.addEventListener('click', (e) => {
   if (id === 'play') playClicked();
   else if (id === 'pause') pauseGame();
   else if (id === 'next') nextClicked();
+  // Knappen försvinner med vinnaren, så fokus flyttas till Starta spelet.
+  else if (id === 'new-match') { nextClicked(); $('#play').focus(); }
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
