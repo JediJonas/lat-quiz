@@ -656,7 +656,9 @@ function render() {
   const round = state.round;
   $('#pause').disabled = !round || Boolean(state.pausedAt) || round.phase === 'ready'
     || Boolean(state.winners && round.phase === 'revealed');
-  setButton($('#play'), playAction(), 'Spela');
+  const play = playAction();
+  setButton($('#play'), play, 'Spela');
+  $('#play').classList.toggle('start-hint', Boolean(play && play.action === 'start'));
   const next = nextAction();
   setButton($('#next'), next, 'Nästa låt');
   setHtml($('#next'), next && next.action === 'restart' ? ICONS.restart : ICONS.next);
