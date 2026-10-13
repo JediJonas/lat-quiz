@@ -576,13 +576,12 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-/* Innan första låten visar en grön ring hur man startar spelet. Den tonar bort efter en stund. */
-.icon-btn.start-hint {
-  box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent);
-  animation: start-hint-fade 1s ease 3s forwards;
-}
-@keyframes start-hint-fade {
-  to { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
+/* Innan första låten visar en grön ring hur man startar spelet. Den tonar in, syns en
+   stund och tonar sedan bort. */
+.icon-btn.start-hint { animation: start-hint 4.6s ease forwards; }
+@keyframes start-hint {
+  0%, 100% { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
+  13%, 78% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
 }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--faint); }
