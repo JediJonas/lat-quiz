@@ -4,6 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
+import { hideMessage, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { mountSwitch, mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -149,13 +150,27 @@ function onDisconnect(connId) {
   changed();
 }
 
+// Spelare som redan är med påverkas inte när kontakten med förmedlingsservern bryts,
+// men nya kan inte gå med förrän den är tillbaka.
+const NET_MESSAGES = {
+  relay: { kind: 'busy', title: 'Nya spelare kan inte gå med just nu', text: 'Ansluter igen…' },
+  'unavailable-id': { kind: 'busy', title: 'Väntar på att spelkoden blir ledig' },
+  network: { kind: 'busy', title: 'Ingen anslutning', text: 'Ansluter igen…' },
+};
+let netTrouble = false;
+
 function startNetwork() {
-  setConn('connecting');
   net = createHost(state.code, {
-    onReady: () => { setConn('connected'); setNetStatus(''); },
+    onReady: () => {
+      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
+      netTrouble = false;
+    },
     onMessage,
     onDisconnect,
-    onError: (text, status) => { setConn(status); setNetStatus(text); },
+    onError: (type) => {
+      netTrouble = true;
+      showMessage({ key: 'net', ...(NET_MESSAGES[type] || { kind: 'problem', title: 'Anslutningsfel', text: type }) });
+    },
   });
   ticker = startTicker(tick, 250);
 }
@@ -173,19 +188,6 @@ function startTicker(fn, ms) {
     const id = setInterval(fn, ms);
     return { stop: () => clearInterval(id) };
   }
-}
-
-// Samma etikett som hos spelarna. Ansluten betyder att nya spelare kan gå med.
-function setConn(status) {
-  const el = $('#conn');
-  el.className = 'conn ' + status;
-  el.textContent = { connecting: 'Ansluter…', connected: 'Ansluten', offline: 'Frånkopplad' }[status];
-}
-
-function setNetStatus(text) {
-  const el = $('#net-status');
-  el.textContent = text;
-  el.hidden = !text;
 }
 
 function tick() {
@@ -334,10 +336,26 @@ function playClipClicked() {
 }
 
 // Saknas klippet spelas låten i Spotify i stället, med spela-knappen.
-function clipNote(round) {
-  if (clip.round !== round.number || clip.status !== 'missing') return '';
-  return `<p class="muted small panel-note">${clip.error ? esc(clip.error) : 'Deezer har inget klipp för den här låten.'}
-    Spela den i Spotify i stället.</p>`;
+function clipMessage(round) {
+  if (!round || round.phase === 'revealed' || !usesDeezer() || clip.round !== round.number) return null;
+  if (clip.status === 'missing' && clip.error) {
+    return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text: 'Spela låten i Spotify i stället.' };
+  }
+  if (clip.status === 'missing') return { kind: 'info', title: 'Deezer har inget klipp för låten', text: 'Spela den i Spotify i stället.' };
+  if (clip.status === 'blocked') return { kind: 'problem', title: 'Klippet startade inte', text: 'Tryck på spela igen.' };
+  return null;
+}
+
+// Meddelandet visas när klippets läge ändras, inte vid varje render, så att det inte tar över
+// ett nyare meddelande om anslutningen.
+let clipShown = null;
+function updateClipMessage(round) {
+  const msg = clipMessage(round);
+  const id = msg ? msg.title : null;
+  if (id === clipShown) return;
+  clipShown = id;
+  if (msg) showMessage({ key: 'clip', ...msg });
+  else hideMessage('clip');
 }
 
 // Strömbrytaren i Inställningar, likadan som i Utseende. Gäller direkt, utan att spelledaren behöver spara.
@@ -707,7 +725,7 @@ function render() {
   setButton($('#next'), next, 'Nästa låt');
   setHtml($('#next'), ICONS.next);
   $('#new-match').hidden = !(next && next.action === 'restart');
-  setHtml($('#controls-note'), round && round.phase !== 'revealed' && usesDeezer() ? clipNote(round) : '');
+  updateClipMessage(round);
 }
 
 // Byggs bara om när innehållet ändras, så att fokus stannar kvar.
@@ -718,7 +736,7 @@ function setHtml(box, html) {
 }
 
 function showError(err) {
-  document.body.insertAdjacentHTML('afterbegin', `<p class="error" role="alert">${esc(err.message)}</p>`);
+  showMessage({ key: 'error', kind: 'problem', title: 'Något gick fel', text: err.message });
 }
 
 // ---- Start ----

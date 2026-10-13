@@ -10,7 +10,6 @@
   <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
 </head>
 <body>
-  <p id="net-status" class="net-status" role="status" hidden></p>
   <p id="announce" class="visually-hidden" role="status"></p>
 
   <main id="setup" class="narrow">
@@ -55,7 +54,6 @@
     <section class="main-col">
       <header class="player-head">
         <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
-        <span id="conn" class="conn connecting" role="status">Ansluter…</span>
       </header>
 
       <!-- Spelledarens ikonbar, under raden med kategorin. Ikoner: Material Symbols Rounded (Apache 2.0). -->
@@ -83,7 +81,6 @@
         <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
         <label for="title">Titel</label>
         <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
-        <div id="controls-note"></div>
         <p class="clip-note" hidden>Ljudklipp från Deezer</p>
       </div>
 
