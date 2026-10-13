@@ -556,7 +556,9 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
-/* Spelledarens panel under spelvyn */
+/* Ordet länken i texten kopierar länken. */
+.join-info button.link { margin: 0; font-size: inherit; }
+/* Spelledarens panel överst i spelvyn */
 .controls > .round-label { margin: 0 0 12px; }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }

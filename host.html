@@ -48,8 +48,7 @@
     <section id="join-info" class="card join-info" aria-label="Gå med i spelet">
       <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden">×</button>
       <div id="qr" class="qr"></div>
-      <p>Be spelarna skanna QR-koden eller skicka länken till dem.</p>
-      <p><button type="button" id="copy-link" class="link">Kopiera länken</button><span id="copy-status" class="visually-hidden" role="status"></span></p>
+      <p>Be spelarna skanna QR-koden eller skicka <button type="button" id="copy-link" class="link" aria-label="Kopiera länken" title="Kopiera länken">länken</button> till dem.<span id="copy-status" class="visually-hidden" role="status"></span></p>
       <p id="join-url-row" hidden><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
       <p>Kod: <span id="code" class="code"></span></p>
     </section>
@@ -58,19 +57,6 @@
         <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
         <span id="conn" class="conn connecting" role="status">Ansluter…</span>
       </header>
-      <div id="waiting" class="card"><p id="waiting-text"></p></div>
-
-      <div id="guess" class="card" hidden>
-        <h2 id="round-title" class="round-label"></h2>
-        <div id="timer" class="ring mid-ring"></div>
-        <label for="artist">Artist</label>
-        <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
-        <label for="title">Titel</label>
-        <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
-        <p class="clip-note" hidden>Ljudklipp från Deezer</p>
-      </div>
-
-      <div id="result" class="card" hidden><div id="result-body"></div></div>
 
       <!-- Spelledarens panel: en rad med ikoner som har samma höjd hela spelet. Ikoner: Material Symbols Rounded (Apache 2.0). -->
       <section class="card controls" aria-labelledby="controls-title">
@@ -88,6 +74,20 @@
         </div>
         <div id="controls-note"></div>
       </section>
+
+      <div id="waiting" class="card"><p id="waiting-text"></p></div>
+
+      <div id="guess" class="card" hidden>
+        <h2 id="round-title" class="round-label"></h2>
+        <div id="timer" class="ring mid-ring"></div>
+        <label for="artist">Artist</label>
+        <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
+        <label for="title">Titel</label>
+        <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
+        <p class="clip-note" hidden>Ljudklipp från Deezer</p>
+      </div>
+
+      <div id="result" class="card" hidden><div id="result-body"></div></div>
 
       <h2 class="section-title">Poäng</h2>
       <div id="standings" class="standings"></div>
