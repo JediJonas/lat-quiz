@@ -67,8 +67,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
   }
 
-  function waitingText(round, phase) {
-    if (phase === 'ready') return `Låt ${round.number} startar snart…`;
+  function waitingText() {
     return host
       ? `Tryck på Nästa låt när alla har gått med. ${rulesText(view)}`
       : `Väntar på första låten… ${rulesText(view)}`;
@@ -77,16 +76,20 @@ export function createGameView({ onAnswer, onError, host = false }) {
   function render() {
     const round = view.round;
     const phase = round ? round.phase : 'waiting';
-    $('#waiting').hidden = !(phase === 'waiting' || phase === 'ready');
-    $('#waiting-text').textContent = waitingText(round, phase);
-    $('#guess').hidden = phase !== 'playing';
+    // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
+    $('#waiting').hidden = phase !== 'waiting';
+    $('#waiting-text').textContent = waitingText();
+    $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
     fields.artist.disable(phase !== 'playing');
     fields.title.disable(phase !== 'playing');
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
-    if (phase === 'playing') {
+    if (phase === 'ready') {
+      $('#round-title').textContent = `Låt ${round.number}`;
+      renderRing($('#timer'), round.roundMs, round.roundMs, false);
+    } else if (phase === 'playing') {
       $('#round-title').textContent = `Låt ${round.number}`;
       announce(`Låt ${round.number} har börjat. Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.`);
       renderTimer();
