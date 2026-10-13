@@ -48,7 +48,9 @@
     <section id="join-info" class="card join-info" aria-label="Gå med i spelet">
       <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden">×</button>
       <div id="qr" class="qr"></div>
-      <p>Be spelarna skanna eller gå till<br><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
+      <p>Be spelarna skanna QR-koden eller skicka länken till dem.</p>
+      <p><button type="button" id="copy-link" class="link">Kopiera länken</button><span id="copy-status" class="visually-hidden" role="status"></span></p>
+      <p id="join-url-row" hidden><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
       <p>Kod: <span id="code" class="code"></span></p>
     </section>
     <section class="main-col">
