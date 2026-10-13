@@ -117,3 +117,22 @@ test('fel kod rapporteras direkt utan nya försök', () => {
     mock.timers.reset();
   }
 });
+
+test('saknas spelledaren efter att vi har varit anslutna försöker klienten igen', () => {
+  const { client, statuses, events } = setup();
+  try {
+    peers[0].emit('open');
+    opened(peers[0].conns[0]);
+    peers[0].conns[0].emit('close');
+    mock.timers.tick(1000);
+    peers[1].emit('open');
+    peers[1].emit('error', { type: 'peer-unavailable' });
+    assert.equal(statuses.at(-1), 'host-missing');
+    assert.equal(events.notFound, 0);
+    mock.timers.tick(2000);
+    assert.equal(peers.length, 3);
+  } finally {
+    client.destroy();
+    mock.timers.reset();
+  }
+});

@@ -77,7 +77,9 @@ function onStatus(status) {
     connectedOnce = true;
     dropped = false;
     hostLeft = false;
-  } else if (hostLeft) {
+  } else if (status === 'host-missing' || hostLeft) {
+    // Spelledaren finns inte längre, även om meddelandet från fliken som stängdes inte kom fram.
+    hostLeft = true;
     showHostLeft();
   } else if (connectedOnce) {
     dropped = true;
