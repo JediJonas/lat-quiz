@@ -91,7 +91,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('#result').hidden = phase !== 'revealed';
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
-    $('#clip-note').hidden = !view.deezer;
+    document.querySelectorAll('.clip-note').forEach((note) => { note.hidden = !view.deezer; });
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
@@ -117,7 +117,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
           ${r.bonus ? '<li class="right bonus"><span>Bonus</span>Snabbt svar</li>' : ''}
         </ul>
         <p class="points">+${r.points} poäng</p>
-        ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}`;
+        ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
+        <p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p>`;
       announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
         + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
       renderTimer();
