@@ -427,8 +427,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }
 }
-.mine { list-style: none; padding: 0; margin: 0; }
-.mine li { display: flex; gap: 10px; align-items: baseline; padding: 10px 16px; margin: 8px 0; border-radius: 10px; font-weight: 600; }
+/* Raderna delar kolumner, så att svaren linjerar efter den längsta etiketten (till exempel Kompositör). */
+.mine { list-style: none; padding: 8px 0; margin: 0; display: grid; grid-template-columns: max-content 1fr; row-gap: 8px; }
+.mine li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; column-gap: 10px; align-items: baseline; padding: 10px 16px; margin: 0; border-radius: 10px; font-weight: 600; }
 .mine li span { min-width: 4.5em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 .mine li.right { background: var(--good-soft); color: var(--good); }
 .mine li.wrong { background: var(--bad-soft); color: var(--bad); }
