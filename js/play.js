@@ -58,7 +58,7 @@ let showConnecting = false;
 let hostLeft = false;
 
 function showHostLeft() {
-  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på att spelledaren kommer tillbaka.' });
+  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på att spelledaren kommer tillbaka…' });
 }
 
 // Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
@@ -81,7 +81,7 @@ function onStatus(status) {
     showHostLeft();
   } else if (connectedOnce) {
     dropped = true;
-    showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen.' });
+    showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' });
   } else if (showConnecting) {
     showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' });
   }
