@@ -106,10 +106,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
     } else if (phase === 'revealed') {
       const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
       const mine = round.answer || { artist: '', title: '' };
-      // Den lilla cirkeln äts upp tills nästa låt startar av sig själv.
+      // Den lilla ringen längst ner till vänster töms tills nästa låt startar av sig själv.
       const next = round.nextInMs == null ? '' : `<span id="next-pie" class="pie"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span>`;
-      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}${view.paused ? ' · Pausat' : ''}</h2>${next}</div>
+      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}${view.paused ? ' · Pausat' : ''}</h2></div>
         <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
         <ul class="mine">
@@ -119,7 +119,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
         </ul>
         <p class="points">+${r.points} poäng</p>
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
-        <p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p>`;
+        ${next || view.deezer ? `<div class="result-foot">${next}<p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
       // En spelare kan ha scrollat ner medan förslagslistan var öppen. Svaret ska synas överst.
       if (!host && shownResult !== round.number) {
         if (document.activeElement && $('#guess').contains(document.activeElement)) document.activeElement.blur();
