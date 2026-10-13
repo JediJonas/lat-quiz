@@ -298,8 +298,9 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 /* Länkarna längst ner fördelas jämnt över hela bredden. En ensam länk står till höger. */
 .theme-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin: 24px 0 0; }
 .theme-row .row-end { display: contents; }
-.theme-row > .row-end:only-child { display: flex; margin-left: auto; }
-.theme-row .row-end .link, .theme-row > .link { margin: 0; }
+.theme-row .link { margin: 0; }
+/* Utseende står alltid längst till höger, även när det är ensamt på raden. */
+.theme-row .user-settings { margin-left: auto; }
 /* Länkar som ser ut som knapparna Inställningar och Utseende. */
 .quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
@@ -576,12 +577,12 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-/* Innan första låten visar en grön ring hur man startar spelet. Den tonar in, syns en
-   stund och tonar sedan bort. */
-.icon-btn.start-hint { animation: start-hint 4.6s ease forwards; }
+/* Innan första låten visar en grön ring hur man startar spelet. Efter en sekund tonar den
+   in och ut i ett svep. */
+.icon-btn.start-hint { animation: start-hint 2.5s ease-in-out 1s both; }
 @keyframes start-hint {
   0%, 100% { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
-  13%, 78% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
+  50% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
 }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--faint); }
