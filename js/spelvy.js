@@ -120,10 +120,13 @@ export function createGameView({ onAnswer, onError, host = false }) {
         <p class="points">+${r.points} poäng</p>
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
         ${next || view.deezer ? `<div class="result-foot">${next}<p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
-      // En spelare kan ha scrollat ner medan förslagslistan var öppen. Svaret ska synas överst.
-      if (!host && shownResult !== round.number) {
+      // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
+      // öppen. Svaret ska synas överst. När tangentbordet stängs i iPhone kan Safari avbryta den
+      // mjuka scrollningen, så sidan hoppar upp om den ändå inte har kommit hela vägen.
+      if (shownResult !== round.number) {
         if (document.activeElement && $('#guess').contains(document.activeElement)) document.activeElement.blur();
         window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        setTimeout(() => { if (window.scrollY > 0) window.scrollTo({ top: 0 }); }, 800);
       }
       shownResult = round.number;
       announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
