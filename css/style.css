@@ -578,11 +578,11 @@ a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 /* Innan första låten visar en grön ring hur man startar spelet. Efter en sekund tonar den
-   in och ut i ett svep. */
-.icon-btn.start-hint { animation: start-hint 2.5s ease-in-out 1s both; }
+   in och ut i ett svep på 2,5 s, och sedan igen var tionde sekund. */
+.icon-btn.start-hint { animation: start-hint 12.5s ease-in-out 1s infinite both; }
 @keyframes start-hint {
-  0%, 100% { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
-  50% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
+  0%, 20%, 100% { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
+  10% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
 }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--faint); }
