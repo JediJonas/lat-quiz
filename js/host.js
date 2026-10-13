@@ -157,7 +157,7 @@ function onDisconnect(connId) {
 // men nya kan inte gå med förrän den är tillbaka.
 const NET_MESSAGES = {
   relay: { kind: 'busy', title: 'Nya spelare kan inte gå med just nu', text: 'Ansluter igen…' },
-  'unavailable-id': { kind: 'busy', title: 'Väntar på att spelkoden blir ledig' },
+  'unavailable-id': { kind: 'busy', title: 'Väntar på att spelkoden blir ledig…' },
   network: { kind: 'busy', title: 'Ingen anslutning', text: 'Ansluter igen…' },
 };
 let netTrouble = false;
