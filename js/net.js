@@ -36,7 +36,8 @@ export function peerQuery() {
 }
 
 // handlers: onReady(), onMessage(connId, msg), onDisconnect(connId),
-// onError(text, 'connecting' | 'offline')
+// onError(type): 'relay' när kontakten med förmedlingsservern bröts, 'unavailable-id' när
+// spelkoden är upptagen efter en omladdning, 'network' vid nätverksfel, annars PeerJS feltyp.
 export function createHost(code, handlers) {
   const conns = new Map();
   const lastSeen = new Map();
@@ -62,19 +63,19 @@ export function createHost(code, handlers) {
     // Kontakten med förmedlingsservern bröts. Befintliga spelare påverkas inte,
     // men nya kan inte ansluta förrän vi är tillbaka.
     peer.on('disconnected', () => {
-      if (!destroyed) handlers.onError('', 'connecting');
+      if (!destroyed) handlers.onError('relay');
       if (!destroyed) setTimeout(() => !destroyed && peer.reconnect(), 2000);
     });
     peer.on('error', (err) => {
       if (err.type === 'unavailable-id') {
         // Händer när sidan laddas om. Det gamla id:t släpps efter en stund.
-        handlers.onError('Väntar på att spelkoden ska bli ledig igen…', 'connecting');
+        handlers.onError('unavailable-id');
         peer.destroy();
         setTimeout(() => !destroyed && open(), 3000);
       } else if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
-        handlers.onError('Frånkopplad. Ansluter igen…', 'offline');
+        handlers.onError('network');
       } else if (err.type !== 'peer-unavailable') {
-        handlers.onError('Anslutningsfel: ' + err.type, 'offline');
+        handlers.onError(err.type);
       }
     });
   }

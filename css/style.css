@@ -150,7 +150,7 @@ main {
   main.narrow:has(#lobby:not([hidden])) { max-width: calc(var(--game-width) + 32px); }
 }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
-/* h1 och h2 ser likadana ut: sidans rubrik och rubrikerna i modalerna. Spelarens kategori är lika stor som löptexten. */
+/* h1 och h2 ser likadana ut: sidans rubrik, kategorin under spelet och rubrikerna i modalerna. */
 h1, h2 { font-size: 1.1rem; font-weight: 800; margin: 0.2em 0 0.5em; }
 @media (min-width: 761px) { h1, h2 { font-size: 1.3rem; } }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
@@ -173,6 +173,7 @@ h1.logo { margin: 16px 0 8px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
 .logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
+@media (min-width: 761px) { .logo-small { --w: 112px; } }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
 h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 h3, .section-title { margin: 2em 0 0.6em; }
@@ -473,53 +474,52 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .suggestions li.empty { color: var(--muted); cursor: default; }
 .suggestions li.empty:hover { background: none; }
 
-/* Rubrikraden med loggan, kategorin och anslutningen, samma hos spelledaren och spelarna */
+/* Rubrikraden med loggan och kategorin, samma hos spelledaren och spelarna. Kategorin är en vanlig rubrik. */
 .player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
-.player-head .who h1 { margin: 0; color: var(--text); font-size: 1rem; }
-/* Etiketten linjerar med loggans överkant. Loggan är flyttad ner med sitt nedhäng, 260/2814 av loggans bredd (88 px). */
-.player-head .conn { flex: none; align-self: flex-start; margin-top: calc(88px * 260 / 2814); }
+.player-head .who h1 { margin: 0; color: var(--text); }
 .player-head .who h1:empty { display: none; }
 /* Spelarens kod och inställningar som vanlig grå text. Länkar är understrukna, så den syns inte som en länk. */
 .game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 #me { letter-spacing: 0.08em; }
 main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
-.conn {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--surface-2);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-.conn::before { content: ""; width: 7px; height: 7px; margin: 0 6px 0 0; border-radius: 50%; background: currentColor; }
-.conn.connected { color: var(--good); background: var(--good-soft); }
-.conn.offline { color: var(--bad); background: var(--bad-soft); }
-
 .error-text { color: var(--bad); font-weight: 600; padding: 12px 14px; border-radius: 12px; background: var(--bad-soft); }
 
-/* Notiser */
-.net-status, .error {
+/* Meddelanderutan längst ner, ovanpå sidan. Fel får röd ram, rubrik och ikon. */
+.message {
   position: fixed;
   z-index: 50;
   left: 50%;
-  bottom: 24px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
   width: max-content;
-  max-width: calc(100vw - 32px);
+  max-width: min(460px, calc(100vw - 32px));
   margin: 0;
-  padding: 12px 20px;
-  border-radius: 999px;
-  background: var(--text);
-  color: var(--bg);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  padding: 12px 18px 12px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface-solid);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  box-shadow: 0 12px 36px rgba(20, 10, 50, 0.22);
   animation: toast-in 0.25s ease-out;
 }
-.error { background: var(--bad); color: var(--bad-text); }
+.message[hidden] { display: none; }
+.message-icon { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--surface-2); }
+.message-icon svg { width: 20px; height: 20px; fill: currentColor; }
+.message-body strong { display: block; font-weight: 650; }
+.message-body span { display: block; color: var(--muted); font-size: 0.875rem; }
+.message.ok .message-icon { background: var(--good-soft); color: var(--good); }
+.message.problem { border-color: var(--bad); }
+.message.problem strong { color: var(--bad); }
+.message.problem .message-icon { background: var(--bad); color: var(--bad-text); }
+.spinner { width: 18px; height: 18px; box-sizing: border-box; border: 2.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes toast-in {
   from { opacity: 0; transform: translate(-50%, 12px); }
   to { opacity: 1; transform: translateX(-50%); }
@@ -603,7 +603,6 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-.panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--muted); }
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
 .result-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }

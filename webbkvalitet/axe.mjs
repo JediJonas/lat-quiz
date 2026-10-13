@@ -65,7 +65,7 @@ await check(player, 'Spelare, kod');
 await player.fill('#name-input', 'Test');
 await player.fill('#code-input', code);
 await player.click('#join-form button');
-await player.waitForSelector('#conn.connected', { timeout: 20000 });
+await player.waitForSelector('#lobby:not([hidden])', { timeout: 20000 });
 await check(player, 'Spelare, väntar');
 
 // Deezer nås inte här. Låten besvaras med ett klipp som är en kort tystnad.
@@ -120,6 +120,13 @@ await host.waitForSelector('.answer');
 await player.waitForSelector('#result:not([hidden])');
 await check(host, 'Spelledare, rätt svar');
 await check(player, 'Spelare, rätt svar');
+
+// Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer.
+const show = (page, msg) => page.evaluate((m) => import('./js/meddelande.js').then((mod) => mod.showMessage(m)), msg);
+await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Spela låten i Spotify i stället.' });
+await check(host, 'Spelledare, felmeddelande');
+await show(player, { key: 'test', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
+await check(player, 'Spelare, meddelande');
 
 await browser.close();
 if (problems.length) {

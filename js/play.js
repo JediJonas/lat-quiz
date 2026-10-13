@@ -1,6 +1,7 @@
 // Spelarvyn i mobilen.
 import { createClient } from './net.js';
-import { createGameView, esc } from './spelvy.js';
+import { hideMessage, showMessage } from './meddelande.js';
+import { createGameView } from './spelvy.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
@@ -45,10 +46,24 @@ function onMessage(msg) {
   gameView.update(view, me.playerId);
 }
 
+// Ett avbrott visas i meddelanderutan, och sedan att anslutningen är tillbaka. Från formuläret
+// visar knappen att appen ansluter, men efter en omladdning visas det i rutan.
+let connectedOnce = false;
+let dropped = false;
+let showConnecting = false;
+
 function onStatus(status) {
-  const el = $('#conn');
-  el.className = 'conn ' + status;
-  el.textContent = { connecting: 'Ansluter…', connected: 'Ansluten', offline: 'Frånkopplad' }[status];
+  if (status === 'connected') {
+    if (dropped) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
+    else hideMessage('net');
+    connectedOnce = true;
+    dropped = false;
+  } else if (connectedOnce) {
+    dropped = true;
+    showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
+  } else if (showConnecting) {
+    showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' });
+  }
 }
 
 // Från formuläret stannar man kvar där tills spelledaren har svarat, så att ett upptaget namn
@@ -60,6 +75,9 @@ function join(name, code, fromForm) {
   storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify(me)));
   $('#join-error').hidden = true;
   $('#me').textContent = code;
+  connectedOnce = false;
+  dropped = false;
+  showConnecting = !fromForm;
   if (fromForm) setPending(true);
   else showLobby();
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
@@ -88,6 +106,7 @@ function leave(message, clearCode) {
   net.destroy();
   net = null;
   view = null;
+  hideMessage('net');
   storage(() => localStorage.removeItem(SAVE_KEY));
   const params = new URLSearchParams(location.search);
   if (clearCode) {
@@ -133,7 +152,7 @@ async function init() {
 }
 
 function showError(err) {
-  document.body.insertAdjacentHTML('afterbegin', `<p class="error" role="alert">${esc(err.message)}</p>`);
+  showMessage({ key: 'error', kind: 'problem', title: 'Något gick fel', text: err.message });
 }
 
 init().catch(showError);
