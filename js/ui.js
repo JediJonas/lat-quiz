@@ -37,13 +37,14 @@ export function renderRing(el, ms, totalMs, bonus) {
   el.classList.toggle('bonus', bonus);
 }
 
-// Liten fylld cirkel som äts upp medurs, som ringen, tills tiden är slut. Mitt i står sekunderna som är kvar.
-const PIE_R = 5;
+// Liten grå ring som töms medurs, som ringen vid gissningen. Mitt i står sekunderna som är kvar.
+const PIE_R = 12;
 const PIE_LEN = 2 * Math.PI * PIE_R;
 export function renderPie(el, ms, totalMs) {
   if (!el.querySelector('svg')) {
-    el.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true">
-        <circle class="pie-bar" cx="10" cy="10" r="${PIE_R}" stroke-width="${PIE_R * 2}" stroke-dasharray="${PIE_LEN}"/>
+    el.innerHTML = `<svg viewBox="0 0 28 28" aria-hidden="true">
+        <circle class="pie-track" cx="14" cy="14" r="${PIE_R}"/>
+        <circle class="pie-bar" cx="14" cy="14" r="${PIE_R}" stroke-dasharray="${PIE_LEN}"/>
       </svg><span class="pie-num" aria-hidden="true"></span>`;
   }
   el.querySelector('.pie-num').textContent = Math.ceil(ms / 1000);
