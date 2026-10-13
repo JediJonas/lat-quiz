@@ -577,12 +577,26 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-/* Innan första låten visar en grön ring hur man startar spelet. Efter en sekund tonar den
-   in och ut i ett svep på 1,6 s, och sedan igen efter 5 s paus. */
-.icon-btn.start-hint { animation: start-hint 6.6s ease-in-out 1s infinite both; }
+/* Innan första låten glider en grön ring ut från spela-knappen och bleknar bort, som en
+   krusning. Krusningen tar 2 s och kommer var femte sekund. */
+.icon-btn.start-hint { position: relative; }
+.icon-btn.start-hint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: start-hint 5s cubic-bezier(0.2, 0.6, 0.3, 1) 1s infinite;
+}
 @keyframes start-hint {
-  0%, 24.2%, 100% { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
-  12.1% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
+  0% { transform: scale(1); opacity: 0; }
+  4% { transform: scale(1.03); opacity: 0.7; }
+  40%, 100% { transform: scale(1.6); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon-btn.start-hint::after { animation: none; opacity: 1; transform: scale(1.15); }
 }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--faint); }
