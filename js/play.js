@@ -81,7 +81,7 @@ function onStatus(status) {
     showHostLeft();
   } else if (connectedOnce) {
     dropped = true;
-    showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
+    showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen.' });
   } else if (showConnecting) {
     showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' });
   }
