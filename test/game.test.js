@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume,
+  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume, setHostPlaying, allAnswered,
 } from '../js/game.js';
 
 const songs = [
@@ -275,4 +275,50 @@ test('nästa låt och svaret avslutar en paus', () => {
   pause(state, 6000);
   nextSong(state, songs, () => 0);
   assert.equal(state.pausedAt, null);
+});
+
+test('spelledaren som inte deltar finns inte bland spelarna och kan inte svara', () => {
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal' });
+  state.hostId = 'h';
+  setHostPlaying(state, false, 'Spelledare');
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  nextSong(state, songs, () => 0);
+  startRound(state, 1000);
+  assert.equal(submitAnswer(state, 'h', 'artist', 'a-ha', 2000), false);
+  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
+  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  assert.equal(allAnswered(state), true);
+  reveal(state);
+  assert.deepEqual(standings(state).map((p) => p.id), ['p1']);
+  assert.equal(state.round.results.h, undefined);
+});
+
+test('spelledaren behåller poängen när den slutar och börjar delta igen', () => {
+  const state = setup();
+  state.hostId = 'h';
+  setHostPlaying(state, true, 'Spelledare');
+  state.players.h.score = 4;
+  setHostPlaying(state, false);
+  assert.equal(state.players.h, undefined);
+  setHostPlaying(state, true, 'Jonas');
+  assert.equal(state.players.h.score, 4);
+  assert.equal(state.players.h.name, 'Jonas');
+  setHostPlaying(state, false);
+  restart(state);
+  setHostPlaying(state, true, 'Jonas');
+  assert.equal(state.players.h.score, 0);
+});
+
+test('vinnarna räknas om när spelledaren slutar delta', () => {
+  const state = setup();
+  state.hostId = 'h';
+  setHostPlaying(state, true, 'Spelledare');
+  state.players.h.score = 9;
+  submitAnswer(state, 'h', 'artist', 'a-ha', 2000);
+  submitAnswer(state, 'h', 'title', 'Take On Me', 2000);
+  reveal(state);
+  assert.deepEqual(state.winners, ['h']);
+  setHostPlaying(state, false);
+  assert.equal(state.winners, null);
+  assert.equal(playerView(state, 'p1', 3000).winners, null);
 });

@@ -609,6 +609,12 @@ a.icon-btn { text-decoration: none; }
 .result-foot .clip-note { margin: 0 0 0 auto; padding: 0; }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
 #guess, #result { display: flex; flex-direction: column; }
+/* Fälten ligger i en egen ruta hos spelledaren, så att de kan döljas när spelledaren inte deltar. */
+.guess-fields { display: contents; }
+/* Strömbrytaren Jag deltar i spelet, överst i formuläret och i Inställningar. */
+.host-plays { margin: 16px 0 0; }
+.host-plays-group { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.host-plays-group .host-plays { margin: 0; }
 /* Svarets delar ligger direkt i kortet, så att spelledarens knapp Ny match hamnar ovanför
    raden längst ner. */
 #result-body { display: contents; }

@@ -23,8 +23,11 @@ let category = null;
 let net = null;
 const connToPlayer = new Map();
 let ticker = null;
-// Spelledaren spelar med och gissar i samma vy som spelarna.
+// Spelledaren spelar med och gissar i samma vy som spelarna, om spelledaren inte har valt att bara leda spelet.
 let gameView = null;
+// Strömbrytaren Jag deltar i spelet på startsidan. Spelledaren deltar om inget annat väljs.
+let hostPlays = true;
+const DEFAULT_HOST_NAME = 'Spelledare';
 
 function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
@@ -212,7 +215,16 @@ function hostAnswer(field, value) {
 
 // ---- Spelets steg ----
 
-async function startGame(categoryId, resumeState, name) {
+// Namnet som spelledaren deltar med. Utan namn heter spelledaren Spelledare.
+function hostName(name) {
+  return String(name || '').trim().slice(0, game.MAX_NAME) || DEFAULT_HOST_NAME;
+}
+
+function hostNameTaken(name) {
+  return game.nameTaken(state, { id: state.hostId, name: hostName(name) });
+}
+
+async function startGame(categoryId, resumeState, name, plays = true) {
   await scriptsLoaded;
   const categories = await loadCategories();
   category = categories.find((c) => c.id === categoryId) || categories[0];
@@ -226,10 +238,12 @@ async function startGame(categoryId, resumeState, name) {
       code: newCode(), categoryId: category.id, categoryName: category.name, labels: category.labels,
       settings: loadSettings(),
     });
+    state.hostPlays = plays;
   }
-  // Spelledaren är en spelare som alltid är ansluten. Ett äldre sparat spel får spelledaren nu.
+  // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
   if (!state.hostId) state.hostId = newId();
-  game.addPlayer(state, { id: state.hostId, name: name || state.players[state.hostId]?.name || loadName() || 'Spelledare' });
+  game.setHostPlaying(state, state.hostPlays !== false,
+    hostName(name || state.players[state.hostId]?.name || loadName()));
   // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
   state.categoryName = category.name;
   save();
@@ -492,6 +506,45 @@ function wireUnknown(dialog, names) {
   });
 }
 
+// Spelledaren kan börja eller sluta delta under spelet. Namnfältet visas bara när spelledaren deltar.
+function currentHost() {
+  if (pending && pending.host) return pending.host;
+  const player = state.players[state.hostId] || state.benchedHost;
+  return { plays: state.hostPlays !== false, name: player ? player.name : loadName() };
+}
+
+function hostPlaysGroup() {
+  const { name } = currentHost();
+  return `
+    <div class="host-plays-group">
+      <div class="switches host-plays"><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
+      <div id="setting-host-name-row">
+        <label for="setting-host-name">Ditt namn</label>
+        <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
+          placeholder="${DEFAULT_HOST_NAME}" value="${esc(name === DEFAULT_HOST_NAME ? '' : name || '')}">
+      </div>
+    </div>`;
+}
+
+// Returnerar en funktion som säger om strömbrytaren är på. Ett namn som en spelare redan har
+// stoppar Spara, så att två inte heter likadant.
+function wireHostPlays(dialog) {
+  let on = currentHost().plays;
+  const row = dialog.querySelector('#setting-host-name-row');
+  const input = dialog.querySelector('#setting-host-name');
+  const update = () => { row.hidden = !on; };
+  mountSwitch(dialog.querySelector('#setting-host-plays'), 'Jag deltar i spelet', () => on, () => { on = !on; update(); });
+  update();
+  input.addEventListener('input', () => input.setCustomValidity(''));
+  dialog.querySelector('form').addEventListener('submit', (e) => {
+    if (e.submitter?.value !== 'ok' || !on || !hostNameTaken(input.value)) return;
+    e.preventDefault();
+    input.setCustomValidity(`${hostName(input.value)} är redan med i spelet. Välj ett annat namn.`);
+    input.reportValidity();
+  });
+  return () => on;
+}
+
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
@@ -513,6 +566,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
+      ${running ? hostPlaysGroup() : ''}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
@@ -523,15 +577,17 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <button value="ok">Spara</button>
       </div>
     </form>`;
-  // En rullista skickar inte formuläret med Enter, så Enter sparar här.
+  // En rullista skickar inte formuläret med Enter, så Enter sparar här. I namnfältet skulle
+  // Enter annars trycka på formulärets första knapp, Avsluta spelet.
   dialog.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && e.target.tagName === 'SELECT') {
+    if (e.key === 'Enter' && (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT')) {
       e.preventDefault();
       e.stopPropagation(); // annars startar Enter även spelet
       dialog.querySelector('[value=ok]').click();
     }
   });
   wireUnknown(dialog, names);
+  const plays = running ? wireHostPlays(dialog) : null;
   const mark = dialog.querySelector('#mark-unknown');
   if (mark) mountSwitch(mark, 'Hoppa över den i kommande spel', currentUnknown, toggleCurrentUnknown);
   document.body.append(dialog);
@@ -542,7 +598,11 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       const values = Object.fromEntries(new FormData(form));
       if (dialog.returnValue === 'end') resolve({ end: true });
       else resolve(dialog.returnValue === 'ok'
-        ? { ...game.cleanSettings(values), ...(categories ? { categoryId: values.categoryId } : {}) } : null);
+        ? {
+          ...game.cleanSettings(values),
+          ...(categories ? { categoryId: values.categoryId } : {}),
+          ...(plays ? { host: { plays: plays(), name: hostName(values.hostName) } } : {}),
+        } : null);
       dialog.remove();
     }, { once: true });
   });
@@ -559,19 +619,22 @@ async function editSettings() {
   const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), later });
   if (!chosen) return;
   if (chosen.end) { endGame(); return; }
-  const { categoryId, ...settings } = chosen;
+  const { categoryId, host, ...settings } = chosen;
   saveSettings(settings);
   if (!state) return;
+  if (host && host.plays && host.name !== DEFAULT_HOST_NAME) storage(() => localStorage.setItem(NAME_KEY, host.name));
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
-  pending = { settings, category: picked };
+  pending = { settings, category: picked, host };
   // Svaret kan ha visats medan dialogen var öppen, så changed() avgör om ändringen gäller nu.
   changed();
 }
 
 async function applyPending() {
-  const { settings, category: picked } = pending;
+  const { settings, category: picked, host } = pending;
   pending = null;
   game.applySettings(state, settings);
+  // En spelare kan ha tagit namnet medan låten pågick. Då heter spelledaren Spelledare.
+  if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? DEFAULT_HOST_NAME : host.name);
   if (picked) {
     await switchCategory(picked);
     changed();
@@ -824,12 +887,18 @@ const scriptsLoaded = new Promise((resolve) => {
 async function init() {
   mountUserSettings();
   $('#host-name').value = loadName();
+  // Utan att delta behövs inget namn, och spelledaren kan varken svara eller få poäng.
+  mountSwitch($('#host-plays'), 'Jag deltar i spelet', () => hostPlays, () => {
+    hostPlays = !hostPlays;
+    $('#host-name-row').hidden = !hostPlays;
+    $('#host-name').required = hostPlays;
+  });
   $('#setup-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#host-name').value.trim().slice(0, game.MAX_NAME);
-    if (!name) return;
-    storage(() => localStorage.setItem(NAME_KEY, name));
-    startGame($('#category-select').value, null, name);
+    if (hostPlays && !name) return;
+    if (hostPlays) storage(() => localStorage.setItem(NAME_KEY, name));
+    startGame($('#category-select').value, null, hostPlays ? name : '', hostPlays);
   });
   const saved = loadSaved();
   if (saved) {

@@ -94,6 +94,24 @@ export function removePlayer(state, id) {
   delete state.players[id];
 }
 
+// Spelledaren kan välja att inte delta. Då finns spelledaren inte bland spelarna och kan inte svara.
+// Poängen sparas, så att den finns kvar om spelledaren deltar igen senare i matchen.
+// Byts bara mellan låtarna, eftersom ändringarna gäller från nästa låt.
+export function setHostPlaying(state, playing, name) {
+  const id = state.hostId;
+  if (!id) return;
+  state.hostPlays = Boolean(playing);
+  if (playing) {
+    if (!state.players[id] && state.benchedHost) state.players[id] = state.benchedHost;
+    state.benchedHost = null;
+    addPlayer(state, { id, name });
+  } else if (state.players[id]) {
+    state.benchedHost = { ...state.players[id], connected: true };
+    delete state.players[id];
+  }
+  if (state.winners) state.winners = findWinners(state);
+}
+
 export function unplayedSongs(state, songs) {
   const played = new Set(state.playedIds);
   return songs.filter((s) => !played.has(s.id));
@@ -229,6 +247,7 @@ export function findWinners(state) {
 // Ny match med samma spelare. Spelade låtar räknas fortfarande som spelade.
 export function restart(state) {
   for (const player of Object.values(state.players)) player.score = 0;
+  if (state.benchedHost) state.benchedHost.score = 0;
   state.winners = null;
   state.round = null;
   state.roundNumber = 0;
