@@ -416,7 +416,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
    ljusast, medan siffran behåller den kontrast som text behöver. */
 .pie { position: relative; display: block; color: color-mix(in srgb, var(--muted) 80%, var(--surface-solid)); width: 28px; height: 28px; flex: none; }
 .pie svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
-.pie circle { fill: none; stroke-width: 2.5; }
+.pie circle { fill: none; stroke-width: 3.25; }
 .pie-track { stroke: var(--border); }
 .pie-bar { stroke: color-mix(in srgb, currentColor 60%, var(--surface-solid)); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear; }
 .pie-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
