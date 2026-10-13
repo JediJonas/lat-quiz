@@ -28,6 +28,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
   let deadline = 0;
   let nextAt = 0;
   let wasPaused = null;
+  let shownResult = null; // låten vars svar senast visades
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
@@ -119,6 +120,12 @@ export function createGameView({ onAnswer, onError, host = false }) {
         <p class="points">+${r.points} poäng</p>
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
         <p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p>`;
+      // En spelare kan ha scrollat ner medan förslagslistan var öppen. Svaret ska synas överst.
+      if (!host && shownResult !== round.number) {
+        if (document.activeElement && $('#guess').contains(document.activeElement)) document.activeElement.blur();
+        window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+      shownResult = round.number;
       announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
         + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
       renderTimer();
