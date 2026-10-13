@@ -407,12 +407,14 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .round-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .round-head .round-label { margin: 0; }
 /* Tiden kvar tills nästa låt startar av sig själv */
-.pie { position: relative; display: block; width: 28px; height: 28px; margin: -6px 0; flex: none; transform: translate(2px, -2px); }
+/* Nedräkningen är bara en upplysning, så den är ljusare än rubriken bredvid. Ringen kan vara
+   ljusast, medan siffran behåller den kontrast som text behöver. */
+.pie { position: relative; display: block; color: color-mix(in srgb, var(--muted) 80%, var(--surface-solid)); width: 28px; height: 28px; margin: -6px 0; flex: none; transform: translate(2px, -2px); }
 .pie svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
 .pie circle { fill: none; stroke-width: 1.75; }
 .pie-track { stroke: var(--border); }
-.pie-bar { stroke: var(--muted); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear; }
-.pie-num { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
+.pie-bar { stroke: color-mix(in srgb, currentColor 60%, var(--surface-solid)); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear; }
+.pie-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
 
 /* Rätt svar */
 .answer { text-align: center; margin: 8px 0 12px; padding: 20px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
