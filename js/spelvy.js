@@ -4,6 +4,7 @@
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
 import { announce, renderPie, renderRing, scoreTracker, statusTags } from './ui.js';
+import { setStandingMessage } from './meddelande.js';
 
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -100,7 +101,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       $('#round-title').textContent = `Låt ${round.number}`;
       renderRing($('#timer'), round.roundMs, round.roundMs, false);
     } else if (phase === 'playing') {
-      $('#round-title').textContent = view.paused ? `Låt ${round.number} · Pausat` : `Låt ${round.number}`;
+      $('#round-title').textContent = `Låt ${round.number}`;
       announce(`Låt ${round.number} har börjat. Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.`);
       renderTimer();
     } else if (phase === 'revealed') {
@@ -109,7 +110,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // Den lilla ringen längst ner till vänster töms tills nästa låt startar av sig själv.
       const next = round.nextInMs == null ? '' : `<span id="next-pie" class="pie"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span>`;
-      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}${view.paused ? ' · Pausat' : ''}</h2></div>
+      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}</h2></div>
         <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
         <ul class="mine">
@@ -134,8 +135,14 @@ export function createGameView({ onAnswer, onError, host = false }) {
       renderTimer();
     }
     renderStandings();
-    if (wasPaused !== null && view.paused !== wasPaused) announce(view.paused ? 'Spelet är pausat.' : 'Spelet fortsätter.');
-    wasPaused = view.paused;
+    // Pausen står i meddelanderutan så länge den varar, och rutan läses upp.
+    const paused = Boolean(view.paused);
+    if (paused !== wasPaused) {
+      setStandingMessage(paused ? { kind: 'pause', title: 'Spelet är pausat',
+        text: host ? 'Tryck på spela för att fortsätta.' : 'Väntar på att spelledaren fortsätter.' } : null);
+      if (wasPaused) announce('Spelet fortsätter.');
+    }
+    wasPaused = paused;
   }
 
   return {
