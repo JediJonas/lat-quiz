@@ -638,8 +638,6 @@ button.danger:hover { filter: brightness(1.08); }
 .unknown-group h3 { margin: 0 0 10px; font-size: 0.9rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--text); }
 .modal .unknown-songs p { margin: 0 0 8px; }
 .unknown-actions .link { min-height: 24px; }
-label.check { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-weight: 400; }
-label.check input { flex: none; width: 22px; height: 22px; margin: 0; padding: 0; box-shadow: none; accent-color: var(--accent); }
 .end-game { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .end-game button { width: auto; margin: 0; }
 .danger-text { color: var(--bad); }
