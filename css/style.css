@@ -558,11 +558,12 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 #join-url { word-break: break-all; }
 /* Ordet länken i texten kopierar länken. */
 .join-info button.link { margin: 0; font-size: inherit; }
-/* Spelledarens ikonbar, en fristående pärlgrå bar under raden med kategorin. */
+/* Spelledarens ikonbar, en fristående rosa bar under raden med kategorin. */
 .host-bar {
-  --bar-bg: #e9e6f2;
+  --bar-bg: #f8dcef;
   --bar-btn: #ffffff;
-  --bar-icon: #4a4470;
+  --bar-hover: #fdeef8;
+  --bar-icon: #8a2c74;
   margin: 16px 0;
   padding: 8px;
   border-radius: 999px;
@@ -570,11 +571,11 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   box-shadow: var(--shadow);
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .host-bar { --bar-bg: rgba(255, 255, 255, 0.08); --bar-btn: rgba(255, 255, 255, 0.08); --bar-icon: #d4cfee; }
+  :root:not([data-theme="light"]) .host-bar { --bar-bg: rgba(230, 90, 180, 0.18); --bar-btn: rgba(255, 255, 255, 0.1); --bar-hover: rgba(255, 255, 255, 0.18); --bar-icon: #ffb8e6; }
 }
-:root[data-theme="dark"] .host-bar { --bar-bg: rgba(255, 255, 255, 0.08); --bar-btn: rgba(255, 255, 255, 0.08); --bar-icon: #d4cfee; }
+:root[data-theme="dark"] .host-bar { --bar-bg: rgba(230, 90, 180, 0.18); --bar-btn: rgba(255, 255, 255, 0.1); --bar-hover: rgba(255, 255, 255, 0.18); --bar-icon: #ffb8e6; }
 .host-bar .icon-btn { background: var(--bar-btn); color: var(--bar-icon); }
-.host-bar .icon-btn:hover { background: var(--tool-hover); }
+.host-bar .icon-btn:hover { background: var(--bar-hover); }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 /* Knapparna sprids jämnt över raden, så att det blir luft mellan dem. */
