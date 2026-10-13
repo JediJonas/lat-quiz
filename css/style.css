@@ -558,8 +558,23 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 #join-url { word-break: break-all; }
 /* Ordet länken i texten kopierar länken. */
 .join-info button.link { margin: 0; font-size: inherit; }
-/* Spelledarens panel överst i spelvyn */
-.controls > .round-label { margin: 0 0 12px; }
+/* Spelledarens ikonbar, en fristående pärlgrå bar under raden med kategorin. */
+.host-bar {
+  --bar-bg: #e9e6f2;
+  --bar-btn: #ffffff;
+  --bar-icon: #4a4470;
+  margin: 16px 0;
+  padding: 8px;
+  border-radius: 999px;
+  background: var(--bar-bg);
+  box-shadow: var(--shadow);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .host-bar { --bar-bg: rgba(255, 255, 255, 0.08); --bar-btn: rgba(255, 255, 255, 0.08); --bar-icon: #d4cfee; }
+}
+:root[data-theme="dark"] .host-bar { --bar-bg: rgba(255, 255, 255, 0.08); --bar-btn: rgba(255, 255, 255, 0.08); --bar-icon: #d4cfee; }
+.host-bar .icon-btn { background: var(--bar-btn); color: var(--bar-icon); }
+.host-bar .icon-btn:hover { background: var(--tool-hover); }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 /* Knapparna sprids jämnt över raden, så att det blir luft mellan dem. */
@@ -599,7 +614,8 @@ a.icon-btn { text-decoration: none; }
      kolumnens delar blir egna rader i gridden. */
   .host, .host.qr-hidden { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: calc(var(--game-width) + 32px); }
   .main-col { display: contents; }
-  .host .player-head { order: -1; }
+  .host .player-head { order: -2; }
+  .host .host-bar { order: -1; margin: 16px 0 0; }
   /* Rutorna är egna rader i gridden, där marginaler inte slås ihop. Bara marginalen ovanför
      behålls, så att avstånden blir desamma som på datorn och på spelarens sida. */
   .host .card { margin: 16px 0 0; }

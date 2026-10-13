@@ -674,7 +674,8 @@ function playClicked() {
   const choice = playAction();
   if (!choice) return;
   const song = state.round && state.round.song;
-  if (choice.action === 'start') nextSong();
+  // QR-koden behövs inte längre när spelet har startat. Den kan visas igen med ikonen.
+  if (choice.action === 'start') { setQrVisible(false); nextSong(); }
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
@@ -689,7 +690,7 @@ function nextClicked() {
   else nextSong();
 }
 
-// Samma vy som spelarna ser, och under den spelledarens panel.
+// Samma vy som spelarna ser, och ovanför den spelledarens ikonbar.
 // Panelen byggs bara om när den ändras, så att fokus stannar kvar.
 function render() {
   $('#category').textContent = category.name;
