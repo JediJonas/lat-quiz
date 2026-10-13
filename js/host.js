@@ -736,6 +736,9 @@ document.addEventListener('click', (e) => {
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
 });
 
+// Safari på iPhone visar bara :active-läget när sidan lyssnar på touchstart.
+document.addEventListener('touchstart', () => {}, { passive: true });
+
 // Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
 const ENTER_TARGETS = ['#create', '#play', '#next'];
 
