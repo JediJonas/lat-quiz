@@ -566,7 +566,6 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-#unknown[aria-pressed="true"] { background: var(--bad); color: var(--bad-text); }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: center; font-size: 0.9rem; color: var(--faint); }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
@@ -606,6 +605,9 @@ button.danger:hover { filter: brightness(1.08); }
 .unknown-songs { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .modal .unknown-songs p { margin: 0 0 8px; }
 .unknown-actions .link { min-height: 24px; }
+.current-song { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+label.check { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-weight: 400; }
+label.check input { flex: none; width: 22px; height: 22px; margin: 0; padding: 0; box-shadow: none; accent-color: var(--accent); }
 .end-game { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .end-game button { width: auto; margin: 0; }
 .danger-text { color: var(--bad); }

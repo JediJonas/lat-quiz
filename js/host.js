@@ -337,15 +337,24 @@ function clipNote(round) {
     Spela den i Spotify i stället.</p>`;
 }
 
-// Uppdaterar bara knappen, så att rätt svar inte läses upp igen.
-function unknownClicked() {
+// Kryssrutan i Inställningar. Gäller direkt, utan att spelledaren behöver spara.
+function setUnknown(marked) {
   const song = state.round && state.round.song;
-  if (!song) return;
-  const list = toggleUnknown(loadUnknown(), category.id, song);
-  saveUnknown(list);
-  const marked = isUnknown(list, category.id, song.id);
-  $('#unknown').setAttribute('aria-pressed', String(marked));
+  if (!song || isUnknown(loadUnknown(), category.id, song.id) === marked) return;
+  saveUnknown(toggleUnknown(loadUnknown(), category.id, song));
   announce(marked ? 'Låten är markerad som okänd och hoppas över i kommande spel.' : 'Markeringen är borttagen.');
+}
+
+// Låtens titel visas inte, eftersom spelledaren också gissar.
+function unknownCheckbox() {
+  const song = state && state.round && state.round.song;
+  if (!song) return '';
+  const marked = isUnknown(loadUnknown(), category.id, song.id);
+  return `
+    <div class="current-song">
+      <label class="check"><input type="checkbox" id="mark-unknown"${marked ? ' checked' : ''}>
+        Låten är okänd: hoppa över den i kommande spel</label>
+    </div>`;
 }
 
 function restart() {
@@ -466,6 +475,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
+      ${running ? unknownCheckbox() : ''}
       ${unknownSection(countUnknown(loadUnknown()))}
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
@@ -484,6 +494,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
     }
   });
   wireUnknown(dialog, names);
+  const mark = dialog.querySelector('#mark-unknown');
+  if (mark) mark.addEventListener('change', () => setUnknown(mark.checked));
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {
@@ -642,9 +654,6 @@ function render() {
   gameView.update(viewFor(state.hostId), state.hostId);
   // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
-  const unknown = $('#unknown');
-  unknown.disabled = !round;
-  unknown.setAttribute('aria-pressed', String(Boolean(round) && isUnknown(loadUnknown(), category.id, round.song.id)));
   $('#pause').disabled = !round || Boolean(state.pausedAt) || round.phase === 'ready'
     || Boolean(state.winners && round.phase === 'revealed');
   setButton($('#play'), playAction(), 'Spela');
@@ -672,7 +681,6 @@ document.addEventListener('click', (e) => {
   if (id === 'play') playClicked();
   else if (id === 'pause') pauseGame();
   else if (id === 'next') nextClicked();
-  else if (id === 'unknown') unknownClicked();
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
