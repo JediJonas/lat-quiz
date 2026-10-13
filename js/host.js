@@ -598,7 +598,7 @@ const ICONS = {
 
 // Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
 // redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
-const AUTO_NEXT_MS = 15000;
+const AUTO_NEXT_MS = 10000;
 let autoNext = { round: 0, at: 0 };
 
 function autoNextLeft() {
