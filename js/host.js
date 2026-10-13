@@ -590,10 +590,10 @@ $('#copy-link').addEventListener('click', async () => {
   const status = $('#copy-status');
   try {
     await navigator.clipboard.writeText(joinUrl());
-    button.textContent = 'Länken är kopierad';
+    button.textContent = 'länken (kopierad)';
     status.textContent = 'Länken är kopierad';
     clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => { button.textContent = 'Kopiera länken'; status.textContent = ''; }, 3000);
+    copiedTimer = setTimeout(() => { button.textContent = 'länken'; status.textContent = ''; }, 3000);
   } catch {
     $('#join-url-row').hidden = false;
     status.textContent = '';
