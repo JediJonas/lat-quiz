@@ -589,6 +589,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 }
 /* Bara med mus, så att färgen inte fastnar på knappen efter ett tryck på pekskärm. */
 @media (hover: hover) { .icon-btn:hover { background: var(--tool-hover); } }
+/* Kort återkoppling medan knappen trycks ned, som försvinner när man släpper. */
+.icon-btn:active { background: var(--tool-hover); transform: scale(0.92); }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
