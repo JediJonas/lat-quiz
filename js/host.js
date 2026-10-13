@@ -357,7 +357,7 @@ function unknownCheckbox() {
   return `
     <div class="current-song">
       <label class="check"><input type="checkbox" id="mark-unknown"${marked ? ' checked' : ''}>
-        Låten är okänd: hoppa över den i kommande spel</label>
+        Hoppa över den i kommande spel</label>
     </div>`;
 }
 
@@ -414,6 +414,12 @@ const SETTING_FIELDS = [
 ];
 
 // Okända låtar kopieras som text och skickas vidare, så att de tas bort ur kategorin.
+// Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
+function unknownGroup(checkbox, list) {
+  if (!checkbox && !list) return '';
+  return `<div class="unknown-group"><h3>${checkbox ? 'Okänd låt' : 'Okända låtar'}</h3>${checkbox}${list}</div>`;
+}
+
 function unknownSection(count) {
   if (!count) return '';
   return `
@@ -454,6 +460,8 @@ function wireUnknown(dialog, names) {
     if (!ok) return;
     saveUnknown({});
     dialog.querySelector('.unknown-songs').remove();
+    const group = dialog.querySelector('.unknown-group');
+    if (!group.querySelector('.current-song')) group.remove();
   });
 }
 
@@ -468,7 +476,6 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.innerHTML = `
     <form method="dialog">
       <h2>Inställningar</h2>
-      ${later ? '<p>Ändringarna gäller från nästa låt.</p>' : ''}
       ${categories ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
@@ -479,11 +486,11 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
-      ${running ? unknownCheckbox() : ''}
-      ${unknownSection(countUnknown(loadUnknown()))}
+      ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
       </div>` : ''}
+      ${later ? '<p class="later-note">Ändringarna gäller från nästa låt.</p>' : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
