@@ -113,8 +113,10 @@ export function createHost(code, handlers) {
   };
 }
 
-// handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline'),
+// handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline' | 'host-missing'),
 // onNotFound() när det inte finns något spel med koden.
+// 'host-missing' betyder att nätet fungerar men spelledaren inte finns, till exempel när
+// spelledarens flik är stängd.
 // Klienten försöker ansluta igen av sig själv tills destroy() anropas.
 export function createClient(code, handlers) {
   let peer = null;
@@ -151,6 +153,11 @@ export function createClient(code, handlers) {
       // eller spelet avslutat. Annars laddar spelledaren troligen om sidan.
       if (err.type === 'peer-unavailable' && !everConnected) {
         handlers.onNotFound();
+        return;
+      }
+      if (err.type === 'peer-unavailable') {
+        scheduleRetry();
+        handlers.onStatus('host-missing');
         return;
       }
       // Fel mot förmedlingsservern stör inte en öppen förbindelse till spelledaren.
