@@ -86,7 +86,15 @@ function joinUrl() {
 function sendState(connId) {
   const playerId = connToPlayer.get(connId);
   if (!playerId) return;
-  net.send(connId, { type: 'state', view: game.playerView(state, playerId, Date.now()) });
+  net.send(connId, { type: 'state', view: viewFor(playerId) });
+}
+
+// Spelvyn för en spelare, med tiden kvar tills nästa låt startar av sig själv.
+function viewFor(playerId) {
+  const view = game.playerView(state, playerId, Date.now());
+  const left = autoNextLeft();
+  if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
+  return view;
 }
 
 function broadcast() {
@@ -563,8 +571,6 @@ function autoNextLeft() {
 function checkAutoNext() {
   const left = autoNextLeft();
   if (left === null) return;
-  const el = $('#auto-next');
-  if (el) el.textContent = String(Math.ceil(left / 1000));
   if (left > 0) return;
   if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
   nextSong();
@@ -584,26 +590,24 @@ function controls() {
     return `<button id="reveal" class="secondary big huge">Visa svar nu</button>
       ${usesDeezer() ? DEEZER_NOTE : reopenLinks(round.song)}`;
   }
-  const left = autoNextLeft();
-  return `${state.winners
+  return state.winners
     ? '<button id="restart" class="big huge">Ny match med samma spelare</button>'
-    : '<button id="next" class="big huge">Nästa låt</button>'}
-    ${left === null ? '' : `<p class="muted small">Nästa låt startar av sig själv om <span id="auto-next">${Math.ceil(left / 1000)}</span>&nbsp;s.</p>`}`;
+    : '<button id="next" class="big huge">Nästa låt</button>';
 }
 
 // Samma vy som spelarna ser, och under den spelledarens panel.
 // Panelen byggs bara om när den ändras, så att fokus stannar kvar.
 function render() {
   $('#category').textContent = category.name;
-  gameView.update(game.playerView(state, state.hostId, Date.now()), state.hostId);
+  gameView.update(viewFor(state.hostId), state.hostId);
   // Okänd låt markerar låten som okänd. Länken finns så länge det finns en låt.
   const round = state.round;
   $('#unknown').hidden = !round;
   if (round) setUnknownLink(isUnknown(loadUnknown(), category.id, round.song.id));
   const box = $('#controls');
-  const html = controls().replace(/<span id="auto-next">\d+<\/span>/, '<span id="auto-next"></span>');
+  const html = controls();
   if (box.dataset.html !== html) {
-    box.innerHTML = controls();
+    box.innerHTML = html;
     box.dataset.html = html;
   }
 }

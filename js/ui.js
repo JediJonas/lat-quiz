@@ -37,6 +37,19 @@ export function renderRing(el, ms, totalMs, bonus) {
   el.classList.toggle('bonus', bonus);
 }
 
+// Liten fylld cirkel som äts upp medurs, som ringen, tills tiden är slut.
+const PIE_R = 5;
+const PIE_LEN = 2 * Math.PI * PIE_R;
+export function renderPie(el, ms, totalMs) {
+  if (!el.querySelector('svg')) {
+    el.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true">
+        <circle class="pie-bar" cx="10" cy="10" r="${PIE_R}" stroke-width="${PIE_R * 2}" stroke-dasharray="${PIE_LEN}"/>
+      </svg>`;
+  }
+  const part = totalMs ? Math.max(0, Math.min(1, ms / totalMs)) : 0;
+  el.querySelector('.pie-bar').style.strokeDashoffset = `${PIE_LEN * (1 - part)}px`;
+}
+
 // Etiketter för en spelares läge i omgången, samma för spelledare och spelare.
 // progress: { artist, title } medan låten spelas. result: rättning när svaret visas.
 export function statusTags({ phase, progress, result, labels, esc, points = true }) {
