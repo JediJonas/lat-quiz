@@ -38,7 +38,8 @@ function onOpen() {
 }
 
 function onMessage(msg) {
-  if (msg.type === 'ended' || msg.type === 'leaving') { hostGone = msg.type; showHostGone(); return; }
+  if (msg.type === 'ended') { gameEnded(); return; }
+  if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
@@ -52,25 +53,32 @@ function onMessage(msg) {
 let connectedOnce = false;
 let dropped = false;
 let showConnecting = false;
-// Spelledaren har avslutat spelet ('ended') eller stängt fliken eller laddat om ('leaving').
-// Då visas det i stället för att anslutningen bröts. Appen försöker ändå ansluta igen,
-// ifall spelledaren startar samma spel.
-let hostGone = null;
+// Spelledaren har stängt fliken eller laddat om och kan gå tillbaka till spelet.
+// Då visas det i stället för att anslutningen bröts, och appen fortsätter försöka ansluta.
+let hostLeft = false;
 
-function showHostGone() {
-  const title = hostGone === 'ended' ? 'Spelledaren har avslutat spelet' : 'Spelledaren har lämnat spelet';
-  showMessage({ key: 'net', kind: 'busy', title, text: 'Väntar på att spelledaren kommer tillbaka.' });
+function showHostLeft() {
+  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på att spelledaren kommer tillbaka.' });
+}
+
+// Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
+// försöka ansluta, och en omladdning visar sidan där man anger kod.
+function gameEnded() {
+  net.destroy();
+  net = null;
+  storage(() => localStorage.removeItem(SAVE_KEY));
+  showMessage({ key: 'net', kind: 'info', title: 'Spelledaren har avslutat spelet', text: 'Tack för att du var med!' });
 }
 
 function onStatus(status) {
   if (status === 'connected') {
-    if (dropped || hostGone) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
+    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
     else hideMessage('net');
     connectedOnce = true;
     dropped = false;
-    hostGone = null;
-  } else if (hostGone) {
-    showHostGone();
+    hostLeft = false;
+  } else if (hostLeft) {
+    showHostLeft();
   } else if (connectedOnce) {
     dropped = true;
     showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
@@ -90,7 +98,7 @@ function join(name, code, fromForm) {
   $('#me').textContent = code;
   connectedOnce = false;
   dropped = false;
-  hostGone = null;
+  hostLeft = false;
   showConnecting = !fromForm;
   if (fromForm) setPending(true);
   else showLobby();
