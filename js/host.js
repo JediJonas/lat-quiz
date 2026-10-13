@@ -102,7 +102,11 @@ function broadcast() {
   for (const connId of connToPlayer.keys()) sendState(connId);
 }
 
+// Ändringar som görs medan en låt pågår. De gäller när svaret har visats.
+let pending = null;
+
 function changed() {
+  if (pending && (!state.round || state.round.phase === 'revealed')) applyPending();
   save();
   broadcast();
   render();
@@ -457,20 +461,20 @@ function wireUnknown(dialog, names) {
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår och kan avslutas härifrån. Returnerar då { end: true } om spelledaren avslutar.
-// locked: låten spelas, så inställningarna kan inte ändras just nu.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, locked = false } = {}) {
+// later: en låt pågår, så ändringarna gäller först från nästa låt.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, later = false } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
       <h2>Inställningar</h2>
-      ${locked ? '<p>Inställningarna kan ändras när svaret har visats.</p>' : ''}
-      ${categories && !locked ? `
+      ${later ? '<p>Ändringarna gäller från nästa låt.</p>' : ''}
+      ${categories ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select>` : ''}
-      ${locked ? '' : SETTING_FIELDS.map(({ key, label, text }) => `
+      ${SETTING_FIELDS.map(({ key, label, text }) => `
         <label for="setting-${key}">${label}</label>
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
@@ -481,8 +485,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
       </div>` : ''}
       <div class="modal-actions">
-        <button value="cancel" class="secondary">${locked ? 'Stäng' : 'Avbryt'}</button>
-        ${locked ? '' : '<button value="ok">Spara</button>'}
+        <button value="cancel" class="secondary">Avbryt</button>
+        <button value="ok">Spara</button>
       </div>
     </form>`;
   // En rullista skickar inte formuläret med Enter, så Enter sparar här.
@@ -510,22 +514,34 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   });
 }
 
-// Under en låt går bara att avsluta spelet. Inställningarna ändras när svaret har visats.
+// Under en låt sparas ändringarna och gäller från nästa låt.
 async function editSettings() {
-  const locked = Boolean(state && state.round && state.round.phase === 'playing');
+  const later = Boolean(state && state.round && state.round.phase !== 'revealed');
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
   const categories = state ? all : null;
-  const chosen = await showSettings(state ? game.cleanSettings(state) : loadSettings(), categories, category && category.id, names,
-    { running: Boolean(state), locked });
+  const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
+  const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
+  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), later });
   if (!chosen) return;
   if (chosen.end) { endGame(); return; }
   const { categoryId, ...settings } = chosen;
   saveSettings(settings);
   if (!state) return;
-  game.applySettings(state, settings);
-  if (categoryId && categoryId !== category.id) await switchCategory(categories.find((c) => c.id === categoryId));
+  const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
+  pending = { settings, category: picked };
+  // Svaret kan ha visats medan dialogen var öppen, så changed() avgör om ändringen gäller nu.
   changed();
+}
+
+async function applyPending() {
+  const { settings, category: picked } = pending;
+  pending = null;
+  game.applySettings(state, settings);
+  if (picked) {
+    await switchCategory(picked);
+    changed();
+  }
 }
 
 // Poängen och spelade låtar finns kvar. Går inte medan en låt pågår, eftersom låten hör till den gamla kategorin.
