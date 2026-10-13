@@ -576,13 +576,12 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-/* Innan första låten visar en grön ring hur man startar spelet. Den tonar bort efter en stund. */
-.icon-btn.start-hint {
-  box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent);
-  animation: start-hint-fade 1s ease 3s forwards;
-}
-@keyframes start-hint-fade {
-  to { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
+/* Innan första låten visar en grön ring hur man startar spelet. Den tonar in, syns en
+   stund och tonar sedan bort. */
+.icon-btn.start-hint { animation: start-hint 4.6s ease forwards; }
+@keyframes start-hint {
+  0%, 100% { box-shadow: 0 0 0 3px transparent, 0 0 0 6px transparent; }
+  13%, 78% { box-shadow: 0 0 0 3px var(--surface-solid), 0 0 0 6px var(--accent); }
 }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--faint); }
@@ -616,14 +615,17 @@ a.icon-btn { text-decoration: none; }
 .modal h2 { margin: 0 0 20px; }
 .modal p { margin: 0; color: var(--muted); }
 .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
+.modal .later-note { margin-top: 20px; }
+.later-note + .modal-actions { margin-top: 12px; }
 .modal-actions button { width: auto; margin: 0; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
 button.danger:hover { filter: brightness(1.08); }
 /* Okända låtar: knappen under rätt svar och listan i Inställningar */
-.unknown-songs { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.unknown-group { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.current-song + .unknown-songs { margin-top: 16px; }
+.unknown-group h3 { margin: 0 0 10px; font-size: 0.9rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--text); }
 .modal .unknown-songs p { margin: 0 0 8px; }
 .unknown-actions .link { min-height: 24px; }
-.current-song { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 label.check { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-weight: 400; }
 label.check input { flex: none; width: 22px; height: 22px; margin: 0; padding: 0; box-shadow: none; accent-color: var(--accent); }
 .end-game { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
