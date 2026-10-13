@@ -5,6 +5,7 @@
 // kind: 'busy' (pågår, med snurra), 'info', 'ok' (försvinner efter 3 sekunder)
 // eller 'problem' (röd ram, rubrik och ikon).
 // key anger vad meddelandet gäller, så att hideMessage inte tar bort ett nyare meddelande.
+// Ett stående meddelande, till exempel att spelet är pausat, visas när inget annat visas.
 
 import { announce } from './ui.js';
 
@@ -12,6 +13,7 @@ const OK_MS = 3000;
 const ICONS = {
   busy: '<span class="spinner"></span>',
   info: '<svg viewBox="0 0 24 24"><rect x="10.75" y="10" width="2.5" height="8" rx="1.25"/><circle cx="12" cy="6.75" r="1.5"/></svg>',
+  pause: '<svg viewBox="0 0 24 24"><rect x="6.5" y="5" width="4" height="14" rx="1.5"/><rect x="13.5" y="5" width="4" height="14" rx="1.5"/></svg>',
   ok: '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   problem: '<svg viewBox="0 0 24 24"><rect x="10.75" y="5" width="2.5" height="9.5" rx="1.25"/><circle cx="12" cy="18" r="1.5"/></svg>',
 };
@@ -19,6 +21,7 @@ const ICONS = {
 let box = null;
 let alertRow = null;
 let current = null;
+let standing = null;
 let hideTimer = null;
 
 function elements() {
@@ -65,6 +68,15 @@ export function hideMessage(key) {
   current = null;
   box.hidden = true;
   alertRow.textContent = '';
+  if (standing) showMessage(standing);
+}
+
+// null tar bort det stående meddelandet.
+export function setStandingMessage(msg) {
+  const was = standing;
+  standing = msg && { key: 'standing', ...msg };
+  if (standing) showMessage(standing); // det senaste ersätter det gamla, som alltid
+  else if (!standing && was) hideMessage('standing');
 }
 
 export function currentMessage() {
