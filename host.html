@@ -53,7 +53,12 @@
       <p>Kod: <span id="code" class="code"></span></p>
     </section>
     <section class="main-col">
-      <!-- Spelledarens ikonbar, som alltid ligger överst på sidan. Ikoner: Material Symbols Rounded (Apache 2.0). -->
+      <header class="player-head">
+        <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
+        <span id="conn" class="conn connecting" role="status">Ansluter…</span>
+      </header>
+
+      <!-- Spelledarens ikonbar, under raden med kategorin. Ikoner: Material Symbols Rounded (Apache 2.0). -->
       <nav class="host-bar" aria-label="Spelledare">
         <div class="toolbar">
           <div class="tool-group">
@@ -67,11 +72,6 @@
           </div>
         </div>
       </nav>
-
-      <header class="player-head">
-        <div class="who"><div class="logo logo-small" aria-hidden="true"></div><h1 id="category"></h1></div>
-        <span id="conn" class="conn connecting" role="status">Ansluter…</span>
-      </header>
 
       <div id="waiting" class="card"><p id="waiting-text"></p>
         <button type="button" id="start-game" class="big" hidden>Starta spelet</button></div>

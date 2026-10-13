@@ -558,17 +558,15 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 #join-url { word-break: break-all; }
 /* Ordet länken i texten kopierar länken. */
 .join-info button.link { margin: 0; font-size: inherit; }
-/* Spelledarens ikonbar flyter fritt överst och stannar kvar där när sidan scrollas. */
+/* Spelledarens ikonbar, en fristående rund bar under raden med kategorin. */
 .host-bar {
-  position: sticky;
-  top: max(12px, env(safe-area-inset-top));
-  z-index: 20;
-  margin: 0 0 20px;
+  margin: 16px 0;
   padding: 8px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  /* Täckande, så att det som scrollas förbi under baren inte stör ikonerna. */
-  background: var(--surface-solid);
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
@@ -610,8 +608,8 @@ a.icon-btn { text-decoration: none; }
      kolumnens delar blir egna rader i gridden. */
   .host, .host.qr-hidden { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: calc(var(--game-width) + 32px); }
   .main-col { display: contents; }
-  .host .host-bar { order: -2; }
-  .host .player-head { order: -1; }
+  .host .player-head { order: -2; }
+  .host .host-bar { order: -1; margin: 16px 0 0; }
   /* Rutorna är egna rader i gridden, där marginaler inte slås ihop. Bara marginalen ovanför
      behålls, så att avstånden blir desamma som på datorn och på spelarens sida. */
   .host .card { margin: 16px 0 0; }
