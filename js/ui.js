@@ -43,7 +43,6 @@ const PIE_LEN = 2 * Math.PI * PIE_R;
 export function renderPie(el, ms, totalMs) {
   if (!el.querySelector('svg')) {
     el.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true">
-        <circle class="pie-track" cx="10" cy="10" r="10"/>
         <circle class="pie-bar" cx="10" cy="10" r="${PIE_R}" stroke-width="${PIE_R * 2}" stroke-dasharray="${PIE_LEN}"/>
       </svg>`;
   }
