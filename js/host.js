@@ -574,11 +574,31 @@ function showJoinInfo() {
   setQrVisible(true);
   $('#join-url').textContent = url;
   $('#join-url').href = url;
+  $('#join-url-row').hidden = true;
+  $('#copy-status').textContent = '';
   const qr = qrcode(0, 'M');
   qr.addData(url);
   qr.make();
   $('#qr').innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
 }
+
+// Länken kopieras, så att spelledaren kan skicka den till spelarna. Utan tillgång till
+// urklipp visas länken i stället, så att den kan kopieras för hand.
+let copiedTimer = null;
+$('#copy-link').addEventListener('click', async () => {
+  const button = $('#copy-link');
+  const status = $('#copy-status');
+  try {
+    await navigator.clipboard.writeText(joinUrl());
+    button.textContent = 'Länken är kopierad';
+    status.textContent = 'Länken är kopierad';
+    clearTimeout(copiedTimer);
+    copiedTimer = setTimeout(() => { button.textContent = 'Kopiera länken'; status.textContent = ''; }, 3000);
+  } catch {
+    $('#join-url-row').hidden = false;
+    status.textContent = '';
+  }
+});
 
 // QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel.
 function setQrVisible(visible) {
