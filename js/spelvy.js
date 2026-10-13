@@ -77,7 +77,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
 
   function waitingText() {
     return host
-      ? `Starta första låten med knappen längst till höger i panelen när alla har gått med. ${rulesText(view)}`
+      ? `Tryck på spela när alla har gått med. ${rulesText(view)}`
       : `Väntar på första låten… ${rulesText(view)}`;
   }
 

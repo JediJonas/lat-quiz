@@ -8,7 +8,7 @@ En webbapp för låtquiz med familj och vänner. Spelledaren spelar klipp från 
 
 1. Spelledaren öppnar `host.html` på en dator, väljer kategori och trycker på **Dra igång!**.
 2. Spelarna skannar QR-koden, eller öppnar `play.html` och skriver in koden.
-3. Spelledaren trycker på **Nästa låt**. I de flesta kategorier spelas ett 30 sekunders klipp från Deezer direkt i spelledarvyn, och timern på 30 sekunder startar när det hörs. I övriga kategorier, eller om Deezer saknar låten, öppnas den i Spotify-appen och klicket startar timern. Spelledaren stoppar då låten själv.
+3. Spelledaren trycker på spela. I de flesta kategorier spelas ett 30 sekunders klipp från Deezer direkt i spelledarvyn, och timern på 30 sekunder startar när det hörs. I övriga kategorier, eller om Deezer saknar låten, öppnas den i Spotify-appen och klicket startar timern. Spelledaren stoppar då låten själv.
 4. Spelarna väljer artist och titel ur listan. Rätt svar visas när tiden är slut, eller när alla har svarat.
 
 Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt inom 15 sekunder. Först till 10 poäng vinner.
