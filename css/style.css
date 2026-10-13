@@ -183,7 +183,7 @@ a { color: inherit; text-underline-offset: 3px; }
 
 /* Formulär */
 label { display: block; font-size: 0.9rem; font-weight: 600; margin: 16px 0 6px; }
-input:where(:not([type=checkbox])), select {
+input, select {
   width: 100%;
   font: inherit;
   padding: 13px 14px;
@@ -195,8 +195,8 @@ input:where(:not([type=checkbox])), select {
   transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
 }
 input::placeholder { color: var(--muted); opacity: 0.8; }
-input:where(:not([type=checkbox])):hover, select:hover { border-color: color-mix(in srgb, var(--muted) 45%, var(--border)); }
-input:where(:not([type=checkbox])):focus, select:focus {
+input:hover, select:hover { border-color: color-mix(in srgb, var(--muted) 45%, var(--border)); }
+input:focus, select:focus {
   outline: none;
   border-color: var(--focus);
   box-shadow: 0 0 0 1px var(--focus), 0 0 0 5px var(--accent-soft);
@@ -248,7 +248,7 @@ button:hover, .button:hover { background: var(--accent-hover); }
 button:active, .button:active { transform: scale(0.98); }
 /* Tydlig fokusram för tangentbord, med minst 3:1 i kontrast mot bakgrunden. */
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-input:where(:not([type=checkbox])):focus-visible, select:focus-visible { outline: none; }
+input:focus-visible, select:focus-visible { outline: none; }
 .big { padding: 16px; font-size: 1.05rem; }
 button.big, .button.big { box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent); }
 button.secondary.big { box-shadow: var(--shadow-sm); }
