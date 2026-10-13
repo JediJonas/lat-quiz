@@ -547,7 +547,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 /* Knapparna sprids jämnt över raden, så att det blir luft mellan dem. */
-.tool-group, #controls { display: contents; }
+.tool-group { display: contents; }
 .icon-btn {
   display: grid;
   place-items: center;
@@ -565,13 +565,8 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .icon-btn:hover { background: var(--tool-hover); }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
-.icon-btn.primary { background: var(--accent); color: var(--accent-text); }
-.icon-btn.primary:hover { background: var(--accent-hover); }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 #unknown[aria-pressed="true"] { background: var(--bad); color: var(--bad-text); }
-#pause .when-on, #pause[aria-pressed="true"] .when-off { display: none; }
-#pause[aria-pressed="true"] .when-on { display: contents; }
-.icon-btn span { display: contents; }
 .panel-note { margin: 12px 0 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: center; font-size: 0.9rem; color: var(--faint); }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */

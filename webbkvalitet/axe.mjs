@@ -87,7 +87,7 @@ await host.evaluate(() => {
   const click = HTMLAnchorElement.prototype.click;
   HTMLAnchorElement.prototype.click = function () { if (this.href.startsWith('http')) click.call(this); };
 });
-await host.click('#next');
+await host.click('#play');
 await host.waitForSelector('#timer');
 await check(host, 'Spelledare, låten spelas');
 await player.waitForSelector('#guess:not([hidden])');
@@ -115,7 +115,7 @@ if (!(await host.$eval('#artist', (el) => el.classList.contains('chosen')))) {
   problems.push('Spelledarens förslagslista: Enter valde inget svar');
 }
 
-await host.click('#reveal');
+await host.click('#next');
 await host.waitForSelector('.answer');
 await player.waitForSelector('#result:not([hidden])');
 await check(host, 'Spelledare, rätt svar');
