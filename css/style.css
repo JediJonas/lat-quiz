@@ -120,15 +120,25 @@
 
 * { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  min-height: 100vh;
+/* Toningen ligger i ett fast lager som täcker hela skärmen, så att den inte
+   tar slut med en skarp kant när man scrollar (fixed bakgrund saknas i iOS). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  height: 100lvh;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(60vmax 45vmax at 10% -10%, var(--glow-1), transparent 70%),
     radial-gradient(50vmax 40vmax at 110% 40%, var(--glow-3), transparent 70%),
-    radial-gradient(60vmax 45vmax at 30% 120%, var(--glow-2), transparent 70%),
-    var(--bg);
-  background-attachment: fixed;
+    radial-gradient(60vmax 45vmax at 30% 120%, var(--glow-2), transparent 70%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
   color: var(--text);
   font: 1rem/1.5 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-feature-settings: "cv11", "ss01";
@@ -408,7 +418,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .pie-bar { fill: none; stroke: var(--muted); opacity: 0.35; transition: stroke-dashoffset 0.25s linear; }
 
 /* Rätt svar */
-.answer { text-align: center; margin: 12px 0 20px; padding: 24px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
+.answer { text-align: center; margin: 8px 0 12px; padding: 20px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
 .answer .title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; }
 .answer .artist { font-size: 1.1rem; color: var(--muted); margin-top: 4px; }
 .reveal { animation: reveal 0.35s ease-out; }
@@ -416,7 +426,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }
 }
-.mine { list-style: none; padding: 0; margin: 0 0 20px; }
+.mine { list-style: none; padding: 0; margin: 0; }
 .mine li { display: flex; gap: 10px; align-items: baseline; padding: 10px 16px; margin: 8px 0; border-radius: 10px; font-weight: 600; }
 .mine li span { min-width: 4.5em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 .mine li.right { background: var(--good-soft); color: var(--good); }
