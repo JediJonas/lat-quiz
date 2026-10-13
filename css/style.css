@@ -15,6 +15,9 @@
   --muted: #5a5470;
   /* Mer diskret text, med minst 4.5:1 i kontrast mot rutorna. */
   --faint: #6c6784;
+  --tool-bg: #e6defc;
+  --tool-hover: #d9cdfa;
+  --tool-text: #4b2aa8;
   --border: rgba(60, 40, 120, 0.12);
   --glow-1: rgba(124, 77, 255, 0.36);
   --glow-2: rgba(18, 170, 80, 0.28);
@@ -51,6 +54,9 @@
     --text: #f1eefb;
     --muted: #a49fbd;
     --faint: #8d88a6;
+    --tool-bg: rgba(124, 77, 255, 0.22);
+    --tool-hover: rgba(124, 77, 255, 0.32);
+    --tool-text: #c9b8ff;
     --border: rgba(255, 255, 255, 0.1);
     --glow-1: rgba(124, 77, 255, 0.38);
     --glow-2: rgba(30, 215, 96, 0.2);
@@ -83,6 +89,9 @@
   --text: #f1eefb;
   --muted: #a49fbd;
   --faint: #8d88a6;
+  --tool-bg: rgba(124, 77, 255, 0.22);
+  --tool-hover: rgba(124, 77, 255, 0.32);
+  --tool-text: #c9b8ff;
   --border: rgba(255, 255, 255, 0.1);
   --glow-1: rgba(124, 77, 255, 0.38);
   --glow-2: rgba(30, 215, 96, 0.2);
@@ -547,18 +556,18 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   height: 48px;
   margin: 0;
   padding: 0;
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 50%;
-  background: var(--surface);
-  color: var(--text);
+  background: var(--tool-bg);
+  color: var(--tool-text);
   box-shadow: none;
 }
-.icon-btn:hover { background: var(--surface-2); }
+.icon-btn:hover { background: var(--tool-hover); }
 a.icon-btn { text-decoration: none; }
-.icon-btn svg { width: 24px; height: 24px; fill: currentColor; }
-.icon-btn.primary { border-color: transparent; background: var(--accent); color: var(--accent-text); }
+.icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
+.icon-btn.primary { background: var(--accent); color: var(--accent-text); }
 .icon-btn.primary:hover { background: var(--accent-hover); }
-.icon-btn[aria-pressed="true"] { border-color: var(--text); background: var(--surface-2); }
+.icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 #unknown[aria-pressed="true"] { background: var(--bad); color: var(--bad-text); }
 #pause .when-on, #pause[aria-pressed="true"] .when-off { display: none; }
 #pause[aria-pressed="true"] .when-on { display: contents; }
