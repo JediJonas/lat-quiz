@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Låtquiz – Om spelet</title>
-  <meta name="description" content="Hur Låtquiz fungerar tekniskt: statiska sidor, direktkontakt mellan webbläsare med WebRTC och musik från Deezer och Spotify.">
+  <meta name="description" content="Hur man spelar Låtquiz och hur det fungerar tekniskt: statiska sidor, direktkontakt mellan webbläsare med WebRTC och musik från Deezer och Spotify.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
   <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
@@ -17,13 +17,15 @@
     </header>
     <p class="lead">Låtquiz är byggt med Claude, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
 
-    <h2>Ingen egen server</h2>
-    <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och mobilerna ansluter direkt till den med WebRTC via PeerJS.</p>
+    <h2>Så spelar man</h2>
+    <p>Spelledaren väljer kategori och startar ett spel på sin enhet. Där visas en QR-kod som spelarna skannar med sina mobiler. För varje låt gissar spelarna artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng. Spelledaren väljer hur snabbt man måste svara för bonusen och hur många poäng som krävs för att vinna.</p>
 
     <h2>Musiken</h2>
-    <p>Spelledaren väljer musiktjänst under Inställningar. Med Deezer, som är förvalt, spelas ett förhandsklipp direkt i spelledarens webbläsare och nästa låt startar av sig själv. Det kräver inget konto. Saknar Deezer en låt hoppas den över.</p>
-    <p>Med Spotify öppnar spelet en länk till låten i Spotify, så spelledaren behöver ha Spotify igång på samma dator, helst med Premium så att rätt låt spelas. Spelledaren startar varje låt själv med Nästa låt eller spela och stoppar den efter ungefär tio sekunder.</p>
-    <p>Spelet loggar inte in på eller kopplar upp sig mot Deezer eller Spotify. Spelarna väljer svar ur en förslagslista där rätt svar blandas med låtar som inte är med.</p>
+    <p>Spelledaren väljer musiktjänst. Med Deezer spelas ett förhandsklipp direkt i spelledarens webbläsare och nästa låt startar av sig själv. Det kräver inget konto. Saknar Deezer en låt hoppas den över.</p>
+    <p>Med Spotify startar spelledaren varje låt själv med en knapp som öppnar den i Spotify, som behöver vara igång på samma dator.</p>
+
+    <h2>Teknik</h2>
+    <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och mobilerna ansluter direkt till den med WebRTC via PeerJS.</p>
 
     <h2>Kvalitet</h2>
     <p>Varje ändring kontrolleras automatiskt med tester, HTML-validering via W3C, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen via Lighthouse.</p>
