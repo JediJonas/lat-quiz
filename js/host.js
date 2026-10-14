@@ -91,6 +91,16 @@ function saveUnknown(list) {
   storage(() => localStorage.setItem(UNKNOWN_KEY, JSON.stringify(list)));
 }
 
+// Avdelningen Okända låtar i Inställningar syns bara för den som har slagit på den med
+// ?okanda=1 i adressen, på förstasidan eller här. Valet sparas på datorn, och ?okanda=0 slår av.
+const SHOW_UNKNOWN_KEY = 'latquiz-visa-okanda';
+const showUnknown = (() => {
+  const param = new URLSearchParams(location.search).get('okanda');
+  if (param === '1') storage(() => localStorage.setItem(SHOW_UNKNOWN_KEY, '1'));
+  if (param === '0') storage(() => localStorage.removeItem(SHOW_UNKNOWN_KEY));
+  return storage(() => localStorage.getItem(SHOW_UNKNOWN_KEY) === '1', false);
+})();
+
 function newCode() {
   let code = '';
   for (let i = 0; i < 4; i++) code += CODE_LETTERS[Math.floor(Math.random() * CODE_LETTERS.length)];
@@ -531,7 +541,7 @@ const SETTING_FIELDS = [
 // Okända låtar kopieras som text och skickas vidare, så att de tas bort ur kategorin.
 // Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
 function unknownGroup(checkbox, list) {
-  if (!checkbox && !list) return '';
+  if (!showUnknown || (!checkbox && !list)) return '';
   return `<div class="unknown-group"><h3>Okända låtar</h3>${checkbox}${list}</div>`;
 }
 
