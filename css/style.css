@@ -150,6 +150,7 @@ main {
 :root { --game-width: 640px; }
 @media (min-width: 761px) {
   main.narrow:has(#lobby:not([hidden])) { max-width: calc(var(--game-width) + 32px); }
+  main.narrow:has(#lobby:not([hidden])) .bottom-bar { --bar-width: min(100vw - 32px, var(--game-width)); }
 }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 /* h1 och h2 ser likadana ut: sidans rubrik, kategorin under spelet och rubrikerna i modalerna. */
@@ -299,10 +300,15 @@ button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
 /* Raden längst ner. Menyn står alltid längst till höger, och spelarens kod till vänster. */
 .theme-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 24px 0 0; }
-/* Menyn längst ner ser ut som spelledarens ikonbar: Om spelet, Inställningar och Utseende. */
+/* Menyn längst ner ser ut som spelledarens ikonbar: Om spelet, Inställningar och Utseende.
+   Avståndet mellan ikonerna är detsamma som i spelledarens bar, där fem ikoner sprids över
+   innehållets bredd: bredden minus ramar, luft och ikoner, delat på fyra mellanrum. Bredden är
+   skärmen minus sidornas luft, högst 428 px, eller spelets bredd när spelaren är med i ett spel. */
 .bottom-bar {
+  --bar-icon: 48px;
+  --bar-width: min(100vw - 32px, 428px);
   display: flex;
-  gap: 12px;
+  gap: max(12px, (var(--bar-width) - 18px - 5 * var(--bar-icon)) / 4);
   margin-left: auto;
   padding: 8px;
   border: 1px solid var(--border);
@@ -630,7 +636,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .icon-btn:active { background: var(--tool-hover); transform: scale(0.92); }
 a.icon-btn { text-decoration: none; }
 /* Sex knappar i spelledarens ikonbar får plats även på de smalaste mobilerna. */
-@media (max-width: 380px) { .host-bar .icon-btn { width: 40px; height: 40px; } .host-bar .toolbar { gap: 4px; } }
+@media (max-width: 380px) { .host-bar .icon-btn { width: 40px; height: 40px; } .host-bar .toolbar { gap: 4px; } .bottom-bar { --bar-icon: 40px; } }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; }
