@@ -295,14 +295,22 @@ button.theme-switch {
 button.theme-switch:hover { background: none; color: var(--text); }
 button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
-/* Länkarna längst ner fördelas jämnt över hela bredden. En ensam länk står till höger. */
-.theme-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin: 24px 0 0; }
+/* Knapparna längst ner fördelas jämnt över hela bredden. En ensam knapp står till höger. */
+.theme-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin: 24px 0 0; }
 .theme-row .row-end { display: contents; }
 .theme-row .link { margin: 0; }
 /* Utseende står alltid längst till höger, även när det är ensamt på raden. */
 .theme-row .user-settings { margin-left: auto; }
-/* Länkar som ser ut som knapparna Inställningar och Utseende. */
-.quiet-link { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+/* Om spelet, Inställningar och Utseende är ikonknappar som i spelledarens ikonbar.
+   Färgerna är ogenomskinliga, eftersom ikonbarens halvgenomskinliga grönt blir grått mot bakgrunden. */
+.theme-row { --row-bg: #e0efe6; --row-icon: #0f7036; --row-press: #cbe3d5; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-row { --row-bg: #173032; --row-icon: #4cd17a; --row-press: #184638; }
+}
+:root[data-theme="dark"] .theme-row { --row-bg: #173032; --row-icon: #4cd17a; --row-press: #184638; }
+.theme-row .row-icon { background: var(--row-bg); color: var(--row-icon); }
+@media (hover: hover) { .theme-row .row-icon:hover { background: var(--row-press); } }
+.theme-row .row-icon:active { background: var(--row-press); }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
 .about ul { padding-left: 1.2em; }
