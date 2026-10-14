@@ -209,16 +209,12 @@ export function hasAnsweredBoth(state, playerId) {
   return Boolean(answer && answer.artist && answer.title);
 }
 
-// Alla anslutna spelare har svarat i båda fälten.
-export function allAnswered(state) {
-  const connected = Object.values(state.players).filter((p) => p.connected);
-  return connected.length > 0 && connected.every((p) => hasAnsweredBoth(state, p.id));
-}
-
+// Svaret visas först när tiden är slut, även om alla har svarat, så att
+// spelarna kan ändra sina svar tills dess.
 export function shouldReveal(state, now) {
   const round = state.round;
   if (!round || round.phase !== 'playing' || state.pausedAt) return false;
-  return remainingMs(state, now) === 0 || allAnswered(state);
+  return remainingMs(state, now) === 0;
 }
 
 export function scoreAnswer(state, song, answer) {
