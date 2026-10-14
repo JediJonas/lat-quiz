@@ -6,7 +6,7 @@ En webbapp för låtquiz med familj och vänner. Spelledaren spelar klipp från 
 
 ## Så spelar man
 
-1. Spelledaren öppnar `host.html` på en dator, väljer kategori och trycker på **Dra igång!**.
+1. Spelledaren öppnar `host.html` på en dator, väljer kategori och trycker på **Dra igång!**. Spelledaren deltar och gissar som standard, men kan stänga av **Jag deltar i spelet** under Inställningar och bara leda spelet. Det går att ändra även under spelet. Namnfältet visas då bara om spelledaren inte har angett något namn tidigare, och utan namn heter spelledaren Spelledare.
 2. Spelarna skannar QR-koden, eller öppnar `play.html` och skriver in koden.
 3. Spelledaren trycker på spela. I de flesta kategorier spelas ett 30 sekunders klipp från Deezer direkt i spelledarvyn, och timern på 30 sekunder startar när det hörs. I övriga kategorier, eller om Deezer saknar låten, öppnas den i Spotify-appen och klicket startar timern. Spelledaren stoppar då låten själv.
 4. Spelarna väljer artist och titel ur listan. Rätt svar visas när tiden är slut, eller när alla har svarat.

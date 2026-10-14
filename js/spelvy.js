@@ -86,6 +86,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
   function render() {
     const round = view.round;
     const phase = round ? round.phase : 'waiting';
+    // Spelledaren kan välja att inte delta. Då visas låten och timern, men inga fält eller egna svar.
+    const playing = view.standings.some((p) => p.id === me);
+    const guessFields = $('.guess-fields');
+    if (guessFields) guessFields.hidden = !playing;
     // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
     $('#waiting').hidden = phase !== 'waiting';
     $('#waiting-text').textContent = waitingText();
@@ -102,7 +106,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       renderRing($('#timer'), round.roundMs, round.roundMs, false);
     } else if (phase === 'playing') {
       $('#round-title').textContent = `Låt ${round.number}`;
-      announce(`Låt ${round.number} har börjat. Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.`);
+      announce(`Låt ${round.number} har börjat.${playing ? ` Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.` : ''}`);
       renderTimer();
     } else if (phase === 'revealed') {
       const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
@@ -113,12 +117,12 @@ export function createGameView({ onAnswer, onError, host = false }) {
       $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}</h2></div>
         <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
-        <ul class="mine">
+        ${playing ? `<ul class="mine">
           <li class="${r.artist ? 'right' : 'wrong'}"><span>${esc(view.labels.artist)}</span>${esc(mine.artist || '–')}</li>
           <li class="${r.title ? 'right' : 'wrong'}"><span>${esc(view.labels.title)}</span>${esc(mine.title || '–')}</li>
           ${r.bonus ? '<li class="right bonus"><span>Bonus</span>Snabbt svar</li>' : ''}
         </ul>
-        <p class="points">+${r.points} poäng</p>
+        <p class="points">+${r.points} poäng</p>` : ''}
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
         ${next || view.deezer ? `<div class="result-foot">${next}<p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
@@ -130,7 +134,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
         setTimeout(() => { if (window.scrollY > 0) window.scrollTo({ top: 0 }); }, 800);
       }
       shownResult = round.number;
-      announce(`Rätt svar: ${round.song.title} med ${round.song.artist}. Du fick ${r.points} poäng.`
+      announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${r.points} poäng.` : ''}`
         + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
       renderTimer();
     }

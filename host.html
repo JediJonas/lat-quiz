@@ -18,8 +18,10 @@
       <h1 class="page-title">Starta nytt spel</h1>
     </header>
     <form id="setup-form">
-      <label for="host-name">Ditt namn</label>
-      <input id="host-name" maxlength="10" required autocomplete="nickname">
+      <div id="host-name-row">
+        <label for="host-name">Ditt namn</label>
+        <input id="host-name" maxlength="10" required autocomplete="nickname">
+      </div>
       <label for="category-select">Kategori</label>
       <select id="category-select">
         <option value="60-tal">60-tal</option>
@@ -77,10 +79,13 @@
       <div id="guess" class="card" hidden>
         <h2 id="round-title" class="round-label"></h2>
         <div id="timer" class="ring mid-ring"></div>
-        <label for="artist">Artist</label>
-        <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
-        <label for="title">Titel</label>
-        <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
+        <!-- Döljs när spelledaren inte deltar. -->
+        <div class="guess-fields">
+          <label for="artist">Artist</label>
+          <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
+          <label for="title">Titel</label>
+          <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
+        </div>
         <p class="clip-note" hidden>Ljudklipp från Deezer</p>
       </div>
 
