@@ -842,7 +842,12 @@ function playClicked() {
   if (!choice) return;
   const song = state.round && state.round.song;
   // QR-koden behövs inte längre när spelet har startat. Den kan visas igen med ikonen.
-  if (choice.action === 'start') { setQrVisible(false); nextSong(); }
+  if (choice.action === 'start') {
+    setQrVisible(false);
+    nextSong();
+    // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
@@ -899,7 +904,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'pause') pauseGame();
   else if (id === 'next') nextClicked();
   // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare.
-  else if (id === 'start-game') { playClicked(); $('#play').focus(); }
+  else if (id === 'start-game') { playClicked(); $('#play').focus({ preventScroll: true }); }
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus(); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
   else if (id === 'settings' || id === 'game-settings') editSettings();
