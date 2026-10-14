@@ -91,6 +91,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
     const playing = view.standings.some((p) => p.id === me);
     const guessFields = $('.guess-fields');
     if (guessFields) guessFields.hidden = !playing;
+    // Utan fält och egna svar räcker en lägre ruta, både under låten och när svaret visas.
+    document.body.classList.toggle('watching', !playing);
     // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
     $('#waiting').hidden = phase !== 'waiting';
     $('#waiting-text').textContent = waitingText();
