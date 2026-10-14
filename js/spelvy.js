@@ -151,7 +151,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     const paused = Boolean(view.paused);
     if (paused !== wasPaused) {
       setStandingMessage(paused ? { kind: 'pause', title: 'Spelet är pausat',
-        text: host ? 'Tryck på spela för att fortsätta.' : 'Väntar på att spelledaren fortsätter.' } : null);
+        text: host ? 'Tryck på spela för att fortsätta.' : 'Väntar på spelledaren…' } : null);
       if (wasPaused) announce('Spelet fortsätter.');
     }
     wasPaused = paused;
