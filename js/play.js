@@ -98,6 +98,7 @@ function join(name, code, fromForm) {
   storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify(me)));
   $('#join-error').hidden = true;
   $('#me').textContent = code;
+  renderJoinInfo();
   connectedOnce = false;
   dropped = false;
   hostLeft = false;
@@ -105,6 +106,48 @@ function join(name, code, fromForm) {
   if (fromForm) setPending(true);
   else showLobby();
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
+}
+
+// Spelaren kan visa en QR-kod för att få med fler spelare. Länken är samma som den man själv gick med via.
+function joinUrl() {
+  const url = new URL(location.href);
+  url.hash = '';
+  url.searchParams.set('kod', me.code);
+  return url.toString();
+}
+
+function renderJoinInfo() {
+  const url = joinUrl();
+  $('#join-url').textContent = url;
+  $('#join-url').href = url;
+  $('#join-url-row').hidden = true;
+  $('#copy-status').textContent = '';
+  const qr = qrcode(0, 'M');
+  qr.addData(url);
+  qr.make();
+  $('#qr').innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
+}
+
+function setQrVisible(visible) {
+  $('#join-info').hidden = !visible;
+  $('#show-qr').setAttribute('aria-expanded', String(visible));
+  $('#show-qr').title = visible ? 'Dölj QR-koden' : 'Visa QR-koden';
+}
+
+let copiedTimer = null;
+async function copyLink() {
+  const button = $('#copy-link');
+  const status = $('#copy-status');
+  try {
+    await navigator.clipboard.writeText(joinUrl());
+    button.textContent = 'länken (kopierad)';
+    status.textContent = 'Länken är kopierad';
+    clearTimeout(copiedTimer);
+    copiedTimer = setTimeout(() => { button.textContent = 'länken'; status.textContent = ''; }, 3000);
+  } catch {
+    $('#join-url-row').hidden = false;
+    status.textContent = '';
+  }
 }
 
 function setPending(on) {
@@ -130,6 +173,7 @@ function leave(message, clearCode) {
   net.destroy();
   net = null;
   view = null;
+  setQrVisible(false);
   hideMessage('net');
   storage(() => localStorage.removeItem(SAVE_KEY));
   const params = new URLSearchParams(location.search);
@@ -156,6 +200,9 @@ async function init() {
   if (saved) $('#name-input').value = saved.name;
 
   mountUserSettings();
+  $('#show-qr').addEventListener('click', () => setQrVisible($('#join-info').hidden));
+  $('#hide-qr').addEventListener('click', () => setQrVisible(false));
+  $('#copy-link').addEventListener('click', copyLink);
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#name-input').value.trim().slice(0, MAX_NAME);

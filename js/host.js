@@ -866,6 +866,15 @@ function nextAction() {
   return state.winners ? { action: 'restart', label: 'Ny match' } : { action: 'next', label: 'Nästa låt' };
 }
 
+// Visar en av två knappar på samma plats. Hade den dolda knappen fokus flyttas fokus till den andra.
+function showOne(first, second, showFirst, focused) {
+  const shown = showFirst ? first : second;
+  const hidden = showFirst ? second : first;
+  hidden.hidden = true;
+  shown.hidden = false;
+  if (focused === hidden) shown.focus({ preventScroll: true });
+}
+
 function setButton(button, choice, fallback) {
   button.disabled = !choice;
   button.dataset.action = choice ? choice.action : '';
@@ -905,11 +914,14 @@ function render() {
   gameView.update(viewFor(state.hostId), state.hostId);
   // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
+  const focused = document.activeElement;
   // Paus och nästa går att använda hela låten, även medan klippet laddas.
   $('#pause').disabled = !round || Boolean(state.pausedAt)
     || Boolean(state.winners && round.phase === 'revealed');
   const play = playAction();
   setButton($('#play'), play, 'Spela');
+  // Spela och pausa delar plats i ikonbaren. Pausa visas bara när spela inte går att använda.
+  showOne($('#play'), $('#pause'), Boolean(play) || $('#pause').disabled, focused);
   // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
   $('#start-game').hidden = !(play && play.action === 'start');
   const next = nextAction();

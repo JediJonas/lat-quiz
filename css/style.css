@@ -295,12 +295,25 @@ button.theme-switch {
 button.theme-switch:hover { background: none; color: var(--text); }
 button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
-/* Raden längst ner. Utseende står alltid längst till höger. */
-.theme-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin: 24px 0 0; }
-.theme-row .row-end { display: contents; }
-.theme-row .link { margin: 0; }
-/* Utseende står alltid längst till höger, även när det är ensamt på raden. */
-.theme-row .user-settings { margin-left: auto; }
+/* Raden längst ner. Menyn står alltid längst till höger, och spelarens kod till vänster. */
+.theme-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 24px 0 0; }
+/* Menyn längst ner ser ut som spelledarens ikonbar: Om spelet, Inställningar och Utseende. */
+.bottom-bar {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+/* Om spelet syns bara innan spelaren har gått med, eftersom sidbytet annars lämnar spelet. */
+main:has(#join[hidden]) .join-only { display: none; }
+/* QR-ikonen visas bara när spelaren har gått med. */
+main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
 .about ul { padding-left: 1.2em; }
@@ -484,10 +497,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
 .player-head .who h1 { margin: 0; color: var(--text); }
 .player-head .who h1:empty { display: none; }
-/* Spelarens kod och inställningar som vanlig grå text. Länkar är understrukna, så den syns inte som en länk. */
-.game-code { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 #me { letter-spacing: 0.08em; }
-main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .error-text { color: var(--bad); font-weight: 600; padding: 12px 14px; border-radius: 12px; background: var(--bad-soft); }
 
 /* Meddelanderutan längst ner, ovanpå sidan. Fel får röd ram, rubrik och ikon. */
@@ -558,6 +568,11 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 .who { flex-wrap: wrap; row-gap: 4px; }
 .who h1 { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
+/* Spelarens QR-ruta ligger ovanför menyn, inte som en sidokolumn som hos spelledaren. */
+.join-info-player { margin: 24px 0 0; padding-top: 44px; text-align: center; }
+.join-info-player .qr { max-width: 258px; margin: 0 auto; }
+.join-info-player p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
+.join-info-player button.link { margin: 0; font-size: inherit; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
@@ -574,15 +589,15 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
-/* Aktiva ikoner i baren är gröna på ljusgröna cirklar, så att de syns som tryckbara. */
-.host-bar { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #eeedf3; --btn-off-icon: #8d8aa0; }
+/* Aktiva ikoner i baren och menyn längst ner är gröna på ljusgröna cirklar, så att de syns som tryckbara. */
+.host-bar, .bottom-bar { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #eeedf3; --btn-off-icon: #8d8aa0; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .host-bar { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
+  :root:not([data-theme="light"]) .host-bar, :root:not([data-theme="light"]) .bottom-bar { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
 }
-:root[data-theme="dark"] .host-bar { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
-.host-bar .icon-btn { background: var(--btn-bg); color: var(--btn-icon); }
-@media (hover: hover) { .host-bar .icon-btn:hover { background: var(--btn-press); } }
-.host-bar .icon-btn:active { background: var(--btn-press); }
+:root[data-theme="dark"] .host-bar, :root[data-theme="dark"] .bottom-bar { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
+.host-bar .icon-btn, .bottom-bar .icon-btn { background: var(--btn-bg); color: var(--btn-icon); }
+@media (hover: hover) { .host-bar .icon-btn:hover, .bottom-bar .icon-btn:hover { background: var(--btn-press); } }
+.host-bar .icon-btn:active, .bottom-bar .icon-btn:active { background: var(--btn-press); }
 /* Avstängda knappar förblir bleka och grå, så att bara de aktiva har färg. */
 .host-bar .icon-btn:disabled { background: var(--btn-off-bg); color: var(--btn-off-icon); opacity: 0.6; }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
@@ -608,22 +623,10 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 /* Kort återkoppling medan knappen trycks ned, som försvinner när man släpper. */
 .icon-btn:active { background: var(--tool-hover); transform: scale(0.92); }
 a.icon-btn { text-decoration: none; }
+/* Sex knappar i spelledarens ikonbar får plats även på de smalaste mobilerna. */
+@media (max-width: 380px) { .host-bar .icon-btn { width: 40px; height: 40px; } .host-bar .toolbar { gap: 4px; } }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-/* Om spelet, Inställningar och Utseende ser ut som knapparna i spelledarens ikonbar.
-   Färgerna är ogenomskinliga, eftersom ikonbarens halvgenomskinliga grönt blir grått direkt mot bakgrunden. */
-.row-icon { --row-bg: #e0efe6; --row-icon: #0f7036; --row-press: #cbe3d5; background: var(--row-bg); color: var(--row-icon); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .row-icon { --row-bg: #173032; --row-icon: #4cd17a; --row-press: #184638; }
-}
-:root[data-theme="dark"] .row-icon { --row-bg: #173032; --row-icon: #4cd17a; --row-press: #184638; }
-@media (hover: hover) { .row-icon:hover { background: var(--row-press); } }
-.row-icon:active { background: var(--row-press); }
-/* Om spelet står längst upp till höger, bredvid loggan. */
-.home-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-/* Inställningar står till höger om kategorin. */
-.select-row { display: flex; align-items: center; gap: 12px; }
-.select-row select { flex: 1; min-width: 0; }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; }
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
 .result-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }
