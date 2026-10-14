@@ -282,11 +282,17 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   render();
 }
 
+// Bara låtar som finns hos den valda musiktjänsten kan spelas, och inte de som är markerade som okända.
+function playableSongs() {
+  const key = usesDeezer() ? 'deezerId' : 'spotifyId';
+  return withoutUnknown(loadUnknown(), category.id, songs).filter((song) => song[key]);
+}
+
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
   if (Date.now() - revealedAt < DOUBLE_TAP_MS) return;
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
-  const playable = withoutUnknown(loadUnknown(), category.id, songs);
+  const playable = playableSongs();
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
   const song = game.nextSong(state, playable);
   if (!song) return;
@@ -320,7 +326,9 @@ function openSpotify(song) {
 // En kort tystnad som spelas direkt i klicket. Då räknas ljudet som startat av
 // spelledaren, och klippet får spela fast det hämtas först efteråt (Safari).
 const SILENCE = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
-const clip = { audio: null, round: 0, status: null, error: '' };
+const clip = { audio: null, round: 0, status: null, error: '', skipped: 0 };
+// Så många låtar i rad hoppas över när Deezer saknar klipp, innan spelledaren får veta det.
+const MAX_SKIPS = 5;
 
 // Med Spotify som musiktjänst öppnas alla låtar i Spotify, som när Deezer saknar klipp.
 function usesDeezer() {
@@ -336,13 +344,14 @@ function stopClip() {
   if (clip.audio) clip.audio.pause();
 }
 
-// Måste anropas direkt från klicket.
-async function playDeezer(roundNumber) {
+// Måste anropas direkt från klicket. skipping: en låt utan klipp byts ut, utan nytt klick.
+async function playDeezer(roundNumber, skipping = false) {
   const audio = clipAudio();
   audio.pause();
   audio.src = SILENCE;
   audio.play().catch(() => {});
   Object.assign(clip, { round: roundNumber, status: 'loading', error: '' });
+  if (!skipping) clip.skipped = 0;
   render();
   let url = null;
   try {
@@ -352,7 +361,19 @@ async function playDeezer(roundNumber) {
   }
   // Spelledaren har gått vidare, eller visat svaret medan klippet laddades.
   if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') return;
+  if (clip.error) {
+    clip.status = 'error';
+    render();
+    return;
+  }
+  // Saknar Deezer klippet hoppas låten över och en annan slumpas, utan att spela den i Spotify.
   if (!url) {
+    clip.skipped += 1;
+    if (clip.skipped <= MAX_SKIPS && game.replaceSong(state, playableSongs())) {
+      save();
+      playDeezer(roundNumber, true);
+      return;
+    }
     clip.status = 'missing';
     render();
     return;
@@ -391,17 +412,20 @@ function startClip() {
 function playClipClicked() {
   const round = state.round;
   if (!round || round.phase !== 'ready') return;
+  if (clip.round === round.number && clip.status === 'missing') {
+    if (game.replaceSong(state, playableSongs())) save();
+    playDeezer(round.number);
+    return;
+  }
   if (clip.round === round.number && clip.audio && clip.audio.src.startsWith('http')) startClip();
   else playDeezer(round.number);
 }
 
-// Saknas klippet spelas låten i Spotify i stället, med spela-knappen.
+// Spela försöker igen, med en ny låt om Deezer saknade klippen.
 function clipMessage(round) {
   if (!round || round.phase === 'revealed' || !usesDeezer() || clip.round !== round.number) return null;
-  if (clip.status === 'missing' && clip.error) {
-    return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text: 'Spela låten i Spotify i stället.' };
-  }
-  if (clip.status === 'missing') return { kind: 'info', title: 'Deezer har inget klipp för låten', text: 'Spela den i Spotify i stället.' };
+  if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text: 'Tryck på spela för att försöka igen.' };
+  if (clip.status === 'missing') return { kind: 'problem', title: 'Deezer har inga klipp för låtarna just nu', text: 'Tryck på spela för att försöka igen.' };
   if (clip.status === 'blocked') return { kind: 'problem', title: 'Klippet startade inte', text: 'Tryck på spela igen.' };
   return null;
 }
@@ -810,14 +834,13 @@ function playAction() {
   const round = state.round;
   if (!round) return { action: 'start', label: 'Starta spelet' };
   if (state.pausedAt) return { action: 'resume', label: 'Fortsätt' };
-  const missing = clip.round === round.number && clip.status === 'missing';
   if (round.phase === 'ready') {
-    if (usesDeezer() && !missing) {
+    if (usesDeezer()) {
       return clip.round === round.number && clip.status === 'loading' ? null : { action: 'clip', label: 'Spela klippet' };
     }
     return { action: 'spotify', label: 'Spela låten i Spotify' };
   }
-  if (round.phase === 'playing' && (!usesDeezer() || missing)) return { action: 'reopen', label: 'Öppna låten i Spotify igen' };
+  if (round.phase === 'playing' && !usesDeezer()) return { action: 'reopen', label: 'Öppna låten i Spotify igen' };
   // Med Spotify startar spela också nästa låt när svaret har visats, som knappen Nästa låt.
   if (round.phase === 'revealed' && !state.winners && !usesDeezer()) return { action: 'next', label: 'Nästa låt' };
   return null;

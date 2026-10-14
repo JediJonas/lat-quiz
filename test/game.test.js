@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume, setHostPlaying, allAnswered,
+  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume, setHostPlaying, allAnswered, replaceSong,
 } from '../js/game.js';
 
 const songs = [
@@ -321,4 +321,16 @@ test('vinnarna räknas om när spelledaren slutar delta', () => {
   setHostPlaying(state, false);
   assert.equal(state.winners, null);
   assert.equal(playerView(state, 'p1', 3000).winners, null);
+});
+
+test('en låt som saknas hos musiktjänsten byts ut och räknas som spelad', () => {
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal' });
+  nextSong(state, songs, () => 0);
+  const first = state.round.song;
+  const second = replaceSong(state, songs, () => 0);
+  assert.notEqual(second.id, first.id);
+  assert.equal(state.round.song.id, second.id);
+  assert.ok(state.playedIds.includes(first.id), 'den överhoppade låten slumpas inte igen');
+  startRound(state, 1000);
+  assert.equal(replaceSong(state, songs), null, 'byts inte när låten har börjat');
 });
