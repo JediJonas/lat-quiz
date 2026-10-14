@@ -18,19 +18,19 @@
     <p class="lead">Välkommen till Låtquiz! Utmana familj och vänner och tävla om vem som känner igen flest låtar, direkt i webbläsaren.</p>
 
     <h2>Så spelar man</h2>
-    <p>Spelledaren väljer kategori och startar ett spel på sin enhet. Där visas en QR-kod som spelarna skannar med sina mobiler.</p>
+    <p>Spelledaren väljer kategori och startar ett spel på sin enhet. Spelarna ansluter med sina enheter genom att skanna QR-koden. Det går också bra att skriva in koden själv eller öppna en länk som spelledaren skickar.</p>
     <p>För varje låt gissar spelarna artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng.</p>
     <p>Spelledaren väljer hur snabbt man måste svara för bonusen och hur många poäng som krävs för att vinna.</p>
 
     <h2>Musiken</h2>
     <p>Spelledaren väljer om musiken ska spelas från Deezer eller Spotify.</p>
     <p>Med Deezer spelas ett förhandsklipp direkt i spelledarens webbläsare och nästa låt startar av sig själv. Det kräver inget konto.</p>
-    <p>Med Spotify startar spelledaren varje låt själv med en knapp som öppnar den i Spotify-appen, som behöver vara igång på samma enhet.</p>
+    <p>Med Spotify startar spelledaren varje låt själv med en knapp som öppnar den i Spotify-appen, som behöver finnas på samma enhet.</p>
 
     <h2>Teknik</h2>
     <p>Låtquiz är byggt med Claude, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
-    <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och mobilerna ansluter direkt till den med WebRTC via PeerJS.</p>
-    <p>Varje ändring kontrolleras automatiskt med tester: HTML-validering via W3C, tillgänglighet enligt WCAG 2.2 AA och prestanda i mobilen via Lighthouse.</p>
+    <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och spelarna ansluter direkt till den med WebRTC via PeerJS.</p>
+    <p>Varje ändring kontrolleras automatiskt med tester: HTML-validering via W3C, tillgänglighet enligt WCAG 2.2 AA via Axe och prestanda i mobilen via Lighthouse.</p>
 
     <p class="theme-row"><span class="row-end"><button class="link user-settings"></button></span></p>
   </main>
