@@ -681,7 +681,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   const mark = dialog.querySelector('#mark-unknown');
   // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');
-  if (mark) mountSwitch(mark, 'Markera som okänd', currentUnknown, () => {
+  if (mark) mountSwitch(mark, 'Denna låt är okänd', currentUnknown, () => {
     toggleCurrentUnknown();
     if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
   });
