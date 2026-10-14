@@ -431,6 +431,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .answer .title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; }
 .answer .artist { font-size: 1.1rem; color: var(--muted); margin-top: 4px; }
 .reveal { animation: reveal 0.35s ease-out; }
+/* När svarsrutan ritas om, till exempel vid paus, ska den inte animeras igen. */
+.settled .reveal, .settled .winner { animation: none; }
 @keyframes reveal {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }

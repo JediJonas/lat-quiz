@@ -104,6 +104,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
+    if (phase !== 'revealed') shownResult = null;
     if (phase === 'ready') {
       $('#round-title').textContent = `Låt ${round.number}`;
       renderRing($('#timer'), round.roundMs, round.roundMs, false);
@@ -118,6 +119,9 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // Den lilla ringen längst ner till vänster töms tills nästa låt startar av sig själv.
       const next = round.nextInMs == null ? '' : `<span id="next-pie" class="pie"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span>`;
+      // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
+      const fresh = shownResult !== round.number;
+      $('#result-body').classList.toggle('settled', !fresh);
       $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}</h2></div>
         <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
@@ -132,7 +136,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst. När tangentbordet stängs i iPhone kan Safari avbryta den
       // mjuka scrollningen, så sidan hoppar upp om den ändå inte har kommit hela vägen.
-      if (shownResult !== round.number) {
+      if (fresh) {
         if (document.activeElement && $('#guess').contains(document.activeElement)) document.activeElement.blur();
         window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
         setTimeout(() => { if (window.scrollY > 0) window.scrollTo({ top: 0 }); }, 800);
