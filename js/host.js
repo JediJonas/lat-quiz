@@ -543,7 +543,7 @@ function unknownSection(count) {
         <button type="button" id="copy-unknown" class="link">Kopiera okända låtar (${count})</button>
         <button type="button" id="clear-unknown" class="link">Rensa</button>
       </p>
-      <p id="unknown-status" class="muted small" role="status"></p>
+      <p id="unknown-status" class="note" role="status"></p>
       <textarea id="unknown-text" class="unknown-text" readonly rows="6" aria-label="Okända låtar" hidden></textarea>
     </div>`;
 }
@@ -661,7 +661,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
       </div>` : ''}
-      ${later ? '<p class="later-note">Ändringarna gäller från nästa låt.</p>' : ''}
+      ${later ? '<p class="note later-note">Ändringarna gäller från nästa låt.</p>' : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
