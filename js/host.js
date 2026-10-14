@@ -12,6 +12,7 @@ import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, togg
 const SAVE_KEY = 'latquiz-host';
 const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
+const MUSIC_KEY = 'latquiz-musik';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -53,6 +54,22 @@ function loadSettings() {
 
 function saveSettings(settings) {
   storage(() => localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)));
+}
+
+// Musiktjänsten väljs i Inställningar. Deezer spelar klippet i sidan, Spotify öppnar låten
+// i spelledarens Spotify-app. Senaste valet gäller nästa spel.
+const MUSIC_SERVICES = [{ id: 'deezer', name: 'Deezer' }, { id: 'spotify', name: 'Spotify' }];
+
+function cleanMusic(value) {
+  return value === 'spotify' ? 'spotify' : 'deezer';
+}
+
+function loadMusic() {
+  return cleanMusic(storage(() => localStorage.getItem(MUSIC_KEY), null));
+}
+
+function saveMusic(music) {
+  storage(() => localStorage.setItem(MUSIC_KEY, music));
 }
 
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
@@ -246,7 +263,10 @@ async function startGame(categoryId, resumeState, name, plays = true) {
       settings: loadSettings(),
     });
     state.hostPlays = plays;
+    state.music = loadMusic();
   }
+  // Ett äldre sparat spel spelar med Deezer.
+  state.music = cleanMusic(state.music);
   // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
   if (!state.hostId) state.hostId = newId();
   game.setHostPlaying(state, state.hostPlays !== false,
@@ -302,8 +322,9 @@ function openSpotify(song) {
 const SILENCE = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
 const clip = { audio: null, round: 0, status: null, error: '' };
 
+// Med Spotify som musiktjänst öppnas alla låtar i Spotify, som när Deezer saknar klipp.
 function usesDeezer() {
-  return category && category.audio === 'deezer';
+  return Boolean(category && category.audio === 'deezer' && (!state || state.music !== 'spotify'));
 }
 
 function clipAudio() {
@@ -591,7 +612,8 @@ function wireHostPlays(dialog) {
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår och kan avslutas härifrån. Returnerar då { end: true } om spelledaren avslutar.
 // later: en låt pågår, så ändringarna gäller först från nästa låt.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, later = false } = {}) {
+// music: vald musiktjänst.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, later = false, music = 'deezer' } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -602,6 +624,10 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select>` : ''}
+      <label for="setting-music">Musiktjänst</label>
+      <select id="setting-music" name="music">
+        ${MUSIC_SERVICES.map((m) => `<option value="${m.id}"${m.id === music ? ' selected' : ''}>${m.name}</option>`).join('')}
+      </select>
       ${SETTING_FIELDS.map(({ key, label, text }) => `
         <label for="setting-${key}">${label}</label>
         <select id="setting-${key}" name="${key}">
@@ -642,6 +668,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         ? {
           ...game.cleanSettings(values),
           ...(categories ? { categoryId: values.categoryId } : {}),
+          music: cleanMusic(values.music),
           host: host(),
         } : null);
       dialog.remove();
@@ -657,26 +684,32 @@ async function editSettings() {
   const categories = state ? all : null;
   const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
-  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), later });
+  const music = pending ? pending.music : state ? state.music : loadMusic();
+  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), later, music });
   if (!chosen) return;
   if (chosen.end) { endGame(); return; }
-  const { categoryId, host, ...settings } = chosen;
+  const { categoryId, host, music: chosenMusic, ...settings } = chosen;
   saveSettings(settings);
+  saveMusic(chosenMusic);
   if (!state) {
     setHostPlays(host.plays);
     return;
   }
   if (host.plays && host.name !== DEFAULT_HOST_NAME) storage(() => localStorage.setItem(NAME_KEY, host.name));
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
-  pending = { settings, category: picked, host };
+  pending = { settings, category: picked, host, music: chosenMusic };
   // Svaret kan ha visats medan dialogen var öppen, så changed() avgör om ändringen gäller nu.
   changed();
 }
 
 async function applyPending() {
-  const { settings, category: picked, host } = pending;
+  const { settings, category: picked, host, music } = pending;
   pending = null;
   game.applySettings(state, settings);
+  if (music !== state.music) {
+    stopClip();
+    state.music = music;
+  }
   // En spelare kan ha tagit namnet medan låten pågick. Då heter spelledaren Spelledare.
   if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? DEFAULT_HOST_NAME : host.name);
   if (picked) {
@@ -842,6 +875,8 @@ function render() {
   setButton($('#next'), next, 'Nästa låt');
   setHtml($('#next'), ICONS.next);
   $('#new-match').hidden = !(next && next.action === 'restart');
+  // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
+  $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
   updateClipMessage(round);
 }
 
@@ -866,6 +901,7 @@ document.addEventListener('click', (e) => {
   // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare.
   else if (id === 'start-game') { playClicked(); $('#play').focus(); }
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus(); }
+  else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
   else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
