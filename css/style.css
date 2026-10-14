@@ -385,8 +385,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 /* Under en paus bleknar ringen. */
 .ring.paused .ring-bar { opacity: 0.4; }
 /* Medan låten laddas är ringen grå. Färgerna kommer när låten börjar spela. */
-.ring.loading .ring-bar { stroke: color-mix(in srgb, var(--muted) 45%, var(--surface-solid)); }
-.ring.loading .ring-num { color: var(--muted); }
+.ring.loading .ring-bar { stroke: color-mix(in srgb, var(--muted) 25%, var(--surface-solid)); }
+.ring.loading .ring-num { color: color-mix(in srgb, var(--muted) 66%, var(--surface-solid)); }
 .ring-bar { stroke: var(--ring-color); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear, stroke 0.25s linear; }
 .ring-num {
   position: absolute;
