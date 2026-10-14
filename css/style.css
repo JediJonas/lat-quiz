@@ -221,7 +221,7 @@ input:disabled { opacity: 0.55; }
 /* Svarsfälten väntar bara på att låten startar och ska inte blinka till. */
 #guess input:disabled { opacity: 1; }
 /* Gissningen och svaret är lika höga, så att sidan inte hoppar när svaret visas. */
-#guess, #result { min-height: 26.5rem; }
+#guess, #result { min-height: 26.625rem; }
 /* Spelledaren som inte deltar ser bara låten och timern, så rutan blir lägre men lika hög i båda lägena. */
 .watching #guess, .watching #result { min-height: 16rem; }
 #guess label { margin: 12px 0 4px; }
