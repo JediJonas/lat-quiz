@@ -135,6 +135,18 @@ export function nextSong(state, songs, random = Math.random) {
   return song;
 }
 
+// Byter låten innan den har börjat, när musiktjänsten saknar den. Den överhoppade låten
+// räknas som spelad, så att den inte slumpas igen. Returnerar null om ingen låt finns kvar.
+export function replaceSong(state, songs, random = Math.random) {
+  const round = state.round;
+  if (!round || round.phase !== 'ready') return null;
+  if (!state.playedIds.includes(round.song.id)) state.playedIds.push(round.song.id);
+  const left = unplayedSongs(state, songs);
+  if (left.length === 0) return null;
+  round.song = left[Math.floor(random() * left.length)];
+  return round.song;
+}
+
 // Spelledaren har klickat på låtlänken. Timern startar.
 export function startRound(state, now) {
   const round = state.round;
