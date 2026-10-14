@@ -307,10 +307,14 @@ function nextSong() {
   openSpotify(song);
 }
 
+// I mobilen frågar webbläsaren varje gång en spotify:-länk ska öppna appen. Den vanliga
+// länken till open.spotify.com öppnar i stället appen direkt, om den finns.
+const MOBILE = window.matchMedia('(pointer: coarse)').matches;
+
 // Måste anropas direkt från klicket, annars kan webbläsaren stoppa öppnandet.
 function openSpotify(song) {
   const app = spotifyAppUrl(song);
-  if (!app) {
+  if (!app || MOBILE) {
     window.open(spotifyUrl(song), '_blank', 'noopener');
     return;
   }
