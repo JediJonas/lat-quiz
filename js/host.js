@@ -173,10 +173,10 @@ function onDisconnect(connId) {
   changed();
 }
 
-// Spelare som redan är med påverkas inte när kontakten med förmedlingsservern bryts,
-// men nya kan inte gå med förrän den är tillbaka.
+// Kontakten med förmedlingsservern bryts oftast när spelledaren har lämnat webbläsaren, till
+// exempel för Spotify i mobilen. Meddelandet är därför allmänt, som hos spelarna.
 const NET_MESSAGES = {
-  relay: { kind: 'busy', title: 'Nya spelare kan inte gå med just nu', text: 'Försöker ansluta igen…' },
+  relay: { kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' },
   'unavailable-id': { kind: 'busy', title: 'Väntar på att spelkoden blir ledig…' },
   network: { kind: 'busy', title: 'Ingen anslutning', text: 'Försöker ansluta igen…' },
 };
