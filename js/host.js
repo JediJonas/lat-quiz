@@ -539,9 +539,8 @@ function unknownSection(count) {
   if (!count) return '';
   return `
     <div class="unknown-songs">
-      <p id="unknown-count">${count === 1 ? '1 låt är markerad' : `${count} låtar är markerade`} som okänd.</p>
       <p class="unknown-actions">
-        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar</button>
+        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar (${count})</button>
         <button type="button" id="clear-unknown" class="link">Rensa</button>
       </p>
       <p id="unknown-status" class="muted small" role="status"></p>
@@ -680,7 +679,12 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   wireUnknown(dialog, names);
   const host = wireHostPlays(dialog);
   const mark = dialog.querySelector('#mark-unknown');
-  if (mark) mountSwitch(mark, 'Hoppa över den i kommande spel', currentUnknown, toggleCurrentUnknown);
+  // Antalet i länken följer strömbrytaren.
+  const copyUnknown = dialog.querySelector('#copy-unknown');
+  if (mark) mountSwitch(mark, 'Markera som okänd', currentUnknown, () => {
+    toggleCurrentUnknown();
+    if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
+  });
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {
