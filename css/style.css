@@ -611,8 +611,7 @@ a.icon-btn { text-decoration: none; }
 #guess, #result { display: flex; flex-direction: column; }
 /* Fälten ligger i en egen ruta hos spelledaren, så att de kan döljas när spelledaren inte deltar. */
 .guess-fields { display: contents; }
-/* Strömbrytaren Jag deltar i spelet, överst i formuläret och i Inställningar. */
-.host-plays { margin: 16px 0 0; }
+/* Strömbrytaren Jag deltar i spelet i Inställningar. */
 .host-plays-group { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .host-plays-group .host-plays { margin: 0; }
 /* Svarets delar ligger direkt i kortet, så att spelledarens knapp Ny match hamnar ovanför
