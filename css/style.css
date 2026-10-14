@@ -660,7 +660,7 @@ a.icon-btn { text-decoration: none; }
 .modal h2 { margin: 0 0 20px; }
 .modal p { margin: 0; color: var(--muted); }
 .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
-.modal .later-note { margin-top: 20px; }
+.modal .later-note { margin-top: 20px; font-size: 0.9rem; color: var(--muted); }
 .later-note + .modal-actions { margin-top: 12px; }
 .modal-actions button { width: auto; margin: 0; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
