@@ -53,6 +53,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     if (pie && view.round.phase === 'revealed') renderPie(pie, nextMs, view.round.nextTotalMs);
     if (view.round.phase !== 'playing') return;
     $('#timer').classList.toggle('paused', Boolean(view.paused));
+    $('#timer').classList.remove('loading');
     const ms = view.paused ? view.round.remainingMs : Math.max(0, deadline - Date.now());
     renderRing($('#timer'), ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
   }
@@ -104,6 +105,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     if (phase === 'ready') {
       $('#round-title').textContent = `Låt ${round.number}`;
       renderRing($('#timer'), round.roundMs, round.roundMs, false);
+      $('#timer').classList.add('loading');
     } else if (phase === 'playing') {
       $('#round-title').textContent = `Låt ${round.number}`;
       announce(`Låt ${round.number} har börjat.${playing ? ` Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.` : ''}`);
