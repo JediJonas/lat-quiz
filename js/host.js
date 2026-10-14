@@ -532,7 +532,7 @@ const SETTING_FIELDS = [
 // Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
 function unknownGroup(checkbox, list) {
   if (!checkbox && !list) return '';
-  return `<div class="unknown-group"><h3>${checkbox ? 'Okänd låt' : 'Okända låtar'}</h3>${checkbox}${list}</div>`;
+  return `<div class="unknown-group"><h3>Okända låtar</h3>${checkbox}${list}</div>`;
 }
 
 function unknownSection(count) {
