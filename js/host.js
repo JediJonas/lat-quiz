@@ -532,19 +532,18 @@ const SETTING_FIELDS = [
 // Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
 function unknownGroup(checkbox, list) {
   if (!checkbox && !list) return '';
-  return `<div class="unknown-group"><h3>${checkbox ? 'Okänd låt' : 'Okända låtar'}</h3>${checkbox}${list}</div>`;
+  return `<div class="unknown-group"><h3>Okända låtar</h3>${checkbox}${list}</div>`;
 }
 
 function unknownSection(count) {
   if (!count) return '';
   return `
     <div class="unknown-songs">
-      <p id="unknown-count">${count === 1 ? '1 låt är markerad' : `${count} låtar är markerade`} som okänd.</p>
       <p class="unknown-actions">
-        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar</button>
+        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar (${count})</button>
         <button type="button" id="clear-unknown" class="link">Rensa</button>
       </p>
-      <p id="unknown-status" class="muted small" role="status"></p>
+      <p id="unknown-status" class="note" role="status"></p>
       <textarea id="unknown-text" class="unknown-text" readonly rows="6" aria-label="Okända låtar" hidden></textarea>
     </div>`;
 }
@@ -662,7 +661,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
       </div>` : ''}
-      ${later ? '<p class="later-note">Ändringarna gäller från nästa låt.</p>' : ''}
+      ${later ? '<p class="note later-note">Ändringarna gäller från nästa låt.</p>' : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
@@ -680,7 +679,12 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   wireUnknown(dialog, names);
   const host = wireHostPlays(dialog);
   const mark = dialog.querySelector('#mark-unknown');
-  if (mark) mountSwitch(mark, 'Hoppa över den i kommande spel', currentUnknown, toggleCurrentUnknown);
+  // Antalet i länken följer strömbrytaren.
+  const copyUnknown = dialog.querySelector('#copy-unknown');
+  if (mark) mountSwitch(mark, 'Denna låt är okänd', currentUnknown, () => {
+    toggleCurrentUnknown();
+    if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
+  });
   document.body.append(dialog);
   dialog.showModal();
   return new Promise((resolve) => {

@@ -128,7 +128,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
         </ul>
         <p class="points">+${r.points} poäng</p>` : ''}
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
-        ${next || view.deezer ? `<div class="result-foot">${next}<p class="clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
+        ${next || view.deezer ? `<div class="result-foot">${next}<p class="note clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst. När tangentbordet stängs i iPhone kan Safari avbryta den
       // mjuka scrollningen, så sidan hoppar upp om den ändå inte har kommit hela vägen.

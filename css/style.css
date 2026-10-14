@@ -179,8 +179,8 @@ h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-tra
 h3, .section-title { margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
 @media (hover: hover) { a:not(.button):hover { color: var(--text); } }
-.muted { color: var(--muted); }
-.small { font-size: 0.9rem; }
+/* Liten grå text för upplysningar, till exempel Ljudklipp från Deezer. */
+.note { font-size: 0.9rem; color: var(--muted); }
 .hidden, [hidden] { display: none !important; }
 
 /* Formulär */
@@ -610,7 +610,7 @@ main:not(:has(#lobby:not([hidden]))) .lobby-only { display: none; }
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-.clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; font-size: 0.9rem; color: var(--muted); }
+.clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; }
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
 .result-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }
 .result-foot .clip-note { margin: 0 0 0 auto; padding: 0; }
