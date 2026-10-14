@@ -39,6 +39,8 @@
   --shadow-sm: 0 1px 2px rgba(40, 20, 90, 0.06);
   --shadow: 0 1px 2px rgba(40, 20, 90, 0.05), 0 12px 32px rgba(70, 40, 160, 0.1);
   --radius: 14px;
+  /* Knappar har pillerform: ändarna blir halvcirklar oavsett knappens höjd. */
+  --radius-button: 999px;
   --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235a5470' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   color-scheme: light dark;
 }
@@ -148,6 +150,7 @@ main {
 :root { --game-width: 640px; }
 @media (min-width: 761px) {
   main.narrow:has(#lobby:not([hidden])) { max-width: calc(var(--game-width) + 32px); }
+  main.narrow:has(#lobby:not([hidden])) .bottom-bar { --bar-width: min(100vw - 32px, var(--game-width)); }
 }
 h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; }
 /* h1 och h2 ser likadana ut: sidans rubrik, kategorin under spelet och rubrikerna i modalerna. */
@@ -241,7 +244,7 @@ button, .button {
   text-align: center;
   text-decoration: none;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-button);
   background: var(--accent);
   color: var(--accent-text);
   box-shadow: var(--shadow-sm);
@@ -258,7 +261,7 @@ button.big, .button.big { box-shadow: 0 8px 24px color-mix(in srgb, var(--accent
 button.secondary.big { box-shadow: var(--shadow-sm); }
 /* Mer luft mellan formulärets fält och huvudknappen. */
 #create, #join-form .big { margin-top: 28px; }
-.huge { padding: 22px; font-size: 1.3rem; border-radius: 16px; letter-spacing: -0.01em; }
+.huge { padding: 22px; font-size: 1.3rem; letter-spacing: -0.01em; }
 .secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
 .secondary:hover { background: var(--surface-2); }
 button.link {
@@ -297,10 +300,15 @@ button.theme-switch:active { transform: none; }
 button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-soft); }
 /* Raden längst ner. Menyn står alltid längst till höger, och spelarens kod till vänster. */
 .theme-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 24px 0 0; }
-/* Menyn längst ner ser ut som spelledarens ikonbar: Om spelet, Inställningar och Utseende. */
+/* Menyn längst ner ser ut som spelledarens ikonbar: Om spelet, Inställningar och Utseende.
+   Avståndet mellan ikonerna är detsamma som i spelledarens bar, där fem ikoner sprids över
+   innehållets bredd: bredden minus ramar, luft och ikoner, delat på fyra mellanrum. Bredden är
+   skärmen minus sidornas luft, högst 428 px, eller spelets bredd när spelaren är med i ett spel. */
 .bottom-bar {
+  --bar-icon: 48px;
+  --bar-width: min(100vw - 32px, 428px);
   display: flex;
-  gap: 12px;
+  gap: max(12px, (var(--bar-width) - 18px - 5 * var(--bar-icon)) / 4);
   margin-left: auto;
   padding: 8px;
   border: 1px solid var(--border);
@@ -589,15 +597,19 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
-/* Aktiva ikoner i baren och menyn längst ner är gröna på ljusgröna cirklar, så att de syns som tryckbara. */
-.host-bar, .bottom-bar { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #eeedf3; --btn-off-icon: #8d8aa0; }
+/* Aktiva ikoner i baren och menyn längst ner är gröna på ljusgröna cirklar, så att de syns som tryckbara. Ljusgröna knappar har samma toner. */
+.host-bar, .bottom-bar, .soft { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #eeedf3; --btn-off-icon: #8d8aa0; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .host-bar, :root:not([data-theme="light"]) .bottom-bar { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
+  :root:not([data-theme="light"]) .host-bar, :root:not([data-theme="light"]) .bottom-bar, :root:not([data-theme="light"]) .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
 }
-:root[data-theme="dark"] .host-bar, :root[data-theme="dark"] .bottom-bar { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
+:root[data-theme="dark"] .host-bar, :root[data-theme="dark"] .bottom-bar, :root[data-theme="dark"] .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
 .host-bar .icon-btn, .bottom-bar .icon-btn { background: var(--btn-bg); color: var(--btn-icon); }
 @media (hover: hover) { .host-bar .icon-btn:hover, .bottom-bar .icon-btn:hover { background: var(--btn-press); } }
 .host-bar .icon-btn:active, .bottom-bar .icon-btn:active { background: var(--btn-press); }
+/* Ljusgrön knapp, till exempel Starta nytt spel på startsidan. Tonen läggs på en fast yta, som ikonerna på sin bar, så att bakgrunden inte gör den grå. */
+.soft, button.soft.big, .button.soft.big { background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid); color: var(--btn-icon); box-shadow: var(--shadow-sm); }
+@media (hover: hover) { .soft:hover { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); } }
+.soft:active { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); }
 /* Avstängda knappar förblir bleka och grå, så att bara de aktiva har färg. */
 .host-bar .icon-btn:disabled { background: var(--btn-off-bg); color: var(--btn-off-icon); opacity: 0.6; }
 /* En rad med runda ikonknappar. Huvudknappen längst till höger byts beroende på läget. */
@@ -624,7 +636,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .icon-btn:active { background: var(--tool-hover); transform: scale(0.92); }
 a.icon-btn { text-decoration: none; }
 /* Sex knappar i spelledarens ikonbar får plats även på de smalaste mobilerna. */
-@media (max-width: 380px) { .host-bar .icon-btn { width: 40px; height: 40px; } .host-bar .toolbar { gap: 4px; } }
+@media (max-width: 380px) { .host-bar .icon-btn { width: 40px; height: 40px; } .host-bar .toolbar { gap: 4px; } .bottom-bar { --bar-icon: 40px; } }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; }
