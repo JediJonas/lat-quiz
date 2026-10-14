@@ -301,33 +301,36 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .theme-row .link { margin: 0; }
 /* Utseende står alltid längst till höger, även när det är ensamt på raden. */
 .theme-row .user-settings { margin-left: auto; }
-/* Om spelet, Inställningar och Utseende har en ikon i en grön cirkel, som i spelledarens ikonbar.
-   Färgerna är ogenomskinliga, eftersom ikonbarens halvgenomskinliga grönt blir grått mot bakgrunden. */
-.theme-row { --row-bg: #e0efe6; --row-icon: #0f7036; --row-press: #cbe3d5; }
+/* Om spelet, Inställningar och Utseende har en grön ikon i en liten vit cirkel, med samma gröna som spelledarens ikonbar. */
+.theme-row { --row-icon: #0f7036; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-row { --row-bg: #173032; --row-icon: #4cd17a; --row-press: #184638; }
+  :root:not([data-theme="light"]) .theme-row { --row-icon: #4cd17a; }
 }
-:root[data-theme="dark"] .theme-row { --row-bg: #173032; --row-icon: #4cd17a; --row-press: #184638; }
+:root[data-theme="dark"] .theme-row { --row-icon: #4cd17a; }
 .theme-row .row-icon {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: auto;
+  min-height: 44px;
   margin: 0;
   padding: 0;
   background: none;
   border: none;
   box-shadow: none;
   color: var(--text);
+  font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
 }
-.row-circle { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--row-bg); color: var(--row-icon); transition: background 0.15s; }
-.row-circle svg { width: 26px; height: 26px; fill: currentColor; }
+/* Utseende står till höger, så ikonen står till höger om texten. */
+.theme-row .user-settings { flex-direction: row-reverse; }
+.row-circle { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 50%; background: var(--surface-solid); box-shadow: var(--shadow-sm); color: var(--row-icon); transition: background 0.15s; }
+.row-circle svg { width: 20px; height: 20px; fill: currentColor; }
 .theme-row .row-icon:hover { background: none; }
-@media (hover: hover) { .theme-row .row-icon:hover .row-circle { background: var(--row-press); } }
+@media (hover: hover) { .theme-row .row-icon:hover .row-circle { background: var(--surface-2); } }
 .theme-row .row-icon:active { transform: none; }
-.theme-row .row-icon:active .row-circle { background: var(--row-press); transform: scale(0.92); }
+.theme-row .row-icon:active .row-circle { background: var(--surface-2); transform: scale(0.92); }
 .about h2 { margin-top: 1.6em; font-size: 1.05rem; }
 .about p, .about li { color: var(--text); }
 .about ul { padding-left: 1.2em; }
