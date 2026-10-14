@@ -25,6 +25,11 @@ async function check(page, view) {
   for (const theme of ['light', 'dark']) {
     await page.evaluate((t) => { document.documentElement.dataset.theme = t; }, theme);
     await page.waitForTimeout(300);
+    // Temabytet tonar knapparnas färg. På en långsam dator kan övergången pågå än, och axe
+    // mäter då kontrasten mitt i den. Övergångar som tar slut väntas därför in.
+    await page.evaluate(() => Promise.all(document.getAnimations()
+      .filter((a) => a.effect && a.effect.getTiming().iterations !== Infinity)
+      .map((a) => a.finished.catch(() => {}))));
     const { violations } = await new AxeBuilder({ page }).withTags(TAGS).analyze();
     for (const v of violations) {
       problems.push(`${view} (${theme === 'light' ? 'ljust' : 'mörkt'}): ${v.id}: ${v.help}\n    ${v.nodes.slice(0, 3).map(describe).join(' | ')}`);
