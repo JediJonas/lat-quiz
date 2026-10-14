@@ -832,8 +832,8 @@ function checkAutoNext() {
   nextSong();
 }
 
-// Vad spela gör just nu: startar spelet eller klippet, fortsätter efter en paus eller
-// öppnar låten i Spotify. null betyder att knappen är avstängd.
+// Vad spela gör just nu: startar spelet eller klippet eller fortsätter efter en paus. Med Spotify
+// startar spelet i Spotify, och nästa låt startas med Nästa låt. null betyder att knappen är avstängd.
 function playAction() {
   const round = state.round;
   if (!round) return { action: 'start', label: 'Starta spelet' };
@@ -844,9 +844,6 @@ function playAction() {
     }
     return { action: 'spotify', label: 'Spela låten i Spotify' };
   }
-  if (round.phase === 'playing' && !usesDeezer()) return { action: 'reopen', label: 'Öppna låten i Spotify igen' };
-  // Med Spotify startar spela också nästa låt när svaret har visats, som knappen Nästa låt.
-  if (round.phase === 'revealed' && !state.winners && !usesDeezer()) return { action: 'next', label: 'Nästa låt' };
   return null;
 }
 
@@ -880,8 +877,6 @@ function playClicked() {
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
-  else if (choice.action === 'reopen') openSpotify(song);
-  else if (choice.action === 'next') nextSong();
 }
 
 function nextClicked() {
