@@ -132,8 +132,13 @@ function setQrVisible(visible) {
   $('#join-info').hidden = !visible;
   $('#show-qr').setAttribute('aria-expanded', String(visible));
   $('#show-qr').title = visible ? 'Dölj QR-koden' : 'Visa QR-koden';
-  // QR-koden ligger under poängtabellen, så sidan rullar längst ner för att den ska synas.
-  if (visible) window.scrollTo({ top: document.documentElement.scrollHeight, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+}
+
+// QR-koden ligger under poängtabellen. När spelaren öppnar eller stänger den rullar sidan längst ner,
+// så att koden respektive menyn syns.
+function toggleQr(visible) {
+  setQrVisible(visible);
+  window.scrollTo({ top: document.documentElement.scrollHeight, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 
 let copiedTimer = null;
@@ -202,8 +207,8 @@ async function init() {
   if (saved) $('#name-input').value = saved.name;
 
   mountUserSettings();
-  $('#show-qr').addEventListener('click', () => setQrVisible($('#join-info').hidden));
-  $('#hide-qr').addEventListener('click', () => setQrVisible(false));
+  $('#show-qr').addEventListener('click', () => toggleQr($('#join-info').hidden));
+  $('#hide-qr').addEventListener('click', () => toggleQr(false));
   $('#copy-link').addEventListener('click', copyLink);
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();
