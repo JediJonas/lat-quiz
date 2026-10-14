@@ -624,15 +624,15 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select>` : ''}
-      <label for="setting-music">Musiktjänst</label>
-      <select id="setting-music" name="music">
-        ${MUSIC_SERVICES.map((m) => `<option value="${m.id}"${m.id === music ? ' selected' : ''}>${m.name}</option>`).join('')}
-      </select>
       ${SETTING_FIELDS.map(({ key, label, text }) => `
         <label for="setting-${key}">${label}</label>
         <select id="setting-${key}" name="${key}">
           ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
         </select>`).join('')}
+      <label for="setting-music">Musiktjänst</label>
+      <select id="setting-music" name="music">
+        ${MUSIC_SERVICES.map((m) => `<option value="${m.id}"${m.id === music ? ' selected' : ''}>${m.name}</option>`).join('')}
+      </select>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       ${running ? `<div class="end-game">
@@ -818,6 +818,8 @@ function playAction() {
     return { action: 'spotify', label: 'Spela låten i Spotify' };
   }
   if (round.phase === 'playing' && (!usesDeezer() || missing)) return { action: 'reopen', label: 'Öppna låten i Spotify igen' };
+  // Med Spotify startar spela också nästa låt när svaret har visats, som knappen Nästa låt.
+  if (round.phase === 'revealed' && !state.winners && !usesDeezer()) return { action: 'next', label: 'Nästa låt' };
   return null;
 }
 
@@ -847,6 +849,7 @@ function playClicked() {
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
   else if (choice.action === 'reopen') openSpotify(song);
+  else if (choice.action === 'next') nextSong();
 }
 
 function nextClicked() {
