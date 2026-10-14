@@ -569,7 +569,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .who h1 { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
 /* Spelarens QR-ruta ligger ovanför menyn, inte som en sidokolumn som hos spelledaren. */
-.join-info-player { margin: 24px auto 0; max-width: 300px; padding-top: 44px; text-align: center; }
+.join-info-player { margin: 24px 0 0; padding-top: 44px; text-align: center; }
+.join-info-player .qr { max-width: 258px; margin: 0 auto; }
 .join-info-player p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
 .join-info-player button.link { margin: 0; font-size: inherit; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
