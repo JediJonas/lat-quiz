@@ -24,6 +24,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
 - `js/deezer.js`: förhandsklipp från Deezer i kategorier med `"audio": "deezer"`. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp hoppas låten över. Med Spotify som musiktjänst spelas bara låtar med Spotify-ID, och med Deezer bara låtar med Deezer-ID.
 - `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.
+- `verktyg/versioner.mjs`, `.github/workflows/publicera.yml`: sidan publiceras på GitHub Pages av ett arbetsflöde, som först ger CSS och JS ett versionsnummer. Då hämtar webbläsaren nya filer efter varje ändring i stället för gamla från cachen. Skriptet körs bara av arbetsflödet och i CI, aldrig för hand.
 - `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Inter (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
 
 ## Köra lokalt

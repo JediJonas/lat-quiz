@@ -23,6 +23,10 @@ jobs:
       - name: Tester och JSON
         run: npm test
 
+      # Samma versionsnummer som vid publiceringen, så att kontrollerna gäller det som publiceras.
+      - name: Versionsnummer på CSS och JS
+        run: node verktyg/versioner.mjs
+
       - name: Installera kontrollverktygen
         working-directory: webbkvalitet
         run: npm ci
