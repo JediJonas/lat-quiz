@@ -614,6 +614,9 @@ a.icon-btn { text-decoration: none; }
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
 .result-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }
 .result-foot .clip-note { margin: 0 0 0 auto; padding: 0; }
+/* Ringen är högre än textraden. Den får sticka ut lika mycket uppåt och nedåt, så att raden
+   blir lika hög som texten och Deezer-texten står på samma höjd som medan låten spelas. */
+.result-foot .pie { font-size: 0.9rem; margin-block: calc((1lh - 28px) / 2); }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
 #guess, #result { display: flex; flex-direction: column; }
 /* Fälten ligger i en egen ruta hos spelledaren, så att de kan döljas när spelledaren inte deltar. */
