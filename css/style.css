@@ -623,6 +623,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 /* Kort återkoppling medan knappen trycks ned, som försvinner när man släpper. */
 .icon-btn:active { background: var(--tool-hover); transform: scale(0.92); }
 a.icon-btn { text-decoration: none; }
+/* Sex knappar i spelledarens ikonbar får plats även på de smalaste mobilerna. */
+@media (max-width: 380px) { .host-bar .icon-btn { width: 40px; height: 40px; } .host-bar .toolbar { gap: 4px; } }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 .clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; }
