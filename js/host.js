@@ -185,7 +185,7 @@ function onDisconnect(connId) {
 // exempel för Spotify i mobilen. Meddelandet är därför allmänt, som hos spelarna.
 const NET_MESSAGES = {
   relay: { kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' },
-  'unavailable-id': { kind: 'busy', title: 'Väntar på att spelkoden blir ledig…' },
+  'unavailable-id': { kind: 'busy', title: 'Väntar på att koden blir ledig…' },
   network: { kind: 'busy', title: 'Ingen anslutning', text: 'Försöker ansluta igen…' },
 };
 let netTrouble = false;
