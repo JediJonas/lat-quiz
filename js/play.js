@@ -132,6 +132,8 @@ function setQrVisible(visible) {
   $('#join-info').hidden = !visible;
   $('#show-qr').setAttribute('aria-expanded', String(visible));
   $('#show-qr').title = visible ? 'Dölj QR-koden' : 'Visa QR-koden';
+  // QR-koden ligger under poängtabellen, så sidan rullar längst ner för att den ska synas.
+  if (visible) window.scrollTo({ top: document.documentElement.scrollHeight, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 
 let copiedTimer = null;
