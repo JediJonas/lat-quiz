@@ -11,6 +11,5 @@
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "audio": "deezer" },
   { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Film" } },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Verk" } },
-  { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer" },
-  { "id": "deezer-test", "name": "Deezer-test", "file": "deezer-test.json", "audio": "deezer" }
+  { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer" }
 ]

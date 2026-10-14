@@ -57,8 +57,8 @@ await host.waitForSelector('dialog[open]');
 await check(host, 'Spelledare, inställningar');
 await host.keyboard.press('Escape');
 await host.fill('#host-name', 'Värd');
-// Alla låtar i Deezer-test har ett fast Deezer-ID, så klippet hittas alltid.
-await host.selectOption('#category-select', 'deezer-test');
+// Alla quizlåtar har ett fast Deezer-ID, och Deezer besvaras nedan, så klippet hittas alltid.
+await host.selectOption('#category-select', '80-tal');
 await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
 const code = await host.textContent('#code');
