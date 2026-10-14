@@ -169,7 +169,6 @@ function onMessage(connId, msg) {
     const playerId = connToPlayer.get(connId);
     if (!playerId) return;
     game.submitAnswer(state, playerId, msg.field, String(msg.value || '').slice(0, 200), Date.now());
-    if (game.shouldReveal(state, Date.now())) game.reveal(state);
     changed();
   }
 }
@@ -179,7 +178,6 @@ function onDisconnect(connId) {
   connToPlayer.delete(connId);
   if (!playerId || [...connToPlayer.values()].includes(playerId)) return;
   game.setConnected(state, playerId, false);
-  if (game.shouldReveal(state, Date.now())) game.reveal(state);
   changed();
 }
 
@@ -236,7 +234,6 @@ function tick() {
 function hostAnswer(field, value) {
   if (!state) return;
   game.submitAnswer(state, state.hostId, field, value.slice(0, 200), Date.now());
-  if (game.shouldReveal(state, Date.now())) game.reveal(state);
   changed();
 }
 

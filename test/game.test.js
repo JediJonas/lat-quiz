@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume, setHostPlaying, allAnswered, replaceSong,
+  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
 } from '../js/game.js';
 
 const songs = [
@@ -69,16 +69,24 @@ test('svar tas inte emot före start, efter tidens slut eller efter visat svar',
   assert.equal(submitAnswer(state, 'p1', 'title', 'Take On Me', 31000), false);
 });
 
-test('svaret visas när tiden är slut eller när alla anslutna har svarat', () => {
+test('svaret visas först när tiden är slut, även om alla har svarat', () => {
   const state = setup();
   assert.equal(shouldReveal(state, 30999), false);
   assert.equal(shouldReveal(state, 31000), true);
   submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
   submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
-  assert.equal(shouldReveal(state, 3000), false);
   setConnected(state, 'p2', false);
-  assert.equal(shouldReveal(state, 3000), true);
+  assert.equal(shouldReveal(state, 3000), false);
   assert.equal(remainingMs(state, 3000), 28000);
+});
+
+test('en spelare som har svarat kan ändra sitt svar, och bonusen räknas från ändringen', () => {
+  const state = setup(); // låten startade vid 1000, bonus inom 15 sekunder
+  submitAnswer(state, 'p1', 'artist', 'Queen', 2000);
+  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 20000), true);
+  reveal(state);
+  assert.deepEqual(state.round.results.p1, { artist: true, title: true, bonus: false, points: 2 });
 });
 
 test('spelade låtar slumpas inte igen, och null när alla är spelade', () => {
@@ -287,7 +295,7 @@ test('spelledaren som inte deltar finns inte bland spelarna och kan inte svara',
   assert.equal(submitAnswer(state, 'h', 'artist', 'a-ha', 2000), false);
   submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
   submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
-  assert.equal(allAnswered(state), true);
+  assert.equal(hasAnsweredBoth(state, 'p1'), true);
   reveal(state);
   assert.deepEqual(standings(state).map((p) => p.id), ['p1']);
   assert.equal(state.round.results.h, undefined);
