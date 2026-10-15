@@ -42,7 +42,7 @@ const host = await (await browser.newContext({ viewport: { width: 1280, height: 
 const player = await (await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })).newPage();
 for (const page of [host, player]) page.on('pageerror', (e) => problems.push('Skriptfel: ' + e.message));
 
-// Menyn uppe till höger öppnas med knappen och stängs med Esc. Om spelet är en ruta.
+// Menyn uppe till höger öppnas med knappen och stängs med Esc. Om Låtquiz är en ruta.
 async function openMenu(page) {
   await page.click('main:not([hidden]) .menu-button');
   await page.waitForSelector('main:not([hidden]) .menu-panel:not([hidden])');
@@ -56,9 +56,9 @@ await host.goto(BASE + 'index.html' + PEER);
 await check(host, 'Startsidan');
 await openMenu(host);
 await check(host, 'Startsidan, menyn');
-await host.click('.menu-item:has-text("Om spelet")');
+await host.click('.menu-item:has-text("Om Låtquiz")');
 await host.waitForSelector('dialog.about[open]');
-await check(host, 'Om spelet');
+await check(host, 'Om Låtquiz');
 await host.keyboard.press('Escape');
 await host.goto(BASE + 'verktyg/spotify-id.html');
 await check(host, 'Verktyget för Spotify-ID');

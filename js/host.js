@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { hideMessage, showJoined, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { mountSwitch } from './theme.js';
@@ -187,6 +187,14 @@ function onMessage(connId, msg) {
     if (!playerId) return;
     game.submitAnswer(state, playerId, msg.field, String(msg.value || '').slice(0, 200), Date.now());
     changed();
+  } else if (msg.type === 'leave') {
+    // Spelaren valde Lämna spelet. Den räknas som frånkopplad och får tillbaka poängen om den går med igen.
+    const playerId = connToPlayer.get(connId);
+    if (!playerId || !state.players[playerId]) return;
+    const { name } = state.players[playerId];
+    net.drop(connId);
+    showLeft(name);
+    for (const otherConn of connToPlayer.keys()) net.send(otherConn, { type: 'left', name });
   }
 }
 
@@ -277,8 +285,9 @@ function setHostPlays(plays) {
 function renderSettingsSummary() {
   const s = loadSettings();
   const music = MUSIC_SERVICES.find((m) => m.id === loadMusic()).name;
-  const parts = [`Först till ${s.winScore} poäng`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', music];
-  if (!hostPlays) parts.push('Du deltar inte');
+  // Samma ordning som i rutan Inställningar.
+  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`, music,
+    hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 s.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
 }
@@ -683,7 +692,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
-      <h2>Spelinställningar</h2>
+      <h2>Inställningar</h2>
       ${categories ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
@@ -845,12 +854,12 @@ function showQr() {
 
 // I spelet finns QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet samma rader som på startsidan.
 function menuGroups() {
-  const settings = { label: 'Spelinställningar', icon: MENU_ICONS.settings, action: editSettings };
+  const settings = { label: 'Inställningar', icon: MENU_ICONS.settings, action: editSettings };
   if (!state) return [startItems(), [settings], commonItems()];
   return [
     [{ label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
     commonItems(),
-    [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame, danger: true }],
+    [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
   ];
 }
 

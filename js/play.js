@@ -1,6 +1,6 @@
 // Spelarvyn i mobilen.
 import { createClient } from './net.js';
-import { hideMessage, showJoined, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
 import { settingsChangeText, upcomingSettings } from './game.js';
 import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
@@ -54,6 +54,7 @@ function onMessage(msg) {
     return;
   }
   if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
+  if (msg.type === 'left') { showLeft(String(msg.name || '')); return; }
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
@@ -226,7 +227,12 @@ async function leaveGame() {
     title: 'Lämna spelet?', okText: 'Lämna', danger: true,
   });
   if (!ok) return;
-  if (net) net.destroy();
+  // Spelledaren och de andra spelarna får veta det. Vänta lite, så att meddelandet hinner iväg.
+  if (net) {
+    net.send({ type: 'leave' });
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    net.destroy();
+  }
   net = null;
   const params = new URLSearchParams(location.search);
   params.delete('kod');
@@ -240,7 +246,7 @@ function menuGroups() {
   return [
     [{ label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: !$('#join-info').hidden || !net }],
     commonItems(),
-    [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame, danger: true }],
+    [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame }],
   ];
 }
 

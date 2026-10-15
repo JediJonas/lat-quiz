@@ -1,5 +1,5 @@
 // Menyn uppe till höger, samma på alla sidor. Det som används sällan ligger här: gå med i spel,
-// starta nytt spel, QR-kod, inställningar, Om spelet, Utseende och att lämna eller avsluta spelet.
+// starta nytt spel, QR-kod, inställningar, Om Låtquiz, Utseende och att lämna eller avsluta spelet.
 // Raderna har ikon och text. Rader som inte går att använda just nu visas inte.
 import { showUserSettings } from './theme.js';
 import { showAbout } from './om.js';
@@ -38,7 +38,7 @@ export function startItems() {
 // Raderna som finns överallt.
 export function commonItems() {
   return [
-    { label: 'Om spelet', icon: ICONS.about, action: showAbout },
+    { label: 'Om Låtquiz', icon: ICONS.about, action: showAbout },
     { label: 'Utseende', icon: ICONS.appearance, action: showUserSettings },
   ];
 }
@@ -47,13 +47,13 @@ let count = 0;
 
 // groups() returnerar grupper av rader, som skiljs åt med ett streck. Den anropas varje gång
 // menyn öppnas, så att raderna följer läget i spelet. En rad är { label, icon } och antingen
-// href eller action, och kan vara disabled, current (sidan man är på) eller danger (röd).
+// href eller action, och kan vara disabled eller current (sidan man är på).
 export function mountMenu(container, groups) {
   const id = `menu-list-${++count}`;
   const nav = document.createElement('nav');
   nav.className = 'menu';
   nav.setAttribute('aria-label', 'Meny');
-  nav.innerHTML = `<button type="button" class="menu-button" aria-expanded="false" aria-controls="${id}">${ICONS.menu}Meny</button>
+  nav.innerHTML = `<button type="button" class="menu-button" aria-label="Meny" title="Meny" aria-expanded="false" aria-controls="${id}">${ICONS.menu}</button>
     <div class="menu-panel" id="${id}" hidden></div>`;
   const button = nav.querySelector('.menu-button');
   const panel = nav.querySelector('.menu-panel');
@@ -72,7 +72,7 @@ export function mountMenu(container, groups) {
       for (const item of group) {
         const li = document.createElement('li');
         const el = document.createElement(item.href ? 'a' : 'button');
-        el.className = 'menu-item' + (item.danger ? ' danger-item' : '');
+        el.className = 'menu-item';
         el.innerHTML = item.icon;
         el.append(item.label);
         if (item.href) {
