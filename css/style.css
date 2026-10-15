@@ -700,6 +700,15 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 :root { --panel-bottom: max(16px, env(safe-area-inset-bottom) - 18px); }
 @supports (-webkit-touch-callout: none) {
   :root { --panel-bottom: max(4px, env(safe-area-inset-bottom) - 18px); }
+  /* Safari klipper allt som hamnar under sidans nederkant i en rak linje, så här får skuggan
+     inte nå längre än de 4 px som finns under panelen. */
+  .control-panel { box-shadow: 0 1px 3px rgba(20, 10, 50, 0.18); }
+  /* Safari fyller ytan under sidan, runt verktygsfältet, med en jämn färg. Sidans toning
+     glider över i samma bakgrundsfärg längst ner, så att det inte blir en skarp kant. */
+  body::before {
+    content: ""; position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; height: 48px;
+    background: linear-gradient(transparent, var(--bg)); pointer-events: none;
+  }
 }
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
 main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
