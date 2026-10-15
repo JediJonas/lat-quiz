@@ -70,7 +70,7 @@
     --glow-3: rgba(255, 90, 170, 0.16);
     --glow-4: transparent;
     --label: #b7a6f0;
-    --me-bg: color-mix(in srgb, var(--accent) 20%, var(--bg));
+    --me-bg: color-mix(in srgb, var(--accent) 14%, var(--bg));
     --me-border: rgba(30, 215, 96, 0.35);
     --accent: #1ed760;
     --accent-hover: #3be477;
@@ -108,7 +108,7 @@
   --glow-3: rgba(255, 90, 170, 0.16);
   --glow-4: transparent;
   --label: #b7a6f0;
-  --me-bg: color-mix(in srgb, var(--accent) 20%, var(--bg));
+  --me-bg: color-mix(in srgb, var(--accent) 14%, var(--bg));
   --me-border: rgba(30, 215, 96, 0.35);
   --accent: #1ed760;
   --accent-hover: #3be477;
