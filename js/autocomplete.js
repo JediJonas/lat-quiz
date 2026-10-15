@@ -1,10 +1,11 @@
 // Fält där svaret bara kan väljas ur en lista.
-// Förslag visas efter 3 tecken, i bokstavsordning.
+// Förslag visas efter 3 tecken, i bokstavsordning: först det som innehåller texten,
+// sedan det som liknar den trots stavfel ("micael" hittar "Michael Jackson").
 // Accenter och skiljetecken spelar ingen roll: "senorita" hittar "Señorita".
 // Fungerar med finger, mus och tangentbord (pilar, Enter och Esc), och
 // skärmläsare får fältet presenterat som en kombinationsruta med lista.
 
-import { compact } from './text.js';
+import { compact, searchIndex, findSuggestions } from './text.js';
 
 const MIN_CHARS = 3;
 const MAX_SHOWN = 50;
@@ -27,7 +28,7 @@ export function autocomplete(input, list, onChange) {
 
   let selected = '';
   let items = list;
-  let keys = items.map(compact);
+  let index = searchIndex(items);
   let options = []; // de valbara raderna som visas just nu
   let active = -1;
 
@@ -73,7 +74,8 @@ export function autocomplete(input, list, onChange) {
     active = -1;
     input.removeAttribute('aria-activedescendant');
     if (query.length < MIN_CHARS) { show(false); return; }
-    const hits = items.filter((item, i) => keys[i].includes(query));
+    const { exact, close } = findSuggestions(index, query);
+    const hits = exact.concat(close);
     for (const [i, item] of hits.slice(0, MAX_SHOWN).entries()) {
       const li = document.createElement('li');
       li.id = `${box.id}-${i}`;
@@ -130,7 +132,7 @@ export function autocomplete(input, list, onChange) {
     },
     setList(newList) {
       items = newList;
-      keys = items.map(compact);
+      index = searchIndex(items);
       if (document.activeElement === input) render();
     },
     disable(disabled) {

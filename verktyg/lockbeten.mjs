@@ -10,6 +10,7 @@ const VERSION = /\s*\([^()]*(karaoke|instrumental|singback|sjung själv|maxi|unp
 const DISAMBIGUATION = /\s*\((?:[^()]*\s)?song\)$/;
 // Uppföljare och delar av en filmserie, som "Thor: En mörk värld" när svaret är "Thor".
 const SEQUEL = /^(:|\s+och\s|\s+[-–]\s|\s+\d)/;
+const SUBTITLE = /\s+\([^()]+\)$/;
 
 const JUNK = [/in the Eurovision Song Contest/i, /s bidrag i Eurovision/i, /landslag/i, /^AIK Fotboll$/, /Dilshadilu07/];
 
@@ -39,12 +40,28 @@ export function cleanDecoys(forslag, categories) {
     }
   }
   const isSequel = (title) => films.some((film) => title.startsWith(film) && SEQUEL.test(title.slice(film.length)));
-  const clean = (items, fix, wanted, extra = () => false) => [...new Set(items.map(fix))]
-    .filter((x) => x && !wanted.has(normalize(x)) && !JUNK.some((re) => re.test(x)) && !extra(x))
-    .sort();
+  // Samma låt med undertitel, som "Sweet Dreams (Are Made of This)" när svaret är "Sweet Dreams".
+  const isSubtitled = (title) => SUBTITLE.test(title) && answers.titles.has(normalize(title.replace(SUBTITLE, '')));
+  // Hela namnet på en artist som svaret anger med ett ord, som "Darin Zanyar" när svaret är "Darin".
+  const isFullName = (artist) => !/\s[&+]\s/.test(artist)
+    && [...answers.artists].some((a) => !a.includes(' ') && normalize(artist).startsWith(a + ' '));
+  // Samarbeten där någon är ett rätt svar, som "Eminem & Dr. Dre" när svaret är "Eminem", eller
+  // har ett rätt svars fullständiga namn, som "Darin Zanyar & Kat DeLuna". Samarbeten
+  // som är rätt svar finns ändå med, eftersom alla quizlåtars artister läggs till i förslagen.
+  const hasAnswer = (artist) => artist.split(/\s+[&+]\s+/)
+    .some((p) => answers.artists.has(normalize(p)) || isFullName(p));
+  const isConfusable = (artist) => isFullName(artist) || (/\s[&+]\s/.test(artist) && hasAnswer(artist));
+  const clean = (items, fix, wanted, extra) => {
+    // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas.
+    const seen = new Map();
+    const kept = items.map(fix).sort()
+      .filter((x) => x && !wanted.has(normalize(x)) && !JUNK.some((re) => re.test(x)) && !extra(x));
+    for (const x of kept) if (!seen.has(normalize(x))) seen.set(normalize(x), x);
+    return [...seen.values()];
+  };
   return {
-    artists: clean(forslag.artists, cleanArtist, answers.artists),
-    titles: clean(forslag.titles, cleanTitle, answers.titles, isSequel),
+    artists: clean(forslag.artists, cleanArtist, answers.artists, isConfusable),
+    titles: clean(forslag.titles, cleanTitle, answers.titles, (t) => isSequel(t) || isSubtitled(t)),
   };
 }
 
