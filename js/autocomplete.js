@@ -45,7 +45,10 @@ export function autocomplete(input, list, onChange) {
     const vv = window.visualViewport;
     if (!vv || box.hidden) return;
     const GAP = 8;
-    const visibleBottom = vv.offsetTop + vv.height;
+    // Webbläsarna räknar fältets läge olika när tangentbordet är uppe: från den synliga ytan
+    // eller från hela sidfönstret. Den minsta tänkbara platsen används, så att listan aldrig
+    // når in under tangentbordet. Hellre en rad för lite än en dold.
+    const visibleBottom = Math.min(vv.height, vv.offsetTop + vv.height, window.innerHeight);
     const space = visibleBottom - input.getBoundingClientRect().bottom - 6 - GAP; // 6 = listans marginal i CSS
     box.style.maxHeight = `${Math.max(120, Math.floor(space))}px`;
   }
