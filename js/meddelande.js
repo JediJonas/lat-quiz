@@ -3,7 +3,7 @@
 // det gamla, så det står aldrig flera rutor på varandra.
 //
 // kind: 'busy' (pågår, med snurra), 'info', 'ok' (försvinner efter 3 sekunder)
-// eller 'problem' (röd ram, rubrik och ikon).
+// eller 'problem' (röd rubrik och ikon).
 // key anger vad meddelandet gäller, så att hideMessage inte tar bort ett nyare meddelande.
 // Ett stående meddelande, till exempel att spelet är pausat, visas när inget annat visas.
 
@@ -105,4 +105,10 @@ export function showJoined(name) {
     joinedShown = current && current.key === 'joined' ? [...joinedShown, ...names] : names;
     showMessage({ key: 'joined', kind: 'info', ...joinedMessage(joinedShown), ms: JOINED_MS });
   }, JOINED_SETTLE_MS);
+}
+
+// En spelare har valt Lämna spelet i menyn. Visas lika länge som en ny spelare, och inte över ett fel.
+export function showLeft(name) {
+  if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
+  showMessage({ key: 'left', kind: 'info', title: 'Spelare lämnade', text: `${name} har lämnat spelet.`, ms: JOINED_MS });
 }

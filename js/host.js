@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { hideMessage, showJoined, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { mountSwitch } from './theme.js';
@@ -187,6 +187,14 @@ function onMessage(connId, msg) {
     if (!playerId) return;
     game.submitAnswer(state, playerId, msg.field, String(msg.value || '').slice(0, 200), Date.now());
     changed();
+  } else if (msg.type === 'leave') {
+    // Spelaren valde Lämna spelet. Den räknas som frånkopplad och får tillbaka poängen om den går med igen.
+    const playerId = connToPlayer.get(connId);
+    if (!playerId || !state.players[playerId]) return;
+    const { name } = state.players[playerId];
+    net.drop(connId);
+    showLeft(name);
+    for (const otherConn of connToPlayer.keys()) net.send(otherConn, { type: 'left', name });
   }
 }
 

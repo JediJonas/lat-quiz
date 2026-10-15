@@ -1,7 +1,7 @@
 // Om spelet, som en ruta. Den går att läsa när som helst, även under ett spel.
 
 const TEXT = `
-  <p class="lead">Välkommen till Låtquiz! Utmana familj och vänner och tävla om vem som känner igen flest låtar, direkt i webbläsaren.</p>
+  <p class="lead">Utmana familj och vänner och tävla om vem som känner igen flest låtar, direkt i webbläsaren.</p>
 
   <h3>Så spelar man</h3>
   <p>Spelledaren väljer kategori och startar ett nytt spel på sin enhet. Spelarna går med i spelet genom att skanna QR-koden med sina enheter. Det går också bra att skriva in en kod själv eller öppna en länk som spelledaren skickar.</p>

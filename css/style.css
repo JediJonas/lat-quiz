@@ -611,7 +611,7 @@ main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(23px + env
   text-align: left;
   text-decoration: none;
 }
-.menu-item svg { flex: none; width: 22px; height: 22px; fill: var(--btn-icon); }
+.menu-item svg { flex: none; width: 22px; height: 22px; fill: var(--muted); }
 /* Bara med mus, så att färgen inte fastnar på raden efter ett tryck på pekskärm. */
 .menu-item:hover { background: none; }
 @media (hover: hover) { .menu-item:hover { background: var(--surface-2); color: var(--text); } }
@@ -676,7 +676,7 @@ main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(23px + env
 /* Ordet länken i texten kopierar länken. */
 .join-info button.link { margin: 0; font-size: inherit; }
 /* Spelledarens kontrollpanel med Spela eller Pausa och Nästa svävar längst ner, centrerad.
-   Ytan är nästan tät, med oskärpa bakom, så att kontrasten håller när sidan rullar under den. */
+   Ytan är halvgenomskinlig, med oskärpa bakom, så att sidan skymtar igenom men kontrasten håller. */
 .control-panel {
   --panel-h: 70px;
   position: fixed;
@@ -689,9 +689,9 @@ main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(23px + env
   padding: 8px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--surface-solid) 88%, transparent);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--surface-solid) 55%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
 }
 .control-panel .icon-btn { width: 52px; height: 52px; }
