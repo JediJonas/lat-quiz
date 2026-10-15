@@ -112,10 +112,33 @@ export function mountMenu(container, groups) {
   }
 
   button.addEventListener('click', (e) => (panel.hidden ? open(e.detail === 0) : close()));
+  // Piltangenterna stegar mellan raderna, och Home och End går till första och sista raden.
+  // Pil ned på den stängda menyknappen öppnar menyn. Tab fungerar som vanligt.
+  function moveFocus(key) {
+    const items = [...panel.querySelectorAll('.menu-item:not(:disabled)')];
+    if (!items.length) return;
+    const i = items.indexOf(document.activeElement);
+    let next;
+    if (key === 'Home') next = 0;
+    else if (key === 'End') next = items.length - 1;
+    else if (key === 'ArrowDown') next = i < 0 ? 0 : (i + 1) % items.length;
+    else next = i < 0 ? items.length - 1 : (i - 1 + items.length) % items.length;
+    items[next].focus();
+  }
+
   nav.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape' || panel.hidden) return;
-    e.stopPropagation();
-    close(true);
+    if (e.key === 'Escape' && !panel.hidden) {
+      e.stopPropagation();
+      close(true);
+      return;
+    }
+    if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return;
+    if (panel.hidden) {
+      if (e.target !== button || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp')) return;
+      open(false);
+    }
+    e.preventDefault();
+    moveFocus(e.key);
   });
   // Menyn stängs när man trycker utanför den eller tabbar vidare.
   document.addEventListener('pointerdown', (e) => { if (!nav.contains(e.target)) close(); });
