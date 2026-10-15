@@ -469,11 +469,13 @@ function updateClipMessage(round) {
 }
 
 // Strömbrytaren i Inställningar, likadan som i Utseende. Gäller direkt, utan att spelledaren behöver spara.
-function songIsUnknown(song) {
+function currentUnknown() {
+  const song = state.round && state.round.song;
   return Boolean(song) && isUnknown(loadUnknown(), category.id, song.id);
 }
 
-function toggleSongUnknown(song) {
+function toggleCurrentUnknown() {
+  const song = state.round && state.round.song;
   if (song) saveUnknown(toggleUnknown(loadUnknown(), category.id, song));
 }
 
@@ -706,12 +708,10 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   wireUnknown(dialog, names);
   const host = wireHostPlays(dialog);
   const mark = dialog.querySelector('#mark-unknown');
-  // Antalet i länken följer strömbrytaren. Strömbrytaren gäller låten som spelades när rutan
-  // öppnades, även om nästa låt hinner starta medan rutan är öppen.
+  // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');
-  const song = state && state.round && state.round.song;
-  if (mark) mountSwitch(mark, 'Denna låt är okänd', () => songIsUnknown(song), () => {
-    toggleSongUnknown(song);
+  if (mark) mountSwitch(mark, 'Denna låt är okänd', currentUnknown, () => {
+    toggleCurrentUnknown();
     if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
   });
   document.body.append(dialog);
@@ -949,9 +949,12 @@ function render() {
   // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
   $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
   updateClipMessage(round);
-  // Nästa låt kan starta medan Inställningar är öppen. Då gäller ändringarna från låten efter.
+  // Nästa låt kan starta medan Inställningar är öppen. Ändringarna gäller då från låten efter,
+  // och Denna låt är okänd gäller den låt som spelas nu.
   const laterNote = document.querySelector('dialog[open] .later-note');
   if (laterNote) laterNote.hidden = !round || round.phase === 'revealed';
+  const mark = document.querySelector('dialog[open] #mark-unknown');
+  if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
 }
 
 // Byggs bara om när innehållet ändras, så att fokus stannar kvar.
