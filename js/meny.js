@@ -84,8 +84,9 @@ export function mountMenu(container, groups) {
         }
         el.addEventListener('click', (e) => {
           if (item.current) e.preventDefault();
-          // Fokus går tillbaka till menyknappen, om inte en ruta öppnas och tar fokus.
-          close(!item.href);
+          // Med tangentbordet går fokus tillbaka till menyknappen. Efter ett tryck eller klick
+          // (detail > 0) flyttas inte fokus, för då visar Safari en fokusring runt knappen.
+          close(!item.href && e.detail === 0);
           if (item.action) item.action();
         });
         li.append(el);
@@ -95,14 +96,15 @@ export function mountMenu(container, groups) {
     }
   }
 
-  function open() {
+  // Öppnas menyn med tangentbordet får första raden fokus. Efter ett tryck stannar fokus på knappen.
+  function open(keyboard) {
     render();
     panel.hidden = false;
     button.setAttribute('aria-expanded', 'true');
-    panel.querySelector('.menu-item:not(:disabled)')?.focus();
+    if (keyboard) panel.querySelector('.menu-item:not(:disabled)')?.focus();
   }
 
-  button.addEventListener('click', () => (panel.hidden ? open() : close()));
+  button.addEventListener('click', (e) => (panel.hidden ? open(e.detail === 0) : close()));
   nav.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape' || panel.hidden) return;
     e.stopPropagation();
