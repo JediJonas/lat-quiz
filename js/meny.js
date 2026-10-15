@@ -48,6 +48,13 @@ let count = 0;
 // groups() returnerar grupper av rader, som skiljs åt med ett streck. Den anropas varje gång
 // menyn öppnas, så att raderna följer läget i spelet. En rad är { label, icon } och antingen
 // href eller action, och kan vara disabled eller current (sidan man är på).
+// Efter ett tryck på pekskärm visas inga fokusringar, till exempel när en ruta öppnas och fokus
+// flyttas till en knapp. Så fort tangentbordet används visas de igen.
+document.addEventListener('pointerdown', (e) => {
+  if (e.pointerType !== 'mouse') document.documentElement.dataset.touch = '';
+}, true);
+document.addEventListener('keydown', () => { delete document.documentElement.dataset.touch; }, true);
+
 export function mountMenu(container, groups) {
   const id = `menu-list-${++count}`;
   const nav = document.createElement('nav');
