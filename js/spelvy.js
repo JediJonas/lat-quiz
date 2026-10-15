@@ -71,6 +71,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
   }
 
   function renderStandings() {
+    // Utan spelare döljs poänglistan med rubrik, till exempel när spelledaren inte deltar och ingen har gått med än.
+    $('#standings-section').hidden = view.standings.length === 0;
     const rows = view.standings.map((p) => `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
       <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
       <td class="name">${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</td>
