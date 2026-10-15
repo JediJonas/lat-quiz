@@ -9,6 +9,10 @@ const PING_MS = 4000;
 const SILENCE_MS = 12000;
 // Så länge får ett anslutningsförsök ta innan spelaren försöker igen.
 const CONNECT_MS = 8000;
+// Så många försök får en ny spelare innan appen ger upp och säger att spelet inte svarar.
+const FIRST_ATTEMPTS = 3;
+// Har spelledarens sida varit dold så här länge kopplas förbindelsen till förmedlingsservern upp igen.
+const REFRESH_AFTER_MS = 5000;
 
 // För lokal testning kan en egen PeerJS-server anges i adressen,
 // till exempel ?peerHost=localhost&peerPort=9000.
@@ -43,6 +47,9 @@ export function createHost(code, handlers) {
   const lastSeen = new Map();
   let peer = null;
   let destroyed = false;
+  // Sant medan förbindelsen till förmedlingsservern kopplas upp på nytt med flit.
+  let refreshing = false;
+  let hiddenAt = null;
 
   function open() {
     peer = new Peer(PEER_PREFIX + code, peerOptions());
@@ -63,8 +70,9 @@ export function createHost(code, handlers) {
     // Kontakten med förmedlingsservern bröts. Befintliga spelare påverkas inte,
     // men nya kan inte ansluta förrän vi är tillbaka.
     peer.on('disconnected', () => {
-      if (!destroyed) handlers.onError('relay');
-      if (!destroyed) setTimeout(() => !destroyed && peer.reconnect(), 2000);
+      if (refreshing || destroyed) return;
+      handlers.onError('relay');
+      setTimeout(() => !destroyed && peer.disconnected && !peer.destroyed && peer.reconnect(), 2000);
     });
     peer.on('error', (err) => {
       if (err.type === 'unavailable-id') {
@@ -97,6 +105,23 @@ export function createHost(code, handlers) {
     }
   }, PING_MS);
 
+  // I mobilen fryses sidan när den inte syns, till exempel när spelledaren har öppnat Spotify.
+  // Förbindelsen till förmedlingsservern kan då ha dött utan att PeerJS märker det, och nya spelare
+  // kommer inte fram. När sidan syns igen kopplas den upp på nytt. Spelare som redan är med påverkas inte.
+  function onVisible() {
+    if (document.visibilityState !== 'visible') { hiddenAt = Date.now(); return; }
+    const wasHidden = hiddenAt !== null && Date.now() - hiddenAt >= REFRESH_AFTER_MS;
+    hiddenAt = null;
+    if (!wasHidden || destroyed || peer.destroyed) return;
+    if (!peer.disconnected) {
+      refreshing = true;
+      peer.disconnect();
+      refreshing = false;
+    }
+    peer.reconnect();
+  }
+  document.addEventListener('visibilitychange', onVisible);
+
   open();
 
   return {
@@ -108,16 +133,19 @@ export function createHost(code, handlers) {
     destroy() {
       destroyed = true;
       clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisible);
       peer.destroy();
     },
   };
 }
 
 // handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline' | 'host-missing'),
-// onNotFound() när det inte finns något spel med koden.
+// onNotFound() när det inte finns något spel med koden, onUnreachable(reason) när
+// anslutningen aldrig har lyckats efter flera försök: 'relay' om förmedlingsservern inte
+// gick att nå, 'host' om spelledaren aldrig svarade.
 // 'host-missing' betyder att nätet fungerar men spelledaren inte finns, till exempel när
 // spelledarens flik är stängd.
-// Klienten försöker ansluta igen av sig själv tills destroy() anropas.
+// Har klienten varit ansluten en gång försöker den ansluta igen av sig själv tills destroy() anropas.
 export function createClient(code, handlers) {
   let peer = null;
   let conn = null;
@@ -127,6 +155,9 @@ export function createClient(code, handlers) {
   let attemptTimer = null;
   let destroyed = false;
   let everConnected = false;
+  let failedAttempts = 0;
+  // Sant när förmedlingsservern har svarat under något av försöken.
+  let relayReached = false;
 
   function closePeer() {
     clearTimeout(attemptTimer);
@@ -146,7 +177,11 @@ export function createClient(code, handlers) {
     closePeer();
     const p = new Peer(peerOptions());
     peer = p;
-    p.on('open', () => { if (peer === p) openConnection(); });
+    p.on('open', () => {
+      if (peer !== p) return;
+      relayReached = true;
+      openConnection();
+    });
     p.on('error', (err) => {
       if (peer !== p) return;
       // Spelledaren finns inte. Har vi aldrig varit anslutna är koden fel
@@ -196,6 +231,12 @@ export function createClient(code, handlers) {
   function scheduleRetry() {
     if (destroyed) return;
     closePeer();
+    // En ny spelare som aldrig har kommit fram får veta det i stället för att vänta för alltid,
+    // till exempel när spelledarens sida inte går att nå från spelarens nät.
+    if (!everConnected && ++failedAttempts >= FIRST_ATTEMPTS) {
+      handlers.onUnreachable(relayReached ? 'host' : 'relay');
+      return;
+    }
     handlers.onStatus('offline');
     clearTimeout(retryTimer);
     retryTimer = setTimeout(connect, retryDelay);

@@ -111,6 +111,16 @@ test('återanslutning med samma id behåller poängen', () => {
   assert.equal(Object.keys(state.players).length, 2);
 });
 
+test('en spelare som går med mitt i en låt ser låten som pågår och kan svara', () => {
+  const state = setup();
+  addPlayer(state, { id: 'p3', name: 'Cia' });
+  const view = playerView(state, 'p3', 2000);
+  assert.equal(view.round.phase, 'playing');
+  assert.equal(view.round.number, 1);
+  assert.ok(view.standings.some((p) => p.name === 'Cia'));
+  assert.equal(submitAnswer(state, 'p3', 'artist', 'a-ha', 3000), true);
+});
+
 test('spelaren ser inte låten förrän svaret visas', () => {
   const state = setup();
   assert.equal(playerView(state, 'p1', 2000).round.song, null);
