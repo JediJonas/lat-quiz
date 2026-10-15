@@ -101,17 +101,14 @@ export function scrollToTop() {
 }
 
 // Rullar så att fältet och rubriken över det står överst, så att förslagslistan under
-// fältet får plats. I mobilen görs det alltid. Med mus står sidan still om listan redan
-// får plats under fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet
+// fältet får plats ovanför tangentbordet. Bara på pekskärmar: på datorn får sidan plats
+// och står still. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet
 // öppnas. Då står fältet redan synligt ovanför tangentbordet och Safari behöver inte rulla
 // fram det själv. Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone.
 export function scrollFieldToTop(input, heading) {
+  if (!matchMedia('(pointer: coarse)').matches) return;
   const GAP = 8;
   const headTop = heading.getBoundingClientRect().top;
   if (Math.abs(headTop - GAP) <= 4) return;
-  if (!matchMedia('(pointer: coarse)').matches) {
-    const room = window.innerHeight - input.getBoundingClientRect().bottom;
-    if (headTop < GAP || room >= window.innerHeight * 0.45) return;
-  }
   window.scrollTo({ top: window.scrollY + headTop - GAP, behavior: 'auto' });
 }
