@@ -152,10 +152,10 @@ body {
 /* Sidan fyller hela skärmen, även under Safaris genomskinliga verktygsfält (viewport-fit=cover).
    Innehållet hålls borta från skärmens rundade hörn och hemindikatorn. */
 main {
-  padding: 22px max(16px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  padding: 24px max(16px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
 }
 .narrow { max-width: 460px; margin: 0 auto; }
-/* Menyn står i övre hörnet av innehållets spalt, på en egen rad ovanför loggan och kategorin. */
+/* Menyn står i övre hörnet av innehållets spalt. */
 main { position: relative; }
 /* Under spelet har spelledaren och spelarna lika brett innehåll: 640 px på dator och samma som spelarens i mobilen. */
 :root { --game-width: 640px; }
@@ -557,22 +557,29 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   to { opacity: 1; transform: translateX(-50%); }
 }
 
-/* Menyn uppe till höger: en knapp med ikon och ordet Meny, och en lista med ikon och text på
-   varje rad. */
-.menu { position: absolute; z-index: 60; top: calc(8px + env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); }
+/* Menyn uppe till höger: en rund knapp med bara menyikonen, lika hög som den lilla loggan under
+   spelet och i linje med loggans överkant. Listan har ikon och text på varje rad. */
+.menu {
+  --menu-size: 44px;
+  position: absolute; z-index: 60; top: calc(24px + 16px + env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
+}
+@media (min-width: 761px) { .menu { --menu-size: 54px; } }
+/* Under spelet står menyn bredvid den lilla loggan och kategorin, i linje med loggans överkant. */
+main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(35px + env(safe-area-inset-top)); }
+@media (min-width: 761px) { main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(38px + env(safe-area-inset-top)); } }
+.player-head { padding-right: 64px; }
 .menu-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  width: auto;
-  height: 40px;
+  display: grid;
+  place-items: center;
+  width: var(--menu-size);
+  height: var(--menu-size);
   margin: 0;
-  padding: 0 16px 0 12px;
-  font-size: 0.95rem;
+  padding: 0;
+  border-radius: 50%;
   background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid);
   color: var(--btn-icon);
 }
-.menu-button svg { width: 22px; height: 22px; fill: currentColor; }
+.menu-button svg { width: 60%; height: 60%; fill: currentColor; }
 .menu-button:hover, .menu-button[aria-expanded="true"] { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); }
 .menu-panel {
   position: absolute;

@@ -53,7 +53,7 @@ export function mountMenu(container, groups) {
   const nav = document.createElement('nav');
   nav.className = 'menu';
   nav.setAttribute('aria-label', 'Meny');
-  nav.innerHTML = `<button type="button" class="menu-button" aria-expanded="false" aria-controls="${id}">${ICONS.menu}Meny</button>
+  nav.innerHTML = `<button type="button" class="menu-button" aria-label="Meny" title="Meny" aria-expanded="false" aria-controls="${id}">${ICONS.menu}</button>
     <div class="menu-panel" id="${id}" hidden></div>`;
   const button = nav.querySelector('.menu-button');
   const panel = nav.querySelector('.menu-panel');
