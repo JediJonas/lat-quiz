@@ -40,15 +40,13 @@ export function autocomplete(input, list, onChange) {
   }
 
   // Listan räcker ner till underkanten av det som syns, i mobilen alltså till tangentbordet.
-  // Den rullas inte. Den visar de träffar som får plats helt och sist en rad om att det finns
-  // fler. Utan visualViewport gäller höjden i CSS och listan rullas som förut.
+  // Den rullas inte, utan visar de träffar som får plats helt. Syns inte rätt svar får man
+  // skriva mer. Utan visualViewport gäller höjden i CSS och listan rullas som förut.
   let allOptions = []; // alla träffar som byggts, även de som inte får plats
-  let total = 0; // antal träffar, även fler än som byggts
-  let more = null; // raden "… och N till"
   let lastLimit = null;
   function fit() {
     const vv = window.visualViewport;
-    if (!vv || box.hidden || !more) return;
+    if (!vv || box.hidden || !allOptions.length) return;
     const GAP = 8;
     // Webbläsarna räknar fältets läge olika när tangentbordet är uppe: från den synliga ytan
     // eller från hela sidfönstret. Den minsta tänkbara platsen används, så att listan aldrig
@@ -60,34 +58,20 @@ export function autocomplete(input, list, onChange) {
     lastLimit = limit;
     box.style.maxHeight = 'none';
     for (const li of allOptions) li.hidden = false;
-    setMore(allOptions.length);
     const style = getComputedStyle(box);
     const below = parseFloat(style.paddingBottom) + parseFloat(style.borderBottomWidth);
-    if (box.getBoundingClientRect().height <= limit) { useOptions(allOptions.length); return; }
-    // Så många hela rader som får plats tillsammans med raden om att det finns fler.
-    // Utan avrundning, så att små fel inte lägger ihop sig över raderna.
-    more.hidden = false;
-    more.textContent = `… och ${total} till. Skriv mer.`;
-    const noteHeight = more.getBoundingClientRect().height;
+    // Så många hela rader som får plats. Utan avrundning, så att små fel inte lägger ihop sig.
     const top = box.getBoundingClientRect().top;
     let fits = 0;
     for (const li of allOptions) {
-      if (li.getBoundingClientRect().bottom - top + noteHeight + below > limit) break;
+      if (li.getBoundingClientRect().bottom - top + below > limit) break;
       fits++;
     }
     fits = Math.max(1, fits);
     allOptions.forEach((li, i) => { li.hidden = i >= fits; });
-    setMore(fits);
-    useOptions(fits);
-  }
-  function setMore(shown) {
-    more.hidden = total <= shown;
-    more.textContent = `… och ${total - shown} till. Skriv mer.`;
-  }
-  // Bara de synliga raderna går att välja med piltangenterna.
-  function useOptions(count) {
-    if (active >= count) setActive(-1);
-    options = allOptions.slice(0, count);
+    // Bara de synliga raderna går att välja med piltangenterna.
+    if (active >= fits) setActive(-1);
+    options = allOptions.slice(0, fits);
   }
   // Tangentbordet öppnas och sidan rullar medan listan är öppen, så höjden räknas om.
   if (window.visualViewport) {
@@ -123,7 +107,6 @@ export function autocomplete(input, list, onChange) {
     li.setAttribute('role', 'presentation');
     li.textContent = text;
     box.append(li);
-    return li;
   }
 
   function render() {
@@ -146,16 +129,10 @@ export function autocomplete(input, list, onChange) {
       options.push(li);
     }
     allOptions = options;
-    total = hits.length;
-    more = null;
     lastLimit = null;
     box.style.maxHeight = '';
     if (items.length === 0) note('Laddar förslag…');
     else if (hits.length === 0) note('Inga träffar');
-    else {
-      more = note(`… och ${hits.length - MAX_SHOWN} till. Skriv mer.`);
-      more.hidden = hits.length <= MAX_SHOWN;
-    }
     show(true);
   }
 
