@@ -18,7 +18,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/game.js`: spellogiken (låtval, gissningar och poäng), utan nätverk och gränssnitt.
 - `js/net.js`: kommunikationen via PeerJS, med automatisk återanslutning.
 - `js/host.js`, `js/play.js`: spelledarvy och spelarvy.
-- `om.html`: sidan Om spelet, med hur spelet fungerar tekniskt.
+- `js/meny.js`: menyn uppe till höger på alla sidor, och `js/om.js`: rutan Om spelet, med hur spelet fungerar tekniskt.
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
