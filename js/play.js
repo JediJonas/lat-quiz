@@ -2,12 +2,14 @@
 import { createClient } from './net.js';
 import { hideMessage, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
-import { settingsChangeText } from './game.js';
+import { settingsChangeText, upcomingSettings } from './game.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;
 const SETTINGS_MESSAGE_MS = 4000;
+// Kategori och inställningar kan komma i olika lägen direkt efter varandra. De visas tillsammans.
+const SETTINGS_SETTLE_MS = 400;
 const $ = (sel) => document.querySelector(sel);
 
 let me = null; // { playerId, name, code }
@@ -16,6 +18,9 @@ let view = null;
 let gameView = null;
 // Sant medan formuläret väntar på att spelledaren godkänner namnet.
 let pending = false;
+// Inställningarna som spelaren senast fick veta om, och timern som samlar ändringarna.
+let knownSettings = null;
+let settingsTimer = null;
 
 function storage(fn, fallback) {
   try { return fn(); } catch { return fallback; }
@@ -45,12 +50,27 @@ function onMessage(msg) {
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
-  // Spelledaren har ändrat inställningarna eller kategorin. Visas en kort stund.
-  const change = settingsChangeText(view, msg.view);
-  if (change) showMessage({ key: 'settings', kind: 'info', title: 'Inställningarna har ändrats', text: change, ms: SETTINGS_MESSAGE_MS });
   view = msg.view;
+  checkSettings();
   $('#category-name').textContent = view.categoryName || '';
   gameView.update(view, me.playerId);
+}
+
+// Spelledaren har ändrat inställningarna eller kategorin. Det visas en kort stund. Under en låt
+// gäller ändringen från nästa låt, men spelarna får veta det direkt.
+function checkSettings() {
+  if (!knownSettings) { knownSettings = upcomingSettings(view); return; }
+  if (!settingsChangeText(knownSettings, upcomingSettings(view))) return;
+  clearTimeout(settingsTimer);
+  settingsTimer = setTimeout(() => {
+    if (!view) return;
+    const now = upcomingSettings(view);
+    const text = settingsChangeText(knownSettings, now);
+    knownSettings = now;
+    if (!text) return;
+    const title = view.upcoming ? 'Inställningarna ändras från nästa låt' : 'Inställningarna har ändrats';
+    showMessage({ key: 'settings', kind: 'info', title, text, ms: SETTINGS_MESSAGE_MS });
+  }, SETTINGS_SETTLE_MS);
 }
 
 // Ett avbrott visas i meddelanderutan, och sedan att anslutningen är tillbaka. Att appen ansluter
@@ -195,6 +215,8 @@ function leave(message, clearCode, keepPlayer = false) {
   net.destroy();
   net = null;
   view = null;
+  knownSettings = null;
+  clearTimeout(settingsTimer);
   setQrVisible(false);
   hideMessage('net');
   if (!keepPlayer) storage(() => localStorage.removeItem(SAVE_KEY));

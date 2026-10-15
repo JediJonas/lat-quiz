@@ -303,6 +303,11 @@ export function playerView(state, playerId, now) {
   return view;
 }
 
+// Inställningarna som gäller från nästa låt, om spelledaren har ändrat dem under en låt.
+export function upcomingSettings(view) {
+  return view && view.upcoming ? { ...view, ...view.upcoming } : view;
+}
+
 // Det spelarna ska få veta när spelledaren har ändrat inställningarna eller kategorin under
 // spelet, som en rad text. null om inget som syns för spelarna har ändrats.
 export function settingsChangeText(before, after) {

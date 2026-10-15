@@ -128,6 +128,13 @@ function viewFor(playerId) {
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
   view.deezer = usesDeezer();
+  // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
+  if (pending) {
+    view.upcoming = {
+      categoryName: pending.category ? pending.category.name : view.categoryName,
+      settings: { ...view.settings, ...pending.settings },
+    };
+  }
   return view;
 }
 

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, settingsChangeText, nameTaken, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
+  cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
 } from '../js/game.js';
 
 const songs = [
@@ -363,4 +363,11 @@ test('settingsChangeText beskriver ändrad kategori, bonus och poänggräns', ()
     settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 5000, winScore: 15 } }),
     'Bonus om båda är rätt inom 5 s. Först till 15 p vinner.',
   );
+});
+
+test('upcomingSettings ger inställningarna som gäller från nästa låt', () => {
+  const view = { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 15000, winScore: 10 } };
+  assert.equal(upcomingSettings(view), view);
+  const upcoming = { categoryName: '90-tal', settings: { roundMs: 30000, bonusMs: 15000, winScore: 20 } };
+  assert.equal(settingsChangeText(view, upcomingSettings({ ...view, upcoming })), 'Ny kategori: 90-tal. Först till 20 p vinner.');
 });
