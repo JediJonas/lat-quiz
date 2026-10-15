@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { hideMessage, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { mountSwitch, mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -170,8 +170,16 @@ function onMessage(connId, msg) {
       }
     }
     connToPlayer.set(connId, playerId);
+    const isNew = !state.players[playerId];
     game.addPlayer(state, { id: playerId, name });
     changed();
+    // Alla utom den nya spelaren får veta det. Den som ansluter igen är inte ny.
+    if (isNew) {
+      showJoined(name);
+      for (const otherConn of connToPlayer.keys()) {
+        if (otherConn !== connId) net.send(otherConn, { type: 'joined', name });
+      }
+    }
   } else if (msg.type === 'answer') {
     const playerId = connToPlayer.get(connId);
     if (!playerId) return;

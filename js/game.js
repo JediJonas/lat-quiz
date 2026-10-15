@@ -319,3 +319,9 @@ export function settingsChangeText(before, after) {
   if (after.settings.winScore !== before.settings.winScore) parts.push(`Först till ${after.settings.winScore} p vinner.`);
   return parts.length ? parts.join(' ') : null;
 }
+
+// Rubriken när nya spelare har gått med: "Anna, Bo och Cia har gått med i spelet".
+export function joinedTitle(names) {
+  const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} och ${names[names.length - 1]}` : names[0];
+  return `${list} har gått med i spelet`;
+}

@@ -1,6 +1,6 @@
 // Spelarvyn i mobilen.
 import { createClient } from './net.js';
-import { hideMessage, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
 import { settingsChangeText, upcomingSettings } from './game.js';
 import { mountUserSettings } from './theme.js';
@@ -47,6 +47,7 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type === 'ended') { gameEnded(); return; }
   if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
+  if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
