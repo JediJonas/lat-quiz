@@ -683,7 +683,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   padding: 8px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--surface-solid) 55%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 35%, transparent);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
