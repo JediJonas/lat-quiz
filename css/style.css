@@ -168,7 +168,7 @@ h1, h2 { font-size: 1.25rem; font-weight: 800; margin: 0.2em 0 0.5em; }
 /* Loggan är texten Låtquiz i typsnittet Lobster, sparad som form i logo.svg. */
 .logo {
   display: block;
-  width: 224px; /* I pixlar, så att loggan inte växer med Stor text. */
+  width: 264px; /* I pixlar, så att loggan inte växer med Stor text. */
   aspect-ratio: 2814 / 1010;
   margin: 16px 0 8px;
   background: var(--accent);
@@ -178,14 +178,15 @@ h1, h2 { font-size: 1.25rem; font-weight: 800; margin: 0.2em 0 0.5em; }
   mask-size: contain;
   mask-repeat: no-repeat;
 }
+@media (min-width: 761px) { .logo { width: 280px; } }
 h1.logo { margin: 16px 0 8px; }
 /* Sidans rubrik står under loggan. Loggan har samma storlek och läge som på startsidan. */
 .page-head .logo { margin: 16px 0 24px; }
 .page-head .page-title { margin: 0 0 20px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
-.logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-@media (min-width: 761px) { .logo-small { --w: 112px; } }
+.logo-small { --w: 104px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
+@media (min-width: 761px) { .logo-small { --w: 128px; } }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
 h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 h3, .section-title { margin: 2em 0 0.6em; }
