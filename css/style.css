@@ -702,7 +702,7 @@ a.icon-btn { text-decoration: none; }
 .modal p { margin: 0; color: var(--muted); }
 .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
 .modal .later-note { margin-top: 20px; text-align: right; }
-.later-note + .modal-actions { margin-top: 12px; }
+.later-note:not([hidden]) + .modal-actions { margin-top: 12px; }
 .modal-actions button { width: auto; margin: 0; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
 button.danger:hover { filter: brightness(1.08); }

@@ -469,13 +469,11 @@ function updateClipMessage(round) {
 }
 
 // Strömbrytaren i Inställningar, likadan som i Utseende. Gäller direkt, utan att spelledaren behöver spara.
-function currentUnknown() {
-  const song = state.round && state.round.song;
+function songIsUnknown(song) {
   return Boolean(song) && isUnknown(loadUnknown(), category.id, song.id);
 }
 
-function toggleCurrentUnknown() {
-  const song = state.round && state.round.song;
+function toggleSongUnknown(song) {
   if (song) saveUnknown(toggleUnknown(loadUnknown(), category.id, song));
 }
 
@@ -690,7 +688,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
       </div>` : ''}
-      ${later ? '<p class="note later-note">Ändringarna gäller från nästa låt.</p>' : ''}
+      ${running ? `<p class="note later-note"${later ? '' : ' hidden'}>Ändringarna gäller från nästa låt.</p>` : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
@@ -708,10 +706,12 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   wireUnknown(dialog, names);
   const host = wireHostPlays(dialog);
   const mark = dialog.querySelector('#mark-unknown');
-  // Antalet i länken följer strömbrytaren.
+  // Antalet i länken följer strömbrytaren. Strömbrytaren gäller låten som spelades när rutan
+  // öppnades, även om nästa låt hinner starta medan rutan är öppen.
   const copyUnknown = dialog.querySelector('#copy-unknown');
-  if (mark) mountSwitch(mark, 'Denna låt är okänd', currentUnknown, () => {
-    toggleCurrentUnknown();
+  const song = state && state.round && state.round.song;
+  if (mark) mountSwitch(mark, 'Denna låt är okänd', () => songIsUnknown(song), () => {
+    toggleSongUnknown(song);
     if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
   });
   document.body.append(dialog);
@@ -852,12 +852,12 @@ function autoNextLeft() {
   return Math.max(0, autoNext.at - (state.pausedAt || Date.now()));
 }
 
-// Anropas av tickern. Väntar medan en ruta som Inställningar är öppen.
+// Anropas av tickern. Nästa låt startar även om en ruta som Inställningar är öppen, eftersom
+// spelarna ser nedräkningen. Ändringar i rutan gäller då från låten efter.
 function checkAutoNext() {
   const left = autoNextLeft();
   if (left === null || state.pausedAt) return;
   if (left > 0) return;
-  if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
   nextSong();
 }
 
@@ -949,6 +949,9 @@ function render() {
   // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
   $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
   updateClipMessage(round);
+  // Nästa låt kan starta medan Inställningar är öppen. Då gäller ändringarna från låten efter.
+  const laterNote = document.querySelector('dialog[open] .later-note');
+  if (laterNote) laterNote.hidden = !round || round.phase === 'revealed';
 }
 
 // Byggs bara om när innehållet ändras, så att fokus stannar kvar.
