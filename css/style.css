@@ -184,8 +184,8 @@ h1.logo { margin: 16px 0 8px; }
 .page-head .page-title { margin: 0 0 20px; }
 /* Liten logga bredvid kategorin under spelet. */
 /* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
-.logo-small { --w: 104px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-@media (min-width: 761px) { .logo-small { --w: 132px; } }
+.logo-small { --w: 120px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
+@media (min-width: 761px) { .logo-small { --w: 152px; } }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
 h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 h3, .section-title { margin: 2em 0 0.6em; }
