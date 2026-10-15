@@ -48,11 +48,12 @@ function onMessage(msg) {
   gameView.update(view, me.playerId);
 }
 
-// Ett avbrott visas i meddelanderutan, och sedan att anslutningen är tillbaka. Från formuläret
-// visar knappen att appen ansluter, men efter en omladdning visas det i rutan.
+// Ett avbrott visas i meddelanderutan, och sedan att anslutningen är tillbaka. Att appen ansluter
+// visas också i rutan, men först efter en stund, så att den inte blinkar till när det går fort.
+const CONNECTING_DELAY_MS = 1500;
 let connectedOnce = false;
 let dropped = false;
-let showConnecting = false;
+let connectingTimer = null;
 // Spelledaren har stängt fliken eller laddat om och kan gå tillbaka till spelet.
 // Då visas det i stället för att anslutningen bröts, och appen fortsätter försöka ansluta.
 let hostLeft = false;
@@ -72,6 +73,7 @@ function gameEnded() {
 
 function onStatus(status) {
   if (status === 'connected') {
+    clearTimeout(connectingTimer);
     if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
     else hideMessage('net');
     connectedOnce = true;
@@ -84,8 +86,6 @@ function onStatus(status) {
   } else if (connectedOnce) {
     dropped = true;
     showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' });
-  } else if (showConnecting) {
-    showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' });
   }
 }
 
@@ -102,7 +102,8 @@ function join(name, code, fromForm) {
   connectedOnce = false;
   dropped = false;
   hostLeft = false;
-  showConnecting = !fromForm;
+  clearTimeout(connectingTimer);
+  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' }), CONNECTING_DELAY_MS);
   if (fromForm) setPending(true);
   else showLobby();
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound, onUnreachable });
@@ -161,7 +162,6 @@ function setPending(on) {
   pending = on;
   const button = $('#join-form button');
   button.disabled = on;
-  button.textContent = on ? 'Ansluter…' : 'Jag är med!';
 }
 
 function showLobby() {
@@ -186,6 +186,7 @@ function onUnreachable(reason) {
 
 // Tillbaka till sidan där man anger namn och kod, med ett felmeddelande.
 function leave(message, clearCode, keepPlayer = false) {
+  clearTimeout(connectingTimer);
   net.destroy();
   net = null;
   view = null;
