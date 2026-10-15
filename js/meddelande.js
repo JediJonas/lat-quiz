@@ -45,7 +45,8 @@ function elements() {
 
 const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
-export function showMessage({ key, kind, title, text = '' }) {
+// ms: meddelandet försvinner av sig självt efter så lång tid. Klart försvinner alltid efter en stund.
+export function showMessage({ key, kind, title, text = '', ms = 0 }) {
   const el = elements();
   clearTimeout(hideTimer);
   const same = current && current.key === key && current.kind === kind && current.title === title && current.text === text;
@@ -59,7 +60,7 @@ export function showMessage({ key, kind, title, text = '' }) {
     if (kind === 'problem') alertRow.textContent = spoken;
     else announce(spoken);
   }
-  if (kind === 'ok') hideTimer = setTimeout(() => hideMessage(key), OK_MS);
+  if (kind === 'ok' || ms) hideTimer = setTimeout(() => hideMessage(key), ms || OK_MS);
 }
 
 // Utan key tas meddelandet bort oavsett vad det gäller.

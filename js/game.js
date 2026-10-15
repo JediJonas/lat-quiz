@@ -302,3 +302,15 @@ export function playerView(state, playerId, now) {
   }
   return view;
 }
+
+// Det spelarna ska få veta när spelledaren har ändrat inställningarna eller kategorin under
+// spelet, som en rad text. null om inget som syns för spelarna har ändrats.
+export function settingsChangeText(before, after) {
+  if (!before || !after || !before.settings || !after.settings) return null;
+  const parts = [];
+  if (after.categoryName && after.categoryName !== before.categoryName) parts.push(`Ny kategori: ${after.categoryName}.`);
+  const { bonusMs } = after.settings;
+  if (bonusMs !== before.settings.bonusMs) parts.push(bonusMs ? `Bonus om båda är rätt inom ${bonusMs / 1000} s.` : 'Ingen bonus.');
+  if (after.settings.winScore !== before.settings.winScore) parts.push(`Först till ${after.settings.winScore} p vinner.`);
+  return parts.length ? parts.join(' ') : null;
+}
