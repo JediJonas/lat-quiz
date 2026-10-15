@@ -610,7 +610,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   text-align: left;
   text-decoration: none;
 }
-.menu-item svg { flex: none; width: 22px; height: 22px; fill: var(--muted); }
+.menu-item svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
 /* Bara med mus, så att färgen inte fastnar på raden efter ett tryck på pekskärm. */
 .menu-item:hover { background: none; }
 @media (hover: hover) { .menu-item:hover { background: var(--surface-2); color: var(--text); } }
