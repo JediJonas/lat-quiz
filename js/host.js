@@ -690,7 +690,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       ${running ? `<div class="end-game">
         <button value="end" class="secondary danger-text">Avsluta spelet</button>
       </div>` : ''}
-      ${later ? '<p class="note later-note">Ändringarna gäller från nästa låt.</p>' : ''}
+      ${running ? `<p class="note later-note"${later ? '' : ' hidden'}>Ändringarna gäller från nästa låt.</p>` : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
@@ -852,12 +852,12 @@ function autoNextLeft() {
   return Math.max(0, autoNext.at - (state.pausedAt || Date.now()));
 }
 
-// Anropas av tickern. Väntar medan en ruta som Inställningar är öppen.
+// Anropas av tickern. Nästa låt startar även om en ruta som Inställningar är öppen, eftersom
+// spelarna ser nedräkningen. Ändringar i rutan gäller då från låten efter.
 function checkAutoNext() {
   const left = autoNextLeft();
   if (left === null || state.pausedAt) return;
   if (left > 0) return;
-  if (document.querySelector('dialog[open]')) { autoNext.at = Date.now() + 1000; return; }
   nextSong();
 }
 
@@ -949,6 +949,12 @@ function render() {
   // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
   $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
   updateClipMessage(round);
+  // Nästa låt kan starta medan Inställningar är öppen. Ändringarna gäller då från låten efter,
+  // och Denna låt är okänd gäller den låt som spelas nu.
+  const laterNote = document.querySelector('dialog[open] .later-note');
+  if (laterNote) laterNote.hidden = !round || round.phase === 'revealed';
+  const mark = document.querySelector('dialog[open] #mark-unknown');
+  if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
 }
 
 // Byggs bara om när innehållet ändras, så att fokus stannar kvar.
