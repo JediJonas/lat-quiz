@@ -33,12 +33,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
-  // När ett svar har valts rullar sidan upp, så att ringen och låten syns igen.
-  const answer = (field) => (value) => {
-    local[field] = value;
-    onAnswer(field, value);
-    if (value) scrollToTop();
-  };
+  const answer = (field) => (value) => { local[field] = value; onAnswer(field, value); };
   const fields = {
     artist: autocomplete($('#artist'), [], answer('artist')),
     title: autocomplete($('#title'), [], answer('title')),
