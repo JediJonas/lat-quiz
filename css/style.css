@@ -236,7 +236,7 @@ input:disabled { opacity: 0.55; }
 #guess, #result { min-height: 26.625rem; }
 /* Spelledaren som inte deltar ser bara låten och timern, så rutan blir lägre men lika hög i båda lägena. */
 .watching #guess, .watching #result { min-height: 16rem; }
-#guess label { margin: 12px 0 4px; scroll-margin-top: 8px; }
+#guess label { margin: 12px 0 4px; }
 /* Luft under sidan medan man skriver, så att fältet kan rullas upp överst. */
 body.typing::after { content: ""; display: block; height: 100vh; }
 #guess input { padding-top: 11px; padding-bottom: 11px; }

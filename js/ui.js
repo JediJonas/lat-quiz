@@ -101,11 +101,13 @@ export function scrollToTop() {
 }
 
 // Rullar så att fältet och rubriken över det står överst, så att förslagslistan under
-// fältet får plats. Får listan redan plats under fältet står sidan still. I mobilen
-// öppnas tangentbordet strax efter fokus, så platsen mäts igen när skärmytan har krympt.
-// Avståndet ovanför rubriken står som scroll-margin-top i CSS.
+// fältet får plats. I mobilen görs det alltid. Med mus står sidan still om listan redan
+// får plats under fältet. I mobilen öppnas tangentbordet strax efter fokus, och Safari
+// rullar då själv fram fältet. Läget kontrolleras därför igen när tangentbordet har öppnats
+// och en stund efter, och rullningen sker direkt, eftersom Safari avbryter en mjuk rullning.
 export function scrollFieldToTop(input, heading) {
-  const GAP = 16;
+  const GAP = 8;
+  const touch = matchMedia('(pointer: coarse)').matches;
   const check = () => {
     if (document.activeElement !== input) return;
     const vv = window.visualViewport;
@@ -113,15 +115,23 @@ export function scrollFieldToTop(input, heading) {
     const viewHeight = vv ? vv.height : window.innerHeight;
     const headTop = heading.getBoundingClientRect().top - viewTop;
     const room = viewHeight - (input.getBoundingClientRect().bottom - viewTop);
-    // Får listan minst 45 % av fönstret under fältet behöver sidan inte rulla.
-    if (headTop <= GAP || room >= window.innerHeight * 0.45) return;
-    heading.scrollIntoView({ block: 'start', behavior: smooth() });
+    if (Math.abs(headTop - GAP) <= 4) return;
+    if (!touch && (headTop < GAP || room >= window.innerHeight * 0.45)) return;
+    window.scrollBy({ top: headTop - GAP, behavior: 'auto' });
   };
   check();
-  const vv = window.visualViewport;
-  if (!vv) return;
   let timer = null;
-  const onResize = () => { clearTimeout(timer); timer = setTimeout(check, 100); };
-  vv.addEventListener('resize', onResize);
-  setTimeout(() => vv.removeEventListener('resize', onResize), 1000);
+  const later = () => { clearTimeout(timer); timer = setTimeout(check, 100); };
+  const vv = window.visualViewport;
+  if (vv) vv.addEventListener('resize', later);
+  window.addEventListener('resize', later);
+  const checks = [300, 600, 1000].map((ms) => setTimeout(check, ms));
+  setTimeout(() => {
+    if (vv) vv.removeEventListener('resize', later);
+    window.removeEventListener('resize', later);
+  }, 1500);
+  // Börjar man rulla själv får sidan stå där man lämnar den.
+  const stop = () => { checks.forEach(clearTimeout); clearTimeout(timer); };
+  window.addEventListener('touchmove', stop, { once: true, passive: true });
+  input.addEventListener('blur', stop, { once: true });
 }
