@@ -490,6 +490,32 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 
 /* Förslagslista */
 .ac { position: relative; }
+/* Plats för krysset till höger i svarsfälten. */
+.ac input { padding-right: 52px; }
+/* Krysset som rensar fältet. Hela fältets höjd och 48 px bredd går att trycka på. */
+.clear-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0 12px 12px 0;
+  background: none;
+  box-shadow: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+.clear-input[hidden] { display: none; }
+.clear-input svg { width: 24px; height: 24px; fill: currentColor; }
+.clear-input:hover { background: none; }
+@media (hover: hover) { .clear-input:hover { color: var(--text); } }
+.clear-input:active { color: var(--text); transform: none; }
+.clear-input:focus-visible { outline: 2px solid var(--focus); outline-offset: -4px; }
 .suggestions {
   position: absolute;
   z-index: 10;

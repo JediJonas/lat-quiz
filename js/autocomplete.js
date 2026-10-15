@@ -4,11 +4,14 @@
 // Accenter och skiljetecken spelar ingen roll: "senorita" hittar "Señorita".
 // Fungerar med finger, mus och tangentbord (pilar, Enter och Esc), och
 // skärmläsare får fältet presenterat som en kombinationsruta med lista.
+// Ett kryss i fältet rensar det med ett tryck, så att man kan skriva ett nytt svar direkt.
 
 import { compact, searchIndex, findSuggestions } from './text.js';
 
 const MIN_CHARS = 3;
 const MAX_SHOWN = 50;
+// Material Symbols Rounded (Apache 2.0): cancel, fylld.
+const CLEAR_ICON = '<svg viewBox="0 -960 960 960" aria-hidden="true"><path d="m480-424 116 116q11 11 28 11t28-11q11-11 11-28t-11-28L536-480l116-116q11-11 11-28t-11-28q-11-11-28-11t-28 11L480-536 364-652q-11-11-28-11t-28 11q-11 11-11 28t11 28l116 116-116 116q-11 11-11 28t11 28q11 11 28 11t28-11l116-116Zm0 344q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>';
 
 // onChange(value) anropas med det valda värdet, eller '' när valet tas bort.
 // Listan kan fyllas i senare med setList, medan förslagen fortfarande laddas.
@@ -25,6 +28,33 @@ export function autocomplete(input, list, onChange) {
   input.setAttribute('aria-autocomplete', 'list');
   input.setAttribute('aria-controls', box.id);
   input.setAttribute('aria-expanded', 'false');
+
+  const label = document.querySelector(`label[for="${input.id}"]`);
+  const clear = document.createElement('button');
+  clear.type = 'button';
+  clear.className = 'clear-input';
+  clear.setAttribute('aria-label', label ? `Rensa ${label.textContent.toLowerCase()}` : 'Rensa');
+  clear.title = 'Rensa';
+  clear.innerHTML = CLEAR_ICON;
+  clear.hidden = true;
+  box.before(clear);
+  // Krysset syns bara när det finns något att rensa.
+  const showClear = () => { clear.hidden = !input.value || input.disabled; };
+  // pointerdown så att fältet inte tappar fokus och tangentbordet stängs och öppnas igen.
+  clear.addEventListener('pointerdown', (e) => e.preventDefault());
+  clear.addEventListener('click', () => {
+    input.value = '';
+    if (selected) {
+      selected = '';
+      input.classList.remove('chosen');
+      onChange('');
+    }
+    showClear();
+    // Fokus i fältet, så att man kan skriva ett nytt svar direkt. Var det inte fokuserat
+    // öppnar fokus förslagslistan via render, annars stängs den här.
+    if (document.activeElement === input) render();
+    else input.focus();
+  });
 
   let selected = '';
   let items = list;
@@ -97,6 +127,7 @@ export function autocomplete(input, list, onChange) {
     selected = value;
     input.value = value;
     input.classList.toggle('chosen', Boolean(value));
+    showClear();
     show(false);
     onChange(value);
   }
@@ -143,6 +174,7 @@ export function autocomplete(input, list, onChange) {
       input.classList.remove('chosen');
       onChange('');
     }
+    showClear();
     render();
   });
   input.addEventListener('keydown', (e) => {
@@ -172,6 +204,7 @@ export function autocomplete(input, list, onChange) {
       selected = value || '';
       input.value = selected;
       input.classList.toggle('chosen', Boolean(selected));
+      showClear();
       show(false);
     },
     setList(newList) {
@@ -181,6 +214,7 @@ export function autocomplete(input, list, onChange) {
     },
     disable(disabled) {
       input.disabled = disabled;
+      showClear();
       if (disabled) show(false);
     },
   };
