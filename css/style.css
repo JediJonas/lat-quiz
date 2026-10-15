@@ -14,7 +14,7 @@
   --surface-2: #ebe2fd;
   --text: #1a1530;
   --muted: #554c72;
-  /* Små etikettrubriker som Låt 1 och Poäng är lila. */
+  /* Små etikettrubriker som Låt 1 och Poäng. Lila i ljust läge, grå i mörkt. */
   --label: #4f2fbf;
   /* Mer diskret text, med minst 4.5:1 i kontrast mot rutorna. */
   --tool-bg: #e6defc;
@@ -26,7 +26,6 @@
   --glow-3: rgba(255, 70, 160, 0.42);
   --glow-4: rgba(165, 110, 255, 0.32);
   --me-bg: color-mix(in srgb, var(--accent) 13%, #ffffff);
-  --me-border: transparent;
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -69,9 +68,8 @@
     --glow-2: rgba(30, 215, 96, 0.2);
     --glow-3: rgba(255, 90, 170, 0.16);
     --glow-4: transparent;
-    --label: #b7a6f0;
-    --me-bg: color-mix(in srgb, var(--accent) 14%, var(--bg));
-    --me-border: rgba(30, 215, 96, 0.35);
+    --label: #a49fbd;
+    --me-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
     --accent: #1ed760;
     --accent-hover: #3be477;
     --accent-soft: rgba(30, 215, 96, 0.14);
@@ -107,9 +105,8 @@
   --glow-2: rgba(30, 215, 96, 0.2);
   --glow-3: rgba(255, 90, 170, 0.16);
   --glow-4: transparent;
-  --label: #b7a6f0;
-  --me-bg: color-mix(in srgb, var(--accent) 14%, var(--bg));
-  --me-border: rgba(30, 215, 96, 0.35);
+  --label: #a49fbd;
+  --me-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
   --accent: #1ed760;
   --accent-hover: #3be477;
   --accent-soft: rgba(30, 215, 96, 0.14);
@@ -194,7 +191,7 @@ h1.logo { margin: 16px 0 8px; }
 .logo-small { --w: 88px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
 @media (min-width: 761px) { .logo-small { --w: 112px; } }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
-h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 650; text-transform: uppercase; letter-spacing: 0.08em; color: var(--label); }
+h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--label); }
 h3, .section-title { margin: 2em 0 0.6em; }
 a { color: inherit; text-underline-offset: 3px; }
 @media (hover: hover) { a:not(.button):hover { color: var(--text); } }
@@ -405,7 +402,7 @@ td.score { width: 1.6em; font-size: 1.15rem; font-weight: 750; font-variant-nume
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
-tr.me td { background: var(--me-bg); border-color: var(--me-border); }
+tr.me td { background: var(--me-bg); border-color: transparent; }
 tr.bump td.score { animation: bump 0.7s ease-out; }
 @keyframes bump {
   0% { transform: scale(1); color: var(--text); }
