@@ -8,7 +8,7 @@
 // Ett stående meddelande, till exempel att spelet är pausat, visas när inget annat visas.
 
 import { announce } from './ui.js';
-import { joinedTitle } from './game.js';
+import { joinedMessage } from './game.js';
 
 const OK_MS = 3000;
 // Ikoner: Material Symbols Rounded (Apache 2.0): info_i, pause, check och priority_high.
@@ -98,9 +98,9 @@ export function showJoined(name) {
   joined.push(name);
   clearTimeout(joinedTimer);
   joinedTimer = setTimeout(() => {
-    const title = joinedTitle(joined);
+    const msg = joinedMessage(joined);
     joined = [];
     if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
-    showMessage({ key: 'joined', kind: 'info', title, ms: JOINED_MS });
+    showMessage({ key: 'joined', kind: 'info', ...msg, ms: JOINED_MS });
   }, JOINED_SETTLE_MS);
 }
