@@ -97,7 +97,7 @@ function gameEnded() {
   net.destroy();
   net = null;
   storage(() => localStorage.removeItem(SAVE_KEY));
-  showMessage({ key: 'net', kind: 'info', title: 'Spelet är avslutat', text: 'Tack för att du var med!' });
+  showMessage({ key: 'net', kind: 'info', title: 'Spelet avslutades', text: 'Tack för att du var med!' });
 }
 
 function onStatus(status) {
