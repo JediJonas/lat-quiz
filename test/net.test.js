@@ -10,9 +10,18 @@ class FakeEmitter {
 
 const peers = [];
 class FakePeer extends FakeEmitter {
-  constructor() { super(); this.destroyed = false; this.conns = []; peers.push(this); }
+  constructor() { super(); this.destroyed = false; this.disconnected = false; this.reconnects = 0; this.conns = []; peers.push(this); }
   connect() { const c = new FakeConn(); this.conns.push(c); return c; }
-  reconnect() {}
+  disconnect() {
+    if (this.disconnected) return;
+    this.disconnected = true;
+    this.emit('disconnected');
+  }
+  reconnect() {
+    if (!this.disconnected) throw new Error('inte frånkopplad');
+    this.disconnected = false;
+    this.reconnects++;
+  }
   destroy() { this.destroyed = true; }
 }
 class FakeConn extends FakeEmitter {
@@ -24,8 +33,17 @@ function opened(conn) { conn.open = true; conn.emit('open'); }
 
 globalThis.Peer = FakePeer;
 globalThis.location = { search: '' };
-globalThis.document = { visibilityState: 'visible', addEventListener() {}, removeEventListener() {} };
-const { createClient } = await import('../js/net.js');
+const visibilityListeners = new Set();
+globalThis.document = {
+  visibilityState: 'visible',
+  addEventListener(name, fn) { if (name === 'visibilitychange') visibilityListeners.add(fn); },
+  removeEventListener(name, fn) { visibilityListeners.delete(fn); },
+};
+function setVisibility(state) {
+  document.visibilityState = state;
+  for (const fn of visibilityListeners) fn();
+}
+const { createClient, createHost } = await import('../js/net.js');
 
 function setup() {
   peers.length = 0;
@@ -184,6 +202,68 @@ test('en spelare som har varit ansluten ger aldrig upp', () => {
     assert.ok(peers.length > 4);
   } finally {
     client.destroy();
+    mock.timers.reset();
+  }
+});
+
+function setupHost() {
+  peers.length = 0;
+  mock.timers.enable({ apis: ['setTimeout', 'setInterval', 'Date'] });
+  const errors = [];
+  const host = createHost('ABCD', {
+    onReady() {}, onMessage() {}, onDisconnect() {},
+    onError: (type) => errors.push(type),
+  });
+  return { host, errors };
+}
+
+test('spelledarens förbindelse till förmedlingsservern kopplas upp igen när sidan syns efter en stund', () => {
+  const { host, errors } = setupHost();
+  try {
+    peers[0].emit('open');
+    setVisibility('hidden');
+    mock.timers.tick(30000);
+    setVisibility('visible');
+    assert.equal(peers[0].reconnects, 1);
+    assert.equal(peers[0].disconnected, false);
+    // Det är ingen avbrott att visa för spelledaren.
+    assert.deepEqual(errors, []);
+  } finally {
+    host.destroy();
+    setVisibility('visible');
+    mock.timers.reset();
+  }
+});
+
+test('en kort stund i bakgrunden kopplar inte upp förbindelsen igen', () => {
+  const { host } = setupHost();
+  try {
+    setVisibility('hidden');
+    mock.timers.tick(1000);
+    setVisibility('visible');
+    assert.equal(peers[0].reconnects, 0);
+  } finally {
+    host.destroy();
+    mock.timers.reset();
+  }
+});
+
+test('ett avbrott som redan har kopplats upp igen försöker inte koppla upp en gång till', () => {
+  const { host, errors } = setupHost();
+  try {
+    setVisibility('hidden');
+    mock.timers.tick(6000);
+    // Avbrottet märks precis när sidan syns igen.
+    peers[0].disconnect();
+    assert.deepEqual(errors, ['relay']);
+    setVisibility('visible');
+    assert.equal(peers[0].reconnects, 1);
+    // Den väntande återanslutningen ska inte kasta fel nu när förbindelsen redan är uppe.
+    mock.timers.tick(2000);
+    assert.equal(peers[0].reconnects, 1);
+  } finally {
+    host.destroy();
+    setVisibility('visible');
     mock.timers.reset();
   }
 });
