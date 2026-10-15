@@ -173,9 +173,16 @@ export function createGameView({ onAnswer, onError, host = false }) {
   return {
     // Visar ett nytt läge. playerId är den som tittar, så att egna svar och den egna raden syns.
     update(newView, playerId) {
+      const shown = view !== null;
       view = newView;
       me = playerId;
       const round = view.round;
+      // En ny låt eller en ny match visas överst, om man har scrollat ner till exempel till poängen.
+      // Inte när man precis har gått med, och inte när svaret visas, eftersom det rullar själv.
+      if (shown && (round ? round.number !== roundNumber && round.phase !== 'revealed' : roundNumber !== null)) {
+        scrollToTop();
+      }
+      if (!round) roundNumber = null;
       if (round && round.number !== roundNumber) {
         roundNumber = round.number;
         local.artist = round.answer ? round.answer.artist : '';

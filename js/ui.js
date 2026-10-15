@@ -113,7 +113,7 @@ export function scrollFieldToTop(input, heading) {
     const viewHeight = vv ? vv.height : window.innerHeight;
     const headTop = heading.getBoundingClientRect().top - viewTop;
     const room = viewHeight - (input.getBoundingClientRect().bottom - viewTop);
-    // Listan är högst 45 % av fönstret, som i CSS.
+    // Får listan minst 45 % av fönstret under fältet behöver sidan inte rulla.
     if (headTop <= GAP || room >= window.innerHeight * 0.45) return;
     heading.scrollIntoView({ block: 'start', behavior: smooth() });
   };

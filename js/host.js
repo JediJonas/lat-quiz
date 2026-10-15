@@ -922,11 +922,8 @@ function nextClicked() {
   const choice = nextAction();
   if (!choice) return;
   if (choice.action === 'reveal') revealNow();
-  else if (choice.action === 'restart') {
-    restart();
-    // Spelledaren har scrollat ner till knappen under svaret. Väntetexten och Starta spelet står överst.
-    scrollToTop();
-  }
+  // Spelvyn rullar upp till väntetexten och Starta spelet, både hos spelledaren och spelarna.
+  else if (choice.action === 'restart') restart();
   else nextSong();
 }
 
