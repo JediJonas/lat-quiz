@@ -103,7 +103,7 @@ function gameEnded() {
 function onStatus(status) {
   if (status === 'connected') {
     clearTimeout(connectingTimer);
-    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen', text: 'Du är med i spelet igen.' });
+    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten', text: 'Du är med i spelet igen.' });
     else hideMessage('net');
     connectedOnce = true;
     dropped = false;

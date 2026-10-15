@@ -208,7 +208,7 @@ let netTrouble = false;
 function startNetwork() {
   net = createHost(state.code, {
     onReady: () => {
-      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen', text: 'Du är med i spelet igen.' });
+      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten', text: 'Du är med i spelet igen.' });
       netTrouble = false;
     },
     onMessage,
