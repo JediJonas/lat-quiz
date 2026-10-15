@@ -23,7 +23,7 @@
   --glow-2: rgba(40, 215, 120, 0.4);
   --glow-3: rgba(255, 70, 160, 0.42);
   --glow-4: rgba(165, 110, 255, 0.32);
-  --me-bg: color-mix(in srgb, var(--accent) 7%, #ffffff);
+  --me-bg: color-mix(in srgb, var(--accent) 12%, #f1ecfb);
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
