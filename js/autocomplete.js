@@ -35,8 +35,26 @@ export function autocomplete(input, list, onChange) {
   function show(open) {
     box.hidden = !open;
     input.setAttribute('aria-expanded', String(open));
-    if (!open) setActive(-1);
+    if (open) fit();
+    else setActive(-1);
   }
+
+  // Listan räcker ner till underkanten av det som syns, i mobilen alltså till tangentbordet,
+  // så att inga förslag döljs bakom det. Utan visualViewport gäller höjden i CSS.
+  function fit() {
+    const vv = window.visualViewport;
+    if (!vv || box.hidden) return;
+    const GAP = 8;
+    const visibleBottom = vv.offsetTop + vv.height;
+    const space = visibleBottom - input.getBoundingClientRect().bottom - 6 - GAP; // 6 = listans marginal i CSS
+    box.style.maxHeight = `${Math.max(120, Math.floor(space))}px`;
+  }
+  // Tangentbordet öppnas och sidan rullar medan listan är öppen, så höjden räknas om.
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', fit);
+    window.visualViewport.addEventListener('scroll', fit);
+  }
+  window.addEventListener('scroll', fit, { passive: true });
 
   function setActive(index) {
     if (options[active]) options[active].removeAttribute('aria-selected');
