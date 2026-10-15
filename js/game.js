@@ -320,8 +320,8 @@ export function settingsChangeText(before, after) {
   return parts.length ? parts.join(' ') : null;
 }
 
-// Rubriken när nya spelare har gått med: "Anna, Bo och Cia har gått med i spelet".
-export function joinedTitle(names) {
+// Rutan när nya spelare har gått med: rubriken Ny spelare och till exempel "Anna och Bo har gått med i spelet."
+export function joinedMessage(names) {
   const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} och ${names[names.length - 1]}` : names[0];
-  return `${list} har gått med i spelet`;
+  return { title: names.length > 1 ? 'Nya spelare' : 'Ny spelare', text: `${list} har gått med i spelet.` };
 }

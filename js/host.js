@@ -200,7 +200,7 @@ function onDisconnect(connId) {
 // exempel för Spotify i mobilen. Meddelandet är därför allmänt, som hos spelarna.
 const NET_MESSAGES = {
   relay: { kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' },
-  'unavailable-id': { kind: 'busy', title: 'Väntar på att koden blir ledig…' },
+  'unavailable-id': { kind: 'busy', title: 'Väntar på koden…', text: 'Spelet startar strax.' },
   network: { kind: 'busy', title: 'Ingen anslutning', text: 'Försöker ansluta igen…' },
 };
 let netTrouble = false;
@@ -208,7 +208,7 @@ let netTrouble = false;
 function startNetwork() {
   net = createHost(state.code, {
     onReady: () => {
-      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
+      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten', text: 'Du är med i spelet igen.' });
       netTrouble = false;
     },
     onMessage,
@@ -451,7 +451,7 @@ function playClipClicked() {
 function clipMessage(round) {
   if (!round || round.phase === 'revealed' || !usesDeezer() || clip.round !== round.number) return null;
   if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text: 'Tryck på spela för att försöka igen.' };
-  if (clip.status === 'missing') return { kind: 'problem', title: 'Deezer har inga klipp för låtarna just nu', text: 'Tryck på spela för att försöka igen.' };
+  if (clip.status === 'missing') return { kind: 'problem', title: 'Inga klipp från Deezer', text: 'Tryck på spela för att försöka igen.' };
   if (clip.status === 'blocked') return { kind: 'problem', title: 'Klippet startade inte', text: 'Tryck på spela igen.' };
   return null;
 }

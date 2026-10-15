@@ -73,7 +73,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    showMessage({ key: 'settings', kind: 'info', title: 'Inställningarna har ändrats', text, ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Nya inställningar', text, ms: SETTINGS_MESSAGE_MS });
   }, SETTINGS_SETTLE_MS);
 }
 
@@ -88,7 +88,7 @@ let connectingTimer = null;
 let hostLeft = false;
 
 function showHostLeft() {
-  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på spelledaren…' });
+  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren är borta', text: 'Väntar på spelledaren…' });
 }
 
 // Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
@@ -97,13 +97,13 @@ function gameEnded() {
   net.destroy();
   net = null;
   storage(() => localStorage.removeItem(SAVE_KEY));
-  showMessage({ key: 'net', kind: 'info', title: 'Spelledaren har avslutat spelet', text: 'Tack för att du var med!' });
+  showMessage({ key: 'net', kind: 'info', title: 'Spelet avslutades', text: 'Tack för att du var med!' });
 }
 
 function onStatus(status) {
   if (status === 'connected') {
     clearTimeout(connectingTimer);
-    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
+    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten', text: 'Du är med i spelet igen.' });
     else hideMessage('net');
     connectedOnce = true;
     dropped = false;
@@ -132,7 +132,7 @@ function join(name, code, fromForm) {
   dropped = false;
   hostLeft = false;
   clearTimeout(connectingTimer);
-  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' }), CONNECTING_DELAY_MS);
+  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…', text: 'Det kan ta några sekunder.' }), CONNECTING_DELAY_MS);
   if (fromForm) setPending(true);
   else showLobby();
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound, onUnreachable });
