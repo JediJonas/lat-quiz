@@ -679,9 +679,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   position: fixed;
   z-index: 40;
   left: 50%;
-  /* Ungefär lika långt från Safaris verktygsfält, eller från nederkanten, som på datorn. Safari
-     räknar med verktygsfältet i marginalen, så den dras av nästan helt. */
-  bottom: max(16px, env(safe-area-inset-bottom) - 30px);
+  bottom: var(--panel-bottom);
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
@@ -692,13 +690,20 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   -webkit-backdrop-filter: blur(8px) saturate(180%);
   backdrop-filter: blur(8px) saturate(180%);
   /* En kort skugga som tonar ut innan fönstrets nederkant, så att den inte klipps av i en rak linje. */
-  box-shadow: 0 2px 10px rgba(20, 10, 50, 0.16);
+  box-shadow: 0 3px 14px rgba(20, 10, 50, 0.24);
 }
 .control-panel .icon-btn { width: 52px; height: 52px; }
 .control-panel .icon-btn svg { width: 30px; height: 30px; }
+/* Panelens avstånd från nederkanten: 16 px som på datorn, även över iPhones hemindikator (34 px).
+   Safari på iPhone lämnar själv ungefär 13 px luft ovanför sitt verktygsfält, så där räcker 4 px
+   för att avståndet till fältet ska se ut som på datorn. */
+:root { --panel-bottom: max(16px, env(safe-area-inset-bottom) - 18px); }
+@supports (-webkit-touch-callout: none) {
+  :root { --panel-bottom: max(4px, env(safe-area-inset-bottom) - 18px); }
+}
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
-main.host { padding-bottom: calc(24px + 70px + max(16px, env(safe-area-inset-bottom) - 30px)); }
-body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + max(16px, env(safe-area-inset-bottom) - 30px)); }
+main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
+body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--panel-bottom)); }
 /* På bred skärm med QR-koden bredvid står panelen och meddelandena under spelets kolumn:
    mitten av en kolumn på 640 px längst till höger i en yta på 1040 px minus sidornas luft. */
 @media (min-width: 1040px) {
