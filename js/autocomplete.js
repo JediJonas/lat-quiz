@@ -50,7 +50,19 @@ export function autocomplete(input, list, onChange) {
     // når in under tangentbordet. Hellre en rad för lite än en dold.
     const visibleBottom = Math.min(vv.height, vv.offsetTop + vv.height, window.innerHeight);
     const space = visibleBottom - input.getBoundingClientRect().bottom - 6 - GAP; // 6 = listans marginal i CSS
-    box.style.maxHeight = `${Math.max(120, Math.floor(space))}px`;
+    const limit = Math.max(120, Math.floor(space));
+    // Listan slutar efter den sista raden som får plats helt, så att ingen rad syns till hälften.
+    const style = getComputedStyle(box);
+    const below = parseFloat(style.paddingBottom) + parseFloat(style.borderBottomWidth);
+    const top = box.getBoundingClientRect().top - box.scrollTop;
+    let height = limit;
+    for (const li of box.children) {
+      // Utan avrundning, så att små fel inte lägger ihop sig över raderna.
+      const bottom = li.getBoundingClientRect().bottom - top + below;
+      if (bottom > limit) break;
+      height = bottom;
+    }
+    box.style.maxHeight = `${height}px`;
   }
   // Tangentbordet öppnas och sidan rullar medan listan är öppen, så höjden räknas om.
   if (window.visualViewport) {
