@@ -58,7 +58,7 @@ function onMessage(msg) {
 }
 
 // Spelledaren har ändrat inställningarna eller kategorin. Det visas en kort stund. Under en låt
-// gäller ändringen från nästa låt, men spelarna får veta det direkt.
+// gäller ändringen från nästa låt, men spelarna får veta det direkt, med samma rubrik.
 function checkSettings() {
   if (!knownSettings) { knownSettings = upcomingSettings(view); return; }
   if (!settingsChangeText(knownSettings, upcomingSettings(view))) return;
@@ -69,8 +69,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    const title = view.upcoming ? 'Inställningarna ändras från nästa låt' : 'Inställningarna har ändrats';
-    showMessage({ key: 'settings', kind: 'info', title, text, ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Inställningarna har ändrats', text, ms: SETTINGS_MESSAGE_MS });
   }, SETTINGS_SETTLE_MS);
 }
 

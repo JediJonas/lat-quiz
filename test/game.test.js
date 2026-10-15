@@ -361,7 +361,7 @@ test('settingsChangeText beskriver ändrad kategori, bonus och poänggräns', ()
   assert.equal(settingsChangeText(before, { ...before, settings: { ...before.settings, bonusMs: 0 } }), 'Ingen bonus.');
   assert.equal(
     settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 5000, winScore: 15 } }),
-    'Bonus om båda är rätt inom 5 s. Först till 15 p vinner.',
+    'Bonus för svar inom 5 s. Först till 15 p vinner.',
   );
 });
 
