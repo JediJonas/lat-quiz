@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
+import { normalize } from '../js/text.js';
 
 const read = (path) => JSON.parse(readFileSync(new URL('../' + path, import.meta.url)));
 
@@ -60,6 +61,39 @@ test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
   }, categories);
   assert.deepEqual(result.artists, ['ABBA', 'Eric Saade & Dev']);
   assert.deepEqual(result.titles, ['Carina', "Hey Mr. DJ (Won't You Play Another Love Song)", 'Light Me Up', 'Thorns']);
+});
+
+test('lockbeten städas från undertitlar, fullständiga namn och dubbletter', async () => {
+  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const categories = [{ id: 'svenska', songs: [{ artist: 'Darin', title: 'Sweet Dreams' }] }];
+  const result = cleanDecoys({
+    artists: ['Darin Zanyar', 'Darin Zanyar & Kat DeLuna', 'Kalle Moraeus & Orsa Spelmän', 'Kalle Moraeus & Orsa spelmän'],
+    titles: ['Sweet Dreams (Are Made of This)', 'Sweet Dreams Are Made of This', '15 Minuter', '15 minuter'],
+  }, categories);
+  assert.deepEqual(result.artists, ['Darin Zanyar & Kat DeLuna', 'Kalle Moraeus & Orsa Spelmän']);
+  assert.deepEqual(result.titles, ['15 Minuter', 'Sweet Dreams Are Made of This']);
+});
+
+test('förslagen visar varje svar en gång, med quizlåtens stavning', async () => {
+  const { mergeSuggestions } = await import('../js/data.js');
+  const songs = [
+    { artist: 'Fröken Snusk', title: 'Carpe diem' },
+    { artist: 'FRÖKEN SNUSK', title: 'Unga & fria' },
+  ];
+  const result = mergeSuggestions({ artists: ['Fröken snusk', 'ABBA'], titles: ['Carpe Diem'] }, songs);
+  assert.deepEqual(result, { artists: ['ABBA', 'Fröken Snusk'], titles: ['Carpe diem', 'Unga & fria'] });
+});
+
+test('samma artist stavas likadant i alla kategorier', () => {
+  const spellings = new Map();
+  for (const { file } of read('data/categories.json')) {
+    for (const { artist } of read('data/' + file)) {
+      const key = normalize(artist);
+      spellings.set(key, new Set([...(spellings.get(key) || []), artist]));
+    }
+  }
+  const different = [...spellings.values()].filter((s) => s.size > 1).map((s) => [...s].join(' / '));
+  assert.deepEqual(different, []);
 });
 
 test('varje filmmusiklåt har ledmotivets spårnamn', () => {
