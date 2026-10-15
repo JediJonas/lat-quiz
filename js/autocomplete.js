@@ -39,11 +39,16 @@ export function autocomplete(input, list, onChange) {
     else setActive(-1);
   }
 
-  // Listan räcker ner till underkanten av det som syns, i mobilen alltså till tangentbordet,
-  // så att inga förslag döljs bakom det. Utan visualViewport gäller höjden i CSS.
+  // Listan räcker ner till underkanten av det som syns, i mobilen alltså till tangentbordet.
+  // Den rullas inte. Den visar de träffar som får plats helt och sist en rad om att det finns
+  // fler. Utan visualViewport gäller höjden i CSS och listan rullas som förut.
+  let allOptions = []; // alla träffar som byggts, även de som inte får plats
+  let total = 0; // antal träffar, även fler än som byggts
+  let more = null; // raden "… och N till"
+  let lastLimit = null;
   function fit() {
     const vv = window.visualViewport;
-    if (!vv || box.hidden) return;
+    if (!vv || box.hidden || !more) return;
     const GAP = 8;
     // Webbläsarna räknar fältets läge olika när tangentbordet är uppe: från den synliga ytan
     // eller från hela sidfönstret. Den minsta tänkbara platsen används, så att listan aldrig
@@ -51,18 +56,38 @@ export function autocomplete(input, list, onChange) {
     const visibleBottom = Math.min(vv.height, vv.offsetTop + vv.height, window.innerHeight);
     const space = visibleBottom - input.getBoundingClientRect().bottom - 6 - GAP; // 6 = listans marginal i CSS
     const limit = Math.max(120, Math.floor(space));
-    // Listan slutar efter den sista raden som får plats helt, så att ingen rad syns till hälften.
+    if (limit === lastLimit) return;
+    lastLimit = limit;
+    box.style.maxHeight = 'none';
+    for (const li of allOptions) li.hidden = false;
+    setMore(allOptions.length);
     const style = getComputedStyle(box);
     const below = parseFloat(style.paddingBottom) + parseFloat(style.borderBottomWidth);
-    const top = box.getBoundingClientRect().top - box.scrollTop;
-    let height = limit;
-    for (const li of box.children) {
-      // Utan avrundning, så att små fel inte lägger ihop sig över raderna.
-      const bottom = li.getBoundingClientRect().bottom - top + below;
-      if (bottom > limit) break;
-      height = bottom;
+    if (box.getBoundingClientRect().height <= limit) { useOptions(allOptions.length); return; }
+    // Så många hela rader som får plats tillsammans med raden om att det finns fler.
+    // Utan avrundning, så att små fel inte lägger ihop sig över raderna.
+    more.hidden = false;
+    more.textContent = `… och ${total} till. Skriv mer.`;
+    const noteHeight = more.getBoundingClientRect().height;
+    const top = box.getBoundingClientRect().top;
+    let fits = 0;
+    for (const li of allOptions) {
+      if (li.getBoundingClientRect().bottom - top + noteHeight + below > limit) break;
+      fits++;
     }
-    box.style.maxHeight = `${height}px`;
+    fits = Math.max(1, fits);
+    allOptions.forEach((li, i) => { li.hidden = i >= fits; });
+    setMore(fits);
+    useOptions(fits);
+  }
+  function setMore(shown) {
+    more.hidden = total <= shown;
+    more.textContent = `… och ${total - shown} till. Skriv mer.`;
+  }
+  // Bara de synliga raderna går att välja med piltangenterna.
+  function useOptions(count) {
+    if (active >= count) setActive(-1);
+    options = allOptions.slice(0, count);
   }
   // Tangentbordet öppnas och sidan rullar medan listan är öppen, så höjden räknas om.
   if (window.visualViewport) {
@@ -98,6 +123,7 @@ export function autocomplete(input, list, onChange) {
     li.setAttribute('role', 'presentation');
     li.textContent = text;
     box.append(li);
+    return li;
   }
 
   function render() {
@@ -119,9 +145,17 @@ export function autocomplete(input, list, onChange) {
       box.append(li);
       options.push(li);
     }
+    allOptions = options;
+    total = hits.length;
+    more = null;
+    lastLimit = null;
+    box.style.maxHeight = '';
     if (items.length === 0) note('Laddar förslag…');
     else if (hits.length === 0) note('Inga träffar');
-    else if (hits.length > MAX_SHOWN) note(`… och ${hits.length - MAX_SHOWN} till. Skriv mer.`);
+    else {
+      more = note(`… och ${hits.length - MAX_SHOWN} till. Skriv mer.`);
+      more.hidden = hits.length <= MAX_SHOWN;
+    }
     show(true);
   }
 
