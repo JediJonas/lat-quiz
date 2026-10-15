@@ -23,7 +23,7 @@
   --glow-2: rgba(40, 215, 120, 0.4);
   --glow-3: rgba(255, 70, 160, 0.42);
   --glow-4: rgba(165, 110, 255, 0.32);
-  --me-bg: color-mix(in srgb, var(--accent) 7%, #ffffff);
+  --me-bg: color-mix(in srgb, var(--accent) 12%, #f1ecfb);
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -700,6 +700,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 :root { --panel-bottom: max(16px, env(safe-area-inset-bottom) - 18px); }
 @supports (-webkit-touch-callout: none) {
   :root { --panel-bottom: max(4px, env(safe-area-inset-bottom) - 18px); }
+  /* Skuggan hålls inom de 4 px under panelen och sprids i stället uppåt och åt sidorna,
+     så att sidans nederkant inte skär av den i en rak linje. */
+  .control-panel { box-shadow: 0 -6px 18px -6px rgba(20, 10, 50, 0.24); }
 }
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
 main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
