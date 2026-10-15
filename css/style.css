@@ -679,8 +679,9 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   position: fixed;
   z-index: 40;
   left: 50%;
-  /* I mobilen räcker hemindikatorns marginal, så att panelen inte hamnar dubbelt så högt upp. */
-  bottom: max(16px, env(safe-area-inset-bottom));
+  /* Lika långt från nederkanten som på datorn, även över iPhones hemindikator (34 px). Bara en
+     ännu större marginal, till exempel i liggande läge, flyttar upp panelen. */
+  bottom: max(16px, env(safe-area-inset-bottom) - 18px);
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
@@ -696,8 +697,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .control-panel .icon-btn { width: 52px; height: 52px; }
 .control-panel .icon-btn svg { width: 30px; height: 30px; }
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
-main.host { padding-bottom: calc(24px + 70px + max(16px, env(safe-area-inset-bottom))); }
-body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + max(16px, env(safe-area-inset-bottom))); }
+main.host { padding-bottom: calc(24px + 70px + max(16px, env(safe-area-inset-bottom) - 18px)); }
+body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + max(16px, env(safe-area-inset-bottom) - 18px)); }
 /* På bred skärm med QR-koden bredvid står panelen och meddelandena under spelets kolumn:
    mitten av en kolumn på 640 px längst till höger i en yta på 1040 px minus sidornas luft. */
 @media (min-width: 1040px) {
