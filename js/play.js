@@ -91,6 +91,13 @@ function showHostLeft() {
   showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren är borta', text: 'Väntar på spelledaren…' });
 }
 
+// Webbläsaren kan säga att spelledarens sida lämnas fast den finns kvar, till exempel när den
+// sparas för bakåtknappen eller fryses i mobilen. Hörs spelledaren igen på samma förbindelse
+// är spelledaren tillbaka, och rutan ska inte stå kvar.
+function onHeard() {
+  if (hostLeft) onStatus('connected');
+}
+
 // Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
 // försöka ansluta, och en omladdning visar sidan där man anger kod.
 function gameEnded() {
@@ -135,7 +142,7 @@ function join(name, code, fromForm) {
   connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…', text: 'Det kan ta några sekunder.' }), CONNECTING_DELAY_MS);
   if (fromForm) setPending(true);
   else showLobby();
-  net = createClient(code, { onOpen, onMessage, onStatus, onNotFound, onUnreachable });
+  net = createClient(code, { onOpen, onMessage, onHeard, onStatus, onNotFound, onUnreachable });
 }
 
 // Spelaren kan visa en QR-kod för att få med fler spelare. Länken är samma som den man själv gick med via.

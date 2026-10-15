@@ -267,3 +267,30 @@ test('ett avbrott som redan har kopplats upp igen försöker inte koppla upp en 
     mock.timers.reset();
   }
 });
+
+test('spelaren får veta varje gång något hörs från spelledaren, även ping', () => {
+  peers.length = 0;
+  mock.timers.enable({ apis: ['setTimeout', 'setInterval', 'Date'] });
+  let heard = 0;
+  const messages = [];
+  const client = createClient('ABCD', {
+    onOpen() {},
+    onMessage: (msg) => messages.push(msg.type),
+    onHeard: () => heard++,
+    onStatus() {},
+    onNotFound() {},
+    onUnreachable() {},
+  });
+  try {
+    peers[0].emit('open');
+    const conn = peers[0].conns[0];
+    opened(conn);
+    conn.emit('data', { type: 'leaving' });
+    conn.emit('data', { type: 'ping' });
+    assert.equal(heard, 2);
+    assert.deepEqual(messages, ['leaving']);
+  } finally {
+    client.destroy();
+    mock.timers.reset();
+  }
+});
