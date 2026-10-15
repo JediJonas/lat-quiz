@@ -73,7 +73,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    showMessage({ key: 'settings', kind: 'info', title: 'Inställningarna har ändrats', text, ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Nya inställningar', text, ms: SETTINGS_MESSAGE_MS });
   }, SETTINGS_SETTLE_MS);
 }
 
@@ -88,7 +88,7 @@ let connectingTimer = null;
 let hostLeft = false;
 
 function showHostLeft() {
-  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren har lämnat spelet', text: 'Väntar på spelledaren…' });
+  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren är borta', text: 'Väntar på spelledaren…' });
 }
 
 // Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
@@ -97,7 +97,7 @@ function gameEnded() {
   net.destroy();
   net = null;
   storage(() => localStorage.removeItem(SAVE_KEY));
-  showMessage({ key: 'net', kind: 'info', title: 'Spelledaren har avslutat spelet', text: 'Tack för att du var med!' });
+  showMessage({ key: 'net', kind: 'info', title: 'Spelet är avslutat', text: 'Tack för att du var med!' });
 }
 
 function onStatus(status) {
