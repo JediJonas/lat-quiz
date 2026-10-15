@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = new URL('../', import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), 'utf8');
-export const PAGES = ['index.html', 'host.html', 'play.html', 'om.html'];
+export const PAGES = ['index.html', 'host.html', 'play.html'];
 const MODULES = readdirSync(new URL('js/', root)).filter((f) => f.endsWith('.js')).sort();
 
 export function version() {

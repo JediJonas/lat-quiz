@@ -3,7 +3,9 @@ import { createClient } from './net.js';
 import { hideMessage, showJoined, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
 import { settingsChangeText, upcomingSettings } from './game.js';
-import { mountUserSettings } from './theme.js';
+import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
+import { showConfirm } from './dialog.js';
+import { scrollToTop } from './ui.js';
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;
@@ -167,15 +169,12 @@ function renderJoinInfo() {
 
 function setQrVisible(visible) {
   $('#join-info').hidden = !visible;
-  $('#show-qr').setAttribute('aria-expanded', String(visible));
-  $('#show-qr').title = visible ? 'Dölj QR-koden' : 'Visa QR-koden';
 }
 
-// QR-koden ligger under poängtabellen. När spelaren öppnar eller stänger den rullar sidan längst ner,
-// så att koden respektive menyn syns.
-function toggleQr(visible) {
-  setQrVisible(visible);
-  window.scrollTo({ top: document.documentElement.scrollHeight, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+// QR-koden ligger överst, som hos spelledaren. Sidan rullar upp så att den syns.
+function showQr() {
+  setQrVisible(true);
+  scrollToTop();
 }
 
 let copiedTimer = null;
@@ -220,6 +219,31 @@ function onUnreachable(reason) {
   leave(message, false, true);
 }
 
+// Spelaren lämnar spelet och hamnar på startsidan. Spelaren sparas, så att den som går med
+// igen med samma kod får tillbaka sina poäng.
+async function leaveGame() {
+  const ok = await showConfirm('Du kan gå med igen med samma kod och får då tillbaka dina poäng.', {
+    title: 'Lämna spelet?', okText: 'Lämna', danger: true,
+  });
+  if (!ok) return;
+  if (net) net.destroy();
+  net = null;
+  const params = new URLSearchParams(location.search);
+  params.delete('kod');
+  const query = params.toString();
+  location.href = 'index.html' + (query ? '?' + query : '');
+}
+
+// Före spelet finns samma rader som på startsidan. I spelet kan spelaren visa QR-koden och lämna spelet.
+function menuGroups() {
+  if ($('#lobby').hidden) return [startItems(), commonItems()];
+  return [
+    [{ label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: !$('#join-info').hidden || !net }],
+    commonItems(),
+    [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame, danger: true }],
+  ];
+}
+
 // Tillbaka till sidan där man anger namn och kod, med ett felmeddelande.
 function leave(message, clearCode, keepPlayer = false) {
   clearTimeout(connectingTimer);
@@ -254,9 +278,8 @@ async function init() {
   $('#code-input').value = code;
   if (saved) $('#name-input').value = saved.name;
 
-  mountUserSettings();
-  $('#show-qr').addEventListener('click', () => toggleQr($('#join-info').hidden));
-  $('#hide-qr').addEventListener('click', () => toggleQr(false));
+  mountMenu($('main'), menuGroups);
+  $('#hide-qr').addEventListener('click', () => setQrVisible(false));
   $('#copy-link').addEventListener('click', copyLink);
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();

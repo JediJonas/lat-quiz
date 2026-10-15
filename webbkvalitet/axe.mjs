@@ -42,10 +42,24 @@ const host = await (await browser.newContext({ viewport: { width: 1280, height: 
 const player = await (await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })).newPage();
 for (const page of [host, player]) page.on('pageerror', (e) => problems.push('Skriptfel: ' + e.message));
 
+// Menyn uppe till höger öppnas med knappen och stängs med Esc. Om spelet är en ruta.
+async function openMenu(page) {
+  await page.click('main:not([hidden]) .menu-button');
+  await page.waitForSelector('main:not([hidden]) .menu-panel:not([hidden])');
+}
+async function closeMenu(page) {
+  await page.keyboard.press('Escape');
+  if (await page.$('main:not([hidden]) .menu-panel:not([hidden])')) problems.push('Menyn: Esc stängde inte menyn');
+}
+
 await host.goto(BASE + 'index.html' + PEER);
 await check(host, 'Startsidan');
-await host.goto(BASE + 'om.html' + PEER);
+await openMenu(host);
+await check(host, 'Startsidan, menyn');
+await host.click('.menu-item:has-text("Om spelet")');
+await host.waitForSelector('dialog.about[open]');
 await check(host, 'Om spelet');
+await host.keyboard.press('Escape');
 await host.goto(BASE + 'verktyg/spotify-id.html');
 await check(host, 'Verktyget för Spotify-ID');
 
@@ -63,6 +77,9 @@ await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
 const code = await host.textContent('#code');
 await check(host, 'Spelledare, lobby');
+await openMenu(host);
+await check(host, 'Spelledare, menyn');
+await closeMenu(host);
 
 await player.goto(BASE + 'play.html' + PEER);
 await player.waitForSelector('#join:not([hidden])');
@@ -72,6 +89,12 @@ await player.fill('#code-input', code);
 await player.click('#join-form button');
 await player.waitForSelector('#lobby:not([hidden])', { timeout: 20000 });
 await check(player, 'Spelare, väntar');
+await openMenu(player);
+await check(player, 'Spelare, menyn');
+await player.click('.menu-item:has-text("Visa QR-kod")');
+await player.waitForSelector('#join-info:not([hidden])');
+await check(player, 'Spelare, QR-kod');
+await player.click('#hide-qr');
 
 // Deezer nås inte här. Låten besvaras med ett klipp som är en kort tystnad.
 const PREVIEW = 'https://cdnt-preview.dzcdn.net/test.wav';

@@ -39,7 +39,7 @@ export function mountSwitch(el, label, isOn, toggle) {
 }
 
 // Utseendet gäller den här enheten och inte spelet.
-function showUserSettings() {
+export function showUserSettings() {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.setAttribute('aria-labelledby', 'user-settings-title');
@@ -65,14 +65,4 @@ function showUserSettings() {
   document.body.append(dialog);
   dialog.showModal();
   dialog.focus();
-}
-
-// Gör alla knappar med klassen user-settings till ikonknappen Utseende.
-export function mountUserSettings() {
-  for (const el of document.querySelectorAll('.user-settings')) {
-    el.innerHTML = '<svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM500-140q137-10 228.5-106T820-480q0-138-91.5-234T500-820v680Z"/></svg>';
-    el.setAttribute('aria-label', 'Utseende');
-    el.title = 'Utseende';
-    el.addEventListener('click', showUserSettings);
-  }
 }

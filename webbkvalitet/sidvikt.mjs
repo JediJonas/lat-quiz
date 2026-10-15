@@ -5,12 +5,12 @@ import { gzipSync } from 'node:zlib';
 const root = new URL('../', import.meta.url);
 const read = (path) => readFileSync(new URL(path, root));
 const songs = JSON.parse(read('data/categories.json')).map((c) => 'data/' + c.file);
-const common = ['css/style.css', 'vendor/fonts/inter.woff2', 'favicon.svg', 'logo.svg', 'js/theme.js'];
+const common = ['css/style.css', 'vendor/fonts/inter.woff2', 'favicon.svg', 'logo.svg', 'js/theme.js', 'js/meny.js', 'js/om.js',
+  'js/dialog.js'];
 const pages = {
   'index.html': [...common],
-  'om.html': [...common],
   'host.html': [...common, 'vendor/peerjs.min.js', 'vendor/qrcode.js', 'js/host.js', 'js/game.js', 'js/net.js',
-    'js/data.js', 'js/dialog.js', 'js/ui.js', 'js/text.js', 'data/categories.json'],
+    'js/data.js', 'js/ui.js', 'js/text.js', 'data/categories.json'],
   'play.html': [...common, 'vendor/peerjs.min.js', 'js/play.js', 'js/net.js', 'js/data.js', 'js/autocomplete.js',
     'js/ui.js', 'js/text.js', 'data/categories.json', 'data/forslag.json', ...songs],
 };

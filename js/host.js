@@ -7,7 +7,8 @@ import { showAlert, showConfirm } from './dialog.js';
 import { hideMessage, showJoined, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
-import { mountSwitch, mountUserSettings } from './theme.js';
+import { mountSwitch } from './theme.js';
+import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
 const SAVE_KEY = 'latquiz-host';
@@ -269,6 +270,17 @@ function setHostPlays(plays) {
   hostPlays = plays;
   $('#host-name-row').hidden = !plays;
   $('#host-name').required = plays;
+  renderSettingsSummary();
+}
+
+// Raden Inställningar på Starta nytt spel visar vad som gäller. Ändra öppnar samma ruta som i menyn.
+function renderSettingsSummary() {
+  const s = loadSettings();
+  const music = MUSIC_SERVICES.find((m) => m.id === loadMusic()).name;
+  const parts = [`Först till ${s.winScore} poäng`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', music];
+  if (!hostPlays) parts.push('Du deltar inte');
+  // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 s.
+  $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
 }
 
 async function startGame(categoryId, resumeState, name, plays = true) {
@@ -663,7 +675,7 @@ function wireHostPlays(dialog) {
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
-// running: ett spel pågår och kan avslutas härifrån. Returnerar då { end: true } om spelledaren avslutar.
+// running: ett spel pågår.
 // later: en låt pågår, så ändringarna gäller först från nästa låt.
 // music: vald musiktjänst.
 function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, later = false, music = 'deezer' } = {}) {
@@ -671,7 +683,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
-      <h2>Inställningar</h2>
+      <h2>Spelinställningar</h2>
       ${categories ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
@@ -688,9 +700,6 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       </select>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
-      ${running ? `<div class="end-game">
-        <button value="end" class="secondary danger-text">Avsluta spelet</button>
-      </div>` : ''}
       ${running ? `<p class="note later-note"${later ? '' : ' hidden'}>Ändringarna gäller från nästa låt.</p>` : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
@@ -698,7 +707,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       </div>
     </form>`;
   // En rullista skickar inte formuläret med Enter, så Enter sparar här. I namnfältet skulle
-  // Enter annars trycka på formulärets första knapp, Avsluta spelet.
+  // Enter annars trycka på formulärets första knapp, Avbryt.
   dialog.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT')) {
       e.preventDefault();
@@ -721,8 +730,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
     dialog.addEventListener('close', () => {
       const form = dialog.querySelector('form');
       const values = Object.fromEntries(new FormData(form));
-      if (dialog.returnValue === 'end') resolve({ end: true });
-      else resolve(dialog.returnValue === 'ok'
+      resolve(dialog.returnValue === 'ok'
         ? {
           ...game.cleanSettings(values),
           ...(categories ? { categoryId: values.categoryId } : {}),
@@ -745,7 +753,6 @@ async function editSettings() {
   const music = pending ? pending.music : state ? state.music : loadMusic();
   const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), later, music });
   if (!chosen) return;
-  if (chosen.end) { endGame(); return; }
   const { categoryId, host, music: chosenMusic, ...settings } = chosen;
   saveSettings(settings);
   saveMusic(chosenMusic);
@@ -795,7 +802,6 @@ async function switchCategory(chosen) {
 function showJoinInfo() {
   const url = joinUrl();
   $('#code').textContent = state.code;
-  $('#show-qr').title = `Visa eller dölj QR-koden (kod ${state.code})`;
   setQrVisible(true);
   $('#join-url').textContent = url;
   $('#join-url').href = url;
@@ -829,7 +835,23 @@ $('#copy-link').addEventListener('click', async () => {
 function setQrVisible(visible) {
   $('#join-info').hidden = !visible;
   $('#game').classList.toggle('qr-hidden', !visible);
-  $('#show-qr').setAttribute('aria-expanded', String(visible));
+}
+
+// QR-koden visas överst, och sidan rullar upp så att den syns.
+function showQr() {
+  setQrVisible(true);
+  scrollToTop();
+}
+
+// I spelet finns QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet samma rader som på startsidan.
+function menuGroups() {
+  const settings = { label: 'Spelinställningar', icon: MENU_ICONS.settings, action: editSettings };
+  if (!state) return [startItems(), [settings], commonItems()];
+  return [
+    [{ label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
+    commonItems(),
+    [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame, danger: true }],
+  ];
 }
 
 const svg = (body) => `<svg viewBox="0 -960 960 960" aria-hidden="true">${body}</svg>`;
@@ -927,7 +949,7 @@ function nextClicked() {
   else nextSong();
 }
 
-// Samma vy som spelarna ser, och ovanför den spelledarens ikonbar.
+// Samma vy som spelarna ser, och under den spelledarens kontrollpanel.
 // Panelen byggs bara om när den ändras, så att fokus stannar kvar.
 function render() {
   $('#category').textContent = category.name;
@@ -940,7 +962,7 @@ function render() {
     || Boolean(state.winners && round.phase === 'revealed');
   const play = playAction();
   setButton($('#play'), play, 'Spela');
-  // Spela och pausa delar plats i ikonbaren. Pausa visas bara när spela inte går att använda.
+  // Spela och pausa delar plats i kontrollpanelen. Pausa visas bara när spela inte går att använda.
   showOne($('#play'), $('#pause'), Boolean(play) || $('#pause').disabled, focused);
   // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
   $('#start-game').hidden = !(play && play.action === 'start');
@@ -981,9 +1003,8 @@ document.addEventListener('click', (e) => {
   else if (id === 'start-game') { playClicked(); $('#play').focus({ preventScroll: true }); }
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
-  else if (id === 'settings' || id === 'game-settings') editSettings();
+  else if (id === 'settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
-  else if (id === 'show-qr') setQrVisible($('#join-info').hidden);
 });
 
 // Safari på iPhone visar bara :active-läget när sidan lyssnar på touchstart.
@@ -1045,7 +1066,9 @@ const scriptsLoaded = new Promise((resolve) => {
 });
 
 async function init() {
-  mountUserSettings();
+  mountMenu($('#setup'), menuGroups);
+  mountMenu($('#game'), menuGroups);
+  renderSettingsSummary();
   $('#host-name').value = loadName();
   $('#setup-form').addEventListener('submit', (e) => {
     e.preventDefault();
