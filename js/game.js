@@ -315,7 +315,13 @@ export function settingsChangeText(before, after) {
   const parts = [];
   if (after.categoryName && after.categoryName !== before.categoryName) parts.push(`Ny kategori: ${after.categoryName}.`);
   const { bonusMs } = after.settings;
-  if (bonusMs !== before.settings.bonusMs) parts.push(bonusMs ? `Bonus om båda är rätt inom ${bonusMs / 1000} s.` : 'Ingen bonus.');
+  if (bonusMs !== before.settings.bonusMs) parts.push(bonusMs ? `Bonus för svar inom ${bonusMs / 1000} s.` : 'Ingen bonus.');
   if (after.settings.winScore !== before.settings.winScore) parts.push(`Först till ${after.settings.winScore} p vinner.`);
   return parts.length ? parts.join(' ') : null;
+}
+
+// Rubriken när nya spelare har gått med: "Anna, Bo och Cia har gått med i spelet".
+export function joinedTitle(names) {
+  const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} och ${names[names.length - 1]}` : names[0];
+  return `${list} har gått med i spelet`;
 }

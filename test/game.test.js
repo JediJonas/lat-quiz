@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
+  cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, joinedTitle, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
 } from '../js/game.js';
 
 const songs = [
@@ -361,7 +361,7 @@ test('settingsChangeText beskriver ändrad kategori, bonus och poänggräns', ()
   assert.equal(settingsChangeText(before, { ...before, settings: { ...before.settings, bonusMs: 0 } }), 'Ingen bonus.');
   assert.equal(
     settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 5000, winScore: 15 } }),
-    'Bonus om båda är rätt inom 5 s. Först till 15 p vinner.',
+    'Bonus för svar inom 5 s. Först till 15 p vinner.',
   );
 });
 
@@ -370,4 +370,10 @@ test('upcomingSettings ger inställningarna som gäller från nästa låt', () =
   assert.equal(upcomingSettings(view), view);
   const upcoming = { categoryName: '90-tal', settings: { roundMs: 30000, bonusMs: 15000, winScore: 20 } };
   assert.equal(settingsChangeText(view, upcomingSettings({ ...view, upcoming })), 'Ny kategori: 90-tal. Först till 20 p vinner.');
+});
+
+test('joinedTitle räknar upp de nya spelarna', () => {
+  assert.equal(joinedTitle(['Anna']), 'Anna har gått med i spelet');
+  assert.equal(joinedTitle(['Anna', 'Bo']), 'Anna och Bo har gått med i spelet');
+  assert.equal(joinedTitle(['Anna', 'Bo', 'Cia']), 'Anna, Bo och Cia har gått med i spelet');
 });

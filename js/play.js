@@ -1,6 +1,6 @@
 // Spelarvyn i mobilen.
 import { createClient } from './net.js';
-import { hideMessage, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
 import { settingsChangeText, upcomingSettings } from './game.js';
 import { mountUserSettings } from './theme.js';
@@ -47,6 +47,11 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type === 'ended') { gameEnded(); return; }
   if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
+  if (msg.type === 'new-match') {
+    showMessage({ key: 'new-match', kind: 'info', title: 'Ny match', text: 'Poängen är nollställda.', ms: SETTINGS_MESSAGE_MS });
+    return;
+  }
+  if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
@@ -57,7 +62,7 @@ function onMessage(msg) {
 }
 
 // Spelledaren har ändrat inställningarna eller kategorin. Det visas en kort stund. Under en låt
-// gäller ändringen från nästa låt, men spelarna får veta det direkt.
+// gäller ändringen från nästa låt, men spelarna får veta det direkt, med samma rubrik.
 function checkSettings() {
   if (!knownSettings) { knownSettings = upcomingSettings(view); return; }
   if (!settingsChangeText(knownSettings, upcomingSettings(view))) return;
@@ -68,8 +73,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    const title = view.upcoming ? 'Inställningarna ändras från nästa låt' : 'Inställningarna har ändrats';
-    showMessage({ key: 'settings', kind: 'info', title, text, ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Inställningarna har ändrats', text, ms: SETTINGS_MESSAGE_MS });
   }, SETTINGS_SETTLE_MS);
 }
 
