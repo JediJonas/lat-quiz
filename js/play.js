@@ -180,7 +180,7 @@ function onNotFound() {
 function onUnreachable(reason) {
   const message = reason === 'relay'
     ? 'Det gick inte att ansluta. Kontrollera att du har internet och försök igen.'
-    : `Spelet med koden ${me.code} svarar inte. Kontrollera att spelledarens sida är öppen och försök igen.`;
+    : `Spelet med koden ${me.code} svarar inte. Kontrollera att spelledarens sida är öppen och försök igen. Är du på ett gästnät? Prova samma wifi som spelledaren eller mobildata.`;
   leave(message, false, true);
 }
 
