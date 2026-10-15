@@ -684,8 +684,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   border: 1px solid var(--border);
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface-solid) 35%, transparent);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   box-shadow: var(--shadow);
 }
 .control-panel .icon-btn { width: 52px; height: 52px; }
