@@ -108,6 +108,15 @@ await player.keyboard.press('Enter');
 if (!(await player.$eval('#artist', (el) => el.classList.contains('chosen')))) {
   problems.push('Förslagslistan: Enter valde inget svar');
 }
+// Krysset rensar det valda svaret och lämnar fokus i fältet.
+await player.click('#artist ~ .clear-input');
+if (await player.$eval('#artist', (el) => el.value !== '' || el.classList.contains('chosen') || document.activeElement !== el)) {
+  problems.push('Krysset: fältet rensades inte eller tappade fokus');
+}
+await player.keyboard.type('the');
+await player.waitForSelector('#artist-suggestions [role=option]');
+await player.keyboard.press('ArrowDown');
+await player.keyboard.press('Enter');
 
 // Spelledaren gissar i samma fält som spelarna.
 await host.focus('#artist');
