@@ -43,9 +43,14 @@ export function cleanDecoys(forslag, categories) {
   // Samma låt med undertitel, som "Sweet Dreams (Are Made of This)" när svaret är "Sweet Dreams".
   const isSubtitled = (title) => SUBTITLE.test(title) && answers.titles.has(normalize(title.replace(SUBTITLE, '')));
   // Hela namnet på en artist som svaret anger med ett ord, som "Darin Zanyar" när svaret är "Darin".
-  // Samarbeten med & eller + får vara kvar.
   const isFullName = (artist) => !/\s[&+]\s/.test(artist)
     && [...answers.artists].some((a) => !a.includes(' ') && normalize(artist).startsWith(a + ' '));
+  // Samarbeten där någon är ett rätt svar, som "Eminem & Dr. Dre" när svaret är "Eminem", eller
+  // har ett rätt svars fullständiga namn, som "Darin Zanyar & Kat DeLuna". Samarbeten
+  // som är rätt svar finns ändå med, eftersom alla quizlåtars artister läggs till i förslagen.
+  const hasAnswer = (artist) => artist.split(/\s+[&+]\s+/)
+    .some((p) => answers.artists.has(normalize(p)) || isFullName(p));
+  const isConfusable = (artist) => isFullName(artist) || (/\s[&+]\s/.test(artist) && hasAnswer(artist));
   const clean = (items, fix, wanted, extra) => {
     // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas.
     const seen = new Map();
@@ -55,7 +60,7 @@ export function cleanDecoys(forslag, categories) {
     return [...seen.values()];
   };
   return {
-    artists: clean(forslag.artists, cleanArtist, answers.artists, isFullName),
+    artists: clean(forslag.artists, cleanArtist, answers.artists, isConfusable),
     titles: clean(forslag.titles, cleanTitle, answers.titles, (t) => isSequel(t) || isSubtitled(t)),
   };
 }

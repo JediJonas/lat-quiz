@@ -63,14 +63,15 @@ test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
   assert.deepEqual(result.titles, ['Carina', "Hey Mr. DJ (Won't You Play Another Love Song)", 'Light Me Up', 'Thorns']);
 });
 
-test('lockbeten städas från undertitlar, fullständiga namn och dubbletter', async () => {
+test('lockbeten städas från undertitlar, fullständiga namn, samarbeten med rätt artist och dubbletter', async () => {
   const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
   const categories = [{ id: 'svenska', songs: [{ artist: 'Darin', title: 'Sweet Dreams' }] }];
   const result = cleanDecoys({
-    artists: ['Darin Zanyar', 'Darin Zanyar & Kat DeLuna', 'Kalle Moraeus & Orsa Spelmän', 'Kalle Moraeus & Orsa spelmän'],
+    artists: ['Darin Zanyar', 'Darin & Kat DeLuna', 'Kat DeLuna & Darin', 'Darin Zanyar & Kat DeLuna',
+      'Kalle Moraeus & Orsa Spelmän', 'Kalle Moraeus & Orsa spelmän'],
     titles: ['Sweet Dreams (Are Made of This)', 'Sweet Dreams Are Made of This', '15 Minuter', '15 minuter'],
   }, categories);
-  assert.deepEqual(result.artists, ['Darin Zanyar & Kat DeLuna', 'Kalle Moraeus & Orsa Spelmän']);
+  assert.deepEqual(result.artists, ['Kalle Moraeus & Orsa Spelmän']);
   assert.deepEqual(result.titles, ['15 Minuter', 'Sweet Dreams Are Made of This']);
 });
 
