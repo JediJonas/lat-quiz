@@ -3,7 +3,7 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderPie, renderRing, scoreTracker, statusTags } from './ui.js';
+import { announce, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -33,11 +33,26 @@ export function createGameView({ onAnswer, onError, host = false }) {
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
-  const answer = (field) => (value) => { local[field] = value; onAnswer(field, value); };
+  // När ett svar har valts rullar sidan upp, så att ringen och låten syns igen.
+  const answer = (field) => (value) => {
+    local[field] = value;
+    onAnswer(field, value);
+    if (value) scrollToTop();
+  };
   const fields = {
     artist: autocomplete($('#artist'), [], answer('artist')),
     title: autocomplete($('#title'), [], answer('title')),
   };
+  // Fältet man skriver i rullas upp, så att fler förslag syns under det. Under tiden får
+  // sidan luft längst ner, så att den går att rulla så långt även när den är kort.
+  for (const id of ['artist', 'title']) {
+    const input = $(`#${id}`);
+    input.addEventListener('focus', () => {
+      document.body.classList.add('typing');
+      scrollFieldToTop(input, $(`label[for=${id}]`));
+    });
+    input.addEventListener('blur', () => document.body.classList.remove('typing'));
+  }
   // Förslagslistan är stor. Den laddas i bakgrunden, så att sidan visas direkt.
   loadSuggestions().then((suggestions) => {
     fields.artist.setList(suggestions.artists);
@@ -134,12 +149,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
         ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
         ${next || view.deezer ? `<div class="result-foot">${next}<p class="note clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
-      // öppen. Svaret ska synas överst. När tangentbordet stängs i iPhone kan Safari avbryta den
-      // mjuka scrollningen, så sidan hoppar upp om den ändå inte har kommit hela vägen.
+      // öppen. Svaret ska synas överst.
       if (fresh) {
         if (document.activeElement && $('#guess').contains(document.activeElement)) document.activeElement.blur();
-        window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-        setTimeout(() => { if (window.scrollY > 0) window.scrollTo({ top: 0 }); }, 800);
+        scrollToTop();
       }
       shownResult = round.number;
       announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${r.points} poäng.` : ''}`

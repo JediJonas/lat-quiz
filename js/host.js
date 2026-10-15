@@ -6,6 +6,7 @@ import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { hideMessage, showJoined, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
+import { scrollToTop } from './ui.js';
 import { mountSwitch, mountUserSettings } from './theme.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
@@ -910,7 +911,7 @@ function playClicked() {
     setQrVisible(false);
     nextSong();
     // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
-    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    scrollToTop();
   }
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
@@ -921,7 +922,11 @@ function nextClicked() {
   const choice = nextAction();
   if (!choice) return;
   if (choice.action === 'reveal') revealNow();
-  else if (choice.action === 'restart') restart();
+  else if (choice.action === 'restart') {
+    restart();
+    // Spelledaren har scrollat ner till knappen under svaret. Väntetexten och Starta spelet står överst.
+    scrollToTop();
+  }
   else nextSong();
 }
 
@@ -971,7 +976,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'next') nextClicked();
   // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare.
   else if (id === 'start-game') { playClicked(); $('#play').focus({ preventScroll: true }); }
-  else if (id === 'new-match') { nextClicked(); $('#start-game').focus(); }
+  else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
   else if (id === 'settings' || id === 'game-settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);

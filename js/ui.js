@@ -87,3 +87,41 @@ export function announce(text) {
   lastAnnounced = text;
   el.textContent = text;
 }
+
+const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+
+// Rullar till toppen. När tangentbordet stängs i iPhone kan Safari avbryta den mjuka
+// scrollningen, så sidan hoppar upp om den ändå inte har kommit hela vägen. Har man
+// hunnit gå till nästa fält får det stå kvar där.
+export function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: smooth() });
+  setTimeout(() => {
+    if (window.scrollY > 0 && !document.activeElement?.matches('input')) window.scrollTo({ top: 0 });
+  }, 800);
+}
+
+// Rullar så att fältet och rubriken över det står överst, så att förslagslistan under
+// fältet får plats. Får listan redan plats under fältet står sidan still. I mobilen
+// öppnas tangentbordet strax efter fokus, så platsen mäts igen när skärmytan har krympt.
+// Avståndet ovanför rubriken står som scroll-margin-top i CSS.
+export function scrollFieldToTop(input, heading) {
+  const GAP = 16;
+  const check = () => {
+    if (document.activeElement !== input) return;
+    const vv = window.visualViewport;
+    const viewTop = vv ? vv.offsetTop : 0;
+    const viewHeight = vv ? vv.height : window.innerHeight;
+    const headTop = heading.getBoundingClientRect().top - viewTop;
+    const room = viewHeight - (input.getBoundingClientRect().bottom - viewTop);
+    // Listan är högst 45 % av fönstret, som i CSS.
+    if (headTop <= GAP || room >= window.innerHeight * 0.45) return;
+    heading.scrollIntoView({ block: 'start', behavior: smooth() });
+  };
+  check();
+  const vv = window.visualViewport;
+  if (!vv) return;
+  let timer = null;
+  const onResize = () => { clearTimeout(timer); timer = setTimeout(check, 100); };
+  vv.addEventListener('resize', onResize);
+  setTimeout(() => vv.removeEventListener('resize', onResize), 1000);
+}
