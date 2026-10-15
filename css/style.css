@@ -689,7 +689,8 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   background: color-mix(in srgb, var(--surface-solid) 55%, transparent);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-  box-shadow: var(--shadow);
+  /* En kort skugga som tonar ut innan fönstrets nederkant, så att den inte klipps av i en rak linje. */
+  box-shadow: 0 2px 10px rgba(20, 10, 50, 0.16);
 }
 .control-panel .icon-btn { width: 52px; height: 52px; }
 .control-panel .icon-btn svg { width: 30px; height: 30px; }
