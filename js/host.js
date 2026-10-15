@@ -531,7 +531,8 @@ async function endGame() {
     net.destroy();
   }
   if (ticker) ticker.stop();
-  location.href = location.pathname + location.search;
+  // Tillbaka till startsidan, med eventuella testparametrar.
+  location.href = 'index.html' + location.search;
 }
 
 const SETTING_FIELDS = [
