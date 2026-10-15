@@ -1,4 +1,4 @@
-// Om spelet, som en ruta. Den går att läsa när som helst, även under ett spel.
+// Om Låtquiz, som en ruta. Den går att läsa när som helst, även under ett spel.
 
 const TEXT = `
   <p class="lead">Utmana familj och vänner och tävla om vem som känner igen flest låtar, direkt i webbläsaren.</p>
@@ -24,7 +24,7 @@ export function showAbout() {
   dialog.setAttribute('aria-labelledby', 'about-title');
   dialog.innerHTML = `
     <form method="dialog">
-      <h2 id="about-title">Om spelet</h2>
+      <h2 id="about-title">Om Låtquiz</h2>
       ${TEXT}
       <div class="modal-actions">
         <button value="ok">Stäng</button>

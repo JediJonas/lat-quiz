@@ -1,5 +1,5 @@
 // Menyn uppe till höger, samma på alla sidor. Det som används sällan ligger här: gå med i spel,
-// starta nytt spel, QR-kod, inställningar, Om spelet, Utseende och att lämna eller avsluta spelet.
+// starta nytt spel, QR-kod, inställningar, Om Låtquiz, Utseende och att lämna eller avsluta spelet.
 // Raderna har ikon och text. Rader som inte går att använda just nu visas inte.
 import { showUserSettings } from './theme.js';
 import { showAbout } from './om.js';
@@ -38,7 +38,7 @@ export function startItems() {
 // Raderna som finns överallt.
 export function commonItems() {
   return [
-    { label: 'Om spelet', icon: ICONS.about, action: showAbout },
+    { label: 'Om Låtquiz', icon: ICONS.about, action: showAbout },
     { label: 'Utseende', icon: ICONS.appearance, action: showUserSettings },
   ];
 }
