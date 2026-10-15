@@ -47,6 +47,10 @@ function onOpen() {
 function onMessage(msg) {
   if (msg.type === 'ended') { gameEnded(); return; }
   if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
+  if (msg.type === 'new-match') {
+    showMessage({ key: 'new-match', kind: 'info', title: 'Ny match', text: 'Poängen är nollställda.', ms: SETTINGS_MESSAGE_MS });
+    return;
+  }
   if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;

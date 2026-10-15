@@ -489,10 +489,12 @@ function unknownCheckbox() {
     </div>`;
 }
 
+// Spelarna får veta att en ny match har börjat. Spelledaren har själv valt det.
 function restart() {
   stopClip();
   game.restart(state);
   changed();
+  for (const connId of connToPlayer.keys()) net.send(connId, { type: 'new-match' });
 }
 
 function startRound() {
