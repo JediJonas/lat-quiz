@@ -139,7 +139,8 @@ export function createHost(code, handlers) {
   };
 }
 
-// handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline' | 'host-missing'),
+// handlers: onOpen(), onMessage(msg), onHeard() varje gång något kommer från spelledaren, även ping,
+// onStatus('connecting' | 'connected' | 'offline' | 'host-missing'),
 // onNotFound() när det inte finns något spel med koden, onUnreachable(reason) när
 // anslutningen aldrig har lyckats efter flera försök: 'relay' om förmedlingsservern inte
 // gick att nå, 'host' om spelledaren aldrig svarade.
@@ -221,6 +222,7 @@ export function createClient(code, handlers) {
     c.on('data', (msg) => {
       if (conn !== c) return;
       lastSeen = Date.now();
+      if (handlers.onHeard) handlers.onHeard();
       if (msg && msg.type === 'ping') { c.send({ type: 'pong' }); return; }
       handlers.onMessage(msg);
     });
