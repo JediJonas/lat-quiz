@@ -557,15 +557,12 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   to { opacity: 1; transform: translateX(-50%); }
 }
 
-/* Menyn uppe till höger: en rund knapp med bara menyikonen, lika stor som knapparna i kontrollpanelen
-   och i linje med loggans överkant. Listan har ikon och text på varje rad. */
+/* Menyn uppe till höger: en rund knapp med bara menyikonen, lika stor som knapparna i kontrollpanelen.
+   Den står lika långt från överkanten som kontrollpanelen från nederkanten, på alla sidor. Listan har ikon och text på varje rad. */
 .menu {
   --menu-size: 52px;
-  position: absolute; z-index: 60; top: calc(12px + 16px + env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
+  position: absolute; z-index: 60; top: calc(16px + env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
 }
-/* Under spelet står menyn bredvid den lilla loggan och kategorin, i linje med loggans överkant. */
-main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(23px + env(safe-area-inset-top)); }
-@media (min-width: 761px) { main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(26px + env(safe-area-inset-top)); } }
 .player-head { padding-right: 64px; }
 .menu-button {
   display: grid;
