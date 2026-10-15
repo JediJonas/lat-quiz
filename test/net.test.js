@@ -31,12 +31,13 @@ function setup() {
   peers.length = 0;
   mock.timers.enable({ apis: ['setTimeout', 'setInterval', 'Date'] });
   const statuses = [];
-  const events = { opens: 0, notFound: 0 };
+  const events = { opens: 0, notFound: 0, unreachable: [] };
   const client = createClient('ABCD', {
     onOpen: () => events.opens++,
     onMessage() {},
     onStatus: (s) => statuses.push(s),
     onNotFound: () => events.notFound++,
+    onUnreachable: (reason) => events.unreachable.push(reason),
   });
   return { client, statuses, events };
 }
@@ -131,6 +132,56 @@ test('saknas spelledaren efter att vi har varit anslutna försöker klienten ige
     assert.equal(events.notFound, 0);
     mock.timers.tick(2000);
     assert.equal(peers.length, 3);
+  } finally {
+    client.destroy();
+    mock.timers.reset();
+  }
+});
+
+test('svarar spelledaren aldrig får en ny spelare veta det efter tre försök', () => {
+  const { client, events } = setup();
+  try {
+    // Förmedlingsservern svarar, men spelledaren gör det aldrig. Förr stod det "Ansluter…" för alltid.
+    peers[0].emit('open');
+    mock.timers.tick(8000);
+    mock.timers.tick(1000);
+    peers[1].emit('open');
+    mock.timers.tick(8000);
+    assert.deepEqual(events.unreachable, []);
+    mock.timers.tick(2000);
+    peers[2].emit('open');
+    mock.timers.tick(8000);
+    assert.deepEqual(events.unreachable, ['host']);
+    mock.timers.tick(60000);
+    assert.equal(peers.length, 3);
+  } finally {
+    client.destroy();
+    mock.timers.reset();
+  }
+});
+
+test('nås inte förmedlingsservern får en ny spelare veta det', () => {
+  const { client, events } = setup();
+  try {
+    for (const ms of [8000, 1000, 8000, 2000]) mock.timers.tick(ms);
+    assert.deepEqual(events.unreachable, []);
+    mock.timers.tick(8000);
+    assert.deepEqual(events.unreachable, ['relay']);
+  } finally {
+    client.destroy();
+    mock.timers.reset();
+  }
+});
+
+test('en spelare som har varit ansluten ger aldrig upp', () => {
+  const { client, events } = setup();
+  try {
+    peers[0].emit('open');
+    opened(peers[0].conns[0]);
+    peers[0].conns[0].emit('close');
+    for (let i = 0; i < 60; i++) mock.timers.tick(2000);
+    assert.deepEqual(events.unreachable, []);
+    assert.ok(peers.length > 4);
   } finally {
     client.destroy();
     mock.timers.reset();

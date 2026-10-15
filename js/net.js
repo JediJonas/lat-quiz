@@ -9,6 +9,8 @@ const PING_MS = 4000;
 const SILENCE_MS = 12000;
 // Så länge får ett anslutningsförsök ta innan spelaren försöker igen.
 const CONNECT_MS = 8000;
+// Så många försök får en ny spelare innan appen ger upp och säger att spelet inte svarar.
+const FIRST_ATTEMPTS = 3;
 
 // För lokal testning kan en egen PeerJS-server anges i adressen,
 // till exempel ?peerHost=localhost&peerPort=9000.
@@ -114,10 +116,12 @@ export function createHost(code, handlers) {
 }
 
 // handlers: onOpen(), onMessage(msg), onStatus('connecting' | 'connected' | 'offline' | 'host-missing'),
-// onNotFound() när det inte finns något spel med koden.
+// onNotFound() när det inte finns något spel med koden, onUnreachable(reason) när
+// anslutningen aldrig har lyckats efter flera försök: 'relay' om förmedlingsservern inte
+// gick att nå, 'host' om spelledaren aldrig svarade.
 // 'host-missing' betyder att nätet fungerar men spelledaren inte finns, till exempel när
 // spelledarens flik är stängd.
-// Klienten försöker ansluta igen av sig själv tills destroy() anropas.
+// Har klienten varit ansluten en gång försöker den ansluta igen av sig själv tills destroy() anropas.
 export function createClient(code, handlers) {
   let peer = null;
   let conn = null;
@@ -127,6 +131,9 @@ export function createClient(code, handlers) {
   let attemptTimer = null;
   let destroyed = false;
   let everConnected = false;
+  let failedAttempts = 0;
+  // Sant när förmedlingsservern har svarat under något av försöken.
+  let relayReached = false;
 
   function closePeer() {
     clearTimeout(attemptTimer);
@@ -146,7 +153,11 @@ export function createClient(code, handlers) {
     closePeer();
     const p = new Peer(peerOptions());
     peer = p;
-    p.on('open', () => { if (peer === p) openConnection(); });
+    p.on('open', () => {
+      if (peer !== p) return;
+      relayReached = true;
+      openConnection();
+    });
     p.on('error', (err) => {
       if (peer !== p) return;
       // Spelledaren finns inte. Har vi aldrig varit anslutna är koden fel
@@ -196,6 +207,12 @@ export function createClient(code, handlers) {
   function scheduleRetry() {
     if (destroyed) return;
     closePeer();
+    // En ny spelare som aldrig har kommit fram får veta det i stället för att vänta för alltid,
+    // till exempel när spelledarens sida inte går att nå från spelarens nät.
+    if (!everConnected && ++failedAttempts >= FIRST_ATTEMPTS) {
+      handlers.onUnreachable(relayReached ? 'host' : 'relay');
+      return;
+    }
     handlers.onStatus('offline');
     clearTimeout(retryTimer);
     retryTimer = setTimeout(connect, retryDelay);

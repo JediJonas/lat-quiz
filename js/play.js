@@ -105,7 +105,7 @@ function join(name, code, fromForm) {
   showConnecting = !fromForm;
   if (fromForm) setPending(true);
   else showLobby();
-  net = createClient(code, { onOpen, onMessage, onStatus, onNotFound });
+  net = createClient(code, { onOpen, onMessage, onStatus, onNotFound, onUnreachable });
 }
 
 // Spelaren kan visa en QR-kod för att få med fler spelare. Länken är samma som den man själv gick med via.
@@ -175,14 +175,23 @@ function onNotFound() {
   leave(`Det finns inget aktivt spel med koden ${me.code}. Kontrollera koden och försök igen.`, true);
 }
 
+// Anslutningen lyckades aldrig, fast spelet finns. Koden står kvar, och spelaren sparas så att
+// ett nytt försök går med som samma spelare och inte får namnet upptaget av sig själv.
+function onUnreachable(reason) {
+  const message = reason === 'relay'
+    ? 'Det gick inte att ansluta. Kontrollera att du har internet och försök igen.'
+    : `Spelet med koden ${me.code} svarar inte. Kontrollera att spelledarens sida är öppen och försök igen.`;
+  leave(message, false, true);
+}
+
 // Tillbaka till sidan där man anger namn och kod, med ett felmeddelande.
-function leave(message, clearCode) {
+function leave(message, clearCode, keepPlayer = false) {
   net.destroy();
   net = null;
   view = null;
   setQrVisible(false);
   hideMessage('net');
-  storage(() => localStorage.removeItem(SAVE_KEY));
+  if (!keepPlayer) storage(() => localStorage.removeItem(SAVE_KEY));
   const params = new URLSearchParams(location.search);
   if (clearCode) {
     params.delete('kod');
