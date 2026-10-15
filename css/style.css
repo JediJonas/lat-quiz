@@ -14,7 +14,7 @@
   --surface-2: #ebe2fd;
   --text: #1a1530;
   --muted: #554c72;
-  /* Små etikettrubriker som Låt 1 och Poäng. Lila i ljust läge, grå i mörkt. */
+  /* Små etikettrubriker som Låt 1 och Poäng är lila. */
   --label: #4f2fbf;
   /* Mer diskret text, med minst 4.5:1 i kontrast mot rutorna. */
   --tool-bg: #e6defc;
@@ -25,8 +25,8 @@
   --glow-2: rgba(40, 215, 120, 0.4);
   --glow-3: rgba(255, 70, 160, 0.42);
   --glow-4: rgba(165, 110, 255, 0.32);
-  --answer-bg: linear-gradient(135deg, rgba(124, 77, 255, 0.3), rgba(255, 90, 170, 0.2) 50%, rgba(30, 215, 96, 0.28));
   --me-bg: color-mix(in srgb, var(--accent) 13%, #ffffff);
+  --me-border: transparent;
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -69,9 +69,9 @@
     --glow-2: rgba(30, 215, 96, 0.2);
     --glow-3: rgba(255, 90, 170, 0.16);
     --glow-4: transparent;
-    --label: #a49fbd;
-    --answer-bg: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2));
-    --me-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
+    --label: #b7a6f0;
+    --me-bg: color-mix(in srgb, var(--accent) 20%, var(--bg));
+    --me-border: rgba(30, 215, 96, 0.35);
     --accent: #1ed760;
     --accent-hover: #3be477;
     --accent-soft: rgba(30, 215, 96, 0.14);
@@ -107,9 +107,9 @@
   --glow-2: rgba(30, 215, 96, 0.2);
   --glow-3: rgba(255, 90, 170, 0.16);
   --glow-4: transparent;
-  --label: #a49fbd;
-  --answer-bg: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2));
-  --me-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
+  --label: #b7a6f0;
+  --me-bg: color-mix(in srgb, var(--accent) 20%, var(--bg));
+  --me-border: rgba(30, 215, 96, 0.35);
   --accent: #1ed760;
   --accent-hover: #3be477;
   --accent-soft: rgba(30, 215, 96, 0.14);
@@ -405,7 +405,7 @@ td.score { width: 1.6em; font-size: 1.15rem; font-weight: 750; font-variant-nume
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
-tr.me td { background: var(--me-bg); border-color: transparent; }
+tr.me td { background: var(--me-bg); border-color: var(--me-border); }
 tr.bump td.score { animation: bump 0.7s ease-out; }
 @keyframes bump {
   0% { transform: scale(1); color: var(--text); }
@@ -462,7 +462,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .pie-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
 
 /* Rätt svar */
-.answer { text-align: center; margin: 8px 0 12px; padding: 20px 16px; border-radius: var(--radius); background: var(--answer-bg); border: 1px solid var(--border); }
+.answer { text-align: center; margin: 8px 0 12px; padding: 20px 16px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(124, 77, 255, 0.22), rgba(30, 215, 96, 0.2)); border: 1px solid var(--border); }
 .answer .title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; }
 .answer .artist { font-size: 1.1rem; color: var(--muted); margin-top: 4px; }
 .reveal { animation: reveal 0.35s ease-out; }
