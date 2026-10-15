@@ -103,7 +103,7 @@ function gameEnded() {
 function onStatus(status) {
   if (status === 'connected') {
     clearTimeout(connectingTimer);
-    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen' });
+    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten igen', text: 'Du är med i spelet igen.' });
     else hideMessage('net');
     connectedOnce = true;
     dropped = false;
@@ -132,7 +132,7 @@ function join(name, code, fromForm) {
   dropped = false;
   hostLeft = false;
   clearTimeout(connectingTimer);
-  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…' }), CONNECTING_DELAY_MS);
+  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…', text: 'Det kan ta några sekunder.' }), CONNECTING_DELAY_MS);
   if (fromForm) setPending(true);
   else showLobby();
   net = createClient(code, { onOpen, onMessage, onStatus, onNotFound, onUnreachable });
