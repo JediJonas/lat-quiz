@@ -859,7 +859,7 @@ function menuGroups() {
   return [
     [{ label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
     commonItems(),
-    [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame, danger: true }],
+    [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
   ];
 }
 

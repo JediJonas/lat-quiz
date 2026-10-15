@@ -47,7 +47,7 @@ let count = 0;
 
 // groups() returnerar grupper av rader, som skiljs åt med ett streck. Den anropas varje gång
 // menyn öppnas, så att raderna följer läget i spelet. En rad är { label, icon } och antingen
-// href eller action, och kan vara disabled, current (sidan man är på) eller danger (röd).
+// href eller action, och kan vara disabled eller current (sidan man är på).
 export function mountMenu(container, groups) {
   const id = `menu-list-${++count}`;
   const nav = document.createElement('nav');
@@ -72,7 +72,7 @@ export function mountMenu(container, groups) {
       for (const item of group) {
         const li = document.createElement('li');
         const el = document.createElement(item.href ? 'a' : 'button');
-        el.className = 'menu-item' + (item.danger ? ' danger-item' : '');
+        el.className = 'menu-item';
         el.innerHTML = item.icon;
         el.append(item.label);
         if (item.href) {

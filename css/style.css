@@ -618,8 +618,6 @@ main:has(#lobby:not([hidden])) > .menu, main.host > .menu { top: calc(23px + env
 .menu-item:focus-visible { outline-offset: -2px; }
 /* Sidan man redan är på. */
 .menu-item[aria-current="page"] { background: var(--btn-bg); font-weight: 600; }
-.menu-item.danger-item { color: var(--bad); }
-.menu-item.danger-item svg { fill: var(--bad); }
 
 /* Raden Inställningar på Starta nytt spel: vad som gäller, och knappen Ändra. */
 .field-label { font-size: 0.9rem; font-weight: 600; margin: 16px 0 6px; }

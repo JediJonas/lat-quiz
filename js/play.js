@@ -246,7 +246,7 @@ function menuGroups() {
   return [
     [{ label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: !$('#join-info').hidden || !net }],
     commonItems(),
-    [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame, danger: true }],
+    [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame }],
   ];
 }
 
