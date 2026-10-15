@@ -2,10 +2,12 @@
 import { createClient } from './net.js';
 import { hideMessage, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
+import { settingsChangeText } from './game.js';
 import { mountUserSettings } from './theme.js';
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;
+const SETTINGS_MESSAGE_MS = 4000;
 const $ = (sel) => document.querySelector(sel);
 
 let me = null; // { playerId, name, code }
@@ -43,6 +45,9 @@ function onMessage(msg) {
   if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
+  // Spelledaren har ändrat inställningarna eller kategorin. Visas en kort stund.
+  const change = settingsChangeText(view, msg.view);
+  if (change) showMessage({ key: 'settings', kind: 'info', title: 'Inställningarna har ändrats', text: change, ms: SETTINGS_MESSAGE_MS });
   view = msg.view;
   $('#category-name').textContent = view.categoryName || '';
   gameView.update(view, me.playerId);

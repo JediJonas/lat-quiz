@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, nameTaken, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
+  cleanSettings, applySettings, changeCategory, settingsChangeText, nameTaken, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
 } from '../js/game.js';
 
 const songs = [
@@ -351,4 +351,16 @@ test('en låt som saknas hos musiktjänsten byts ut och räknas som spelad', () 
   assert.ok(state.playedIds.includes(first.id), 'den överhoppade låten slumpas inte igen');
   startRound(state, 1000);
   assert.equal(replaceSong(state, songs), null, 'byts inte när låten har börjat');
+});
+
+test('settingsChangeText beskriver ändrad kategori, bonus och poänggräns', () => {
+  const before = { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 15000, winScore: 10 } };
+  assert.equal(settingsChangeText(null, before), null);
+  assert.equal(settingsChangeText(before, { ...before }), null);
+  assert.equal(settingsChangeText(before, { ...before, categoryName: '90-tal' }), 'Ny kategori: 90-tal.');
+  assert.equal(settingsChangeText(before, { ...before, settings: { ...before.settings, bonusMs: 0 } }), 'Ingen bonus.');
+  assert.equal(
+    settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 5000, winScore: 15 } }),
+    'Bonus om båda är rätt inom 5 s. Först till 15 p vinner.',
+  );
 });
