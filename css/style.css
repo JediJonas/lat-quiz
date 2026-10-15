@@ -847,3 +847,7 @@ button.danger:hover { filter: brightness(1.08); }
     scroll-behavior: auto !important;
   }
 }
+
+/* Efter ett tryck på pekskärm visas inga fokusringar (js/meny.js). Med tangentbordet syns de som vanligt. */
+[data-touch] :focus-visible { outline: none; }
+[data-touch] button.theme-switch:focus-visible .track { box-shadow: none; }
