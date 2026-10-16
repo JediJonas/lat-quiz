@@ -9,6 +9,16 @@ import { setStandingMessage } from './meddelande.js';
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
+// Konfettin när någon vinner: bitarna sprids över hela bredden och släpps i omgångar, så att
+// det regnar en stund. Var bit får egen fart, sidledsdrift och snurr.
+const CONFETTI_COLORS = ['#ffd166', '#fff', '#7cf0b0', '#ff9ecb'];
+function confetti(count = 40) {
+  const rand = (min, max) => min + Math.random() * (max - min);
+  return Array.from({ length: count }, (_, i) => `<i style="--x:${rand(-2, 98).toFixed(1)}%;`
+    + `--d:${rand(0, 1.8).toFixed(2)}s;--t:${rand(1.8, 2.8).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
+    + `--r:${rand(-540, 540).toFixed(0)}deg;--c:${CONFETTI_COLORS[i % CONFETTI_COLORS.length]}"></i>`).join('');
+}
+
 // Reglerna som små etiketter medan alla väntar på första låten, i stället för en lång mening.
 // Etiketterna följer kategorins ord, till exempel 1 p för kompositör.
 function rules(view) {
@@ -213,7 +223,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
       const clip = view.deezer ? '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>' : '';
       const cover = winner
-        ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${'<i></i>'.repeat(9)}</div>
+        ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
           <p class="round-label">Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}</p>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
           <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
