@@ -421,7 +421,8 @@ td:last-child { padding-right: 16px; }
 td.name { font-weight: 650; }
 /* Placeringen står först och poängen sist, stort och till höger, som i en topplista. */
 td.rank { width: 22px; text-align: center; font-size: 1.0625rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
-td.rank.first { color: var(--bonus); }
+/* Ettan står i textfärg i stället för gult, så att den inte förväxlas med bonusen. */
+td.rank.first { color: var(--text); }
 td.score { width: 30px; text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
 /* Initialen i en rund bricka, i en färg som följer namnet. */
@@ -482,7 +483,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
 .podium td { height: 66px; }
 .podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
-.podium td.rank.first { color: var(--bonus); -webkit-text-stroke: 0; }
+.podium td.rank.first { color: var(--text); -webkit-text-stroke: 0; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -722,7 +723,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   align-items: center;
   gap: 12px;
   box-sizing: border-box;
-  width: min(460px, calc(100vw - 24px));
+  /* I mobilen står rutan en bit innanför korten under, så att den syns ligga ovanpå dem. */
+  width: min(460px, calc(100vw - 56px));
   margin: 0;
   padding: 14px 16px;
   border-radius: 26px;
@@ -905,6 +907,8 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 }
 .start-text, .start-buttons { position: relative; z-index: 1; }
 .start-text { margin-top: auto; padding: 0 6px; }
+/* På dator är skärmen hög nog, så loggan och texten börjar där hyllan tonar ut i stället för längst ner. */
+@media (min-width: 601px) and (hover: hover) and (pointer: fine) { .start-text { margin-top: 350px; } }
 .start .logo { width: 240px; margin: 0; }
 .start .lead { font-size: 1.375rem; font-weight: 650; letter-spacing: -0.025em; line-height: 1.25; margin: 12px 0 0; }
 .start .start-sub { margin: 8px 0 28px; color: var(--muted); }
@@ -919,7 +923,8 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .code-box {
   display: grid;
   place-items: center;
-  height: 82px;
+  /* Kvadratiska på alla bredder: 82 px i en mobil som är 390 px bred, större på dator. */
+  aspect-ratio: 1;
   border-radius: 20px;
   background: var(--surface-solid);
   font-size: 2.25rem;
@@ -986,11 +991,11 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   border-radius: 50%;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2312823f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
 }
-/* På dator, med mus, står alla kategorier i ett rutnät i stället. */
+/* På dator, med mus, väljs kategorin i en rullgardin under namnet i stället för bland omslag. */
+.cat-select-row { display: none; }
 @media (hover: hover) and (pointer: fine) {
-  .cat-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); row-gap: 16px; margin: 0; padding: 4px 0 8px; overflow: visible; }
-  .cat-option { width: auto; }
-  .cat-option .tile { width: 100%; height: auto; aspect-ratio: 1; }
+  .cat-picker { display: none; }
+  .field-row.cat-select-row { display: grid; }
 }
 /* I mobilen står Dra igång! längst ner på skärmen, där tummen når den. */
 @media (max-width: 600px) {
@@ -1006,12 +1011,13 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .host { display: grid; grid-template-columns: 300px minmax(0, var(--game-width)); justify-content: center; gap: 40px; max-width: 1012px; margin: 0 auto; }
 .host.qr-hidden { grid-template-columns: minmax(0, 1fr); max-width: calc(var(--game-width) + 32px); }
 /* QR-rutan och rutan med låten är vanliga kort, som spelarens rutor. */
-.join-info { align-self: start; position: sticky; top: 28px; margin: 28px 0 0; padding: 24px; border-radius: 28px; text-align: center; }
+/* Kortets överkant står i linje med loggans. Stängknappen har en egen rad ovanför QR-koden, så att den inte går in i kodens vita ruta. */
+.join-info { align-self: start; position: sticky; top: 25px; margin: 13px 0 0; padding: 52px 24px 24px; border-radius: 28px; text-align: center; }
 .join-info .qr svg, .join-info-player .qr svg { padding: 14px; border-radius: 18px; }
 .close-qr {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 10px;
+  right: 10px;
   width: 36px;
   height: 36px;
   margin: 0;
@@ -1029,7 +1035,7 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .join-info p { margin: 16px 0 0; color: var(--muted); font-size: 0.9375rem; }
 .join-info .code { margin-top: 4px; padding-left: 0.16em; font-size: 2.75rem; font-weight: 850; letter-spacing: 0.16em; }
 /* Spelarens QR-ruta ligger överst under rubriken, som hos spelledaren i mobilen. */
-.join-info-player { padding: 44px 24px 24px; border-radius: 28px; text-align: center; }
+.join-info-player { padding: 52px 24px 24px; border-radius: 28px; text-align: center; }
 .join-info-player .qr { max-width: 258px; margin: 0 auto; }
 .join-info-player p { margin: 16px 0 0; color: var(--muted); font-size: 0.9375rem; }
 .join-info-player .code { margin-top: 4px; padding-left: 0.16em; font-size: 2.75rem; font-weight: 850; letter-spacing: 0.16em; }
@@ -1169,13 +1175,17 @@ a.icon-btn { text-decoration: none; }
 .modal.about {
   width: 100%; max-width: none; height: 100%; max-height: none; margin: 0;
   padding: calc(24px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom));
-  overflow-y: auto; border: none; border-radius: 0; background: none; box-shadow: none;
+  overflow-y: auto; overscroll-behavior: contain; border: none; border-radius: 0; background: none; box-shadow: none;
 }
+/* Medan en ruta är öppen står sidan bakom still, så att bara rutan rullar. */
+html:has(dialog[open]) { overflow: hidden; }
 .modal.about > form {
   max-width: 560px; margin: 0 auto; padding: 26px 22px 22px;
   border-radius: 34px; background: var(--bg);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.35);
 }
+/* Rubriken står i linje med texten under, utan rutornas indrag. */
+.modal.about h2 { margin: 0 0 18px; }
 .modal.about p { margin: 0 0 0.8em; color: var(--text); }
 .modal.about .lead { font-size: 1.05rem; }
 .modal.about h3 { margin: 1.4em 0 0.4em; font-size: 1rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--text); }
@@ -1213,7 +1223,7 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .theme-switch .track { width: 51px; height: 31px; }
 .modal .theme-switch .track::after { width: 27px; height: 27px; }
 .modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
-.switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
+.modal .switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
 .modal .host-plays-group { margin-top: 14px; border-top: 0; padding-top: 0; }
 .modal .host-plays-group .field-group { margin-top: 14px; }
 .modal .current-song { border-radius: 22px; background: var(--surface-solid); }
@@ -1225,6 +1235,7 @@ button.danger:hover { filter: brightness(1.08); }
 .settings-group > * { position: relative; }
 .settings-group > * + *::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 0.5px solid var(--border); }
 .settings-group .setting-row { display: flex; align-items: center; gap: 12px; min-height: 56px; margin: 0; padding: 8px 16px; font-size: 1.0625rem; font-weight: 400; }
+.settings-group .setting-row label { margin: 0; font: inherit; }
 .settings-group .setting-row select { flex: none; width: auto; margin-left: auto; padding: 8px 32px 8px 8px; border: 0; box-shadow: none; background-color: transparent; background-position: right 8px center; color: var(--muted); text-align: right; }
 .segmented-field { min-width: 0; margin: 0; padding: 14px 16px; border: 0; }
 .segmented-field legend { float: left; width: 100%; padding: 0; margin: 0 0 10px; font-size: 1.0625rem; font-weight: 400; }

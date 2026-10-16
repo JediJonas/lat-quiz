@@ -1077,8 +1077,10 @@ function renderCategories(categories) {
     + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
     + `${c.songs ? `<span class="cat-songs">${c.songs} låtar</span>` : ''}</span></label>`).join('');
   $('.cat-count').textContent = `${categories.length} kategorier`;
+  $('#category-select').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
   const radios = [...picker.querySelectorAll('input')];
   (radios.find((r) => r.value === chosen) || radios[0]).checked = true;
+  $('#category-select').value = chosenCategory();
   showChosenCategory({ scroll: true });
 }
 
@@ -1118,7 +1120,16 @@ async function init() {
     if (hostPlays) storage(() => localStorage.setItem(NAME_KEY, name));
     startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
   });
-  $('#category-picker').addEventListener('change', () => showChosenCategory());
+  // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.
+  $('#category-picker').addEventListener('change', () => {
+    $('#category-select').value = chosenCategory();
+    showChosenCategory();
+  });
+  $('#category-select').addEventListener('change', (e) => {
+    const radio = [...$('#category-picker').querySelectorAll('input')].find((r) => r.value === e.target.value);
+    if (radio) radio.checked = true;
+    showChosenCategory({ scroll: true });
+  });
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');

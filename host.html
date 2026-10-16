@@ -25,6 +25,24 @@
           <label for="host-name">Namn</label>
           <input id="host-name" maxlength="10" required autocomplete="nickname">
         </div>
+        <div class="field-row cat-select-row">
+          <label for="category-select">Kategori</label>
+          <select id="category-select">
+            <option value="60-tal">60-tal</option>
+            <option value="70-tal">70-tal</option>
+            <option value="80-tal">80-tal</option>
+            <option value="90-tal">90-tal</option>
+            <option value="2000-tal">2000-tal</option>
+            <option value="2010-tal">2010-tal</option>
+            <option value="svenska">Svenska klassiker</option>
+            <option value="melodifestivalen">Melodifestivalen</option>
+            <option value="eurovision">Eurovision</option>
+            <option value="hardrock">Hårdrock och metal</option>
+            <option value="filmmusik">Filmmusik</option>
+            <option value="klassiskt">Klassisk musik</option>
+            <option value="edm">EDM</option>
+          </select>
+        </div>
       </div>
       <fieldset class="cat-picker">
         <legend class="section-title">Kategori <span class="cat-count">13 kategorier</span></legend>
@@ -93,7 +111,7 @@
         <button type="button" id="next-song" class="big" hidden>Nästa låt</button></div>
 
       <div id="standings-section" hidden>
-        <h2 class="section-title">Poäng</h2>
+        <h2 class="section-title">Ställning</h2>
         <div id="standings" class="standings"></div>
       </div>
     </section>
