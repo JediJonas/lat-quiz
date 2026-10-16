@@ -746,7 +746,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.setAttribute('aria-labelledby', 'settings-title');
   document.body.append(dialog);
   const categorySelect = dialog.querySelector('#setting-category');
-  if (categorySelect) enhanceSelect(categorySelect);
+  if (categorySelect) enhanceSelect(categorySelect, { touch: true });
   dialog.showModal();
   dialog.focus();
   return new Promise((resolve) => {
