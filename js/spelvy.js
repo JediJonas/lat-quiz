@@ -134,8 +134,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
       const fresh = shownResult !== round.number;
       $('#result-body').classList.toggle('settled', !fresh);
-      $('#result-body').innerHTML = `<div class="round-head"><h2 class="round-label">Låt ${round.number}</h2></div>
-        <div class="answer reveal"><div class="title">${esc(round.song.title)}</div>
+      $('#result-body').innerHTML = `<div class="cover answer reveal"><h2 class="round-label">Låt ${round.number}</h2>
+        <div class="title">${esc(round.song.title)}</div>
         <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
         ${playing ? `<ul class="mine">
           <li class="${r.artist ? 'right' : 'wrong'}"><span>${esc(view.labels.artist)}</span>${esc(mine.artist || '–')}</li>
