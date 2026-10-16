@@ -28,8 +28,8 @@ test('varje quizlåt har ett unikt id och ett giltigt Spotify-ID', () => {
 
 test('kategorierna i host.html är desamma som i categories.json', () => {
   const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
-  const select = html.match(/<select id="category-select">([\s\S]*?)<\/select>/)[1];
-  const options = [...select.matchAll(/<option value="([^"]+)">([^<]+)<\/option>/g)].map(([, id, name]) => ({ id, name }));
+  const options = [...html.matchAll(/<input type="radio" name="category" value="([^"]+)"[^>]*>.*?<span class="cat-name">([^<]+)<\/span>/g)]
+    .map(([, id, name]) => ({ id, name: name.replaceAll('&shy;', '') }));
   const categories = read('data/categories.json').map(({ id, name }) => ({ id, name }));
   assert.deepEqual(options, categories, 'Uppdatera listan i host.html');
 });

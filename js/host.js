@@ -1060,11 +1060,30 @@ window.addEventListener('beforeunload', (e) => {
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
 // Här uppdateras de från listan och det val som redan är gjort behålls.
 function renderCategories(categories) {
-  const select = $('#category-select');
-  const chosen = select.value;
-  select.innerHTML = categories
-    .map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
-  if (categories.some((c) => c.id === chosen)) select.value = chosen;
+  const picker = $('#category-picker');
+  const chosen = chosenCategory();
+  picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
+    + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}</span></label>`).join('');
+  const radios = [...picker.querySelectorAll('input')];
+  (radios.find((r) => r.value === chosen) || radios[0]).checked = true;
+  showChosenCategory({ scroll: true });
+}
+
+// Namnen står under smala omslag. Melodifestivalen får ett mjukt bindestreck, så att det
+// bryts som Melodi-festivalen i stället för mitt i ett ord eller utanför omslaget.
+const hyphenate = (name) => name.replace('Melodifestivalen', 'Melodi\u00adfestivalen');
+
+const chosenCategory = () => ($('#category-picker input:checked') || {}).value;
+
+// Sidans ljus får den valda kategorins färger. När sidan visas rullas det valda omslaget fram.
+function showChosenCategory({ scroll = false } = {}) {
+  document.documentElement.dataset.kategori = chosenCategory() || '';
+  if (!scroll) return;
+  // Bara raden rullas i sidled, inte sidan.
+  const picker = $('#category-picker');
+  const option = $('#category-picker input:checked').parentElement;
+  const left = option.offsetLeft - picker.offsetLeft - 16;
+  if (left < picker.scrollLeft || left + option.offsetWidth + 32 > picker.scrollLeft + picker.clientWidth) picker.scrollLeft = left;
 }
 
 // PeerJS och QR-koden laddas efter den här modulen, så att startsidan visas utan
@@ -1084,8 +1103,9 @@ async function init() {
     const name = $('#host-name').value.trim().slice(0, game.MAX_NAME);
     if (hostPlays && !name) return;
     if (hostPlays) storage(() => localStorage.setItem(NAME_KEY, name));
-    startGame($('#category-select').value, null, hostPlays ? name : '', hostPlays);
+    startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
   });
+  $('#category-picker').addEventListener('change', () => showChosenCategory());
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');

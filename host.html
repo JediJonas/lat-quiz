@@ -25,26 +25,26 @@
           <label for="host-name">Ditt namn</label>
           <input id="host-name" maxlength="10" required autocomplete="nickname">
         </div>
-        <div class="field-row">
-          <label for="category-select">Kategori</label>
-          <select id="category-select">
-        <option value="60-tal">60-tal</option>
-        <option value="70-tal">70-tal</option>
-        <option value="80-tal">80-tal</option>
-        <option value="90-tal">90-tal</option>
-        <option value="2000-tal">2000-tal</option>
-        <option value="2010-tal">2010-tal</option>
-        <option value="svenska">Svenska klassiker</option>
-        <option value="melodifestivalen">Melodifestivalen</option>
-        <option value="eurovision">Eurovision</option>
-        <option value="hardrock">Hårdrock och metal</option>
-        <option value="filmmusik">Filmmusik</option>
-        <option value="klassiskt">Klassisk musik</option>
-        <option value="edm">EDM</option>
-          </select>
-        </div>
       </div>
-      <p class="field-label">Inställningar</p>
+      <fieldset class="cat-picker">
+        <legend class="section-title">Kategori</legend>
+        <div id="category-picker" class="cat-shelf">
+          <label class="cat-option"><input type="radio" name="category" value="60-tal" class="visually-hidden" checked><span class="tile" data-kategori="60-tal"></span><span class="cat-name">60-tal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="70-tal" class="visually-hidden"><span class="tile" data-kategori="70-tal"></span><span class="cat-name">70-tal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="80-tal" class="visually-hidden"><span class="tile" data-kategori="80-tal"></span><span class="cat-name">80-tal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="90-tal" class="visually-hidden"><span class="tile" data-kategori="90-tal"></span><span class="cat-name">90-tal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="2000-tal" class="visually-hidden"><span class="tile" data-kategori="2000-tal"></span><span class="cat-name">2000-tal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="2010-tal" class="visually-hidden"><span class="tile" data-kategori="2010-tal"></span><span class="cat-name">2010-tal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="svenska" class="visually-hidden"><span class="tile" data-kategori="svenska"></span><span class="cat-name">Svenska klassiker</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="melodifestivalen" class="visually-hidden"><span class="tile" data-kategori="melodifestivalen"></span><span class="cat-name">Melodi&shy;festivalen</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="eurovision" class="visually-hidden"><span class="tile" data-kategori="eurovision"></span><span class="cat-name">Eurovision</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="hardrock" class="visually-hidden"><span class="tile" data-kategori="hardrock"></span><span class="cat-name">Hårdrock och metal</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="filmmusik" class="visually-hidden"><span class="tile" data-kategori="filmmusik"></span><span class="cat-name">Filmmusik</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="klassiskt" class="visually-hidden"><span class="tile" data-kategori="klassiskt"></span><span class="cat-name">Klassisk musik</span></label>
+          <label class="cat-option"><input type="radio" name="category" value="edm" class="visually-hidden"><span class="tile" data-kategori="edm"></span><span class="cat-name">EDM</span></label>
+        </div>
+      </fieldset>
+      <p class="section-title settings-label">Inställningar</p>
       <div class="settings-summary">
         <p id="settings-text"></p>
         <button type="button" id="settings" class="soft" aria-label="Ändra inställningar" aria-describedby="settings-text">Ändra</button>
