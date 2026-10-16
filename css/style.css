@@ -1079,6 +1079,58 @@ button.danger:hover { filter: brightness(1.08); }
   to { opacity: 1; transform: none; }
 }
 
+/* Rutorna har rundare hörn och samma gråa botten som sidan, så att grupperna i dem syns som
+   i Inställningar på iPhone. */
+.modal { border-radius: 28px; background: var(--bg); }
+/* Strömbrytarna i en ruta står i en rundad grupp, med texten till vänster och brytaren till höger. */
+.modal .switches { align-items: stretch; gap: 0; margin: 0; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-solid); }
+.modal .switches button.theme-switch { flex-direction: row-reverse; justify-content: space-between; gap: 16px; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; text-align: left; }
+.modal .switches button.theme-switch + button.theme-switch { border-top: 1px solid var(--border); }
+.modal .theme-switch .track { width: 51px; height: 31px; }
+.modal .theme-switch .track::after { width: 27px; height: 27px; }
+.modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
+.switches-note { margin: 8px 4px 0; }
+.modal .host-plays-group { border-top: 0; padding-top: 0; }
+.modal .current-song { border: 1px solid var(--border); border-radius: 16px; background: var(--surface-solid); }
+.modal .current-song button.theme-switch { display: flex; width: 100%; flex-direction: row-reverse; justify-content: space-between; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; }
+
+/* Segmentväljare: några få val sida vid sida, där det valda ligger som en vit platta. */
+.segmented-field { min-width: 0; margin: 16px 0 0; padding: 0; border: 0; }
+.segmented-field legend { padding: 0; margin: 0 0 8px; font-size: 0.9rem; font-weight: 600; }
+.segmented { display: flex; gap: 2px; padding: 3px; border-radius: 12px; background: color-mix(in srgb, var(--muted) 16%, transparent); }
+.segmented label { position: relative; flex: 1 1 0; min-width: 0; margin: 0; }
+.segmented input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.segmented span[aria-hidden] { display: grid; place-items: center; min-height: 36px; padding: 0 6px; border-radius: 9px; font-size: 0.9rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: background 0.15s, color 0.15s; }
+.segmented input:checked + span { background: color-mix(in srgb, #fff 12%, var(--surface-solid)); color: var(--text); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(0, 0, 0, 0.04); }
+.segmented input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 1px; }
+@media (hover: hover) { .segmented input:not(:checked):hover + span { color: var(--text); } }
+
+/* I mobilen kommer rutorna upp som ark nerifrån, som i iPhone. Om Låtquiz är en hel sida och
+   står kvar som förut. */
+@media (max-width: 600px) {
+  .modal:not(.about) {
+    width: 100%;
+    max-width: none;
+    max-height: calc(100dvh - 24px);
+    margin: auto 0 0;
+    padding: 12px 16px calc(20px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    border: 0;
+    border-radius: 28px 28px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  }
+  .modal:not(.about)[open] { animation: sheet-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  /* Greppet överst visar att det är ett ark. */
+  .modal:not(.about)::before { content: ""; display: block; width: 36px; height: 5px; margin: 0 auto 14px; border-radius: 3px; background: color-mix(in srgb, var(--muted) 35%, transparent); }
+  .modal:not(.about) h2 { text-align: center; }
+  /* Knapparna delar bredden, och en ensam knapp fyller hela raden. */
+  .modal:not(.about) .modal-actions button { flex: 1; padding-block: 14px; }
+}
+@keyframes sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+
 /* Endast för skärmläsare */
 .visually-hidden {
   position: absolute;
