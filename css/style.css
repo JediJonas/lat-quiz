@@ -1173,8 +1173,10 @@ a.icon-btn { text-decoration: none; }
 .modal.about {
   width: 100%; max-width: none; height: 100%; max-height: none; margin: 0;
   padding: calc(24px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom));
-  overflow-y: auto; border: none; border-radius: 0; background: none; box-shadow: none;
+  overflow-y: auto; overscroll-behavior: contain; border: none; border-radius: 0; background: none; box-shadow: none;
 }
+/* Medan en ruta är öppen står sidan bakom still, så att bara rutan rullar. */
+html:has(dialog[open]) { overflow: hidden; }
 .modal.about > form {
   max-width: 560px; margin: 0 auto; padding: 26px 22px 22px;
   border-radius: 34px; background: var(--bg);
