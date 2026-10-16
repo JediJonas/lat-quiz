@@ -173,6 +173,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
       const shown = view !== null;
       view = newView;
       me = playerId;
+      // Kategorins färg lyser svagt överst på sidan, som ljuset från ett skivomslag.
+      document.documentElement.dataset.kategori = view.categoryId || '';
       const round = view.round;
       // En ny låt eller en ny match visas överst, om man har scrollat ner till exempel till poängen.
       // Inte när man precis har gått med, och inte när svaret visas, eftersom det rullar själv.
