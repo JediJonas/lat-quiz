@@ -127,15 +127,18 @@ export function scrollToTop() {
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
 // I mobilen hamnar raden strax under den lilla rubriken som ligger fast överst, så att den
-// inte skymmer fältet. Med mus står sidan still om minst fyra förslag får plats under
-// fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet öppnas. Då står
+// inte skymmer fältet, utom i iPhone (se nedan). Med mus står sidan still om minst fyra
+// förslag får plats under fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet öppnas. Då står
 // fältet redan synligt ovanför tangentbordet och Safari behöver inte rulla fram det själv.
 // Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone.
 export function scrollFieldToTop(input, row) {
   const GAP = 8;
   const ROOM = 240; // fyra förslag med listans marginaler
+  // I Safari på iPhone flyttar tangentbordet den synliga ytan, så att den lilla rubriken som
+  // ligger fast överst hamnar utanför den medan man skriver. Där räknas den inte med.
+  const iPhone = CSS.supports('-webkit-touch-callout', 'none');
   const bar = document.querySelector('.compact-bar');
-  const barHeight = bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
+  const barHeight = !iPhone && bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
   const goal = barHeight + GAP;
   const rowTop = row.getBoundingClientRect().top;
   if (Math.abs(rowTop - goal) <= 4) return;
