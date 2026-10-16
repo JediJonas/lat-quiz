@@ -550,14 +550,21 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .cover-head .clip-note { margin: 0; text-align: right; }
 @media (max-width: 600px) { .clip-from { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
 .cover-foot { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font-size: 0.9375rem; font-weight: 600; color: rgba(255, 255, 255, 0.92); }
+/* Equalizern rör sig som musik: snabbt och ojämnt, med olika takt för varje stapel så att
+   de aldrig går i fas. Samma fart i väntan som när låten spelas. */
 .eq { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
-.eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.9s ease-in-out infinite alternate; }
-.eq i:nth-child(2) { animation-delay: -0.3s; }
-.eq i:nth-child(3) { animation-delay: -0.6s; }
-.eq i:nth-child(4) { animation-delay: -0.15s; }
-.eq.idle i { animation-duration: 2.2s; }
+.eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.62s ease-in-out infinite; }
+.eq i:nth-child(2) { animation-duration: 0.48s; animation-delay: -0.2s; }
+.eq i:nth-child(3) { animation-duration: 0.71s; animation-delay: -0.45s; }
+.eq i:nth-child(4) { animation-duration: 0.55s; animation-delay: -0.1s; }
 .eq.paused i { animation-play-state: paused; }
-@keyframes eq { from { height: 25%; } to { height: 100%; } }
+@keyframes eq {
+  0%, 100% { height: 30%; }
+  20% { height: 95%; }
+  40% { height: 50%; }
+  60% { height: 80%; }
+  80% { height: 20%; }
+}
 .now-playing { margin: 0 0 16px; }
 .now-playing .ring { margin: auto; }
 @media (min-width: 761px) { .now-playing, .answer { min-height: 300px; } }
@@ -567,7 +574,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 #waiting.card { padding: 0; border: 0; background: none; box-shadow: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
 .chips li { padding: 7px 12px; border-radius: 999px; background: var(--surface-solid); font-size: 0.875rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
-#waiting .big { margin-top: 24px; }
+/* Knappen har ingen marginal under sig, så att avståndet ner till Ställning blir detsamma
+   på alla bredder och samma som under spelet. */
+#waiting .big { margin: 24px 0 0; }
 /* På omslaget är ringen vit, med ett svagt spår. */
 .cover .ring-bar { stroke: #fff; }
 .cover .ring-track { stroke: rgba(255, 255, 255, 0.24); }
