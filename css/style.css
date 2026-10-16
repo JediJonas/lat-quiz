@@ -921,8 +921,6 @@ html:has(main.start) { background: var(--bg); }
 .shelf-row { display: flex; gap: 14px; animation: drift 28s linear infinite alternate; }
 .shelf-row:nth-child(2) { margin-left: -70px; animation-direction: alternate-reverse; }
 .shelf-row:nth-child(3) { margin-left: -20px; animation-duration: 34s; }
-/* Fjärde raden behövs bara på dator, där cirkeltonen räcker längre ner. */
-.shelf-row:nth-child(4) { display: none; margin-left: -50px; animation-direction: alternate-reverse; animation-duration: 31s; }
 @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-90px); } }
 /* Hyllan tonar ut nedåt mot sidans botten. Tonen räcker förbi hyllans lägsta hörn, som hamnar
    runt 510 px eftersom hyllan lutar. */
@@ -942,14 +940,13 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .start-text, .start-buttons { position: relative; z-index: 1; }
 .start-text { margin-top: auto; padding: 0 6px; }
 /* På dator är skärmen hög nog, så loggan och texten börjar där hyllan tonar ut i stället för längst ner. */
-@media (min-width: 601px) and (hover: hover) and (pointer: fine) { .start-text { margin-top: 395px; } }
-/* På dator tonar hyllan ut åt alla håll från en cirkel ovanför loggan, ungefär lika bred som innehållet. */
 @media (min-width: 601px) and (hover: hover) and (pointer: fine) {
-  main.start::after { content: none; }
-  .shelf-row:nth-child(4) { display: flex; }
+  .start-text { margin-top: 350px; }
+  /* På dator tonar hyllan ut åt sidorna i linje med innehållets kanter, där knapparna slutar.
+     Hyllan sticker ut 120 px på var sida om spalten, som har 16 px luft innanför. */
   .start-shelf {
-    -webkit-mask-image: radial-gradient(circle at 50% 210px, #000 0 100px, transparent 230px);
-    mask-image: radial-gradient(circle at 50% 210px, #000 0 100px, transparent 230px);
+    -webkit-mask-image: linear-gradient(90deg, transparent 136px, #000 216px, #000 calc(100% - 216px), transparent calc(100% - 136px));
+    mask-image: linear-gradient(90deg, transparent 136px, #000 216px, #000 calc(100% - 216px), transparent calc(100% - 136px));
   }
 }
 .start .logo { width: 240px; margin: 0; }
