@@ -7,6 +7,7 @@ import { showAlert, showConfirm } from './dialog.js';
 import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
+import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -744,6 +745,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.tabIndex = -1;
   dialog.setAttribute('aria-labelledby', 'settings-title');
   document.body.append(dialog);
+  const categorySelect = dialog.querySelector('#setting-category');
+  if (categorySelect) enhanceSelect(categorySelect);
   dialog.showModal();
   dialog.focus();
   return new Promise((resolve) => {
@@ -1121,6 +1124,7 @@ async function init() {
     startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
   });
   // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.
+  enhanceSelect($('#category-select'));
   $('#category-picker').addEventListener('change', () => {
     $('#category-select').value = chosenCategory();
     showChosenCategory();
