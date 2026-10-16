@@ -196,6 +196,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     if (phase !== 'revealed') shownResult = null;
     // Texten under timern säger vad man ska göra. Mätaren rör sig bara medan låten spelas.
     const eq = $('#guess .eq');
+    eq.classList.toggle('idle', phase === 'ready');
     eq.classList.toggle('paused', Boolean(view.paused));
     $('#guess-hint').textContent = phase === 'ready' ? 'Låten laddas' : view.paused ? 'Pausad' : playing ? 'Lyssna och gissa' : 'Spelas nu';
     if (phase === 'ready') {
