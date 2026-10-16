@@ -143,7 +143,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       const av = avatar(p.name);
       const up = climb(p);
       return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
-      ${ranked ? `<td class="rank${rank === 1 ? ' first' : ''}"><span class="visually-hidden">Plats </span>${rank}</td>` : ''}
+      ${ranked ? `<td class="rank${rank === 1 ? ' first' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : ''}
       <td class="name"><span class="player"><span class="avatar av-${av.color}" aria-hidden="true">${esc(av.letter)}</span><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? `<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> placeringar upp</span></span>` : ''}</span></td>
       <td class="status">${playerStatus(p.id)}</td>
       <td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td></tr>`;
