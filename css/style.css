@@ -487,8 +487,15 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
 .podium td { height: 66px; }
 .podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
-/* Vinnaren får en guldfärgad etta. */
-.podium td.rank.first { color: var(--bonus); -webkit-text-stroke: 0; }
+/* Vinnaren får en etta i guld: ljust, glänsande guld inuti och bonusfärgen som ram runt om. */
+.podium td.rank.first { -webkit-text-stroke: 0; }
+.podium td.rank.first .rank-num {
+  color: transparent;
+  background: linear-gradient(170deg, #fff8d6 10%, #ffd84d 40%, #f2a900 62%, #ffe27a 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 6px rgba(255, 196, 40, 0.5));
+}
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -551,21 +558,15 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .cover-head .clip-note { margin: 0; text-align: right; }
 @media (max-width: 600px) { .clip-from { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
 .cover-foot { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font-size: 0.9375rem; font-weight: 600; color: rgba(255, 255, 255, 0.92); }
-/* Equalizern rör sig som musik: snabbt och ojämnt, med olika takt för varje stapel så att
-   de aldrig går i fas. Medan alla väntar på första låten visas en snurra i stället. */
+/* Equalizern rör sig som i prototypen när låten spelas. Medan alla väntar på första låten
+   visas en snurra i stället. */
 .eq { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
-.eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.62s ease-in-out infinite; }
-.eq i:nth-child(2) { animation-duration: 0.48s; animation-delay: -0.2s; }
-.eq i:nth-child(3) { animation-duration: 0.71s; animation-delay: -0.45s; }
-.eq i:nth-child(4) { animation-duration: 0.55s; animation-delay: -0.1s; }
+.eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.9s ease-in-out infinite alternate; }
+.eq i:nth-child(2) { animation-delay: -0.3s; }
+.eq i:nth-child(3) { animation-delay: -0.6s; }
+.eq i:nth-child(4) { animation-delay: -0.15s; }
 .eq.paused i { animation-play-state: paused; }
-@keyframes eq {
-  0%, 100% { height: 30%; }
-  20% { height: 95%; }
-  40% { height: 50%; }
-  60% { height: 80%; }
-  80% { height: 20%; }
-}
+@keyframes eq { from { height: 25%; } to { height: 100%; } }
 .now-playing { margin: 0 0 16px; }
 .now-playing .ring { margin: auto; }
 /* Väntan, låten som spelas, rätt svar och vinnaren har samma storlek, så att rutan inte
