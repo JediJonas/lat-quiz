@@ -27,7 +27,7 @@ export function showAbout() {
       <h2 id="about-title">Om Låtquiz</h2>
       ${TEXT}
       <div class="modal-actions">
-        <button value="ok">Stäng</button>
+        <button value="ok">OK</button>
       </div>
     </form>`;
   // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.

@@ -43,6 +43,9 @@ function compactTitle() {
   }).observe(heading);
 }
 
+// Så länge sista låten visas innan vinnaren tar över vyn.
+const WIN_DELAY_MS = 4000;
+
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
 export function createGameView({ onAnswer, onError, host = false }) {
@@ -52,7 +55,11 @@ export function createGameView({ onAnswer, onError, host = false }) {
   let deadline = 0;
   let nextAt = 0;
   let wasPaused = null;
-  let shownResult = null; // låten vars svar senast visades
+  let shownResult = null; // svaret som senast visades: låtens nummer, eller w och numret för vinnaren
+  // När matchen avgörs visas sista låten först som vanligt. Efter en stund byts vyn mot vinnaren.
+  let winRound = null; // låten som avgjorde matchen
+  let winShown = false; // vinnarvyn har tagit över
+  let winTimer = null;
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
@@ -132,8 +139,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
       <td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td></tr>`;
     });
     // När matchen är slut blir listan en ställning med stora placeringssiffror.
-    $('#standings-section .section-title').textContent = view.winners ? 'Ställning' : 'Poäng';
-    $('#standings').classList.toggle('podium', Boolean(view.winners));
+    $('#standings-section .section-title').textContent = winnerView() ? 'Ställning' : 'Poäng';
+    $('#standings').classList.toggle('podium', winnerView());
     $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
     for (const [id, from, to] of counts) {
       const cell = [...document.querySelectorAll('#standings td.score')].find((td) => td.dataset.id === id);
@@ -141,9 +148,23 @@ export function createGameView({ onAnswer, onError, host = false }) {
     }
   }
 
+  // Vinnaren visas när matchen är avgjord och sista låten har visats en stund.
+  const winnerView = () => Boolean(view.winners && view.round && view.round.phase === 'revealed' && winShown);
+
   function render() {
     const round = view.round;
     const phase = round ? round.phase : 'waiting';
+    if (view.winners && phase === 'revealed' && winRound !== round.number) {
+      winRound = round.number;
+      winShown = false;
+      clearTimeout(winTimer);
+      winTimer = setTimeout(() => { winShown = true; if (view.winners) render(); }, WIN_DELAY_MS);
+    } else if (!view.winners) {
+      winRound = null;
+      winShown = false;
+      clearTimeout(winTimer);
+    }
+    const winner = winnerView();
     // Spelledaren kan välja att inte delta. Då visas låten och timern, men inga fält eller egna svar.
     const playing = view.standings.some((p) => p.id === me);
     const guessFields = $('.guess-fields');
@@ -156,7 +177,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('#waiting-text').textContent = host ? 'Starta spelet när alla har gått med' : 'Spelledaren startar snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
     // När matchen är slut tar vinnaren hela vyn, utan kategorin som rubrik.
-    document.body.classList.toggle('match-over', Boolean(view.winners) && phase === 'revealed');
+    document.body.classList.toggle('match-over', winner);
     $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
     fields.artist.disable(phase !== 'playing' || view.paused);
@@ -187,17 +208,16 @@ export function createGameView({ onAnswer, onError, host = false }) {
         <span id="next-text" aria-hidden="true"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span></span>`;
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
-      const fresh = shownResult !== round.number;
+      const key = winner ? `w${round.number}` : round.number;
+      const fresh = shownResult !== key;
       $('#result-body').classList.toggle('settled', !fresh);
-      // När någon har vunnit tar vinnaren omslaget, och den sista låten står längst ner på det.
-      const song = `${esc(round.song.title)} med ${esc(round.song.artist)} (${round.song.year})`;
+      // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
       const clip = view.deezer ? '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>' : '';
-      const cover = view.winners
+      const cover = winner
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${'<i></i>'.repeat(9)}</div>
           <p class="round-label">Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}</p>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
-          <p class="win-sub">Först till ${view.winScore} poäng.</p>
-          <p class="win-song">Sista låten: ${song}</p></div>`
+          <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
           <div class="title">${esc(round.song.title)}</div>
           <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
@@ -205,28 +225,27 @@ export function createGameView({ onAnswer, onError, host = false }) {
       const row = (label, given, right) => `<li class="${right ? 'right' : given ? 'wrong' : 'none'}">`
         + `<span class="lab">${esc(label)}</span><span class="val">${esc(given || 'Inget svar')}</span>`
         + `<span class="pts">${right ? '+1' : '0'}</span></li>`;
-      const own = playing && !view.winners;
+      const own = playing && !winner;
       const mineRows = own ? `<ul class="mine">${row(view.labels.artist, mine.artist, r.artist)}${row(view.labels.title, mine.title, r.title)}`
         + `${r.bonus ? row('Bonus', 'Snabbt svar', true) : ''}</ul>` : '';
       const points = own ? `<p class="points${r.points ? '' : ' zero'}">+${r.points} poäng</p>` : '';
       $('#result-body').innerHTML = `${cover}${mineRows}
-        ${points || next ? `<div class="result-foot">${points}${next}</div>` : ''}
-`;
+        ${points || next ? `<div class="result-foot">${points}${next}</div>` : ''}`;
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst.
       if (fresh) {
         if (document.activeElement && $('#guess').contains(document.activeElement)) document.activeElement.blur();
         scrollToTop();
       }
-      shownResult = round.number;
+      shownResult = key;
       announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${r.points} poäng.` : ''}`
-        + (view.winners ? ` ${view.winners.join(' och ')} vinner!` : ''));
+        + (winner ? ` ${view.winners.join(' och ')} vinner!` : ''));
       renderTimer();
     }
     renderStandings();
     // Under ställningen, när matchen är slut, står att spelledaren startar nästa match.
     const winWait = $('#win-wait');
-    if (winWait) winWait.hidden = !(view.winners && phase === 'revealed');
+    if (winWait) winWait.hidden = !winner;
     // Pausen står i meddelanderutan så länge den varar, och rutan läses upp.
     const paused = Boolean(view.paused);
     if (paused !== wasPaused) {

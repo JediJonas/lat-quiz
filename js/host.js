@@ -630,7 +630,7 @@ function wireUnknown(dialog, names) {
   });
   dialog.querySelector('#clear-unknown').addEventListener('click', async () => {
     const ok = await showConfirm('Låtarna spelas igen i kommande spel. Kopiera listan först om den inte är skickad.', {
-      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true,
+      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true, icon: MENU_ICONS.delete,
     });
     if (!ok) return;
     saveUnknown({});
@@ -662,11 +662,11 @@ function hostPlaysGroup() {
   return `
     <div class="host-plays-group">
       <div class="switches host-plays"><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
-      ${askName ? `<div id="setting-host-name-row">
+      ${askName ? `<div id="setting-host-name-row" class="field-group"><div class="field-row">
         <label for="setting-host-name">Namn</label>
         <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
           placeholder="${DEFAULT_HOST_NAME}">
-      </div>` : ''}
+      </div></div>` : ''}
     </div>`;
 }
 
