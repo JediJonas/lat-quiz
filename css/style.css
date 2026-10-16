@@ -692,7 +692,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   border: 0; border-radius: 22px; box-shadow: none; background: transparent var(--chevron) no-repeat right 16px center;
   color: var(--text); font-size: 1.0625rem; font-weight: 400; text-align: left;
 }
-.rullista-knapp:hover { background-color: transparent; }
+/* Knappens vanliga hover byter hela bakgrunden. Här står pilen kvar, utan övergång som får den att glida. */
+.rullista-knapp:hover { background: transparent var(--chevron) no-repeat right 16px center; }
+.rullista-knapp { transition: none; }
 .rullista-knapp:active { transform: none; }
 .rullista-knapp:focus-visible { outline: none; }
 .rullista-namn { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -707,7 +709,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .rullista-lista li[aria-selected="true"].active { background: var(--surface-2); }
 /* I Inställningar står värdet till höger på raden, som de andra valen. */
 .setting-row .rullista { margin-left: auto; }
-.setting-row .rullista-knapp { min-height: 40px; padding: 0 32px 0 8px; background-position: right 8px center; color: var(--muted); }
+.setting-row .rullista-knapp, .setting-row .rullista-knapp:hover { min-height: 40px; padding: 0 32px 0 8px; background-position: right 8px center; color: var(--muted); }
 .setting-row .rullista-knapp:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
 .setting-row .rullista-lista { left: auto; right: 0; width: 300px; }
 
