@@ -68,14 +68,37 @@ export function statusTags({ phase, progress, result, labels, esc, points = true
   return '';
 }
 
-// Markerar rader vars poäng har ändrats sedan förra visningen.
+// Håller reda på poängen sedan förra visningen. Ger den förra poängen om den har ändrats, annars null.
 export function scoreTracker() {
   const last = new Map();
   return (id, score) => {
-    const changed = last.has(id) && last.get(id) !== score;
+    const before = last.has(id) && last.get(id) !== score ? last.get(id) : null;
     last.set(id, score);
-    return changed;
+    return before;
   };
+}
+
+// Räknar upp en poäng från det förra värdet, som en mätare. Utan rörelse visas det nya värdet direkt.
+export function countUp(el, from, to, ms = 700) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const start = performance.now();
+  const step = (now) => {
+    const k = Math.min(1, (now - start) / ms);
+    el.textContent = Math.round(from + (to - from) * (1 - (1 - k) ** 3));
+    if (k < 1 && el.isConnected) requestAnimationFrame(step);
+  };
+  el.textContent = from;
+  requestAnimationFrame(step);
+}
+
+// Initialen och en färg som följer namnet, så att samma spelare har samma färg på alla skärmar.
+// Alla åtta färger ger vit text minst 4,5:1 i kontrast.
+const AVATAR_COLORS = 8;
+export function avatar(name) {
+  let hash = 0;
+  for (const c of name) hash = (hash * 31 + c.codePointAt(0)) >>> 0;
+  const letter = (Array.from(name.trim())[0] || '?').toLocaleUpperCase('sv');
+  return { letter, color: hash % AVATAR_COLORS };
 }
 
 // Läser upp en kort händelse för skärmläsare via den dolda statusraden #announce.

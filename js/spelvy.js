@@ -3,7 +3,7 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
+import { announce, avatar, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -83,11 +83,29 @@ export function createGameView({ onAnswer, onError, host = false }) {
   function renderStandings() {
     // Utan spelare döljs poänglistan med rubrik, till exempel när spelledaren inte deltar och ingen har gått med än.
     $('#standings-section').hidden = view.standings.length === 0;
-    const rows = view.standings.map((p) => `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${scoreChanged(p.id, p.score) ? 'bump' : ''}">
-      <td class="score">${p.score}<span class="visually-hidden"> poäng</span></td>
-      <td class="name">${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</td>
-      <td class="status">${playerStatus(p.id)}</td></tr>`);
+    // Placeringen visas när någon har fått poäng. Lika många poäng ger samma placering.
+    const ranked = view.standings.some((p) => p.score > 0);
+    const rankOf = (p) => 1 + view.standings.filter((q) => q.score > p.score).length;
+    const counts = [];
+    const rows = view.standings.map((p) => {
+      const before = scoreChanged(p.id, p.score);
+      if (before !== null) counts.push([p.id, before, p.score]);
+      const rank = rankOf(p);
+      const av = avatar(p.name);
+      return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
+      ${ranked ? `<td class="rank${rank === 1 ? ' first' : ''}"><span class="visually-hidden">Plats </span>${rank}</td>` : ''}
+      <td class="name"><span class="player"><span class="avatar av-${av.color}" aria-hidden="true">${esc(av.letter)}</span><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span></span></td>
+      <td class="status">${playerStatus(p.id)}</td>
+      <td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td></tr>`;
+    });
+    // När matchen är slut blir listan en ställning med stora placeringssiffror.
+    $('#standings-section .section-title').textContent = view.winners ? 'Ställning' : 'Poäng';
+    $('#standings').classList.toggle('podium', Boolean(view.winners));
     $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
+    for (const [id, from, to] of counts) {
+      const cell = [...document.querySelectorAll('#standings td.score')].find((td) => td.dataset.id === id);
+      if (cell) countUp(cell.querySelector('.num'), from, to);
+    }
   }
 
   function waitingText() {
@@ -134,16 +152,25 @@ export function createGameView({ onAnswer, onError, host = false }) {
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
       const fresh = shownResult !== round.number;
       $('#result-body').classList.toggle('settled', !fresh);
-      $('#result-body').innerHTML = `<div class="cover answer reveal"><h2 class="round-label">Låt ${round.number}</h2>
-        <div class="title">${esc(round.song.title)}</div>
-        <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>
+      // När någon har vunnit tar vinnaren omslaget, och den sista låten står längst ner på det.
+      const song = `${esc(round.song.title)} med ${esc(round.song.artist)} (${round.song.year})`;
+      const cover = view.winners
+        ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${'<i></i>'.repeat(9)}</div>
+          <p class="round-label">Matchen är slut · Låt ${round.number}</p>
+          <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
+          <p class="win-sub">Först till ${view.winScore} poäng.</p>
+          <p class="win-song">Sista låten: ${song}</p></div>`
+        : `<div class="cover answer reveal"><h2 class="round-label">Låt ${round.number}</h2>
+          <div class="title">${esc(round.song.title)}</div>
+          <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
+      $('#result-body').innerHTML = `${cover}
         ${playing ? `<ul class="mine">
           <li class="${r.artist ? 'right' : 'wrong'}"><span>${esc(view.labels.artist)}</span>${esc(mine.artist || '–')}</li>
           <li class="${r.title ? 'right' : 'wrong'}"><span>${esc(view.labels.title)}</span>${esc(mine.title || '–')}</li>
           ${r.bonus ? '<li class="right bonus"><span>Bonus</span>Snabbt svar</li>' : ''}
         </ul>
         <p class="points">+${r.points} poäng</p>` : ''}
-        ${view.winners ? `<div class="winner">${esc(view.winners.join(' och '))} vinner!</div>` : ''}
+        ${view.winners && !host ? '<p class="note win-wait">Väntar på att spelledaren startar en ny match.</p>' : ''}
         ${next || view.deezer ? `<div class="result-foot">${next}<p class="note clip-note"${view.deezer ? '' : ' hidden'}>Ljudklipp från Deezer</p></div>` : ''}`;
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst.
