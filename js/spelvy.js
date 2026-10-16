@@ -235,7 +235,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
       const own = playing && !winner;
       const mineRows = own ? `<ul class="mine">${row(view.labels.artist, mine.artist, r.artist)}${row(view.labels.title, mine.title, r.title)}`
         + `${r.bonus ? row('Bonus', 'Snabbt svar', true) : ''}</ul>` : '';
-      const points = own ? `<p class="points${r.points ? '' : ' zero'}">+${r.points} poäng</p>` : '';
+      // Med stor text skrivs poängen kort som p, så att den får plats på en rad. Skärmläsare får hela ordet.
+      const points = own ? `<p class="points${r.points ? '' : ' zero'}"><span aria-hidden="true">+${r.points} `
+        + '<span class="points-long">poäng</span><span class="points-short">p</span></span>'
+        + `<span class="visually-hidden">+${r.points} poäng</span></p>` : '';
       $('#result-body').innerHTML = `${cover}${mineRows}
         ${points || next ? `<div class="result-foot">${points}${next}</div>` : ''}`;
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
