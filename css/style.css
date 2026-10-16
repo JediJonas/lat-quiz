@@ -629,9 +629,12 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .mine .right .pts { color: var(--good); }
 .mine .wrong .pts { color: var(--bad); }
 /* Poängen för låten står stort, med nedräkningen till nästa låt bredvid. */
-.points { margin: 0; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; color: var(--good); }
+/* Poängen och nedräkningen bryts aldrig. Blir raden för smal hamnar nedräkningen på en egen rad. */
+.points { margin: 0; white-space: nowrap; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; color: var(--good); }
 .points.zero { color: var(--muted); }
-.next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; font-size: 0.9375rem; font-weight: 550; color: var(--muted); }
+.points-short, :root[data-text="large"] .points-long { display: none; }
+:root[data-text="large"] .points-short { display: inline; }
+.next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; white-space: nowrap; font-size: 0.9375rem; font-weight: 550; color: var(--muted); }
 .next .pie-num { display: none; }
 /* Vinnaren tar omslaget, med konfetti som faller en gång. */
 .win { justify-content: flex-end; margin: 0; }
@@ -1202,7 +1205,7 @@ a.icon-btn { text-decoration: none; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
 
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
-.result-foot { display: flex; align-items: center; gap: 12px; margin: 16px 4px 0; }
+.result-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 4px 0; }
 /* Ringen är högre än textraden. Den får sticka ut lika mycket uppåt och nedåt, så att raden
    blir lika hög som texten och Deezer-texten står på samma höjd som medan låten spelas. */
 .result-foot .pie { width: 26px; height: 26px; }
