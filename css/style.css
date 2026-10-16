@@ -487,7 +487,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
 .podium td { height: 66px; }
 .podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
-.podium td.rank.first { color: var(--text); -webkit-text-stroke: 0; }
+/* Vinnaren får en guldfärgad etta. */
+.podium td.rank.first { color: var(--bonus); -webkit-text-stroke: 0; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -551,7 +552,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 @media (max-width: 600px) { .clip-from { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
 .cover-foot { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font-size: 0.9375rem; font-weight: 600; color: rgba(255, 255, 255, 0.92); }
 /* Equalizern rör sig som musik: snabbt och ojämnt, med olika takt för varje stapel så att
-   de aldrig går i fas. Samma fart i väntan som när låten spelas. */
+   de aldrig går i fas. Medan alla väntar på första låten visas en snurra i stället. */
 .eq { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
 .eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.62s ease-in-out infinite; }
 .eq i:nth-child(2) { animation-duration: 0.48s; animation-delay: -0.2s; }
@@ -567,9 +568,12 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 }
 .now-playing { margin: 0 0 16px; }
 .now-playing .ring { margin: auto; }
-@media (min-width: 761px) { .now-playing, .answer { min-height: 300px; } }
+/* Väntan, låten som spelas, rätt svar och vinnaren har samma storlek, så att rutan inte
+   hoppar när den växlar. */
+.waiting-cover, .now-playing, .answer, .win { min-height: 286px; }
+@media (min-width: 761px) { .waiting-cover, .now-playing, .answer, .win { min-height: 300px; } }
 /* Medan alla väntar visar omslaget kategorin, och reglerna står som etiketter under. */
-.waiting-cover { min-height: 220px; justify-content: space-between; }
+.waiting-cover { justify-content: space-between; }
 .waiting-cover .cover-foot { justify-content: flex-start; }
 #waiting.card { padding: 0; border: 0; background: none; box-shadow: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
@@ -588,8 +592,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .answer .title { margin-top: 2.5rem; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; line-height: 1.04; text-wrap: balance; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.15); }
 .answer .artist { margin-top: 8px; font-size: 1.125rem; font-weight: 550; color: rgba(255, 255, 255, 0.9); }
 @media (min-width: 761px) { .answer .title { font-size: 2.75rem; } }
-/* Rätt svar vänds fram på omslaget, som när man vänder en skiva. */
-.answer.reveal { animation: flip 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); transform-origin: center; }
+/* Rätt svar och vinnaren vänds fram på omslaget, som när man vänder en skiva. */
+.answer.reveal, .win.reveal { animation: flip 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); transform-origin: center; }
 @keyframes flip {
   from { transform: perspective(1200px) rotateY(-90deg); }
   to { transform: perspective(1200px) rotateY(0); }
@@ -618,11 +622,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; font-size: 0.9375rem; font-weight: 550; color: var(--muted); }
 .next .pie-num { display: none; }
 /* Vinnaren tar omslaget, med konfetti som faller en gång. */
-.win { justify-content: flex-end; min-height: 380px; padding: 26px 24px; margin: 6px 0 0; }
+.win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
 .win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
-/* När matchen är slut tar vinnaren vyn. Kategorin som rubrik syns inte, men finns kvar för skärmläsare. */
-.match-over .player-head h1 { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* Konfettin regnar över hela omslaget och faller ut genom botten, där omslaget klipper den.
    Bitarnas plats, fart och färg sätts i js/spelvy.js. */
 /* Var bit hänger överst i en osynlig pelare lika hög som omslaget. Pelaren glider ner sin
@@ -633,7 +635,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 @keyframes confetti {
   0% { opacity: 0; transform: translate(0, 0); }
   8% { opacity: 0.95; }
-  100% { opacity: 0.95; transform: translate(var(--s), calc(100% + 30px)); }
+  100% { opacity: 0.95; transform: translate(var(--s), calc(100% + 60px)); }
 }
 @keyframes confetti-spin { to { transform: rotate(var(--r)); } }
 .settled .confetti { display: none; }
