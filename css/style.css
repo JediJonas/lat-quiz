@@ -614,22 +614,20 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
 /* När matchen är slut tar vinnaren vyn. Kategorin som rubrik syns inte, men finns kvar för skärmläsare. */
 .match-over .player-head h1 { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* Konfettin regnar över hela omslaget och faller ut genom botten, där omslaget klipper den.
+   Bitarnas plats, fart och färg sätts i js/spelvy.js. */
+/* Var bit hänger överst i en osynlig pelare lika hög som omslaget. Pelaren glider ner sin
+   egen höjd, så biten faller hela vägen och ut genom botten. */
 .confetti { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.confetti i { position: absolute; top: -20px; width: 10px; height: 18px; border-radius: 3px; animation: confetti 1.6s cubic-bezier(0.2, 0.6, 0.4, 1) both; }
-.confetti i:nth-child(1) { left: 8%; --y: 60px; --r: 20deg; background: #ffd166; }
-.confetti i:nth-child(2) { left: 20%; --y: 105px; --r: -30deg; background: #fff; animation-delay: 0.1s; }
-.confetti i:nth-child(3) { left: 33%; --y: 40px; --r: 45deg; background: #7cf0b0; animation-delay: 0.25s; }
-.confetti i:nth-child(4) { left: 46%; --y: 120px; --r: -60deg; background: #ff9ecb; animation-delay: 0.05s; }
-.confetti i:nth-child(5) { left: 58%; --y: 70px; --r: 15deg; background: #fff; animation-delay: 0.3s; }
-.confetti i:nth-child(6) { left: 68%; --y: 30px; --r: -40deg; background: #ffd166; animation-delay: 0.15s; }
-.confetti i:nth-child(7) { left: 78%; --y: 95px; --r: 70deg; background: #7cf0b0; animation-delay: 0.35s; }
-.confetti i:nth-child(8) { left: 88%; --y: 55px; --r: -15deg; background: #ff9ecb; animation-delay: 0.2s; }
-.confetti i:nth-child(9) { left: 52%; --y: 75px; --r: 35deg; background: #ffd166; animation-delay: 0.4s; }
+.confetti i { position: absolute; top: 0; bottom: 0; left: var(--x); width: 9px; animation: confetti var(--t) cubic-bezier(0.35, 0, 0.75, 1) var(--d) both; }
+.confetti i::before { content: ""; position: absolute; top: -30px; left: 0; width: 9px; height: 16px; border-radius: 3px; background: var(--c); animation: confetti-spin var(--t) linear var(--d) both; }
 @keyframes confetti {
-  from { opacity: 0; transform: translateY(-40px) rotate(0deg); }
-  to { opacity: 0.9; transform: translateY(var(--y)) rotate(var(--r)); }
+  0% { opacity: 0; transform: translate(0, 0); }
+  8% { opacity: 0.95; }
+  100% { opacity: 0.95; transform: translate(var(--s), calc(100% + 30px)); }
 }
-.settled .confetti i { animation: none; transform: translateY(var(--y)) rotate(var(--r)); opacity: 0.9; }
+@keyframes confetti-spin { to { transform: rotate(var(--r)); } }
+.settled .confetti { display: none; }
 .win-wait { text-align: center; margin: 18px 16px 0; font-size: 0.8125rem; }
 /* I ställningen står bara totalen, inte poängen för sista låten. */
 .podium .tag { display: none; }
