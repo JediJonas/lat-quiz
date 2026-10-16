@@ -922,7 +922,8 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .code-box {
   display: grid;
   place-items: center;
-  height: 82px;
+  /* Kvadratiska på alla bredder: 82 px i en mobil som är 390 px bred, större på dator. */
+  aspect-ratio: 1;
   border-radius: 20px;
   background: var(--surface-solid);
   font-size: 2.25rem;
