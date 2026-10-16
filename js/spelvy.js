@@ -15,7 +15,7 @@ const CONFETTI_COLORS = ['#ffd166', '#fff', '#7cf0b0', '#ff9ecb'];
 function confetti(count = 40) {
   const rand = (min, max) => min + Math.random() * (max - min);
   return Array.from({ length: count }, (_, i) => `<i style="--x:${rand(-2, 98).toFixed(1)}%;`
-    + `--d:${rand(0, 1.8).toFixed(2)}s;--t:${rand(1.8, 2.8).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
+    + `--d:${rand(0, 1.4).toFixed(2)}s;--t:${rand(1.3, 2).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
     + `--r:${rand(-540, 540).toFixed(0)}deg;--c:${CONFETTI_COLORS[i % CONFETTI_COLORS.length]}"></i>`).join('');
 }
 
@@ -185,8 +185,6 @@ export function createGameView({ onAnswer, onError, host = false }) {
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Väntar på första låten';
     $('#waiting-text').textContent = host ? 'Starta spelet när alla har gått med' : 'Spelledaren startar snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
-    // När matchen är slut tar vinnaren hela vyn, utan kategorin som rubrik.
-    document.body.classList.toggle('match-over', winner);
     $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
     fields.artist.disable(phase !== 'playing' || view.paused);
