@@ -846,14 +846,16 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   display: flex;
   gap: 12px;
   margin: 0 calc(-1 * max(16px, env(safe-area-inset-right))) 0 calc(-1 * max(16px, env(safe-area-inset-left)));
-  padding: 4px max(16px, env(safe-area-inset-left)) 8px;
+  padding: 8px max(16px, env(safe-area-inset-left)) 8px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 16px;
   scrollbar-width: none;
 }
 .cat-shelf::-webkit-scrollbar { display: none; }
-.cat-option { flex: none; width: 116px; scroll-snap-align: start; cursor: pointer; }
+/* Radioknappen ligger dold inuti sitt omslag. Utan position: relative hamnade de dolda knapparna
+   utanför raden, och då blev hela sidan bredare än skärmen i mobilen. */
+.cat-option { position: relative; flex: none; width: 116px; scroll-snap-align: start; cursor: pointer; }
 .cat-option .tile { font-size: 0; padding: 0; }
 .cat-option .tile::after { font-size: 5.5rem; }
 .cat-option .cat-name { display: block; margin: 8px 2px 0; font-size: 0.9rem; font-weight: 650; line-height: 1.2; overflow-wrap: break-word; hyphens: auto; }
