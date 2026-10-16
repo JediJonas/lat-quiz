@@ -1075,6 +1075,12 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   /* Safari klipper allt som hamnar under sidans nederkant i en rak linje, så här får skuggan
      inte nå längre än de 4 px som finns under panelen. */
   .control-panel { box-shadow: 0 1px 3px rgba(20, 20, 30, 0.18); }
+  /* Knapparna längst ner på startsidan och i Starta nytt spel står lika långt från nederkanten
+     som kontrollpanelen. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
+  main.start { padding-bottom: var(--panel-bottom); }
+  @media (max-width: 600px) {
+    main#setup { padding-bottom: var(--panel-bottom); }
+  }
 }
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
 main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
@@ -1147,6 +1153,8 @@ a.icon-btn { text-decoration: none; }
   /* Rutorna är egna rader i gridden, där marginaler inte slås ihop. Bara marginalen ovanför
      behålls, så att avstånden blir desamma som på datorn och på spelarens sida. */
   .host .card { margin: 16px 0 0; }
+  /* Rubriken har ingen egen marginal under sig här, annars blir det dubbelt så långt till första rutan som hos spelaren. */
+  .host .player-head h1 { margin-bottom: 0; }
   /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
   .join-info { position: relative; top: auto; }
   .qr { max-width: 258px; margin: 0 auto; }
