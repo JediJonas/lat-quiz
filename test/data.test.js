@@ -28,10 +28,17 @@ test('varje quizlåt har ett unikt id och ett giltigt Spotify-ID', () => {
 
 test('kategorierna i host.html är desamma som i categories.json', () => {
   const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
-  const options = [...html.matchAll(/<input type="radio" name="category" value="([^"]+)"[^>]*>.*?<span class="cat-name">([^<]+)<\/span>/g)]
-    .map(([, id, name]) => ({ id, name: name.replaceAll('&shy;', '') }));
-  const categories = read('data/categories.json').map(({ id, name }) => ({ id, name }));
+  const options = [...html.matchAll(/<input type="radio" name="category" value="([^"]+)"[^>]*>.*?<span class="cat-name">([^<]+)<span class="cat-songs">(\d+) låtar<\/span><\/span>/g)]
+    .map(([, id, name, songs]) => ({ id, name: name.replaceAll('&shy;', ''), songs: Number(songs) }));
+  const categories = read('data/categories.json').map(({ id, name, songs }) => ({ id, name, songs }));
   assert.deepEqual(options, categories, 'Uppdatera listan i host.html');
+  assert.match(html, new RegExp(`${categories.length} kategorier`));
+});
+
+test('antalet låtar i categories.json stämmer med kategorins fil', () => {
+  for (const category of read('data/categories.json')) {
+    assert.equal(category.songs, read('data/' + category.file).length, `Uppdatera songs för ${category.id} i categories.json`);
+  }
 });
 
 test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', async () => {

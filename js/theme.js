@@ -52,7 +52,7 @@ export function showUserSettings() {
       </div>
       <p class="note switches-note">Valet sparas på den här enheten.</p>
       <div class="modal-actions">
-        <button value="ok">Stäng</button>
+        <button value="ok">OK</button>
       </div>
     </form>`;
   mountSwitch(dialog.querySelector('#switch-dark'), 'Mörkt läge', isDark, () => setTheme(isDark() ? 'light' : 'dark'));

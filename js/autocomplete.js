@@ -132,6 +132,16 @@ export function autocomplete(input, list, onChange) {
     onChange(value);
   }
 
+  // Det man har skrivit står i fetstil i förslaget, som i iOS. Förslag som hittats trots
+  // stavfel eller accenter visas utan fetstil.
+  function mark(li, item, typed) {
+    const at = typed ? item.toLocaleLowerCase('sv').indexOf(typed.toLocaleLowerCase('sv')) : -1;
+    if (at < 0) { li.textContent = item; return; }
+    const b = document.createElement('b');
+    b.textContent = item.slice(at, at + typed.length);
+    li.append(item.slice(0, at), b, item.slice(at + typed.length));
+  }
+
   function note(text) {
     const li = document.createElement('li');
     li.className = 'empty';
@@ -153,7 +163,7 @@ export function autocomplete(input, list, onChange) {
       const li = document.createElement('li');
       li.id = `${box.id}-${i}`;
       li.setAttribute('role', 'option');
-      li.textContent = item;
+      mark(li, item, input.value.trim());
       // pointerdown så att valet hinner registreras innan fältet tappar fokus
       li.addEventListener('pointerdown', (e) => { e.preventDefault(); choose(item); input.blur(); });
       box.append(li);

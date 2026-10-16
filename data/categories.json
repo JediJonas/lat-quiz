@@ -1,15 +1,15 @@
 [
-  { "id": "60-tal", "name": "60-tal", "file": "60-tal.json", "audio": "deezer" },
-  { "id": "70-tal", "name": "70-tal", "file": "70-tal.json", "audio": "deezer" },
-  { "id": "80-tal", "name": "80-tal", "file": "80-tal.json", "audio": "deezer" },
-  { "id": "90-tal", "name": "90-tal", "file": "90-tal.json", "audio": "deezer" },
-  { "id": "2000-tal", "name": "2000-tal", "file": "2000-tal.json", "audio": "deezer" },
-  { "id": "2010-tal", "name": "2010-tal", "file": "2010-tal.json", "audio": "deezer" },
-  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "audio": "deezer" },
-  { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "audio": "deezer" },
-  { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "audio": "deezer", "labels": { "artist": "Land", "title": "Låt" } },
-  { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "audio": "deezer" },
-  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Film" } },
-  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Verk" } },
-  { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer" }
+  { "id": "60-tal", "name": "60-tal", "file": "60-tal.json", "audio": "deezer", "songs": 131 },
+  { "id": "70-tal", "name": "70-tal", "file": "70-tal.json", "audio": "deezer", "songs": 146 },
+  { "id": "80-tal", "name": "80-tal", "file": "80-tal.json", "audio": "deezer", "songs": 159 },
+  { "id": "90-tal", "name": "90-tal", "file": "90-tal.json", "audio": "deezer", "songs": 161 },
+  { "id": "2000-tal", "name": "2000-tal", "file": "2000-tal.json", "audio": "deezer", "songs": 166 },
+  { "id": "2010-tal", "name": "2010-tal", "file": "2010-tal.json", "audio": "deezer", "songs": 175 },
+  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "audio": "deezer", "songs": 113 },
+  { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "audio": "deezer", "songs": 172 },
+  { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "audio": "deezer", "labels": { "artist": "Land", "title": "Låt" }, "songs": 149 },
+  { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "audio": "deezer", "songs": 151 },
+  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Film" }, "songs": 146 },
+  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 },
+  { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer", "songs": 51 }
 ]

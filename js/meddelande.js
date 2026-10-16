@@ -17,6 +17,8 @@ const ICONS = {
   info: '<svg viewBox="0 -960 960 960"><path d="M480-680q-33 0-56.5-23.5T400-760q0-33 23.5-56.5T480-840q33 0 56.5 23.5T560-760q0 33-23.5 56.5T480-680Zm0 560q-25 0-42.5-17.5T420-180v-360q0-25 17.5-42.5T480-600q25 0 42.5 17.5T540-540v360q0 25-17.5 42.5T480-120Z"/></svg>',
   pause: '<svg viewBox="0 -960 960 960"><path d="M640-200q-33 0-56.5-23.5T560-280v-400q0-33 23.5-56.5T640-760q33 0 56.5 23.5T720-680v400q0 33-23.5 56.5T640-200Zm-320 0q-33 0-56.5-23.5T240-280v-400q0-33 23.5-56.5T320-760q33 0 56.5 23.5T400-680v400q0 33-23.5 56.5T320-200Z"/></svg>',
   ok: '<svg viewBox="0 -960 960 960"><path d="m382-354 339-339q12-12 28-12t28 12q12 12 12 28.5T777-636L410-268q-12 12-28 12t-28-12L182-440q-12-12-11.5-28.5T183-497q12-12 28.5-12t28.5 12l142 143Z"/></svg>',
+  // person_add
+  person: '<svg viewBox="0 -960 960 960"><path d="M720-520h-80q-17 0-28.5-11.5T600-560q0-17 11.5-28.5T640-600h80v-80q0-17 11.5-28.5T760-720q17 0 28.5 11.5T800-680v80h80q17 0 28.5 11.5T920-560q0 17-11.5 28.5T880-520h-80v80q0 17-11.5 28.5T760-400q-17 0-28.5-11.5T720-440v-80Zm-360 40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-240v-32q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v32q0 33-23.5 56.5T600-160H120q-33 0-56.5-23.5T40-240Z"/></svg>',
   problem: '<svg viewBox="0 -960 960 960"><path d="M480-120q-33 0-56.5-23.5T400-200q0-33 23.5-56.5T480-280q33 0 56.5 23.5T560-200q0 33-23.5 56.5T480-120Zm0-240q-33 0-56.5-23.5T400-440v-320q0-33 23.5-56.5T480-840q33 0 56.5 23.5T560-760v320q0 33-23.5 56.5T480-360Z"/></svg>',
 };
 
@@ -47,14 +49,15 @@ function elements() {
 const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 // ms: meddelandet försvinner av sig självt efter så lång tid. Klart försvinner alltid efter en stund.
-export function showMessage({ key, kind, title, text = '', ms = 0 }) {
+// icon: en annan ikon än den som hör till kind, till exempel person när en spelare går med.
+export function showMessage({ key, kind, title, text = '', ms = 0, icon = kind }) {
   const el = elements();
   clearTimeout(hideTimer);
   const same = current && current.key === key && current.kind === kind && current.title === title && current.text === text;
   current = { key, kind, title, text };
   if (!same) {
     el.className = 'message ' + kind;
-    el.innerHTML = `<span class="message-icon" aria-hidden="true">${ICONS[kind]}</span>
+    el.innerHTML = `<span class="message-icon" aria-hidden="true">${ICONS[icon] || ICONS[kind]}</span>
       <span class="message-body"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}</span>`;
     el.hidden = false;
     const spoken = text ? `${title}. ${text}` : title;
@@ -103,7 +106,7 @@ export function showJoined(name) {
     joined = [];
     if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
     joinedShown = current && current.key === 'joined' ? [...joinedShown, ...names] : names;
-    showMessage({ key: 'joined', kind: 'info', ...joinedMessage(joinedShown), ms: JOINED_MS });
+    showMessage({ key: 'joined', kind: 'info', icon: 'person', ...joinedMessage(joinedShown), ms: JOINED_MS });
   }, JOINED_SETTLE_MS);
 }
 

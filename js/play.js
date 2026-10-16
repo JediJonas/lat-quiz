@@ -225,7 +225,7 @@ function onUnreachable(reason) {
 // igen med samma kod får tillbaka sina poäng.
 async function leaveGame() {
   const ok = await showConfirm('Du kan gå med igen med samma kod och får då tillbaka dina poäng.', {
-    title: 'Lämna spelet?', okText: 'Lämna', danger: true,
+    title: 'Lämna spelet?', okText: 'Lämna', danger: true, icon: ICONS.leave,
   });
   if (!ok) return;
   // Spelledaren och de andra spelarna får veta det. Vänta lite, så att meddelandet hinner iväg.

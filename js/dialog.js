@@ -1,11 +1,13 @@
 // Modaler i stället för webbläsarens alert() och confirm().
 // Bygger på <dialog>, som sköter fokus, Esc och bakgrunden.
 
-function open({ title, message, okText = 'OK', cancelText = null, danger = false }) {
+// icon: en ikon (svg) överst, till exempel före något som inte går att ångra.
+function open({ title, message, okText = 'OK', cancelText = null, danger = false, icon = '' }) {
   const dialog = document.createElement('dialog');
-  dialog.className = 'modal';
+  dialog.className = icon ? 'modal confirm' : 'modal';
   dialog.innerHTML = `
     <form method="dialog">
+      ${icon ? `<span class="modal-icon${danger ? ' danger' : ''}" aria-hidden="true">${icon}</span>` : ''}
       <h2></h2>
       <p></p>
       <div class="modal-actions">

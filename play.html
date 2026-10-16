@@ -22,7 +22,7 @@
       <p id="join-error" class="error-text" hidden></p>
       <form id="join-form">
         <div class="field-group">
-          <div class="field-row"><label for="name-input">Ditt namn</label><input id="name-input" maxlength="10" required autocomplete="nickname"></div>
+          <div class="field-row"><label for="name-input">Namn</label><input id="name-input" maxlength="10" required autocomplete="nickname"></div>
         </div>
         <label for="code-input" class="section-title code-label">Kod</label>
         <div class="code-boxes">
@@ -47,18 +47,25 @@
         <div id="qr" class="qr"></div>
         <p>Du kan be andra spelare ansluta. De kan skanna QR-koden eller få <button type="button" id="copy-link" class="link" aria-label="Kopiera länken" title="Kopiera länken">länken</button> av dig.<span id="copy-status" class="visually-hidden" role="status"></span></p>
         <p id="join-url-row" hidden><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
-        <p>Kod: <span id="me" class="code"></span></p>
+        <p>Kod <span id="me" class="code"></span></p>
       </section>
 
-      <div id="waiting" class="card" hidden><p id="waiting-text"></p></div>
+      <div id="waiting" class="card" hidden>
+        <div class="cover waiting-cover"><h2 id="waiting-title" class="round-label"></h2>
+          <p class="cover-foot"><span class="eq idle" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="waiting-text"></span></p></div>
+        <ul id="rules" class="chips" aria-label="Regler"></ul>
+      </div>
 
       <div id="guess" class="card" hidden>
-        <div class="cover now-playing"><h2 id="round-title" class="round-label"></h2><div id="timer" class="ring mid-ring"></div></div>
+        <div class="cover now-playing">
+          <div class="cover-head"><h2 id="round-title" class="round-label"></h2><p class="round-label clip-note" hidden><span class="clip-from">Ljudklipp från </span>Deezer</p></div>
+          <div id="timer" class="ring mid-ring"></div>
+          <p class="cover-foot"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="guess-hint">Lyssna och gissa</span></p>
+        </div>
         <div class="field-group">
           <div class="field-row"><label for="artist">Artist</label><div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div></div>
           <div class="field-row"><label for="title">Titel</label><div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div></div>
         </div>
-        <p class="note clip-note" hidden>Ljudklipp från Deezer</p>
       </div>
 
       <div id="result" class="card" hidden><div id="result-body"></div></div>
@@ -67,6 +74,7 @@
         <h2 class="section-title">Poäng</h2>
         <div id="standings" class="standings"></div>
       </div>
+      <p id="win-wait" class="note win-wait" hidden>Väntar på att spelledaren startar en ny match.</p>
     </section>
   </main>
 

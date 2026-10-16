@@ -19,8 +19,8 @@
   --tool-text: #3a3a44;
   --border: rgba(60, 60, 70, 0.14);
   /* Hur starkt kategorins två färger lyser överst. */
-  --amb-1: 30%;
-  --amb-2: 20%;
+  --amb-1: 34%;
+  --amb-2: 24%;
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -39,10 +39,12 @@
   --shadow-sm: 0 1px 2px rgba(20, 20, 30, 0.06);
   /* Ytorna får en ljus kant upptill och en mjuk, neutral skugga. */
   --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 1px 2px rgba(20, 20, 30, 0.05), 0 14px 36px rgba(20, 20, 40, 0.08);
+  --glass-edge: rgba(255, 255, 255, 0.9);
   --radius: 14px;
   /* Knappar har pillerform: ändarna blir halvcirklar oavsett knappens höjd. */
   --radius-button: 999px;
   --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235c5c67' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --ok-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   color-scheme: light dark;
 }
 
@@ -59,8 +61,9 @@
     --tool-hover: rgba(255, 255, 255, 0.14);
     --tool-text: #d6d6de;
     --border: rgba(255, 255, 255, 0.1);
-    --amb-1: 42%;
-    --amb-2: 30%;
+    --glass-edge: rgba(255, 255, 255, 0.12);
+    --amb-1: 46%;
+    --amb-2: 32%;
     --accent: #1ed760;
     --accent-hover: #3be477;
     --accent-soft: rgba(30, 215, 96, 0.14);
@@ -78,6 +81,7 @@
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
     --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23a2a2ad' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --ok-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2308130c' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
 }
 
@@ -92,8 +96,9 @@
   --tool-hover: rgba(255, 255, 255, 0.14);
   --tool-text: #d6d6de;
   --border: rgba(255, 255, 255, 0.1);
-  --amb-1: 42%;
-  --amb-2: 30%;
+  --glass-edge: rgba(255, 255, 255, 0.12);
+  --amb-1: 46%;
+  --amb-2: 32%;
   --accent: #1ed760;
   --accent-hover: #3be477;
   --accent-soft: rgba(30, 215, 96, 0.14);
@@ -111,6 +116,7 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23a2a2ad' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --ok-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2308130c' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   color-scheme: dark;
 }
 
@@ -122,20 +128,20 @@
    Apple Music och Spotify, och används aldrig på knappar eller text. Utan kategori, till
    exempel på startsidan, lyser appens grön och en rosa ton. Reglerna gäller både sidan och
    de små omslagen, som har egen kategori. */
-:root { --cat-glyph: ""; --cat-1: #12823f; --cat-2: #ee2f8f; }
-[data-kategori="60-tal"] { --cat-glyph: "60"; --cat-1: #f08a24; --cat-2: #b4380b; }
-[data-kategori="70-tal"] { --cat-glyph: "70"; --cat-1: #d39a12; --cat-2: #7d3f0c; }
-[data-kategori="80-tal"] { --cat-glyph: "80"; --cat-1: #ee2f8f; --cat-2: #6326d0; }
-[data-kategori="90-tal"] { --cat-glyph: "90"; --cat-1: #0fa596; --cat-2: #1d3a85; }
-[data-kategori="2000-tal"] { --cat-glyph: "00"; --cat-1: #3478f0; --cat-2: #1d1a5c; }
-[data-kategori="2010-tal"] { --cat-glyph: "10"; --cat-1: #9d4ff0; --cat-2: #2f2a80; }
-[data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; }
-[data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; }
-[data-kategori="eurovision"] { --cat-glyph: "ESC"; --cat-1: #5a5ef0; --cat-2: #c51f6e; }
-[data-kategori="hardrock"] { --cat-glyph: "HR"; --cat-1: #d42a2a; --cat-2: #241616; }
-[data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; }
-[data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; }
-[data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; }
+:root { --cat-glyph: ""; --cat-1: #12823f; --cat-2: #ee2f8f; --cat-dim: 0.13; }
+[data-kategori="60-tal"] { --cat-glyph: "60"; --cat-1: #f08a24; --cat-2: #b4380b; --cat-dim: 0.35; }
+[data-kategori="70-tal"] { --cat-glyph: "70"; --cat-1: #d39a12; --cat-2: #7d3f0c; --cat-dim: 0.35; }
+[data-kategori="80-tal"] { --cat-glyph: "80"; --cat-1: #ee2f8f; --cat-2: #6326d0; --cat-dim: 0.19; }
+[data-kategori="90-tal"] { --cat-glyph: "90"; --cat-1: #0fa596; --cat-2: #1d3a85; --cat-dim: 0.29; }
+[data-kategori="2000-tal"] { --cat-glyph: "00"; --cat-1: #3478f0; --cat-2: #1d1a5c; --cat-dim: 0.20; }
+[data-kategori="2010-tal"] { --cat-glyph: "10"; --cat-1: #9d4ff0; --cat-2: #2f2a80; --cat-dim: 0.17; }
+[data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; --cat-dim: 0.14; }
+[data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; --cat-dim: 0.34; }
+[data-kategori="eurovision"] { --cat-glyph: "ESC"; --cat-1: #5a5ef0; --cat-2: #c51f6e; --cat-dim: 0.14; }
+[data-kategori="hardrock"] { --cat-glyph: "HR"; --cat-1: #d42a2a; --cat-2: #241616; --cat-dim: 0.08; }
+[data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; --cat-dim: 0.12; }
+[data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; --cat-dim: 0.02; }
+[data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; --cat-dim: 0.28; }
 
 /* Ljuset ligger på html-elementet och följer med sidan när man scrollar. Det tonar ut till
    genomskinligt, och bakgrundsfärgen fyller resten, så det blir inga skarpa kanter. Ett fast
@@ -187,17 +193,13 @@ h1, h2 { font-size: 1.25rem; font-weight: 800; margin: 0.2em 0 0.5em; }
   mask-size: contain;
   mask-repeat: no-repeat;
 }
-h1.logo { margin: 16px 0 8px; }
-/* Sidans rubrik står under loggan. Loggan har samma storlek och läge som på startsidan. */
-.page-head .logo { margin: 16px 0 24px; }
-.page-head .page-title { margin: 0 0 20px; }
-/* Liten logga bredvid kategorin under spelet. */
-/* Utan text får loggan sin baslinje i underkanten. Flytta ner den med glyfernas nedhäng (260 av 1010) så att bokstäverna står på kategorins baslinje. */
-.logo-small { --w: 120px; flex: none; width: var(--w); margin: 0 4px 0 0; align-self: baseline; position: relative; top: calc(var(--w) * 260 / 2814); }
-@media (min-width: 761px) { .logo-small { --w: 152px; } }
+/* Rubrikraden som i iOS: en liten logga uppe till vänster, mitt för menyknappen, och sidans
+   rubrik stor under. Samma på alla sidor utom startsidan, och under spelet står kategorin där. */
+.page-head .logo, .logo-small { width: 92px; margin: 13px 0; }
+.page-title, .player-head h1 { font-size: 2.125rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; margin: 6px 0 16px; }
 /* Små etikettrubriker i versaler: Poäng, Låt 1 och liknande. Samma stil överallt. */
 h3, .section-title, .round-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-h3, .section-title { margin: 2em 0 0.6em; }
+h3, .section-title { margin: 24px 16px 8px; }
 a { color: inherit; text-underline-offset: 3px; }
 @media (hover: hover) { a:not(.button):hover { color: var(--text); } }
 /* Liten grå text för upplysningar, till exempel Ljudklipp från Deezer. */
@@ -241,12 +243,10 @@ input.chosen {
 input:disabled { opacity: 0.55; }
 /* Svarsfälten väntar bara på att låten startar och ska inte blinka till. */
 #guess input:disabled { opacity: 1; }
-/* Gissningen och svaret är lika höga, så att sidan inte hoppar när svaret visas. */
-#guess, #result { min-height: 28rem; }
+
 /* Omslaget och fälten står direkt på sidan, utan ett kort runt sig. */
 #guess.card, #result.card { padding: 0; border: 0; background: none; box-shadow: none; }
-/* Spelledaren som inte deltar ser bara låten och timern, så rutan blir lägre men lika hög i båda lägena. */
-.watching #guess, .watching #result { min-height: 19rem; }
+
 /* Luft under sidan medan man skriver, så att fältet kan rullas upp överst. */
 body.typing::after { content: ""; display: block; height: 100vh; }
 select:disabled { color: var(--muted); cursor: default; }
@@ -259,25 +259,37 @@ button:disabled { opacity: 0.55; pointer-events: none; }
 .field-group {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
-  margin: 16px 0 0;
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  margin: 0;
+  border-radius: 22px;
   background: var(--surface-solid);
 }
-.field-row { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; min-height: 56px; border-radius: 15px; }
-.field-row:not([hidden]) ~ .field-row::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 1px solid var(--border); }
-.field-row label { margin: 0; padding: 0 4px 0 16px; color: var(--muted); font-weight: 600; font-size: 0.95rem; }
+.field-row { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; min-height: 56px; border-radius: 22px; }
+.field-row:not([hidden]) ~ .field-row::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 0.5px solid var(--border); }
+.field-row label { min-width: 80px; margin: 0; padding: 0 0 0 16px; color: var(--muted); font-weight: 600; font-size: 0.9375rem; }
 /* Fältet fyller resten av raden. Krysset och förslagslistan hör till hela raden. */
 .field-row .ac { position: static; }
-.field-row input, .field-row select { border: 0; border-radius: 15px; background-color: transparent; box-shadow: none; padding-left: 12px; min-height: 56px; }
+.field-row input, .field-row select { border: 0; border-radius: 22px; background-color: transparent; box-shadow: none; padding-left: 12px; min-height: 56px; font-size: 1.0625rem; }
 .field-row input:hover, .field-row select:hover { border: 0; }
 .field-row input:focus, .field-row select:focus { box-shadow: none; }
 /* Fokus syns som en ram runt hela raden. */
 .field-row:focus-within { box-shadow: inset 0 0 0 2px var(--focus); }
-.field-row:has(input.chosen) { background: var(--good-soft); }
-.field-row input.chosen { background: transparent; }
+.field-row input.chosen, #name-input, #host-name { background: transparent; border: 0; font-weight: 650; }
+/* Ett valt svar får en grön bock framför krysset. */
+.field-row .ac:has(input.chosen) input { padding-right: 82px; }
+.field-row .ac:has(input.chosen)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 52px;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border-radius: 50%;
+  background: var(--ok-check) center / 16px no-repeat, var(--accent);
+  pointer-events: none;
+}
 .field-row .suggestions { top: 100%; }
-.field-row .clear-input { border-radius: 0 15px 15px 0; }
+.field-row .clear-input { border-radius: 0 22px 22px 0; }
 
 /* Knappar */
 button, .button {
@@ -293,7 +305,7 @@ button, .button {
   border-radius: var(--radius-button);
   background: var(--accent);
   color: var(--accent-text);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   cursor: pointer;
   transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
 }
@@ -302,13 +314,11 @@ button:active, .button:active { transform: scale(0.98); }
 /* Tydlig fokusram för tangentbord, med minst 3:1 i kontrast mot bakgrunden. */
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 input:focus-visible, select:focus-visible { outline: none; }
-.big { padding: 16px; font-size: 1.05rem; }
-button.big, .button.big { box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent); }
-button.secondary.big { box-shadow: var(--shadow-sm); }
-/* Mer luft mellan formulärets fält och huvudknappen. */
-#create, #join-form .big { margin-top: 28px; }
+.big { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 8px 20px; font-size: 1.0625rem; font-weight: 650; letter-spacing: -0.01em; }
+#join-form .big { margin-top: 22px; }
 .huge { padding: 22px; font-size: 1.3rem; letter-spacing: -0.01em; }
-.secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+/* Vit knapp med en hårfin kant, för att avbryta. */
+.secondary { background: var(--surface-solid); color: var(--text); box-shadow: inset 0 0 0 0.5px var(--border); }
 .secondary:hover { background: var(--surface-2); }
 button.link {
   display: inline;
@@ -382,46 +392,49 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .tag {
   display: inline-block;
   margin: 0 4px 0 0;
-  padding: 2px 9px;
+  padding: 3px 8px;
   border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 650;
   background: var(--surface-2);
   color: var(--muted);
   vertical-align: 1px;
 }
 .tag.good { background: var(--good-soft); color: var(--good); }
-.tag.answered { background: var(--answered-soft); color: var(--answered); }
+.tag.answered { background: var(--text); color: var(--surface-solid); }
 .tag.bad { background: var(--bad-soft); color: var(--bad); }
 .tag.bonus { background: var(--bonus-soft); color: var(--bonus); }
 
 /* Poängtabell */
 table { width: 100%; border-collapse: separate; border-spacing: 0; }
-/* Raderna ligger i en enda rundad grupp med tunna skiljelinjer. */
-td { padding: 13px 12px; background: var(--surface-solid); }
-tr + tr td { border-top: 1px solid var(--border); }
-tr:first-child td:first-child { border-top-left-radius: 16px; }
-tr:first-child td:last-child { border-top-right-radius: 16px; }
-tr:last-child td:first-child { border-bottom-left-radius: 16px; }
-tr:last-child td:last-child { border-bottom-right-radius: 16px; }
+/* Raderna ligger i en enda rundad grupp med tunna skiljelinjer, som börjar i höjd med texten. */
+td { height: 56px; padding: 8px 12px; background: var(--row-bg, var(--surface-solid)); }
+tr + tr td { background: linear-gradient(var(--border), var(--border)) 0 0 / 100% 0.5px no-repeat, var(--row-bg, var(--surface-solid)); }
+tr + tr td:first-child { background-position: 16px 0, 0 0; }
+tr:first-child td:first-child { border-top-left-radius: 22px; }
+tr:first-child td:last-child { border-top-right-radius: 22px; }
+tr:last-child td:first-child { border-bottom-left-radius: 22px; }
+tr:last-child td:last-child { border-bottom-right-radius: 22px; }
 /* Lika mycket luft mot radens båda kanter, hos spelledaren och spelarna. */
 td:first-child { padding-left: 16px; }
 td:last-child { padding-right: 16px; }
-td.name { font-weight: 600; }
+td.name { font-weight: 650; }
 /* Placeringen står först och poängen sist, stort och till höger, som i en topplista. */
-td.rank { width: 1.4em; text-align: center; font-size: 1.05rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+td.rank { width: 22px; text-align: center; font-size: 1.0625rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
 td.rank.first { color: var(--bonus); }
-td.score { width: 2em; text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+td.score { width: 30px; text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
 /* Initialen i en rund bricka, i en färg som följer namnet. */
 .player { display: flex; align-items: center; gap: 12px; }
+/* Den som klättrat i listan får en liten grön pil med antalet placeringar. */
+.up { margin-left: -6px; font-size: 0.6875rem; font-weight: 800; color: var(--good); white-space: nowrap; }
 .avatar { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; font-size: 0.95rem; font-weight: 750; }
 .av-0 { background: #2563eb; } .av-1 { background: #c2185b; } .av-2 { background: #12823f; } .av-3 { background: #7b3fd1; }
 .av-4 { background: #c2410c; } .av-5 { background: #0e7490; } .av-6 { background: #4f46e5; } .av-7 { background: #a16207; }
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
-tr.me td { background: color-mix(in srgb, var(--accent) 9%, var(--surface-solid)); }
+tr.me { --row-bg: color-mix(in srgb, var(--accent) 9%, var(--surface-solid)); }
 tr.bump td.score .num { animation: bump 0.7s ease-out; }
 @keyframes bump {
   0% { transform: scale(1); color: var(--text); }
@@ -452,20 +465,24 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   font-variant-numeric: tabular-nums;
 }
 .round-label { margin: 0 0 4px; }
-.mid-ring { width: 150px; height: 150px; margin: 0 auto 4px; }
-.mid-ring circle { stroke-width: 8; }
-.mid-ring .ring-num { font-size: 2.8rem; }
+.mid-ring { width: 156px; height: 156px; margin: 0 auto; }
+.mid-ring circle { stroke-width: 8.5; }
+.mid-ring .ring-num { font-size: 60px; font-weight: 800; letter-spacing: -0.05em; }
+@media (min-width: 761px) { .mid-ring { width: 170px; height: 170px; } }
 /* Poänglistan ser likadan ut hos spelledaren och spelarna: tätt mellan kolumnerna, luft mot kanterna. */
-.standings td { padding-left: 8px; padding-right: 8px; }
+.standings td { padding-left: 6px; padding-right: 6px; }
 .standings td:first-child { padding-left: 16px; }
 .standings td:last-child { padding-right: 16px; }
 .standings td.status { white-space: nowrap; }
 .standings td.name { width: 100%; overflow-wrap: break-word; }
-.standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
-/* Ställningen när matchen är slut: stora placeringssiffror och högre rader. */
-.podium td { padding-top: 16px; padding-bottom: 16px; }
-.podium td.rank { width: 1.2em; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; }
-.podium .avatar { width: 40px; height: 40px; font-size: 1.05rem; }
+.standings .tag { margin: 0 0 0 4px; }
+/* När svaret visas står bara poängen för låten i listan i mobilen. På en bredare skärm står
+   också vad som var rätt och fel. */
+@media (max-width: 600px) { .standings .tag.field { display: none; } }
+/* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
+.podium td { height: 66px; }
+.podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
+.podium td.rank.first { color: var(--bonus); -webkit-text-stroke: 0; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -484,47 +501,85 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Rätt svar */
 /* Omslaget: låten har ett omslag i kategorins färger, med kategorins siffra eller förkortning
    stor i hörnet, som på ett skivomslag. Timern står på omslaget medan låten spelas, och rätt
-   svar visas på samma omslag. Färgerna mörkas med 30 procent svart, så att vit text når 4,5:1
-   i alla kategorier. */
+   svar visas på samma omslag. Ett svagt ljus faller in uppe till vänster, som på prototypens
+   omslag. Varje kategori mörkas bara så mycket som behövs (--cat-dim), så att vit text når
+   4,5:1 även där ljuset är starkast. */
 .cover {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 15rem;
-  padding: 18px 20px 20px;
-  border-radius: 24px;
+  min-height: 286px;
+  padding: 20px 22px;
+  border-radius: 30px;
   color: #fff;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(150deg, var(--cat-1), var(--cat-2));
-  box-shadow: 0 20px 44px -24px color-mix(in srgb, var(--cat-2) 70%, transparent);
+  background: var(--cover-bg);
+  box-shadow: 0 24px 50px -24px color-mix(in srgb, var(--cat-2) 70%, transparent);
 }
+:root, [data-kategori] {
+  --cover-bg: linear-gradient(rgb(0 0 0 / var(--cat-dim)), rgb(0 0 0 / var(--cat-dim))),
+    radial-gradient(90% 70% at 15% 0%, rgba(255, 255, 255, 0.16), transparent 60%),
+    linear-gradient(150deg, var(--cat-1), var(--cat-2));
+}
+/* En hårfin ljus kant runt omslaget. */
+.cover::before { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.25); pointer-events: none; }
 .cover::after {
   content: var(--cat-glyph);
   position: absolute;
   z-index: -1;
-  right: -0.05em;
-  bottom: -0.22em;
-  font-size: 12rem;
+  right: -0.06em;
+  bottom: -0.2em;
+  font-size: 230px;
   font-weight: 900;
   letter-spacing: -0.07em;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.13);
   pointer-events: none;
 }
 .cover .round-label { margin: 0; color: rgba(255, 255, 255, 0.9); }
+/* Överst på omslaget står låtens nummer till vänster och Deezer till höger, och längst ner en
+   mätare som rör sig medan låten spelas. */
+.cover-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.cover .round-label { font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.09em; color: rgba(255, 255, 255, 0.92); }
+.cover-head .clip-note { margin: 0; text-align: right; }
+@media (max-width: 600px) { .clip-from { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
+.cover-foot { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font-size: 0.9375rem; font-weight: 600; color: rgba(255, 255, 255, 0.92); }
+.eq { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
+.eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.9s ease-in-out infinite alternate; }
+.eq i:nth-child(2) { animation-delay: -0.3s; }
+.eq i:nth-child(3) { animation-delay: -0.6s; }
+.eq i:nth-child(4) { animation-delay: -0.15s; }
+.eq.idle i { animation-duration: 2.2s; }
+.eq.paused i { animation-play-state: paused; }
+@keyframes eq { from { height: 25%; } to { height: 100%; } }
 .now-playing { margin: 0 0 16px; }
 .now-playing .ring { margin: auto; }
+@media (min-width: 761px) { .now-playing, .answer { min-height: 300px; } }
+/* Medan alla väntar visar omslaget kategorin, och reglerna står som etiketter under. */
+.waiting-cover { min-height: 220px; justify-content: space-between; }
+.waiting-cover .cover-foot { justify-content: flex-start; }
+#waiting.card { padding: 0; border: 0; background: none; box-shadow: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.chips li { padding: 7px 12px; border-radius: 999px; background: var(--surface-solid); font-size: 0.875rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+#waiting .big { margin-top: 24px; }
 /* På omslaget är ringen vit, med ett svagt spår. */
 .cover .ring-bar { stroke: #fff; }
 .cover .ring-track { stroke: rgba(255, 255, 255, 0.24); }
 .cover .ring-num { color: #fff; }
 .cover .ring.loading .ring-bar { stroke: rgba(255, 255, 255, 0.35); }
 .cover .ring.loading .ring-num { color: rgba(255, 255, 255, 0.7); }
-.answer { justify-content: flex-end; gap: 6px; margin: 0 0 12px; }
-.answer .round-label { position: absolute; top: 18px; left: 20px; }
-.answer .title { margin-top: 2.5rem; font-size: 2rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; text-wrap: balance; }
-.answer .artist { font-size: 1.1rem; font-weight: 500; color: rgba(255, 255, 255, 0.9); }
+.answer { justify-content: flex-end; margin: 0; }
+.answer .cover-head { position: absolute; top: 20px; left: 22px; right: 22px; }
+.answer .title { margin-top: 2.5rem; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; line-height: 1.04; text-wrap: balance; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.15); }
+.answer .artist { margin-top: 8px; font-size: 1.125rem; font-weight: 550; color: rgba(255, 255, 255, 0.9); }
+@media (min-width: 761px) { .answer .title { font-size: 2.75rem; } }
+/* Rätt svar vänds fram på omslaget, som när man vänder en skiva. */
+.answer.reveal { animation: flip 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); transform-origin: center; }
+@keyframes flip {
+  from { transform: perspective(1200px) rotateY(-90deg); }
+  to { transform: perspective(1200px) rotateY(0); }
+}
 .reveal { animation: reveal 0.35s ease-out; }
 /* När svarsrutan ritas om, till exempel vid paus, ska den inte animeras igen. */
 .settled .reveal { animation: none; }
@@ -533,18 +588,28 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   to { opacity: 1; transform: none; }
 }
 /* Raderna delar kolumner, så att svaren linjerar efter den längsta etiketten (till exempel Kompositör). */
-.mine { list-style: none; padding: 8px 0; margin: 0; display: grid; grid-template-columns: max-content 1fr; row-gap: 8px; }
-.mine li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; column-gap: 10px; align-items: baseline; padding: 10px 16px; margin: 0; border-radius: 10px; font-weight: 600; }
-.mine li span { min-width: 4.5em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-.mine li.right { background: var(--good-soft); color: var(--good); }
-.mine li.wrong { background: var(--bad-soft); color: var(--bad); }
-.mine li.bonus { background: var(--bonus-soft); color: var(--bonus); }
-.points { font-size: 1.6rem; font-weight: 750; text-align: center; margin: 0; }
+/* De egna svaren ligger i en grupp som fälten, med poängen till höger. */
+.mine { list-style: none; margin: 16px 0 0; padding: 0; border-radius: 22px; background: var(--surface-solid); display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content; }
+.mine li { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; column-gap: 12px; align-items: center; min-height: 56px; padding: 8px 16px; font-size: 1.0625rem; }
+.mine li + li::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 0.5px solid var(--border); }
+.mine .lab { min-width: 54px; font-size: 0.9375rem; font-weight: 600; color: var(--muted); }
+.mine .val { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 650; }
+.mine .none .val { font-weight: 400; color: var(--muted); }
+.mine .pts { font-size: 0.9375rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--muted); }
+.mine .right .pts { color: var(--good); }
+.mine .wrong .pts { color: var(--bad); }
+/* Poängen för låten står stort, med nedräkningen till nästa låt bredvid. */
+.points { margin: 0; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; color: var(--good); }
+.points.zero { color: var(--muted); }
+.next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; font-size: 0.9375rem; font-weight: 550; color: var(--muted); }
+.next .pie-num { display: none; }
 /* Vinnaren tar omslaget, med konfetti som faller en gång. */
-.win { justify-content: flex-end; gap: 6px; min-height: 19rem; margin: 0 0 12px; }
-.win .win-title { margin: 0; font-size: 2.6rem; font-weight: 900; letter-spacing: -0.045em; line-height: 1; text-wrap: balance; color: #fff; text-transform: none; }
-.win .win-song { margin: 2px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); text-wrap: pretty; }
-.win .win-sub { margin: 4px 0 0; font-size: 1.05rem; font-weight: 500; color: rgba(255, 255, 255, 0.9); text-wrap: pretty; }
+.win { justify-content: flex-end; min-height: 380px; padding: 26px 24px; margin: 6px 0 0; }
+.win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
+.win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
+.win .win-song { margin: 6px 0 0; font-size: 0.875rem; color: rgba(255, 255, 255, 0.88); text-wrap: pretty; }
+/* När matchen är slut tar vinnaren vyn. Kategorin som rubrik syns inte, men finns kvar för skärmläsare. */
+.match-over .player-head h1 { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .confetti { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .confetti i { position: absolute; top: -20px; width: 10px; height: 18px; border-radius: 3px; animation: confetti 1.6s cubic-bezier(0.2, 0.6, 0.4, 1) both; }
 .confetti i:nth-child(1) { left: 8%; --y: 60px; --r: 20deg; background: #ffd166; }
@@ -561,7 +626,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   to { opacity: 0.9; transform: translateY(var(--y)) rotate(var(--r)); }
 }
 .settled .confetti i { animation: none; transform: translateY(var(--y)) rotate(var(--r)); opacity: 0.9; }
-.win-wait { text-align: center; margin: 12px 0 0; }
+.win-wait { text-align: center; margin: 18px 16px 0; font-size: 0.8125rem; }
+/* I ställningen står bara totalen, inte poängen för sista låten. */
+.podium .tag { display: none; }
 
 /* Förslagslista */
 .ac { position: relative; }
@@ -598,60 +665,83 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   right: 0;
   max-height: 45vh;
   overflow-y: auto;
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   padding: 6px;
   list-style: none;
   background: var(--surface-solid);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18), inset 0 0 0 0.5px var(--border);
 }
-.suggestions li { padding: 11px 12px; border-radius: 8px; cursor: pointer; }
-.suggestions li:hover, .suggestions li[aria-selected="true"] { background: var(--surface-2); }
-.suggestions li[aria-selected="true"] { box-shadow: inset 0 0 0 2px var(--focus); }
+.suggestions li { padding: 12px; border-radius: 16px; font-size: 1.0625rem; cursor: pointer; }
+.suggestions li b { font-weight: 750; }
+.suggestions li:hover { background: var(--surface-2); }
+.suggestions li[aria-selected="true"] { background: var(--accent-soft); }
 .suggestions li.empty { color: var(--muted); cursor: default; }
 .suggestions li.empty:hover { background: none; }
 
 /* Rubrikraden med loggan och kategorin, samma hos spelledaren och spelarna. Kategorin är en vanlig rubrik. */
-.player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 0.9rem; color: var(--muted); }
-.player-head .who { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
-.player-head .who h1 { margin: 0; color: var(--text); }
+.player-head { color: var(--muted); }
+.player-head .who { min-width: 0; }
+.player-head .who h1 { color: var(--text); }
 .player-head .who h1:empty { display: none; }
 #me { letter-spacing: 0.08em; }
 .error-text { color: var(--bad); font-weight: 600; padding: 12px 14px; border-radius: 12px; background: var(--bad-soft); }
+
+/* Den lilla rubrikraden överst, när den stora rubriken har rullat bort (js/spelvy.js). Bara i mobilen. */
+.compact-bar { display: none; }
+@media (max-width: 600px) {
+  .compact-bar {
+    position: fixed;
+    z-index: 55;
+    inset: 0 0 auto;
+    display: flex;
+    align-items: center;
+    height: calc(64px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
+    background: linear-gradient(var(--bg) 55%, transparent);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+  }
+  .compact-bar .logo { width: 72px; margin: 0; }
+  .compact-title { position: absolute; left: 96px; right: 96px; text-align: center; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .compact .compact-bar { opacity: 1; visibility: visible; }
+  /* Menyknappen följer med och blir mindre, i höjd med den lilla rubriken. */
+  .compact .menu { position: fixed; top: calc(12px + env(safe-area-inset-top)); --menu-size: 40px; }
+  .compact .menu-button svg { width: 24px; height: 24px; }
+}
 
 /* Meddelanderutan längst ner, ovanpå sidan. Fel får röd ram, rubrik och ikon. */
 .message {
   position: fixed;
   z-index: 50;
   left: 50%;
-  bottom: max(20px, env(safe-area-inset-bottom));
+  bottom: max(30px, env(safe-area-inset-bottom));
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 12px;
   box-sizing: border-box;
-  width: max-content;
-  max-width: min(460px, calc(100vw - 32px));
+  width: min(460px, calc(100vw - 24px));
   margin: 0;
-  padding: 12px 18px 12px 12px;
-  border: 1.5px solid var(--border);
-  border-radius: 18px;
-  /* Halvgenomskinlig med samma oskärpa som kontrollpanelen, så att texten går att läsa över sidan. */
-  background: color-mix(in srgb, var(--surface-solid) 70%, transparent);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  backdrop-filter: blur(8px) saturate(180%);
+  padding: 14px 16px;
+  border-radius: 26px;
+  /* Glas, som kontrollpanelen: sidan skymtar igenom men texten går att läsa. */
+  background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   line-height: 1.35;
-  box-shadow: 0 12px 36px rgba(20, 20, 30, 0.22);
+  box-shadow: inset 0 0 0 0.5px var(--glass-edge), 0 10px 30px rgba(20, 20, 40, 0.14), 0 1px 2px rgba(20, 20, 40, 0.08);
   animation: toast-in 0.25s ease-out;
 }
 .message[hidden] { display: none; }
-.message-icon { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--surface-2); }
-.message-icon svg { width: 20px; height: 20px; fill: currentColor; }
-.message-body strong { display: block; font-weight: 650; }
-.message-body span { display: block; color: var(--muted); font-size: 0.875rem; }
+.message-icon { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--accent-soft); color: var(--good); }
+.message-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.message-body strong { display: block; font-size: 1rem; font-weight: 700; }
+.message-body span { display: block; color: var(--muted); font-size: 0.9375rem; }
 .message.ok .message-icon { background: var(--good-soft); color: var(--good); }
 .message.problem strong { color: var(--bad); }
 .message.problem .message-icon { background: var(--bad); color: var(--bad-text); }
@@ -668,7 +758,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   --menu-size: 52px;
   position: absolute; z-index: 60; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
 }
-.player-head { padding-right: 64px; }
+
 .menu-button {
   display: grid;
   place-items: center;
@@ -677,7 +767,10 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   margin: 0;
   padding: 0;
   border-radius: 50%;
-  background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid);
+  background: linear-gradient(var(--btn-bg), var(--btn-bg)), color-mix(in srgb, var(--surface-solid) 70%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: inset 0 0 0 0.5px var(--glass-edge), 0 10px 30px rgba(20, 20, 40, 0.14), 0 1px 2px rgba(20, 20, 40, 0.08);
   color: var(--btn-icon);
 }
 .menu-button svg { width: 30px; height: 30px; fill: currentColor; }
@@ -686,25 +779,31 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 240px;
+  width: 252px;
   padding: 6px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--surface-solid);
-  box-shadow: 0 16px 40px rgba(20, 20, 30, 0.25);
+  border-radius: 28px;
+  /* Menyn växer ut ur knappen, i glas. */
+  background: color-mix(in srgb, var(--surface-solid) 84%, transparent);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: inset 0 0 0 0.5px var(--glass-edge), 0 10px 30px rgba(20, 20, 40, 0.14), 0 1px 2px rgba(20, 20, 40, 0.08);
+  transform-origin: top right;
+  animation: menu-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.menu-panel ul { list-style: none; margin: 0; padding: 4px 0; }
-.menu-panel ul + ul { border-top: 1px solid var(--border); }
+@keyframes menu-in { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+.menu-panel ul { list-style: none; margin: 0; padding: 0; }
+.menu-panel ul + ul::before { content: ""; display: block; height: 0.5px; margin: 4px 14px; background: var(--border); }
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
-  min-height: 44px;
+  min-height: 50px;
   margin: 0;
-  padding: 10px 12px;
+  padding: 0 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
+  font-size: 1.0625rem;
   background: none;
   box-shadow: none;
   color: var(--text);
@@ -712,109 +811,119 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   text-align: left;
   text-decoration: none;
 }
-.menu-item svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
+.menu-item svg { flex: none; width: 22px; height: 22px; fill: currentColor; opacity: 0.85; }
 /* Bara med mus, så att färgen inte fastnar på raden efter ett tryck på pekskärm. */
 .menu-item:hover { background: none; }
-@media (hover: hover) { .menu-item:hover { background: var(--surface-2); color: var(--text); } }
-.menu-item:active { transform: none; background: var(--surface-2); }
+@media (hover: hover) { .menu-item:hover { background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--text); } }
+.menu-item:active { transform: none; background: color-mix(in srgb, var(--text) 8%, transparent); }
 .menu-item:focus-visible { outline-offset: -2px; }
 /* Sidan man redan är på. */
 .menu-item[aria-current="page"] { background: var(--btn-bg); font-weight: 600; }
 
-/* Raden Inställningar på Starta nytt spel: vad som gäller, och knappen Ändra. */
-.settings-label { margin: 24px 0 8px 4px; }
+/* Raden Inställningar på Starta nytt spel: vad som gäller, och en liten knapp Ändra. */
+.settings-label { margin: 24px 16px 8px; }
 .settings-summary {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 8px 8px 16px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  min-height: 56px;
+  padding: 14px 16px;
+  border-radius: 22px;
   background: var(--surface-solid);
 }
-.settings-summary p { flex: 1; min-width: 0; margin: 0; }
-.settings-summary button { flex: none; width: auto; margin: 0; padding: 8px 18px; }
+.settings-summary p { flex: 1; min-width: 0; margin: 0; font-size: 0.9375rem; line-height: 1.4; color: var(--muted); }
+.settings-summary button { flex: none; width: auto; min-height: 36px; margin: 0; padding: 0 16px; font-size: 0.9375rem; font-weight: 650; }
 
-/* Små omslag i kategorins färger, på startsidan och i kategorivalet. Samma mörka hinna som
-   på det stora omslaget ger vit text minst 4,5:1. */
+/* Små omslag i kategorins färger, på startsidan och i kategivalet. Siffran eller förkortningen
+   står stort uppe till höger, och namnet nere till vänster. */
 .tile {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  aspect-ratio: 1;
-  padding: 10px 12px;
-  border-radius: 22px;
+  width: 128px;
+  height: 128px;
+  flex: none;
+  padding: 12px;
+  border-radius: 28px;
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 750;
   line-height: 1.15;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(150deg, var(--cat-1), var(--cat-2));
+  background: var(--cover-bg);
 }
 .tile::after {
   content: var(--cat-glyph);
   position: absolute;
   z-index: -1;
   top: -0.12em;
-  left: -0.04em;
-  font-size: 6.5rem;
+  right: -0.04em;
+  font-size: 92px;
   font-weight: 900;
   letter-spacing: -0.07em;
   line-height: 1;
   white-space: nowrap;
-  color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.13);
 }
 
-/* Startsidan: en lutad hylla med omslag överst, som en topplista, och loggan under. */
+/* Startsidan: tre rader med omslag glider sakta fram och tillbaka i en lutad hylla överst.
+   Loggan, texten och knapparna står längst ner, där tummen når dem. */
+main.start { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; overflow: hidden; padding-bottom: max(46px, calc(12px + env(safe-area-inset-bottom))); }
+html:has(main.start) { background: var(--bg); }
 .start-shelf {
-  position: relative;
-  height: min(44vh, 360px);
-  margin: -12px calc(-1 * max(16px, env(safe-area-inset-right))) 0 calc(-1 * max(16px, env(safe-area-inset-left)));
-  overflow: hidden;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(#000 50%, transparent);
-  mask-image: linear-gradient(#000 50%, transparent);
-}
-.start-shelf-grid {
   position: absolute;
-  top: -6%;
-  left: -24%;
-  right: -24%;
+  top: 40px;
+  left: -60px;
+  right: -60px;
+  height: 400px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  align-content: start;
   gap: 14px;
-  transform: rotate(-12deg);
+  transform: rotate(-9deg);
+  pointer-events: none;
 }
+/* Hyllan är bara utsmyckning, så omslagen behöver inte mörkas för texten och får prototypens klara färger. */
+.start-shelf .tile[data-kategori] { --cat-dim: 0; }
+.shelf-row { display: flex; gap: 14px; animation: drift 28s linear infinite alternate; }
+.shelf-row:nth-child(2) { margin-left: -70px; animation-direction: alternate-reverse; }
+.shelf-row:nth-child(3) { margin-left: -20px; animation-duration: 34s; }
+@keyframes drift { from { transform: translateX(0); } to { transform: translateX(-90px); } }
+/* Hyllan tonar ut nedåt mot sidans botten. */
+main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276px; height: 200px; background: linear-gradient(transparent, var(--bg) 75%); pointer-events: none; }
 /* På en bred skärm tonar hyllan ut åt sidorna också, så att den inte får skarpa kanter. */
 @media (min-width: 500px) {
+  main.start { overflow: visible; }
+  body:has(main.start) { overflow-x: hidden; }
   .start-shelf {
-    margin-inline: 0;
-    -webkit-mask-image: linear-gradient(#000 50%, transparent), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(#000 50%, transparent), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
-    mask-composite: intersect;
+    left: -120px;
+    right: -120px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
   }
 }
-.start-shelf .tile { box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.5); }
-.start .logo { width: 260px; margin: -28px 0 12px; }
+.start-text, .start-buttons { position: relative; z-index: 1; }
+.start-text { margin-top: auto; padding: 0 6px; }
+.start .logo { width: 240px; margin: 0; }
+.start .lead { font-size: 1.375rem; font-weight: 650; letter-spacing: -0.025em; line-height: 1.25; margin: 12px 0 0; }
+.start .start-sub { margin: 8px 0 28px; color: var(--muted); }
+.start-buttons { display: grid; gap: 12px; }
+.start-buttons .button { margin: 0; }
 .lead { font-size: 1.25rem; font-weight: 600; color: var(--text); margin: 0 0 24px; }
-.start .lead { font-size: 1.4rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 6px; }
-.start .start-sub { margin: 0 0 24px; color: var(--muted); }
 
 /* Koden i Gå med: fyra rutor, som en engångskod i iPhone. Ett vanligt fält ligger över rutorna
    och tar emot texten, så att inklistring och skärmläsare fungerar som vanligt (js/kodrutor.js). */
-.code-label { display: block; margin: 24px 0 8px 4px; }
+.code-label { display: block; margin: 24px 16px 8px; }
 .code-boxes { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .code-box {
   display: grid;
   place-items: center;
-  height: 68px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  height: 82px;
+  border-radius: 20px;
   background: var(--surface-solid);
-  font-size: 1.9rem;
-  font-weight: 750;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 .code-boxes input {
   position: absolute;
@@ -833,20 +942,23 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 }
 .code-boxes input:hover, .code-boxes input:focus { border: 0; box-shadow: none; }
 .code-boxes input::selection { background: transparent; }
-/* Rutan där nästa bokstav hamnar har fokusramen. */
-.code-boxes:focus-within .code-box.active { border-color: var(--focus); box-shadow: inset 0 0 0 1px var(--focus); }
-.code-hint { margin: 8px 4px 0; }
+/* Rutan där nästa bokstav hamnar har fokusramen och en blinkande markör. */
+.code-boxes:focus-within .code-box.active { box-shadow: inset 0 0 0 2px var(--focus); }
+.code-boxes:focus-within .code-box.active:empty::after { content: ""; width: 2px; height: 36px; background: var(--accent); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.code-hint { margin: 8px 16px 0; font-size: 0.8125rem; }
 
 /* Kategorivalet i Starta nytt spel: omslag i en rad som går att svepa, som i Apple Music.
    Valen är vanliga radioknappar, så att piltangenterna och skärmläsare fungerar. */
 .cat-picker { margin: 0; padding: 0; border: 0; min-width: 0; }
-.cat-picker legend { float: left; width: 100%; margin: 24px 0 8px; padding: 0 4px; }
+.cat-picker legend { float: left; display: flex; justify-content: space-between; width: calc(100% - 32px); margin: 24px 16px 8px; padding: 0; }
 .cat-picker legend + * { clear: both; }
+.cat-count { font-weight: 500; text-transform: none; letter-spacing: 0; }
 .cat-shelf {
   display: flex;
   gap: 12px;
   margin: 0 calc(-1 * max(16px, env(safe-area-inset-right))) 0 calc(-1 * max(16px, env(safe-area-inset-left)));
-  padding: 8px max(16px, env(safe-area-inset-left)) 8px;
+  padding: 4px max(16px, env(safe-area-inset-left)) 4px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 16px;
@@ -855,39 +967,46 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .cat-shelf::-webkit-scrollbar { display: none; }
 /* Radioknappen ligger dold inuti sitt omslag. Utan position: relative hamnade de dolda knapparna
    utanför raden, och då blev hela sidan bredare än skärmen i mobilen. */
-.cat-option { position: relative; flex: none; width: 116px; scroll-snap-align: start; cursor: pointer; }
-.cat-option .tile { font-size: 0; padding: 0; }
-.cat-option .tile::after { font-size: 5.5rem; }
-.cat-option .cat-name { display: block; margin: 8px 2px 0; font-size: 0.9rem; font-weight: 650; line-height: 1.2; overflow-wrap: break-word; hyphens: auto; }
+.cat-option { position: relative; flex: none; width: 128px; scroll-snap-align: start; cursor: pointer; }
+.cat-option .tile { border-radius: 26px; }
+.cat-option .tile::after { font-size: 100px; top: -0.1em; right: -0.06em; }
+.cat-option .cat-name { display: block; margin: 8px 2px 0; font-size: 0.875rem; font-weight: 650; line-height: 1.25; overflow-wrap: break-word; hyphens: auto; }
+.cat-option .cat-songs { display: block; font-size: 0.8125rem; font-weight: 500; color: var(--muted); }
 .cat-option input:checked + .tile { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--accent); }
-.cat-option input:focus-visible + .tile { outline: 3px solid var(--focus); outline-offset: 3px; }
+.cat-option input:focus-visible + .tile { outline: 3px solid var(--focus); outline-offset: 6px; }
 /* Bocken på det valda omslaget. */
 .cat-option input:checked + .tile::before {
   content: "";
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 26px;
-  height: 26px;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6 11.2-11.2-1.4-1.4z' fill='%2312823f'/%3E%3C/svg%3E") center / 18px no-repeat;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2312823f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
 }
 /* På dator, med mus, står alla kategorier i ett rutnät i stället. */
 @media (hover: hover) and (pointer: fine) {
-  .cat-shelf { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 16px; margin: 0; padding: 4px 0 8px; overflow: visible; }
+  .cat-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); row-gap: 16px; margin: 0; padding: 4px 0 8px; overflow: visible; }
   .cat-option { width: auto; }
-  .cat-option .tile { border-radius: 18px; }
-  .cat-option .tile::after { font-size: 4rem; }
-  .cat-option .cat-name { font-size: 0.85rem; }
+  .cat-option .tile { width: 100%; height: auto; aspect-ratio: 1; }
+}
+/* I mobilen står Dra igång! längst ner på skärmen, där tummen når den. */
+@media (max-width: 600px) {
+  main#setup { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; padding-bottom: max(42px, calc(8px + env(safe-area-inset-bottom))); }
+  #setup-form { display: flex; flex-direction: column; flex: 1; }
+  #create { margin-top: auto; }
+  #setup-form .settings-summary { margin-bottom: 28px; }
 }
 /* Utan namnfält, när spelledaren inte deltar, döljs den tomma gruppen. */
 .field-group:not(:has(> .field-row:not([hidden]))) { display: none; }
 
 /* Spelledarvyn på dator */
-.host { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--game-width)); gap: 40px; max-width: 1040px; margin: 0 auto; }
+.host { display: grid; grid-template-columns: 300px minmax(0, var(--game-width)); justify-content: center; gap: 40px; max-width: 1012px; margin: 0 auto; }
 .host.qr-hidden { grid-template-columns: minmax(0, 1fr); max-width: calc(var(--game-width) + 32px); }
 /* QR-rutan och rutan med låten är vanliga kort, som spelarens rutor. */
-.join-info { align-self: start; position: sticky; top: 24px; margin: 0; padding-top: 44px; text-align: center; }
+.join-info { align-self: start; position: sticky; top: 28px; margin: 28px 0 0; padding: 24px; border-radius: 28px; text-align: center; }
+.join-info .qr svg, .join-info-player .qr svg { padding: 14px; border-radius: 18px; }
 .close-qr {
   position: absolute;
   top: 6px;
@@ -905,9 +1024,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 }
 .close-qr:hover { background: var(--surface-2); color: var(--text); }
 /* Får kategorin inte plats bredvid loggan hamnar den på en egen rad under, i stället för att kortas eller brytas. */
-.who { flex-wrap: wrap; row-gap: 4px; }
 .who h1 { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.join-info p { margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
+.join-info p { margin: 16px 0 0; color: var(--muted); font-size: 0.9375rem; }
+.join-info .code { margin-top: 4px; padding-left: 0.16em; font-size: 2.75rem; font-weight: 850; letter-spacing: 0.16em; }
 /* Spelarens QR-ruta ligger överst under rubriken, som hos spelledaren i mobilen. */
 .join-info-player { padding-top: 44px; text-align: center; }
 .join-info-player .qr { max-width: 258px; margin: 0 auto; }
@@ -921,24 +1040,23 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Spelledarens kontrollpanel med Spela eller Pausa och Nästa svävar längst ner, centrerad.
    Ytan är halvgenomskinlig, med oskärpa bakom, så att sidan skymtar igenom men kontrasten håller. */
 .control-panel {
-  --panel-h: 70px;
+  --panel-h: 72px;
   position: fixed;
   z-index: 40;
   left: 50%;
   bottom: var(--panel-bottom);
   transform: translateX(-50%);
   display: flex;
-  gap: 20px;
+  gap: 10px;
   padding: 8px;
-  border: 1px solid var(--border);
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface-solid) 70%, transparent);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   /* En kort skugga som tonar ut innan fönstrets nederkant, så att den inte klipps av i en rak linje. */
-  box-shadow: 0 2px 10px rgba(20, 20, 30, 0.16);
+  box-shadow: inset 0 0 0 0.5px var(--glass-edge), 0 2px 10px rgba(20, 20, 30, 0.16);
 }
-.control-panel .icon-btn { width: 52px; height: 52px; }
+.control-panel .icon-btn { width: 56px; height: 56px; }
 .control-panel .icon-btn svg { width: 30px; height: 30px; }
 /* Panelens avstånd från nederkanten: 16 px som på datorn, även över iPhones hemindikator (34 px).
    Safari på iPhone lämnar själv ungefär 13 px luft ovanför sitt verktygsfält, så där räcker 4 px
@@ -954,10 +1072,10 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
 body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--panel-bottom)); }
 /* På bred skärm med QR-koden bredvid står panelen och meddelandena under spelets kolumn:
-   mitten av en kolumn på 640 px längst till höger i en yta på 1040 px minus sidornas luft. */
+   mitten av en kolumn på 640 px till höger om QR-kortet på 300 px och 40 px luft. */
 @media (min-width: 1040px) {
   .host:not(.qr-hidden) .control-panel,
-  body:has(main.host:not([hidden]):not(.qr-hidden)) .message { left: calc(50% + 184px); }
+  body:has(main.host:not([hidden]):not(.qr-hidden)) .message { left: calc(50% + 170px); }
 }
 /* Aktiva ikoner i kontrollpanelen och menyn är gröna på ljusgröna cirklar, så att de syns som tryckbara. Ljusgröna knappar har samma toner. */
 .control-panel, .menu, .soft { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #ececf1; --btn-off-icon: #8e8e99; }
@@ -969,7 +1087,7 @@ body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--pa
 @media (hover: hover) { .control-panel .icon-btn:hover { background: var(--btn-press); } }
 .control-panel .icon-btn:active { background: var(--btn-press); }
 /* Ljusgrön knapp, till exempel Starta nytt spel på startsidan. Tonen läggs på en fast yta, som ikonerna på sin bar, så att bakgrunden inte gör den grå. */
-.soft, button.soft.big, .button.soft.big { background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid); color: var(--btn-icon); box-shadow: var(--shadow-sm); }
+.soft, button.soft.big, .button.soft.big { background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid); color: var(--btn-icon); box-shadow: none; }
 @media (hover: hover) { .soft:hover { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); } }
 .soft:active { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); }
 /* Avstängda knappar förblir bleka och grå, så att bara de aktiva har färg. */
@@ -995,13 +1113,12 @@ body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--pa
 a.icon-btn { text-decoration: none; }
 .icon-btn svg { width: 26px; height: 26px; fill: currentColor; }
 .icon-btn[aria-pressed="true"] { background: var(--text); color: var(--surface-solid); }
-.clip-note { margin: auto 0 0; padding-top: 16px; text-align: right; }
+
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
-.result-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; }
-.result-foot .clip-note { margin: 0 0 0 auto; padding: 0; }
+.result-foot { display: flex; align-items: center; gap: 12px; margin: 16px 4px 0; }
 /* Ringen är högre än textraden. Den får sticka ut lika mycket uppåt och nedåt, så att raden
    blir lika hög som texten och Deezer-texten står på samma höjd som medan låten spelas. */
-.result-foot .pie { font-size: 0.9rem; margin-block: calc((1lh - 28px) / 2); }
+.result-foot .pie { width: 26px; height: 26px; }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
 #guess, #result { display: flex; flex-direction: column; }
 /* Hos spelledaren kan svarsfälten döljas när spelledaren inte deltar. */
@@ -1032,18 +1149,19 @@ a.icon-btn { text-decoration: none; }
 
 /* Modaler */
 .modal {
-  width: min(400px, calc(100vw - 32px));
-  padding: 24px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--surface-solid);
+  width: min(480px, calc(100vw - 32px));
+  padding: 26px 22px 22px;
+  border: 0;
+  border-radius: 34px;
+  background: var(--bg);
   color: var(--text);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.35);
 }
 .modal:focus-visible { outline: none; }
 .modal::backdrop { background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(3px); }
 .modal[open] { animation: modal-in 0.15s ease-out; }
-.modal h2 { margin: 0 0 20px; }
+.modal h2 { margin: 0 6px 18px; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; }
+.modal > form > p { margin: 0 6px; }
 /* Om Låtquiz är en längre text. Rutan ligger på ett lager som täcker hela fönstret och rullar som en
    vanlig sida, så att det inte blir en rullningslist inne i rutan. */
 .modal.about {
@@ -1060,11 +1178,17 @@ a.icon-btn { text-decoration: none; }
 .modal.about .lead { font-size: 1.05rem; }
 .modal.about h3 { margin: 1.4em 0 0.4em; font-size: 1rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--text); }
 .modal p { margin: 0; color: var(--muted); }
-.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
 .modal .later-note { margin-top: 20px; text-align: right; }
 .later-note:not([hidden]) + .modal-actions { margin-top: 12px; }
-.modal-actions button { width: auto; margin: 0; }
+.modal-actions button { width: auto; min-height: 48px; margin: 0; padding: 0 24px; font-weight: 650; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
+/* Ikonen överst i en fråga, i en rund ton. Röd före något som inte går att ångra. */
+.modal-icon { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%; background: var(--accent-soft); color: var(--good); }
+.modal-icon.danger { background: var(--bad-soft); color: var(--bad); }
+.modal-icon svg { width: 24px; height: 24px; fill: currentColor; }
+.modal.confirm { text-align: center; }
+.modal.confirm .modal-actions { justify-content: center; }
 button.danger:hover { filter: brightness(1.08); }
 /* Okända låtar: knappen under rätt svar och listan i Inställningar */
 .unknown-group { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
@@ -1079,29 +1203,34 @@ button.danger:hover { filter: brightness(1.08); }
   to { opacity: 1; transform: none; }
 }
 
-/* Rutorna har rundare hörn och samma gråa botten som sidan, så att grupperna i dem syns som
-   i Inställningar på iPhone. */
-.modal { border-radius: 28px; background: var(--bg); }
+/* Rutorna har samma gråa botten som sidan, så att grupperna i dem syns som i Inställningar på iPhone. */
 /* Strömbrytarna i en ruta står i en rundad grupp, med texten till vänster och brytaren till höger. */
-.modal .switches { align-items: stretch; gap: 0; margin: 0; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-solid); }
-.modal .switches button.theme-switch { flex-direction: row-reverse; justify-content: space-between; gap: 16px; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; text-align: left; }
-.modal .switches button.theme-switch + button.theme-switch { border-top: 1px solid var(--border); }
+.modal .switches { align-items: stretch; gap: 0; margin: 0; border-radius: 22px; background: var(--surface-solid); }
+.modal .switches button.theme-switch { position: relative; flex-direction: row-reverse; justify-content: space-between; gap: 16px; min-height: 56px; padding: 0 16px; color: var(--text); font-size: 1.0625rem; text-align: left; }
+.modal .switches button.theme-switch + button.theme-switch::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 0.5px solid var(--border); }
 .modal .theme-switch .track { width: 51px; height: 31px; }
 .modal .theme-switch .track::after { width: 27px; height: 27px; }
 .modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
-.switches-note { margin: 8px 4px 0; }
-.modal .host-plays-group { border-top: 0; padding-top: 0; }
-.modal .current-song { border: 1px solid var(--border); border-radius: 16px; background: var(--surface-solid); }
+.switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
+.modal .host-plays-group { margin-top: 14px; border-top: 0; padding-top: 0; }
+.modal .current-song { border-radius: 22px; background: var(--surface-solid); }
 .modal .current-song button.theme-switch { display: flex; width: 100%; flex-direction: row-reverse; justify-content: space-between; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; }
 
 /* Segmentväljare: några få val sida vid sida, där det valda ligger som en vit platta. */
-.segmented-field { min-width: 0; margin: 16px 0 0; padding: 0; border: 0; }
-.segmented-field legend { padding: 0; margin: 0 0 8px; font-size: 0.9rem; font-weight: 600; }
-.segmented { display: flex; gap: 2px; padding: 3px; border-radius: 12px; background: color-mix(in srgb, var(--muted) 16%, transparent); }
+/* Valen står som rader i en grupp: rubriken överst och segmentväljaren under, som i prototypen. */
+.settings-group { margin: 0; border-radius: 22px; background: var(--surface-solid); }
+.settings-group > * { position: relative; }
+.settings-group > * + *::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 0.5px solid var(--border); }
+.settings-group .setting-row { display: flex; align-items: center; gap: 12px; min-height: 56px; margin: 0; padding: 8px 16px; font-size: 1.0625rem; font-weight: 400; }
+.settings-group .setting-row select { flex: none; width: auto; margin-left: auto; padding: 8px 32px 8px 8px; border: 0; box-shadow: none; background-color: transparent; background-position: right 8px center; color: var(--muted); text-align: right; }
+.segmented-field { min-width: 0; margin: 0; padding: 14px 16px; border: 0; }
+.segmented-field legend { float: left; width: 100%; padding: 0; margin: 0 0 10px; font-size: 1.0625rem; font-weight: 400; }
+.segmented-field legend + * { clear: both; }
+.segmented { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--surface-2); }
 .segmented label { position: relative; flex: 1 1 0; min-width: 0; margin: 0; }
 .segmented input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
-.segmented span[aria-hidden] { display: grid; place-items: center; min-height: 36px; padding: 0 6px; border-radius: 9px; font-size: 0.9rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: background 0.15s, color 0.15s; }
-.segmented input:checked + span { background: color-mix(in srgb, #fff 12%, var(--surface-solid)); color: var(--text); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(0, 0, 0, 0.04); }
+.segmented span[aria-hidden] { display: grid; place-items: center; min-height: 36px; padding: 0 6px; border-radius: 999px; font-size: 0.9375rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: background 0.15s, color 0.15s; }
+.segmented input:checked + span { background: color-mix(in srgb, #fff 18%, var(--surface-solid)); color: var(--text); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12); }
 .segmented input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 1px; }
 @media (hover: hover) { .segmented input:not(:checked):hover + span { color: var(--text); } }
 
@@ -1113,18 +1242,24 @@ button.danger:hover { filter: brightness(1.08); }
     max-width: none;
     max-height: calc(100dvh - 24px);
     margin: auto 0 0;
-    padding: 12px 16px calc(20px + env(safe-area-inset-bottom));
+    padding: 10px 16px max(44px, calc(20px + env(safe-area-inset-bottom)));
     overflow-y: auto;
     border: 0;
-    border-radius: 28px 28px 0 0;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 38px 38px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.18);
   }
   .modal:not(.about)[open] { animation: sheet-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1); }
   /* Greppet överst visar att det är ett ark. */
-  .modal:not(.about)::before { content: ""; display: block; width: 36px; height: 5px; margin: 0 auto 14px; border-radius: 3px; background: color-mix(in srgb, var(--muted) 35%, transparent); }
-  .modal:not(.about) h2 { text-align: center; }
-  /* Knapparna delar bredden, och en ensam knapp fyller hela raden. */
-  .modal:not(.about) .modal-actions button { flex: 1; padding-block: 14px; }
+  .modal:not(.about)::before { content: ""; display: block; width: 38px; height: 5px; margin: 0 auto 14px; border-radius: 3px; background: color-mix(in srgb, var(--muted) 35%, transparent); }
+  .modal:not(.about) h2 { margin: 0 0 18px; text-align: center; font-size: 1.125rem; font-weight: 700; letter-spacing: -0.02em; }
+  /* Knapparna står under varandra i full bredd. Den som bekräftar står överst. */
+  .modal:not(.about) .modal-actions { flex-direction: column-reverse; gap: 12px; margin-top: 22px; }
+  .modal:not(.about) .modal-actions button { min-height: 54px; font-size: 1.0625rem; }
+  /* En fråga före något som inte går att ångra har en ikon och centrerad text, utan grepp. */
+  .modal.confirm { padding-top: 28px; text-align: center; }
+  .modal.confirm::before { display: none; }
+  .modal.confirm h2 { margin-bottom: 8px; font-size: 1.375rem; }
+  .modal.confirm > form > p { margin: 0 10px; }
 }
 @keyframes sheet-in {
   from { transform: translateY(100%); }
