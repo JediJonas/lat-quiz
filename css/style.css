@@ -421,7 +421,8 @@ td:last-child { padding-right: 16px; }
 td.name { font-weight: 650; }
 /* Placeringen står först och poängen sist, stort och till höger, som i en topplista. */
 td.rank { width: 22px; text-align: center; font-size: 1.0625rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
-td.rank.first { color: var(--bonus); }
+/* Ettan står i textfärg i stället för gult, så att den inte förväxlas med bonusen. */
+td.rank.first { color: var(--text); }
 td.score { width: 30px; text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
 /* Initialen i en rund bricka, i en färg som följer namnet. */
@@ -482,7 +483,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
 .podium td { height: 66px; }
 .podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
-.podium td.rank.first { color: var(--bonus); -webkit-text-stroke: 0; }
+.podium td.rank.first { color: var(--text); -webkit-text-stroke: 0; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
