@@ -1075,11 +1075,11 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   /* Safari klipper allt som hamnar under sidans nederkant i en rak linje, så här får skuggan
      inte nå längre än de 4 px som finns under panelen. */
   .control-panel { box-shadow: 0 1px 3px rgba(20, 20, 30, 0.18); }
-  /* Av samma skäl står knapparna längst ner på startsidan och i Starta nytt spel närmare
-     nederkanten. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
-  main.start { padding-bottom: max(16px, calc(12px + env(safe-area-inset-bottom))); }
+  /* Knapparna längst ner på startsidan och i Starta nytt spel står lika långt från nederkanten
+     som kontrollpanelen. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
+  main.start { padding-bottom: var(--panel-bottom); }
   @media (max-width: 600px) {
-    main#setup { padding-bottom: max(16px, calc(8px + env(safe-area-inset-bottom))); }
+    main#setup { padding-bottom: var(--panel-bottom); }
   }
 }
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
