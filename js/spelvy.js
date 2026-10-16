@@ -75,7 +75,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
     const input = $(`#${id}`);
     input.addEventListener('focus', () => {
       document.body.classList.add('typing');
-      scrollFieldToTop(input, $(`label[for=${id}]`));
+      scrollFieldToTop(input, input.closest('.field-row'));
     });
     input.addEventListener('blur', () => document.body.classList.remove('typing'));
   }

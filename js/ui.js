@@ -125,18 +125,23 @@ export function scrollToTop() {
   }, 800);
 }
 
-// Rullar så att fältet och rubriken över det står överst, så att förslagslistan under
-// fältet får plats. I mobilen görs det alltid. Med mus står sidan still om listan redan
-// får plats under fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet
-// öppnas. Då står fältet redan synligt ovanför tangentbordet och Safari behöver inte rulla
-// fram det själv. Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone.
-export function scrollFieldToTop(input, heading) {
+// Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
+// I mobilen hamnar raden strax under den lilla rubriken som ligger fast överst, så att den
+// inte skymmer fältet. Med mus står sidan still om minst fyra förslag får plats under
+// fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet öppnas. Då står
+// fältet redan synligt ovanför tangentbordet och Safari behöver inte rulla fram det själv.
+// Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone.
+export function scrollFieldToTop(input, row) {
   const GAP = 8;
-  const headTop = heading.getBoundingClientRect().top;
-  if (Math.abs(headTop - GAP) <= 4) return;
+  const ROOM = 240; // fyra förslag med listans marginaler
+  const bar = document.querySelector('.compact-bar');
+  const barHeight = bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
+  const goal = barHeight + GAP;
+  const rowTop = row.getBoundingClientRect().top;
+  if (Math.abs(rowTop - goal) <= 4) return;
   if (!matchMedia('(pointer: coarse)').matches) {
     const room = window.innerHeight - input.getBoundingClientRect().bottom;
-    if (headTop < GAP || room >= window.innerHeight * 0.45) return;
+    if (rowTop < goal || room >= Math.min(ROOM, window.innerHeight * 0.45)) return;
   }
-  window.scrollTo({ top: window.scrollY + headTop - GAP, behavior: 'auto' });
+  window.scrollTo({ top: window.scrollY + rowTop - goal, behavior: 'auto' });
 }

@@ -888,12 +888,14 @@ html:has(main.start) { background: var(--bg); }
 .shelf-row:nth-child(2) { margin-left: -70px; animation-direction: alternate-reverse; }
 .shelf-row:nth-child(3) { margin-left: -20px; animation-duration: 34s; }
 @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-90px); } }
-/* Hyllan tonar ut nedåt mot sidans botten. */
-main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276px; height: 200px; background: linear-gradient(transparent, var(--bg) 75%); pointer-events: none; }
+/* Hyllan tonar ut nedåt mot sidans botten. Tonen räcker förbi hyllans lägsta hörn, som hamnar
+   runt 510 px eftersom hyllan lutar. */
+main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276px; height: 260px; background: linear-gradient(transparent, var(--bg) 150px); pointer-events: none; }
 /* På en bred skärm tonar hyllan ut åt sidorna också, så att den inte får skarpa kanter. */
 @media (min-width: 500px) {
   main.start { overflow: visible; }
-  body:has(main.start) { overflow-x: hidden; }
+  main.start::after { left: -120px; right: -120px; }
+  html:has(main.start), body:has(main.start) { overflow-x: hidden; overflow-x: clip; }
   .start-shelf {
     left: -120px;
     right: -120px;
