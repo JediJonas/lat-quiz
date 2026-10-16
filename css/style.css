@@ -407,13 +407,21 @@ tr:last-child td:last-child { border-bottom-right-radius: 16px; }
 td:first-child { padding-left: 16px; }
 td:last-child { padding-right: 16px; }
 td.name { font-weight: 600; }
-/* Poängen står först, med samma avstånd till radens vänsterkant som innehållet har till högerkanten. */
-td.score { width: 1.6em; font-size: 1.15rem; font-weight: 750; font-variant-numeric: tabular-nums; }
+/* Placeringen står först och poängen sist, stort och till höger, som i en topplista. */
+td.rank { width: 1.4em; text-align: center; font-size: 1.05rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+td.rank.first { color: var(--bonus); }
+td.score { width: 2em; text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.score .num { display: inline-block; }
+/* Initialen i en rund bricka, i en färg som följer namnet. */
+.player { display: flex; align-items: center; gap: 12px; }
+.avatar { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; font-size: 0.95rem; font-weight: 750; }
+.av-0 { background: #2563eb; } .av-1 { background: #c2185b; } .av-2 { background: #12823f; } .av-3 { background: #7b3fd1; }
+.av-4 { background: #c2410c; } .av-5 { background: #0e7490; } .av-6 { background: #4f46e5; } .av-7 { background: #a16207; }
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
 tr.me td { background: color-mix(in srgb, var(--accent) 9%, var(--surface-solid)); }
-tr.bump td.score { animation: bump 0.7s ease-out; }
+tr.bump td.score .num { animation: bump 0.7s ease-out; }
 @keyframes bump {
   0% { transform: scale(1); color: var(--text); }
   30% { transform: scale(1.35); color: var(--good); }
@@ -453,6 +461,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .standings td.status { white-space: nowrap; }
 .standings td.name { width: 100%; overflow-wrap: break-word; }
 .standings .tag { margin: 0 0 0 3px; padding: 2px 7px; }
+/* Ställningen när matchen är slut: stora placeringssiffror och högre rader. */
+.podium td { padding-top: 16px; padding-bottom: 16px; }
+.podium td.rank { width: 1.2em; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; }
+.podium .avatar { width: 40px; height: 40px; font-size: 1.05rem; }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -514,7 +526,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .answer .artist { font-size: 1.1rem; font-weight: 500; color: rgba(255, 255, 255, 0.9); }
 .reveal { animation: reveal 0.35s ease-out; }
 /* När svarsrutan ritas om, till exempel vid paus, ska den inte animeras igen. */
-.settled .reveal, .settled .winner { animation: none; }
+.settled .reveal { animation: none; }
 @keyframes reveal {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }
@@ -527,18 +539,28 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .mine li.wrong { background: var(--bad-soft); color: var(--bad); }
 .mine li.bonus { background: var(--bonus-soft); color: var(--bonus); }
 .points { font-size: 1.6rem; font-weight: 750; text-align: center; margin: 0; }
-.winner {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  text-align: center;
-  margin: 16px 0;
-  padding: 20px;
-  border-radius: var(--radius);
-  background: var(--bonus-soft);
-  color: var(--bonus);
-  animation: reveal 0.5s ease-out;
+/* Vinnaren tar omslaget, med konfetti som faller en gång. */
+.win { justify-content: flex-end; gap: 6px; min-height: 19rem; margin: 0 0 12px; }
+.win .win-title { margin: 0; font-size: 2.6rem; font-weight: 900; letter-spacing: -0.045em; line-height: 1; text-wrap: balance; color: #fff; text-transform: none; }
+.win .win-song { margin: 2px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); text-wrap: pretty; }
+.win .win-sub { margin: 4px 0 0; font-size: 1.05rem; font-weight: 500; color: rgba(255, 255, 255, 0.9); text-wrap: pretty; }
+.confetti { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.confetti i { position: absolute; top: -20px; width: 10px; height: 18px; border-radius: 3px; animation: confetti 1.6s cubic-bezier(0.2, 0.6, 0.4, 1) both; }
+.confetti i:nth-child(1) { left: 8%; --y: 60px; --r: 20deg; background: #ffd166; }
+.confetti i:nth-child(2) { left: 20%; --y: 105px; --r: -30deg; background: #fff; animation-delay: 0.1s; }
+.confetti i:nth-child(3) { left: 33%; --y: 40px; --r: 45deg; background: #7cf0b0; animation-delay: 0.25s; }
+.confetti i:nth-child(4) { left: 46%; --y: 120px; --r: -60deg; background: #ff9ecb; animation-delay: 0.05s; }
+.confetti i:nth-child(5) { left: 58%; --y: 70px; --r: 15deg; background: #fff; animation-delay: 0.3s; }
+.confetti i:nth-child(6) { left: 68%; --y: 30px; --r: -40deg; background: #ffd166; animation-delay: 0.15s; }
+.confetti i:nth-child(7) { left: 78%; --y: 95px; --r: 70deg; background: #7cf0b0; animation-delay: 0.35s; }
+.confetti i:nth-child(8) { left: 88%; --y: 55px; --r: -15deg; background: #ff9ecb; animation-delay: 0.2s; }
+.confetti i:nth-child(9) { left: 52%; --y: 75px; --r: 35deg; background: #ffd166; animation-delay: 0.4s; }
+@keyframes confetti {
+  from { opacity: 0; transform: translateY(-40px) rotate(0deg); }
+  to { opacity: 0.9; transform: translateY(var(--y)) rotate(var(--r)); }
 }
+.settled .confetti i { animation: none; transform: translateY(var(--y)) rotate(var(--r)); opacity: 0.9; }
+.win-wait { text-align: center; margin: 12px 0 0; }
 
 /* Förslagslista */
 .ac { position: relative; }
