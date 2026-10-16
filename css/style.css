@@ -1283,6 +1283,11 @@ button.danger:hover { filter: brightness(1.08); }
   .modal.confirm h2 { margin-bottom: 8px; font-size: 1.375rem; }
   .modal.confirm > form > p { margin: 0 10px; }
 }
+/* I Safari på iPhone har arken knapparna lika långt från nederkanten som kontrollpanelen och
+   sidorna. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 600px) { .modal:not(.about) { padding-bottom: var(--panel-bottom); } }
+}
 @keyframes sheet-in {
   from { transform: translateY(100%); }
   to { transform: none; }
