@@ -574,10 +574,20 @@ async function endGame() {
   location.href = 'index.html' + location.search;
 }
 
+// short: den korta texten på segmentet. text: hela texten, som skärmläsare läser.
 const SETTING_FIELDS = [
-  { key: 'bonusMs', label: 'Bonus för snabbt svar', text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
-  { key: 'winScore', label: 'Poänggräns', text: (v) => `Först till ${v} poäng` },
+  { key: 'bonusMs', label: 'Bonus för snabbt svar', short: (v) => (v ? `${v / 1000} s` : 'Av'), text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
+  { key: 'winScore', label: 'Poänggräns', short: (v) => String(v), text: (v) => `Först till ${v} poäng` },
 ];
+
+// Ett fåtal val står sida vid sida som en segmentväljare, som i iPhone. Valen är radioknappar,
+// så att piltangenterna byter val och formuläret läser värdet som förut.
+function segmented(name, label, choices) {
+  return `<fieldset class="segmented-field"><legend>${label}</legend><div class="segmented">
+    ${choices.map(({ value, short, text, checked }) => `<label><input type="radio" name="${name}" value="${esc(value)}"${checked ? ' checked' : ''}>`
+      + `<span aria-hidden="true">${esc(short)}</span><span class="visually-hidden">${esc(text)}</span></label>`).join('')}
+  </div></fieldset>`;
+}
 
 // Okända låtar kopieras som text och skickas vidare, så att de tas bort ur kategorin.
 // Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
@@ -692,21 +702,15 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
-      <h2>Inställningar</h2>
+      <h2 id="settings-title">Inställningar</h2>
       ${categories ? `
         <label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select>` : ''}
-      ${SETTING_FIELDS.map(({ key, label, text }) => `
-        <label for="setting-${key}">${label}</label>
-        <select id="setting-${key}" name="${key}">
-          ${game.SETTING_CHOICES[key].map((v) => `<option value="${v}"${v === current[key] ? ' selected' : ''}>${text(v)}</option>`).join('')}
-        </select>`).join('')}
-      <label for="setting-music">Musiktjänst</label>
-      <select id="setting-music" name="music">
-        ${MUSIC_SERVICES.map((m) => `<option value="${m.id}"${m.id === music ? ' selected' : ''}>${m.name}</option>`).join('')}
-      </select>
+      ${SETTING_FIELDS.map(({ key, label, short, text }) => segmented(key, label,
+        game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
+      ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       ${running ? `<p class="note later-note"${later ? '' : ' hidden'}>Ändringarna gäller från nästa låt.</p>` : ''}
@@ -733,8 +737,13 @@ function showSettings(current, categories = null, categoryId = null, names = {},
     toggleCurrentUnknown();
     if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
   });
+  // Rutan själv får fokus, inte första valet, så att inget ser markerat ut i mobilen.
+  // Skärmläsaren läser rubriken, och Tab går till valen.
+  dialog.tabIndex = -1;
+  dialog.setAttribute('aria-labelledby', 'settings-title');
   document.body.append(dialog);
   dialog.showModal();
+  dialog.focus();
   return new Promise((resolve) => {
     dialog.addEventListener('close', () => {
       const form = dialog.querySelector('form');
