@@ -12,12 +12,12 @@ export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.char
 // Reglerna i klartext medan alla väntar på första låten.
 function rulesText(view) {
   const s = view.settings;
-  if (!s) return `Först till ${view.winScore} p vinner. Lycka till!`;
+  if (!s) return `Först till ${view.winScore} poäng vinner. Lycka till!`;
   // Hårda mellanslag efter talen, så att ett tal aldrig hamnar ensamt sist på en rad.
   const points = s.bonusMs
-    ? `1 p för artist, 1 p för titel och 1 p i bonus om båda är rätt inom ${s.bonusMs / 1000} s`
-    : '1 p för artist och 1 p för titel';
-  return `${s.roundMs / 1000} s per låt. ${points}. Först till ${s.winScore} p vinner. Lycka till!`;
+    ? `1 poäng för artist, 1 poäng för titel och 1 poäng i bonus om båda är rätt inom ${s.bonusMs / 1000} sekunder`
+    : '1 poäng för artist och 1 poäng för titel';
+  return `${s.roundMs / 1000} sekunder per låt. ${points}. Först till ${s.winScore} poäng vinner. Lycka till!`;
 }
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.

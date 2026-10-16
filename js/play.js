@@ -76,7 +76,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    showMessage({ key: 'settings', kind: 'info', title: 'Nya inställningar', text, ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text, ms: SETTINGS_MESSAGE_MS });
   }, SETTINGS_SETTLE_MS);
 }
 
