@@ -948,8 +948,8 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   main.start::after { content: none; }
   .shelf-row:nth-child(4) { display: flex; }
   .start-shelf {
-    -webkit-mask-image: radial-gradient(circle at 50% 210px, #000 0 120px, transparent 260px);
-    mask-image: radial-gradient(circle at 50% 210px, #000 0 120px, transparent 260px);
+    -webkit-mask-image: radial-gradient(circle at 50% 210px, #000 0 100px, transparent 230px);
+    mask-image: radial-gradient(circle at 50% 210px, #000 0 100px, transparent 230px);
   }
 }
 .start .logo { width: 240px; margin: 0; }

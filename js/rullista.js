@@ -2,15 +2,16 @@
 // ge appens utseende, så med mus visas en knapp och en lista som förslagslistan, med en bock
 // vid den valda. Den vanliga select-rutan står kvar dold och håller värdet, så att formulär
 // och change-händelser fungerar som förut.
-// I mobilen visas systemets väljare som vanligt.
+// I mobilen visas systemets väljare, utom i Inställningar (touch: true). Där blinkade
+// systemets väljare i iPhone och behövde två tryck, eftersom rutan ligger överst som en modal.
 // Tangentbordet fungerar som i en vanlig rullgardin: pilar, Home, End, Enter, mellanslag,
 // Esc och första bokstaven. Skärmläsare får knappen presenterad som en kombinationsruta.
 
 const fine = () => matchMedia('(hover: hover) and (pointer: fine)').matches;
 let count = 0;
 
-export function enhanceSelect(select) {
-  if (!fine() || select.dataset.enhanced) return;
+export function enhanceSelect(select, { touch = false } = {}) {
+  if ((!touch && !fine()) || select.dataset.enhanced) return;
   select.dataset.enhanced = 'true';
   const n = ++count;
   const wrap = document.createElement('div');
@@ -101,8 +102,9 @@ export function enhanceSelect(select) {
 
   showValue();
   button.addEventListener('click', () => (list.hidden ? open() : close()));
-  // mousedown så att knappen behåller fokus när man klickar i listan.
+  // Knappen behåller fokus när man klickar eller trycker i listan.
   list.addEventListener('mousedown', (e) => e.preventDefault());
+  list.addEventListener('pointerdown', (e) => e.preventDefault());
   list.addEventListener('click', (e) => {
     const li = e.target.closest('li');
     if (li) choose(options().indexOf(li));
@@ -141,5 +143,5 @@ export function enhanceSelect(select) {
     }
   });
   // Klick utanför stänger listan.
-  document.addEventListener('mousedown', (e) => { if (!wrap.contains(e.target)) close(); });
+  document.addEventListener('pointerdown', (e) => { if (!wrap.contains(e.target)) close(); });
 }
