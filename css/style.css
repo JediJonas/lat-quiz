@@ -947,10 +947,11 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   /* På dator tonar hyllan ut åt sidorna från 40 px innanför innehållets kanter, där knapparna
      slutar, till 40 px utanför, ungefär som skärmkanten i mobilen. Tonen vinklas 9 grader mot
      hyllans lutning, så att kanterna blir lodräta. Hyllan är 700 × 400 px, så tonens linje är
-     754 px lång och innehållets kanter ligger 214 px från mitten. */
+     754 px lång och innehållets kanter ligger 214 px från mitten. Omslagen bleknar snabbt i början
+     av tonen och svagt mot slutet, så att bara en skymt syns vid ytterkanten. */
   .start-shelf {
-    -webkit-mask-image: linear-gradient(99deg, transparent 123px, #000 203px, #000 551px, transparent 631px);
-    mask-image: linear-gradient(99deg, transparent 123px, #000 203px, #000 551px, transparent 631px);
+    -webkit-mask-image: linear-gradient(99deg, transparent 123px, rgb(0 0 0 / 0.12) 158px, rgb(0 0 0 / 0.5) 183px, #000 203px, #000 551px, rgb(0 0 0 / 0.5) 571px, rgb(0 0 0 / 0.12) 596px, transparent 631px);
+    mask-image: linear-gradient(99deg, transparent 123px, rgb(0 0 0 / 0.12) 158px, rgb(0 0 0 / 0.5) 183px, #000 203px, #000 551px, rgb(0 0 0 / 0.5) 571px, rgb(0 0 0 / 0.12) 596px, transparent 631px);
   }
 }
 .start .logo { width: 240px; margin: 0; }
