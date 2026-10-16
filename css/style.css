@@ -719,8 +719,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .rullista-knapp:active { transform: none; }
 .rullista-knapp:focus-visible { outline: none; }
 .rullista-namn { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* Listan står 4 px under fältet och är lika bred som raden, både i Starta nytt spel och i Inställningar. */
-.rullista-lista { top: 100%; max-height: min(336px, 60vh); margin-top: 4px; }
+/* Listan ligger direkt mot fältet och är lika bred som raden, både i Starta nytt spel och i Inställningar. */
+.rullista-lista { top: 100%; max-height: min(336px, 60vh); margin-top: 0; }
 .rullista-lista li { position: relative; padding: 12px 44px 12px 12px; }
 .rullista-lista li.active { background: var(--surface-2); }
 .rullista-lista li[aria-selected="true"]::after {
