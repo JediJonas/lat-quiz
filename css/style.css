@@ -120,21 +120,22 @@
 
 /* Kategorins färger, som på ett skivomslag. De lyser bara svagt överst på sidan, som i
    Apple Music och Spotify, och används aldrig på knappar eller text. Utan kategori, till
-   exempel på startsidan, lyser appens grön och en rosa ton. */
+   exempel på startsidan, lyser appens grön och en rosa ton. Reglerna gäller både sidan och
+   de små omslagen, som har egen kategori. */
 :root { --cat-glyph: ""; --cat-1: #12823f; --cat-2: #ee2f8f; }
-:root[data-kategori="60-tal"] { --cat-glyph: "60"; --cat-1: #f08a24; --cat-2: #b4380b; }
-:root[data-kategori="70-tal"] { --cat-glyph: "70"; --cat-1: #d39a12; --cat-2: #7d3f0c; }
-:root[data-kategori="80-tal"] { --cat-glyph: "80"; --cat-1: #ee2f8f; --cat-2: #6326d0; }
-:root[data-kategori="90-tal"] { --cat-glyph: "90"; --cat-1: #0fa596; --cat-2: #1d3a85; }
-:root[data-kategori="2000-tal"] { --cat-glyph: "00"; --cat-1: #3478f0; --cat-2: #1d1a5c; }
-:root[data-kategori="2010-tal"] { --cat-glyph: "10"; --cat-1: #9d4ff0; --cat-2: #2f2a80; }
-:root[data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; }
-:root[data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; }
-:root[data-kategori="eurovision"] { --cat-glyph: "ESC"; --cat-1: #5a5ef0; --cat-2: #c51f6e; }
-:root[data-kategori="hardrock"] { --cat-glyph: "HR"; --cat-1: #d42a2a; --cat-2: #241616; }
-:root[data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; }
-:root[data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; }
-:root[data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; }
+[data-kategori="60-tal"] { --cat-glyph: "60"; --cat-1: #f08a24; --cat-2: #b4380b; }
+[data-kategori="70-tal"] { --cat-glyph: "70"; --cat-1: #d39a12; --cat-2: #7d3f0c; }
+[data-kategori="80-tal"] { --cat-glyph: "80"; --cat-1: #ee2f8f; --cat-2: #6326d0; }
+[data-kategori="90-tal"] { --cat-glyph: "90"; --cat-1: #0fa596; --cat-2: #1d3a85; }
+[data-kategori="2000-tal"] { --cat-glyph: "00"; --cat-1: #3478f0; --cat-2: #1d1a5c; }
+[data-kategori="2010-tal"] { --cat-glyph: "10"; --cat-1: #9d4ff0; --cat-2: #2f2a80; }
+[data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; }
+[data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; }
+[data-kategori="eurovision"] { --cat-glyph: "ESC"; --cat-1: #5a5ef0; --cat-2: #c51f6e; }
+[data-kategori="hardrock"] { --cat-glyph: "HR"; --cat-1: #d42a2a; --cat-2: #241616; }
+[data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; }
+[data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; }
+[data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; }
 
 /* Ljuset ligger på html-elementet och följer med sidan när man scrollar. Det tonar ut till
    genomskinligt, och bakgrundsfärgen fyller resten, så det blir inga skarpa kanter. Ett fast
@@ -721,7 +722,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .menu-item[aria-current="page"] { background: var(--btn-bg); font-weight: 600; }
 
 /* Raden Inställningar på Starta nytt spel: vad som gäller, och knappen Ändra. */
-.field-label { font-size: 0.9rem; font-weight: 600; margin: 16px 0 6px; }
+.settings-label { margin: 24px 0 8px 4px; }
 .settings-summary {
   display: flex;
   align-items: center;
@@ -734,8 +735,151 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .settings-summary p { flex: 1; min-width: 0; margin: 0; }
 .settings-summary button { flex: none; width: auto; margin: 0; padding: 8px 18px; }
 
-/* Startsidan */
+/* Små omslag i kategorins färger, på startsidan och i kategorivalet. Samma mörka hinna som
+   på det stora omslaget ger vit text minst 4,5:1. */
+.tile {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 1;
+  padding: 10px 12px;
+  border-radius: 22px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.15;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(150deg, var(--cat-1), var(--cat-2));
+}
+.tile::after {
+  content: var(--cat-glyph);
+  position: absolute;
+  z-index: -1;
+  top: -0.12em;
+  left: -0.04em;
+  font-size: 6.5rem;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.16);
+}
+
+/* Startsidan: en lutad hylla med omslag överst, som en topplista, och loggan under. */
+.start-shelf {
+  position: relative;
+  height: min(44vh, 360px);
+  margin: -12px calc(-1 * max(16px, env(safe-area-inset-right))) 0 calc(-1 * max(16px, env(safe-area-inset-left)));
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000 50%, transparent);
+  mask-image: linear-gradient(#000 50%, transparent);
+}
+.start-shelf-grid {
+  position: absolute;
+  top: -6%;
+  left: -24%;
+  right: -24%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  transform: rotate(-12deg);
+}
+/* På en bred skärm tonar hyllan ut åt sidorna också, så att den inte får skarpa kanter. */
+@media (min-width: 500px) {
+  .start-shelf {
+    margin-inline: 0;
+    -webkit-mask-image: linear-gradient(#000 50%, transparent), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(#000 50%, transparent), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    mask-composite: intersect;
+  }
+}
+.start-shelf .tile { box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.5); }
+.start .logo { width: 260px; margin: -28px 0 12px; }
 .lead { font-size: 1.25rem; font-weight: 600; color: var(--text); margin: 0 0 24px; }
+.start .lead { font-size: 1.4rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 6px; }
+.start .start-sub { margin: 0 0 24px; color: var(--muted); }
+
+/* Koden i Gå med: fyra rutor, som en engångskod i iPhone. Ett vanligt fält ligger över rutorna
+   och tar emot texten, så att inklistring och skärmläsare fungerar som vanligt (js/kodrutor.js). */
+.code-label { display: block; margin: 24px 0 8px 4px; }
+.code-boxes { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.code-box {
+  display: grid;
+  place-items: center;
+  height: 68px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-solid);
+  font-size: 1.9rem;
+  font-weight: 750;
+}
+.code-boxes input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 16px;
+  cursor: text;
+}
+.code-boxes input:hover, .code-boxes input:focus { border: 0; box-shadow: none; }
+.code-boxes input::selection { background: transparent; }
+/* Rutan där nästa bokstav hamnar har fokusramen. */
+.code-boxes:focus-within .code-box.active { border-color: var(--focus); box-shadow: inset 0 0 0 1px var(--focus); }
+.code-hint { margin: 8px 4px 0; }
+
+/* Kategorivalet i Starta nytt spel: omslag i en rad som går att svepa, som i Apple Music.
+   Valen är vanliga radioknappar, så att piltangenterna och skärmläsare fungerar. */
+.cat-picker { margin: 0; padding: 0; border: 0; min-width: 0; }
+.cat-picker legend { float: left; width: 100%; margin: 24px 0 8px; padding: 0 4px; }
+.cat-picker legend + * { clear: both; }
+.cat-shelf {
+  display: flex;
+  gap: 12px;
+  margin: 0 calc(-1 * max(16px, env(safe-area-inset-right))) 0 calc(-1 * max(16px, env(safe-area-inset-left)));
+  padding: 4px max(16px, env(safe-area-inset-left)) 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  scrollbar-width: none;
+}
+.cat-shelf::-webkit-scrollbar { display: none; }
+.cat-option { flex: none; width: 116px; scroll-snap-align: start; cursor: pointer; }
+.cat-option .tile { font-size: 0; padding: 0; }
+.cat-option .tile::after { font-size: 5.5rem; }
+.cat-option .cat-name { display: block; margin: 8px 2px 0; font-size: 0.9rem; font-weight: 650; line-height: 1.2; overflow-wrap: break-word; hyphens: auto; }
+.cat-option input:checked + .tile { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--accent); }
+.cat-option input:focus-visible + .tile { outline: 3px solid var(--focus); outline-offset: 3px; }
+/* Bocken på det valda omslaget. */
+.cat-option input:checked + .tile::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6 11.2-11.2-1.4-1.4z' fill='%2312823f'/%3E%3C/svg%3E") center / 18px no-repeat;
+}
+/* På dator, med mus, står alla kategorier i ett rutnät i stället. */
+@media (hover: hover) and (pointer: fine) {
+  .cat-shelf { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 16px; margin: 0; padding: 4px 0 8px; overflow: visible; }
+  .cat-option { width: auto; }
+  .cat-option .tile { border-radius: 18px; }
+  .cat-option .tile::after { font-size: 4rem; }
+  .cat-option .cat-name { font-size: 0.85rem; }
+}
+/* Utan namnfält, när spelledaren inte deltar, döljs den tomma gruppen. */
+.field-group:not(:has(> .field-row:not([hidden]))) { display: none; }
 
 /* Spelledarvyn på dator */
 .host { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--game-width)); gap: 40px; max-width: 1040px; margin: 0 auto; }

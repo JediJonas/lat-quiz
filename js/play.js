@@ -1,4 +1,5 @@
 // Spelarvyn i mobilen.
+import { codeBoxes } from './kodrutor.js';
 import { createClient } from './net.js';
 import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView } from './spelvy.js';
@@ -267,6 +268,7 @@ function leave(message, clearCode, keepPlayer = false) {
     const query = params.toString();
     history.replaceState(null, '', location.pathname + (query ? '?' + query : ''));
     $('#code-input').value = '';
+    $('#code-input').dispatchEvent(new Event('input'));
   }
   setPending(false);
   $('#join-error').textContent = message;
@@ -282,6 +284,7 @@ async function init() {
   const code = (params.get('kod') || '').toUpperCase();
   const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
   $('#code-input').value = code;
+  codeBoxes($('#code-input'));
   if (saved) $('#name-input').value = saved.name;
 
   mountMenu($('main'), menuGroups);

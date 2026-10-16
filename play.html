@@ -23,8 +23,13 @@
       <form id="join-form">
         <div class="field-group">
           <div class="field-row"><label for="name-input">Ditt namn</label><input id="name-input" maxlength="10" required autocomplete="nickname"></div>
-          <div class="field-row"><label for="code-input">Kod</label><input id="code-input" maxlength="4" required autocapitalize="characters" class="code-input"></div>
         </div>
+        <label for="code-input" class="section-title code-label">Kod</label>
+        <div class="code-boxes">
+          <span class="code-box" aria-hidden="true"></span><span class="code-box" aria-hidden="true"></span><span class="code-box" aria-hidden="true"></span><span class="code-box" aria-hidden="true"></span>
+          <input id="code-input" maxlength="4" required autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" aria-describedby="code-hint">
+        </div>
+        <p id="code-hint" class="note code-hint">Koden står under QR-koden hos spelledaren.</p>
         <button class="big">Jag är med!</button>
       </form>
     </section>
