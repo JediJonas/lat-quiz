@@ -791,7 +791,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .message.ok .message-icon { background: var(--good-soft); color: var(--good); }
 .message.problem strong { color: var(--bad); }
 .message.problem .message-icon { background: var(--bad); color: var(--bad-text); }
-.spinner { width: 18px; height: 18px; box-sizing: border-box; border: 2.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 0.9s linear infinite; }
+.spinner { width: 18px; height: 18px; box-sizing: border-box; border: 2.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 1.4s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes toast-in {
   from { opacity: 0; transform: translate(-50%, 12px); }
