@@ -496,6 +496,17 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   background-clip: text;
   filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 6px rgba(255, 196, 40, 0.5));
 }
+/* I mörkt läge lyser guldet mer av sig självt, så där är det mattare och nästan utan sken. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .podium td.rank.first .rank-num {
+    background-image: linear-gradient(170deg, #f3dc8a 10%, #e0b53c 40%, #b98516 62%, #d9b456 85%);
+    filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 4px rgba(255, 196, 40, 0.12));
+  }
+}
+:root[data-theme="dark"] .podium td.rank.first .rank-num {
+  background-image: linear-gradient(170deg, #f3dc8a 10%, #e0b53c 40%, #b98516 62%, #d9b456 85%);
+  filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 4px rgba(255, 196, 40, 0.12));
+}
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
