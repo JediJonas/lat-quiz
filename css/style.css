@@ -121,20 +121,20 @@
 /* Kategorins färger, som på ett skivomslag. De lyser bara svagt överst på sidan, som i
    Apple Music och Spotify, och används aldrig på knappar eller text. Utan kategori, till
    exempel på startsidan, lyser appens grön och en rosa ton. */
-:root { --cat-1: #12823f; --cat-2: #ee2f8f; }
-:root[data-kategori="60-tal"] { --cat-1: #f08a24; --cat-2: #b4380b; }
-:root[data-kategori="70-tal"] { --cat-1: #d39a12; --cat-2: #7d3f0c; }
-:root[data-kategori="80-tal"] { --cat-1: #ee2f8f; --cat-2: #6326d0; }
-:root[data-kategori="90-tal"] { --cat-1: #0fa596; --cat-2: #1d3a85; }
-:root[data-kategori="2000-tal"] { --cat-1: #3478f0; --cat-2: #1d1a5c; }
-:root[data-kategori="2010-tal"] { --cat-1: #9d4ff0; --cat-2: #2f2a80; }
-:root[data-kategori="svenska"] { --cat-1: #1f6fd8; --cat-2: #0b3274; }
-:root[data-kategori="melodifestivalen"] { --cat-1: #e8890a; --cat-2: #b4165a; }
-:root[data-kategori="eurovision"] { --cat-1: #5a5ef0; --cat-2: #c51f6e; }
-:root[data-kategori="hardrock"] { --cat-1: #d42a2a; --cat-2: #241616; }
-:root[data-kategori="filmmusik"] { --cat-1: #b0560c; --cat-2: #1b2236; }
-:root[data-kategori="klassiskt"] { --cat-1: #9a2a3a; --cat-2: #3a1534; }
-:root[data-kategori="edm"] { --cat-1: #079fbd; --cat-2: #6a2fd8; }
+:root { --cat-glyph: ""; --cat-1: #12823f; --cat-2: #ee2f8f; }
+:root[data-kategori="60-tal"] { --cat-glyph: "60"; --cat-1: #f08a24; --cat-2: #b4380b; }
+:root[data-kategori="70-tal"] { --cat-glyph: "70"; --cat-1: #d39a12; --cat-2: #7d3f0c; }
+:root[data-kategori="80-tal"] { --cat-glyph: "80"; --cat-1: #ee2f8f; --cat-2: #6326d0; }
+:root[data-kategori="90-tal"] { --cat-glyph: "90"; --cat-1: #0fa596; --cat-2: #1d3a85; }
+:root[data-kategori="2000-tal"] { --cat-glyph: "00"; --cat-1: #3478f0; --cat-2: #1d1a5c; }
+:root[data-kategori="2010-tal"] { --cat-glyph: "10"; --cat-1: #9d4ff0; --cat-2: #2f2a80; }
+:root[data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; }
+:root[data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; }
+:root[data-kategori="eurovision"] { --cat-glyph: "ESC"; --cat-1: #5a5ef0; --cat-2: #c51f6e; }
+:root[data-kategori="hardrock"] { --cat-glyph: "HR"; --cat-1: #d42a2a; --cat-2: #241616; }
+:root[data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; }
+:root[data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; }
+:root[data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; }
 
 /* Ljuset ligger på html-elementet och följer med sidan när man scrollar. Det tonar ut till
    genomskinligt, och bakgrundsfärgen fyller resten, så det blir inga skarpa kanter. Ett fast
@@ -241,9 +241,11 @@ input:disabled { opacity: 0.55; }
 /* Svarsfälten väntar bara på att låten startar och ska inte blinka till. */
 #guess input:disabled { opacity: 1; }
 /* Gissningen och svaret är lika höga, så att sidan inte hoppar när svaret visas. */
-#guess, #result { min-height: 26.625rem; }
+#guess, #result { min-height: 28rem; }
+/* Omslaget och fälten står direkt på sidan, utan ett kort runt sig. */
+#guess.card, #result.card { padding: 0; border: 0; background: none; box-shadow: none; }
 /* Spelledaren som inte deltar ser bara låten och timern, så rutan blir lägre men lika hög i båda lägena. */
-.watching #guess, .watching #result { min-height: 16rem; }
+.watching #guess, .watching #result { min-height: 19rem; }
 /* Luft under sidan medan man skriver, så att fältet kan rullas upp överst. */
 body.typing::after { content: ""; display: block; height: 100vh; }
 select:disabled { color: var(--muted); cursor: default; }
@@ -467,9 +469,49 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .pie-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
 
 /* Rätt svar */
-.answer { text-align: center; margin: 8px 0 12px; padding: 20px 16px; border-radius: var(--radius); background: linear-gradient(135deg, color-mix(in srgb, var(--cat-1) 22%, transparent), color-mix(in srgb, var(--cat-2) 20%, transparent)); border: 1px solid var(--border); }
-.answer .title { font-size: 1.8rem; font-weight: 750; letter-spacing: -0.02em; line-height: 1.2; }
-.answer .artist { font-size: 1.1rem; color: var(--muted); margin-top: 4px; }
+/* Omslaget: låten har ett omslag i kategorins färger, med kategorins siffra eller förkortning
+   stor i hörnet, som på ett skivomslag. Timern står på omslaget medan låten spelas, och rätt
+   svar visas på samma omslag. Färgerna mörkas med 30 procent svart, så att vit text når 4,5:1
+   i alla kategorier. */
+.cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 15rem;
+  padding: 18px 20px 20px;
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(150deg, var(--cat-1), var(--cat-2));
+  box-shadow: 0 20px 44px -24px color-mix(in srgb, var(--cat-2) 70%, transparent);
+}
+.cover::after {
+  content: var(--cat-glyph);
+  position: absolute;
+  z-index: -1;
+  right: -0.05em;
+  bottom: -0.22em;
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+.cover .round-label { margin: 0; color: rgba(255, 255, 255, 0.9); }
+.now-playing { margin: 0 0 16px; }
+.now-playing .ring { margin: auto; }
+/* På omslaget är ringen vit, med ett svagt spår. */
+.cover .ring-bar { stroke: #fff; }
+.cover .ring-track { stroke: rgba(255, 255, 255, 0.24); }
+.cover .ring-num { color: #fff; }
+.cover .ring.loading .ring-bar { stroke: rgba(255, 255, 255, 0.35); }
+.cover .ring.loading .ring-num { color: rgba(255, 255, 255, 0.7); }
+.answer { justify-content: flex-end; gap: 6px; margin: 0 0 12px; }
+.answer .round-label { position: absolute; top: 18px; left: 20px; }
+.answer .title { margin-top: 2.5rem; font-size: 2rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; text-wrap: balance; }
+.answer .artist { font-size: 1.1rem; font-weight: 500; color: rgba(255, 255, 255, 0.9); }
 .reveal { animation: reveal 0.35s ease-out; }
 /* När svarsrutan ritas om, till exempel vid paus, ska den inte animeras igen. */
 .settled .reveal, .settled .winner { animation: none; }
