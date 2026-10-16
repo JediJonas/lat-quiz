@@ -1,7 +1,7 @@
 // En rullgardin i appens stil för kategorin på dator. Systemets egen lista går knappt att
-// ge appens utseende, så med mus visas en knapp och en lista som förslagslistan, med ett
-// litet omslag framför varje kategori och en bock vid den valda. Den vanliga select-rutan
-// står kvar dold och håller värdet, så att formulär och change-händelser fungerar som förut.
+// ge appens utseende, så med mus visas en knapp och en lista som förslagslistan, med en bock
+// vid den valda. Den vanliga select-rutan står kvar dold och håller värdet, så att formulär
+// och change-händelser fungerar som förut.
 // I mobilen visas systemets väljare som vanligt.
 // Tangentbordet fungerar som i en vanlig rullgardin: pilar, Home, End, Enter, mellanslag,
 // Esc och första bokstaven. Skärmläsare får knappen presenterad som en kombinationsruta.
@@ -41,12 +41,11 @@ export function enhanceSelect(select) {
 
   let active = -1;
   const options = () => [...list.children];
-  const cover = (value) => `<span class="tile mini" data-kategori="${value}" aria-hidden="true"></span>`;
 
   function showValue() {
     const option = select.selectedOptions[0];
-    button.innerHTML = option ? `${cover(option.value)}<span class="rullista-namn"></span>` : '';
-    if (option) button.querySelector('.rullista-namn').textContent = option.textContent;
+    button.innerHTML = '<span class="rullista-namn"></span>';
+    button.firstChild.textContent = option ? option.textContent : '';
   }
   // Värdet kan sättas i koden, till exempel när kategorin väljs bland omslagen. Då följer knappen med.
   const own = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value');
@@ -77,8 +76,7 @@ export function enhanceSelect(select) {
       li.setAttribute('role', 'option');
       li.setAttribute('aria-selected', String(o.selected));
       li.dataset.value = o.value;
-      li.innerHTML = `${cover(o.value)}<span class="rullista-namn"></span>`;
-      li.querySelector('.rullista-namn').textContent = o.textContent;
+      li.textContent = o.textContent;
       list.append(li);
     });
     list.hidden = false;
