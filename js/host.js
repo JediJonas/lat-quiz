@@ -286,9 +286,9 @@ function renderSettingsSummary() {
   const s = loadSettings();
   const music = MUSIC_SERVICES.find((m) => m.id === loadMusic()).name;
   // Samma ordning som i rutan Inställningar.
-  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`, music,
+  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} sekunder` : 'Ingen bonus', `Först till ${s.winScore} poäng`, music,
     hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
-  // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 s.
+  // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
 }
 

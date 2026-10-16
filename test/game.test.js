@@ -361,7 +361,7 @@ test('settingsChangeText beskriver ändrad kategori, bonus och poänggräns', ()
   assert.equal(settingsChangeText(before, { ...before, settings: { ...before.settings, bonusMs: 0 } }), 'Ingen bonus.');
   assert.equal(
     settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 5000, winScore: 15 } }),
-    'Bonus för svar inom 5 s. Först till 15 p vinner.',
+    'Bonus för svar inom 5 sekunder. Först till 15 poäng vinner.',
   );
 });
 
@@ -369,7 +369,7 @@ test('upcomingSettings ger inställningarna som gäller från nästa låt', () =
   const view = { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 15000, winScore: 10 } };
   assert.equal(upcomingSettings(view), view);
   const upcoming = { categoryName: '90-tal', settings: { roundMs: 30000, bonusMs: 15000, winScore: 20 } };
-  assert.equal(settingsChangeText(view, upcomingSettings({ ...view, upcoming })), 'Ny kategori: 90-tal. Först till 20 p vinner.');
+  assert.equal(settingsChangeText(view, upcomingSettings({ ...view, upcoming })), 'Ny kategori: 90-tal. Först till 20 poäng vinner.');
 });
 
 test('joinedMessage har en rubrik och räknar upp de nya spelarna', () => {
