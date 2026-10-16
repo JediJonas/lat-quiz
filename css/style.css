@@ -1217,7 +1217,7 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .theme-switch .track { width: 51px; height: 31px; }
 .modal .theme-switch .track::after { width: 27px; height: 27px; }
 .modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
-.switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
+.modal .switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
 .modal .host-plays-group { margin-top: 14px; border-top: 0; padding-top: 0; }
 .modal .host-plays-group .field-group { margin-top: 14px; }
 .modal .current-song { border-radius: 22px; background: var(--surface-solid); }
