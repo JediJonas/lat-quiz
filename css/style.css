@@ -719,7 +719,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .rullista-knapp:active { transform: none; }
 .rullista-knapp:focus-visible { outline: none; }
 .rullista-namn { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rullista-lista { top: 100%; max-height: min(336px, 60vh); }
+/* Listan står 4 px under fältet och är lika bred som raden, både i Starta nytt spel och i Inställningar. */
+.rullista-lista { top: 100%; max-height: min(336px, 60vh); margin-top: 4px; }
 .rullista-lista li { position: relative; padding: 12px 44px 12px 12px; }
 .rullista-lista li.active { background: var(--surface-2); }
 .rullista-lista li[aria-selected="true"]::after {
@@ -729,10 +730,10 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .rullista-lista li[aria-selected="true"] { background: none; }
 .rullista-lista li[aria-selected="true"].active { background: var(--surface-2); }
 /* I Inställningar står värdet till höger på raden, som de andra valen. */
-.setting-row .rullista { margin-left: auto; }
+.settings-group .setting-row:has(.rullista) { position: relative; }
+.setting-row .rullista { position: static; margin-left: auto; }
 .setting-row .rullista-knapp, .setting-row .rullista-knapp:hover { min-height: 40px; padding: 0 32px 0 8px; background-position: right 8px center; color: var(--muted); }
 .setting-row .rullista-knapp:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
-.setting-row .rullista-lista { left: auto; right: 0; width: 300px; }
 
 /* Rubrikraden med loggan och kategorin, samma hos spelledaren och spelarna. Kategorin är en vanlig rubrik. */
 .player-head { color: var(--muted); }
