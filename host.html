@@ -20,12 +20,14 @@
       <h1 class="page-title">Starta nytt spel</h1>
     </header>
     <form id="setup-form">
-      <div id="host-name-row">
-        <label for="host-name">Ditt namn</label>
-        <input id="host-name" maxlength="10" required autocomplete="nickname">
-      </div>
-      <label for="category-select">Kategori</label>
-      <select id="category-select">
+      <div class="field-group">
+        <div id="host-name-row" class="field-row">
+          <label for="host-name">Ditt namn</label>
+          <input id="host-name" maxlength="10" required autocomplete="nickname">
+        </div>
+        <div class="field-row">
+          <label for="category-select">Kategori</label>
+          <select id="category-select">
         <option value="60-tal">60-tal</option>
         <option value="70-tal">70-tal</option>
         <option value="80-tal">80-tal</option>
@@ -39,7 +41,9 @@
         <option value="filmmusik">Filmmusik</option>
         <option value="klassiskt">Klassisk musik</option>
         <option value="edm">EDM</option>
-      </select>
+          </select>
+        </div>
+      </div>
       <p class="field-label">Inställningar</p>
       <div class="settings-summary">
         <p id="settings-text"></p>
@@ -71,11 +75,9 @@
         <h2 id="round-title" class="round-label"></h2>
         <div id="timer" class="ring mid-ring"></div>
         <!-- Döljs när spelledaren inte deltar. -->
-        <div class="guess-fields">
-          <label for="artist">Artist</label>
-          <div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div>
-          <label for="title">Titel</label>
-          <div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div>
+        <div class="guess-fields field-group">
+          <div class="field-row"><label for="artist">Artist</label><div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div></div>
+          <div class="field-row"><label for="title">Titel</label><div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div></div>
         </div>
         <p class="note clip-note" hidden>Ljudklipp från Deezer</p>
       </div>
