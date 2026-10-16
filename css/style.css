@@ -21,7 +21,6 @@
   /* Hur starkt kategorins två färger lyser överst. */
   --amb-1: 30%;
   --amb-2: 20%;
-  --me-bg: color-mix(in srgb, var(--accent) 10%, #f4f4f7);
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -62,7 +61,6 @@
     --border: rgba(255, 255, 255, 0.1);
     --amb-1: 42%;
     --amb-2: 30%;
-    --me-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
     --accent: #1ed760;
     --accent-hover: #3be477;
     --accent-soft: rgba(30, 215, 96, 0.14);
@@ -96,7 +94,6 @@
   --border: rgba(255, 255, 255, 0.1);
   --amb-1: 42%;
   --amb-2: 30%;
-  --me-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
   --accent: #1ed760;
   --accent-hover: #3be477;
   --accent-soft: rgba(30, 215, 96, 0.14);
@@ -247,13 +244,37 @@ input:disabled { opacity: 0.55; }
 #guess, #result { min-height: 26.625rem; }
 /* Spelledaren som inte deltar ser bara låten och timern, så rutan blir lägre men lika hög i båda lägena. */
 .watching #guess, .watching #result { min-height: 16rem; }
-#guess label { margin: 12px 0 4px; }
 /* Luft under sidan medan man skriver, så att fältet kan rullas upp överst. */
 body.typing::after { content: ""; display: block; height: 100vh; }
-#guess input { padding-top: 11px; padding-bottom: 11px; }
 select:disabled { color: var(--muted); cursor: default; }
 button:disabled { opacity: 0.55; pointer-events: none; }
 .code-input { text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600; }
+
+/* Grupperade rader, som i Inställningar på iPhone: fälten ligger i en rundad grupp med
+   etiketten till vänster och tunna skiljelinjer, i stället för ramade fält under varandra.
+   Etiketterna delar kolumn, så att fälten linjerar efter den längsta (till exempel Kompositör). */
+.field-group {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  margin: 16px 0 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-solid);
+}
+.field-row { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; min-height: 56px; border-radius: 15px; }
+.field-row:not([hidden]) ~ .field-row::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 1px solid var(--border); }
+.field-row label { margin: 0; padding: 0 4px 0 16px; color: var(--muted); font-weight: 600; font-size: 0.95rem; }
+/* Fältet fyller resten av raden. Krysset och förslagslistan hör till hela raden. */
+.field-row .ac { position: static; }
+.field-row input, .field-row select { border: 0; border-radius: 15px; background-color: transparent; box-shadow: none; padding-left: 12px; min-height: 56px; }
+.field-row input:hover, .field-row select:hover { border: 0; }
+.field-row input:focus, .field-row select:focus { box-shadow: none; }
+/* Fokus syns som en ram runt hela raden. */
+.field-row:focus-within { box-shadow: inset 0 0 0 2px var(--focus); }
+.field-row:has(input.chosen) { background: var(--good-soft); }
+.field-row input.chosen { background: transparent; }
+.field-row .suggestions { top: 100%; }
+.field-row .clear-input { border-radius: 0 15px 15px 0; }
 
 /* Knappar */
 button, .button {
@@ -342,17 +363,17 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .card {
   position: relative;
   z-index: 1; /* Förslagslistan hamnar över poängtabellen trots glaseffekten. */
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  border: 1px solid transparent;
   border-radius: 22px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
   padding: 20px;
   margin: 16px 0;
 }
 /* Rutan man skriver i lägger sig överst, så att förslagslistan syns över rutorna under. */
 .card:focus-within { z-index: 2; }
-/* Glasytor: bakgrundens ljus skymtar mjukt igenom. */
-.card { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+/* Korten är täta ytor. Glas används bara på det som svävar ovanför innehållet: kontrollpanelen,
+   menyn och meddelanderutan, som Apples Liquid Glass. */
 
 /* Etiketter */
 .tag {
@@ -372,18 +393,24 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 .tag.bonus { background: var(--bonus-soft); color: var(--bonus); }
 
 /* Poängtabell */
-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
-td { padding: 11px 12px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+/* Raderna ligger i en enda rundad grupp med tunna skiljelinjer. */
+td { padding: 13px 12px; background: var(--surface-solid); }
+tr + tr td { border-top: 1px solid var(--border); }
+tr:first-child td:first-child { border-top-left-radius: 16px; }
+tr:first-child td:last-child { border-top-right-radius: 16px; }
+tr:last-child td:first-child { border-bottom-left-radius: 16px; }
+tr:last-child td:last-child { border-bottom-right-radius: 16px; }
 /* Lika mycket luft mot radens båda kanter, hos spelledaren och spelarna. */
-td:first-child { padding-left: 16px; border-left: 1px solid var(--border); border-radius: 12px 0 0 12px; }
-td:last-child { padding-right: 16px; border-right: 1px solid var(--border); border-radius: 0 12px 12px 0; }
+td:first-child { padding-left: 16px; }
+td:last-child { padding-right: 16px; }
 td.name { font-weight: 600; }
 /* Poängen står först, med samma avstånd till radens vänsterkant som innehållet har till högerkanten. */
 td.score { width: 1.6em; font-size: 1.15rem; font-weight: 750; font-variant-numeric: tabular-nums; }
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
-tr.me td { background: var(--me-bg); border-color: transparent; }
+tr.me td { background: color-mix(in srgb, var(--accent) 9%, var(--surface-solid)); }
 tr.bump td.score { animation: bump 0.7s ease-out; }
 @keyframes bump {
   0% { transform: scale(1); color: var(--text); }
@@ -635,11 +662,10 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 8px 8px 14px;
+  padding: 8px 8px 8px 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
+  border-radius: 16px;
+  background: var(--surface-solid);
 }
 .settings-summary p { flex: 1; min-width: 0; margin: 0; }
 .settings-summary button { flex: none; width: auto; margin: 0; padding: 8px 18px; }
@@ -768,8 +794,7 @@ a.icon-btn { text-decoration: none; }
 .result-foot .pie { font-size: 0.9rem; margin-block: calc((1lh - 28px) / 2); }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
 #guess, #result { display: flex; flex-direction: column; }
-/* Fälten ligger i en egen ruta hos spelledaren, så att de kan döljas när spelledaren inte deltar. */
-.guess-fields { display: contents; }
+/* Hos spelledaren kan svarsfälten döljas när spelledaren inte deltar. */
 /* Strömbrytaren Jag deltar i spelet i Inställningar. */
 .host-plays-group { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
 .host-plays-group .host-plays { margin: 0; }
