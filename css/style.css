@@ -1147,6 +1147,8 @@ a.icon-btn { text-decoration: none; }
   /* Rutorna är egna rader i gridden, där marginaler inte slås ihop. Bara marginalen ovanför
      behålls, så att avstånden blir desamma som på datorn och på spelarens sida. */
   .host .card { margin: 16px 0 0; }
+  /* Rubriken har ingen egen marginal under sig här, annars blir det dubbelt så långt till första rutan som hos spelaren. */
+  .host .player-head h1 { margin-bottom: 0; }
   /* Rutan tar full bredd som rutan med låten, men QR-koden behåller sin storlek. */
   .join-info { position: relative; top: auto; }
   .qr { max-width: 258px; margin: 0 auto; }
