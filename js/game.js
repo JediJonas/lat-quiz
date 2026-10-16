@@ -273,6 +273,7 @@ export function playerView(state, playerId, now) {
   const round = state.round;
   const view = {
     code: state.code,
+    categoryId: state.categoryId || '',
     categoryName: state.categoryName || '',
     standings: standings(state),
     answered: round ? Object.keys(state.players).filter((id) => hasAnsweredBoth(state, id)) : [],
