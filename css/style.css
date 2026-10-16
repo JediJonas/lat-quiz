@@ -1009,12 +1009,13 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .host { display: grid; grid-template-columns: 300px minmax(0, var(--game-width)); justify-content: center; gap: 40px; max-width: 1012px; margin: 0 auto; }
 .host.qr-hidden { grid-template-columns: minmax(0, 1fr); max-width: calc(var(--game-width) + 32px); }
 /* QR-rutan och rutan med låten är vanliga kort, som spelarens rutor. */
-.join-info { align-self: start; position: sticky; top: 28px; margin: 28px 0 0; padding: 24px; border-radius: 28px; text-align: center; }
+/* Kortets överkant står i linje med loggans. Stängknappen har en egen rad ovanför QR-koden, så att den inte går in i kodens vita ruta. */
+.join-info { align-self: start; position: sticky; top: 25px; margin: 13px 0 0; padding: 52px 24px 24px; border-radius: 28px; text-align: center; }
 .join-info .qr svg, .join-info-player .qr svg { padding: 14px; border-radius: 18px; }
 .close-qr {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 10px;
+  right: 10px;
   width: 36px;
   height: 36px;
   margin: 0;
@@ -1032,7 +1033,7 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .join-info p { margin: 16px 0 0; color: var(--muted); font-size: 0.9375rem; }
 .join-info .code { margin-top: 4px; padding-left: 0.16em; font-size: 2.75rem; font-weight: 850; letter-spacing: 0.16em; }
 /* Spelarens QR-ruta ligger överst under rubriken, som hos spelledaren i mobilen. */
-.join-info-player { padding: 44px 24px 24px; border-radius: 28px; text-align: center; }
+.join-info-player { padding: 52px 24px 24px; border-radius: 28px; text-align: center; }
 .join-info-player .qr { max-width: 258px; margin: 0 auto; }
 .join-info-player p { margin: 16px 0 0; color: var(--muted); font-size: 0.9375rem; }
 .join-info-player .code { margin-top: 4px; padding-left: 0.16em; font-size: 2.75rem; font-weight: 850; letter-spacing: 0.16em; }
