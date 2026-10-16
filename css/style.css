@@ -1180,6 +1180,8 @@ a.icon-btn { text-decoration: none; }
   border-radius: 34px; background: var(--bg);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.35);
 }
+/* Rubriken står i linje med texten under, utan rutornas indrag. */
+.modal.about h2 { margin: 0 0 18px; }
 .modal.about p { margin: 0 0 0.8em; color: var(--text); }
 .modal.about .lead { font-size: 1.05rem; }
 .modal.about h3 { margin: 1.4em 0 0.4em; font-size: 1rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--text); }
