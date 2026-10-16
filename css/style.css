@@ -605,7 +605,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
   border-radius: 10px;
   background: none;
   box-shadow: none;
-  color: var(--text);
+  color: var(--menu-text);
   font-weight: 500;
   text-align: left;
   text-decoration: none;
@@ -613,7 +613,7 @@ tr.bump td.score { animation: bump 0.7s ease-out; }
 .menu-item svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
 /* Bara med mus, så att färgen inte fastnar på raden efter ett tryck på pekskärm. */
 .menu-item:hover { background: none; }
-@media (hover: hover) { .menu-item:hover { background: var(--surface-2); color: var(--text); } }
+@media (hover: hover) { .menu-item:hover { background: var(--surface-2); color: var(--menu-text); } }
 .menu-item:active { transform: none; background: var(--surface-2); }
 .menu-item:focus-visible { outline-offset: -2px; }
 /* Sidan man redan är på. */
@@ -714,6 +714,10 @@ body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--pa
   body:has(main.host:not([hidden]):not(.qr-hidden)) .message { left: calc(50% + 184px); }
 }
 /* Aktiva ikoner i kontrollpanelen och menyn är gröna på ljusgröna cirklar, så att de syns som tryckbara. Ljusgröna knappar har samma toner. */
+/* Menyns text och ikoner är mörkgrå i ljust läge, mjukare än den nästan svarta brödtexten. */
+.menu { --menu-text: #3d3852; }
+:root[data-theme="dark"] .menu { --menu-text: var(--text); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .menu { --menu-text: var(--text); } }
 .control-panel, .menu, .soft { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #eeedf3; --btn-off-icon: #8d8aa0; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .control-panel, :root:not([data-theme="light"]) .menu, :root:not([data-theme="light"]) .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #8d8aa6; }
