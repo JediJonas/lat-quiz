@@ -138,8 +138,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       <td class="status">${playerStatus(p.id)}</td>
       <td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td></tr>`;
     });
-    // När matchen är slut blir listan en ställning med stora placeringssiffror.
-    $('#standings-section .section-title').textContent = winnerView() ? 'Ställning' : 'Poäng';
+    // När matchen är slut får listan stora placeringssiffror.
     $('#standings').classList.toggle('podium', winnerView());
     $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
     for (const [id, from, to] of counts) {

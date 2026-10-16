@@ -72,7 +72,7 @@ await check(host, 'Spelledare, inställningar');
 await host.keyboard.press('Escape');
 await host.fill('#host-name', 'Värd');
 // Alla quizlåtar har ett fast Deezer-ID, och Deezer besvaras nedan, så klippet hittas alltid.
-await host.click('.cat-option:has(input[value="80-tal"])');
+await host.selectOption('#category-select', '80-tal');
 await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
 const code = await host.textContent('#code');

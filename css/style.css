@@ -722,7 +722,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   align-items: center;
   gap: 12px;
   box-sizing: border-box;
-  width: min(460px, calc(100vw - 24px));
+  /* I mobilen står rutan en bit innanför korten under, så att den syns ligga ovanpå dem. */
+  width: min(460px, calc(100vw - 56px));
   margin: 0;
   padding: 14px 16px;
   border-radius: 26px;
@@ -986,11 +987,11 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   border-radius: 50%;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2312823f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
 }
-/* På dator, med mus, står alla kategorier i ett rutnät i stället. */
+/* På dator, med mus, väljs kategorin i en rullgardin under namnet i stället för bland omslag. */
+.cat-select-row { display: none; }
 @media (hover: hover) and (pointer: fine) {
-  .cat-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); row-gap: 16px; margin: 0; padding: 4px 0 8px; overflow: visible; }
-  .cat-option { width: auto; }
-  .cat-option .tile { width: 100%; height: auto; aspect-ratio: 1; }
+  .cat-picker { display: none; }
+  .field-row.cat-select-row { display: grid; }
 }
 /* I mobilen står Dra igång! längst ner på skärmen, där tummen når den. */
 @media (max-width: 600px) {
@@ -1225,6 +1226,7 @@ button.danger:hover { filter: brightness(1.08); }
 .settings-group > * { position: relative; }
 .settings-group > * + *::before { content: ""; position: absolute; top: 0; right: 0; left: 16px; border-top: 0.5px solid var(--border); }
 .settings-group .setting-row { display: flex; align-items: center; gap: 12px; min-height: 56px; margin: 0; padding: 8px 16px; font-size: 1.0625rem; font-weight: 400; }
+.settings-group .setting-row label { margin: 0; font: inherit; }
 .settings-group .setting-row select { flex: none; width: auto; margin-left: auto; padding: 8px 32px 8px 8px; border: 0; box-shadow: none; background-color: transparent; background-position: right 8px center; color: var(--muted); text-align: right; }
 .segmented-field { min-width: 0; margin: 0; padding: 14px 16px; border: 0; }
 .segmented-field legend { float: left; width: 100%; padding: 0; margin: 0 0 10px; font-size: 1.0625rem; font-weight: 400; }
