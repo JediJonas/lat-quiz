@@ -13,32 +13,21 @@
 </head>
 <body>
   <main class="narrow start">
-    <!-- Omslagen är bara utsmyckning. Kategorierna väljs i Starta nytt spel. -->
+    <!-- Omslagen är bara utsmyckning och glider sakta förbi, som skivor i en hylla. Kategorierna väljs i Starta nytt spel. -->
     <div class="start-shelf" aria-hidden="true">
-      <div class="start-shelf-grid">
-        <span class="tile" data-kategori="60-tal">60-tal</span>
-        <span class="tile" data-kategori="70-tal">70-tal</span>
-        <span class="tile" data-kategori="80-tal">80-tal</span>
-        <span class="tile" data-kategori="90-tal">90-tal</span>
-        <span class="tile" data-kategori="svenska">Svenska klassiker</span>
-        <span class="tile" data-kategori="melodifestivalen">Melodifestivalen</span>
-        <span class="tile" data-kategori="eurovision">Eurovision</span>
-        <span class="tile" data-kategori="2000-tal">2000-tal</span>
-        <span class="tile" data-kategori="hardrock">Hårdrock och metal</span>
-        <span class="tile" data-kategori="filmmusik">Filmmusik</span>
-        <span class="tile" data-kategori="klassiskt">Klassisk musik</span>
-        <span class="tile" data-kategori="edm">EDM</span>
-        <span class="tile" data-kategori="2010-tal">2010-tal</span>
-        <span class="tile" data-kategori="80-tal">80-tal</span>
-        <span class="tile" data-kategori="svenska">Svenska klassiker</span>
-        <span class="tile" data-kategori="90-tal">90-tal</span>
-      </div>
+      <div class="shelf-row"><span class="tile" data-kategori="60-tal">60-tal</span><span class="tile" data-kategori="70-tal">70-tal</span><span class="tile" data-kategori="80-tal">80-tal</span><span class="tile" data-kategori="90-tal">90-tal</span><span class="tile" data-kategori="2000-tal">2000-tal</span><span class="tile" data-kategori="2010-tal">2010-tal</span></div>
+      <div class="shelf-row"><span class="tile" data-kategori="2010-tal">2010-tal</span><span class="tile" data-kategori="svenska">Svenska klassiker</span><span class="tile" data-kategori="melodifestivalen">Melodifestivalen</span><span class="tile" data-kategori="eurovision">Eurovision</span><span class="tile" data-kategori="hardrock">Hårdrock och metal</span><span class="tile" data-kategori="filmmusik">Filmmusik</span></div>
+      <div class="shelf-row"><span class="tile" data-kategori="eurovision">Eurovision</span><span class="tile" data-kategori="hardrock">Hårdrock och metal</span><span class="tile" data-kategori="filmmusik">Filmmusik</span><span class="tile" data-kategori="klassiskt">Klassisk musik</span><span class="tile" data-kategori="edm">EDM</span><span class="tile" data-kategori="60-tal">60-tal</span></div>
     </div>
-    <h1 class="logo"><span class="visually-hidden">Låtquiz</span></h1>
-    <p class="lead">Lyssna, gissa och samla poäng!</p>
-    <p class="start-sub">Spela med familj och vänner i era egna mobiler.</p>
-    <a class="button big" href="play.html">Gå med i spel</a>
-    <a class="button big soft" href="host.html">Starta nytt spel</a>
+    <div class="start-text">
+      <h1 class="logo"><span class="visually-hidden">Låtquiz</span></h1>
+      <p class="lead">Lyssna, gissa och<br>samla poäng!</p>
+      <p class="start-sub">Spela med familj och vänner i era egna mobiler.</p>
+    </div>
+    <div class="start-buttons">
+      <a class="button big" href="play.html">Gå med i spel</a>
+      <a class="button big soft" href="host.html">Starta nytt spel</a>
+    </div>
   </main>
   <script>
     // Följ med eventuella testparametrar, till exempel en lokal PeerJS-server.

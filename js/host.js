@@ -286,7 +286,7 @@ function renderSettingsSummary() {
   const s = loadSettings();
   const music = MUSIC_SERVICES.find((m) => m.id === loadMusic()).name;
   // Samma ordning som i rutan Inställningar.
-  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} sekunder` : 'Ingen bonus', `Först till ${s.winScore} poäng`, music,
+  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`, music,
     hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -556,7 +556,7 @@ function revealNow() {
 
 async function endGame() {
   const ok = await showConfirm('Poängen försvinner och spelarna kopplas bort.', {
-    title: 'Avsluta spelet?', okText: 'Avsluta', danger: true,
+    title: 'Avsluta spelet?', okText: 'Avsluta', danger: true, icon: MENU_ICONS.leave,
   });
   if (!ok) return;
   leaving = true;
@@ -630,7 +630,7 @@ function wireUnknown(dialog, names) {
   });
   dialog.querySelector('#clear-unknown').addEventListener('click', async () => {
     const ok = await showConfirm('Låtarna spelas igen i kommande spel. Kopiera listan först om den inte är skickad.', {
-      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true,
+      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true, icon: MENU_ICONS.delete,
     });
     if (!ok) return;
     saveUnknown({});
@@ -662,11 +662,11 @@ function hostPlaysGroup() {
   return `
     <div class="host-plays-group">
       <div class="switches host-plays"><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
-      ${askName ? `<div id="setting-host-name-row">
-        <label for="setting-host-name">Ditt namn</label>
+      ${askName ? `<div id="setting-host-name-row" class="field-group"><div class="field-row">
+        <label for="setting-host-name">Namn</label>
         <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
           placeholder="${DEFAULT_HOST_NAME}">
-      </div>` : ''}
+      </div></div>` : ''}
     </div>`;
 }
 
@@ -703,14 +703,16 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.innerHTML = `
     <form method="dialog">
       <h2 id="settings-title">Inställningar</h2>
+      <div class="settings-group">
       ${categories ? `
-        <label for="setting-category">Kategori</label>
+        <div class="setting-row"><label for="setting-category">Kategori</label>
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
-        </select>` : ''}
+        </select></div>` : ''}
       ${SETTING_FIELDS.map(({ key, label, short, text }) => segmented(key, label,
         game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
       ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
+      </div>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       ${running ? `<p class="note later-note"${later ? '' : ' hidden'}>Ändringarna gäller från nästa låt.</p>` : ''}
@@ -1072,7 +1074,9 @@ function renderCategories(categories) {
   const picker = $('#category-picker');
   const chosen = chosenCategory();
   picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
-    + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}</span></label>`).join('');
+    + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
+    + `${c.songs ? `<span class="cat-songs">${c.songs} låtar</span>` : ''}</span></label>`).join('');
+  $('.cat-count').textContent = `${categories.length} kategorier`;
   const radios = [...picker.querySelectorAll('input')];
   (radios.find((r) => r.value === chosen) || radios[0]).checked = true;
   showChosenCategory({ scroll: true });
