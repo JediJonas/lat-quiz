@@ -251,13 +251,13 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
         ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
-          <h2 class="win-title">${esc(intro.title)}</h2>
-          <p class="win-sub">${esc(intro.sub)}</p></div>`
+          <h2 class="win-title">${esc(intro)}</h2>
+          <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : winner
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
           <p class="round-label">${label}</p>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
-          <p class="win-sub">Först till ${view.winScore} poäng. ${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
+          <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
           <div class="title">${esc(round.song.title)}</div>
           <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
@@ -297,7 +297,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
         scrollToTop();
       }
       shownResult = key;
-      announce(drum ? intro.title
+      announce(drum ? intro
         : `Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${r.points} poäng.` : ''}`
         + (winner ? ` ${view.winners.join(' och ')} vinner!` : ''));
       renderTimer();

@@ -51,16 +51,9 @@ export function winComment({ winners, standings, songs, winScore }) {
 }
 
 // Texten en kort stund innan vinnaren visas.
-const WIN_INTROS = [
-  ['Vi har en vinnare!', 'Dags att fira!'],
-  ['Grattis!', 'Nu blir det fest.'],
-  ['Vilken match!', 'Tack för en härlig match.'],
-  ['Hipp hipp hurra!', 'Dags att fira!'],
-  ['Det är klart!', 'Ett varmt grattis till vinnaren.'],
-];
+const WIN_INTROS = ['Vi har en vinnare!', 'Grattis!', 'Vilken match!', 'Hipp hipp hurra!', 'Det är klart!'];
 
-// Samma text på alla enheter: { title, sub }.
+// Samma rubrik på alla enheter.
 export function winIntro({ winners, songs }) {
-  const [title, sub] = pick(WIN_INTROS, `${winners.join()}${songs}intro`);
-  return { title, sub };
+  return pick(WIN_INTROS, `${winners.join()}${songs}intro`);
 }

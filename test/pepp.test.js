@@ -33,6 +33,6 @@ test('vinnarlåten slumpas och blir inte samma två gånger i rad', () => {
 
 test('texten innan vinnaren är densamma på alla enheter', () => {
   const intro = winIntro({ winners: ['Anna'], songs: 8 });
-  assert.ok(intro.title.endsWith('!') && intro.sub.length > 0);
-  assert.deepEqual(winIntro({ winners: ['Anna'], songs: 8 }), intro);
+  assert.ok(intro.endsWith('!'));
+  assert.equal(winIntro({ winners: ['Anna'], songs: 8 }), intro);
 });
