@@ -140,7 +140,7 @@ export function createGameView({ onAnswer, onError, host = false }) {
       const before = scoreChanged(p.id, p.score);
       if (before !== null) counts.push([p.id, before, p.score]);
       const rank = rankOf(p);
-      const av = avatar(p.name);
+      const av = avatar(p.name, p.color);
       const up = climb(p);
       return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
       ${ranked ? `<td class="rank${rank === 1 ? ' first' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : ''}
