@@ -796,7 +796,7 @@ async function editSettings() {
   const shown = currentMessage();
   if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
   if (pending && pendingDiffers()) {
-    showMessage({ key: 'settings', kind: 'info', title: 'Nya inställningar', text: 'Ändringarna gäller från nästa låt.', ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text: 'Ändringarna gäller från nästa låt.', ms: SETTINGS_MESSAGE_MS });
   }
 }
 
