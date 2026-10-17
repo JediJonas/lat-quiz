@@ -1125,6 +1125,9 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .join-info-player p { margin: 16px 0 0; color: var(--muted); font-size: 0.9375rem; }
 .join-info-player .code { margin-top: 4px; padding-left: 0.16em; font-size: 2.75rem; font-weight: 850; letter-spacing: 0.16em; }
 .join-info-player button.link { margin: 0; font-size: inherit; }
+/* Kod: står framför koden på samma rad, så att rutan blir en rad lägre. Koden behåller sin storlek. */
+.join-info .code-row, .join-info-player .code-row { display: flex; align-items: baseline; justify-content: center; gap: 10px; margin-top: 12px; }
+.code-row .code { margin-top: 0; }
 .qr svg { width: 100%; height: auto; background: #fff; border-radius: 12px; }
 .code { display: block; color: var(--text); font-size: 2.4rem; font-weight: 800; letter-spacing: 0.2em; }
 #join-url { word-break: break-all; }
