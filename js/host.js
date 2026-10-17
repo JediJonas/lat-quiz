@@ -158,6 +158,8 @@ function viewFor(playerId) {
   view.deezer = usesDeezer();
   // Vinnarlåten är ett Deezer-klipp, utom med Spotify. Då står Deezer på vinnarkortet.
   view.winnerClip = loadWinnerSong() && state.music !== 'spotify';
+  // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
+  view.winnerShown = Boolean(gameView && gameView.winnerShown());
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
@@ -357,7 +359,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#game').hidden = false;
   // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
   showJoinInfo({ qrOpen: !resumeState });
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerSound: winnerSound, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -1056,19 +1058,19 @@ function nextClicked() {
   else nextSong();
 }
 
-// 1,5 sekunder innan texten före vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och
-// låten börjar när virveln är slut, 1,5 sekunder innan vinnarvyn tar över. Med Spotify öppnas låten
-// i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
-function winnerSound() {
-  if (!loadWinnerSong()) return;
-  const spotify = state.music === 'spotify';
-  winnerSong.drum({ clip: !spotify });
-  if (!spotify) winnerSong.play();
+// Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
+// virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
+// Med Spotify öppnas låten i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
+function winnerDrum() {
+  if (!loadWinnerSong()) return null;
+  winnerSong.drum({ clip: state.music !== 'spotify' });
+  return winnerSong.play();
 }
 
-// Vinnarvyn har tagit över, så att Spela vinnarlåt och låtens namn visas.
+// Vinnarvyn har tagit över, så att Spela vinnarlåt visas. Spelarna får veta det direkt.
 function winnerShown() {
   render();
+  broadcast();
 }
 
 // Samma vy som spelarna ser, och under den spelledarens kontrollpanel.

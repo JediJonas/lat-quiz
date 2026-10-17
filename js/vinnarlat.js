@@ -43,6 +43,7 @@ export function createWinnerSong() {
   let timers = [];
   let playing = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
   let started = false; // låten har börjat, under trumvirveln eller när vinnaren visas
+  let heard = () => {}; // säger till när låten hörs, så att vinnarkortet kan visas då
   // På iPhone går det inte att ändra volymen på ett ljudelement. Därför spelas låten helst genom
   // webbläsarens ljudmotor, som kan tona. Den måste startas av ett tryck, se unlock.
   let ctx = null;
@@ -85,7 +86,7 @@ export function createWinnerSong() {
   }
 
 
-  // Trumvirveln, som börjar 1,5 sekunder innan texten före vinnaren visas. Den är fyra sekunder.
+  // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
   // clip: false med Spotify som musiktjänst. Då slumpas bara låten, och inget Deezer-klipp
   // hämtas eller spelas.
@@ -133,12 +134,18 @@ export function createWinnerSong() {
     audio.load();
   }
 
-  // Vinnarvyn har tagit över. Två klipp spelas aldrig samtidigt, eftersom iPhone då ofta vägrar
-  // starta det andra. Spelar trumvirveln fortfarande börjar låten när den är slut.
+  // Låten börjar när trumvirveln är slut. Två klipp spelas aldrig samtidigt, eftersom iPhone då
+  // ofta vägrar starta det andra. Svaret kommer när låten hörs, så att vinnarkortet visas då.
+  // Utan klipp, till exempel med Spotify eller när Deezer saknar det, kommer svaret när virveln är
+  // slut, och kunde klippet inte spelas kommer det direkt.
   function play() {
-    if (!prepared) prepare();
-    if (drumAudio && !drumAudio.paused && !drumAudio.ended) whenDrumEnds(start);
-    else start();
+    return new Promise((resolve) => {
+      heard = resolve;
+      if (!current) prepare();
+      const next = prepared ? start : resolve;
+      if (drumAudio && !drumAudio.paused && !drumAudio.ended) whenDrumEnds(next);
+      else next();
+    });
   }
 
   // Trumvirveln har en kort tystnad på slutet, så låten börjar när ljudet tar slut, inte filen.
@@ -166,9 +173,11 @@ export function createWinnerSong() {
     const turn = playing;
     const clip = await prepared;
     if (turn !== playing) return;
-    if (!clip) return;
-    if (clip.buffer && ctx && ctx.state === 'running') startBuffer(clip.buffer);
-    else startElement(clip.url);
+    if (!clip) { heard(); return; }
+    if (clip.buffer && ctx && ctx.state === 'running') {
+      startBuffer(clip.buffer);
+      heard();
+    } else startElement(clip.url);
   }
 
   function startBuffer(buffer) {
@@ -190,7 +199,8 @@ export function createWinnerSong() {
     if (audio.src !== url) audio.src = url;
     audio.volume = VOLUME;
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det tyst.
-    audio.play().catch(() => {});
+    audio.addEventListener('playing', () => heard(), { once: true });
+    audio.play().catch(() => heard());
     // Volymen sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
