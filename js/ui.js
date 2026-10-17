@@ -3,21 +3,7 @@
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
-// Färgton efter andel kvarvarande tid: grönt första fjärdedelen, rött sista
-// fjärdedelen och en jämn skala via gult och orange däremellan.
-const HUE_STOPS = [[1, 135], [0.75, 135], [0.25, 0], [0, 0]];
-
-function ringHue(part) {
-  for (let i = 1; i < HUE_STOPS.length; i++) {
-    const [p1, h1] = HUE_STOPS[i - 1];
-    const [p2, h2] = HUE_STOPS[i];
-    if (part >= p2) return h2 + (h1 - h2) * ((part - p2) / (p1 - p2));
-  }
-  return 0;
-}
-
-// Rund nedräkning: siffran i mitten och en ring som töms medurs
-// och glider från grönt via orange till rött.
+// Rund nedräkning: siffran i mitten och en vit ring som töms medurs.
 export function renderRing(el, ms, totalMs, bonus) {
   if (!el.querySelector('svg')) {
     el.innerHTML = `<svg viewBox="0 0 120 120" aria-hidden="true">
@@ -29,10 +15,6 @@ export function renderRing(el, ms, totalMs, bonus) {
   // Positiv förskjutning fungerar i alla webbläsare (Safari på iPhone ritade den
   // negativa fel). Ringen är spegelvänd i CSS så att det tomma partiet växer medurs.
   el.querySelector('.ring-bar').style.strokeDashoffset = `${RING_LEN * (1 - part)}px`;
-  const hue = Math.round(ringHue(part));
-  // Mättnad och ljushet följer med, så att orange och rött lyser starkare än grönt.
-  const warm = Math.min(1, Math.max(0, (135 - hue) / 105));
-  el.style.setProperty('--ring-color', `hsl(${hue} ${Math.round(80 + 20 * warm)}% ${Math.round(45 + 5 * warm)}%)`);
   el.querySelector('.ring-num').textContent = Math.ceil(ms / 1000);
   el.classList.toggle('bonus', bonus);
 }
