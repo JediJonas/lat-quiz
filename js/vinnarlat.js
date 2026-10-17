@@ -85,7 +85,7 @@ export function createWinnerSong() {
   }
 
 
-  // Trumvirveln medan texten innan vinnaren visas. Den är fyra sekunder, en sekund kortare än texten.
+  // Trumvirveln, som börjar två sekunder innan texten före vinnaren visas. Den är fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
   // clip: false med Spotify som musiktjänst. Då slumpas bara låten, och inget Deezer-klipp
   // hämtas eller spelas.
