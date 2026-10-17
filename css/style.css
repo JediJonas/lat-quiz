@@ -165,12 +165,13 @@
 
 /* Ljuset ligger på html-elementet och följer med sidan när man scrollar. Det tonar ut till
    genomskinligt, och bakgrundsfärgen fyller resten, så det blir inga skarpa kanter. Ett fast
-   lager gav kanter i iOS när verktygsfältet ändrade storlek. */
+   lager gav kanter i iOS när verktygsfältet ändrade storlek. Mitten mäts i vh och inte i
+   procent av sidans höjd, så att ljuset är lika starkt på långa sidor som på korta. */
 html {
   min-height: 100%;
   background:
-    radial-gradient(80vmax 60vmax at 25% -15%, color-mix(in srgb, var(--cat-1) var(--amb-1), transparent), transparent 75%) no-repeat,
-    radial-gradient(60vmax 50vmax at 105% -5%, color-mix(in srgb, var(--cat-2) var(--amb-2), transparent), transparent 75%) no-repeat,
+    radial-gradient(80vmax 60vmax at 25% -15vh, color-mix(in srgb, var(--cat-1) var(--amb-1), transparent), transparent 75%) no-repeat,
+    radial-gradient(60vmax 50vmax at 105% -5vh, color-mix(in srgb, var(--cat-2) var(--amb-2), transparent), transparent 75%) no-repeat,
     var(--bg);
 }
 
@@ -761,11 +762,10 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
     --bar-top: max(8px, env(safe-area-inset-top));
     height: calc(var(--bar-top) + 60px);
     padding: env(safe-area-inset-top) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
-    /* En tät yta i full bredd, med samma ljus i kategorins färger som högst upp på sidan.
-       Ljusets mitt ligger ungefär lika högt över ytan som över sidan. */
+    /* En tät yta i full bredd, med samma ljus i kategorins färger som högst upp på sidan. */
     background:
-      radial-gradient(80vmax 60vmax at 25% -150px, color-mix(in srgb, var(--cat-1) var(--amb-1), transparent), transparent 75%) no-repeat,
-      radial-gradient(60vmax 50vmax at 105% -50px, color-mix(in srgb, var(--cat-2) var(--amb-2), transparent), transparent 75%) no-repeat,
+      radial-gradient(80vmax 60vmax at 25% -15vh, color-mix(in srgb, var(--cat-1) var(--amb-1), transparent), transparent 75%) no-repeat,
+      radial-gradient(60vmax 50vmax at 105% -5vh, color-mix(in srgb, var(--cat-2) var(--amb-2), transparent), transparent 75%) no-repeat,
       var(--bg);
     box-shadow: inset 0 -0.5px 0 var(--glass-edge), 0 2px 10px rgba(20, 20, 30, 0.12);
     opacity: 0;
