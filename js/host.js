@@ -357,7 +357,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#game').hidden = false;
   // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
   showJoinInfo({ qrOpen: !resumeState });
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerSound: winnerSound, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -1056,16 +1056,19 @@ function nextClicked() {
   else nextSong();
 }
 
-// Texten innan vinnaren visas. Då spelas en trumvirvel och vinnarlåten hämtas, om den är på.
-function winnerDrum() {
-  if (loadWinnerSong()) winnerSong.drum({ clip: state.music !== 'spotify' });
+// En sekund innan texten före vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och
+// låten börjar när virveln är slut, en sekund innan vinnarvyn tar över. Med Spotify öppnas låten
+// i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
+function winnerSound() {
+  if (!loadWinnerSong()) return;
+  const spotify = state.music === 'spotify';
+  winnerSong.drum({ clip: !spotify });
+  if (!spotify) winnerSong.play();
 }
 
-// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på. Med Spotify öppnas den i stället
-// med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
+// Vinnarvyn har tagit över, så att Spela vinnarlåt och låtens namn visas.
 function winnerShown() {
   render();
-  if (loadWinnerSong() && state.music !== 'spotify') winnerSong.play();
 }
 
 // Samma vy som spelarna ser, och under den spelledarens kontrollpanel.
