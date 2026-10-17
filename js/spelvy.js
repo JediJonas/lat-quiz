@@ -11,12 +11,12 @@ const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 // Konfettin när någon vinner: bitarna sprids över hela bredden och släpps i omgångar, så att
-// det regnar i ungefär sju sekunder. Var bit får egen fart, sidledsdrift och snurr.
+// det regnar i ungefär tio sekunder. Var bit får egen fart, sidledsdrift och snurr.
 const CONFETTI_COLORS = ['#ffd166', '#fff', '#7cf0b0', '#ff9ecb'];
-function confetti(count = 80) {
+function confetti(count = 110) {
   const rand = (min, max) => min + Math.random() * (max - min);
   return Array.from({ length: count }, (_, i) => `<i style="--x:${rand(-2, 98).toFixed(1)}%;`
-    + `--d:${rand(0, 4.8).toFixed(2)}s;--t:${rand(1.3, 2).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
+    + `--d:${rand(0, 7.8).toFixed(2)}s;--t:${rand(1.3, 2).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
     + `--r:${rand(-540, 540).toFixed(0)}deg;--c:${CONFETTI_COLORS[i % CONFETTI_COLORS.length]}"></i>`).join('');
 }
 
@@ -252,7 +252,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const label = 'Matchen är slut';
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
-        ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
+        ? `<div class="cover win drum reveal"><div class="cover-head"><p class="round-label">${label}</p></div>
           <h2 class="win-title">${esc(intro)}</h2>
           <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : winner
