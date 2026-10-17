@@ -40,7 +40,7 @@ const WIN_GENERAL = [
 export function winComment({ winners, standings, songs, winScore }) {
   const seed = `${winners.join()}${songs}`;
   if (winners.length > 1) return 'Delad glädje är dubbel glädje!';
-  if (standings.length === 1) return 'Seger! Nästa gång tar du med kompisar.';
+  if (standings.length === 1) return 'Oväntad seger! Nästa gång tar du med kompisar.';
   const scores = standings.map((p) => p.score).sort((a, b) => b - a);
   const lead = scores[0] - scores[1];
   if (lead <= 1) return pick(['Det var jämnt in i det sista!', 'Med nöd och näppe!'], seed);
