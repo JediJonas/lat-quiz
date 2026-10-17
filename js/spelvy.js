@@ -19,6 +19,13 @@ function confetti(count = 40) {
     + `--r:${rand(-540, 540).toFixed(0)}deg;--c:${CONFETTI_COLORS[i % CONFETTI_COLORS.length]}"></i>`).join('');
 }
 
+// Gnistorna runt bonuspoängen: små stjärnor som skjuts ut åt alla håll och tonar bort.
+function sparkles(count = 10) {
+  return '<span class="sparkles" aria-hidden="true">' + Array.from({ length: count }, (_, i) =>
+    `<i style="--a:${Math.round((360 / count) * i + Math.random() * 20)}deg;--l:${26 + Math.round(Math.random() * 16)}px"></i>`).join('')
+    + '</span>';
+}
+
 // Reglerna som små etiketter medan alla väntar på första låten, i stället för en lång mening.
 // Etiketterna följer kategorins ord, till exempel 1 p för kompositör.
 function rules(view) {
@@ -238,9 +245,13 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       const row = (label, given, right) => `<li class="${right ? 'right' : given ? 'wrong' : 'none'}">`
         + `<span class="lab">${esc(label)}</span><span class="val">${esc(given || 'Inget svar')}</span>`
         + `<span class="pts">${right ? '+1' : '0'}</span></li>`;
+      // Bonusraden lyser upp i guld med lite gnistor runt +1, när svaret visas första gången.
+      const bonusRow = () => row('Bonus', 'Snabbt svar', true)
+        .replace('<li class="right">', `<li class="right bonus${fresh ? ' pop' : ''}">`)
+        .replace('<span class="pts">', `<span class="pts">${fresh ? sparkles() : ''}`);
       const own = playing && !winner;
       const mineRows = own ? `<ul class="mine">${row(view.labels.artist, mine.artist, r.artist)}${row(view.labels.title, mine.title, r.title)}`
-        + `${r.bonus ? row('Bonus', 'Snabbt svar', true) : ''}</ul>` : '';
+        + `${r.bonus ? bonusRow() : ''}</ul>` : '';
       // Med stor text skrivs poängen kort som p, så att den får plats på en rad. Skärmläsare får hela ordet.
       const points = own ? `<p class="points${r.points ? '' : ' zero'}"><span aria-hidden="true">+${r.points} `
         + '<span class="points-long">poäng</span><span class="points-short">p</span></span>'

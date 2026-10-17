@@ -625,6 +625,29 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .mine .pts { font-size: 0.9375rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--muted); }
 .mine .right .pts { color: var(--good); }
 .mine .wrong .pts { color: var(--bad); }
+/* Bonusraden lyser i guld. Första gången poppar den fram efter vändningen, med gnistor runt +1. */
+.mine .bonus .lab, .mine .bonus .pts { color: var(--bonus); }
+.mine .bonus .pts { position: relative; }
+.mine .bonus.pop .pts { animation: bonus-pop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 0.55s both; }
+@keyframes bonus-pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  60% { transform: scale(1.8); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.mine .bonus.pop::after { content: ""; position: absolute; inset: 0; border-radius: 0 0 22px 22px; background: color-mix(in srgb, var(--bonus) 22%, transparent); pointer-events: none; animation: bonus-glow 1.6s ease-out 0.55s both; }
+@keyframes bonus-glow { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
+.sparkles { position: absolute; top: 50%; left: 50%; pointer-events: none; }
+.sparkles i { position: absolute; width: 10px; height: 10px; top: -5px; left: -5px; background: var(--bonus); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); opacity: 0; animation: sparkle 1s ease-out 0.75s both; }
+/* Med minskad rörelse står bonusraden still i guld, utan gnistor och sken. */
+@media (prefers-reduced-motion: reduce) {
+  .sparkles, .mine .bonus.pop::after { display: none; }
+  .mine .bonus.pop .pts { animation: none; }
+}
+@keyframes sparkle {
+  0% { opacity: 1; transform: rotate(var(--a)) translateX(4px) scale(0.6); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(var(--a)) translateX(var(--l)) scale(1.3); }
+}
 /* Poängen för låten står stort, med nedräkningen till nästa låt bredvid. */
 /* Poängen och nedräkningen bryts aldrig. Blir raden för smal hamnar nedräkningen på en egen rad. */
 .points { margin: 0; white-space: nowrap; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; color: var(--good); }
