@@ -982,14 +982,14 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 @media (min-width: 601px) and (hover: hover) and (pointer: fine) {
   .start-text { margin-top: 350px; }
   /* Tonen nedåt räcker bara så långt som hyllan syns, så att den inte blir ett ljust band utanför. */
-  main.start::after { left: -80px; right: -80px; }
-  /* På dator tonar hyllan ut åt sidorna mjukt, från ungefär 0 till 80 px utanför innehållets kanter
-     där knapparna slutar. Tonen följer en S-kurva, så att varken början eller slutet syns som en
+  main.start::after { left: -40px; right: -40px; }
+  /* På dator tonar hyllan ut åt sidorna mjukt, från ungefär 40 px innanför till 40 px utanför
+     innehållets kanter där knapparna slutar. Tonen följer en S-kurva, så att varken början eller slutet syns som en
      kant. Den vinklas 9 grader mot hyllans lutning, så att kanterna blir lodräta. Hyllan är
      700 × 400 px, så tonens linje är 754 px lång och innehållets kanter ligger 214 px från mitten. */
   .start-shelf {
-    -webkit-mask-image: linear-gradient(99deg, transparent 83px, rgb(0 0 0 / 0.16) 115px, rgb(0 0 0 / 0.5) 148px, rgb(0 0 0 / 0.84) 180px, #000 213px, #000 541px, rgb(0 0 0 / 0.84) 574px, rgb(0 0 0 / 0.5) 606px, rgb(0 0 0 / 0.16) 639px, transparent 671px);
-    mask-image: linear-gradient(99deg, transparent 83px, rgb(0 0 0 / 0.16) 115px, rgb(0 0 0 / 0.5) 148px, rgb(0 0 0 / 0.84) 180px, #000 213px, #000 541px, rgb(0 0 0 / 0.84) 574px, rgb(0 0 0 / 0.5) 606px, rgb(0 0 0 / 0.16) 639px, transparent 671px);
+    -webkit-mask-image: linear-gradient(99deg, transparent 123px, rgb(0 0 0 / 0.16) 155px, rgb(0 0 0 / 0.5) 188px, rgb(0 0 0 / 0.84) 220px, #000 253px, #000 501px, rgb(0 0 0 / 0.84) 534px, rgb(0 0 0 / 0.5) 566px, rgb(0 0 0 / 0.16) 599px, transparent 631px);
+    mask-image: linear-gradient(99deg, transparent 123px, rgb(0 0 0 / 0.16) 155px, rgb(0 0 0 / 0.5) 188px, rgb(0 0 0 / 0.84) 220px, #000 253px, #000 501px, rgb(0 0 0 / 0.84) 534px, rgb(0 0 0 / 0.5) 566px, rgb(0 0 0 / 0.16) 599px, transparent 631px);
   }
 }
 .start .logo { width: 240px; margin: 0; }
