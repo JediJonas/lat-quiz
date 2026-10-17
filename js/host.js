@@ -354,7 +354,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#setup').hidden = true;
   $('#game').hidden = false;
   showJoinInfo();
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -1044,6 +1044,11 @@ function nextClicked() {
   // Spelvyn rullar upp till väntetexten och Starta spelet, både hos spelledaren och spelarna.
   else if (choice.action === 'restart') restart();
   else nextSong();
+}
+
+// Texten innan vinnaren visas. Då spelas en trumvirvel och vinnarlåten hämtas, om den är på.
+function winnerDrum() {
+  if (loadWinnerSong()) winnerSong.drum();
 }
 
 // Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på.

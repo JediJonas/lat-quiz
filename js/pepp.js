@@ -49,3 +49,11 @@ export function winComment({ winners, standings, songs, winScore }) {
   if (songs >= winScore * 1.5) return 'En riktig maratonmatch!';
   return pick(WIN_GENERAL, seed);
 }
+
+// Texten en kort stund innan vinnaren visas.
+const WIN_INTROS = ['Vi har en vinnare!', 'Grattis!', 'Vilken match!', 'Hipp hipp hurra!', 'Det är klart!'];
+
+// Samma rubrik på alla enheter.
+export function winIntro({ winners, songs }) {
+  return pick(WIN_INTROS, `${winners.join()}${songs}intro`);
+}

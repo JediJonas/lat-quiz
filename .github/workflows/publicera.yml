@@ -34,7 +34,7 @@ jobs:
       - name: Samla sidan
         run: |
           mkdir _site
-          cp -r *.html *.svg *.webmanifest css data ikoner js vendor verktyg _site/
+          cp -r *.html *.svg *.webmanifest css data ikoner js ljud vendor verktyg _site/
 
       - uses: actions/upload-pages-artifact@v3
         with:

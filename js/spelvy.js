@@ -5,7 +5,7 @@ import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
 import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
-import { roundCheer, winComment } from './pepp.js';
+import { roundCheer, winComment, winIntro } from './pepp.js';
 
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -61,13 +61,16 @@ function compactTitle() {
   }).observe(heading);
 }
 
-// Så länge sista låten visas innan vinnaren tar över vyn.
+// Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
+// vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
+const DRUM_MS = 4000; // lika lång som trumvirveln hos spelledaren
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
+// onWinnerDrum: till exempel "Vi har en vinnare!" visas, och namnet kommer efter DRUM_MS.
 // onWinnerShown: vinnarvyn har just tagit över, så att spelledarens knappar kan visas samtidigt.
-export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, host = false }) {
+export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onWinnerShown = () => {}, host = false }) {
   let view = null;
   let me = null;
   let roundNumber = null;
@@ -77,6 +80,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
   let shownResult = null; // svaret som senast visades: låtens nummer, eller w och numret för vinnaren
   // När matchen avgörs visas sista låten först som vanligt. Efter en stund byts vyn mot vinnaren.
   let winRound = null; // låten som avgjorde matchen
+  let winDrum = false; // texten innan namnet visas, till exempel Vi har en vinnare!
   let winShown = false; // vinnarvyn har tagit över
   let winTimer = null;
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
@@ -177,18 +181,27 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
     const phase = round ? round.phase : 'waiting';
     if (view.winners && phase === 'revealed' && winRound !== round.number) {
       winRound = round.number;
+      winDrum = false;
       winShown = false;
       clearTimeout(winTimer);
       winTimer = setTimeout(() => {
-        winShown = true;
-        if (view.winners) { render(); onWinnerShown(); }
+        if (!view.winners) return;
+        winDrum = true;
+        render();
+        onWinnerDrum();
+        winTimer = setTimeout(() => {
+          winShown = true;
+          if (view.winners) { render(); onWinnerShown(); }
+        }, DRUM_MS);
       }, WIN_DELAY_MS);
     } else if (!view.winners) {
       winRound = null;
+      winDrum = false;
       winShown = false;
       clearTimeout(winTimer);
     }
     const winner = winnerView();
+    const drum = Boolean(view.winners && phase === 'revealed' && winDrum && !winner);
     // Spelledaren kan välja att inte delta. Då visas låten och timern, men inga fält eller egna svar.
     const playing = view.standings.some((p) => p.id === me);
     const guessFields = $('.guess-fields');
@@ -198,7 +211,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
     // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
     $('#waiting').hidden = phase !== 'waiting';
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
-    $('#waiting-text').textContent = host ? 'Starta spelet när alla har gått med' : 'Spelledaren startar första låten snart';
+    $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
     $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
@@ -230,15 +243,21 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
         <span id="next-pie" class="pie"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span></span>`;
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
-      const key = winner ? `w${round.number}` : round.number;
+      const key = winner ? `w${round.number}` : drum ? `d${round.number}` : round.number;
       const fresh = shownResult !== key;
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
       const clip = view.deezer ? '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>' : '';
-      const cover = winner
+      const label = `Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}`;
+      const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
+      const cover = drum
+        ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
+          <h2 class="win-title">${esc(intro)}</h2>
+          <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
+        : winner
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
-          <p class="round-label">Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}</p>
+          <p class="round-label">${label}</p>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
-          <p class="win-sub">Först till ${view.winScore} poäng. ${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
+          <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
           <div class="title">${esc(round.song.title)}</div>
           <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
@@ -250,7 +269,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       const bonusRow = () => row('Bonus', 'Blixtsnabbt!', true)
         .replace('<li class="right">', `<li class="right bonus${fresh ? ' pop' : ''}">`)
         .replace('<span class="pts">', `<span class="pts">${fresh ? sparkles() : ''}`);
-      const own = playing && !winner;
+      const own = playing && !winner && !drum;
       const mineRows = own ? `<ul class="mine">${row(view.labels.artist, mine.artist, r.artist)}${row(view.labels.title, mine.title, r.title)}`
         + `${r.bonus ? bonusRow() : ''}</ul>` : '';
       // Med stor text skrivs poängen kort som p, så att den får plats på en rad. Skärmläsare får hela ordet.
@@ -278,7 +297,8 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
         scrollToTop();
       }
       shownResult = key;
-      announce(`Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${r.points} poäng.` : ''}`
+      announce(drum ? intro
+        : `Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${r.points} poäng.` : ''}`
         + (winner ? ` ${view.winners.join(' och ')} vinner!` : ''));
       renderTimer();
     }
