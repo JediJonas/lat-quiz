@@ -448,13 +448,9 @@ td.name { font-weight: 650; }
 td.rank { text-align: center; font-variant-numeric: tabular-nums; }
 td.score { text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
-/* Initialen i en rund bricka, i en färg som följer namnet. */
 .player { display: flex; align-items: center; gap: 12px; }
 /* Den som klättrat i listan får en liten grön pil med antalet placeringar. */
 .up { margin-left: -6px; font-size: 0.6875rem; font-weight: 800; color: var(--good); white-space: nowrap; }
-.avatar { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; font-size: 0.95rem; font-weight: 750; }
-.av-0 { background: #2563eb; } .av-1 { background: #c2185b; } .av-2 { background: #12823f; } .av-3 { background: #7b3fd1; }
-.av-4 { background: #c2410c; } .av-5 { background: #0e7490; } .av-6 { background: #4f46e5; } .av-7 { background: #a16207; }
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
@@ -500,9 +496,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .standings td.status { white-space: nowrap; }
 .standings td.name { width: 100%; overflow-wrap: break-word; }
 .standings .tag { margin: 0 0 0 4px; }
-/* När svaret visas står bara poängen för låten i listan i mobilen. På en bredare skärm står
-   också vad som var rätt och fel. */
-@media (max-width: 600px) { .standings .tag.field { display: none; } }
 /* Ställningen när matchen är slut: stora konturerade siffror för plats 1–3, som i Netflix topp 10.
    Övriga placeringar står som poängen, fast i samma grå som konturen. */
 .podium td { height: 66px; }

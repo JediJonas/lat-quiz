@@ -73,41 +73,15 @@ export function nameTaken(state, { id, name }) {
   return Object.values(state.players).some((p) => p.id !== id && normalize(p.name) === wanted);
 }
 
-// Spelarnas färger, som klasserna av-0 till av-7 i style.css.
-export const PLAYER_COLORS = 8;
-
-// Färgen som följer namnet, så att en spelare brukar få samma färg från spel till spel.
-export function nameColor(name) {
-  let hash = 0;
-  for (const c of name || '') hash = (hash * 31 + c.codePointAt(0)) >>> 0;
-  return hash % PLAYER_COLORS;
-}
-
-// En ny spelare får namnets färg om ingen annan har den, och annars nästa lediga färg.
-// När alla färger är tagna blir det den som färst har.
-function freeColor(state, name) {
-  const used = new Array(PLAYER_COLORS).fill(0);
-  const others = [...Object.values(state.players), state.benchedHost].filter(Boolean);
-  for (const p of others) if (Number.isInteger(p.color)) used[p.color] += 1;
-  const start = nameColor(name);
-  let best = start;
-  for (let i = 0; i < PLAYER_COLORS; i++) {
-    const c = (start + i) % PLAYER_COLORS;
-    if (used[c] < used[best]) best = c;
-  }
-  return best;
-}
-
 // Ny spelare, eller en spelare som ansluter igen med samma id.
 export function addPlayer(state, { id, name }) {
   const existing = state.players[id];
   if (existing) {
     existing.connected = true;
     if (name) existing.name = name;
-    if (!Number.isInteger(existing.color)) existing.color = freeColor(state, existing.name);
     return existing;
   }
-  const player = { id, name, score: 0, connected: true, color: freeColor(state, name) };
+  const player = { id, name, score: 0, connected: true };
   state.players[id] = player;
   return player;
 }
@@ -290,7 +264,7 @@ export function restart(state) {
 
 export function standings(state) {
   return Object.values(state.players)
-    .map(({ id, name, score, connected, color }) => ({ id, name, score, connected, color }))
+    .map(({ id, name, score, connected }) => ({ id, name, score, connected }))
     .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, 'sv'));
 }
 

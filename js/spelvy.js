@@ -3,7 +3,7 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, avatar, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
+import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -142,14 +142,13 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       const before = scoreChanged(p.id, p.score);
       if (before !== null) counts.push([p.id, before, p.score]);
       const rank = rankOf(p);
-      const av = avatar(p.name, p.color);
       const up = climb(p);
       const score = `<td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td>`;
       // Under spelet står poängen först. När matchen är slut står placeringen först och poängen sist.
       // Plats 1–3 får stora siffror.
       return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
       ${podium ? `<td class="rank${rank <= 3 ? ' top' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : score}
-      <td class="name"><span class="player"><span class="avatar av-${av.color}" aria-hidden="true">${esc(av.letter)}</span><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? `<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> placeringar upp</span></span>` : ''}</span></td>
+      <td class="name"><span class="player"><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? `<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> placeringar upp</span></span>` : ''}</span></td>
       <td class="status">${playerStatus(p.id)}</td>${podium ? `
       ${score}` : ''}</tr>`;
     });
