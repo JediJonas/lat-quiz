@@ -354,7 +354,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#setup').hidden = true;
   $('#game').hidden = false;
   showJoinInfo();
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -1046,7 +1046,12 @@ function nextClicked() {
   else nextSong();
 }
 
-// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på.
+// Texten innan vinnaren visas. Då spelas en trumvirvel eller fanfar, om vinnarlåten är på.
+function winnerDrum(ms) {
+  if (loadWinnerSong()) winnerSong.drum(ms);
+}
+
+// Vinnarvyn har tagit över. Då slår cymbalen och vinnarlåten spelas, om den är på.
 function winnerShown() {
   render();
   if (loadWinnerSong()) winnerSong.play();

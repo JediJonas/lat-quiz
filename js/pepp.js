@@ -49,3 +49,18 @@ export function winComment({ winners, standings, songs, winScore }) {
   if (songs >= winScore * 1.5) return 'En riktig maratonmatch!';
   return pick(WIN_GENERAL, seed);
 }
+
+// Texten innan vinnaren visas, medan spelledaren spelar en trumvirvel eller en fanfar.
+const WIN_INTROS = [
+  ['Vi har en vinnare!', 'Och vinnaren är'],
+  ['Det är dags!', 'Segern går till'],
+  ['Håll i er nu!', 'Och vinnaren är'],
+  ['Spänningen stiger!', 'Först i mål är'],
+  ['Nu är det klart!', 'Vinnaren är'],
+];
+
+// Samma text på alla enheter: { title, sub }.
+export function winIntro({ winners, songs }) {
+  const [title, sub] = pick(WIN_INTROS, `${winners.join()}${songs}intro`);
+  return { title, sub };
+}

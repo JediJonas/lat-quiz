@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { roundCheer, winComment } from '../js/pepp.js';
+import { roundCheer, winComment, winIntro } from '../js/pepp.js';
 import { WINNER_SONGS, pickWinnerSong } from '../js/vinnarlat.js';
 
 const players = (...scores) => scores.map((score, i) => ({ id: `p${i}`, name: `P${i}`, score }));
@@ -29,4 +29,10 @@ test('vinnarlåten slumpas och blir inte samma två gånger i rad', () => {
   const first = pickWinnerSong(() => 0);
   assert.equal(first, WINNER_SONGS[0]);
   for (const r of [0, 0.5, 0.999]) assert.notEqual(pickWinnerSong(() => r, first.deezerId), first);
+});
+
+test('texten innan vinnaren är densamma på alla enheter', () => {
+  const intro = winIntro({ winners: ['Anna'], songs: 8 });
+  assert.ok(intro.title.endsWith('!') && intro.sub.length > 0);
+  assert.deepEqual(winIntro({ winners: ['Anna'], songs: 8 }), intro);
 });
