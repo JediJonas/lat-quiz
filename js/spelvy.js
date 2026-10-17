@@ -128,13 +128,14 @@ export function createGameView({ onAnswer, onError, host = false }) {
   function renderStandings() {
     // Utan spelare döljs poänglistan med rubrik, till exempel när spelledaren inte deltar och ingen har gått med än.
     $('#standings-section').hidden = view.standings.length === 0;
-    // Placeringen visas när någon har fått poäng. Lika många poäng ger samma placering.
+    // Placeringen räknas när någon har fått poäng. Lika många poäng ger samma placering.
     const ranked = view.standings.some((p) => p.score > 0);
     const rankOf = (p) => 1 + view.standings.filter((q) => q.score > p.score).length;
     // När svaret visas får den som klättrat en liten pil med antalet placeringar.
     const revealed = view.round && view.round.phase === 'revealed';
     if (!revealed) ranksBefore = new Map(ranked ? view.standings.map((p) => [p.id, rankOf(p)]) : []);
     const climb = (p) => (revealed && ranksBefore.has(p.id) ? ranksBefore.get(p.id) - rankOf(p) : 0);
+    const podium = winnerView();
     const counts = [];
     const rows = view.standings.map((p) => {
       const before = scoreChanged(p.id, p.score);
@@ -142,14 +143,16 @@ export function createGameView({ onAnswer, onError, host = false }) {
       const rank = rankOf(p);
       const av = avatar(p.name);
       const up = climb(p);
+      const score = `<td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td>`;
+      // Under spelet står poängen först. När matchen är slut står placeringen först och poängen sist.
       return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
-      ${ranked ? `<td class="rank${rank === 1 ? ' first' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : ''}
+      ${podium ? `<td class="rank"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : score}
       <td class="name"><span class="player"><span class="avatar av-${av.color}" aria-hidden="true">${esc(av.letter)}</span><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? `<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> placeringar upp</span></span>` : ''}</span></td>
-      <td class="status">${playerStatus(p.id)}</td>
-      <td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td></tr>`;
+      <td class="status">${playerStatus(p.id)}</td>${podium ? `
+      ${score}` : ''}</tr>`;
     });
     // När matchen är slut får listan stora placeringssiffror.
-    $('#standings').classList.toggle('podium', winnerView());
+    $('#standings').classList.toggle('podium', podium);
     $('#standings').innerHTML = `<table><tbody>${rows.join('')}</tbody></table>`;
     for (const [id, from, to] of counts) {
       const cell = [...document.querySelectorAll('#standings td.score')].find((td) => td.dataset.id === id);

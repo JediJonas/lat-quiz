@@ -433,11 +433,9 @@ tr:last-child td:last-child { border-bottom-right-radius: 22px; }
 td:first-child { padding-left: 16px; }
 td:last-child { padding-right: 16px; }
 td.name { font-weight: 650; }
-/* Placeringen står först och poängen sist, stort och till höger, som i en topplista. */
-td.rank { width: 22px; text-align: center; font-size: 1.0625rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
-/* Ettan står i textfärg i stället för gult, så att den inte förväxlas med bonusen. */
-td.rank.first { color: var(--text); }
-td.score { width: 30px; text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+/* Under spelet står poängen först. När matchen är slut står placeringen först och poängen sist, som i en topplista. */
+td.rank { text-align: center; font-variant-numeric: tabular-nums; }
+td.score { text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
 /* Initialen i en rund bricka, i en färg som följer namnet. */
 .player { display: flex; align-items: center; gap: 12px; }
@@ -497,26 +495,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
 .podium td { height: 66px; }
 .podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
-/* Vinnaren får en etta i guld: ljust, glänsande guld inuti och bonusfärgen som ram runt om. */
-.podium td.rank.first { -webkit-text-stroke: 0; }
-.podium td.rank.first .rank-num {
-  color: transparent;
-  background: linear-gradient(170deg, #fff8d6 10%, #ffd84d 40%, #f2a900 62%, #ffe27a 85%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 6px rgba(255, 196, 40, 0.5));
-}
-/* I mörkt läge lyser guldet mer av sig självt, så där är det mattare och nästan utan sken. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .podium td.rank.first .rank-num {
-    background-image: linear-gradient(170deg, #f3dc8a 10%, #e0b53c 40%, #b98516 62%, #d9b456 85%);
-    filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 4px rgba(255, 196, 40, 0.12));
-  }
-}
-:root[data-theme="dark"] .podium td.rank.first .rank-num {
-  background-image: linear-gradient(170deg, #f3dc8a 10%, #e0b53c 40%, #b98516 62%, #d9b456 85%);
-  filter: drop-shadow(1px 0 0 var(--bonus)) drop-shadow(-1px 0 0 var(--bonus)) drop-shadow(0 1px 0 var(--bonus)) drop-shadow(0 -1px 0 var(--bonus)) drop-shadow(0 0 4px rgba(255, 196, 40, 0.12));
-}
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
@@ -600,7 +578,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 #waiting.card { padding: 0; border: 0; background: none; box-shadow: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
 .chips li { padding: 7px 12px; border-radius: 999px; background: var(--surface-solid); font-size: 0.875rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
-/* Knappen har ingen marginal under sig, så att avståndet ner till Ställning blir detsamma
+/* Knappen har ingen marginal under sig, så att avståndet ner till Poäng blir detsamma
    på alla bredder och samma som under spelet. */
 #waiting .big { margin: 24px 0 0; }
 /* På omslaget är ringen vit, med ett svagt spår. */
