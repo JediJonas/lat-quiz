@@ -252,7 +252,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const cover = drum
         ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
           <h2 class="win-title">${esc(intro.title)}</h2>
-          <p class="win-sub">${esc(intro.sub)}<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p></div>`
+          <p class="win-sub">${esc(intro.sub)}</p></div>`
         : winner
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
           <p class="round-label">${label}</p>
