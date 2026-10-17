@@ -249,7 +249,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
       const clipNote = '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>';
       const clip = view.deezer ? clipNote : '';
-      const label = 'Matchen är slut';
+      const label = `Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}`;
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
         ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
