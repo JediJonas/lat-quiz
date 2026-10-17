@@ -170,8 +170,18 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (!audio) audio = new Audio();
     audio.src = url;
     audio.volume = volume;
-    // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det bara tyst.
-    audio.play().then(() => setStatus('playing'), () => setStatus('blocked'));
+    // iPhone vägrar ibland starta ett ljud medan trumvirveln spelar. Då provar låten igen när
+    // virveln är slut. Spelar den inte då heller, till exempel för att webbläsaren inte tillåter
+    // ljud, blir det tyst.
+    const turn = playing;
+    const retry = () => {
+      if (turn !== playing) return;
+      audio.play().then(() => setStatus('playing'), () => setStatus('blocked'));
+    };
+    audio.play().then(() => setStatus('playing'), () => {
+      if (drumAudio && !drumAudio.paused && !drumAudio.ended) drumAudio.addEventListener('ended', retry, { once: true });
+      else retry();
+    });
     const begin = Date.now();
     // Volymen växer först till full och sänks sedan när klippet närmar sig slutet.
     timers.push(setInterval(() => {
