@@ -217,9 +217,9 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
     } else if (phase === 'revealed') {
       const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
       const mine = round.answer || { artist: '', title: '' };
-      // Den lilla ringen under svaret töms tills nästa låt startar av sig själv.
-      const next = round.nextInMs == null ? '' : `<span class="next"><span id="next-pie" class="pie"></span>
-        <span id="next-text" aria-hidden="true"></span>
+      // Den lilla ringen till höger om texten under svaret töms tills nästa låt startar av sig själv.
+      const next = round.nextInMs == null ? '' : `<span class="next"><span id="next-text" aria-hidden="true"></span>
+        <span id="next-pie" class="pie"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span></span>`;
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
       const key = winner ? `w${round.number}` : round.number;
