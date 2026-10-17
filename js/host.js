@@ -145,11 +145,12 @@ function broadcast() {
   for (const connId of connToPlayer.keys()) sendState(connId);
 }
 
-// Ändringar som görs medan en låt pågår. De gäller när svaret har visats.
+// Ändringar som görs medan spelet pågår. De gäller när nästa låt startar, eller direkt om
+// ingen låt har spelats än.
 let pending = null;
 
 function changed() {
-  if (pending && (!state.round || state.round.phase === 'revealed')) applyPending();
+  if (pending && !state.round) applyPending();
   save();
   broadcast();
   render();
@@ -336,6 +337,9 @@ function playableSongs() {
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
   if (Date.now() - revealedAt < DOUBLE_TAP_MS) return;
+  // Sparade inställningar gäller från och med den här låten. Inget väntas in här, eftersom
+  // Spotify bara öppnas om det sker direkt i klicket.
+  if (pending && (!state.round || state.round.phase === 'revealed')) applyPending();
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
   const playable = playableSongs();
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
@@ -696,7 +700,7 @@ function wireHostPlays(dialog) {
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
-// later: en låt pågår, så ändringarna gäller först från nästa låt.
+// later: en låt har spelats, så ändringarna gäller först från nästa låt.
 // music: vald musiktjänst.
 function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, later = false, music = 'deezer' } = {}) {
   const dialog = document.createElement('dialog');
@@ -765,9 +769,9 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   });
 }
 
-// Under en låt sparas ändringarna och gäller från nästa låt.
+// Under spelet sparas ändringarna och gäller från nästa låt.
 async function editSettings() {
-  const later = Boolean(state && state.round && state.round.phase !== 'revealed');
+  const later = Boolean(state && state.round);
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
   const categories = state ? all : null;
@@ -785,13 +789,15 @@ async function editSettings() {
   }
   if (host.plays && host.name !== DEFAULT_HOST_NAME) storage(() => localStorage.setItem(NAME_KEY, host.name));
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
-  pending = { settings, category: picked, host, music: chosenMusic };
-  // Svaret kan ha visats medan dialogen var öppen, så changed() avgör om ändringen gäller nu.
+  // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
+  const pickedSongs = picked ? await loadSongs(picked) : null;
+  pending = { settings, category: picked, songs: pickedSongs, host, music: chosenMusic };
+  // Har ingen låt spelats än gäller ändringen direkt. Det avgör changed().
   changed();
 }
 
-async function applyPending() {
-  const { settings, category: picked, host, music } = pending;
+function applyPending() {
+  const { settings, category: picked, songs: pickedSongs, host, music } = pending;
   pending = null;
   game.applySettings(state, settings);
   if (music !== state.music) {
@@ -800,24 +806,12 @@ async function applyPending() {
   }
   // En spelare kan ha tagit namnet medan låten pågick. Då heter spelledaren Spelledare.
   if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? DEFAULT_HOST_NAME : host.name);
-  if (picked) {
-    await switchCategory(picked);
-    changed();
+  // Poängen och spelade låtar finns kvar.
+  if (picked && game.changeCategory(state, { categoryId: picked.id, categoryName: picked.name, labels: picked.labels })) {
+    stopClip();
+    category = picked;
+    songs = pickedSongs;
   }
-}
-
-// Poängen och spelade låtar finns kvar. Går inte medan en låt pågår, eftersom låten hör till den gamla kategorin.
-async function switchCategory(chosen) {
-  if (!chosen) return;
-  if (state.round && state.round.phase !== 'revealed') {
-    showAlert('Kategorin kan bytas när svaret har visats.', { title: 'Låten pågår' });
-    return;
-  }
-  const chosenSongs = await loadSongs(chosen);
-  if (!game.changeCategory(state, { categoryId: chosen.id, categoryName: chosen.name, labels: chosen.labels })) return;
-  stopClip();
-  category = chosen;
-  songs = chosenSongs;
 }
 
 // ---- Visning ----
@@ -996,10 +990,10 @@ function render() {
   // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
   $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
   updateClipMessage(round);
-  // Nästa låt kan starta medan Inställningar är öppen. Ändringarna gäller då från låten efter,
+  // Första låten kan starta medan Inställningar är öppen. Ändringarna gäller då från låten efter,
   // och Denna låt är okänd gäller den låt som spelas nu.
   const laterNote = document.querySelector('dialog[open] .later-note');
-  if (laterNote) laterNote.hidden = !round || round.phase === 'revealed';
+  if (laterNote) laterNote.hidden = !round;
   const mark = document.querySelector('dialog[open] #mark-unknown');
   if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
 }
