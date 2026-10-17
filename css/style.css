@@ -643,9 +643,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   .mine .bonus.pop .pts { animation: none; }
 }
 @keyframes sparkle {
-  0% { opacity: 1; transform: rotate(var(--a)) translateX(4px) scale(0.6); }
+  0% { opacity: 1; transform: rotate(var(--a)) translateX(4px) rotate(calc(-1 * var(--a))) scale(0.6); }
   70% { opacity: 1; }
-  100% { opacity: 0; transform: rotate(var(--a)) translateX(var(--l)) scale(1.3); }
+  100% { opacity: 0; transform: rotate(var(--a)) translateX(34px) rotate(calc(-1 * var(--a))) scale(1.3); }
 }
 /* Poängen för låten står stort, med nedräkningen till nästa låt bredvid. */
 /* Poängen och nedräkningen bryts aldrig. Blir raden för smal hamnar nedräkningen på en egen rad. */
