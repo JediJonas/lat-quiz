@@ -49,6 +49,9 @@ export function pickWinnerSong(random = Math.random, last = null) {
 // uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
 const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
 
+// Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
+export const WINNER_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_MS, loop: false };
+
 export function createWinnerSong() {
   let audio = null;
   let last = null;
@@ -60,6 +63,7 @@ export function createWinnerSong() {
   // webbläsarens ljudmotor, som kan tona. Den måste startas av ett tryck, se unlock.
   let ctx = null;
   let source = null;
+  let heardClip = null; // klippet som hörs och var i det, för spelarnas mobiler
 
   const clear = () => { timers.forEach(clearInterval); timers = []; };
 
@@ -68,6 +72,7 @@ export function createWinnerSong() {
     clear();
     prepared = null;
     started = false;
+    heardClip = null;
     if (audio) audio.pause();
     if (drumAudio) drumAudio.pause();
     if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
@@ -191,9 +196,14 @@ export function createWinnerSong() {
     if (turn !== playing) return;
     if (!clip) { heard(); return; }
     if (clip.buffer && ctx && ctx.state === 'running') {
+      const at = ctx.currentTime;
       startBuffer(clip.buffer);
+      heardClip = { url: clip.url, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
       heard();
-    } else startElement(clip.url);
+    } else {
+      startElement(clip.url);
+      heardClip = { url: clip.url, position: () => audio.currentTime, ended: () => audio.ended };
+    }
   }
 
   function startBuffer(buffer) {
@@ -228,5 +238,12 @@ export function createWinnerSong() {
     }, 50));
   }
 
-  return { drum, play, stop, unlock, current: () => current };
+  // Klippet som hörs och var i det, eller null när det är slut.
+  function now() {
+    if (!heardClip) return null;
+    if (heardClip.ended()) return null;
+    return { url: heardClip.url, posMs: Math.round(heardClip.position() * 1000) };
+  }
+
+  return { drum, play, stop, unlock, now, current: () => current };
 }

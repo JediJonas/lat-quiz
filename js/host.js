@@ -9,8 +9,8 @@ import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
-import { createWinnerSong } from './vinnarlat.js';
-import { createLobbyMusic } from './vantemusik.js';
+import { WINNER_FADE, createWinnerSong } from './vinnarlat.js';
+import { LOBBY_FADE, createLobbyMusic } from './vantemusik.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
@@ -115,11 +115,14 @@ function saveLobbyMusic(on) {
   storage(() => (on ? localStorage.removeItem(LOBBY_MUSIC_KEY) : localStorage.setItem(LOBBY_MUSIC_KEY, '0')));
 }
 
-const lobbyMusic = createLobbyMusic();
+// Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt.
+const lobbyMusic = createLobbyMusic({ onStart: () => { if (state && state.clipAll) broadcast(); } });
 
 // Musiken spelar innan första låten, även efter Ny match, och tystnar när spelet startar.
+const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadLobbyMusic());
+
 function updateLobbyMusic() {
-  const on = Boolean(state && !state.round && !state.winners && !leaving && loadLobbyMusic());
+  const on = lobbyWanted();
   if (on) lobbyMusic.play();
   else lobbyMusic.stop();
   $('#lobby-note').hidden = !on;
@@ -188,6 +191,8 @@ function viewFor(playerId) {
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
+  const music = musicForPlayers();
+  if (music) view.music = music;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
   if (pending) {
     view.upcoming = {
@@ -455,6 +460,16 @@ function clipUrlForPlayers() {
   if (!round || !state.clipAll || !usesDeezer() || round.phase === 'revealed') return null;
   if (clip.round !== round.number || !clip.audio || !clip.audio.src.startsWith('http')) return null;
   return clip.audio.src;
+}
+
+// Väntemusiken och vinnarlåten spelas också i spelarnas mobiler, i takt med spelledaren,
+// när spelledaren har valt Deezer och att spela musik på alla enheter.
+function musicForPlayers() {
+  if (!state.clipAll || state.music === 'spotify') return null;
+  const lobby = lobbyWanted() && lobbyMusic.now();
+  if (lobby) return { ...LOBBY_FADE, ...lobby };
+  const winner = state.winners && loadWinnerSong() && winnerSong.now();
+  return winner ? { ...WINNER_FADE, ...winner } : null;
 }
 
 function clipAudio() {

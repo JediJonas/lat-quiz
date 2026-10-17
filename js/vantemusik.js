@@ -15,6 +15,21 @@ export const LOBBY_SONGS = [
   { artist: 'Marvin Hamlisch', title: 'The Entertainer', deezerId: 1097447 },
   { artist: 'Jan Johansson', title: 'Visa från Utanmyra', deezerId: 61592653 },
   { artist: 'Bobby McFerrin', title: "Don't Worry, Be Happy", deezerId: 3127387 },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'A Taste of Honey', deezerId: 1064027062 },
+  { artist: 'Ramsey Lewis Trio', title: 'The "In" Crowd', deezerId: 925778 },
+  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
+  { artist: 'Lee Morgan', title: 'The Sidewinder', deezerId: 3105342 },
+  { artist: 'Horace Silver', title: 'Song for My Father', deezerId: 3104557 },
+  { artist: 'Herbie Hancock', title: 'Cantaloupe Island', deezerId: 3104591 },
+  { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
+  { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
+  { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
+  { artist: 'James Last', title: 'Biscaya', deezerId: 666384992 },
+  { artist: 'Louis Armstrong', title: 'What a Wonderful World', deezerId: 62347641 },
+  { artist: 'Ted Gärdestad', title: 'Sol, vind och vatten', deezerId: 909686712 },
+  { artist: 'Norah Jones', title: "Don't Know Why", deezerId: 3155839 },
+  { artist: 'The Champs', title: 'Tequila', deezerId: 10677778 },
+  { artist: 'Jan Johansson', title: 'Emigrantvisa', deezerId: 61592659 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
@@ -32,13 +47,17 @@ export function pickLobbySong(random = Math.random, last = null) {
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
-export function createLobbyMusic() {
+// Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
+export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_OUT_MS, loop: true };
+
+// onStart: klippet har börjat höras, så att spelarnas mobiler kan börja spela det.
+export function createLobbyMusic({ onStart = () => {} } = {}) {
   let wanted = false; // musiken ska spela, det vill säga spelet väntar på att starta
   let running = false; // en slinga spelar eller hämtar klipp
   let turn = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
   let song = null; // låten som loopar under den här väntan
   let clip = null; // dess klipp, som hämtas en gång
-  let current = null; // klippet som hörs, med sitt sätt att tona ut
+  let current = null; // klippet som hörs, med sitt sätt att tona ut och var det är
   let silentAt = 0;
   // Som vinnarlåten spelas klippen helst genom ljudmotorn, som kan tona även på iPhone.
   let ctx = null;
@@ -122,7 +141,9 @@ export function createLobbyMusic() {
         }
         clip = loaded;
       }
-      const played = await (clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer) : playElement(clip.url));
+      const playing = clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer) : playElement(clip.url);
+      if (current) { current.url = clip.url; onStart(); }
+      const played = await playing;
       // Tillät inte webbläsaren ljud väntar musiken på nästa tryck, se unlock.
       if (!played) { if (mine === turn) running = false; return; }
     }
@@ -142,6 +163,7 @@ export function createLobbyMusic() {
       source.buffer = buffer;
       source.connect(gain).connect(ctx.destination);
       const me = {
+        position: () => ctx.currentTime - now,
         fadeOut() {
           const at = ctx.currentTime;
           gain.gain.cancelScheduledValues(at);
@@ -175,7 +197,7 @@ export function createLobbyMusic() {
         const left = el.duration ? (el.duration - el.currentTime) * 1000 / FADE_OUT_MS : 1;
         el.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
       }, 50);
-      const me = { fadeOut() { stopping = Date.now() + STOP_MS; } };
+      const me = { position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
       const done = (played) => { clearInterval(timer); if (current === me) current = null; resolve(played); };
       el.addEventListener('ended', () => done(true), { once: true });
       el.play().catch(() => done(false));
@@ -183,5 +205,8 @@ export function createLobbyMusic() {
     });
   }
 
-  return { play, stop, unlock, silent, playing: () => wanted };
+  // Klippet som hörs och var i det, för spelarnas mobiler, eller null.
+  const now = () => (current && current.url ? { url: current.url, posMs: Math.round(current.position() * 1000) } : null);
+
+  return { play, stop, unlock, silent, now, playing: () => wanted };
 }

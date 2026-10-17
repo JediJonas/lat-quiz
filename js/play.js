@@ -70,6 +70,8 @@ function onMessage(msg) {
   $('#category-name').textContent = view.categoryName || '';
   gameView.update(view, me.playerId);
   clipPlayer.update(view);
+  // Väntemusiken spelas här när spelledaren har valt att spela musik på alla enheter.
+  $('#lobby-note').hidden = !(view.music && view.music.loop);
 }
 
 // Spelledaren har ändrat inställningarna eller kategorin. Det visas en kort stund. Under en låt
@@ -288,11 +290,12 @@ function leave(message, clearCode, keepPlayer = false) {
 
 async function init() {
   gameView = createGameView({ onAnswer: sendAnswer, onError: showError });
-  clipPlayer = createClipPlayer({ onBlocked: (on) => { $('#clip-sound').hidden = !on; } });
+  clipPlayer = createClipPlayer({ onBlocked: (on) => { $('#clip-sound').hidden = !on; $('#lobby-sound').hidden = !on; } });
   // Mobilen spelar ljud först när spelaren har tryckt någonstans, till exempel på Gå med eller
   // i ett svarsfält. Varje tryck ger ljudet en ny chans, och knappen syns när inget tryck har kommit.
   for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, () => clipPlayer.unlock(), true);
   $('#clip-sound').addEventListener('click', () => clipPlayer.unlock());
+  $('#lobby-sound').addEventListener('click', () => clipPlayer.unlock());
 
   const params = new URLSearchParams(location.search);
   const code = (params.get('kod') || '').toUpperCase();
