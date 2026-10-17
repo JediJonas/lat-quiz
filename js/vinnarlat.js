@@ -51,7 +51,7 @@ export function createWinnerSong() {
   let drumAudio = null;
 
   // Trumvirveln medan texten innan vinnaren visas. Den är lika lång som texten, fyra sekunder.
-  // Klippet är ljud 111653 av bigjoedrummer på Freesound, kortat till den första virveln.
+  // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
   function drum() {
     prepare();
     if (!drumAudio) drumAudio = new Audio(DRUM_URL);
