@@ -64,8 +64,9 @@ function compactTitle() {
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
 // vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
-// Hos spelledaren visas namnet när vinnarlåten börjar höras, efter trumvirveln. Hos spelarna, och
-// om låten dröjer, visas det efter en fast tid.
+// Hos spelledaren visas namnet när vinnarlåten börjar höras, efter trumvirveln, eller efter DRUM_MS
+// om ingen låt spelas. Spelarna visar namnet samtidigt, när spelledaren säger till. Dröjer det
+// visas namnet ändå efter DRUM_MAX_MS.
 const DRUM_MS = 4000;
 const DRUM_MAX_MS = 8000;
 
@@ -207,7 +208,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
           winShown = true;
           if (view.winners) { render(); onWinnerShown(); }
         };
-        winTimer = setTimeout(show, heard ? DRUM_MAX_MS : DRUM_MS);
+        winTimer = setTimeout(show, heard || !host ? DRUM_MAX_MS : DRUM_MS);
         if (heard) heard.then(show, show);
       }, WIN_DELAY_MS);
     } else if (!view.winners) {
@@ -216,6 +217,13 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       winShown = false;
       clearTimeout(winTimer);
       winTurn += 1;
+    }
+    // Spelarna vänder fram vinnaren samtidigt som spelledaren.
+    if (!host && view.winners && view.winnerShown && !winShown) {
+      clearTimeout(winTimer);
+      winTurn += 1;
+      winDrum = true;
+      winShown = true;
     }
     const winner = winnerView();
     const drum = Boolean(view.winners && phase === 'revealed' && winDrum && !winner);

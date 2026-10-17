@@ -158,6 +158,8 @@ function viewFor(playerId) {
   view.deezer = usesDeezer();
   // Vinnarlåten är ett Deezer-klipp, utom med Spotify. Då står Deezer på vinnarkortet.
   view.winnerClip = loadWinnerSong() && state.music !== 'spotify';
+  // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
+  view.winnerShown = Boolean(gameView && gameView.winnerShown());
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
@@ -1065,9 +1067,10 @@ function winnerDrum() {
   return winnerSong.play();
 }
 
-// Vinnarvyn har tagit över, så att Spela vinnarlåt och låtens namn visas.
+// Vinnarvyn har tagit över, så att Spela vinnarlåt visas. Spelarna får veta det direkt.
 function winnerShown() {
   render();
+  broadcast();
 }
 
 // Samma vy som spelarna ser, och under den spelledarens kontrollpanel.
