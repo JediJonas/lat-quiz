@@ -1,7 +1,7 @@
-// Väntemusiken: Deezer-klipp som spelas hos spelledaren medan spelarna går med, innan spelet startar.
-// Låtarna är lugna, glada och mest instrumentala, så att ingen börjar gissa redan i lobbyn, och
-// ingen av dem finns bland quizlåtarna. De slumpas, tonar in och ut och följer på varandra tills
-// spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
+// Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
+// Låtarna är lugna, glada och instrumentala, utan sång, så att ingen börjar gissa redan i lobbyn, och
+// ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
+// spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
@@ -11,10 +11,25 @@ export const LOBBY_SONGS = [
   { artist: 'Vince Guaraldi Trio', title: 'Linus and Lucy', deezerId: 134403694 },
   { artist: 'The Dave Brubeck Quartet', title: 'Take Five', deezerId: 586127 },
   { artist: 'Bert Kaempfert', title: "A Swingin' Safari", deezerId: 24940331 },
-  { artist: 'Stan Getz & João Gilberto', title: 'The Girl from Ipanema', deezerId: 2228684 },
   { artist: 'Marvin Hamlisch', title: 'The Entertainer', deezerId: 1097447 },
   { artist: 'Jan Johansson', title: 'Visa från Utanmyra', deezerId: 61592653 },
-  { artist: 'Bobby McFerrin', title: "Don't Worry, Be Happy", deezerId: 3127387 },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'A Taste of Honey', deezerId: 1064027062 },
+  { artist: 'Ramsey Lewis Trio', title: 'The "In" Crowd', deezerId: 925778 },
+  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
+  { artist: 'Lee Morgan', title: 'The Sidewinder', deezerId: 3105342 },
+  { artist: 'Horace Silver', title: 'Song for My Father', deezerId: 3104557 },
+  { artist: 'Herbie Hancock', title: 'Cantaloupe Island', deezerId: 3104591 },
+  { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
+  { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
+  { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
+  { artist: 'James Last', title: 'Biscaya', deezerId: 666384992 },
+  { artist: 'Jan Johansson', title: 'Emigrantvisa', deezerId: 61592659 },
+  { artist: 'Stan Getz & Charlie Byrd', title: 'Desafinado', deezerId: 602453972 },
+  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
+  { artist: 'Vince Guaraldi Trio', title: 'Cast Your Fate to the Wind', deezerId: 2604673 },
+  { artist: "Booker T. & the M.G.'s", title: 'Time Is Tight', deezerId: 4286773 },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'Tijuana Taxi', deezerId: 1068117682 },
+  { artist: 'Björn J:son Lindh', title: 'Brusa högre lilla å', deezerId: 915549 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
@@ -26,24 +41,23 @@ const STOP_MS = 800; // när spelet startar
 // Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
 const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
 
-// Alla låtar i slumpad ordning, men inte samma låt först som den som spelades sist.
-export function shuffleLobbySongs(random = Math.random, last = null) {
-  const songs = [...LOBBY_SONGS];
-  for (let i = songs.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(random() * (i + 1)) % (i + 1);
-    [songs[i], songs[j]] = [songs[j], songs[i]];
-  }
-  if (songs.length > 1 && songs[0].deezerId === last) songs.push(songs.shift());
-  return songs;
+// En slumpad låt, men inte samma som förra väntan.
+export function pickLobbySong(random = Math.random, last = null) {
+  const choices = LOBBY_SONGS.filter((s) => s.deezerId !== last);
+  return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
-export function createLobbyMusic() {
+// Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
+export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_OUT_MS, loop: true };
+
+// onStart: klippet har börjat höras, så att spelarnas mobiler kan börja spela det.
+export function createLobbyMusic({ onStart = () => {} } = {}) {
   let wanted = false; // musiken ska spela, det vill säga spelet väntar på att starta
   let running = false; // en slinga spelar eller hämtar klipp
   let turn = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
-  let queue = [];
-  let last = null;
-  let current = null; // klippet som hörs, med sitt sätt att tona ut
+  let song = null; // låten som loopar under den här väntan
+  let clip = null; // dess klipp, som hämtas en gång
+  let current = null; // klippet som hörs, med sitt sätt att tona ut och var det är
   let silentAt = 0;
   // Som vinnarlåten spelas klippen helst genom ljudmotorn, som kan tona även på iPhone.
   let ctx = null;
@@ -67,9 +81,12 @@ export function createLobbyMusic() {
     if (wanted && !running) loop();
   }
 
+  // Varje väntan får en ny slumpad låt, som loopar tills spelet startar.
   function play() {
     if (wanted) return;
     wanted = true;
+    song = pickLobbySong(Math.random, song && song.deezerId);
+    clip = null;
     loop();
   }
 
@@ -87,13 +104,6 @@ export function createLobbyMusic() {
   }
 
   const silent = () => new Promise((resolve) => { setTimeout(resolve, Math.max(0, silentAt - Date.now())); });
-
-  function nextSong() {
-    if (!queue.length) queue = shuffleLobbySongs(Math.random, last);
-    const song = queue.shift();
-    last = song.deezerId;
-    return song;
-  }
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ljudelementet.
   async function load(song) {
@@ -113,25 +123,27 @@ export function createLobbyMusic() {
     }
   }
 
-  // Klippen spelas ett i taget. Nästa hämtas medan det förra spelar, så att de följer tätt.
+  // Samma klipp spelas om och om igen. Det hämtas bara en gång.
   async function loop() {
     const mine = turn;
     running = true;
     let misses = 0;
-    let next = load(nextSong());
     while (wanted && mine === turn) {
-      const clip = await next;
-      if (mine !== turn) return;
       if (!clip) {
-        // Saknas alla klipp, till exempel utan nätverk, blir det tyst.
-        misses += 1;
-        if (misses >= LOBBY_SONGS.length) { running = false; return; }
-        next = load(nextSong());
-        continue;
+        const loaded = await load(song);
+        if (mine !== turn) return;
+        if (!loaded) {
+          // Saknar Deezer klippet tas en annan låt. Saknas alla, till exempel utan nätverk, blir det tyst.
+          misses += 1;
+          if (misses >= LOBBY_SONGS.length) { running = false; return; }
+          song = pickLobbySong(Math.random, song.deezerId);
+          continue;
+        }
+        clip = loaded;
       }
-      misses = 0;
-      next = load(nextSong());
-      const played = await (clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer) : playElement(clip.url));
+      const playing = clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer) : playElement(clip.url);
+      if (current) { current.url = clip.url; onStart(); }
+      const played = await playing;
       // Tillät inte webbläsaren ljud väntar musiken på nästa tryck, se unlock.
       if (!played) { if (mine === turn) running = false; return; }
     }
@@ -151,6 +163,7 @@ export function createLobbyMusic() {
       source.buffer = buffer;
       source.connect(gain).connect(ctx.destination);
       const me = {
+        position: () => ctx.currentTime - now,
         fadeOut() {
           const at = ctx.currentTime;
           gain.gain.cancelScheduledValues(at);
@@ -184,7 +197,7 @@ export function createLobbyMusic() {
         const left = el.duration ? (el.duration - el.currentTime) * 1000 / FADE_OUT_MS : 1;
         el.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
       }, 50);
-      const me = { fadeOut() { stopping = Date.now() + STOP_MS; } };
+      const me = { position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
       const done = (played) => { clearInterval(timer); if (current === me) current = null; resolve(played); };
       el.addEventListener('ended', () => done(true), { once: true });
       el.play().catch(() => done(false));
@@ -192,5 +205,8 @@ export function createLobbyMusic() {
     });
   }
 
-  return { play, stop, unlock, silent, playing: () => wanted };
+  // Klippet som hörs och var i det, för spelarnas mobiler, eller null.
+  const now = () => (current && current.url ? { url: current.url, posMs: Math.round(current.position() * 1000) } : null);
+
+  return { play, stop, unlock, silent, now, playing: () => wanted };
 }
