@@ -252,7 +252,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const label = 'Matchen är slut';
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
-        ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
+        ? `<div class="cover win drum reveal"><div class="cover-head"><p class="round-label">${label}</p></div>
           <h2 class="win-title">${esc(intro)}</h2>
           <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : winner

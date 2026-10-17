@@ -599,7 +599,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .cover .ring.loading .ring-bar { stroke: rgba(255, 255, 255, 0.35); }
 .cover .ring.loading .ring-num { color: rgba(255, 255, 255, 0.7); }
 .answer { justify-content: flex-end; margin: 0; }
-.answer .cover-head { position: absolute; top: 20px; left: 22px; right: 22px; }
+/* Rubriken och Deezer står i övre kanten, även på vinnarkorten. */
+.answer .cover-head, .win .cover-head { position: absolute; top: 20px; left: 22px; right: 22px; }
 .answer .title { margin-top: 2.5rem; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; line-height: 1.04; text-wrap: balance; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.15); }
 .answer .artist { margin-top: 8px; font-size: 1.125rem; font-weight: 550; color: rgba(255, 255, 255, 0.9); }
 @media (min-width: 761px) { .answer .title { font-size: 2.75rem; } }
