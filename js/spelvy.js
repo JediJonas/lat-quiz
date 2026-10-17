@@ -263,10 +263,9 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Medan nästa låt laddas står förra kortet kvar, och låtkortet vänds fram när ljudet hörs.
     // Kommer man in medan låten laddas visas låtkortet med den fulla ringen direkt.
     const holding = phase === 'ready' && (!$('#waiting').hidden || !$('#result').hidden);
-    if (holding) {
-      const nextText = $('#next-text');
-      if (nextText) nextText.textContent = 'Nästa låt laddas';
-    }
+    // Nedräkningen till nästa låt döljs, så att den inte står still medan klippet laddas.
+    const nextCount = $('#result-body .next');
+    if (holding && nextCount) nextCount.hidden = true;
     $('#waiting').hidden = phase !== 'waiting' && !(holding && !$('#waiting').hidden);
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
     $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
