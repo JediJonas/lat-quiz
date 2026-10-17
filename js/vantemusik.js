@@ -1,7 +1,7 @@
-// Väntemusiken: Deezer-klipp som spelas hos spelledaren medan spelarna går med, innan spelet startar.
+// Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
 // Låtarna är lugna, glada och mest instrumentala, så att ingen börjar gissa redan i lobbyn, och
-// ingen av dem finns bland quizlåtarna. De slumpas, tonar in och ut och följer på varandra tills
-// spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
+// ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
+// spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
@@ -26,23 +26,18 @@ const STOP_MS = 800; // när spelet startar
 // Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
 const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
 
-// Alla låtar i slumpad ordning, men inte samma låt först som den som spelades sist.
-export function shuffleLobbySongs(random = Math.random, last = null) {
-  const songs = [...LOBBY_SONGS];
-  for (let i = songs.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(random() * (i + 1)) % (i + 1);
-    [songs[i], songs[j]] = [songs[j], songs[i]];
-  }
-  if (songs.length > 1 && songs[0].deezerId === last) songs.push(songs.shift());
-  return songs;
+// En slumpad låt, men inte samma som förra väntan.
+export function pickLobbySong(random = Math.random, last = null) {
+  const choices = LOBBY_SONGS.filter((s) => s.deezerId !== last);
+  return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
 export function createLobbyMusic() {
   let wanted = false; // musiken ska spela, det vill säga spelet väntar på att starta
   let running = false; // en slinga spelar eller hämtar klipp
   let turn = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
-  let queue = [];
-  let last = null;
+  let song = null; // låten som loopar under den här väntan
+  let clip = null; // dess klipp, som hämtas en gång
   let current = null; // klippet som hörs, med sitt sätt att tona ut
   let silentAt = 0;
   // Som vinnarlåten spelas klippen helst genom ljudmotorn, som kan tona även på iPhone.
@@ -67,9 +62,12 @@ export function createLobbyMusic() {
     if (wanted && !running) loop();
   }
 
+  // Varje väntan får en ny slumpad låt, som loopar tills spelet startar.
   function play() {
     if (wanted) return;
     wanted = true;
+    song = pickLobbySong(Math.random, song && song.deezerId);
+    clip = null;
     loop();
   }
 
@@ -87,13 +85,6 @@ export function createLobbyMusic() {
   }
 
   const silent = () => new Promise((resolve) => { setTimeout(resolve, Math.max(0, silentAt - Date.now())); });
-
-  function nextSong() {
-    if (!queue.length) queue = shuffleLobbySongs(Math.random, last);
-    const song = queue.shift();
-    last = song.deezerId;
-    return song;
-  }
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ljudelementet.
   async function load(song) {
@@ -113,24 +104,24 @@ export function createLobbyMusic() {
     }
   }
 
-  // Klippen spelas ett i taget. Nästa hämtas medan det förra spelar, så att de följer tätt.
+  // Samma klipp spelas om och om igen. Det hämtas bara en gång.
   async function loop() {
     const mine = turn;
     running = true;
     let misses = 0;
-    let next = load(nextSong());
     while (wanted && mine === turn) {
-      const clip = await next;
-      if (mine !== turn) return;
       if (!clip) {
-        // Saknas alla klipp, till exempel utan nätverk, blir det tyst.
-        misses += 1;
-        if (misses >= LOBBY_SONGS.length) { running = false; return; }
-        next = load(nextSong());
-        continue;
+        const loaded = await load(song);
+        if (mine !== turn) return;
+        if (!loaded) {
+          // Saknar Deezer klippet tas en annan låt. Saknas alla, till exempel utan nätverk, blir det tyst.
+          misses += 1;
+          if (misses >= LOBBY_SONGS.length) { running = false; return; }
+          song = pickLobbySong(Math.random, song.deezerId);
+          continue;
+        }
+        clip = loaded;
       }
-      misses = 0;
-      next = load(nextSong());
       const played = await (clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer) : playElement(clip.url));
       // Tillät inte webbläsaren ljud väntar musiken på nästa tryck, se unlock.
       if (!played) { if (mine === turn) running = false; return; }
