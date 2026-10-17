@@ -5,13 +5,11 @@ const TEXT = `
 
   <h3>Så spelar man</h3>
   <p>Spelledaren väljer kategori och startar ett nytt spel på sin enhet. Spelarna går med i spelet genom att skanna QR-koden med sina enheter. Det går också bra att skriva in en kod själv eller öppna en länk som spelledaren skickar.</p>
-  <p>Spelarna har en halv minut på sig att gissa artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng.</p>
-  <p>Det går att ställa in hur snabbt man måste svara för bonusen och hur många poäng som krävs för att vinna.</p>
+  <p>Spelarna har en halv minut på sig att gissa artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng. Den som först når poänggränsen vinner, till exempel 10 poäng.</p>
 
   <h3>Musiken</h3>
-  <p>Musiken kan spelas från Deezer eller Spotify.</p>
+  <p>Musiken spelas från Deezer eller Spotify.</p>
   <p>Med Deezer spelas ett förhandsklipp direkt i webbläsaren och nästa låt startar av sig själv. Det kräver inget konto.</p>
-  <p>Spelledaren kan också välja att klippet spelas på alla spelares enheter. Det passar bäst när ni inte är i samma rum, eftersom ljudet inte blir helt i takt.</p>
   <p>Med Spotify startar spelledaren varje låt själv med en knapp som öppnar den i Spotify-appen, som behöver finnas på samma enhet.</p>
 
   <h3>Teknik</h3>
