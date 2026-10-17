@@ -19,8 +19,8 @@
   --tool-text: #3a3a44;
   --border: rgba(60, 60, 70, 0.14);
   /* Hur starkt kategorins två färger lyser överst. */
-  --amb-1: 34%;
-  --amb-2: 24%;
+  --amb-1: 52%;
+  --amb-2: 40%;
   /* Mörkare grönt än Spotifys, så att vit text når kontrastkravet 4,5:1. */
   --accent: #12823f;
   --accent-hover: #0f7036;
@@ -62,8 +62,8 @@
     --tool-text: #d6d6de;
     --border: rgba(255, 255, 255, 0.1);
     --glass-edge: rgba(255, 255, 255, 0.12);
-    --amb-1: 46%;
-    --amb-2: 32%;
+    --amb-1: 64%;
+    --amb-2: 48%;
     --accent: #1ed760;
     --accent-hover: #3be477;
     --accent-soft: rgba(30, 215, 96, 0.14);
@@ -97,8 +97,8 @@
   --tool-text: #d6d6de;
   --border: rgba(255, 255, 255, 0.1);
   --glass-edge: rgba(255, 255, 255, 0.12);
-  --amb-1: 46%;
-  --amb-2: 32%;
+  --amb-1: 64%;
+  --amb-2: 48%;
   --accent: #1ed760;
   --accent-hover: #3be477;
   --accent-soft: rgba(30, 215, 96, 0.14);
@@ -149,8 +149,8 @@
 html {
   min-height: 100%;
   background:
-    radial-gradient(70vmax 50vmax at 25% -15%, color-mix(in srgb, var(--cat-1) var(--amb-1), transparent), transparent 70%) no-repeat,
-    radial-gradient(50vmax 40vmax at 105% -5%, color-mix(in srgb, var(--cat-2) var(--amb-2), transparent), transparent 70%) no-repeat,
+    radial-gradient(80vmax 60vmax at 25% -15%, color-mix(in srgb, var(--cat-1) var(--amb-1), transparent), transparent 75%) no-repeat,
+    radial-gradient(60vmax 50vmax at 105% -5%, color-mix(in srgb, var(--cat-2) var(--amb-2), transparent), transparent 75%) no-repeat,
     var(--bg);
 }
 
