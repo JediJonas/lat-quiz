@@ -355,7 +355,8 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   save();
   $('#setup').hidden = true;
   $('#game').hidden = false;
-  showJoinInfo();
+  // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
+  showJoinInfo({ qrOpen: !resumeState });
   gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
@@ -896,10 +897,10 @@ function applyPending() {
 
 // ---- Visning ----
 
-function showJoinInfo() {
+function showJoinInfo({ qrOpen = true } = {}) {
   const url = joinUrl();
   $('#code').textContent = state.code;
-  setQrVisible(true);
+  setQrVisible(qrOpen);
   $('#join-url').textContent = url;
   $('#join-url').href = url;
   $('#join-url-row').hidden = true;
@@ -928,7 +929,8 @@ $('#copy-link').addEventListener('click', async () => {
   }
 });
 
-// QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel.
+// QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel, men inte när
+// spelledaren går tillbaka till ett spel.
 function setQrVisible(visible) {
   $('#join-info').hidden = !visible;
   $('#game').classList.toggle('qr-hidden', !visible);
