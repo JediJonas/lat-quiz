@@ -664,7 +664,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
 .win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
-/* Innan namnet pulserar till exempel Vi har en vinnare! i takt med trumvirveln. */
+/* Innan namnet pulserar till exempel Vi har en vinnare! en kort stund. */
 .win.drum .win-title { animation: drum-pulse 0.5s ease-in-out infinite alternate; transform-origin: left center; }
 @keyframes drum-pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
 /* Konfettin regnar över hela omslaget och faller ut genom botten, där omslaget klipper den.

@@ -50,7 +50,7 @@ export function winComment({ winners, standings, songs, winScore }) {
   return pick(WIN_GENERAL, seed);
 }
 
-// Texten innan vinnaren visas, medan spelledaren spelar en trumvirvel eller en fanfar.
+// Texten en kort stund innan vinnaren visas.
 const WIN_INTROS = [
   ['Vi har en vinnare!', 'Dags att fira!'],
   ['Grattis!', 'Nu blir det fest.'],

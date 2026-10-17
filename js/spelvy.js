@@ -62,7 +62,7 @@ function compactTitle() {
 }
 
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
-// vinnare!" en kort stund, medan spelledaren spelar en trumvirvel eller fanfar, och sedan visas namnet.
+// vinnare!" en kort stund, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
 const DRUM_MS = 2600;
 
@@ -188,7 +188,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
         if (!view.winners) return;
         winDrum = true;
         render();
-        onWinnerDrum(DRUM_MS);
+        onWinnerDrum();
         winTimer = setTimeout(() => {
           winShown = true;
           if (view.winners) { render(); onWinnerShown(); }

@@ -1046,12 +1046,12 @@ function nextClicked() {
   else nextSong();
 }
 
-// Texten innan vinnaren visas. Då spelas en trumvirvel eller fanfar, om vinnarlåten är på.
-function winnerDrum(ms) {
-  if (loadWinnerSong()) winnerSong.drum(ms);
+// Texten innan vinnaren visas. Då hämtas vinnarlåten, om den är på.
+function winnerDrum() {
+  if (loadWinnerSong()) winnerSong.prepare();
 }
 
-// Vinnarvyn har tagit över. Då slår cymbalen och vinnarlåten spelas, om den är på.
+// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på.
 function winnerShown() {
   render();
   if (loadWinnerSong()) winnerSong.play();
