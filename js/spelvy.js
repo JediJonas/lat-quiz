@@ -224,7 +224,6 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
       const key = winner ? `w${round.number}` : round.number;
       const fresh = shownResult !== key;
-      $('#result-body').classList.toggle('settled', !fresh);
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
       const clip = view.deezer ? '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>' : '';
       const cover = winner
@@ -246,8 +245,18 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       const points = own ? `<p class="points${r.points ? '' : ' zero'}"><span aria-hidden="true">+${r.points} `
         + '<span class="points-long">poäng</span><span class="points-short">p</span></span>'
         + `<span class="visually-hidden">+${r.points} poäng</span></p>` : '';
-      $('#result-body').innerHTML = `${cover}${mineRows}
+      const rest = `${mineRows}
         ${points || next ? `<div class="result-foot">${points}${next}</div>` : ''}`;
+      // Ritas samma svar om, till exempel när spelledarens knappar byts, står omslaget kvar.
+      // Då fortsätter vändningen och konfettin i stället för att börja om eller stoppas.
+      const body = $('#result-body');
+      const kept = fresh ? null : body.querySelector(':scope > .cover');
+      if (kept) {
+        while (kept.nextSibling) kept.nextSibling.remove();
+        kept.insertAdjacentHTML('afterend', rest);
+      } else {
+        body.innerHTML = `${cover}${rest}`;
+      }
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst.
       if (fresh) {
