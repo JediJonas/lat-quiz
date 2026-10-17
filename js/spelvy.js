@@ -69,13 +69,18 @@ const WIN_DELAY_MS = 4000;
 // visas namnet ändå efter DRUM_MAX_MS.
 const DRUM_MS = 4000;
 const DRUM_MAX_MS = 8000;
+const DRUM_WAIT_MS = 2000; // längsta väntan på att trumvirveln hörs
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
-// onWinnerDrum: till exempel "Vi har en vinnare!" visas. Returnerar den ett löfte visas namnet när
-// det uppfylls, men senast efter DRUM_MAX_MS. Annars visas namnet efter DRUM_MS.
+// onWinnerDrum: trumvirveln ska börja. Den returnerar { drum, song }, två löften som uppfylls när
+// virveln och vinnarlåten hörs, eller null utan vinnarlåt. "Vi har en vinnare!" visas när virveln
+// hörs, men senast efter DRUM_WAIT_MS. Namnet visas när låten hörs, men senast efter DRUM_MAX_MS.
+// Utan vinnarlåt visas texten direkt och namnet efter DRUM_MS.
+// onWinnerDrumShown: "Vi har en vinnare!" har just visats, så att spelarna kan vända samtidigt.
 // onWinnerShown: vinnarvyn har just tagit över, så att spelledarens knappar kan visas samtidigt.
-export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onWinnerShown = () => {}, host = false }) {
+export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onWinnerDrumShown = () => {},
+  onWinnerShown = () => {}, host = false }) {
   let view = null;
   let me = null;
   let roundNumber = null;
@@ -199,17 +204,30 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const turn = ++winTurn;
       winTimer = setTimeout(() => {
         if (!view.winners) return;
-        winDrum = true;
-        render();
-        const heard = onWinnerDrum();
+        // Spelarna spelar inget ljud. De vänder när spelledaren gör det, och väntar bara en stund.
+        const sound = host ? onWinnerDrum() : null;
         const show = () => {
           if (turn !== winTurn || winShown) return;
           clearTimeout(winTimer);
+          winDrum = true;
           winShown = true;
           if (view.winners) { render(); onWinnerShown(); }
         };
-        winTimer = setTimeout(show, heard || !host ? DRUM_MAX_MS : DRUM_MS);
-        if (heard) heard.then(show, show);
+        const flip = () => {
+          if (turn !== winTurn || winDrum) return;
+          clearTimeout(winTimer);
+          winDrum = true;
+          if (!view.winners) return;
+          render();
+          onWinnerDrumShown();
+          winTimer = setTimeout(show, sound || !host ? DRUM_MAX_MS : DRUM_MS);
+        };
+        if (sound) {
+          sound.drum.then(flip, flip);
+          sound.song.then(show, show);
+        }
+        if (host && !sound) flip();
+        else winTimer = setTimeout(flip, DRUM_WAIT_MS);
       }, WIN_DELAY_MS);
     } else if (!view.winners) {
       winRound = null;
@@ -218,12 +236,21 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       clearTimeout(winTimer);
       winTurn += 1;
     }
-    // Spelarna vänder fram vinnaren samtidigt som spelledaren.
+    // Spelarna vänder fram "Vi har en vinnare!" och vinnaren samtidigt som spelledaren.
     if (!host && view.winners && view.winnerShown && !winShown) {
       clearTimeout(winTimer);
       winTurn += 1;
       winDrum = true;
       winShown = true;
+    } else if (!host && view.winners && view.winnerDrum && !winDrum && phase === 'revealed') {
+      clearTimeout(winTimer);
+      winDrum = true;
+      const turn = winTurn;
+      winTimer = setTimeout(() => {
+        if (turn !== winTurn || winShown) return;
+        winShown = true;
+        if (view.winners) render();
+      }, DRUM_MAX_MS);
     }
     const winner = winnerView();
     const drum = Boolean(view.winners && phase === 'revealed' && winDrum && !winner);
@@ -233,13 +260,19 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     if (guessFields) guessFields.hidden = !playing;
     // Utan fält och egna svar räcker en lägre ruta, både under låten och när svaret visas.
     document.body.classList.toggle('watching', !playing);
-    // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
-    $('#waiting').hidden = phase !== 'waiting';
+    // Medan nästa låt laddas står förra kortet kvar, och låtkortet vänds fram när ljudet hörs.
+    // Kommer man in medan låten laddas visas låtkortet med den fulla ringen direkt.
+    const holding = phase === 'ready' && (!$('#waiting').hidden || !$('#result').hidden);
+    if (holding) {
+      const nextText = $('#next-text');
+      if (nextText) nextText.textContent = 'Nästa låt laddas';
+    }
+    $('#waiting').hidden = phase !== 'waiting' && !(holding && !$('#waiting').hidden);
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
     $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
-    $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
-    $('#result').hidden = phase !== 'revealed';
+    $('#guess').hidden = holding || !(phase === 'ready' || phase === 'playing');
+    $('#result').hidden = phase !== 'revealed' && !(holding && !$('#result').hidden);
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
     // På vinnarkortet gäller Deezer vinnarlåten, inte quizlåtarna.
@@ -371,6 +404,8 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     },
     // Vinnarvyn visas, efter att sista låten har visats en stund.
     winnerShown: () => Boolean(view && winnerView()),
+    // "Vi har en vinnare!" eller vinnaren visas.
+    winnerDrum: () => Boolean(view && view.winners && view.round && view.round.phase === 'revealed' && winDrum),
     // De svar som är valda just nu, till exempel för att skicka dem igen efter ett avbrott.
     answers: () => ({ ...local }),
   };

@@ -162,6 +162,7 @@ function viewFor(playerId) {
   // Vinnarlåten är ett Deezer-klipp, utom med Spotify. Då står Deezer på vinnarkortet.
   view.winnerClip = loadWinnerSong() && state.music !== 'spotify';
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
+  view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
@@ -362,7 +363,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#game').hidden = false;
   // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
   showJoinInfo({ qrOpen: !resumeState });
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerDrumShown: winnerShown, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -1066,11 +1067,12 @@ function nextClicked() {
 // Med Spotify öppnas låten i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 function winnerDrum() {
   if (!loadWinnerSong()) return null;
-  winnerSong.drum({ clip: state.music !== 'spotify' });
-  return winnerSong.play();
+  const drum = winnerSong.drum({ clip: state.music !== 'spotify' });
+  return { drum, song: winnerSong.play() };
 }
 
-// Vinnarvyn har tagit över, så att Spela vinnarlåt visas. Spelarna får veta det direkt.
+// "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela vinnarlåt visas när
+// vinnaren gör det. Spelarna får veta det direkt.
 function winnerShown() {
   render();
   broadcast();

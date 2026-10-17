@@ -90,13 +90,17 @@ export function createWinnerSong() {
   // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
   // clip: false med Spotify som musiktjänst. Då slumpas bara låten, och inget Deezer-klipp
-  // hämtas eller spelas.
+  // hämtas eller spelas. Svaret kommer när virveln hörs, så att texten visas då, och direkt om
+  // den inte kunde spelas.
   function drum({ clip = true } = {}) {
     prepare({ clip });
     if (!drumAudio) drumAudio = new Audio();
     drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
-    drumAudio.play().catch(() => {});
+    return new Promise((resolve) => {
+      drumAudio.addEventListener('playing', () => resolve(), { once: true });
+      drumAudio.play().catch(() => resolve());
+    });
   }
 
   let prepared = null; // klippet, som hämtas medan texten innan vinnaren visas
