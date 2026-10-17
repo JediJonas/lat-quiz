@@ -156,6 +156,8 @@ function viewFor(playerId) {
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
   view.deezer = usesDeezer();
+  // Vinnarlåten är ett Deezer-klipp, utom med Spotify. Då står Deezer på vinnarkortet.
+  view.winnerClip = loadWinnerSong() && state.music !== 'spotify';
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
@@ -980,7 +982,8 @@ function checkAutoNext() {
 }
 
 // Vad spela gör just nu: startar spelet eller klippet eller fortsätter efter en paus. Med Spotify
-// startar spelet i Spotify, och nästa låt startas med Nästa låt. null betyder att knappen är avstängd.
+// startar spelet i Spotify, och nästa låt startas med Nästa låt. Efter matchen öppnar den vinnarlåten
+// i Spotify. null betyder att knappen är avstängd.
 function playAction() {
   const round = state.round;
   if (!round) return { action: 'start', label: 'Starta spelet' };
@@ -990,6 +993,10 @@ function playAction() {
       return clip.round === round.number && clip.status === 'loading' ? null : { action: 'clip', label: 'Spela klippet' };
     }
     return { action: 'spotify', label: 'Spela låten i Spotify' };
+  }
+  // Med Spotify öppnas vinnarlåten i Spotify när vinnarvyn har tagit över.
+  if (state.winners && gameView.winnerShown() && loadWinnerSong() && state.music === 'spotify' && winnerSong.current()) {
+    return { action: 'winner', label: 'Spela vinnarlåt' };
   }
   return null;
 }
@@ -1035,6 +1042,7 @@ function playClicked() {
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
+  else if (choice.action === 'winner') openSpotify(winnerSong.current());
 }
 
 function nextClicked() {
@@ -1048,11 +1056,11 @@ function nextClicked() {
 
 // Texten innan vinnaren visas. Då spelas en trumvirvel och vinnarlåten hämtas, om den är på.
 function winnerDrum() {
-  if (loadWinnerSong()) winnerSong.drum({ song: state.music !== 'spotify' });
+  if (loadWinnerSong()) winnerSong.drum({ clip: state.music !== 'spotify' });
 }
 
-// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på. Med Spotify blir det ingen
-// vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
+// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på. Med Spotify öppnas den i stället
+// med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 function winnerShown() {
   render();
   if (loadWinnerSong() && state.music !== 'spotify') winnerSong.play();
@@ -1077,6 +1085,7 @@ function render() {
   showOne($('#play'), $('#pause'), Boolean(play) || $('#pause').disabled, focused);
   // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
   $('#start-game').hidden = !(play && play.action === 'start');
+  $('#winner-song').hidden = !(play && play.action === 'winner');
   const next = nextAction();
   setButton($('#next'), next, 'Nästa låt');
   setHtml($('#next'), ICONS.next);
@@ -1112,6 +1121,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'start-game') { playClicked(); $('#play').focus({ preventScroll: true }); }
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
+  else if (id === 'winner-song') playClicked();
   else if (id === 'settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
 });

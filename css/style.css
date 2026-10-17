@@ -603,8 +603,10 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .answer .title { margin-top: 2.5rem; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; line-height: 1.04; text-wrap: balance; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.15); }
 .answer .artist { margin-top: 8px; font-size: 1.125rem; font-weight: 550; color: rgba(255, 255, 255, 0.9); }
 @media (min-width: 761px) { .answer .title { font-size: 2.75rem; } }
-/* Rätt svar och vinnaren vänds fram på omslaget, som när man vänder en skiva. */
+/* Rätt svar och vinnaren vänds fram på omslaget, som när man vänder en skiva. Vinnaren vänds
+   långsammare, så att det känns högtidligt. */
 .answer.reveal, .win.reveal { animation: flip 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); transform-origin: center; }
+.win.reveal { animation-duration: 1.2s; }
 @keyframes flip {
   from { transform: perspective(1200px) rotateY(-90deg); }
   to { transform: perspective(1200px) rotateY(0); }

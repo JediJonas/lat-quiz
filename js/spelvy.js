@@ -217,7 +217,8 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#result').hidden = phase !== 'revealed';
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
-    document.querySelectorAll('.clip-note').forEach((note) => { note.hidden = !view.deezer; });
+    // På vinnarkortet gäller Deezer vinnarlåten, inte quizlåtarna.
+    document.querySelectorAll('.clip-note').forEach((note) => { if (!note.closest('.win')) note.hidden = !view.deezer; });
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
@@ -246,7 +247,8 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const key = winner ? `w${round.number}` : drum ? `d${round.number}` : round.number;
       const fresh = shownResult !== key;
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
-      const clip = view.deezer ? '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>' : '';
+      const clipNote = '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>';
+      const clip = view.deezer ? clipNote : '';
       const label = `Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}`;
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
@@ -255,7 +257,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
           <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : winner
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
-          <p class="round-label">${label}</p>
+          <div class="cover-head"><p class="round-label">${label}</p>${view.winnerClip ? clipNote : ''}</div>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
           <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
