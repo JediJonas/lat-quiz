@@ -25,6 +25,7 @@ export const WINNER_SONGS = [
   { artist: 'The Script', title: 'Hall of Fame', deezerId: 55848051, spotifyId: '7wMq5n8mYSKlQIGECKUgTX' },
   { artist: 'Justin Timberlake', title: "Can't Stop the Feeling!", deezerId: 132635814, spotifyId: '6JV2JOEocMgcZxYSZelKcc' },
   { artist: 'Harold Faltermeyer & Steve Stevens', title: 'Top Gun Anthem', deezerId: 7675060, spotifyId: '00Y9r5SfbDdEjJhNg7laQr' },
+  { artist: 'Vangelis', title: 'Chariots of Fire', deezerId: 624844592, spotifyId: '6GxhckZeqoWNF9n9XS91HS' },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
