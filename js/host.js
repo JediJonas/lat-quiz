@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { currentMessage, hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
+import { currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
@@ -12,6 +12,9 @@ import { mountSwitch } from './theme.js';
 import { createWinnerSong } from './vinnarlat.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
+
+// Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
+showUnexpectedErrors();
 
 const SAVE_KEY = 'latquiz-host';
 const NAME_KEY = 'latquiz-namn';

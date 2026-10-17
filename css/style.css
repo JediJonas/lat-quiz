@@ -1202,7 +1202,7 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 }
 /* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
 main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
-/* Versionen längst ner hos spelledaren. Tom i repot, ifylld vid publiceringen. */
+/* Versionen längst ner på sidorna. Tom i repot, ifylld vid publiceringen. */
 .app-version { margin: 32px 16px 0; text-align: center; font-size: 0.75rem; color: var(--muted); }
 .app-version:empty { display: none; }
 body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--panel-bottom)); }
