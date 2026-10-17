@@ -21,7 +21,8 @@ export const WINNER_SONGS = [
   { artist: 'Måns Zelmerlöw', title: 'Heroes', deezerId: 95585876, spotifyId: '21BYhl07wWqGRQaj7sUxdV' },
 ];
 
-// Hela klippet spelas, och de sista sekunderna tonar det ut.
+// Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
+const FADE_IN_MS = 1000;
 const FADE_MS = 5000;
 const VOLUME = 0.8;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
@@ -184,7 +185,8 @@ export function createWinnerSong() {
     const gain = ctx.createGain();
     const now = ctx.currentTime;
     const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
-    gain.gain.setValueAtTime(VOLUME, now);
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(VOLUME, now + FADE_IN_MS / 1000);
     const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49));
     gain.gain.setValueCurveAtTime(steps, now + buffer.duration - fade, fade);
     source = ctx.createBufferSource();
@@ -197,15 +199,17 @@ export function createWinnerSong() {
     if (!audio) audio = new Audio();
     // Klippet är oftast redan laddat medan trumvirveln spelade.
     if (audio.src !== url) audio.src = url;
-    audio.volume = VOLUME;
+    // På iPhone går volymen inte att ändra, så där börjar klippet på full volym.
+    audio.volume = 0;
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det tyst.
     audio.addEventListener('playing', () => heard(), { once: true });
     audio.play().catch(() => heard());
-    // Volymen sänks när klippet närmar sig slutet.
+    // Volymen höjs i början och sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
       if (audio.ended) { stop(); return; }
-      audio.volume = left < 1 ? fadeLevel(left) : VOLUME;
+      const fadeIn = Math.min(1, audio.currentTime * 1000 / FADE_IN_MS);
+      audio.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
     }, 50));
   }
 
