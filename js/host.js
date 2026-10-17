@@ -1048,13 +1048,14 @@ function nextClicked() {
 
 // Texten innan vinnaren visas. Då spelas en trumvirvel och vinnarlåten hämtas, om den är på.
 function winnerDrum() {
-  if (loadWinnerSong()) winnerSong.drum();
+  if (loadWinnerSong()) winnerSong.drum({ song: state.music !== 'spotify' });
 }
 
-// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på.
+// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på. Med Spotify blir det ingen
+// vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 function winnerShown() {
   render();
-  if (loadWinnerSong()) winnerSong.play();
+  if (loadWinnerSong() && state.music !== 'spotify') winnerSong.play();
 }
 
 // Samma vy som spelarna ser, och under den spelledarens kontrollpanel.

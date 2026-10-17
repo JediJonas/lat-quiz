@@ -1,6 +1,6 @@
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
-// Klippen kräver inget konto, så de spelas även när spelledaren har valt Spotify.
+// Med Spotify som musiktjänst spelas bara trumvirveln, eftersom Spotify bara kan öppnas med ett klick.
 import { findPreview } from './deezer.js';
 
 export const WINNER_SONGS = [
@@ -25,6 +25,9 @@ const PLAY_MS = 15000;
 const FADE_MS = 2500;
 const VOLUME = 0.8;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
+const DRUM_MS = 4000; // trumvirvelns längd, lika lång som texten innan vinnaren visas
+const EARLY_MS = 1000; // låten börjar så här länge innan trumvirveln slutar
+const QUIET = 0.25; // låtens volym när den börjar under trumvirveln
 
 // En slumpad låt, men inte samma som förra gången.
 export function pickWinnerSong(random = Math.random, last = null) {
@@ -38,12 +41,15 @@ export function createWinnerSong() {
   let timers = [];
   let playing = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
 
+  let started = false; // låten har börjat, under trumvirveln eller när vinnaren visas
+
   const clear = () => { timers.forEach(clearInterval); timers = []; };
 
   function stop() {
     playing += 1;
     clear();
     prepared = null;
+    started = false;
     if (audio) audio.pause();
     if (drumAudio) drumAudio.pause();
   }
@@ -52,12 +58,15 @@ export function createWinnerSong() {
 
   // Trumvirveln medan texten innan vinnaren visas. Den är lika lång som texten, fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
-  function drum() {
-    prepare();
+  // Låten börjar svagt under virvelns sista sekund. song: false när ingen låt ska följa,
+  // till exempel med Spotify som musiktjänst.
+  function drum({ song = true } = {}) {
+    if (song) prepare(); else stop();
     if (!drumAudio) drumAudio = new Audio(DRUM_URL);
     drumAudio.currentTime = 0;
     drumAudio.volume = VOLUME;
     drumAudio.play().catch(() => {});
+    if (song) timers.push(setTimeout(() => start(QUIET), DRUM_MS - EARLY_MS));
   }
 
   let prepared = null; // klipplänken, som hämtas medan texten innan vinnaren visas
@@ -70,21 +79,38 @@ export function createWinnerSong() {
     prepared = findPreview(song).catch(() => null);
   }
 
-  async function play() {
+  // Vinnarvyn har tagit över. Har låten inte börjat under trumvirveln, börjar den nu.
+  function play() {
     if (!prepared) prepare();
+    start(VOLUME);
+  }
+
+  // Låten börjar på volume och växer till full volym på EARLY_MS. Efter PLAY_MS tonar den ut.
+  async function start(volume) {
+    if (started) return;
+    started = true;
     const turn = playing;
     const url = await prepared;
     if (!url || turn !== playing) return;
     if (!audio) audio = new Audio();
     audio.src = url;
-    audio.volume = VOLUME;
+    audio.volume = volume;
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det bara tyst.
     audio.play().catch(() => {});
+    const begin = Date.now();
+    if (volume < VOLUME) {
+      const up = setInterval(() => {
+        const part = Math.min(1, (Date.now() - begin) / EARLY_MS);
+        audio.volume = volume + (VOLUME - volume) * part;
+        if (part >= 1) clearInterval(up);
+      }, 100);
+      timers.push(up);
+    }
     // Låten tonar ut i små steg och stannar sedan.
     timers.push(setTimeout(() => {
-      const start = Date.now();
+      const fadeStart = Date.now();
       timers.push(setInterval(() => {
-        const left = 1 - (Date.now() - start) / FADE_MS;
+        const left = 1 - (Date.now() - fadeStart) / FADE_MS;
         if (left <= 0) { stop(); return; }
         audio.volume = VOLUME * left;
       }, 100));
