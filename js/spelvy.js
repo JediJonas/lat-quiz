@@ -64,17 +64,17 @@ function compactTitle() {
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
 // vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
+// Hos spelledaren visas namnet när vinnarlåten börjar höras, efter trumvirveln. Hos spelarna, och
+// om låten dröjer, visas det efter en fast tid.
 const DRUM_MS = 4000;
-// Trumvirveln startar 1,5 sekunder före texten, och vinnarlåten när virveln är slut, 1,5 sekunder
-// innan namnet visas. Då hinner låten laddas och spelar redan när namnet visas.
-const SOUND_LEAD_MS = 1500;
+const DRUM_MAX_MS = 8000;
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
-// onWinnerSound: trumvirveln ska börja, SOUND_LEAD_MS innan texten före vinnaren visas.
-// onWinnerDrum: till exempel "Vi har en vinnare!" visas, och namnet kommer efter DRUM_MS.
+// onWinnerDrum: till exempel "Vi har en vinnare!" visas. Returnerar den ett löfte visas namnet när
+// det uppfylls, men senast efter DRUM_MAX_MS. Annars visas namnet efter DRUM_MS.
 // onWinnerShown: vinnarvyn har just tagit över, så att spelledarens knappar kan visas samtidigt.
-export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, onWinnerDrum = () => {}, onWinnerShown = () => {}, host = false }) {
+export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onWinnerShown = () => {}, host = false }) {
   let view = null;
   let me = null;
   let roundNumber = null;
@@ -87,7 +87,7 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
   let winDrum = false; // texten innan namnet visas, till exempel Vi har en vinnare!
   let winShown = false; // vinnarvyn har tagit över
   let winTimer = null;
-  let soundTimer = null; // trumvirveln, som börjar före texten innan vinnaren
+  let winTurn = 0; // ökar för varje vinnare, så att ett sent löfte inte visar fel vinnare
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
@@ -195,24 +195,27 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
       winDrum = false;
       winShown = false;
       clearTimeout(winTimer);
-      clearTimeout(soundTimer);
-      soundTimer = setTimeout(() => { if (view.winners) onWinnerSound(); }, WIN_DELAY_MS - SOUND_LEAD_MS);
+      const turn = ++winTurn;
       winTimer = setTimeout(() => {
         if (!view.winners) return;
         winDrum = true;
         render();
-        onWinnerDrum();
-        winTimer = setTimeout(() => {
+        const heard = onWinnerDrum();
+        const show = () => {
+          if (turn !== winTurn || winShown) return;
+          clearTimeout(winTimer);
           winShown = true;
           if (view.winners) { render(); onWinnerShown(); }
-        }, DRUM_MS);
+        };
+        winTimer = setTimeout(show, heard ? DRUM_MAX_MS : DRUM_MS);
+        if (heard) heard.then(show, show);
       }, WIN_DELAY_MS);
     } else if (!view.winners) {
       winRound = null;
       winDrum = false;
       winShown = false;
       clearTimeout(winTimer);
-      clearTimeout(soundTimer);
+      winTurn += 1;
     }
     const winner = winnerView();
     const drum = Boolean(view.winners && phase === 'revealed' && winDrum && !winner);
