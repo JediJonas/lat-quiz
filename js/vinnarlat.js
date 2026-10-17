@@ -26,7 +26,7 @@ const FADE_MS = 5000;
 const VOLUME = 0.8;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_MS = 4000; // trumvirvelns längd, lika lång som texten innan vinnaren visas
-const EARLY_MS = 1000; // låten börjar så här länge innan trumvirveln slutar
+const EARLY_MS = 500; // låten börjar så här länge innan trumvirveln slutar
 const QUIET = 0.25; // låtens volym när den börjar under trumvirveln
 
 // En slumpad låt, men inte samma som förra gången.
@@ -81,7 +81,7 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
 
   // Trumvirveln medan texten innan vinnaren visas. Den är lika lång som texten, fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
-  // Låten börjar svagt under virvelns sista sekund. clip: false med Spotify som musiktjänst.
+  // Låten börjar svagt under virvelns sista halva sekund. clip: false med Spotify som musiktjänst.
   // Då slumpas bara låten, och inget Deezer-klipp hämtas eller spelas.
   function drum({ clip = true } = {}) {
     prepare({ clip });
