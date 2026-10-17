@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
 import { findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
-import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
+import { currentMessage, hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
@@ -700,9 +700,8 @@ function wireHostPlays(dialog) {
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
-// later: en låt har spelats, så ändringarna gäller först från nästa låt.
 // music: vald musiktjänst.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, later = false, music = 'deezer' } = {}) {
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer' } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -720,7 +719,6 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       </div>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
-      ${running ? `<p class="note later-note"${later ? '' : ' hidden'}>Ändringarna gäller från nästa låt.</p>` : ''}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
         <button value="ok">Spara</button>
@@ -771,14 +769,13 @@ function showSettings(current, categories = null, categoryId = null, names = {},
 
 // Under spelet sparas ändringarna och gäller från nästa låt.
 async function editSettings() {
-  const later = Boolean(state && state.round);
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
   const categories = state ? all : null;
   const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
   const music = pending ? pending.music : state ? state.music : loadMusic();
-  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), later, music });
+  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), music });
   if (!chosen) return;
   const { categoryId, host, music: chosenMusic, ...settings } = chosen;
   saveSettings(settings);
@@ -794,6 +791,27 @@ async function editSettings() {
   pending = { settings, category: picked, songs: pickedSongs, host, music: chosenMusic };
   // Har ingen låt spelats än gäller ändringen direkt. Det avgör changed().
   changed();
+  // Gäller ändringen först från nästa låt får spelledaren veta det, men bara om något ändrades.
+  // Ett fel eller något som pågår får stå kvar.
+  const shown = currentMessage();
+  if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
+  if (pending && pendingDiffers()) {
+    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text: 'Ändringarna gäller från nästa låt.', ms: SETTINGS_MESSAGE_MS });
+  }
+}
+
+const SETTINGS_MESSAGE_MS = 4000;
+
+// Skiljer sig de sparade ändringarna från det som gäller nu?
+function pendingDiffers() {
+  const { settings, category: picked, host, music } = pending;
+  const now = game.cleanSettings(state);
+  if (Object.keys(now).some((key) => now[key] !== settings[key])) return true;
+  if (picked || music !== state.music) return true;
+  if (!host) return false;
+  if (host.plays !== (state.hostPlays !== false)) return true;
+  const me = state.players[state.hostId];
+  return Boolean(host.plays && me && me.name !== host.name);
 }
 
 function applyPending() {
@@ -992,10 +1010,8 @@ function render() {
   // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
   $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
   updateClipMessage(round);
-  // Första låten kan starta medan Inställningar är öppen. Ändringarna gäller då från låten efter,
-  // och Denna låt är okänd gäller den låt som spelas nu.
-  const laterNote = document.querySelector('dialog[open] .later-note');
-  if (laterNote) laterNote.hidden = !round;
+  // Första låten kan starta medan Inställningar är öppen. Denna låt är okänd gäller då den låt
+  // som spelas nu.
   const mark = document.querySelector('dialog[open] #mark-unknown');
   if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
 }
