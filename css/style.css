@@ -610,8 +610,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   to { transform: perspective(1200px) rotateY(0); }
 }
 .reveal { animation: reveal 0.35s ease-out; }
-/* När svarsrutan ritas om, till exempel vid paus, ska den inte animeras igen. */
-.settled .reveal { animation: none; }
 @keyframes reveal {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: none; }
@@ -652,7 +650,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   100% { opacity: 0.95; transform: translate(var(--s), calc(100% + 60px)); }
 }
 @keyframes confetti-spin { to { transform: rotate(var(--r)); } }
-.settled .confetti { display: none; }
 .win-wait { text-align: center; margin: 18px 16px 0; font-size: 0.8125rem; }
 /* I ställningen står bara totalen, inte poängen för sista låten. */
 .podium .tag { display: none; }
