@@ -11,12 +11,12 @@ const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 // Konfettin när någon vinner: bitarna sprids över hela bredden och släpps i omgångar, så att
-// det regnar en stund. Var bit får egen fart, sidledsdrift och snurr.
+// det regnar i ungefär sju sekunder. Var bit får egen fart, sidledsdrift och snurr.
 const CONFETTI_COLORS = ['#ffd166', '#fff', '#7cf0b0', '#ff9ecb'];
-function confetti(count = 40) {
+function confetti(count = 80) {
   const rand = (min, max) => min + Math.random() * (max - min);
   return Array.from({ length: count }, (_, i) => `<i style="--x:${rand(-2, 98).toFixed(1)}%;`
-    + `--d:${rand(0, 1.4).toFixed(2)}s;--t:${rand(1.3, 2).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
+    + `--d:${rand(0, 4.8).toFixed(2)}s;--t:${rand(1.3, 2).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
     + `--r:${rand(-540, 540).toFixed(0)}deg;--c:${CONFETTI_COLORS[i % CONFETTI_COLORS.length]}"></i>`).join('');
 }
 
@@ -217,7 +217,8 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#result').hidden = phase !== 'revealed';
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
-    document.querySelectorAll('.clip-note').forEach((note) => { note.hidden = !view.deezer; });
+    // På vinnarkortet gäller Deezer vinnarlåten, inte quizlåtarna.
+    document.querySelectorAll('.clip-note').forEach((note) => { if (!note.closest('.win')) note.hidden = !view.deezer; });
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
@@ -246,8 +247,9 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const key = winner ? `w${round.number}` : drum ? `d${round.number}` : round.number;
       const fresh = shownResult !== key;
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
-      const clip = view.deezer ? '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>' : '';
-      const label = `Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}`;
+      const clipNote = '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>';
+      const clip = view.deezer ? clipNote : '';
+      const label = 'Matchen är slut';
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
         ? `<div class="cover win drum reveal"><p class="round-label">${label}</p>
@@ -255,7 +257,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
           <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : winner
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
-          <p class="round-label">${label}</p>
+          <div class="cover-head"><p class="round-label">${label}</p>${view.winnerClip ? clipNote : ''}</div>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
           <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
