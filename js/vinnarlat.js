@@ -37,17 +37,12 @@ export function pickWinnerSong(random = Math.random, last = null) {
 // uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
 const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
 
-// onChange: anropas när status ändras, så att spelledaren kan se om låten spelas.
-export function createWinnerSong({ onChange = () => {} } = {}) {
+export function createWinnerSong() {
   let audio = null;
   let last = null;
   let timers = [];
   let playing = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
   let started = false; // låten har börjat, under trumvirveln eller när vinnaren visas
-  // Hur det gick: null innan låten startar, 'playing', 'missing' (inget klipp hos Deezer)
-  // eller 'blocked' (webbläsaren spelade inte klippet).
-  let status = null;
-  const setStatus = (value) => { status = value; onChange(); };
   // På iPhone går det inte att ändra volymen på ett ljudelement. Därför spelas låten helst genom
   // webbläsarens ljudmotor, som kan tona. Den måste startas av ett tryck, se unlock.
   let ctx = null;
@@ -111,7 +106,6 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     const song = pickWinnerSong(Math.random, last);
     last = song.deezerId;
     current = song;
-    status = null;
     if (clip) prepared = findPreview(song).then(load).catch(() => null);
   }
 
@@ -172,11 +166,9 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     const turn = playing;
     const clip = await prepared;
     if (turn !== playing) return;
-    if (!clip) { setStatus('missing'); return; }
-    if (clip.buffer && ctx && ctx.state === 'running') {
-      startBuffer(clip.buffer);
-      setStatus('playing');
-    } else startElement(clip.url);
+    if (!clip) return;
+    if (clip.buffer && ctx && ctx.state === 'running') startBuffer(clip.buffer);
+    else startElement(clip.url);
   }
 
   function startBuffer(buffer) {
@@ -198,7 +190,7 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (audio.src !== url) audio.src = url;
     audio.volume = VOLUME;
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det tyst.
-    audio.play().then(() => setStatus('playing'), () => setStatus('blocked'));
+    audio.play().catch(() => {});
     // Volymen sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
@@ -207,5 +199,5 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     }, 50));
   }
 
-  return { drum, play, stop, unlock, current: () => current, status: () => status };
+  return { drum, play, stop, unlock, current: () => current };
 }
