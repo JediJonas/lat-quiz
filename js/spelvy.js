@@ -211,7 +211,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
     $('#waiting').hidden = phase !== 'waiting';
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
-    $('#waiting-text').textContent = host ? 'Starta spelet när alla har gått med' : 'Spelledaren startar första låten snart';
+    $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
     $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
