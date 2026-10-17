@@ -373,8 +373,8 @@ test('upcomingSettings ger inställningarna som gäller från nästa låt', () =
   assert.equal(settingsChangeText(view, upcomingSettings({ ...view, upcoming })), 'Ny kategori: 90-tal. Först till 20 poäng vinner.');
 });
 
-test('joinedMessage har en rubrik och räknar upp de nya spelarna', () => {
-  assert.deepEqual(joinedMessage(['Anna']), { title: 'Ny spelare', text: 'Anna har gått med i spelet.' });
-  assert.deepEqual(joinedMessage(['Anna', 'Bo']), { title: 'Nya spelare', text: 'Anna och Bo har gått med i spelet.' });
+test('joinedMessage välkomnar och räknar upp de nya spelarna', () => {
+  assert.deepEqual(joinedMessage(['Anna']), { title: 'Välkommen, Anna!', text: 'Anna har gått med i spelet.' });
+  assert.deepEqual(joinedMessage(['Anna', 'Bo']), { title: 'Välkomna!', text: 'Anna och Bo har gått med i spelet.' });
   assert.equal(joinedMessage(['Anna', 'Bo', 'Cia']).text, 'Anna, Bo och Cia har gått med i spelet.');
 });

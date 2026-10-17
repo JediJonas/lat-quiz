@@ -9,6 +9,7 @@ import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
+import { createWinnerSong } from './vinnarlat.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
@@ -17,6 +18,7 @@ const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
 const MUSIC_KEY = 'latquiz-musik';
 const CLIP_ALL_KEY = 'latquiz-klipp-alla';
+const WINNER_SONG_KEY = 'latquiz-vinnarlat';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -85,6 +87,18 @@ function loadClipAll() {
 function saveClipAll(on) {
   storage(() => (on ? localStorage.setItem(CLIP_ALL_KEY, '1') : localStorage.removeItem(CLIP_ALL_KEY)));
 }
+
+// Vinnarlåten spelas hos spelledaren när någon vinner. Den är på som standard, och
+// valet gäller den här enheten.
+function loadWinnerSong() {
+  return storage(() => localStorage.getItem(WINNER_SONG_KEY) !== '0', true);
+}
+
+function saveWinnerSong(on) {
+  storage(() => (on ? localStorage.removeItem(WINNER_SONG_KEY) : localStorage.setItem(WINNER_SONG_KEY, '0')));
+}
+
+const winnerSong = createWinnerSong();
 
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
 function loadName() {
@@ -233,7 +247,7 @@ let netTrouble = false;
 function startNetwork() {
   net = createHost(state.code, {
     onReady: () => {
-      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten', text: 'Du är med i spelet igen.' });
+      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Välkommen tillbaka!', text: 'Du är med i spelet igen.' });
       netTrouble = false;
     },
     onMessage,
@@ -303,7 +317,8 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const clipAll = loadMusic() === 'deezer' && loadClipAll();
   const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    clipAll ? `${music} på alla enheter` : music, hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
+    clipAll ? `${music} på alla enheter` : music, ...(loadWinnerSong() ? [] : ['Ingen vinnarlåt']),
+    hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
 }
@@ -339,7 +354,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#setup').hidden = true;
   $('#game').hidden = false;
   showJoinInfo();
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerShown: render, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -591,6 +606,7 @@ async function endGame() {
   leaving = true;
   storage(() => localStorage.removeItem(SAVE_KEY));
   stopClip();
+  winnerSong.stop();
   // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
   // En kort stund behövs för att meddelandet ska hinna fram innan anslutningarna stängs.
   if (net) {
@@ -725,7 +741,8 @@ function wireHostPlays(dialog) {
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
 // music: vald musiktjänst. clipAll: klippet spelas även i spelarnas mobiler.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false } = {}) {
+// winnerSong: vinnarlåten spelas när någon vinner.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false, winnerSong: winnerSongOn = true } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -741,7 +758,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
       ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
       </div>
-      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button></div>
+      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-winner-song"></button></div>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
@@ -762,11 +779,13 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   const host = wireHostPlays(dialog);
   // Bara Deezers klipp kan spelas i mobilerna, så strömbrytaren syns bara med Deezer.
   let clipOn = clipAll;
-  const clipRow = dialog.querySelector('.clip-all');
+  const clipRow = dialog.querySelector('#setting-clip-all');
   mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela musik på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
   const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
   dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
   showClipRow();
+  let winnerOn = winnerSongOn;
+  mountSwitch(dialog.querySelector('#setting-winner-song'), 'Spela vinnarlåt', () => winnerOn, () => { winnerOn = !winnerOn; });
   const mark = dialog.querySelector('#mark-unknown');
   // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');
@@ -793,6 +812,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
           ...(categories ? { categoryId: values.categoryId } : {}),
           music: cleanMusic(values.music),
           clipAll: clipOn,
+          winnerSong: winnerOn,
           host: host(),
         } : null);
       dialog.remove();
@@ -809,9 +829,13 @@ async function editSettings() {
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
   const music = pending ? pending.music : state ? state.music : loadMusic();
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
-  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), music, clipAll });
+  const chosen = await showSettings(current, categories, currentCategory, names,
+    { running: Boolean(state), music, clipAll, winnerSong: loadWinnerSong() });
   if (!chosen) return;
-  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, ...settings } = chosen;
+  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, winnerSong: chosenWinnerSong, ...settings } = chosen;
+  // Vinnarlåten gäller enheten direkt och tystnar om den stängs av.
+  saveWinnerSong(chosenWinnerSong);
+  if (!chosenWinnerSong) winnerSong.stop();
   saveSettings(settings);
   saveMusic(chosenMusic);
   saveClipAll(chosenClipAll);
@@ -1022,10 +1046,18 @@ function nextClicked() {
   else nextSong();
 }
 
+// Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på.
+function winnerShown() {
+  render();
+  if (loadWinnerSong()) winnerSong.play();
+}
+
 // Samma vy som spelarna ser, och under den spelledarens kontrollpanel.
 // Panelen byggs bara om när den ändras, så att fokus stannar kvar.
 function render() {
   $('#category').textContent = category.name;
+  // Vinnarlåten tystnar när en ny match börjar.
+  if (!state.winners) winnerSong.stop();
   gameView.update(viewFor(state.hostId), state.hostId);
   // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;

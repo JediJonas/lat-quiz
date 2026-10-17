@@ -321,8 +321,8 @@ export function settingsChangeText(before, after) {
   return parts.length ? parts.join(' ') : null;
 }
 
-// Rutan när nya spelare har gått med: rubriken Ny spelare och till exempel "Anna och Bo har gått med i spelet."
+// Rutan när nya spelare har gått med: rubriken Välkommen, Anna! eller Välkomna! och till exempel "Anna och Bo har gått med i spelet."
 export function joinedMessage(names) {
   const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} och ${names[names.length - 1]}` : names[0];
-  return { title: names.length > 1 ? 'Nya spelare' : 'Ny spelare', text: `${list} har gått med i spelet.` };
+  return { title: names.length > 1 ? 'Välkomna!' : `Välkommen, ${names[0]}!`, text: `${list} har gått med i spelet.` };
 }
