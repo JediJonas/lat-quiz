@@ -1287,8 +1287,6 @@ html:has(dialog.about[open]) { overflow: hidden; }
 .modal.about h3 { margin: 1.4em 0 0.4em; font-size: 1rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--text); }
 .modal p { margin: 0; color: var(--muted); }
 .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
-.modal .later-note { margin-top: 20px; text-align: right; }
-.later-note:not([hidden]) + .modal-actions { margin-top: 12px; }
 .modal-actions button { width: auto; min-height: 48px; margin: 0; padding: 0 24px; font-weight: 650; }
 button.danger, button.danger:hover { background: var(--bad); color: var(--bad-text); }
 /* Ikonen överst i en fråga, i en rund ton. Röd före något som inte går att ångra. */
