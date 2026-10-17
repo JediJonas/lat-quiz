@@ -632,7 +632,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .mine .bonus.pop::after { content: ""; position: absolute; inset: 0; border-radius: 0 0 22px 22px; background: color-mix(in srgb, var(--bonus) 22%, transparent); pointer-events: none; animation: bonus-glow 1.6s ease-out 0.55s both; }
 @keyframes bonus-glow { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
 .sparkles { position: absolute; top: 50%; left: 50%; pointer-events: none; }
-.sparkles i { position: absolute; width: 10px; height: 10px; top: -5px; left: -5px; background: var(--bonus); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); opacity: 0; animation: sparkle 1s ease-out 0.75s both; }
+.sparkles i { position: absolute; width: 10px; height: 10px; top: -5px; left: -5px; background: var(--bonus); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); opacity: 0; animation: sparkle var(--d, 1s) ease-out 0.75s both; }
 /* Med minskad rörelse står bonusraden still i guld, utan gnistor och sken. */
 @media (prefers-reduced-motion: reduce) {
   .sparkles, .mine .bonus.pop::after { display: none; }

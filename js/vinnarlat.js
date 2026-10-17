@@ -19,6 +19,11 @@ export const WINNER_SONGS = [
   { artist: 'Bill Conti', title: 'Gonna Fly Now', deezerId: 99127208, spotifyId: '5dulYd9AKIprMoF837OTDb' },
   { artist: 'The Pointer Sisters', title: "I'm So Excited", deezerId: 5404568, spotifyId: '1ot6jEe4w4hYnsOPjd3xKQ' },
   { artist: 'Måns Zelmerlöw', title: 'Heroes', deezerId: 95585876, spotifyId: '21BYhl07wWqGRQaj7sUxdV' },
+  { artist: 'Cliff Richard', title: 'Congratulations', deezerId: 3124130, spotifyId: '2qs5ZcLByNTctJKbhAZ9JE' },
+  { artist: 'ABBA', title: 'Waterloo', deezerId: 76376889, spotifyId: '5n3ZomaSndQ5v9eYUrFFI1' },
+  { artist: 'Loreen', title: 'Euphoria', deezerId: 67466760, spotifyId: '2knr7ikPt4l7bk92qS4ZXW' },
+  { artist: 'The Script', title: 'Hall of Fame', deezerId: 55848051, spotifyId: '7wMq5n8mYSKlQIGECKUgTX' },
+  { artist: 'Justin Timberlake', title: "Can't Stop the Feeling!", deezerId: 132635814, spotifyId: '6JV2JOEocMgcZxYSZelKcc' },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.

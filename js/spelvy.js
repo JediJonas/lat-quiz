@@ -23,7 +23,7 @@ function confetti(count = 110) {
 // Gnistorna runt bonuspoängen: små stjärnor som skjuts ut åt alla håll och tonar bort.
 function sparkles(count = 12) {
   return '<span class="sparkles" aria-hidden="true">' + Array.from({ length: count }, (_, i) =>
-    `<i style="--a:${(360 / count) * i}deg"></i>`).join('')
+    `<i style="--a:${(360 / count) * i}deg;--d:${(0.7 + Math.random() * 0.6).toFixed(2)}s"></i>`).join('')
     + '</span>';
 }
 
