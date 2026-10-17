@@ -1109,6 +1109,10 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   #create { margin-top: auto; }
   #setup-form .settings-summary { margin-bottom: 28px; }
 }
+/* Knappen tillbaka till ett tidigare spel står 12 px under Dra igång!, som knapparna på startsidan.
+   Den tar över Dra igång!s avstånd nedåt, så att knapparna slutar lika långt från nederkanten. */
+#setup-form:has(+ #resume:not([hidden])) #create { margin-bottom: 0; }
+#resume button { margin: 12px 0 16px; }
 /* Utan namnfält, när spelledaren inte deltar, döljs den tomma gruppen. */
 .field-group:not(:has(> .field-row:not([hidden]))) { display: none; }
 

@@ -763,7 +763,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   // Bara Deezers klipp kan spelas i mobilerna, så strömbrytaren syns bara med Deezer.
   let clipOn = clipAll;
   const clipRow = dialog.querySelector('.clip-all');
-  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela klippet på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
+  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela musik på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
   const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
   dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
   showClipRow();
