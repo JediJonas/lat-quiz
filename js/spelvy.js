@@ -51,7 +51,7 @@ function compactTitle() {
   const bar = document.createElement('div');
   bar.className = 'compact-bar';
   bar.setAttribute('aria-hidden', 'true');
-  bar.innerHTML = '<span class="logo"></span><span class="compact-title"></span><span class="ring bar-ring"></span>';
+  bar.innerHTML = '<span class="logo"></span><span class="compact-title"></span><span class="compact-title bar-time"></span>';
   document.body.append(bar);
   const title = bar.querySelector('.compact-title');
   new MutationObserver(() => { title.textContent = heading.textContent; })
@@ -116,8 +116,8 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
   compactTitle();
 
   function renderTimer() {
-    const barRing = document.querySelector('.bar-ring');
-    document.body.classList.toggle('timing', Boolean(barRing && view && view.round && view.round.phase === 'playing'));
+    const barTime = document.querySelector('.bar-time');
+    document.body.classList.toggle('timing', Boolean(barTime && view && view.round && view.round.phase === 'playing'));
     if (!view || !view.round) return;
     // Under en paus står ringen och cirkeln still på det spelledaren skickade.
     const pie = $('#next-pie');
@@ -130,11 +130,10 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
     $('#timer').classList.toggle('paused', Boolean(view.paused));
     $('#timer').classList.remove('loading');
     const ms = view.paused ? view.round.remainingMs : Math.max(0, deadline - Date.now());
-    const bonus = view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs;
-    renderRing($('#timer'), ms, view.round.roundMs, bonus);
-    if (barRing) {
-      barRing.classList.toggle('paused', Boolean(view.paused));
-      renderRing(barRing, ms, view.round.roundMs, bonus);
+    renderRing($('#timer'), ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
+    if (barTime) {
+      const seconds = Math.ceil(ms / 1000);
+      barTime.textContent = `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
     }
   }
 
