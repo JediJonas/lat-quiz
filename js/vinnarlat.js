@@ -25,9 +25,6 @@ export const WINNER_SONGS = [
 const FADE_MS = 5000;
 const VOLUME = 0.8;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
-const DRUM_MS = 4000; // trumvirvelns längd, lika lång som texten innan vinnaren visas
-const EARLY_MS = 500; // låten börjar så här länge innan trumvirveln slutar
-const QUIET = 0.25; // låtens volym när den börjar under trumvirveln
 
 // En slumpad låt, men inte samma som förra gången.
 export function pickWinnerSong(random = Math.random, last = null) {
@@ -94,15 +91,14 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
 
   // Trumvirveln medan texten innan vinnaren visas. Den är lika lång som texten, fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
-  // Låten börjar svagt under virvelns sista halva sekund. clip: false med Spotify som musiktjänst.
-  // Då slumpas bara låten, och inget Deezer-klipp hämtas eller spelas.
+  // clip: false med Spotify som musiktjänst. Då slumpas bara låten, och inget Deezer-klipp
+  // hämtas eller spelas.
   function drum({ clip = true } = {}) {
     prepare({ clip });
     if (!drumAudio) drumAudio = new Audio();
     drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
     drumAudio.play().catch(() => {});
-    if (clip) timers.push(setTimeout(() => start(QUIET), DRUM_MS - EARLY_MS));
   }
 
   let prepared = null; // klippet, som hämtas medan texten innan vinnaren visas
@@ -132,14 +128,17 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     }
   }
 
-  // Vinnarvyn har tagit över. Har låten inte börjat under trumvirveln, börjar den nu.
+  // Vinnarvyn har tagit över. Två klipp spelas aldrig samtidigt, eftersom iPhone då ofta vägrar
+  // starta det andra. Spelar trumvirveln fortfarande börjar låten när den är slut.
   function play() {
     if (!prepared) prepare();
-    start(VOLUME);
+    if (drumAudio && !drumAudio.paused && !drumAudio.ended) {
+      drumAudio.addEventListener('ended', start, { once: true });
+    } else start();
   }
 
-  // Låten börjar på volume och växer till full volym på EARLY_MS. Sist tonar den ut under FADE_MS.
-  async function start(volume) {
+  // Låten spelas på full volym och tonar ut under FADE_MS på slutet.
+  async function start() {
     if (started) return;
     started = true;
     const turn = playing;
@@ -147,17 +146,16 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (turn !== playing) return;
     if (!clip) { setStatus('missing'); return; }
     if (clip.buffer && ctx && ctx.state === 'running') {
-      startBuffer(clip.buffer, volume);
+      startBuffer(clip.buffer);
       setStatus('playing');
-    } else startElement(clip.url, volume);
+    } else startElement(clip.url);
   }
 
-  function startBuffer(buffer, volume) {
+  function startBuffer(buffer) {
     const gain = ctx.createGain();
     const now = ctx.currentTime;
     const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
-    gain.gain.setValueAtTime(volume, now);
-    gain.gain.linearRampToValueAtTime(VOLUME, now + EARLY_MS / 1000);
+    gain.gain.setValueAtTime(VOLUME, now);
     const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49));
     gain.gain.setValueCurveAtTime(steps, now + buffer.duration - fade, fade);
     source = ctx.createBufferSource();
@@ -166,29 +164,17 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     source.start();
   }
 
-  function startElement(url, volume) {
+  function startElement(url) {
     if (!audio) audio = new Audio();
     audio.src = url;
-    audio.volume = volume;
-    // iPhone vägrar ibland starta ett ljud medan trumvirveln spelar. Då provar låten igen när
-    // virveln är slut. Spelar den inte då heller, till exempel för att webbläsaren inte tillåter
-    // ljud, blir det tyst.
-    const turn = playing;
-    const retry = () => {
-      if (turn !== playing) return;
-      audio.play().then(() => setStatus('playing'), () => setStatus('blocked'));
-    };
-    audio.play().then(() => setStatus('playing'), () => {
-      if (drumAudio && !drumAudio.paused && !drumAudio.ended) drumAudio.addEventListener('ended', retry, { once: true });
-      else retry();
-    });
-    const begin = Date.now();
-    // Volymen växer först till full och sänks sedan när klippet närmar sig slutet.
+    audio.volume = VOLUME;
+    // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det tyst.
+    audio.play().then(() => setStatus('playing'), () => setStatus('blocked'));
+    // Volymen sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
-      const up = Math.min(1, (Date.now() - begin) / EARLY_MS);
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
       if (audio.ended) { stop(); return; }
-      audio.volume = Math.min(volume + (VOLUME - volume) * up, left < 1 ? fadeLevel(left) : VOLUME);
+      audio.volume = left < 1 ? fadeLevel(left) : VOLUME;
     }, 50));
   }
 
