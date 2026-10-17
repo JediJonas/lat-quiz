@@ -2,7 +2,7 @@
 // GitHub Pages låter webbläsaren spara filerna i tio minuter, och då kan ny HTML visas med gammal CSS.
 // Numret är en kort hash av alla filerna. Moduler som importeras av andra moduler får numret via en
 // import map i varje sida. Skriptet körs av sig självt när sidan publiceras och i CI, aldrig för hand,
-// så sidorna i repot saknar versionsnummer. Längst ner hos spelledaren står numret och när sidan
+// så sidorna i repot saknar versionsnummer. Längst ner på varje sida står numret och när sidan
 // publicerades, så att det går att se vilken version som körs.
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -33,7 +33,7 @@ export function withVersion(html, v, text = versionText(v)) {
   html = html.replace(/href="css\/style\.css(\?v=\w+)?"/g, `href="css/style.css?v=${v}"`)
     .replace(/src="js\/([\w-]+)\.js(\?v=\w+)?"/g, `src="js/$1.js?v=${v}"`)
     .replace(/\n *<script type="importmap">.*<\/script>/g, '')
-    .replace(/<p class="app-version">[^<]*<\/p>/, `<p class="app-version">${text}</p>`);
+    .replace(/<p class="app-version">[^<]*<\/p>/g, `<p class="app-version">${text}</p>`);
   // Import mapen måste stå före alla moduler, så den läggs direkt efter stilmallen.
   return html.replace(/( *)(<link rel="stylesheet" href="css\/style\.css[^"]*">)/, `$1$2\n$1${importMap}`);
 }

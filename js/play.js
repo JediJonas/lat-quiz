@@ -1,13 +1,16 @@
 // Spelarvyn i mobilen.
 import { codeBoxes } from './kodrutor.js';
 import { createClient } from './net.js';
-import { hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
+import { hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './spelvy.js';
 import { settingsChangeText, upcomingSettings } from './game.js';
 import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
 import { createClipPlayer } from './klipp.js';
+
+// Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
+showUnexpectedErrors();
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;

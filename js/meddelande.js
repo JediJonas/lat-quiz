@@ -115,3 +115,12 @@ export function showLeft(name) {
   if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
   showMessage({ key: 'left', kind: 'info', title: `Hej då, ${name}!`, text: `${name} har lämnat spelet.`, ms: JOINED_MS });
 }
+
+// Oväntade fel, till exempel ett programmeringsfel, visas i rutan. Annars stannar sidan bara
+// halvvägs utan förklaring.
+export function showUnexpectedErrors() {
+  window.addEventListener('error', (event) => {
+    const detail = event.message ? ` (${event.message})` : '';
+    showMessage({ key: 'unexpected', kind: 'problem', title: 'Något gick fel', text: `Ladda om sidan och försök igen.${detail}` });
+  });
+}
