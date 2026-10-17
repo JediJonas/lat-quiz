@@ -466,14 +466,14 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .ring { position: relative; width: 200px; height: 200px; margin: 8px auto 16px; }
 .ring svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
 .ring circle { fill: none; stroke-width: 7; }
-.ring-track { stroke: color-mix(in srgb, var(--muted) 22%, transparent); }
-.ring { --ring-color: hsl(135 80% 45%); }
+.ring-track { stroke: rgba(255, 255, 255, 0.24); }
 /* Under en paus bleknar ringen. */
 .ring.paused .ring-bar { opacity: 0.4; }
-/* Medan låten laddas är ringen grå. Färgerna kommer när låten börjar spela. */
-.ring.loading .ring-bar { stroke: color-mix(in srgb, var(--muted) 15%, var(--surface-solid)); }
-.ring.loading .ring-num { color: color-mix(in srgb, var(--muted) 65%, var(--surface-solid)); }
-.ring-bar { stroke: var(--ring-color); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear, stroke 0.25s linear; }
+/* Medan låten laddas är ringen blekare. */
+.ring.loading .ring-bar { stroke: rgba(255, 255, 255, 0.35); }
+.ring.loading .ring-num { color: rgba(255, 255, 255, 0.7); }
+/* Ringen står alltid på omslaget och är därför vit. */
+.ring-bar { stroke: #fff; stroke-linecap: round; transition: stroke-dashoffset 0.25s linear; }
 .ring-num {
   position: absolute;
   inset: 0;
@@ -483,6 +483,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   font-weight: 750;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
+  color: #fff;
 }
 .round-label { margin: 0 0 4px; }
 .mid-ring { width: 156px; height: 156px; margin: 0 auto; }
@@ -592,12 +593,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Knappen har ingen marginal under sig, så att avståndet ner till Poäng blir detsamma
    på alla bredder och samma som under spelet. */
 #waiting .big { margin: 24px 0 0; }
-/* På omslaget är ringen vit, med ett svagt spår. */
-.cover .ring-bar { stroke: #fff; }
-.cover .ring-track { stroke: rgba(255, 255, 255, 0.24); }
-.cover .ring-num { color: #fff; }
-.cover .ring.loading .ring-bar { stroke: rgba(255, 255, 255, 0.35); }
-.cover .ring.loading .ring-num { color: rgba(255, 255, 255, 0.7); }
 .answer { justify-content: flex-end; margin: 0; }
 /* Rubriken och Deezer står i övre kanten, även på vinnarkorten. */
 .answer .cover-head, .win .cover-head { position: absolute; top: 20px; left: 22px; right: 22px; }
@@ -809,6 +804,10 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   .compact-bar .logo { position: absolute; top: calc(var(--bar-top) + 9px); width: 92px; margin: 0; }
   .compact-title { position: absolute; top: calc(var(--bar-top) + 26px); transform: translateY(-50%); left: 120px; right: 120px; text-align: center; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .compact .compact-bar { opacity: 1; visibility: visible; }
+  /* Medan låten spelas står nedräkningen, till exempel 00:30, mitt i raden i stället för kategorin. */
+  .bar-time { display: none; font-variant-numeric: tabular-nums; }
+  .timing .bar-time { display: block; }
+  .timing .compact-title:not(.bar-time) { visibility: hidden; }
   /* Menyknappen följer med i samma storlek och glider upp till raden. */
   .menu { transition: top 0.2s; }
   .compact .menu { position: fixed; top: max(8px, env(safe-area-inset-top)); }

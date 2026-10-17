@@ -44,14 +44,14 @@ function rules(view) {
 
 // När den stora rubriken har rullat bort, till exempel medan man skriver ett svar, står
 // kategorin i stället liten mitt i en rad överst, som i iOS. Raden är bara utsmyckning:
-// rubriken finns kvar för skärmläsare.
+// rubriken finns kvar för skärmläsare. Medan en låt spelas står nedräkningen där i stället.
 function compactTitle() {
   const heading = document.querySelector('.player-head h1');
   if (!heading || !('IntersectionObserver' in window)) return;
   const bar = document.createElement('div');
   bar.className = 'compact-bar';
   bar.setAttribute('aria-hidden', 'true');
-  bar.innerHTML = '<span class="logo"></span><span class="compact-title"></span>';
+  bar.innerHTML = '<span class="logo"></span><span class="compact-title"></span><span class="compact-title bar-time"></span>';
   document.body.append(bar);
   const title = bar.querySelector('.compact-title');
   new MutationObserver(() => { title.textContent = heading.textContent; })
@@ -64,17 +64,15 @@ function compactTitle() {
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
 // vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
-const DRUM_MS = 4000; // lika lång som trumvirveln hos spelledaren
-// Trumvirveln startar en sekund före texten, och vinnarlåten därmed en sekund före namnet. Då hinner
-// låten laddas och starta när namnet visas.
-const SOUND_LEAD_MS = 1000;
+// Texten står en sekund längre än trumvirveln, så att vinnarlåten hinner laddas och redan spelar
+// när namnet visas.
+const DRUM_MS = 5000;
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
-// onWinnerSound: trumvirveln ska börja, SOUND_LEAD_MS innan texten före vinnaren visas.
 // onWinnerDrum: till exempel "Vi har en vinnare!" visas, och namnet kommer efter DRUM_MS.
 // onWinnerShown: vinnarvyn har just tagit över, så att spelledarens knappar kan visas samtidigt.
-export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, onWinnerDrum = () => {}, onWinnerShown = () => {}, host = false }) {
+export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onWinnerShown = () => {}, host = false }) {
   let view = null;
   let me = null;
   let roundNumber = null;
@@ -87,7 +85,6 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
   let winDrum = false; // texten innan namnet visas, till exempel Vi har en vinnare!
   let winShown = false; // vinnarvyn har tagit över
   let winTimer = null;
-  let soundTimer = null; // trumvirveln, som börjar strax före texten innan vinnaren
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
@@ -116,6 +113,8 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
   compactTitle();
 
   function renderTimer() {
+    const barTime = document.querySelector('.bar-time');
+    document.body.classList.toggle('timing', Boolean(barTime && view && view.round && view.round.phase === 'playing'));
     if (!view || !view.round) return;
     // Under en paus står ringen och cirkeln still på det spelledaren skickade.
     const pie = $('#next-pie');
@@ -129,6 +128,10 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
     $('#timer').classList.remove('loading');
     const ms = view.paused ? view.round.remainingMs : Math.max(0, deadline - Date.now());
     renderRing($('#timer'), ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
+    if (barTime) {
+      const seconds = Math.ceil(ms / 1000);
+      barTime.textContent = `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+    }
   }
 
   function playerStatus(id) {
@@ -189,8 +192,6 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
       winDrum = false;
       winShown = false;
       clearTimeout(winTimer);
-      clearTimeout(soundTimer);
-      soundTimer = setTimeout(() => { if (view.winners) onWinnerSound(); }, WIN_DELAY_MS - SOUND_LEAD_MS);
       winTimer = setTimeout(() => {
         if (!view.winners) return;
         winDrum = true;
@@ -206,7 +207,6 @@ export function createGameView({ onAnswer, onError, onWinnerSound = () => {}, on
       winDrum = false;
       winShown = false;
       clearTimeout(winTimer);
-      clearTimeout(soundTimer);
     }
     const winner = winnerView();
     const drum = Boolean(view.winners && phase === 'revealed' && winDrum && !winner);
