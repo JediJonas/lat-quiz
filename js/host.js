@@ -785,7 +785,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
   showClipRow();
   let winnerOn = winnerSongOn;
-  mountSwitch(dialog.querySelector('#setting-winner-song'), 'Vinnarlåt', () => winnerOn, () => { winnerOn = !winnerOn; });
+  mountSwitch(dialog.querySelector('#setting-winner-song'), 'Spela vinnarlåt', () => winnerOn, () => { winnerOn = !winnerOn; });
   const mark = dialog.querySelector('#mark-unknown');
   // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');

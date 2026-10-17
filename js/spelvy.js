@@ -238,7 +238,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
           <p class="round-label">Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}</p>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
-          <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
+          <p class="win-sub">Först till ${view.winScore} poäng. ${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
           <div class="title">${esc(round.song.title)}</div>
           <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
