@@ -10,6 +10,7 @@ import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { createWinnerSong } from './vinnarlat.js';
+import { createLobbyMusic } from './vantemusik.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
@@ -22,6 +23,7 @@ const SETTINGS_KEY = 'latquiz-settings';
 const MUSIC_KEY = 'latquiz-musik';
 const CLIP_ALL_KEY = 'latquiz-klipp-alla';
 const WINNER_SONG_KEY = 'latquiz-vinnarlat';
+const LOBBY_MUSIC_KEY = 'latquiz-vantemusik';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -102,6 +104,26 @@ function saveWinnerSong(on) {
 }
 
 const winnerSong = createWinnerSong();
+
+// Väntemusiken spelas hos spelledaren medan spelarna går med. Den är på som standard, och
+// valet gäller den här enheten.
+function loadLobbyMusic() {
+  return storage(() => localStorage.getItem(LOBBY_MUSIC_KEY) !== '0', true);
+}
+
+function saveLobbyMusic(on) {
+  storage(() => (on ? localStorage.removeItem(LOBBY_MUSIC_KEY) : localStorage.setItem(LOBBY_MUSIC_KEY, '0')));
+}
+
+const lobbyMusic = createLobbyMusic();
+
+// Musiken spelar innan första låten, även efter Ny match, och tystnar när spelet startar.
+function updateLobbyMusic() {
+  const on = Boolean(state && !state.round && !state.winners && !leaving && loadLobbyMusic());
+  if (on) lobbyMusic.play();
+  else lobbyMusic.stop();
+  $('#lobby-note').hidden = !on;
+}
 
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
 function loadName() {
@@ -325,7 +347,8 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const clipAll = loadMusic() === 'deezer' && loadClipAll();
   const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    clipAll ? `${music} på alla enheter` : music, ...(loadWinnerSong() ? [] : ['Ingen vinnarlåt']),
+    clipAll ? `${music} på alla enheter` : music, ...(loadLobbyMusic() ? [] : ['Ingen väntemusik']),
+    ...(loadWinnerSong() ? [] : ['Ingen vinnarlåt']),
     hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -480,6 +503,9 @@ async function playDeezer(roundNumber, skipping = false) {
   audio.src = url;
   // Spelarnas mobiler kan börja ladda klippet medan det laddas här.
   if (state.clipAll) broadcast();
+  // Två klipp spelas aldrig samtidigt, så första låten väntar tills väntemusiken har tonat ut.
+  await lobbyMusic.silent();
+  if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') return;
   // Under en paus väntar klippet tills spelledaren fortsätter.
   if (state.pausedAt) {
     clip.status = 'loaded';
@@ -616,6 +642,7 @@ async function endGame() {
   storage(() => localStorage.removeItem(SAVE_KEY));
   stopClip();
   winnerSong.stop();
+  lobbyMusic.stop();
   // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
   // En kort stund behövs för att meddelandet ska hinna fram innan anslutningarna stängs.
   if (net) {
@@ -750,8 +777,8 @@ function wireHostPlays(dialog) {
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
 // music: vald musiktjänst. clipAll: klippet spelas även i spelarnas mobiler.
-// winnerSong: vinnarlåten spelas när någon vinner.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false, winnerSong: winnerSongOn = true } = {}) {
+// winnerSong: vinnarlåten spelas när någon vinner. lobbyMusic: väntemusiken spelas innan spelet startar.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false, winnerSong: winnerSongOn = true, lobbyMusic: lobbyMusicOn = true } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -767,7 +794,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
       ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
       </div>
-      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-winner-song"></button></div>
+      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-lobby-music"></button><button type="button" class="theme-switch" id="setting-winner-song"></button></div>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
@@ -793,6 +820,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
   dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
   showClipRow();
+  let lobbyOn = lobbyMusicOn;
+  mountSwitch(dialog.querySelector('#setting-lobby-music'), 'Spela väntemusik', () => lobbyOn, () => { lobbyOn = !lobbyOn; });
   let winnerOn = winnerSongOn;
   mountSwitch(dialog.querySelector('#setting-winner-song'), 'Spela vinnarlåt', () => winnerOn, () => { winnerOn = !winnerOn; });
   const mark = dialog.querySelector('#mark-unknown');
@@ -822,6 +851,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
           music: cleanMusic(values.music),
           clipAll: clipOn,
           winnerSong: winnerOn,
+          lobbyMusic: lobbyOn,
           host: host(),
         } : null);
       dialog.remove();
@@ -839,12 +869,14 @@ async function editSettings() {
   const music = pending ? pending.music : state ? state.music : loadMusic();
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
   const chosen = await showSettings(current, categories, currentCategory, names,
-    { running: Boolean(state), music, clipAll, winnerSong: loadWinnerSong() });
+    { running: Boolean(state), music, clipAll, winnerSong: loadWinnerSong(), lobbyMusic: loadLobbyMusic() });
   if (!chosen) return;
-  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, winnerSong: chosenWinnerSong, ...settings } = chosen;
+  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, winnerSong: chosenWinnerSong, lobbyMusic: chosenLobbyMusic, ...settings } = chosen;
   // Vinnarlåten gäller enheten direkt och tystnar om den stängs av.
   saveWinnerSong(chosenWinnerSong);
   if (!chosenWinnerSong) winnerSong.stop();
+  // Väntemusiken likaså, och den börjar direkt om den slås på medan spelarna går med.
+  saveLobbyMusic(chosenLobbyMusic);
   saveSettings(settings);
   saveMusic(chosenMusic);
   saveClipAll(chosenClipAll);
@@ -1084,6 +1116,7 @@ function render() {
   $('#category').textContent = category.name;
   // Vinnarlåten tystnar när en ny match börjar.
   if (!state.winners) winnerSong.stop();
+  updateLobbyMusic();
   gameView.update(viewFor(state.hostId), state.hostId);
   // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
@@ -1127,7 +1160,7 @@ function showError(err) {
 // Vinnarlåten spelas utan tryck när vinnaren visas. Ljudmotorn får det bara om den har startats
 // av ett tryck tidigare, så varje tryck hos spelledaren startar den.
 // iPhone räknar ibland bara touchend och click som tryck, så alla fyra lyssnas på.
-for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, () => winnerSong.unlock(), true);
+for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, () => { winnerSong.unlock(); lobbyMusic.unlock(); }, true);
 
 document.addEventListener('click', (e) => {
   const id = e.target.closest('[id]')?.id;

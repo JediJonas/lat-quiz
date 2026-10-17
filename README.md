@@ -22,6 +22,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
+- `js/vantemusik.js`: väntemusiken, Deezer-klipp som slumpas, tonar in och ut och spelas hos spelledaren tills spelet startar. Ingen av låtarna finns bland quizlåtarna.
 - `js/klipp.js`: klippet i spelarnas mobiler när spelledaren har valt att spela det på alla enheter. Spelarna får bara klipplänken, inte vilken låt det är.
 - `js/deezer.js`: förhandsklipp från Deezer i kategorier med `"audio": "deezer"`. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp hoppas låten över. Med Spotify som musiktjänst spelas bara låtar med Spotify-ID, och med Deezer bara låtar med Deezer-ID.
 - `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.
