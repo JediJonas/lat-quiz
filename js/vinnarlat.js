@@ -24,6 +24,7 @@ export const WINNER_SONGS = [
   { artist: 'Loreen', title: 'Euphoria', deezerId: 67466760, spotifyId: '2knr7ikPt4l7bk92qS4ZXW' },
   { artist: 'The Script', title: 'Hall of Fame', deezerId: 55848051, spotifyId: '7wMq5n8mYSKlQIGECKUgTX' },
   { artist: 'Justin Timberlake', title: "Can't Stop the Feeling!", deezerId: 132635814, spotifyId: '6JV2JOEocMgcZxYSZelKcc' },
+  { artist: 'Harold Faltermeyer & Steve Stevens', title: 'Top Gun Anthem', deezerId: 7675060, spotifyId: '00Y9r5SfbDdEjJhNg7laQr' },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
