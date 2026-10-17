@@ -155,6 +155,7 @@
 [data-kategori="90-tal"] { --cat-glyph: "90"; --cat-1: #0fa596; --cat-2: #1d3a85; --cat-dim: 0.29; }
 [data-kategori="2000-tal"] { --cat-glyph: "00"; --cat-1: #3478f0; --cat-2: #1d1a5c; --cat-dim: 0.20; }
 [data-kategori="2010-tal"] { --cat-glyph: "10"; --cat-1: #9d4ff0; --cat-2: #2f2a80; --cat-dim: 0.17; }
+[data-kategori="2020-tal"] { --cat-glyph: "20"; --cat-1: #ff4f6d; --cat-2: #3b1f8f; --cat-dim: 0.26; }
 [data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; --cat-dim: 0.14; }
 [data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; --cat-dim: 0.34; }
 [data-kategori="eurovision"] { --cat-glyph: "ESC"; --cat-1: #5a5ef0; --cat-2: #c51f6e; --cat-dim: 0.14; }

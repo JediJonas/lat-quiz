@@ -5,6 +5,7 @@
   { "id": "90-tal", "name": "90-tal", "file": "90-tal.json", "audio": "deezer", "songs": 161 },
   { "id": "2000-tal", "name": "2000-tal", "file": "2000-tal.json", "audio": "deezer", "songs": 166 },
   { "id": "2010-tal", "name": "2010-tal", "file": "2010-tal.json", "audio": "deezer", "songs": 175 },
+  { "id": "2020-tal", "name": "2020-tal", "file": "2020-tal.json", "audio": "deezer", "songs": 178 },
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "audio": "deezer", "songs": 113 },
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "audio": "deezer", "songs": 172 },
   { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "audio": "deezer", "labels": { "artist": "Land", "title": "Låt" }, "songs": 149 },
