@@ -757,8 +757,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
     inset: 0 0 auto;
     display: flex;
     align-items: center;
-    /* Lika mycket luft under menyknappen som ovanför. */
-    height: calc(max(16px, env(safe-area-inset-top)) + 68px);
+    /* 8 px luft ovanför och under menyknappen, så att raden blir låg. */
+    --bar-top: max(8px, env(safe-area-inset-top));
+    height: calc(var(--bar-top) + 60px);
     padding: env(safe-area-inset-top) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
     /* En tät yta i full bredd, med samma ljus i kategorins färger som högst upp på sidan.
        Ljusets mitt ligger ungefär lika högt över ytan som över sidan. */
@@ -772,12 +773,13 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
     transition: opacity 0.2s, visibility 0.2s;
     pointer-events: none;
   }
-  /* Loggan och menyknappen har samma storlek och plats som högst upp på sidan. */
-  .compact-bar .logo { position: absolute; top: calc(max(16px, env(safe-area-inset-top)) + 9px); width: 92px; margin: 0; }
-  .compact-title { position: absolute; top: calc(max(16px, env(safe-area-inset-top)) + 26px); transform: translateY(-50%); left: 120px; right: 120px; text-align: center; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Loggan och menyknappen har samma storlek som högst upp på sidan. */
+  .compact-bar .logo { position: absolute; top: calc(var(--bar-top) + 9px); width: 92px; margin: 0; }
+  .compact-title { position: absolute; top: calc(var(--bar-top) + 26px); transform: translateY(-50%); left: 120px; right: 120px; text-align: center; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .compact .compact-bar { opacity: 1; visibility: visible; }
-  /* Menyknappen följer med i samma storlek. */
-  .compact .menu { position: fixed; }
+  /* Menyknappen följer med i samma storlek och glider upp till raden. */
+  .menu { transition: top 0.2s; }
+  .compact .menu { position: fixed; top: max(8px, env(safe-area-inset-top)); }
 }
 
 /* Meddelanderutan längst ner, ovanpå sidan. Fel får röd ram, rubrik och ikon. */
