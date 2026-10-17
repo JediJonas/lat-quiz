@@ -54,12 +54,12 @@ function onMessage(msg) {
   if (msg.type === 'ended') { gameEnded(); return; }
   if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
   if (msg.type === 'new-match') {
-    showMessage({ key: 'new-match', kind: 'info', title: 'Ny match', text: 'Poängen är nollställda.', ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'new-match', kind: 'info', title: 'Ny match!', text: 'Alla börjar om från noll. Lycka till!', ms: SETTINGS_MESSAGE_MS });
     return;
   }
   if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
   if (msg.type === 'left') { showLeft(String(msg.name || '')); return; }
-  if (msg.type === 'name-taken') { leave(`Namnet ${msg.name} används redan i spelet. Välj ett annat namn.`, false); return; }
+  if (msg.type === 'name-taken') { leave(`Det finns redan en ${msg.name} i spelet. Välj ett annat namn, till exempel med en initial.`, false); return; }
   if (msg.type !== 'state') return;
   if (pending) showLobby();
   view = msg.view;
@@ -119,7 +119,7 @@ function gameEnded() {
 function onStatus(status) {
   if (status === 'connected') {
     clearTimeout(connectingTimer);
-    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Ansluten', text: 'Du är med i spelet igen.' });
+    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Välkommen tillbaka!', text: 'Du är med i spelet igen.' });
     else hideMessage('net');
     connectedOnce = true;
     dropped = false;
@@ -214,7 +214,7 @@ function showLobby() {
 
 // Koden är fel eller spelet är avslutat: tillbaka till sidan där man anger kod.
 function onNotFound() {
-  leave(`Det finns inget aktivt spel med koden ${me.code}. Kontrollera koden och försök igen.`, true);
+  leave(`Vi hittar inget spel med koden ${me.code}. Kolla koden och prova igen.`, true);
 }
 
 // Anslutningen lyckades aldrig, fast spelet finns. Koden står kvar, och spelaren sparas så att

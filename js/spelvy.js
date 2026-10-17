@@ -5,6 +5,7 @@ import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
 import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
+import { roundCheer, winComment } from './pepp.js';
 
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -196,8 +197,8 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
     document.body.classList.toggle('watching', !playing);
     // Medan låten laddas visas den fulla ringen och fälten redan, så att vyn inte hoppar när timern startar.
     $('#waiting').hidden = phase !== 'waiting';
-    $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Väntar på första låten';
-    $('#waiting-text').textContent = host ? 'Starta spelet när alla har gått med' : 'Spelledaren startar snart';
+    $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
+    $('#waiting-text').textContent = host ? 'Starta spelet när alla har gått med' : 'Spelledaren startar första låten snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
     $('#guess').hidden = !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed';
@@ -237,7 +238,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
         ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
           <p class="round-label">Matchen är slut · ${round.number} ${round.number === 1 ? 'låt' : 'låtar'}</p>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
-          <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
+          <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
         : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
           <div class="title">${esc(round.song.title)}</div>
           <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
@@ -246,7 +247,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
         + `<span class="lab">${esc(label)}</span><span class="val">${esc(given || 'Inget svar')}</span>`
         + `<span class="pts">${right ? '+1' : '0'}</span></li>`;
       // Bonusraden lyser upp i guld med lite gnistor runt +1, när svaret visas första gången.
-      const bonusRow = () => row('Bonus', 'Snabbt svar', true)
+      const bonusRow = () => row('Bonus', 'Blixtsnabbt!', true)
         .replace('<li class="right">', `<li class="right bonus${fresh ? ' pop' : ''}">`)
         .replace('<span class="pts">', `<span class="pts">${fresh ? sparkles() : ''}`);
       const own = playing && !winner;
@@ -256,8 +257,10 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       const points = own ? `<p class="points${r.points ? '' : ' zero'}"><span aria-hidden="true">+${r.points} `
         + '<span class="points-long">poäng</span><span class="points-short">p</span></span>'
         + `<span class="visually-hidden">+${r.points} poäng</span></p>` : '';
+      // Under poängen står en kort kommentar, till exempel Klockrent! när allt var rätt.
+      const cheer = own ? `<p class="cheer">${esc(roundCheer(r, round.number))}</p>` : '';
       const rest = `${mineRows}
-        ${points || next ? `<div class="result-foot">${points}${next}</div>` : ''}`;
+        ${points || next ? `<div class="result-foot">${points ? `<div class="score-line">${points}${cheer}</div>` : ''}${next}</div>` : ''}`;
       // Ritas samma svar om, till exempel när spelledarens knappar byts, står omslaget kvar.
       // Då fortsätter vändningen och konfettin i stället för att börja om eller stoppas.
       const body = $('#result-body');
@@ -286,8 +289,8 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
     // Pausen står i meddelanderutan så länge den varar, och rutan läses upp.
     const paused = Boolean(view.paused);
     if (paused !== wasPaused) {
-      setStandingMessage(paused ? { kind: 'pause', title: 'Spelet är pausat',
-        text: host ? 'Tryck på spela för att fortsätta.' : 'Väntar på spelledaren.' } : null);
+      setStandingMessage(paused ? { kind: 'pause', title: host ? 'Spelet är pausat' : 'Kort paus',
+        text: host ? 'Tryck på spela för att fortsätta.' : 'Spelledaren pausade. Vi fortsätter snart.' } : null);
       if (wasPaused) announce('Spelet fortsätter.');
     }
     wasPaused = paused;

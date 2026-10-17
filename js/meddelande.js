@@ -113,5 +113,5 @@ export function showJoined(name) {
 // En spelare har valt Lämna spelet i menyn. Visas lika länge som en ny spelare, och inte över ett fel.
 export function showLeft(name) {
   if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
-  showMessage({ key: 'left', kind: 'info', title: 'Spelare lämnade', text: `${name} har lämnat spelet.`, ms: JOINED_MS });
+  showMessage({ key: 'left', kind: 'info', title: `Hej då, ${name}!`, text: `${name} har lämnat spelet.`, ms: JOINED_MS });
 }

@@ -652,6 +652,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Poängen och nedräkningen bryts aldrig. Blir raden för smal hamnar nedräkningen på en egen rad. */
 .points { margin: 0; white-space: nowrap; font-size: 2.125rem; font-weight: 850; letter-spacing: -0.04em; color: var(--good); }
 .points.zero { color: var(--muted); }
+/* En kort kommentar under poängen, till exempel Klockrent! */
+.cheer { margin: 2px 0 0 2px; font-size: 0.9375rem; font-weight: 650; color: var(--muted); }
 .points-short, :root[data-text="large"] .points-long { display: none; }
 :root[data-text="large"] .points-short { display: inline; }
 .next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; white-space: nowrap; font-size: 0.9375rem; font-weight: 550; font-variant-numeric: tabular-nums; color: var(--muted); }
@@ -1344,6 +1346,8 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
 .modal .host-plays-group { margin-top: 14px; border-top: 0; padding-top: 0; }
 .modal .clip-all { margin-top: 14px; }
+/* Utan Deezer döljs Spela musik på alla enheter, och Vinnarlåt blir första raden utan linje. */
+.modal .switches button.theme-switch[hidden] + button.theme-switch::before { display: none; }
 .modal .host-plays-group .field-group { margin-top: 14px; }
 .modal .current-song { border-radius: 22px; background: var(--surface-solid); }
 .modal .current-song button.theme-switch { display: flex; width: 100%; flex-direction: row-reverse; justify-content: space-between; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; }
