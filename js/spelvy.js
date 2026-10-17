@@ -65,9 +65,9 @@ function compactTitle() {
 // vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
 const DRUM_MS = 4000;
-// Trumvirveln startar två sekunder före texten, och vinnarlåten när virveln är slut, två sekunder
+// Trumvirveln startar 1,5 sekunder före texten, och vinnarlåten när virveln är slut, 1,5 sekunder
 // innan namnet visas. Då hinner låten laddas och spelar redan när namnet visas.
-const SOUND_LEAD_MS = 2000;
+const SOUND_LEAD_MS = 1500;
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
