@@ -98,7 +98,7 @@ function saveWinnerSong(on) {
   storage(() => (on ? localStorage.removeItem(WINNER_SONG_KEY) : localStorage.setItem(WINNER_SONG_KEY, '0')));
 }
 
-const winnerSong = createWinnerSong({ onChange: () => { if (state) render(); } });
+const winnerSong = createWinnerSong();
 
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
 function loadName() {
@@ -357,7 +357,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#game').hidden = false;
   // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
   showJoinInfo({ qrOpen: !resumeState });
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerSound: winnerSound, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -1056,10 +1056,10 @@ function nextClicked() {
   else nextSong();
 }
 
-// Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
-// virveln är slut, en sekund innan vinnarvyn tar över. Med Spotify öppnas låten i stället med
-// Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
-function winnerDrum() {
+// Två sekunder innan texten före vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och
+// låten börjar när virveln är slut, två sekunder innan vinnarvyn tar över. Med Spotify öppnas låten
+// i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
+function winnerSound() {
   if (!loadWinnerSong()) return;
   const spotify = state.music === 'spotify';
   winnerSong.drum({ clip: !spotify });
@@ -1091,7 +1091,6 @@ function render() {
   // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
   $('#start-game').hidden = !(play && play.action === 'start');
   $('#winner-song').hidden = !(play && play.action === 'winner');
-  showWinnerSongName();
   const next = nextAction();
   setButton($('#next'), next, 'Nästa låt');
   setHtml($('#next'), ICONS.next);
@@ -1103,17 +1102,6 @@ function render() {
   // som spelas nu.
   const mark = document.querySelector('dialog[open] #mark-unknown');
   if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
-}
-
-// Längst ner ser spelledaren vilken vinnarlåt som valdes, och om klippet inte gick att spela.
-function showWinnerSongName() {
-  const song = winnerSong.current();
-  const shown = Boolean(state.winners && gameView.winnerShown() && loadWinnerSong() && song);
-  const box = $('#winner-song-name');
-  box.hidden = !shown;
-  if (!shown) return;
-  const problem = { missing: ' · Inget klipp hos Deezer', blocked: ' · Klippet kunde inte spelas' }[winnerSong.status()] || '';
-  box.textContent = `Vinnarlåt: ${song.artist} – ${song.title}${problem}`;
 }
 
 // Byggs bara om när innehållet ändras, så att fokus stannar kvar.
