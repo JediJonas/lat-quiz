@@ -142,7 +142,7 @@ export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, ho
       const before = scoreChanged(p.id, p.score);
       if (before !== null) counts.push([p.id, before, p.score]);
       const rank = rankOf(p);
-      const av = avatar(p.name);
+      const av = avatar(p.name, p.color);
       const up = climb(p);
       const score = `<td class="score" data-id="${esc(p.id)}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td>`;
       // Under spelet står poängen först. När matchen är slut står placeringen först och poängen sist.

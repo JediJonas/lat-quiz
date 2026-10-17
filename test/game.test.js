@@ -378,3 +378,21 @@ test('joinedMessage har en rubrik och räknar upp de nya spelarna', () => {
   assert.deepEqual(joinedMessage(['Anna', 'Bo']), { title: 'Nya spelare', text: 'Anna och Bo har gått med i spelet.' });
   assert.equal(joinedMessage(['Anna', 'Bo', 'Cia']).text, 'Anna, Bo och Cia har gått med i spelet.');
 });
+
+test('varje ny spelare får en färg som ingen annan har, så länge det finns lediga', () => {
+  const state = createGame({ code: 'ABCD', hostId: 'h' });
+  const names = ['Anna', 'Anna B', 'Anna C', 'Bo', 'Cia', 'Dan', 'Eva', 'Fia'];
+  names.forEach((name, i) => addPlayer(state, { id: `p${i}`, name }));
+  const colors = names.map((_, i) => state.players[`p${i}`].color);
+  assert.equal(new Set(colors).size, 8);
+  // Den nionde delar färg med en annan, men ingen färg används tre gånger.
+  addPlayer(state, { id: 'p8', name: 'Gus' });
+  const counts = Object.values(state.players).reduce((n, p) => ({ ...n, [p.color]: (n[p.color] || 0) + 1 }), {});
+  assert.ok(Math.max(...Object.values(counts)) <= 2);
+  // Färgen följer med när spelaren ansluter igen, och syns i ställningen.
+  const before = state.players.p3.color;
+  setConnected(state, 'p3', false);
+  addPlayer(state, { id: 'p3', name: 'Bo' });
+  assert.equal(state.players.p3.color, before);
+  assert.equal(standings(state).find((p) => p.id === 'p3').color, before);
+});

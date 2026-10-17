@@ -11,6 +11,7 @@ test('initialen är namnets första bokstav som versal, och färgen följer namn
     const { color } = avatar(name);
     assert.ok(Number.isInteger(color) && color >= 0 && color < 8);
   }
+  assert.equal(avatar('Erik', 5).color, 5);
 });
 
 test('poängräknaren ger den förra poängen bara när den har ändrats', () => {

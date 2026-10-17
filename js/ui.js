@@ -1,5 +1,7 @@
 // Gemensamma visningsdelar för spelledare och spelare.
 
+import { nameColor } from './game.js';
+
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
@@ -93,14 +95,11 @@ export function countUp(el, from, to, ms = 700) {
   requestAnimationFrame(step);
 }
 
-// Initialen och en färg som följer namnet, så att samma spelare har samma färg på alla skärmar.
-// Alla åtta färger ger vit text minst 4,5:1 i kontrast.
-const AVATAR_COLORS = 8;
-export function avatar(name) {
-  let hash = 0;
-  for (const c of name) hash = (hash * 31 + c.codePointAt(0)) >>> 0;
+// Initialen och spelarens färg. Spelledaren ger varje spelare en egen färg när den går med
+// (js/game.js). Saknas den följer färgen namnet. Alla åtta färger ger vit text minst 4,5:1 i kontrast.
+export function avatar(name, color) {
   const letter = (Array.from(name.trim())[0] || '?').toLocaleUpperCase('sv');
-  return { letter, color: hash % AVATAR_COLORS };
+  return { letter, color: Number.isInteger(color) ? color : nameColor(name) };
 }
 
 // Läser upp en kort händelse för skärmläsare via den dolda statusraden #announce.
