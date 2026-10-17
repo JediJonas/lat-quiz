@@ -1,4 +1,4 @@
-// Vinnarlåten: ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
+// Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 // Klippen kräver inget konto, så de spelas även när spelledaren har valt Spotify.
 import { findPreview } from './deezer.js';
@@ -24,6 +24,7 @@ export const WINNER_SONGS = [
 const PLAY_MS = 15000;
 const FADE_MS = 2500;
 const VOLUME = 0.8;
+const DRUM_URL = 'ljud/trumvirvel.mp3';
 
 // En slumpad låt, men inte samma som förra gången.
 export function pickWinnerSong(random = Math.random, last = null) {
@@ -44,6 +45,19 @@ export function createWinnerSong() {
     clear();
     prepared = null;
     if (audio) audio.pause();
+    if (drumAudio) drumAudio.pause();
+  }
+
+  let drumAudio = null;
+
+  // Trumvirveln medan texten innan vinnaren visas. Den är lika lång som texten, fyra sekunder.
+  // Klippet är ljud 111653 av bigjoedrummer på Freesound, kortat till den första virveln.
+  function drum() {
+    prepare();
+    if (!drumAudio) drumAudio = new Audio(DRUM_URL);
+    drumAudio.currentTime = 0;
+    drumAudio.volume = VOLUME;
+    drumAudio.play().catch(() => {});
   }
 
   let prepared = null; // klipplänken, som hämtas medan texten innan vinnaren visas
@@ -77,5 +91,5 @@ export function createWinnerSong() {
     }, PLAY_MS));
   }
 
-  return { prepare, play, stop };
+  return { drum, play, stop };
 }

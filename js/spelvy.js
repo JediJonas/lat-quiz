@@ -62,9 +62,9 @@ function compactTitle() {
 }
 
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
-// vinnare!" en kort stund, och sedan visas namnet.
+// vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
-const DRUM_MS = 2600;
+const DRUM_MS = 4000; // lika lång som trumvirveln hos spelledaren
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.

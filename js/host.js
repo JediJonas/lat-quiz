@@ -1046,9 +1046,9 @@ function nextClicked() {
   else nextSong();
 }
 
-// Texten innan vinnaren visas. Då hämtas vinnarlåten, om den är på.
+// Texten innan vinnaren visas. Då spelas en trumvirvel och vinnarlåten hämtas, om den är på.
 function winnerDrum() {
-  if (loadWinnerSong()) winnerSong.prepare();
+  if (loadWinnerSong()) winnerSong.drum();
 }
 
 // Vinnarvyn har tagit över. Då spelas vinnarlåten, om den är på.
