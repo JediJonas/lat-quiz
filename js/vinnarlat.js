@@ -2,7 +2,7 @@
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 // Med Spotify som musiktjänst slumpas låten också, men den öppnas i Spotify när spelledaren trycker
 // på Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
-import { findPreview } from './deezer.js';
+import { SILENCE, findPreview } from './deezer.js';
 
 export const WINNER_SONGS = [
   { artist: 'Queen', title: 'We Are the Champions', deezerId: 4092339021, spotifyId: '1lCRw5FEZ1gPDNPzy1K4zW' },
@@ -67,8 +67,22 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
   }
 
-  // Anropas vid varje tryck hos spelledaren, så att ljudmotorn får spela senare utan tryck.
+  let drumAudio = null;
+
+  // Ljudelementen spelar en kort tystnad vid ett tryck. Sedan låter iPhone dem spela utan tryck.
+  const unlocked = new Set();
+  function unlockElement(el) {
+    if (unlocked.has(el) || !el.paused) return;
+    el.src = SILENCE;
+    el.play().then(() => unlocked.add(el), () => {});
+  }
+
+  // Anropas vid varje tryck hos spelledaren, så att ljudet får spela senare utan tryck.
   function unlock() {
+    if (!audio) audio = new Audio();
+    if (!drumAudio) drumAudio = new Audio();
+    unlockElement(audio);
+    unlockElement(drumAudio);
     const Context = window.AudioContext || window.webkitAudioContext;
     if (!Context) return;
     if (!ctx) ctx = new Context();
@@ -77,7 +91,6 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (ctx.state !== 'running') ctx.resume().catch(() => {});
   }
 
-  let drumAudio = null;
 
   // Trumvirveln medan texten innan vinnaren visas. Den är lika lång som texten, fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
@@ -85,8 +98,8 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
   // Då slumpas bara låten, och inget Deezer-klipp hämtas eller spelas.
   function drum({ clip = true } = {}) {
     prepare({ clip });
-    if (!drumAudio) drumAudio = new Audio(DRUM_URL);
-    drumAudio.currentTime = 0;
+    if (!drumAudio) drumAudio = new Audio();
+    drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
     drumAudio.play().catch(() => {});
     if (clip) timers.push(setTimeout(() => start(QUIET), DRUM_MS - EARLY_MS));
