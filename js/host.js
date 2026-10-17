@@ -1056,8 +1056,8 @@ function nextClicked() {
   else nextSong();
 }
 
-// Två sekunder innan texten före vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och
-// låten börjar när virveln är slut, två sekunder innan vinnarvyn tar över. Med Spotify öppnas låten
+// 1,5 sekunder innan texten före vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och
+// låten börjar när virveln är slut, 1,5 sekunder innan vinnarvyn tar över. Med Spotify öppnas låten
 // i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 function winnerSound() {
   if (!loadWinnerSong()) return;
