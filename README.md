@@ -8,7 +8,7 @@ En webbapp för låtquiz med familj och vänner. Spelledaren spelar klipp från 
 
 1. Spelledaren öppnar `host.html` på en dator, väljer kategori och trycker på **Dra igång!**. Spelledaren deltar och gissar som standard, men kan stänga av **Jag deltar i spelet** under Inställningar och bara leda spelet. Det går att ändra även under spelet. Namnfältet visas då bara om spelledaren inte har angett något namn tidigare, och utan namn heter spelledaren Spelledare.
 2. Spelarna skannar QR-koden, eller öppnar `play.html` och skriver in koden.
-3. Spelledaren trycker på spela. I de flesta kategorier spelas ett 30 sekunders klipp från Deezer direkt i spelledarvyn, och timern på 30 sekunder startar när det hörs. Saknar Deezer klippet hoppas låten över och en annan slumpas. Har spelledaren valt Spotify som musiktjänst i Inställningar öppnas låten i Spotify-appen och klicket startar timern. Spelledaren stoppar då låten själv och startar nästa låt med knappen Nästa låt.
+3. Spelledaren trycker på spela. I de flesta kategorier spelas ett 30 sekunders klipp från Deezer direkt i spelledarvyn, och timern på 30 sekunder startar när det hörs. Saknar Deezer klippet hoppas låten över och en annan slumpas. Med **Spela klippet på alla enheter** i Inställningar, som bara syns med Deezer och är av som standard, spelas klippet även i spelarnas mobiler. De spolar till samma ställe som hos spelledaren, men ljudet blir inte helt i takt, så det passar bäst när alla inte är i samma rum. Har spelledaren valt Spotify som musiktjänst i Inställningar öppnas låten i Spotify-appen och klicket startar timern. Spelledaren stoppar då låten själv och startar nästa låt med knappen Nästa låt.
 4. Spelarna väljer artist och titel ur listan. Svaren kan ändras tills tiden är slut, och då visas rätt svar.
 
 Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt inom 15 sekunder. Först till 10 poäng vinner.
@@ -22,6 +22,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
+- `js/klipp.js`: klippet i spelarnas mobiler när spelledaren har valt att spela det på alla enheter. Spelarna får bara klipplänken, inte vilken låt det är.
 - `js/deezer.js`: förhandsklipp från Deezer i kategorier med `"audio": "deezer"`. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp hoppas låten över. Med Spotify som musiktjänst spelas bara låtar med Spotify-ID, och med Deezer bara låtar med Deezer-ID.
 - `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.
 - `verktyg/versioner.mjs`, `.github/workflows/publicera.yml`: sidan publiceras på GitHub Pages av ett arbetsflöde, som först ger CSS och JS ett versionsnummer. Då hämtar webbläsaren nya filer efter varje ändring i stället för gamla från cachen. Skriptet körs bara av arbetsflödet och i CI, aldrig för hand.

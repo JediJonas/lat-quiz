@@ -7,6 +7,7 @@ import { settingsChangeText, upcomingSettings } from './game.js';
 import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
+import { createClipPlayer } from './klipp.js';
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;
@@ -19,6 +20,8 @@ let me = null; // { playerId, name, code }
 let net = null;
 let view = null;
 let gameView = null;
+// Klippet spelas även här, om spelledaren har valt det.
+let clipPlayer = null;
 // Sant medan formuläret väntar på att spelledaren godkänner namnet.
 let pending = false;
 // Inställningarna som spelaren senast fick veta om, och timern som samlar ändringarna.
@@ -63,6 +66,7 @@ function onMessage(msg) {
   checkSettings();
   $('#category-name').textContent = view.categoryName || '';
   gameView.update(view, me.playerId);
+  clipPlayer.update(view);
 }
 
 // Spelledaren har ändrat inställningarna eller kategorin. Det visas en kort stund. Under en låt
@@ -105,6 +109,7 @@ function onHeard() {
 // Ett avslutat spel går inte att gå tillbaka till. Poängen står kvar, men appen slutar
 // försöka ansluta, och en omladdning visar sidan där man anger kod.
 function gameEnded() {
+  clipPlayer.stop();
   net.destroy();
   net = null;
   storage(() => localStorage.removeItem(SAVE_KEY));
@@ -257,6 +262,7 @@ function leave(message, clearCode, keepPlayer = false) {
   net.destroy();
   net = null;
   view = null;
+  clipPlayer.stop();
   knownSettings = null;
   clearTimeout(settingsTimer);
   setQrVisible(false);
@@ -279,6 +285,11 @@ function leave(message, clearCode, keepPlayer = false) {
 
 async function init() {
   gameView = createGameView({ onAnswer: sendAnswer, onError: showError });
+  clipPlayer = createClipPlayer({ onBlocked: (on) => { $('#clip-sound').hidden = !on; } });
+  // Mobilen spelar ljud först när spelaren har tryckt någonstans, till exempel på Gå med eller
+  // i ett svarsfält. Varje tryck ger ljudet en ny chans, och knappen syns när inget tryck har kommit.
+  for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, () => clipPlayer.unlock(), true);
+  $('#clip-sound').addEventListener('click', () => clipPlayer.unlock());
 
   const params = new URLSearchParams(location.search);
   const code = (params.get('kod') || '').toUpperCase();

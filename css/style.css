@@ -579,6 +579,11 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .eq.paused i { animation-play-state: paused; }
 @keyframes eq { from { height: 25%; } to { height: 100%; } }
 .now-playing { margin: 0 0 16px; }
+/* Spelar mobilen inte klippet förrän spelaren har tryckt, står en knapp i stället för texten. */
+.sound-button { display: inline-flex; align-items: center; width: auto; min-height: 44px; margin: 0; padding: 0 18px; border-radius: 999px; background: #fff; color: #111; font-size: 0.9375rem; }
+.sound-button:hover { background: rgba(255, 255, 255, 0.85); }
+.sound-button:focus-visible { outline-color: #fff; }
+.cover-foot:has(.sound-button:not([hidden])) > span { display: none; }
 .now-playing .ring { margin: auto; }
 /* Väntan, låten som spelas, rätt svar och vinnaren har samma storlek, så att rutan inte
    hoppar när den växlar. */
@@ -1315,6 +1320,7 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
 .modal .switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
 .modal .host-plays-group { margin-top: 14px; border-top: 0; padding-top: 0; }
+.modal .clip-all { margin-top: 14px; }
 .modal .host-plays-group .field-group { margin-top: 14px; }
 .modal .current-song { border-radius: 22px; background: var(--surface-solid); }
 .modal .current-song button.theme-switch { display: flex; width: 100%; flex-direction: row-reverse; justify-content: space-between; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; }
