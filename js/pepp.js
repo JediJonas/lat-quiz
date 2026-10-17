@@ -52,11 +52,11 @@ export function winComment({ winners, standings, songs, winScore }) {
 
 // Texten innan vinnaren visas, medan spelledaren spelar en trumvirvel eller en fanfar.
 const WIN_INTROS = [
-  ['Vi har en vinnare!', 'Och vinnaren är'],
-  ['Det är dags!', 'Segern går till'],
-  ['Håll i er nu!', 'Och vinnaren är'],
-  ['Spänningen stiger!', 'Först i mål är'],
-  ['Nu är det klart!', 'Vinnaren är'],
+  ['Vi har en vinnare!', 'Vinnaren avslöjas strax'],
+  ['Det är dags!', 'Snart får ni veta vem som vann'],
+  ['Håll i er nu!', 'Vinnaren avslöjas strax'],
+  ['Spänningen stiger!', 'Ett ögonblick bara'],
+  ['Nu är det klart!', 'Snart får ni veta vem som vann'],
 ];
 
 // Samma text på alla enheter: { title, sub }.
