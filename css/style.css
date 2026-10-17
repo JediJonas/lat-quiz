@@ -810,11 +810,11 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   animation: toast-in 0.25s ease-out;
 }
 .message[hidden] { display: none; }
-.message-icon { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--accent-soft); color: var(--good); }
+/* Ikonen är grå, så att den inte ser ut som en knapp; bara fel får färg. */
+.message-icon { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--muted); }
 .message-icon svg { width: 22px; height: 22px; fill: currentColor; }
 .message-body strong { display: block; font-size: 1rem; font-weight: 700; }
 .message-body span { display: block; color: var(--muted); font-size: 0.9375rem; }
-.message.ok .message-icon { background: var(--good-soft); color: var(--good); }
 .message.problem strong { color: var(--bad); }
 .message.problem .message-icon { background: var(--bad); color: var(--bad-text); }
 .spinner { width: 18px; height: 18px; box-sizing: border-box; border: 2.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 1.4s linear infinite; }
