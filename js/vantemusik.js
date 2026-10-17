@@ -1,5 +1,5 @@
 // Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
-// Låtarna är lugna, glada och mest instrumentala, så att ingen börjar gissa redan i lobbyn, och
+// Låtarna är lugna, glada och instrumentala, utan sång, så att ingen börjar gissa redan i lobbyn, och
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
@@ -11,10 +11,8 @@ export const LOBBY_SONGS = [
   { artist: 'Vince Guaraldi Trio', title: 'Linus and Lucy', deezerId: 134403694 },
   { artist: 'The Dave Brubeck Quartet', title: 'Take Five', deezerId: 586127 },
   { artist: 'Bert Kaempfert', title: "A Swingin' Safari", deezerId: 24940331 },
-  { artist: 'Stan Getz & João Gilberto', title: 'The Girl from Ipanema', deezerId: 2228684 },
   { artist: 'Marvin Hamlisch', title: 'The Entertainer', deezerId: 1097447 },
   { artist: 'Jan Johansson', title: 'Visa från Utanmyra', deezerId: 61592653 },
-  { artist: 'Bobby McFerrin', title: "Don't Worry, Be Happy", deezerId: 3127387 },
   { artist: 'Herb Alpert & the Tijuana Brass', title: 'A Taste of Honey', deezerId: 1064027062 },
   { artist: 'Ramsey Lewis Trio', title: 'The "In" Crowd', deezerId: 925778 },
   { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
@@ -25,11 +23,13 @@ export const LOBBY_SONGS = [
   { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
   { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
   { artist: 'James Last', title: 'Biscaya', deezerId: 666384992 },
-  { artist: 'Louis Armstrong', title: 'What a Wonderful World', deezerId: 62347641 },
-  { artist: 'Ted Gärdestad', title: 'Sol, vind och vatten', deezerId: 909686712 },
-  { artist: 'Norah Jones', title: "Don't Know Why", deezerId: 3155839 },
-  { artist: 'The Champs', title: 'Tequila', deezerId: 10677778 },
   { artist: 'Jan Johansson', title: 'Emigrantvisa', deezerId: 61592659 },
+  { artist: 'Stan Getz & Charlie Byrd', title: 'Desafinado', deezerId: 602453972 },
+  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
+  { artist: 'Vince Guaraldi Trio', title: 'Cast Your Fate to the Wind', deezerId: 2604673 },
+  { artist: "Booker T. & the M.G.'s", title: 'Time Is Tight', deezerId: 4286773 },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'Tijuana Taxi', deezerId: 1068117682 },
+  { artist: 'Björn J:son Lindh', title: 'Brusa högre lilla å', deezerId: 915549 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
