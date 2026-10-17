@@ -274,8 +274,8 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#result').hidden = phase !== 'revealed' && !(holding && !$('#result').hidden);
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
-    // På vinnarkortet gäller Deezer vinnarlåten, inte quizlåtarna.
-    document.querySelectorAll('.clip-note').forEach((note) => { if (!note.closest('.win')) note.hidden = !view.deezer; });
+    // På vinnarkortet gäller Deezer vinnarlåten och i lobbyn väntemusiken, inte quizlåtarna.
+    document.querySelectorAll('.clip-note').forEach((note) => { if (!note.closest('.win') && note.id !== 'lobby-note') note.hidden = !view.deezer; });
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
