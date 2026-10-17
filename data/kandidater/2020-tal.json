@@ -1,0 +1,1093 @@
+{
+ "id": "2020-tal",
+ "name": "2020-tal",
+ "file": "2020-tal.json",
+ "songs": [
+  {
+   "id": "24kgoldn-mood",
+   "artist": "24kGoldn",
+   "title": "Mood",
+   "year": 2020
+  },
+  {
+   "id": "adele-easy-on-me",
+   "artist": "Adele",
+   "title": "Easy On Me",
+   "year": 2021
+  },
+  {
+   "id": "alan-walker-man-on-the-moon",
+   "artist": "Alan Walker",
+   "title": "Man On The Moon",
+   "year": 2021
+  },
+  {
+   "id": "albatraoz-raggarbil",
+   "artist": "Albatraoz",
+   "title": "Raggarbil",
+   "year": 2020
+  },
+  {
+   "id": "albin-lee-meldau-josefin",
+   "artist": "Albin Lee Meldau",
+   "title": "Josefin",
+   "year": 2024
+  },
+  {
+   "id": "alex-warren-ordinary",
+   "artist": "Alex Warren",
+   "title": "Ordinary",
+   "year": 2025
+  },
+  {
+   "id": "ariana-grande-positions",
+   "artist": "Ariana Grande",
+   "title": "positions",
+   "year": 2020
+  },
+  {
+   "id": "ariana-grande-we-can-t-be-friends-wait-for-your-love",
+   "artist": "Ariana Grande",
+   "title": "we can't be friends (wait for your love)",
+   "year": 2024
+  },
+  {
+   "id": "artemas-i-like-the-way-you-kiss-me",
+   "artist": "Artemas",
+   "title": "i like the way you kiss me",
+   "year": 2024
+  },
+  {
+   "id": "ava-max-kings-queens",
+   "artist": "Ava Max",
+   "title": "Kings & Queens",
+   "year": 2020
+  },
+  {
+   "id": "benjamin-ingrosso-allt-det-vackra",
+   "artist": "Benjamin Ingrosso",
+   "title": "Allt det vackra",
+   "year": 2021
+  },
+  {
+   "id": "benjamin-ingrosso-det-stora-roda-huset",
+   "artist": "Benjamin Ingrosso",
+   "title": "Det stora röda huset",
+   "year": 2021
+  },
+  {
+   "id": "benjamin-ingrosso-look-who-s-laughing-now",
+   "artist": "Benjamin Ingrosso",
+   "title": "Look Who's Laughing Now",
+   "year": 2024
+  },
+  {
+   "id": "benson-boone-beautiful-things",
+   "artist": "Benson Boone",
+   "title": "Beautiful Things",
+   "year": 2024
+  },
+  {
+   "id": "benson-boone-slow-it-down",
+   "artist": "Benson Boone",
+   "title": "Slow It Down",
+   "year": 2024
+  },
+  {
+   "id": "benson-boone-mystical-magical",
+   "artist": "Benson Boone",
+   "title": "Mystical Magical",
+   "year": 2025
+  },
+  {
+   "id": "beyonce-cuff-it",
+   "artist": "Beyoncé",
+   "title": "CUFF IT",
+   "year": 2022
+  },
+  {
+   "id": "beyonce-texas-hold-em",
+   "artist": "Beyoncé",
+   "title": "TEXAS HOLD 'EM",
+   "year": 2024
+  },
+  {
+   "id": "billie-eilish-therefore-i-am",
+   "artist": "Billie Eilish",
+   "title": "Therefore I Am",
+   "year": 2020
+  },
+  {
+   "id": "billie-eilish-happier-than-ever",
+   "artist": "Billie Eilish",
+   "title": "Happier Than Ever",
+   "year": 2021
+  },
+  {
+   "id": "billie-eilish-what-was-i-made-for",
+   "artist": "Billie Eilish",
+   "title": "What Was I Made For?",
+   "year": 2023
+  },
+  {
+   "id": "billie-eilish-birds-of-a-feather",
+   "artist": "Billie Eilish",
+   "title": "BIRDS OF A FEATHER",
+   "year": 2024
+  },
+  {
+   "id": "bolaget-dum",
+   "artist": "Bolaget",
+   "title": "Dum",
+   "year": 2020
+  },
+  {
+   "id": "bolaget-kan-inte-ga",
+   "artist": "Bolaget",
+   "title": "Kan inte gå",
+   "year": 2021
+  },
+  {
+   "id": "bolaget-ikvall-igen",
+   "artist": "Bolaget",
+   "title": "Ikväll igen",
+   "year": 2023
+  },
+  {
+   "id": "bolaget-lat-mig-va",
+   "artist": "Bolaget",
+   "title": "Låt mig va",
+   "year": 2023
+  },
+  {
+   "id": "bruno-mars-i-just-might",
+   "artist": "Bruno Mars",
+   "title": "I Just Might",
+   "year": 2026
+  },
+  {
+   "id": "bts-dynamite",
+   "artist": "BTS",
+   "title": "Dynamite",
+   "year": 2020
+  },
+  {
+   "id": "bts-butter",
+   "artist": "BTS",
+   "title": "Butter",
+   "year": 2021
+  },
+  {
+   "id": "calvin-harris-miracle",
+   "artist": "Calvin Harris",
+   "title": "Miracle",
+   "year": 2023
+  },
+  {
+   "id": "cardi-b-wap",
+   "artist": "Cardi B",
+   "title": "WAP",
+   "year": 2020
+  },
+  {
+   "id": "chappell-roan-pink-pony-club",
+   "artist": "Chappell Roan",
+   "title": "Pink Pony Club",
+   "year": 2020
+  },
+  {
+   "id": "chappell-roan-good-luck-babe",
+   "artist": "Chappell Roan",
+   "title": "Good Luck, Babe!",
+   "year": 2024
+  },
+  {
+   "id": "coldplay-my-universe",
+   "artist": "Coldplay",
+   "title": "My Universe",
+   "year": 2021
+  },
+  {
+   "id": "dababy-rockstar",
+   "artist": "DaBaby",
+   "title": "ROCKSTAR",
+   "year": 2020
+  },
+  {
+   "id": "david-guetta-i-m-good-blue",
+   "artist": "David Guetta",
+   "title": "I'm Good (Blue)",
+   "year": 2022
+  },
+  {
+   "id": "david-kushner-daylight",
+   "artist": "David Kushner",
+   "title": "Daylight",
+   "year": 2023
+  },
+  {
+   "id": "disco-lines-no-broke-boys",
+   "artist": "Disco Lines & Tinashe",
+   "title": "No Broke Boys",
+   "year": 2025
+  },
+  {
+   "id": "djo-end-of-beginning",
+   "artist": "Djo",
+   "title": "End of Beginning",
+   "year": 2022
+  },
+  {
+   "id": "doechii-anxiety",
+   "artist": "Doechii",
+   "title": "Anxiety",
+   "year": 2025
+  },
+  {
+   "id": "doja-cat-kiss-me-more",
+   "artist": "Doja Cat",
+   "title": "Kiss Me More",
+   "year": 2021
+  },
+  {
+   "id": "doja-cat-woman",
+   "artist": "Doja Cat",
+   "title": "Woman",
+   "year": 2021
+  },
+  {
+   "id": "doja-cat-paint-the-town-red",
+   "artist": "Doja Cat",
+   "title": "Paint The Town Red",
+   "year": 2023
+  },
+  {
+   "id": "dua-lipa-levitating",
+   "artist": "Dua Lipa",
+   "title": "Levitating",
+   "year": 2020
+  },
+  {
+   "id": "dua-lipa-dance-the-night",
+   "artist": "Dua Lipa",
+   "title": "Dance The Night",
+   "year": 2023
+  },
+  {
+   "id": "dua-lipa-houdini",
+   "artist": "Dua Lipa",
+   "title": "Houdini",
+   "year": 2023
+  },
+  {
+   "id": "dua-lipa-training-season",
+   "artist": "Dua Lipa",
+   "title": "Training Season",
+   "year": 2024
+  },
+  {
+   "id": "ed-sheeran-bad-habits",
+   "artist": "Ed Sheeran",
+   "title": "Bad Habits",
+   "year": 2021
+  },
+  {
+   "id": "ed-sheeran-shivers",
+   "artist": "Ed Sheeran",
+   "title": "Shivers",
+   "year": 2021
+  },
+  {
+   "id": "ed-sheeran-2step",
+   "artist": "Ed Sheeran",
+   "title": "2step",
+   "year": 2021
+  },
+  {
+   "id": "ed-sheeran-eyes-closed",
+   "artist": "Ed Sheeran",
+   "title": "Eyes Closed",
+   "year": 2023
+  },
+  {
+   "id": "ed-sheeran-sapphire",
+   "artist": "Ed Sheeran",
+   "title": "Sapphire",
+   "year": 2025
+  },
+  {
+   "id": "einar-dansa",
+   "artist": "Einár",
+   "title": "Dansa",
+   "year": 2021
+  },
+  {
+   "id": "elov-beny-bubbel-pa-balkongen",
+   "artist": "Elov & Beny",
+   "title": "Bubbel på balkongen",
+   "year": 2022
+  },
+  {
+   "id": "elton-john-cold-heart",
+   "artist": "Elton John & Dua Lipa",
+   "title": "Cold Heart",
+   "year": 2021
+  },
+  {
+   "id": "eminem-houdini",
+   "artist": "Eminem",
+   "title": "Houdini",
+   "year": 2024
+  },
+  {
+   "id": "farruko-pepas",
+   "artist": "Farruko",
+   "title": "Pepas",
+   "year": 2021
+  },
+  {
+   "id": "gayle-abcdefu",
+   "artist": "GAYLE",
+   "title": "abcdefu",
+   "year": 2021
+  },
+  {
+   "id": "gigi-perez-sailor-song",
+   "artist": "Gigi Perez",
+   "title": "Sailor Song",
+   "year": 2024
+  },
+  {
+   "id": "glass-animals-heat-waves",
+   "artist": "Glass Animals",
+   "title": "Heat Waves",
+   "year": 2020
+  },
+  {
+   "id": "gracie-abrams-that-s-so-true",
+   "artist": "Gracie Abrams",
+   "title": "That's So True",
+   "year": 2024
+  },
+  {
+   "id": "hanna-ferm-for-evigt",
+   "artist": "Hanna Ferm",
+   "title": "För evigt",
+   "year": 2021
+  },
+  {
+   "id": "harry-styles-as-it-was",
+   "artist": "Harry Styles",
+   "title": "As It Was",
+   "year": 2022
+  },
+  {
+   "id": "harry-styles-late-night-talking",
+   "artist": "Harry Styles",
+   "title": "Late Night Talking",
+   "year": 2022
+  },
+  {
+   "id": "hooja-banan-melon-kiwi-citron",
+   "artist": "Hooja",
+   "title": "Banan Melon Kiwi & Citron",
+   "year": 2021
+  },
+  {
+   "id": "hov1-nar-jag-ser-dig",
+   "artist": "Hov1",
+   "title": "När jag ser dig",
+   "year": 2020
+  },
+  {
+   "id": "hov1-gamora",
+   "artist": "Hov1",
+   "title": "Gamora",
+   "year": 2021
+  },
+  {
+   "id": "hov1-barn-av-var-tid",
+   "artist": "Hov1",
+   "title": "Barn av vår tid",
+   "year": 2021
+  },
+  {
+   "id": "hov1-grat",
+   "artist": "Hov1",
+   "title": "Grät",
+   "year": 2023
+  },
+  {
+   "id": "huntr-x-golden",
+   "artist": "HUNTR/X",
+   "title": "Golden",
+   "year": 2025
+  },
+  {
+   "id": "ida-lova-svagare-an-jag",
+   "artist": "Ida-Lova",
+   "title": "Svagare än jag",
+   "year": 2025
+  },
+  {
+   "id": "imagine-dragons-enemy",
+   "artist": "Imagine Dragons",
+   "title": "Enemy",
+   "year": 2021
+  },
+  {
+   "id": "imagine-dragons-bones",
+   "artist": "Imagine Dragons",
+   "title": "Bones",
+   "year": 2022
+  },
+  {
+   "id": "jack-harlow-first-class",
+   "artist": "Jack Harlow",
+   "title": "First Class",
+   "year": 2022
+  },
+  {
+   "id": "jakob-karlberg-fan-va-bra",
+   "artist": "Jakob Karlberg",
+   "title": "Fan va bra",
+   "year": 2025
+  },
+  {
+   "id": "jason-derulo-take-you-dancing",
+   "artist": "Jason Derulo",
+   "title": "Take You Dancing",
+   "year": 2020
+  },
+  {
+   "id": "jawsh-685-savage-love",
+   "artist": "Jawsh 685",
+   "title": "Savage Love",
+   "year": 2020
+  },
+  {
+   "id": "joel-corry-head-heart",
+   "artist": "Joel Corry",
+   "title": "Head & Heart",
+   "year": 2020
+  },
+  {
+   "id": "joji-glimpse-of-us",
+   "artist": "Joji",
+   "title": "Glimpse of Us",
+   "year": 2022
+  },
+  {
+   "id": "jung-kook-seven",
+   "artist": "Jung Kook",
+   "title": "Seven",
+   "year": 2023
+  },
+  {
+   "id": "justin-bieber-peaches",
+   "artist": "Justin Bieber",
+   "title": "Peaches",
+   "year": 2021
+  },
+  {
+   "id": "justin-bieber-ghost",
+   "artist": "Justin Bieber",
+   "title": "Ghost",
+   "year": 2021
+  },
+  {
+   "id": "justin-bieber-daisies",
+   "artist": "Justin Bieber",
+   "title": "DAISIES",
+   "year": 2025
+  },
+  {
+   "id": "kaj-bara-bada-bastu",
+   "artist": "KAJ",
+   "title": "Bara bada bastu",
+   "year": 2025
+  },
+  {
+   "id": "kendrick-lamar-not-like-us",
+   "artist": "Kendrick Lamar",
+   "title": "Not Like Us",
+   "year": 2024
+  },
+  {
+   "id": "kenya-grace-strangers",
+   "artist": "Kenya Grace",
+   "title": "Strangers",
+   "year": 2023
+  },
+  {
+   "id": "kygo-like-it-is",
+   "artist": "Kygo",
+   "title": "Like It Is",
+   "year": 2020
+  },
+  {
+   "id": "lady-gaga-abracadabra",
+   "artist": "Lady Gaga",
+   "title": "Abracadabra",
+   "year": 2025
+  },
+  {
+   "id": "lady-gaga-rain-on-me",
+   "artist": "Lady Gaga & Ariana Grande",
+   "title": "Rain On Me",
+   "year": 2020
+  },
+  {
+   "id": "lady-gaga-die-with-a-smile",
+   "artist": "Lady Gaga & Bruno Mars",
+   "title": "Die With A Smile",
+   "year": 2024
+  },
+  {
+   "id": "laleh-det-kommer-bli-bra",
+   "artist": "Laleh",
+   "title": "Det kommer bli bra",
+   "year": 2022
+  },
+  {
+   "id": "laleh-bara-fa-va-mig-sjalv",
+   "artist": "Laleh",
+   "title": "Bara få va mig själv",
+   "year": 2023
+  },
+  {
+   "id": "laleh-goliat",
+   "artist": "Laleh",
+   "title": "Goliat",
+   "year": 2023
+  },
+  {
+   "id": "libianca-people",
+   "artist": "Libianca",
+   "title": "People",
+   "year": 2022
+  },
+  {
+   "id": "lil-nas-x-industry-baby",
+   "artist": "Lil Nas X",
+   "title": "INDUSTRY BABY",
+   "year": 2021
+  },
+  {
+   "id": "lil-nas-x-montero-call-me-by-your-name",
+   "artist": "Lil Nas X",
+   "title": "MONTERO (Call Me By Your Name)",
+   "year": 2021
+  },
+  {
+   "id": "linkin-park-the-emptiness-machine",
+   "artist": "Linkin Park",
+   "title": "The Emptiness Machine",
+   "year": 2024
+  },
+  {
+   "id": "lizzo-about-damn-time",
+   "artist": "Lizzo",
+   "title": "About Damn Time",
+   "year": 2022
+  },
+  {
+   "id": "lola-young-messy",
+   "artist": "Lola Young",
+   "title": "Messy",
+   "year": 2024
+  },
+  {
+   "id": "loreen-tattoo",
+   "artist": "Loreen",
+   "title": "Tattoo",
+   "year": 2023
+  },
+  {
+   "id": "lost-frequencies-where-are-you-now",
+   "artist": "Lost Frequencies",
+   "title": "Where Are You Now",
+   "year": 2021
+  },
+  {
+   "id": "lucianoz-det-ar-ju-dej-jag-gar-och-vantar-pa",
+   "artist": "Lucianoz",
+   "title": "Det är ju dej jag går och väntar på",
+   "year": 2022
+  },
+  {
+   "id": "mark-ambor-belong-together",
+   "artist": "Mark Ambor",
+   "title": "Belong Together",
+   "year": 2024
+  },
+  {
+   "id": "marshmello-friends",
+   "artist": "Marshmello",
+   "title": "FRIENDS",
+   "year": 2025
+  },
+  {
+   "id": "meghan-trainor-made-you-look",
+   "artist": "Meghan Trainor",
+   "title": "Made You Look",
+   "year": 2022
+  },
+  {
+   "id": "melissa-horn-lamna-honom",
+   "artist": "Melissa Horn",
+   "title": "Lämna honom",
+   "year": 2021
+  },
+  {
+   "id": "michael-marcagi-scared-to-start",
+   "artist": "Michael Marcagi",
+   "title": "Scared To Start",
+   "year": 2024
+  },
+  {
+   "id": "miley-cyrus-midnight-sky",
+   "artist": "Miley Cyrus",
+   "title": "Midnight Sky",
+   "year": 2020
+  },
+  {
+   "id": "miley-cyrus-flowers",
+   "artist": "Miley Cyrus",
+   "title": "Flowers",
+   "year": 2023
+  },
+  {
+   "id": "miriam-bryant-ge-upp-igen",
+   "artist": "Miriam Bryant",
+   "title": "Ge upp igen",
+   "year": 2020
+  },
+  {
+   "id": "miriam-bryant-tystnar-i-luren",
+   "artist": "Miriam Bryant",
+   "title": "tystnar i luren",
+   "year": 2021
+  },
+  {
+   "id": "miriam-bryant-regnblota-skor",
+   "artist": "Miriam Bryant",
+   "title": "Regnblöta skor",
+   "year": 2024
+  },
+  {
+   "id": "miss-li-komplicerad",
+   "artist": "Miss Li",
+   "title": "Komplicerad",
+   "year": 2021
+  },
+  {
+   "id": "miss-li-x",
+   "artist": "Miss Li",
+   "title": "X",
+   "year": 2022
+  },
+  {
+   "id": "molly-hammar-ingen-annan-ror-mig-som-du",
+   "artist": "Molly Hammar",
+   "title": "Ingen annan rör mig som du",
+   "year": 2022
+  },
+  {
+   "id": "molly-sanden-jag-mar-bra-nu",
+   "artist": "Molly Sandén",
+   "title": "Jag mår bra nu",
+   "year": 2020
+  },
+  {
+   "id": "molly-sanden-nan-annan-nu",
+   "artist": "Molly Sandén",
+   "title": "Nån annan nu",
+   "year": 2021
+  },
+  {
+   "id": "morgan-wallen-last-night",
+   "artist": "Morgan Wallen",
+   "title": "Last Night",
+   "year": 2023
+  },
+  {
+   "id": "myles-smith-stargazing",
+   "artist": "Myles Smith",
+   "title": "Stargazing",
+   "year": 2024
+  },
+  {
+   "id": "myra-granberg-lose-my-mind",
+   "artist": "Myra Granberg",
+   "title": "Lose my mind",
+   "year": 2021
+  },
+  {
+   "id": "maneskin-i-wanna-be-your-slave",
+   "artist": "Måneskin",
+   "title": "I Wanna Be Your Slave",
+   "year": 2021
+  },
+  {
+   "id": "newkid-du-maste-finnas",
+   "artist": "Newkid",
+   "title": "Du måste finnas",
+   "year": 2020
+  },
+  {
+   "id": "nicky-youre-sunroof",
+   "artist": "Nicky Youre",
+   "title": "Sunroof",
+   "year": 2022
+  },
+  {
+   "id": "noah-kahan-stick-season",
+   "artist": "Noah Kahan",
+   "title": "Stick Season",
+   "year": 2022
+  },
+  {
+   "id": "olivia-dean-man-i-need",
+   "artist": "Olivia Dean",
+   "title": "Man I Need",
+   "year": 2025
+  },
+  {
+   "id": "olivia-dean-so-easy-to-fall-in-love",
+   "artist": "Olivia Dean",
+   "title": "So Easy (To Fall In Love)",
+   "year": 2025
+  },
+  {
+   "id": "olivia-lobato-syrener",
+   "artist": "Olivia Lobato",
+   "title": "Syrener",
+   "year": 2021
+  },
+  {
+   "id": "olivia-rodrigo-good-4-u",
+   "artist": "Olivia Rodrigo",
+   "title": "good 4 u",
+   "year": 2021
+  },
+  {
+   "id": "olivia-rodrigo-drivers-license",
+   "artist": "Olivia Rodrigo",
+   "title": "drivers license",
+   "year": 2021
+  },
+  {
+   "id": "olivia-rodrigo-vampire",
+   "artist": "Olivia Rodrigo",
+   "title": "vampire",
+   "year": 2023
+  },
+  {
+   "id": "onerepublic-i-ain-t-worried",
+   "artist": "OneRepublic",
+   "title": "I Ain't Worried",
+   "year": 2022
+  },
+  {
+   "id": "peg-parnevik-battre-nu",
+   "artist": "Peg Parnevik",
+   "title": "Bättre nu",
+   "year": 2023
+  },
+  {
+   "id": "pinkpantheress-boy-s-a-liar-pt-2",
+   "artist": "PinkPantheress",
+   "title": "Boy's a liar Pt. 2",
+   "year": 2023
+  },
+  {
+   "id": "post-malone-i-had-some-help",
+   "artist": "Post Malone",
+   "title": "I Had Some Help",
+   "year": 2024
+  },
+  {
+   "id": "powfu-death-bed",
+   "artist": "Powfu",
+   "title": "death bed",
+   "year": 2020
+  },
+  {
+   "id": "purple-disco-machine-honey-boy",
+   "artist": "Purple Disco Machine",
+   "title": "Honey Boy",
+   "year": 2024
+  },
+  {
+   "id": "rasmus-gozzi-rid-mig-som-en-dalahast",
+   "artist": "Rasmus Gozzi",
+   "title": "Rid mig som en dalahäst",
+   "year": 2022
+  },
+  {
+   "id": "raye-escapism",
+   "artist": "RAYE",
+   "title": "Escapism.",
+   "year": 2022
+  },
+  {
+   "id": "raye-where-is-my-husband",
+   "artist": "RAYE",
+   "title": "WHERE IS MY HUSBAND!",
+   "year": 2025
+  },
+  {
+   "id": "rema-calm-down",
+   "artist": "Rema",
+   "title": "Calm Down",
+   "year": 2022
+  },
+  {
+   "id": "rosa-linn-snap",
+   "artist": "Rosa Linn",
+   "title": "SNAP",
+   "year": 2022
+  },
+  {
+   "id": "rose-apt",
+   "artist": "ROSÉ & Bruno Mars",
+   "title": "APT.",
+   "year": 2024
+  },
+  {
+   "id": "sabrina-carpenter-espresso",
+   "artist": "Sabrina Carpenter",
+   "title": "Espresso",
+   "year": 2024
+  },
+  {
+   "id": "sabrina-carpenter-please-please-please",
+   "artist": "Sabrina Carpenter",
+   "title": "Please Please Please",
+   "year": 2024
+  },
+  {
+   "id": "sabrina-carpenter-taste",
+   "artist": "Sabrina Carpenter",
+   "title": "Taste",
+   "year": 2024
+  },
+  {
+   "id": "sabrina-carpenter-manchild",
+   "artist": "Sabrina Carpenter",
+   "title": "Manchild",
+   "year": 2025
+  },
+  {
+   "id": "saja-boys-soda-pop",
+   "artist": "Saja Boys",
+   "title": "Soda Pop",
+   "year": 2025
+  },
+  {
+   "id": "sam-smith-unholy",
+   "artist": "Sam Smith",
+   "title": "Unholy",
+   "year": 2022
+  },
+  {
+   "id": "bruno-mars-leave-the-door-open",
+   "artist": "Bruno Mars",
+   "title": "Leave The Door Open",
+   "year": 2021
+  },
+  {
+   "id": "smith-thell-goliath",
+   "artist": "Smith & Thell",
+   "title": "Goliath",
+   "year": 2020
+  },
+  {
+   "id": "sombr-back-to-friends",
+   "artist": "sombr",
+   "title": "back to friends",
+   "year": 2024
+  },
+  {
+   "id": "stephen-sanchez-until-i-found-you",
+   "artist": "Stephen Sanchez",
+   "title": "Until I Found You",
+   "year": 2021
+  },
+  {
+   "id": "steve-lacy-bad-habit",
+   "artist": "Steve Lacy",
+   "title": "Bad Habit",
+   "year": 2022
+  },
+  {
+   "id": "sza-kill-bill",
+   "artist": "SZA",
+   "title": "Kill Bill",
+   "year": 2022
+  },
+  {
+   "id": "tate-mcrae-you-broke-me-first",
+   "artist": "Tate McRae",
+   "title": "you broke me first",
+   "year": 2020
+  },
+  {
+   "id": "tate-mcrae-greedy",
+   "artist": "Tate McRae",
+   "title": "greedy",
+   "year": 2023
+  },
+  {
+   "id": "tate-mcrae-sports-car",
+   "artist": "Tate McRae",
+   "title": "Sports car",
+   "year": 2025
+  },
+  {
+   "id": "taylor-swift-anti-hero",
+   "artist": "Taylor Swift",
+   "title": "Anti-Hero",
+   "year": 2022
+  },
+  {
+   "id": "taylor-swift-fortnight",
+   "artist": "Taylor Swift",
+   "title": "Fortnight",
+   "year": 2024
+  },
+  {
+   "id": "taylor-swift-the-fate-of-ophelia",
+   "artist": "Taylor Swift",
+   "title": "The Fate of Ophelia",
+   "year": 2025
+  },
+  {
+   "id": "teddy-swims-lose-control",
+   "artist": "Teddy Swims",
+   "title": "Lose Control",
+   "year": 2023
+  },
+  {
+   "id": "teddy-swims-the-door",
+   "artist": "Teddy Swims",
+   "title": "The Door",
+   "year": 2023
+  },
+  {
+   "id": "the-kid-laroi-stay",
+   "artist": "The Kid LAROI",
+   "title": "Stay",
+   "year": 2021
+  },
+  {
+   "id": "the-weeknd-save-your-tears",
+   "artist": "The Weeknd",
+   "title": "Save Your Tears",
+   "year": 2020
+  },
+  {
+   "id": "the-weeknd-timeless",
+   "artist": "The Weeknd",
+   "title": "Timeless",
+   "year": 2024
+  },
+  {
+   "id": "thomas-stenstrom-sista-sommaren",
+   "artist": "Thomas Stenström",
+   "title": "Sista sommaren",
+   "year": 2022
+  },
+  {
+   "id": "thomas-stenstrom-andas-in-andas-ut",
+   "artist": "Thomas Stenström",
+   "title": "Andas in, andas ut",
+   "year": 2023
+  },
+  {
+   "id": "tiesto-the-business",
+   "artist": "Tiësto",
+   "title": "The Business",
+   "year": 2020
+  },
+  {
+   "id": "tjuvjakt-tusen-spann",
+   "artist": "Tjuvjakt",
+   "title": "Tusen spänn",
+   "year": 2025
+  },
+  {
+   "id": "tones-and-i-fly-away",
+   "artist": "Tones and I",
+   "title": "Fly Away",
+   "year": 2020
+  },
+  {
+   "id": "tyla-water",
+   "artist": "Tyla",
+   "title": "Water",
+   "year": 2023
+  },
+  {
+   "id": "veronica-maggio-se-mig",
+   "artist": "Veronica Maggio",
+   "title": "Se mig",
+   "year": 2022
+  },
+  {
+   "id": "victor-leksell-svag",
+   "artist": "Victor Leksell",
+   "title": "Svag",
+   "year": 2020
+  },
+  {
+   "id": "victor-leksell-eld-lagor",
+   "artist": "Victor Leksell",
+   "title": "Eld & lågor",
+   "year": 2021
+  },
+  {
+   "id": "victor-leksell-din-lat",
+   "artist": "Victor Leksell",
+   "title": "Din låt",
+   "year": 2022
+  },
+  {
+   "id": "victor-leksell-fanga-mig-nar-jag-faller",
+   "artist": "Victor Leksell",
+   "title": "Fånga mig när jag faller",
+   "year": 2023
+  },
+  {
+   "id": "yasin-young-heartless",
+   "artist": "Yasin",
+   "title": "Young & Heartless",
+   "year": 2020
+  },
+  {
+   "id": "yasin-har-dig",
+   "artist": "Yasin",
+   "title": "Har dig",
+   "year": 2023
+  },
+  {
+   "id": "zach-bryan-i-remember-everything",
+   "artist": "Zach Bryan",
+   "title": "I Remember Everything",
+   "year": 2023
+  },
+  {
+   "id": "zara-larsson-can-t-tame-her",
+   "artist": "Zara Larsson",
+   "title": "Can't Tame Her",
+   "year": 2023
+  },
+  {
+   "id": "zara-larsson-midnight-sun",
+   "artist": "Zara Larsson",
+   "title": "Midnight Sun",
+   "year": 2025
+  }
+ ]
+}
