@@ -9,7 +9,7 @@ const TEXT = `
   <p>Det går att ställa in hur snabbt man måste svara för bonusen och hur många poäng som krävs för att vinna.</p>
 
   <h3>Musiken</h3>
-  <p>Musiken kan spelas från Deezer eller Spotify.</p>
+  <p>Musiken spelas från Deezer eller Spotify.</p>
   <p>Med Deezer spelas ett förhandsklipp direkt i webbläsaren och nästa låt startar av sig själv. Det kräver inget konto.</p>
   <p>Med Spotify startar spelledaren varje låt själv med en knapp som öppnar den i Spotify-appen, som behöver finnas på samma enhet.</p>
 
