@@ -11,6 +11,7 @@ const TEXT = `
   <h3>Musiken</h3>
   <p>Musiken kan spelas från Deezer eller Spotify.</p>
   <p>Med Deezer spelas ett förhandsklipp direkt i webbläsaren och nästa låt startar av sig själv. Det kräver inget konto.</p>
+  <p>Spelledaren kan också välja att klippet spelas på alla spelares enheter. Det passar bäst när ni inte är i samma rum, eftersom ljudet inte blir helt i takt.</p>
   <p>Med Spotify startar spelledaren varje låt själv med en knapp som öppnar den i Spotify-appen, som behöver finnas på samma enhet.</p>
 
   <h3>Teknik</h3>

@@ -2,7 +2,7 @@
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
-import { findPreview } from './deezer.js';
+import { SILENCE, findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { currentMessage, hideMessage, showJoined, showLeft, showMessage } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
@@ -16,6 +16,7 @@ const SAVE_KEY = 'latquiz-host';
 const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
 const MUSIC_KEY = 'latquiz-musik';
+const CLIP_ALL_KEY = 'latquiz-klipp-alla';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -75,6 +76,16 @@ function saveMusic(music) {
   storage(() => localStorage.setItem(MUSIC_KEY, music));
 }
 
+// Med Deezer kan klippet också spelas i spelarnas mobiler. Det är av som standard, och
+// senaste valet gäller nästa spel.
+function loadClipAll() {
+  return storage(() => localStorage.getItem(CLIP_ALL_KEY) === '1', false);
+}
+
+function saveClipAll(on) {
+  storage(() => (on ? localStorage.setItem(CLIP_ALL_KEY, '1') : localStorage.removeItem(CLIP_ALL_KEY)));
+}
+
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
 function loadName() {
   return storage(() => localStorage.getItem(NAME_KEY), null)
@@ -131,6 +142,8 @@ function viewFor(playerId) {
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
   view.deezer = usesDeezer();
+  const url = clipUrlForPlayers();
+  if (url) view.clipUrl = url;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
   if (pending) {
     view.upcoming = {
@@ -288,8 +301,9 @@ function renderSettingsSummary() {
   const s = loadSettings();
   const music = MUSIC_SERVICES.find((m) => m.id === loadMusic()).name;
   // Samma ordning som i rutan Inställningar.
-  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`, music,
-    hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
+  const clipAll = loadMusic() === 'deezer' && loadClipAll();
+  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
+    clipAll ? `${music} på alla enheter` : music, hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
 }
@@ -310,9 +324,11 @@ async function startGame(categoryId, resumeState, name, plays = true) {
     });
     state.hostPlays = plays;
     state.music = loadMusic();
+    state.clipAll = loadClipAll();
   }
   // Ett äldre sparat spel spelar med Deezer.
   state.music = cleanMusic(state.music);
+  state.clipAll = state.clipAll === true;
   // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
   if (!state.hostId) state.hostId = newId();
   game.setHostPlaying(state, state.hostPlays !== false,
@@ -376,9 +392,6 @@ function openSpotify(song) {
 
 // ---- Deezer-klipp ----
 
-// En kort tystnad som spelas direkt i klicket. Då räknas ljudet som startat av
-// spelledaren, och klippet får spela fast det hämtas först efteråt (Safari).
-const SILENCE = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
 const clip = { audio: null, round: 0, status: null, error: '', skipped: 0 };
 // Så många låtar i rad hoppas över när Deezer saknar klipp, innan spelledaren får veta det.
 const MAX_SKIPS = 5;
@@ -386,6 +399,15 @@ const MAX_SKIPS = 5;
 // Med Spotify som musiktjänst öppnas alla låtar i Spotify, som när Deezer saknar klipp.
 function usesDeezer() {
   return Boolean(category && category.audio === 'deezer' && (!state || state.music !== 'spotify'));
+}
+
+// Klipplänken som spelarnas mobiler spelar, om spelledaren har valt det. Länken säger inte
+// vilken låt det är, och den skickas inte längre när svaret visas.
+function clipUrlForPlayers() {
+  const round = state && state.round;
+  if (!round || !state.clipAll || !usesDeezer() || round.phase === 'revealed') return null;
+  if (clip.round !== round.number || !clip.audio || !clip.audio.src.startsWith('http')) return null;
+  return clip.audio.src;
 }
 
 function clipAudio() {
@@ -432,6 +454,8 @@ async function playDeezer(roundNumber, skipping = false) {
     return;
   }
   audio.src = url;
+  // Spelarnas mobiler kan börja ladda klippet medan det laddas här.
+  if (state.clipAll) broadcast();
   // Under en paus väntar klippet tills spelledaren fortsätter.
   if (state.pausedAt) {
     clip.status = 'loaded';
@@ -700,8 +724,8 @@ function wireHostPlays(dialog) {
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
-// music: vald musiktjänst.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer' } = {}) {
+// music: vald musiktjänst. clipAll: klippet spelas även i spelarnas mobiler.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -717,6 +741,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
       ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
       </div>
+      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button></div>
       ${hostPlaysGroup()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
@@ -735,6 +760,13 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   });
   wireUnknown(dialog, names);
   const host = wireHostPlays(dialog);
+  // Bara Deezers klipp kan spelas i mobilerna, så strömbrytaren syns bara med Deezer.
+  let clipOn = clipAll;
+  const clipRow = dialog.querySelector('.clip-all');
+  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela klippet på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
+  const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
+  dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
+  showClipRow();
   const mark = dialog.querySelector('#mark-unknown');
   // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');
@@ -760,6 +792,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
           ...game.cleanSettings(values),
           ...(categories ? { categoryId: values.categoryId } : {}),
           music: cleanMusic(values.music),
+          clipAll: clipOn,
           host: host(),
         } : null);
       dialog.remove();
@@ -775,11 +808,13 @@ async function editSettings() {
   const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
   const music = pending ? pending.music : state ? state.music : loadMusic();
-  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), music });
+  const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
+  const chosen = await showSettings(current, categories, currentCategory, names, { running: Boolean(state), music, clipAll });
   if (!chosen) return;
-  const { categoryId, host, music: chosenMusic, ...settings } = chosen;
+  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, ...settings } = chosen;
   saveSettings(settings);
   saveMusic(chosenMusic);
+  saveClipAll(chosenClipAll);
   if (!state) {
     setHostPlays(host.plays);
     return;
@@ -788,7 +823,7 @@ async function editSettings() {
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
   // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
   const pickedSongs = picked ? await loadSongs(picked) : null;
-  pending = { settings, category: picked, songs: pickedSongs, host, music: chosenMusic };
+  pending = { settings, category: picked, songs: pickedSongs, host, music: chosenMusic, clipAll: chosenClipAll };
   // Har ingen låt spelats än gäller ändringen direkt. Det avgör changed().
   changed();
   // Gäller ändringen först från nästa låt får spelledaren veta det, men bara om något ändrades.
@@ -804,10 +839,10 @@ const SETTINGS_MESSAGE_MS = 4000;
 
 // Skiljer sig de sparade ändringarna från det som gäller nu?
 function pendingDiffers() {
-  const { settings, category: picked, host, music } = pending;
+  const { settings, category: picked, host, music, clipAll } = pending;
   const now = game.cleanSettings(state);
   if (Object.keys(now).some((key) => now[key] !== settings[key])) return true;
-  if (picked || music !== state.music) return true;
+  if (picked || music !== state.music || clipAll !== state.clipAll) return true;
   if (!host) return false;
   if (host.plays !== (state.hostPlays !== false)) return true;
   const me = state.players[state.hostId];
@@ -815,9 +850,10 @@ function pendingDiffers() {
 }
 
 function applyPending() {
-  const { settings, category: picked, songs: pickedSongs, host, music } = pending;
+  const { settings, category: picked, songs: pickedSongs, host, music, clipAll } = pending;
   pending = null;
   game.applySettings(state, settings);
+  state.clipAll = clipAll;
   if (music !== state.music) {
     stopClip();
     state.music = music;

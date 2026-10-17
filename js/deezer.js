@@ -3,6 +3,10 @@
 // Deezers API saknar CORS, så sökningen görs med JSONP. Klipplänkarna går ut
 // efter en stund och hämtas därför precis innan låten spelas.
 
+// En kort tystnad som spelas direkt i ett klick eller tryck. Då räknas ljudet som startat av
+// användaren, och klippet får spela fast det hämtas först efteråt (Safari).
+export const SILENCE = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
+
 const API = 'https://api.deezer.com/search';
 const API_TRACK = 'https://api.deezer.com/track';
 const TIMEOUT_MS = 8000;
