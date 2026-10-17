@@ -684,6 +684,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 }
 @keyframes confetti-spin { to { transform: rotate(var(--r)); } }
 .win-wait { text-align: center; margin: 18px 16px 0; font-size: 0.8125rem; }
+/* Vinnarlåtens namn längst ner hos spelledaren. */
+.winner-song-name { text-align: center; margin: 18px 16px 0; font-size: 0.8125rem; color: var(--muted); }
 /* I ställningen står bara totalen, inte poängen för sista låten. */
 .podium .tag { display: none; }
 
