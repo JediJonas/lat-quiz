@@ -1112,6 +1112,10 @@ function showError(err) {
 
 // ---- Start ----
 
+// Vinnarlåten spelas utan tryck när vinnaren visas. Ljudmotorn får det bara om den har startats
+// av ett tryck tidigare, så varje tryck hos spelledaren startar den.
+for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, () => winnerSong.unlock(), true);
+
 document.addEventListener('click', (e) => {
   const id = e.target.closest('[id]')?.id;
   if (id === 'play') playClicked();

@@ -21,9 +21,8 @@ export const WINNER_SONGS = [
   { artist: 'Måns Zelmerlöw', title: 'Heroes', deezerId: 95585876, spotifyId: '21BYhl07wWqGRQaj7sUxdV' },
 ];
 
-// Så länge låten spelas innan den tonar ut, och hur lång uttoningen är.
-const PLAY_MS = 15000;
-const FADE_MS = 4000;
+// Hela klippet spelas, och de sista sekunderna tonar det ut.
+const FADE_MS = 5000;
 const VOLUME = 0.8;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_MS = 4000; // trumvirvelns längd, lika lång som texten innan vinnaren visas
@@ -36,13 +35,20 @@ export function pickWinnerSong(random = Math.random, last = null) {
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
+// Volymen under uttoningen. left går från 1 till 0. Volymen sänks efter en kurva, eftersom örat
+// uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
+const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
+
 export function createWinnerSong() {
   let audio = null;
   let last = null;
   let timers = [];
   let playing = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
-
   let started = false; // låten har börjat, under trumvirveln eller när vinnaren visas
+  // På iPhone går det inte att ändra volymen på ett ljudelement. Därför spelas låten helst genom
+  // webbläsarens ljudmotor, som kan tona. Den måste startas av ett tryck, se unlock.
+  let ctx = null;
+  let source = null;
 
   const clear = () => { timers.forEach(clearInterval); timers = []; };
 
@@ -53,6 +59,17 @@ export function createWinnerSong() {
     started = false;
     if (audio) audio.pause();
     if (drumAudio) drumAudio.pause();
+    if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
+  }
+
+  // Anropas vid varje tryck hos spelledaren, så att ljudmotorn får spela senare utan tryck.
+  function unlock() {
+    const Context = window.AudioContext || window.webkitAudioContext;
+    if (!Context) return;
+    if (!ctx) ctx = new Context();
+    // Annars tystar iPhone ljudmotorn när ringsignalen är avstängd, men inte vanliga ljudelement.
+    if (navigator.audioSession) navigator.audioSession.type = 'playback';
+    if (ctx.state !== 'running') ctx.resume().catch(() => {});
   }
 
   let drumAudio = null;
@@ -70,7 +87,7 @@ export function createWinnerSong() {
     if (clip) timers.push(setTimeout(() => start(QUIET), DRUM_MS - EARLY_MS));
   }
 
-  let prepared = null; // klipplänken, som hämtas medan texten innan vinnaren visas
+  let prepared = null; // klippet, som hämtas medan texten innan vinnaren visas
   let current = null; // den slumpade låten, för Spela vinnarlåt med Spotify
 
   // Texten innan vinnaren visas. Klippet hämtas redan nu, så att låten startar direkt.
@@ -79,7 +96,21 @@ export function createWinnerSong() {
     const song = pickWinnerSong(Math.random, last);
     last = song.deezerId;
     current = song;
-    if (clip) prepared = findPreview(song).catch(() => null);
+    if (clip) prepared = findPreview(song).then(load).catch(() => null);
+  }
+
+  // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement.
+  async function load(url) {
+    if (!url) return null;
+    if (!ctx) return { url };
+    try {
+      const res = await fetch(url);
+      if (!res.ok) return { url };
+      const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
+      return { url, buffer };
+    } catch {
+      return { url };
+    }
   }
 
   // Vinnarvyn har tagit över. Har låten inte börjat under trumvirveln, börjar den nu.
@@ -88,38 +119,46 @@ export function createWinnerSong() {
     start(VOLUME);
   }
 
-  // Låten börjar på volume och växer till full volym på EARLY_MS. Efter PLAY_MS tonar den ut.
+  // Låten börjar på volume och växer till full volym på EARLY_MS. Sist tonar den ut under FADE_MS.
   async function start(volume) {
     if (started) return;
     started = true;
     const turn = playing;
-    const url = await prepared;
-    if (!url || turn !== playing) return;
+    const clip = await prepared;
+    if (!clip || turn !== playing) return;
+    if (clip.buffer && ctx && ctx.state === 'running') startBuffer(clip.buffer, volume);
+    else startElement(clip.url, volume);
+  }
+
+  function startBuffer(buffer, volume) {
+    const gain = ctx.createGain();
+    const now = ctx.currentTime;
+    const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
+    gain.gain.setValueAtTime(volume, now);
+    gain.gain.linearRampToValueAtTime(VOLUME, now + EARLY_MS / 1000);
+    const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49));
+    gain.gain.setValueCurveAtTime(steps, now + buffer.duration - fade, fade);
+    source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(gain).connect(ctx.destination);
+    source.start();
+  }
+
+  function startElement(url, volume) {
     if (!audio) audio = new Audio();
     audio.src = url;
     audio.volume = volume;
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det bara tyst.
     audio.play().catch(() => {});
     const begin = Date.now();
-    if (volume < VOLUME) {
-      const up = setInterval(() => {
-        const part = Math.min(1, (Date.now() - begin) / EARLY_MS);
-        audio.volume = volume + (VOLUME - volume) * part;
-        if (part >= 1) clearInterval(up);
-      }, 100);
-      timers.push(up);
-    }
-    // Låten tonar ut i små steg och stannar sedan. Volymen sänks efter en kurva, eftersom örat
-    // uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
-    timers.push(setTimeout(() => {
-      const fadeStart = Date.now();
-      timers.push(setInterval(() => {
-        const left = 1 - (Date.now() - fadeStart) / FADE_MS;
-        if (left <= 0) { stop(); return; }
-        audio.volume = VOLUME * left ** 3;
-      }, 50));
-    }, PLAY_MS));
+    // Volymen växer först till full och sänks sedan när klippet närmar sig slutet.
+    timers.push(setInterval(() => {
+      const up = Math.min(1, (Date.now() - begin) / EARLY_MS);
+      const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
+      if (audio.ended) { stop(); return; }
+      audio.volume = Math.min(volume + (VOLUME - volume) * up, left < 1 ? fadeLevel(left) : VOLUME);
+    }, 50));
   }
 
-  return { drum, play, stop, current: () => current };
+  return { drum, play, stop, unlock, current: () => current };
 }
