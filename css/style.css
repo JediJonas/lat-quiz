@@ -4,6 +4,16 @@
   font-weight: 100 900;
   font-display: swap;
 }
+/* Placeringssiffrorna i vinnarvyn har bara kontur. Inter är variabelt, och där syns skarvarna
+   inne i siffrorna när konturen ritas. Den här fasta Inter Black har bara siffrorna, med
+   sammanslagna konturer, och laddas först när vinnarvyn visas. */
+@font-face {
+  font-family: "Inter Siffror";
+  src: url("../vendor/fonts/inter-black-siffror.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+  unicode-range: U+30-39;
+}
 
 :root {
   /* Neutral grund, ljusgrå som i iOS. Färgen kommer från kategorin, som lyser svagt överst. */
@@ -494,7 +504,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 @media (max-width: 600px) { .standings .tag.field { display: none; } }
 /* Ställningen när matchen är slut: stora konturerade placeringssiffror, som i Netflix topp 10. */
 .podium td { height: 66px; }
-.podium td.rank { width: 40px; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
+.podium td.rank { width: 40px; font-family: "Inter Siffror", "Inter"; font-size: 2.5rem; font-weight: 900; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
 .small-ring { width: 76px; height: 76px; margin: 0; flex: none; }
 .small-ring circle { stroke-width: 9; }
 .small-ring .ring-num { font-size: 1.5rem; }
