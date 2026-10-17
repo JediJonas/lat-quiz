@@ -767,9 +767,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
     inset: 0 0 auto;
     display: flex;
     align-items: center;
-    height: calc(108px + env(safe-area-inset-top));
+    height: calc(90px + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
-    background: linear-gradient(var(--bg) 62%, transparent);
+    background: linear-gradient(var(--bg) 66%, transparent);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s;
