@@ -158,7 +158,8 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
       done();
     };
     const check = setInterval(() => {
-      if (drumAudio.duration && drumAudio.duration - drumAudio.currentTime <= DRUM_TAIL_S) once();
+      // Kunde trumvirveln inte spela börjar låten ändå.
+      if (drumAudio.paused || (drumAudio.duration && drumAudio.duration - drumAudio.currentTime <= DRUM_TAIL_S)) once();
     }, 30);
     timers.push(check);
     drumAudio.addEventListener('ended', once, { once: true });
