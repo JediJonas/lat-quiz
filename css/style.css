@@ -767,20 +767,21 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
     inset: 0 0 auto;
     display: flex;
     align-items: center;
-    height: calc(64px + env(safe-area-inset-top));
+    height: calc(108px + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
-    background: linear-gradient(var(--bg) 55%, transparent);
+    background: linear-gradient(var(--bg) 62%, transparent);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s;
     pointer-events: none;
   }
-  .compact-bar .logo { width: 72px; margin: 0; }
-  .compact-title { position: absolute; left: 96px; right: 96px; text-align: center; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Loggan och menyknappen har samma storlek och plats som högst upp på sidan, och toningen
+     börjar under dem. */
+  .compact-bar .logo { position: absolute; top: calc(max(16px, env(safe-area-inset-top)) + 9px); width: 92px; margin: 0; }
+  .compact-title { position: absolute; top: calc(max(16px, env(safe-area-inset-top)) + 26px); transform: translateY(-50%); left: 120px; right: 120px; text-align: center; font-size: 1.0625rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .compact .compact-bar { opacity: 1; visibility: visible; }
-  /* Menyknappen följer med och blir mindre, i höjd med den lilla rubriken. */
-  .compact .menu { position: fixed; top: calc(12px + env(safe-area-inset-top)); --menu-size: 40px; }
-  .compact .menu-button svg { width: 24px; height: 24px; }
+  /* Menyknappen följer med i samma storlek. */
+  .compact .menu { position: fixed; }
 }
 
 /* Meddelanderutan längst ner, ovanpå sidan. Fel får röd ram, rubrik och ikon. */
