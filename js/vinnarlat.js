@@ -25,6 +25,7 @@ export const WINNER_SONGS = [
 const FADE_MS = 5000;
 const VOLUME = 0.8;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
+const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
 // En slumpad låt, men inte samma som förra gången.
 export function pickWinnerSong(random = Math.random, last = null) {
@@ -117,24 +118,50 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement.
   async function load(url) {
     if (!url) return null;
-    if (!ctx) return { url };
     try {
+      if (!ctx) throw new Error('Ingen ljudmotor');
       const res = await fetch(url);
-      if (!res.ok) return { url };
+      if (!res.ok) throw new Error('Inget svar');
       const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
       return { url, buffer };
     } catch {
+      preload(url);
       return { url };
     }
+  }
+
+  // Ljudelementet börjar ladda klippet medan trumvirveln spelar, så att låten startar direkt.
+  function preload(url) {
+    if (!audio) audio = new Audio();
+    if (!audio.paused) return;
+    audio.preload = 'auto';
+    audio.src = url;
+    audio.load();
   }
 
   // Vinnarvyn har tagit över. Två klipp spelas aldrig samtidigt, eftersom iPhone då ofta vägrar
   // starta det andra. Spelar trumvirveln fortfarande börjar låten när den är slut.
   function play() {
     if (!prepared) prepare();
-    if (drumAudio && !drumAudio.paused && !drumAudio.ended) {
-      drumAudio.addEventListener('ended', start, { once: true });
-    } else start();
+    if (drumAudio && !drumAudio.paused && !drumAudio.ended) whenDrumEnds(start);
+    else start();
+  }
+
+  // Trumvirveln har en kort tystnad på slutet, så låten börjar när ljudet tar slut, inte filen.
+  function whenDrumEnds(done) {
+    let called = false;
+    const turn = playing;
+    const once = () => {
+      if (called || turn !== playing) return;
+      called = true;
+      clearInterval(check);
+      done();
+    };
+    const check = setInterval(() => {
+      if (drumAudio.duration && drumAudio.duration - drumAudio.currentTime <= DRUM_TAIL_S) once();
+    }, 30);
+    timers.push(check);
+    drumAudio.addEventListener('ended', once, { once: true });
   }
 
   // Låten spelas på full volym och tonar ut under FADE_MS på slutet.
@@ -166,7 +193,8 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
 
   function startElement(url) {
     if (!audio) audio = new Audio();
-    audio.src = url;
+    // Klippet är oftast redan laddat medan trumvirveln spelade.
+    if (audio.src !== url) audio.src = url;
     audio.volume = VOLUME;
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det tyst.
     audio.play().then(() => setStatus('playing'), () => setStatus('blocked'));
