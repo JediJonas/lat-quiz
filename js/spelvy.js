@@ -58,7 +58,8 @@ const WIN_DELAY_MS = 4000;
 
 // onAnswer(field, value): ett svar har valts eller tagits bort.
 // host: spelledaren startar låtarna själv och väntar därför inte på någon.
-export function createGameView({ onAnswer, onError, host = false }) {
+// onWinnerShown: vinnarvyn har just tagit över, så att spelledarens knappar kan visas samtidigt.
+export function createGameView({ onAnswer, onError, onWinnerShown = () => {}, host = false }) {
   let view = null;
   let me = null;
   let roundNumber = null;
@@ -167,7 +168,10 @@ export function createGameView({ onAnswer, onError, host = false }) {
       winRound = round.number;
       winShown = false;
       clearTimeout(winTimer);
-      winTimer = setTimeout(() => { winShown = true; if (view.winners) render(); }, WIN_DELAY_MS);
+      winTimer = setTimeout(() => {
+        winShown = true;
+        if (view.winners) { render(); onWinnerShown(); }
+      }, WIN_DELAY_MS);
     } else if (!view.winners) {
       winRound = null;
       winShown = false;
@@ -292,6 +296,8 @@ export function createGameView({ onAnswer, onError, host = false }) {
       nextAt = round && round.nextInMs != null ? Date.now() + round.nextInMs : 0;
       render();
     },
+    // Vinnarvyn visas, efter att sista låten har visats en stund.
+    winnerShown: () => winnerView(),
     // De svar som är valda just nu, till exempel för att skicka dem igen efter ett avbrott.
     answers: () => ({ ...local }),
   };

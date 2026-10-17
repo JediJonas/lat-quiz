@@ -323,7 +323,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#setup').hidden = true;
   $('#game').hidden = false;
   showJoinInfo();
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerShown: render, host: true });
   startNetwork();
   render();
 }
@@ -921,7 +921,9 @@ function nextAction() {
   const round = state.round;
   if (!round) return null;
   if (round.phase !== 'revealed') return { action: 'reveal', label: 'Visa svar nu' };
-  return state.winners ? { action: 'restart', label: 'Ny match' } : { action: 'next', label: 'Nästa låt' };
+  if (!state.winners) return { action: 'next', label: 'Nästa låt' };
+  // Ny match går att starta först när vinnarvyn har tagit över efter sista låten.
+  return gameView.winnerShown() ? { action: 'restart', label: 'Ny match' } : null;
 }
 
 // Visar en av två knappar på samma plats. Hade den dolda knappen fokus flyttas fokus till den andra.
