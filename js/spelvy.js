@@ -370,7 +370,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       render();
     },
     // Vinnarvyn visas, efter att sista låten har visats en stund.
-    winnerShown: () => winnerView(),
+    winnerShown: () => Boolean(view && winnerView()),
     // De svar som är valda just nu, till exempel för att skicka dem igen efter ett avbrott.
     answers: () => ({ ...local }),
   };
