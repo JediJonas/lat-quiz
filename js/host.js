@@ -220,7 +220,7 @@ function viewFor(playerId) {
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
   view.lobbyPlaying = lobbyPlaying();
-  if (introLeft() > 0) view.introMs = introLeft();
+  if (introLeft() > 0) Object.assign(view, { introMs: introLeft(), introTotalMs: INTRO_MS });
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   const music = musicForPlayers();

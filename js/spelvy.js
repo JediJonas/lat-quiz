@@ -96,6 +96,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   let winTimer = null;
   let winTurn = 0; // ökar för varje vinnare, så att ett sent löfte inte visar fel vinnare
   let introEnds = 0; // när nedräkningen före första låten är slut
+  let introTotal = 0; // hela nedräkningens längd, för ringen
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
@@ -126,8 +127,10 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   // Nedräkningen före första låten, som bara visas med Deezer.
   function renderIntro() {
     if ($('#intro').hidden) return;
-    const left = Math.ceil(Math.max(0, introEnds - Date.now()) / 1000);
-    $('#intro-text').textContent = left > 0 ? `Första låten spelas om ${left}` : 'Första låten spelas nu';
+    const ms = Math.max(0, introEnds - Date.now());
+    const left = Math.ceil(ms / 1000);
+    renderPie($('#intro-pie'), ms, introTotal);
+    $('#intro-label').textContent = left > 0 ? `Första låten spelas om ${left} s` : 'Första låten spelas nu';
   }
 
   function renderTimer() {
@@ -278,7 +281,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     if (holding && nextCount) nextCount.hidden = true;
     // När spelet har startats står Nu börjar det! på väntekortet tills första låten hörs.
     const starting = phase === 'ready' && view.deezer && !$('#waiting').hidden;
-    if (view.introMs) introEnds = Date.now() + view.introMs;
+    if (view.introMs) [introEnds, introTotal] = [Date.now() + view.introMs, view.introTotalMs];
     if (starting && $('#intro').hidden) {
       $('#intro').classList.add('reveal');
       announce('Nu börjar det!');
@@ -318,9 +321,9 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     } else if (phase === 'revealed') {
       const r = round.result || { artist: false, title: false, bonus: false, points: 0 };
       const mine = round.answer || { artist: '', title: '' };
-      // Den lilla ringen till höger om texten under svaret töms tills nästa låt startar av sig själv.
-      const next = round.nextInMs == null ? '' : `<span class="next"><span id="next-text" aria-hidden="true"></span>
-        <span id="next-pie" class="pie"></span>
+      // Den lilla ringen framför texten under svaret töms tills nästa låt startar av sig själv.
+      const next = round.nextInMs == null ? '' : `<span class="next"><span id="next-pie" class="pie"></span>
+        <span id="next-text" aria-hidden="true"></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span></span>`;
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
       const key = winner ? `w${round.number}` : drum ? `d${round.number}` : round.number;
