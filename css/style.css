@@ -663,9 +663,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .next-count { display: inline-grid; }
 .next-count::after { content: attr(data-widest); grid-area: 1 / 1; visibility: hidden; }
 .next-count > span { grid-area: 1 / 1; }
-/* Bredvid poängen står nedräkningen i höjd med poängens siffror, inte mitt för poängen och
-   kommentaren under. */
-.score-line + .next { align-self: flex-start; margin-top: 0.5rem; }
+/* Bredvid poängen står nedräkningen på samma rad som kommentaren under poängen, till exempel
+   Nästa gång!, med texterna på samma baslinje. */
+.score-line, .score-line + .next { align-self: last baseline; }
 /* Vinnaren tar omslaget, med konfetti som faller en gång. */
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
