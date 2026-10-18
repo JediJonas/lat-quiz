@@ -481,7 +481,7 @@ const MAX_SKIPS = 5;
 
 // Med Spotify som musiktjänst öppnas alla låtar i Spotify, som när Deezer saknar klipp.
 function usesDeezer() {
-  return Boolean(category && category.audio === 'deezer' && (!state || state.music !== 'spotify'));
+  return Boolean(category && (!state || state.music !== 'spotify'));
 }
 
 // Klipplänken som spelarnas mobiler spelar, om spelledaren har valt det. Länken säger inte
