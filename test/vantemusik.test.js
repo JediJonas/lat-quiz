@@ -23,3 +23,12 @@ test('väntemusiken slumpas och blir inte samma två väntor i rad', () => {
   assert.equal(first, LOBBY_SONGS[0]);
   for (const r of [0, 0.5, 0.999]) assert.notEqual(pickLobbySong(() => r, first.deezerId), first);
 });
+
+test('alla väntelåtar har Spotify-ID, så att de kan spelas med Spotify', () => {
+  const withId = LOBBY_SONGS.filter((s) => s.spotifyId);
+  assert.equal(withId.length, LOBBY_SONGS.length);
+  assert.ok(withId.every((s) => /^[A-Za-z0-9]{22}$/.test(s.spotifyId)));
+  for (const r of [0, 0.5, 0.999]) assert.ok(pickLobbySong(() => r, null, 'spotifyId').spotifyId);
+  const first = pickLobbySong(() => 0, null, 'spotifyId');
+  assert.notEqual(pickLobbySong(() => 0, first.spotifyId, 'spotifyId'), first);
+});

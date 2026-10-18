@@ -594,6 +594,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Knappen har ingen marginal under sig, så att avståndet ner till Poäng blir detsamma
    på alla bredder och samma som under spelet. */
 #waiting .big { margin: 24px 0 0; }
+#waiting #lobby-song:not([hidden]) + .big { margin-top: 12px; }
 .answer { justify-content: flex-end; margin: 0; }
 /* Rubriken och Deezer står i övre kanten, även på vinnarkorten. */
 .answer .cover-head, .win .cover-head { position: absolute; top: 20px; left: 22px; right: 22px; }

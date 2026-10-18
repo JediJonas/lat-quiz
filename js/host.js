@@ -10,7 +10,7 @@ import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { WINNER_FADE, createWinnerSong } from './vinnarlat.js';
-import { LOBBY_FADE, createLobbyMusic } from './vantemusik.js';
+import { LOBBY_FADE, createLobbyMusic, pickLobbySong } from './vantemusik.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
@@ -121,11 +121,23 @@ const lobbyMusic = createLobbyMusic({ onStart: () => { if (state && state.clipAl
 // Musiken spelar innan första låten, även efter Ny match, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadLobbyMusic());
 
+// Med Deezer spelas bara Deezer-klipp och med Spotify bara låtar i Spotify-appen. Med Spotify
+// slumpas därför en väntelåt med Spotify-ID, som spelledaren startar med Spela väntemusik,
+// eftersom Spotify bara kan öppnas med ett klick. Den spelas då hel i Spotify.
+let lobbySpotifySong = null;
+let lastLobbySpotifyId = null;
+
 function updateLobbyMusic() {
   const on = lobbyWanted();
-  if (on) lobbyMusic.play();
+  const spotify = Boolean(state && state.music === 'spotify');
+  if (on && !spotify) lobbyMusic.play();
   else lobbyMusic.stop();
-  $('#lobby-note').hidden = !on;
+  if (on && spotify && !lobbySpotifySong) {
+    lobbySpotifySong = pickLobbySong(Math.random, lastLobbySpotifyId, 'spotifyId');
+    lastLobbySpotifyId = lobbySpotifySong.spotifyId;
+  } else if (!(on && spotify)) lobbySpotifySong = null;
+  $('#lobby-note').hidden = !(on && !spotify);
+  $('#lobby-song').hidden = !lobbySpotifySong;
 }
 
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
@@ -1187,6 +1199,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
   else if (id === 'winner-song') playClicked();
+  else if (id === 'lobby-song' && lobbySpotifySong) openSpotify(lobbySpotifySong);
   else if (id === 'settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
 });
