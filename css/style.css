@@ -1348,7 +1348,6 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .theme-switch .track { width: 51px; height: 31px; }
 .modal .theme-switch .track::after { width: 27px; height: 27px; }
 .modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
-.modal .switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
 .modal .clip-all { margin-top: 14px; }
 /* Utan Deezer döljs Spela ljud på alla enheter, och Spela extraljud blir första raden utan linje. */
 .modal .switches button.theme-switch[hidden] + button.theme-switch::before { display: none; }

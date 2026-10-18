@@ -51,7 +51,6 @@ export function showUserSettings() {
         <button type="button" class="theme-switch" id="switch-dark"></button>
         <button type="button" class="theme-switch" id="switch-text"></button>
       </div>
-      <p class="note switches-note">Valet sparas på den här enheten.</p>
       <div class="modal-actions">
         <button value="ok">OK</button>
       </div>
