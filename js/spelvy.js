@@ -122,13 +122,11 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   setInterval(renderTimer, 250);
   compactTitle();
 
-  // Nedräkningen före första låten. Med Spotify startar spelledaren låten när den är slut.
+  // Nedräkningen före första låten, som bara visas med Deezer.
   function renderIntro() {
     if ($('#intro').hidden) return;
     const left = Math.ceil(Math.max(0, introEnds - Date.now()) / 1000);
-    $('#intro-text').textContent = left > 0 ? `Första låten börjar om ${left}`
-      : view.deezer ? 'Första låten börjar nu'
-      : host ? 'Första låten är redo' : 'Spelledaren startar första låten';
+    $('#intro-text').textContent = left > 0 ? `Första låten börjar om ${left}` : 'Första låten börjar nu';
   }
 
   function renderTimer() {
@@ -278,7 +276,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     const nextCount = $('#result-body .next');
     if (holding && nextCount) nextCount.hidden = true;
     // När spelet har startats står Snart börjar det! på väntekortet tills första låten hörs.
-    const starting = phase === 'ready' && !$('#waiting').hidden;
+    const starting = phase === 'ready' && view.deezer && !$('#waiting').hidden;
     if (view.introMs) introEnds = Date.now() + view.introMs;
     if (starting && $('#intro').hidden) {
       $('#intro').classList.add('reveal');
