@@ -215,5 +215,8 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
   // Klippet som hörs och var i det, för spelarnas mobiler, eller null.
   const now = () => (current && current.url ? { url: current.url, posMs: Math.round(current.position() * 1000) } : null);
 
-  return { play, stop, unlock, mix, silent, now, playing: () => wanted };
+  // Låten som hörs, för raden längst ner, eller null.
+  const heardSong = () => (now() ? song : null);
+
+  return { play, stop, unlock, mix, silent, now, song: heardSong, playing: () => wanted };
 }

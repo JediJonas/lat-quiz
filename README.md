@@ -23,6 +23,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/lookup.js`, `verktyg/spotify-id.html`: uppslagning av Spotify-ID.
 - `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
 - `js/vantemusik.js`: väntemusiken, ett slumpat Deezer-klipp ur 25 instrumentala låtar som tonar in och ut och loopar hos spelledaren tills spelet startar. Varje väntan får en ny låt. Med Spela ljud på alla enheter och Deezer spelas den, liksom vinnarlåten, även i spelarnas mobiler, i takt med spelledaren. Med Spotify spelas inget Deezer-klipp, utan spelledaren startar en slumpad väntelåt i Spotify-appen med Spela väntemusik. Ingen av låtarna finns bland quizlåtarna.
+- `js/nuspelas.js`: raden längst ner som visar artist och titel med rubriken Väntemusik eller Vinnarlåt medan de spelas. I spelarnas mobiler syns den bara när ljudet spelas även där.
 - `js/klipp.js`: klippet i spelarnas mobiler när spelledaren har valt att spela det på alla enheter. Spelarna får bara klipplänken, inte vilken låt det är.
 - `js/deezer.js`: förhandsklipp från Deezer. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp hoppas låten över. Med Spotify som musiktjänst spelas bara låtar med Spotify-ID, och med Deezer bara låtar med Deezer-ID.
 - `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.

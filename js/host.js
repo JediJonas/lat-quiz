@@ -12,6 +12,7 @@ import { mountSwitch } from './theme.js';
 import { dragToClose } from './ark.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic, pickLobbySong } from './vantemusik.js';
+import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
@@ -112,7 +113,12 @@ function saveExtraSounds(on) {
 const winnerSong = createWinnerSong();
 
 // Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt.
-const lobbyMusic = createLobbyMusic({ onStart: () => { if (state && state.clipAll) broadcast(); } });
+// Raden längst ner visar då också låten.
+const lobbyMusic = createLobbyMusic({ onStart: () => {
+  if (!state) return;
+  showNowMusic($('#now-music'), currentMusic());
+  if (state.clipAll) broadcast();
+} });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
@@ -123,6 +129,19 @@ const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !le
 let lobbySpotifySong = null;
 let lastLobbySpotifyId = null;
 let lobbySpotifyStarted = false;
+// Spelledaren har öppnat vinnarlåten i Spotify, så att den står på raden längst ner.
+let winnerSpotifyStarted = false;
+
+// Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Med Spotify står
+// låten där när spelledaren har öppnat den, och med Deezer när klippet hörs. Vinnarlåten står
+// kvar tills en ny match börjar.
+function currentMusic() {
+  if (!state) return null;
+  const spotify = state.music === 'spotify';
+  if (lobbyWanted()) return nowMusic('Väntemusik', spotify ? lobbySpotifyStarted && lobbySpotifySong : lobbyMusic.song());
+  if (!state.winners || !loadExtraSounds()) return null;
+  return nowMusic('Vinnarlåt', spotify ? winnerSpotifyStarted && winnerSong.current() : winnerSong.heard());
+}
 
 // När spelledaren startar spelet visas "Nu börjar det!" en kort stund innan första låten.
 // Klippet laddas under tiden och spelas när tiden är slut. Med Spotify visas ingen ruta,
@@ -225,6 +244,9 @@ function viewFor(playerId) {
   if (url) view.clipUrl = url;
   const music = musicForPlayers();
   if (music) view.music = music;
+  // Spelas musiken även i mobilerna står låten på raden längst ner där också.
+  const playing = state.clipAll && state.music !== 'spotify' && currentMusic();
+  if (playing) view.nowMusic = playing;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
   if (pending) {
     view.upcoming = {
@@ -1128,7 +1150,7 @@ function playClicked() {
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
-  else if (choice.action === 'winner') openSpotify(winnerSong.current());
+  else if (choice.action === 'winner') { openSpotify(winnerSong.current()); winnerSpotifyStarted = true; render(); }
 }
 
 function nextClicked() {
@@ -1161,8 +1183,9 @@ function winnerShown() {
 function render() {
   $('#category').textContent = category.name;
   // Vinnarlåten tystnar när en ny match börjar.
-  if (!state.winners) winnerSong.stop();
+  if (!state.winners) { winnerSong.stop(); winnerSpotifyStarted = false; }
   updateLobbyMusic();
+  showNowMusic($('#now-music'), currentMusic());
   gameView.update(viewFor(state.hostId), state.hostId);
   // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
