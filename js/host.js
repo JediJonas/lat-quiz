@@ -384,7 +384,7 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const clipAll = loadMusic() === 'deezer' && loadClipAll();
   const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    clipAll ? `${music} på alla enheter` : music, ...(loadExtraSounds() ? [] : ['Inga extraljud']),
+    music, ...(clipAll ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
