@@ -126,7 +126,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   function renderIntro() {
     if ($('#intro').hidden) return;
     const left = Math.ceil(Math.max(0, introEnds - Date.now()) / 1000);
-    $('#intro-text').textContent = left > 0 ? `Första låten börjar om ${left}` : 'Första låten börjar nu';
+    $('#intro-text').textContent = left > 0 ? `Första låten spelas om ${left}` : 'Första låten spelas nu';
   }
 
   function renderTimer() {
