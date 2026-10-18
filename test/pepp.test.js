@@ -19,7 +19,7 @@ test('vinnarkommentaren beror på hur matchen gick', () => {
   assert.match(winComment({ ...base, standings: players(10, 9) }), /jämnt|nöd och näppe/);
   assert.equal(winComment({ ...base, songs: 4, standings: players(11, 3) }), 'Det gick undan!');
   assert.match(winComment({ ...base, standings: players(12, 4) }), /Ingen chans|Överlägset/);
-  assert.equal(winComment({ ...base, songs: 16, standings: players(10, 7) }), 'En riktig maratonmatch!');
+  assert.equal(winComment({ ...base, songs: 16, standings: players(10, 7) }), 'Det blev ett riktigt maraton!');
   const general = winComment({ ...base, standings: players(10, 7, 2) });
   assert.equal(general, winComment({ ...base, standings: players(10, 7, 2) }));
 });

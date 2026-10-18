@@ -252,7 +252,7 @@ export function findWinners(state) {
   return Object.values(state.players).filter((p) => p.score === top).map((p) => p.id);
 }
 
-// Ny match med samma spelare. Spelade låtar räknas fortfarande som spelade.
+// Spela igen med samma spelare. Spelade låtar räknas fortfarande som spelade.
 export function restart(state) {
   for (const player of Object.values(state.players)) player.score = 0;
   if (state.benchedHost) state.benchedHost.score = 0;

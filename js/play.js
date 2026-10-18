@@ -57,7 +57,7 @@ function onMessage(msg) {
   if (msg.type === 'ended') { gameEnded(); return; }
   if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
   if (msg.type === 'new-match') {
-    showMessage({ key: 'new-match', kind: 'info', title: 'Ny match!', text: 'Alla börjar om från noll. Lycka till!', ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'new-match', kind: 'info', title: 'Vi kör igen!', text: 'Alla börjar om från noll. Lycka till!', ms: SETTINGS_MESSAGE_MS });
     return;
   }
   if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }

@@ -46,7 +46,7 @@ export function winComment({ winners, standings, songs, winScore }) {
   if (lead <= 1) return pick(['Det var jämnt in i det sista!', 'Med nöd och näppe!'], seed);
   if (songs <= Math.ceil(winScore / 2)) return 'Det gick undan!';
   if (lead >= 5) return pick(['Ingen chans för de andra!', 'Överlägset!'], seed);
-  if (songs >= winScore * 1.5) return 'En riktig maratonmatch!';
+  if (songs >= winScore * 1.5) return 'Det blev ett riktigt maraton!';
   return pick(WIN_GENERAL, seed);
 }
 

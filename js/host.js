@@ -118,7 +118,7 @@ function saveLobbyMusic(on) {
 // Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt.
 const lobbyMusic = createLobbyMusic({ onStart: () => { if (state && state.clipAll) broadcast(); } });
 
-// Musiken spelar innan första låten, även efter Ny match, och tystnar när spelet startar.
+// Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadLobbyMusic());
 
 // Med Deezer spelas bara Deezer-klipp och med Spotify bara låtar i Spotify-appen. Med Spotify
@@ -1099,8 +1099,8 @@ function nextAction() {
   if (!round) return null;
   if (round.phase !== 'revealed') return { action: 'reveal', label: 'Visa svar nu' };
   if (!state.winners) return { action: 'next', label: 'Nästa låt' };
-  // Ny match går att starta först när vinnarvyn har tagit över efter sista låten.
-  return gameView.winnerShown() ? { action: 'restart', label: 'Ny match' } : null;
+  // Spela igen går att starta först när vinnarvyn har tagit över efter sista låten.
+  return gameView.winnerShown() ? { action: 'restart', label: 'Spela igen' } : null;
 }
 
 // Visar en av två knappar på samma plats. Hade den dolda knappen fokus flyttas fokus till den andra.
