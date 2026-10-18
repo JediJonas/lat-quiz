@@ -99,24 +99,71 @@ export function scrollToTop() {
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
 // I mobilen hamnar raden strax under den lilla rubriken som ligger fast överst, så att den
-// inte skymmer fältet, utom i iPhone (se nedan). Med mus står sidan still om minst fyra
-// förslag får plats under fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet öppnas. Då står
+// inte skymmer fältet. Rubriken följer med den synliga ytan när tangentbordet är uppe
+// (pinTopBar), så den syns även i iPhone. Med mus står sidan still om minst fyra förslag får
+// plats under fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet öppnas. Då står
 // fältet redan synligt ovanför tangentbordet och Safari behöver inte rulla fram det själv.
-// Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone.
-export function scrollFieldToTop(input, row) {
-  const GAP = 8;
-  const ROOM = 240; // fyra förslag med listans marginaler
-  // I Safari på iPhone flyttar tangentbordet den synliga ytan, så att den lilla rubriken som
-  // ligger fast överst hamnar utanför den medan man skriver. Där räknas den inte med.
-  const iPhone = CSS.supports('-webkit-touch-callout', 'none');
+// Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone. Bara om webbläsaren ändå
+// har flyttat den synliga ytan så att rubriken täcker fältet rättas läget, en gång.
+const GAP = 8;
+function barHeight() {
   const bar = document.querySelector('.compact-bar');
-  const barHeight = !iPhone && bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
-  const goal = barHeight + GAP;
+  return bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
+}
+// Var raden står i den synliga ytan. Med tangentbordet uppe kan den synliga ytan ha flyttats
+// ner en bit på sidan (visualViewport.offsetTop), och då står raden så mycket högre upp.
+const visibleTop = (row) => row.getBoundingClientRect().top - Math.max(0, window.visualViewport?.offsetTop || 0);
+
+export function scrollFieldToTop(input, row) {
+  const ROOM = 240; // fyra förslag med listans marginaler
+  const goal = barHeight() + GAP;
   const rowTop = row.getBoundingClientRect().top;
-  if (Math.abs(rowTop - goal) <= 4) return;
   if (!matchMedia('(pointer: coarse)').matches) {
     const room = window.innerHeight - input.getBoundingClientRect().bottom;
     if (rowTop < goal || room >= Math.min(ROOM, window.innerHeight * 0.45)) return;
   }
-  window.scrollTo({ top: window.scrollY + rowTop - goal, behavior: 'auto' });
+  if (Math.abs(rowTop - goal) > 4) window.scrollTo({ top: window.scrollY + rowTop - goal, behavior: 'auto' });
+  coverCheck(input, row);
+}
+
+// När tangentbordet har öppnats: täcker rubriken raden rullas sidan ner så mycket som behövs.
+// Bara en gång per fokus och inom en sekund, och inte alls om man har börjat rulla själv.
+function coverCheck(input, row) {
+  const vv = window.visualViewport;
+  if (!vv) return;
+  const stop = () => {
+    vv.removeEventListener('resize', check);
+    window.removeEventListener('touchmove', stop);
+    input.removeEventListener('blur', stop);
+    clearTimeout(timer);
+  };
+  const check = () => {
+    const covered = barHeight() + GAP - visibleTop(row);
+    if (covered <= 4) return;
+    stop();
+    window.scrollTo({ top: window.scrollY - covered, behavior: 'auto' });
+  };
+  const timer = setTimeout(stop, 1000);
+  vv.addEventListener('resize', check);
+  window.addEventListener('touchmove', stop, { passive: true });
+  input.addEventListener('blur', stop);
+}
+
+// Det som ligger fast överst sitter i sidfönstret. I Safari på iPhone flyttar tangentbordet den
+// synliga ytan ner på sidan, och då hamnade raden ovanför det som syns. Här flyttas raden med,
+// genom --vv-top i css/style.css. Vid inzoomning står den kvar som förut.
+export function pinTopBar() {
+  const vv = window.visualViewport;
+  if (!vv) return;
+  const root = document.documentElement;
+  let last = 0;
+  const update = () => {
+    const top = Math.abs(vv.scale - 1) < 0.01 ? Math.max(0, Math.round(vv.offsetTop)) : 0;
+    if (top === last) return;
+    last = top;
+    root.style.setProperty('--vv-top', `${top}px`);
+  };
+  vv.addEventListener('resize', update);
+  vv.addEventListener('scroll', update);
+  window.addEventListener('scroll', update, { passive: true });
 }

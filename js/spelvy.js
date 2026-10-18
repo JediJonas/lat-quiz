@@ -3,7 +3,7 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
+import { announce, countUp, renderPie, renderRing, scoreTracker, pinTopBar, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 import { roundCheer, winComment, winIntro } from './pepp.js';
 
@@ -56,6 +56,7 @@ function compactTitle() {
   const title = bar.querySelector('.compact-title');
   new MutationObserver(() => { title.textContent = heading.textContent; })
     .observe(heading, { childList: true, characterData: true, subtree: true });
+  pinTopBar();
   new IntersectionObserver(([entry]) => {
     document.body.classList.toggle('compact', !entry.isIntersecting && entry.boundingClientRect.top < 0);
   }).observe(heading);
