@@ -565,7 +565,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .cover-head .clip-note { margin: 0; text-align: right; }
 @media (max-width: 600px) { .clip-from { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
 .cover-foot { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font-size: 0.9375rem; font-weight: 600; color: rgba(255, 255, 255, 0.92); }
-/* Equalizern rör sig som i prototypen: mjukt när låten spelas och långsamt medan alla väntar. */
+/* Equalizern rör sig som i prototypen: mjukt när musik spelas och långsamt när det är tyst. */
 .eq { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
 .eq i { width: 4px; height: 40%; border-radius: 2px; background: currentColor; animation: eq 0.9s ease-in-out infinite alternate; }
 .eq i:nth-child(2) { animation-delay: -0.3s; }

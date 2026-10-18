@@ -126,6 +126,25 @@ const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !le
 // eftersom Spotify bara kan öppnas med ett klick. Den spelas då hel i Spotify.
 let lobbySpotifySong = null;
 let lastLobbySpotifyId = null;
+let lobbySpotifyStarted = false;
+
+// När spelledaren startar spelet visas "Snart börjar det!" en kort stund innan första låten.
+// Klippet laddas under tiden och spelas när tiden är slut. Med Spotify visas ingen ruta,
+// eftersom Spotify bara kan öppnas direkt i klicket och då börjar spela med en gång.
+const INTRO_MS = 3000;
+let introEnds = 0;
+let introTimer = null;
+const introLeft = () => Math.max(0, introEnds - Date.now());
+const introDone = () => new Promise((resolve) => setTimeout(resolve, introLeft()));
+
+function startIntro() {
+  introEnds = Date.now() + INTRO_MS;
+  clearTimeout(introTimer);
+  introTimer = setTimeout(() => { render(); broadcast(); }, INTRO_MS);
+}
+
+// Equalizern på väntekortet rör sig snabbt när väntemusiken spelas, och långsamt annars.
+const lobbyPlaying = () => lobbyWanted() && (state.music !== 'spotify' || lobbySpotifyStarted);
 
 function updateLobbyMusic() {
   const on = lobbyWanted();
@@ -135,7 +154,10 @@ function updateLobbyMusic() {
   if (on && spotify && !lobbySpotifySong) {
     lobbySpotifySong = pickLobbySong(Math.random, lastLobbySpotifyId, 'spotifyId');
     lastLobbySpotifyId = lobbySpotifySong.spotifyId;
-  } else if (!(on && spotify)) lobbySpotifySong = null;
+  } else if (!(on && spotify)) {
+    lobbySpotifySong = null;
+    lobbySpotifyStarted = false;
+  }
   $('#lobby-note').hidden = !(on && !spotify);
   $('#lobby-song').hidden = !lobbySpotifySong;
 }
@@ -201,6 +223,8 @@ function viewFor(playerId) {
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
+  view.lobbyPlaying = lobbyPlaying();
+  if (introLeft() > 0) view.introMs = introLeft();
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   const music = musicForPlayers();
@@ -532,6 +556,7 @@ async function playDeezer(roundNumber, skipping = false) {
   if (state.clipAll) broadcast();
   // Två klipp spelas aldrig samtidigt, så första låten väntar tills väntemusiken har tonat ut.
   await lobbyMusic.silent();
+  await introDone();
   if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') return;
   // Under en paus väntar klippet tills spelledaren fortsätter.
   if (state.pausedAt) {
@@ -1102,6 +1127,7 @@ function playClicked() {
   // QR-koden behövs inte längre när spelet har startat. Den kan visas igen med ikonen.
   if (choice.action === 'start') {
     setQrVisible(false);
+    if (usesDeezer()) startIntro();
     nextSong();
     // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
     scrollToTop();
@@ -1199,7 +1225,12 @@ document.addEventListener('click', (e) => {
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
   else if (id === 'winner-song') playClicked();
-  else if (id === 'lobby-song' && lobbySpotifySong) openSpotify(lobbySpotifySong);
+  else if (id === 'lobby-song' && lobbySpotifySong) {
+    openSpotify(lobbySpotifySong);
+    lobbySpotifyStarted = true;
+    render();
+    broadcast();
+  }
   else if (id === 'settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
 });

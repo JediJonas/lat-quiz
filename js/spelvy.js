@@ -94,6 +94,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   let winShown = false; // vinnarvyn har tagit över
   let winTimer = null;
   let winTurn = 0; // ökar för varje vinnare, så att ett sent löfte inte visar fel vinnare
+  let introEnds = 0; // när nedräkningen före första låten är slut
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
@@ -121,10 +122,18 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   setInterval(renderTimer, 250);
   compactTitle();
 
+  // Nedräkningen före första låten, som bara visas med Deezer.
+  function renderIntro() {
+    if ($('#intro').hidden) return;
+    const left = Math.ceil(Math.max(0, introEnds - Date.now()) / 1000);
+    $('#intro-text').textContent = left > 0 ? `Första låten börjar om ${left}` : 'Första låten börjar nu';
+  }
+
   function renderTimer() {
     const barTime = document.querySelector('.bar-time');
     document.body.classList.toggle('timing', Boolean(barTime && view && view.round && view.round.phase === 'playing'));
     if (!view || !view.round) return;
+    renderIntro();
     // Under en paus står ringen och cirkeln still på det spelledaren skickade.
     const pie = $('#next-pie');
     const nextMs = view.paused ? view.round.nextInMs : Math.max(0, nextAt - Date.now());
@@ -266,8 +275,20 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Nedräkningen till nästa låt döljs, så att den inte står still medan klippet laddas.
     const nextCount = $('#result-body .next');
     if (holding && nextCount) nextCount.hidden = true;
+    // När spelet har startats står Snart börjar det! på väntekortet tills första låten hörs.
+    const starting = phase === 'ready' && view.deezer && !$('#waiting').hidden;
+    if (view.introMs) introEnds = Date.now() + view.introMs;
+    if (starting && $('#intro').hidden) {
+      $('#intro').classList.add('reveal');
+      announce('Snart börjar det!');
+    }
+    if (!starting) $('#intro').classList.remove('reveal');
+    $('#intro').hidden = !starting;
+    $('.waiting-cover').hidden = starting;
+    renderIntro();
     $('#waiting').hidden = phase !== 'waiting' && !(holding && !$('#waiting').hidden);
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
+    $('#waiting .eq').classList.toggle('idle', !view.lobbyPlaying);
     $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
     $('#guess').hidden = holding || !(phase === 'ready' || phase === 'playing');
