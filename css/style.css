@@ -658,6 +658,14 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .next .pie-num { display: none; }
 /* Ringen står först och texten efter, med fast storlek. Texten bryts aldrig. */
 .next #next-text { flex: none; }
+/* Sekunderna tar alltid lika stor plats som den längsta, till exempel 10 s, så att ringen och
+   texten står still när nedräkningen går från 10 till 9. */
+.next-count { display: inline-grid; }
+.next-count::after { content: attr(data-widest); grid-area: 1 / 1; visibility: hidden; }
+.next-count > span { grid-area: 1 / 1; }
+/* Bredvid poängen står nedräkningen på samma rad som kommentaren under poängen, till exempel
+   Nästa gång!, med texterna på samma baslinje. */
+.score-line, .score-line + .next { align-self: last baseline; }
 /* Vinnaren tar omslaget, med konfetti som faller en gång. */
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }

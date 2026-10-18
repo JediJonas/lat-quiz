@@ -143,7 +143,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     const nextMs = view.paused ? view.round.nextInMs : Math.max(0, nextAt - Date.now());
     if (pie && view.round.phase === 'revealed') {
       renderPie(pie, nextMs, view.round.nextTotalMs);
-      $('#next-text').textContent = `Nästa låt om ${Math.ceil(nextMs / 1000)} s`;
+      $('#next-num').textContent = `${Math.ceil(nextMs / 1000)} s`;
     }
     if (view.round.phase !== 'playing') return;
     $('#timer').classList.toggle('paused', Boolean(view.paused));
@@ -323,7 +323,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const mine = round.answer || { artist: '', title: '' };
       // Den lilla ringen framför texten under svaret töms tills nästa låt startar av sig själv.
       const next = round.nextInMs == null ? '' : `<span class="next"><span id="next-pie" class="pie"></span>
-        <span id="next-text" aria-hidden="true"></span>
+        <span id="next-text" aria-hidden="true">Nästa låt om <span class="next-count" data-widest="${Math.ceil(round.nextTotalMs / 1000)} s"><span id="next-num"></span></span></span>
         <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span></span>`;
       // Vyn ritas om vid till exempel paus. Svaret animeras bara första gången.
       const key = winner ? `w${round.number}` : drum ? `d${round.number}` : round.number;
