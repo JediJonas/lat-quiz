@@ -98,77 +98,87 @@ export function scrollToTop() {
 }
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
-// I mobilen hamnar raden strax under den lilla rubriken som ligger fast överst, så att den
-// inte skymmer fältet. Rubriken följer med den synliga ytan när tangentbordet är uppe
-// (pinTopBar), så den syns även i iPhone. Med mus står sidan still om minst fyra förslag får
-// plats under fältet. Det sker i ett enda hopp direkt vid fokus, innan tangentbordet öppnas. Då står
-// fältet redan synligt ovanför tangentbordet och Safari behöver inte rulla fram det själv.
-// Rättningar efteråt fick sidan att hoppa fram och tillbaka i iPhone. Bara om webbläsaren ändå
-// har flyttat den synliga ytan så att rubriken täcker fältet rättas läget, en gång.
+// I mobilen hamnar raden strax under den lilla raden som ligger fast överst, så att den
+// inte skymmer fältet. Allt räknas i den synliga ytan: med tangentbordet uppe har Safari i
+// iPhone ofta flyttat den ner en bit på sidan, och den fasta raden följer med (pinTopBar).
+// Med mus står sidan still om minst fyra förslag får plats under fältet. Hoppet sker direkt vid
+// fokus, innan tangentbordet öppnas. När tangentbordet har öppnats och sidan har stannat rättas
+// läget en gång, åt det håll som behövs. Fler rättningar fick sidan att hoppa i iPhone.
 const GAP = 8;
 function barHeight() {
   const bar = document.querySelector('.compact-bar');
   return bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
 }
-// Var raden står i den synliga ytan. Med tangentbordet uppe kan den synliga ytan ha flyttats
-// ner en bit på sidan (visualViewport.offsetTop), och då står raden så mycket högre upp.
-const visibleTop = (row) => row.getBoundingClientRect().top - Math.max(0, window.visualViewport?.offsetTop || 0);
+// Hur långt ner på sidan den fasta raden har flyttats med den synliga ytan (pinTopBar).
+let pinnedTop = 0;
+const visibleTop = (el) => el.getBoundingClientRect().top - pinnedTop;
 
 export function scrollFieldToTop(input, row) {
   const ROOM = 240; // fyra förslag med listans marginaler
   const goal = barHeight() + GAP;
-  const rowTop = row.getBoundingClientRect().top;
+  const rowTop = visibleTop(row);
   if (!matchMedia('(pointer: coarse)').matches) {
     const room = window.innerHeight - input.getBoundingClientRect().bottom;
     if (rowTop < goal || room >= Math.min(ROOM, window.innerHeight * 0.45)) return;
   }
   if (Math.abs(rowTop - goal) > 4) window.scrollTo({ top: window.scrollY + rowTop - goal, behavior: 'auto' });
-  coverCheck(input, row);
+  settle(input, row, goal);
 }
 
-// När tangentbordet har öppnats: täcker rubriken raden rullas sidan ner så mycket som behövs.
-// Bara en gång per fokus och inom en sekund, och inte alls om man har börjat rulla själv.
-function coverCheck(input, row) {
+// När tangentbordet har öppnats och den synliga ytan har stannat flyttas raden till rätt
+// ställe. Bara en gång per fokus och inom en och en halv sekund, och inte alls om man har
+// börjat rulla själv.
+function settle(input, row, goal) {
   const vv = window.visualViewport;
   if (!vv) return;
+  let wait;
   const stop = () => {
-    vv.removeEventListener('resize', check);
+    vv.removeEventListener('resize', later);
+    vv.removeEventListener('scroll', later);
     window.removeEventListener('touchmove', stop);
     input.removeEventListener('blur', stop);
+    clearTimeout(wait);
     clearTimeout(timer);
   };
   const check = () => {
-    const covered = barHeight() + GAP - visibleTop(row);
-    if (covered <= 4) return;
     stop();
-    window.scrollTo({ top: window.scrollY - covered, behavior: 'auto' });
+    const off = visibleTop(row) - goal;
+    if (Math.abs(off) > 4) window.scrollTo({ top: window.scrollY + off, behavior: 'auto' });
   };
-  const timer = setTimeout(stop, 1000);
-  vv.addEventListener('resize', check);
+  const later = () => { clearTimeout(wait); wait = setTimeout(check, 150); };
+  const timer = setTimeout(stop, 1500);
+  vv.addEventListener('resize', later);
+  vv.addEventListener('scroll', later);
   window.addEventListener('touchmove', stop, { passive: true });
   input.addEventListener('blur', stop);
 }
 
 // Det som ligger fast överst sitter i sidfönstret. I Safari på iPhone flyttar tangentbordet den
 // synliga ytan ner på sidan, och då hamnade raden ovanför det som syns. Här flyttas raden med,
-// genom --vv-top i css/style.css. Vid inzoomning står den kvar som förut. Bara medan ett fält
-// har fokus och tangentbordet är uppe: när man drar förbi sidans slut fjädrar den synliga ytan
-// också, och då skulle raden glida ner från överkanten och lämna ett glapp.
-const keyboardOpen = (vv) =>
-  !!document.activeElement?.matches('input, textarea, [contenteditable]') && vv.height < window.innerHeight - 100;
-export function pinTopBar() {
+// genom --vv-top i css/style.css, men bara medan man skriver i ett fält. Annars fjädrar den
+// synliga ytan också när man drar förbi sidans slut, och raden skulle glida ner från
+// överkanten. Vid inzoomning står den kvar. Raden visas så fort loggan har rullat ut ovanför
+// det som syns.
+export function pinTopBar(logo) {
   const vv = window.visualViewport;
-  if (!vv) return;
   const root = document.documentElement;
-  let last = 0;
   const update = () => {
-    const top = Math.abs(vv.scale - 1) < 0.01 && keyboardOpen(vv) ? Math.max(0, Math.round(vv.offsetTop)) : 0;
-    if (top === last) return;
-    last = top;
-    root.style.setProperty('--vv-top', `${top}px`);
+    const typing = document.activeElement?.matches('input, textarea');
+    const top = vv && typing && Math.abs(vv.scale - 1) < 0.01 ? Math.max(0, Math.round(vv.offsetTop)) : 0;
+    if (top !== pinnedTop) {
+      pinnedTop = top;
+      root.style.setProperty('--vv-top', `${top}px`);
+    }
+    const { bottom, height } = logo.getBoundingClientRect();
+    document.body.classList.toggle('compact', height > 0 && bottom <= top);
   };
-  vv.addEventListener('resize', update);
-  vv.addEventListener('scroll', update);
+  if (vv) {
+    vv.addEventListener('resize', update);
+    vv.addEventListener('scroll', update);
+  }
   window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  document.addEventListener('focusin', update);
   document.addEventListener('focusout', () => setTimeout(update, 0));
+  update();
 }
