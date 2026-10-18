@@ -5,30 +5,30 @@
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
-  { artist: 'Quincy Jones', title: 'Soul Bossa Nova', deezerId: 2507005 },
-  { artist: 'Herb Alpert & the Tijuana Brass', title: 'Spanish Flea', deezerId: 1068117712 },
-  { artist: 'Henry Mancini', title: 'Baby Elephant Walk', deezerId: 597555 },
-  { artist: 'Vince Guaraldi Trio', title: 'Linus and Lucy', deezerId: 134403694 },
-  { artist: 'The Dave Brubeck Quartet', title: 'Take Five', deezerId: 586127 },
-  { artist: 'Bert Kaempfert', title: "A Swingin' Safari", deezerId: 24940331 },
+  { artist: 'Quincy Jones', title: 'Soul Bossa Nova', deezerId: 2507005, spotifyId: '0Jw3cPBXlGnA6DEJrZSTI0' },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'Spanish Flea', deezerId: 1068117712, spotifyId: '689DTIE4YIRfuIUG58Z2H2' },
+  { artist: 'Henry Mancini', title: 'Baby Elephant Walk', deezerId: 597555, spotifyId: '6jbuv8pHbSbFMnYoQ9Glsf' },
+  { artist: 'Vince Guaraldi Trio', title: 'Linus and Lucy', deezerId: 134403694, spotifyId: '1IzKmhRmil5n0iwPOMcG7Y' },
+  { artist: 'The Dave Brubeck Quartet', title: 'Take Five', deezerId: 586127, spotifyId: '4YlZMAxpH4hZOHPq2s1axj' },
+  { artist: 'Bert Kaempfert', title: "A Swingin' Safari", deezerId: 24940331, spotifyId: '58BD2GQZh6HVRnqp9hGALE' },
   { artist: 'Marvin Hamlisch', title: 'The Entertainer', deezerId: 1097447 },
   { artist: 'Jan Johansson', title: 'Visa från Utanmyra', deezerId: 61592653 },
-  { artist: 'Herb Alpert & the Tijuana Brass', title: 'A Taste of Honey', deezerId: 1064027062 },
-  { artist: 'Ramsey Lewis Trio', title: 'The "In" Crowd', deezerId: 925778 },
-  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
-  { artist: 'Lee Morgan', title: 'The Sidewinder', deezerId: 3105342 },
-  { artist: 'Horace Silver', title: 'Song for My Father', deezerId: 3104557 },
-  { artist: 'Herbie Hancock', title: 'Cantaloupe Island', deezerId: 3104591 },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'A Taste of Honey', deezerId: 1064027062, spotifyId: '6gJyJsLvGVCQane5HVV9rC' },
+  { artist: 'Ramsey Lewis Trio', title: 'The "In" Crowd', deezerId: 925778, spotifyId: '1RCriBo6McFaqfftZ5OAd0' },
+  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183, spotifyId: '6NF8MZ2trxckVBr82pyyPt' },
+  { artist: 'Lee Morgan', title: 'The Sidewinder', deezerId: 3105342, spotifyId: '1dZHIbmuBDAwXfQOM4dyM3' },
+  { artist: 'Horace Silver', title: 'Song for My Father', deezerId: 3104557, spotifyId: '1CDBaGlisZlOJzvx88lL8A' },
+  { artist: 'Herbie Hancock', title: 'Cantaloupe Island', deezerId: 3104591, spotifyId: '0sCeNwt8xRCMR4NhKpMyBe' },
   { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
   { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
-  { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
+  { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627, spotifyId: '5A8R1LgbHKBCKyZdVFdyXH' },
   { artist: 'James Last', title: 'Biscaya', deezerId: 666384992 },
   { artist: 'Jan Johansson', title: 'Emigrantvisa', deezerId: 61592659 },
   { artist: 'Stan Getz & Charlie Byrd', title: 'Desafinado', deezerId: 602453972 },
-  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
-  { artist: 'Vince Guaraldi Trio', title: 'Cast Your Fate to the Wind', deezerId: 2604673 },
-  { artist: "Booker T. & the M.G.'s", title: 'Time Is Tight', deezerId: 4286773 },
-  { artist: 'Herb Alpert & the Tijuana Brass', title: 'Tijuana Taxi', deezerId: 1068117682 },
+  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849, spotifyId: '3FYDiueg0uwQiN7JVtC9CE' },
+  { artist: 'Vince Guaraldi Trio', title: 'Cast Your Fate to the Wind', deezerId: 2604673, spotifyId: '1OreHcG7YGrd5iP3zH2GfX' },
+  { artist: "Booker T. & the M.G.'s", title: 'Time Is Tight', deezerId: 4286773, spotifyId: '3XOVanRi3prWDEZQiZTlYx' },
+  { artist: 'Herb Alpert & the Tijuana Brass', title: 'Tijuana Taxi', deezerId: 1068117682, spotifyId: '2vLgPIAJj1Z7fd69QoFxqK' },
   { artist: 'Björn J:son Lindh', title: 'Brusa högre lilla å', deezerId: 915549 },
 ];
 
@@ -41,9 +41,10 @@ const STOP_MS = 800; // när spelet startar
 // Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
 const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
 
-// En slumpad låt, men inte samma som förra väntan.
-export function pickLobbySong(random = Math.random, last = null) {
-  const choices = LOBBY_SONGS.filter((s) => s.deezerId !== last);
+// En slumpad låt, men inte samma som förra väntan. key: deezerId med Deezer, spotifyId med Spotify,
+// eftersom bara låtar som finns hos den valda tjänsten spelas.
+export function pickLobbySong(random = Math.random, last = null, key = 'deezerId') {
+  const choices = LOBBY_SONGS.filter((s) => s[key] && s[key] !== last);
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
