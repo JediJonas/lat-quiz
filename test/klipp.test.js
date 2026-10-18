@@ -25,6 +25,12 @@ test('väntemusiken och vinnarlåten spelas när ingen quizlåt spelas', () => {
   assert.equal(wantedClip({}), null);
 });
 
+test('trumvirveln tonas inte i mobilerna', () => {
+  const drum = { posMs: 0, loop: false, volume: 0.8, fadeInMs: 0, fadeOutMs: 0 };
+  assert.equal(musicVolume(drum, 0, 4), 0.8);
+  assert.equal(musicVolume(drum, 3.9, 4), 0.8);
+});
+
 test('väntemusiken loopar i takt med spelledaren och tonas som där', () => {
   const lobby = { posMs: 29000, loop: true, volume: 0.5, fadeInMs: 2000, fadeOutMs: 3000 };
   assert.equal(musicPosition(lobby, 2000, 30), 1);

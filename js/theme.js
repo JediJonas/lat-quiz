@@ -1,5 +1,6 @@
 // Ljust eller mörkt läge. Utan eget val följer sidan enhetens inställning.
 // Själva valet läses in redan i <head>, så att sidan inte blinkar till.
+import { dragToClose } from './ark.js';
 
 const THEME_KEY = 'latquiz-tema';
 const deviceDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -50,7 +51,6 @@ export function showUserSettings() {
         <button type="button" class="theme-switch" id="switch-dark"></button>
         <button type="button" class="theme-switch" id="switch-text"></button>
       </div>
-      <p class="note switches-note">Valet sparas på den här enheten.</p>
       <div class="modal-actions">
         <button value="ok">OK</button>
       </div>
@@ -64,6 +64,7 @@ export function showUserSettings() {
   // Skärmläsaren läser rubriken, och Tab går till strömbrytarna.
   dialog.tabIndex = -1;
   document.body.append(dialog);
+  dragToClose(dialog);
   dialog.showModal();
   dialog.focus();
 }
