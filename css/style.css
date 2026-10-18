@@ -1257,9 +1257,6 @@ a.icon-btn { text-decoration: none; }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
 #guess, #result { display: flex; flex-direction: column; }
 /* Hos spelledaren kan svarsfälten döljas när spelledaren inte deltar. */
-/* Strömbrytaren Jag deltar i spelet i Inställningar. */
-.host-plays-group { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
-.host-plays-group .host-plays { margin: 0; }
 /* Svarets delar ligger direkt i kortet, så att spelledarens knapp Ny match hamnar ovanför
    raden längst ner. */
 #result-body { display: contents; }
@@ -1352,11 +1349,11 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .theme-switch .track::after { width: 27px; height: 27px; }
 .modal .theme-switch[aria-checked="true"] .track::after { transform: translateX(20px); }
 .modal .switches-note { margin: 8px 16px 0; font-size: 0.8125rem; }
-.modal .host-plays-group { margin-top: 14px; border-top: 0; padding-top: 0; }
 .modal .clip-all { margin-top: 14px; }
-/* Utan Deezer döljs Spela musik på alla enheter, och Vinnarlåt blir första raden utan linje. */
+/* Utan Deezer döljs Spela musik på alla enheter, och Spela extraljud blir första raden utan linje. */
 .modal .switches button.theme-switch[hidden] + button.theme-switch::before { display: none; }
-.modal .host-plays-group .field-group { margin-top: 14px; }
+/* Namnfältet för spelledaren under strömbrytarna, där Jag deltar i spelet står. */
+.modal .host-name-row { margin-top: 14px; }
 .modal .current-song { border-radius: 22px; background: var(--surface-solid); }
 .modal .current-song button.theme-switch { display: flex; width: 100%; flex-direction: row-reverse; justify-content: space-between; min-height: 52px; padding: 0 16px; color: var(--text); font-size: 1rem; }
 

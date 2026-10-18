@@ -22,8 +22,9 @@ const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
 const MUSIC_KEY = 'latquiz-musik';
 const CLIP_ALL_KEY = 'latquiz-klipp-alla';
-const WINNER_SONG_KEY = 'latquiz-vinnarlat';
-const LOBBY_MUSIC_KEY = 'latquiz-vantemusik';
+const EXTRA_SOUNDS_KEY = 'latquiz-extraljud';
+// Tidigare fanns Spela vinnarlåt och Spela väntemusik var för sig. De tas bort när extraljuden sparas.
+const OLD_SOUND_KEYS = ['latquiz-vinnarlat', 'latquiz-vantemusik'];
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -93,33 +94,27 @@ function saveClipAll(on) {
   storage(() => (on ? localStorage.setItem(CLIP_ALL_KEY, '1') : localStorage.removeItem(CLIP_ALL_KEY)));
 }
 
-// Vinnarlåten spelas hos spelledaren när någon vinner. Den är på som standard, och
-// valet gäller den här enheten.
-function loadWinnerSong() {
-  return storage(() => localStorage.getItem(WINNER_SONG_KEY) !== '0', true);
+// Extraljuden är väntemusiken medan spelarna går med, trumvirveln före vinnaren och vinnarlåten.
+// Quizlåtarna spelas alltid. Extraljuden är på som standard, även för den som stängde av
+// vinnarlåten eller väntemusiken tidigare, och valet gäller den här enheten.
+function loadExtraSounds() {
+  return storage(() => localStorage.getItem(EXTRA_SOUNDS_KEY) !== '0', true);
 }
 
-function saveWinnerSong(on) {
-  storage(() => (on ? localStorage.removeItem(WINNER_SONG_KEY) : localStorage.setItem(WINNER_SONG_KEY, '0')));
+function saveExtraSounds(on) {
+  storage(() => {
+    for (const key of OLD_SOUND_KEYS) localStorage.removeItem(key);
+    if (on) localStorage.removeItem(EXTRA_SOUNDS_KEY); else localStorage.setItem(EXTRA_SOUNDS_KEY, '0');
+  });
 }
 
 const winnerSong = createWinnerSong();
-
-// Väntemusiken spelas hos spelledaren medan spelarna går med. Den är på som standard, och
-// valet gäller den här enheten.
-function loadLobbyMusic() {
-  return storage(() => localStorage.getItem(LOBBY_MUSIC_KEY) !== '0', true);
-}
-
-function saveLobbyMusic(on) {
-  storage(() => (on ? localStorage.removeItem(LOBBY_MUSIC_KEY) : localStorage.setItem(LOBBY_MUSIC_KEY, '0')));
-}
 
 // Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt.
 const lobbyMusic = createLobbyMusic({ onStart: () => { if (state && state.clipAll) broadcast(); } });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
-const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadLobbyMusic());
+const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
 
 // Med Deezer spelas bara Deezer-klipp och med Spotify bara låtar i Spotify-appen. Med Spotify
 // slumpas därför en väntelåt med Spotify-ID, som spelledaren startar med Spela väntemusik,
@@ -219,7 +214,7 @@ function viewFor(playerId) {
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
   view.deezer = usesDeezer();
   // Vinnarlåten är ett Deezer-klipp, utom med Spotify. Då står Deezer på vinnarkortet.
-  view.winnerClip = loadWinnerSong() && state.music !== 'spotify';
+  view.winnerClip = loadExtraSounds() && state.music !== 'spotify';
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
@@ -388,8 +383,7 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const clipAll = loadMusic() === 'deezer' && loadClipAll();
   const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    clipAll ? `${music} på alla enheter` : music, ...(loadLobbyMusic() ? [] : ['Ingen väntemusik']),
-    ...(loadWinnerSong() ? [] : ['Ingen vinnarlåt']),
+    clipAll ? `${music} på alla enheter` : music, ...(loadExtraSounds() ? [] : ['Inga extraljud']),
     hostPlays ? 'Jag deltar' : 'Jag deltar inte'];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -504,7 +498,7 @@ function musicForPlayers() {
   if (!state.clipAll || state.music === 'spotify') return null;
   const lobby = lobbyWanted() && lobbyMusic.now();
   if (lobby) return { ...LOBBY_FADE, ...lobby };
-  const winner = state.winners && loadWinnerSong() && winnerSong.now();
+  const winner = state.winners && loadExtraSounds() && winnerSong.now();
   return winner ? { ...WINNER_FADE, ...winner } : null;
 }
 
@@ -788,19 +782,17 @@ function knownHostName() {
   return loadName();
 }
 
-// Före spelet står namnet på startsidan. Under spelet visas namnfältet bara om spelledaren
-// inte har angett något namn tidigare. Lämnas det tomt heter spelledaren Spelledare.
-function hostPlaysGroup() {
+// Namnfältet under strömbrytarna, där Jag deltar i spelet står. Före spelet står namnet på
+// startsidan. Under spelet visas namnfältet bara om spelledaren inte har angett något namn
+// tidigare. Lämnas det tomt heter spelledaren Spelledare.
+function hostNameRow() {
   const askName = Boolean(state) && !knownHostName();
-  return `
-    <div class="host-plays-group">
-      <div class="switches host-plays"><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
-      ${askName ? `<div id="setting-host-name-row" class="field-group"><div class="field-row">
-        <label for="setting-host-name">Namn</label>
-        <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
-          placeholder="${DEFAULT_HOST_NAME}">
-      </div></div>` : ''}
-    </div>`;
+  return askName ? `
+    <div id="setting-host-name-row" class="field-group host-name-row"><div class="field-row">
+      <label for="setting-host-name">Namn</label>
+      <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
+        placeholder="${DEFAULT_HOST_NAME}">
+    </div></div>` : '';
 }
 
 // Returnerar en funktion som ger { plays, name }. Ett namn som en spelare redan har
@@ -829,8 +821,8 @@ function wireHostPlays(dialog) {
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
 // music: vald musiktjänst. clipAll: klippet spelas även i spelarnas mobiler.
-// winnerSong: vinnarlåten spelas när någon vinner. lobbyMusic: väntemusiken spelas innan spelet startar.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false, winnerSong: winnerSongOn = true, lobbyMusic: lobbyMusicOn = true } = {}) {
+// extraSounds: väntemusiken, trumvirveln och vinnarlåten spelas.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false, extraSounds = true } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -846,8 +838,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
       ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
       </div>
-      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-lobby-music"></button><button type="button" class="theme-switch" id="setting-winner-song"></button></div>
-      ${hostPlaysGroup()}
+      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
+      ${hostNameRow()}
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
@@ -872,10 +864,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
   dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
   showClipRow();
-  let lobbyOn = lobbyMusicOn;
-  mountSwitch(dialog.querySelector('#setting-lobby-music'), 'Spela väntemusik', () => lobbyOn, () => { lobbyOn = !lobbyOn; });
-  let winnerOn = winnerSongOn;
-  mountSwitch(dialog.querySelector('#setting-winner-song'), 'Spela vinnarlåt', () => winnerOn, () => { winnerOn = !winnerOn; });
+  let soundsOn = extraSounds;
+  mountSwitch(dialog.querySelector('#setting-extra-sounds'), 'Spela extraljud', () => soundsOn, () => { soundsOn = !soundsOn; });
   const mark = dialog.querySelector('#mark-unknown');
   // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');
@@ -902,8 +892,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
           ...(categories ? { categoryId: values.categoryId } : {}),
           music: cleanMusic(values.music),
           clipAll: clipOn,
-          winnerSong: winnerOn,
-          lobbyMusic: lobbyOn,
+          extraSounds: soundsOn,
           host: host(),
         } : null);
       dialog.remove();
@@ -921,14 +910,13 @@ async function editSettings() {
   const music = pending ? pending.music : state ? state.music : loadMusic();
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
   const chosen = await showSettings(current, categories, currentCategory, names,
-    { running: Boolean(state), music, clipAll, winnerSong: loadWinnerSong(), lobbyMusic: loadLobbyMusic() });
+    { running: Boolean(state), music, clipAll, extraSounds: loadExtraSounds() });
   if (!chosen) return;
-  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, winnerSong: chosenWinnerSong, lobbyMusic: chosenLobbyMusic, ...settings } = chosen;
-  // Vinnarlåten gäller enheten direkt och tystnar om den stängs av.
-  saveWinnerSong(chosenWinnerSong);
-  if (!chosenWinnerSong) winnerSong.stop();
-  // Väntemusiken likaså, och den börjar direkt om den slås på medan spelarna går med.
-  saveLobbyMusic(chosenLobbyMusic);
+  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, ...settings } = chosen;
+  // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
+  // börjar eller tystnar direkt medan spelarna går med.
+  saveExtraSounds(chosenExtraSounds);
+  if (!chosenExtraSounds) winnerSong.stop();
   saveSettings(settings);
   saveMusic(chosenMusic);
   saveClipAll(chosenClipAll);
@@ -1087,7 +1075,7 @@ function playAction() {
     return { action: 'spotify', label: 'Spela låten i Spotify' };
   }
   // Med Spotify öppnas vinnarlåten i Spotify när vinnarvyn har tagit över.
-  if (state.winners && gameView.winnerShown() && loadWinnerSong() && state.music === 'spotify' && winnerSong.current()) {
+  if (state.winners && gameView.winnerShown() && loadExtraSounds() && state.music === 'spotify' && winnerSong.current()) {
     return { action: 'winner', label: 'Spela vinnarlåt' };
   }
   return null;
@@ -1151,7 +1139,7 @@ function nextClicked() {
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
 // Med Spotify öppnas låten i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 function winnerDrum() {
-  if (!loadWinnerSong()) return null;
+  if (!loadExtraSounds()) return null;
   const drum = winnerSong.drum({ clip: state.music !== 'spotify' });
   return { drum, song: winnerSong.play() };
 }
