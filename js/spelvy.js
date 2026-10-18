@@ -268,6 +268,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     if (holding && nextCount) nextCount.hidden = true;
     $('#waiting').hidden = phase !== 'waiting' && !(holding && !$('#waiting').hidden);
     $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
+    $('#waiting .eq').classList.toggle('idle', !view.lobbyPlaying);
     $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
     $('#rules').innerHTML = rules(view).map((r) => `<li>${esc(r)}</li>`).join('');
     $('#guess').hidden = holding || !(phase === 'ready' || phase === 'playing');

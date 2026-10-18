@@ -126,6 +126,10 @@ const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !le
 // eftersom Spotify bara kan öppnas med ett klick. Den spelas då hel i Spotify.
 let lobbySpotifySong = null;
 let lastLobbySpotifyId = null;
+let lobbySpotifyStarted = false;
+
+// Equalizern på väntekortet rör sig snabbt när väntemusiken spelas, och långsamt annars.
+const lobbyPlaying = () => lobbyWanted() && (state.music !== 'spotify' || lobbySpotifyStarted);
 
 function updateLobbyMusic() {
   const on = lobbyWanted();
@@ -135,7 +139,10 @@ function updateLobbyMusic() {
   if (on && spotify && !lobbySpotifySong) {
     lobbySpotifySong = pickLobbySong(Math.random, lastLobbySpotifyId, 'spotifyId');
     lastLobbySpotifyId = lobbySpotifySong.spotifyId;
-  } else if (!(on && spotify)) lobbySpotifySong = null;
+  } else if (!(on && spotify)) {
+    lobbySpotifySong = null;
+    lobbySpotifyStarted = false;
+  }
   $('#lobby-note').hidden = !(on && !spotify);
   $('#lobby-song').hidden = !lobbySpotifySong;
 }
@@ -201,6 +208,7 @@ function viewFor(playerId) {
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
+  view.lobbyPlaying = lobbyPlaying();
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   const music = musicForPlayers();
@@ -1199,7 +1207,12 @@ document.addEventListener('click', (e) => {
   else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
   else if (id === 'winner-song') playClicked();
-  else if (id === 'lobby-song' && lobbySpotifySong) openSpotify(lobbySpotifySong);
+  else if (id === 'lobby-song' && lobbySpotifySong) {
+    openSpotify(lobbySpotifySong);
+    lobbySpotifyStarted = true;
+    render();
+    broadcast();
+  }
   else if (id === 'settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
 });
