@@ -128,7 +128,7 @@ let lobbySpotifySong = null;
 let lastLobbySpotifyId = null;
 let lobbySpotifyStarted = false;
 
-// När spelledaren startar spelet visas "Snart börjar det!" en kort stund innan första låten.
+// När spelledaren startar spelet visas "Nu börjar det!" en kort stund innan första låten.
 // Klippet laddas under tiden och spelas när tiden är slut. Med Spotify visas ingen ruta,
 // eftersom Spotify bara kan öppnas direkt i klicket och då börjar spela med en gång.
 const INTRO_MS = 3000;
