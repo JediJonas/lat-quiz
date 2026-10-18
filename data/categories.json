@@ -10,7 +10,7 @@
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "audio": "deezer", "songs": 172 },
   { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "audio": "deezer", "labels": { "artist": "Land", "title": "Låt" }, "songs": 149 },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "audio": "deezer", "songs": 151 },
+  { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer", "songs": 51 },
   { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Film" }, "songs": 146 },
-  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 },
-  { "id": "edm", "name": "EDM", "file": "edm.json", "audio": "deezer", "songs": 51 }
+  { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "audio": "deezer", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 }
 ]
