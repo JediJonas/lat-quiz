@@ -128,6 +128,21 @@ let lobbySpotifySong = null;
 let lastLobbySpotifyId = null;
 let lobbySpotifyStarted = false;
 
+// När spelledaren startar spelet visas "Snart börjar det!" en kort stund innan första låten.
+// Med Deezer laddas klippet under tiden och spelas när tiden är slut. Med Spotify trycker
+// spelledaren sedan på Spela låten i Spotify, eftersom Spotify bara kan öppnas med ett klick.
+const INTRO_MS = 3000;
+let introEnds = 0;
+let introTimer = null;
+const introLeft = () => Math.max(0, introEnds - Date.now());
+const introDone = () => new Promise((resolve) => setTimeout(resolve, introLeft()));
+
+function startIntro() {
+  introEnds = Date.now() + INTRO_MS;
+  clearTimeout(introTimer);
+  introTimer = setTimeout(() => { render(); broadcast(); }, INTRO_MS);
+}
+
 // Equalizern på väntekortet rör sig snabbt när väntemusiken spelas, och långsamt annars.
 const lobbyPlaying = () => lobbyWanted() && (state.music !== 'spotify' || lobbySpotifyStarted);
 
@@ -209,6 +224,7 @@ function viewFor(playerId) {
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
   view.lobbyPlaying = lobbyPlaying();
+  if (introLeft() > 0) view.introMs = introLeft();
   const url = clipUrlForPlayers();
   if (url) view.clipUrl = url;
   const music = musicForPlayers();
@@ -422,7 +438,7 @@ function playableSongs() {
   return withoutUnknown(loadUnknown(), category.id, songs).filter((song) => song[key]);
 }
 
-function nextSong() {
+function nextSong({ intro = false } = {}) {
   if (state.round && state.round.phase === 'playing') return;
   if (Date.now() - revealedAt < DOUBLE_TAP_MS) return;
   // Sparade inställningar gäller från och med den här låten. Inget väntas in här, eftersom
@@ -436,6 +452,10 @@ function nextSong() {
   if (usesDeezer()) {
     changed();
     playDeezer(state.round.number);
+    return;
+  }
+  if (intro) {
+    changed();
     return;
   }
   // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
@@ -540,6 +560,7 @@ async function playDeezer(roundNumber, skipping = false) {
   if (state.clipAll) broadcast();
   // Två klipp spelas aldrig samtidigt, så första låten väntar tills väntemusiken har tonat ut.
   await lobbyMusic.silent();
+  await introDone();
   if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') return;
   // Under en paus väntar klippet tills spelledaren fortsätter.
   if (state.pausedAt) {
@@ -1067,7 +1088,7 @@ function playAction() {
     if (usesDeezer()) {
       return clip.round === round.number && clip.status === 'loading' ? null : { action: 'clip', label: 'Spela klippet' };
     }
-    return { action: 'spotify', label: 'Spela låten i Spotify' };
+    return introLeft() > 0 ? null : { action: 'spotify', label: 'Spela låten i Spotify' };
   }
   // Med Spotify öppnas vinnarlåten i Spotify när vinnarvyn har tagit över.
   if (state.winners && gameView.winnerShown() && loadWinnerSong() && state.music === 'spotify' && winnerSong.current()) {
@@ -1110,7 +1131,8 @@ function playClicked() {
   // QR-koden behövs inte längre när spelet har startat. Den kan visas igen med ikonen.
   if (choice.action === 'start') {
     setQrVisible(false);
-    nextSong();
+    startIntro();
+    nextSong({ intro: true });
     // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
     scrollToTop();
   }
@@ -1164,7 +1186,10 @@ function render() {
   // Spela och pausa delar plats i kontrollpanelen. Pausa visas bara när spela inte går att använda.
   showOne($('#play'), $('#pause'), Boolean(play) || $('#pause').disabled, focused);
   // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
-  $('#start-game').hidden = !(play && play.action === 'start');
+  // Efter Snart börjar det! startas första låten med Spotify med samma knapp.
+  const firstSpotify = Boolean(play && play.action === 'spotify' && !$('#intro').hidden);
+  $('#start-game').hidden = !(play && (play.action === 'start' || firstSpotify));
+  $('#start-game').textContent = firstSpotify ? play.label : 'Starta spelet';
   $('#winner-song').hidden = !(play && play.action === 'winner');
   const next = nextAction();
   setButton($('#next'), next, 'Nästa låt');
