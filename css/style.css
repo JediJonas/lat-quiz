@@ -656,12 +656,19 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 :root[data-text="large"] .points-short { display: inline; }
 .next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; white-space: nowrap; font-size: 0.9375rem; font-weight: 550; font-variant-numeric: tabular-nums; color: var(--muted); }
 .next .pie-num { display: none; }
-/* Texten står först och ringen till höger, med fast storlek. Texten bryts aldrig. */
+/* Ringen står först och texten efter, med fast storlek. Texten bryts aldrig. */
 .next #next-text { flex: none; }
 /* Vinnaren tar omslaget, med konfetti som faller en gång. */
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
 .win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
+/* Nedräkningen före första låten har samma lilla ring framför texten som nedräkningen till
+   nästa låt, men vit på omslaget. */
+#intro-text { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
+#intro-text .pie { color: inherit; }
+#intro-text .pie-track { stroke: rgba(255, 255, 255, 0.3); }
+#intro-text .pie-bar { stroke: currentColor; }
+#intro-text .pie-num { display: none; }
 /* Innan namnet pulserar till exempel Vi har en vinnare! en kort stund. */
 .win.drum .win-title { animation: drum-pulse 0.5s ease-in-out infinite alternate; transform-origin: left center; }
 @keyframes drum-pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
