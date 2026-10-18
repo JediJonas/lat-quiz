@@ -1206,7 +1206,17 @@ function showError(err) {
 // Vinnarlåten spelas utan tryck när vinnaren visas. Ljudmotorn får det bara om den har startats
 // av ett tryck tidigare, så varje tryck hos spelledaren startar den.
 // iPhone räknar ibland bara touchend och click som tryck, så alla fyra lyssnas på.
-for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, () => { winnerSong.unlock(); lobbyMusic.unlock(); }, true);
+// Med Spotify tar sidan inte ljudet vid trycken, eftersom iPhone då stoppar musiken i Spotify.
+function unlockSound() {
+  if ((state ? state.music : loadMusic()) === 'spotify') {
+    winnerSong.unlock({ mix: true });
+    lobbyMusic.mix();
+    return;
+  }
+  winnerSong.unlock();
+  lobbyMusic.unlock();
+}
+for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, unlockSound, true);
 
 document.addEventListener('click', (e) => {
   const id = e.target.closest('[id]')?.id;

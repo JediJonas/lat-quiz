@@ -67,6 +67,12 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
 
   // Anropas vid varje tryck hos spelledaren. Kunde musiken inte starta utan tryck, till exempel när
   // spelledaren går tillbaka till ett spel efter att sidan laddats om, börjar den nu.
+  // Med Spotify spelas väntemusiken i Spotify-appen. Då startas inget ljud här, eftersom iPhone
+  // stoppar Spotify när sidan tar ljudet, och en ljudmotor som redan går pausas.
+  function mix() {
+    if (ctx && ctx.state === 'running') ctx.suspend().catch(() => {});
+  }
+
   function unlock() {
     if (!audio) audio = new Audio();
     if (!unlocked && audio.paused) {
@@ -209,5 +215,5 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
   // Klippet som hörs och var i det, för spelarnas mobiler, eller null.
   const now = () => (current && current.url ? { url: current.url, posMs: Math.round(current.position() * 1000) } : null);
 
-  return { play, stop, unlock, silent, now, playing: () => wanted };
+  return { play, stop, unlock, mix, silent, now, playing: () => wanted };
 }

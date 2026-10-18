@@ -91,7 +91,16 @@ export function createWinnerSong() {
   }
 
   // Anropas vid varje tryck hos spelledaren, så att ljudet får spela senare utan tryck.
-  function unlock() {
+  // mix: Spotify spelar musiken. Då startas ingen ljudmotor, eftersom iPhone stoppar Spotify när
+  // sidan tar ljudet, och trumvirveln, som är det enda sidan spelar, låses upp blandad med Spotify.
+  function unlock({ mix = false } = {}) {
+    if (mix) {
+      if (navigator.audioSession) navigator.audioSession.type = 'ambient';
+      if (ctx && ctx.state === 'running') ctx.suspend().catch(() => {});
+      if (!drumAudio) drumAudio = new Audio();
+      unlockElement(drumAudio);
+      return;
+    }
     if (!audio) audio = new Audio();
     if (!drumAudio) drumAudio = new Audio();
     unlockElement(audio);
@@ -113,6 +122,8 @@ export function createWinnerSong() {
   function drum({ clip = true } = {}) {
     prepare({ clip });
     if (!drumAudio) drumAudio = new Audio();
+    // Virveln ska höras även när ringsignalen är avstängd, också med Spotify.
+    if (navigator.audioSession) navigator.audioSession.type = 'playback';
     drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
     return new Promise((resolve) => {
