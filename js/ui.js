@@ -151,14 +151,18 @@ function coverCheck(input, row) {
 
 // Det som ligger fast överst sitter i sidfönstret. I Safari på iPhone flyttar tangentbordet den
 // synliga ytan ner på sidan, och då hamnade raden ovanför det som syns. Här flyttas raden med,
-// genom --vv-top i css/style.css. Vid inzoomning står den kvar som förut.
+// genom --vv-top i css/style.css. Vid inzoomning står den kvar som förut. Bara medan ett fält
+// har fokus och tangentbordet är uppe: när man drar förbi sidans slut fjädrar den synliga ytan
+// också, och då skulle raden glida ner från överkanten och lämna ett glapp.
+const keyboardOpen = (vv) =>
+  !!document.activeElement?.matches('input, textarea, [contenteditable]') && vv.height < window.innerHeight - 100;
 export function pinTopBar() {
   const vv = window.visualViewport;
   if (!vv) return;
   const root = document.documentElement;
   let last = 0;
   const update = () => {
-    const top = Math.abs(vv.scale - 1) < 0.01 ? Math.max(0, Math.round(vv.offsetTop)) : 0;
+    const top = Math.abs(vv.scale - 1) < 0.01 && keyboardOpen(vv) ? Math.max(0, Math.round(vv.offsetTop)) : 0;
     if (top === last) return;
     last = top;
     root.style.setProperty('--vv-top', `${top}px`);
@@ -166,4 +170,5 @@ export function pinTopBar() {
   vv.addEventListener('resize', update);
   vv.addEventListener('scroll', update);
   window.addEventListener('scroll', update, { passive: true });
+  document.addEventListener('focusout', () => setTimeout(update, 0));
 }
