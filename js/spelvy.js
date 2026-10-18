@@ -275,12 +275,12 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Nedräkningen till nästa låt döljs, så att den inte står still medan klippet laddas.
     const nextCount = $('#result-body .next');
     if (holding && nextCount) nextCount.hidden = true;
-    // När spelet har startats står Snart börjar det! på väntekortet tills första låten hörs.
+    // När spelet har startats står Nu börjar det! på väntekortet tills första låten hörs.
     const starting = phase === 'ready' && view.deezer && !$('#waiting').hidden;
     if (view.introMs) introEnds = Date.now() + view.introMs;
     if (starting && $('#intro').hidden) {
       $('#intro').classList.add('reveal');
-      announce('Snart börjar det!');
+      announce('Nu börjar det!');
     }
     if (!starting) $('#intro').classList.remove('reveal');
     $('#intro').hidden = !starting;
