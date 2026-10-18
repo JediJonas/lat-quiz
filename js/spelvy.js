@@ -42,12 +42,13 @@ function rules(view) {
   ];
 }
 
-// När den stora rubriken har rullat bort, till exempel medan man skriver ett svar, står
+// När loggan överst har rullat bort, till exempel medan man skriver ett svar, står
 // kategorin i stället liten mitt i en rad överst, som i iOS. Raden är bara utsmyckning:
 // rubriken finns kvar för skärmläsare. Medan en låt spelas står nedräkningen där i stället.
 function compactTitle() {
   const heading = document.querySelector('.player-head h1');
-  if (!heading || !('IntersectionObserver' in window)) return;
+  const logo = document.querySelector('.player-head .logo');
+  if (!heading || !logo) return;
   const bar = document.createElement('div');
   bar.className = 'compact-bar';
   bar.setAttribute('aria-hidden', 'true');
@@ -56,10 +57,7 @@ function compactTitle() {
   const title = bar.querySelector('.compact-title');
   new MutationObserver(() => { title.textContent = heading.textContent; })
     .observe(heading, { childList: true, characterData: true, subtree: true });
-  pinTopBar();
-  new IntersectionObserver(([entry]) => {
-    document.body.classList.toggle('compact', !entry.isIntersecting && entry.boundingClientRect.top < 0);
-  }).observe(heading);
+  pinTopBar(logo);
 }
 
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
