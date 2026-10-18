@@ -795,6 +795,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s;
     pointer-events: none;
+    /* Följer med den synliga ytan när tangentbordet har flyttat den (pinTopBar i js/ui.js). */
+    transform: translateY(var(--vv-top, 0px));
   }
   /* Loggan och menyknappen har samma storlek som högst upp på sidan. */
   .compact-bar .logo { position: absolute; top: calc(var(--bar-top) + 9px); width: 92px; margin: 0; }
@@ -806,7 +808,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   .timing .compact-title:not(.bar-time) { visibility: hidden; }
   /* Menyknappen följer med i samma storlek och glider upp till raden. */
   .menu { transition: top 0.2s; }
-  .compact .menu { position: fixed; top: max(8px, env(safe-area-inset-top)); }
+  .compact .menu { position: fixed; top: max(8px, env(safe-area-inset-top)); transform: translateY(var(--vv-top, 0px)); }
 }
 
 /* Meddelanderutan längst ner, ovanpå sidan. Fel får röd ram, rubrik och ikon. */
