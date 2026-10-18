@@ -513,9 +513,11 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Tiden kvar tills nästa låt startar av sig själv */
 /* Nedräkningen är bara en upplysning, så den är ljusare än rubriken bredvid. Ringen kan vara
    ljusast, medan siffran behåller den kontrast som text behöver. */
-.pie { position: relative; display: block; color: color-mix(in srgb, var(--muted) 80%, var(--surface-solid)); width: 28px; height: 28px; flex: none; }
+.pie { position: relative; display: block; color: color-mix(in srgb, var(--muted) 80%, var(--surface-solid)); width: 18px; height: 18px; flex: none; }
 .pie svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
-.pie circle { fill: none; stroke-width: 2.5; }
+/* Lika stor och tjock som snurran i meddelanderutorna och lika hög som equalizern: 18 px med
+   2,5 px linje (3,9 av ringens 28 enheter). */
+.pie circle { fill: none; stroke-width: 3.9; }
 .pie-track { stroke: var(--border); }
 .pie-bar { stroke: color-mix(in srgb, currentColor 60%, var(--surface-solid)); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear; }
 .pie-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
@@ -1271,9 +1273,6 @@ a.icon-btn { text-decoration: none; }
 
 /* Under svaret står nedräkningen till vänster och Deezer till höger på samma rad längst ner. */
 .result-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 4px 0; }
-/* Ringen är högre än textraden. Den får sticka ut lika mycket uppåt och nedåt, så att raden
-   blir lika hög som texten och Deezer-texten står på samma höjd som medan låten spelas. */
-.result-foot .pie { width: 26px; height: 26px; }
 /* Texten om Deezer ligger längst ner i rutan, både under gissningen och när svaret visas. */
 #guess, #result { display: flex; flex-direction: column; }
 /* Hos spelledaren kan svarsfälten döljas när spelledaren inte deltar. */
