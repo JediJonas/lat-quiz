@@ -335,7 +335,9 @@ button, .button {
   cursor: pointer;
   transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
 }
-button:hover, .button:hover { background: var(--accent-hover); }
+/* Bara med mus. I mobilen kan en knapp annars se hovrad ut efter en svepning, till exempel Ändra
+   när Inställningar dras ner och fingret släpps ovanför den. */
+@media (hover: hover) { button:hover, .button:hover { background: var(--accent-hover); } }
 button:active, .button:active { transform: scale(0.98); }
 /* Tydlig fokusram för tangentbord, med minst 3:1 i kontrast mot bakgrunden. */
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
