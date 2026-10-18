@@ -9,6 +9,7 @@ import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
+import { dragToClose } from './ark.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic, pickLobbySong } from './vantemusik.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
@@ -881,6 +882,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   dialog.tabIndex = -1;
   dialog.setAttribute('aria-labelledby', 'settings-title');
   document.body.append(dialog);
+  dragToClose(dialog);
   const categorySelect = dialog.querySelector('#setting-category');
   if (categorySelect) enhanceSelect(categorySelect, { touch: true });
   dialog.showModal();
