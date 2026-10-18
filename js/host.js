@@ -9,7 +9,7 @@ import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
-import { WINNER_FADE, createWinnerSong } from './vinnarlat.js';
+import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic, pickLobbySong } from './vantemusik.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -492,14 +492,17 @@ function clipUrlForPlayers() {
   return clip.audio.src;
 }
 
-// Väntemusiken och vinnarlåten spelas också i spelarnas mobiler, i takt med spelledaren,
-// när spelledaren har valt Deezer och att spela musik på alla enheter.
+// Väntemusiken, trumvirveln och vinnarlåten spelas också i spelarnas mobiler, i takt med
+// spelledaren, när spelledaren har valt Deezer och att spela ljud på alla enheter.
 function musicForPlayers() {
   if (!state.clipAll || state.music === 'spotify') return null;
   const lobby = lobbyWanted() && lobbyMusic.now();
   if (lobby) return { ...LOBBY_FADE, ...lobby };
-  const winner = state.winners && loadExtraSounds() && winnerSong.now();
-  return winner ? { ...WINNER_FADE, ...winner } : null;
+  if (!state.winners || !loadExtraSounds()) return null;
+  const winner = winnerSong.now();
+  if (winner) return { ...WINNER_FADE, ...winner };
+  const drum = winnerSong.drumNow();
+  return drum ? { ...DRUM_FADE, ...drum } : null;
 }
 
 function clipAudio() {
@@ -860,7 +863,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   // Bara Deezers klipp kan spelas i mobilerna, så strömbrytaren syns bara med Deezer.
   let clipOn = clipAll;
   const clipRow = dialog.querySelector('#setting-clip-all');
-  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela musik på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
+  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela ljud på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
   const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
   dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
   showClipRow();

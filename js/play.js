@@ -70,7 +70,7 @@ function onMessage(msg) {
   $('#category-name').textContent = view.categoryName || '';
   gameView.update(view, me.playerId);
   clipPlayer.update(view);
-  // Väntemusiken spelas här när spelledaren har valt att spela musik på alla enheter.
+  // Väntemusiken spelas här när spelledaren har valt att spela ljud på alla enheter.
   $('#lobby-note').hidden = !(view.music && view.music.loop);
 }
 

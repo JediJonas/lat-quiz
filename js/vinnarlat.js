@@ -51,6 +51,8 @@ const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
 
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
 export const WINNER_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_MS, loop: false };
+// Trumvirveln tonas inte, eftersom den börjar med ett tydligt slag.
+export const DRUM_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: 0, loop: false };
 
 export function createWinnerSong() {
   let audio = null;
@@ -245,5 +247,11 @@ export function createWinnerSong() {
     return { url: heardClip.url, posMs: Math.round(heardClip.position() * 1000) };
   }
 
-  return { drum, play, stop, unlock, now, current: () => current };
+  // Trumvirveln och var i den, eller null när den inte spelar. Spelarnas mobiler spelar den i takt.
+  function drumNow() {
+    if (!drumAudio || drumAudio.paused || drumAudio.ended) return null;
+    return { url: DRUM_URL, posMs: Math.round(drumAudio.currentTime * 1000) };
+  }
+
+  return { drum, play, stop, unlock, now, drumNow, current: () => current };
 }

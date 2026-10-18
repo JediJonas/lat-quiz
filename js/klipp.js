@@ -1,8 +1,8 @@
 // Klippet i spelarens mobil, när spelledaren har valt att spela det på alla enheter.
 // Spelledaren skickar bara Deezers klipplänk, aldrig vilken låt det är. Mobilen spolar till
 // samma ställe som hos spelledaren, utifrån tiden som är kvar, så att alla hör ungefär samma sak.
-// Väntemusiken och vinnarlåten kommer som view.music, med var i klippet spelledaren är och hur
-// klippet tonas. På iPhone går volymen inte att ändra, så där börjar och slutar de tvärt.
+// Väntemusiken, trumvirveln och vinnarlåten kommer som view.music, med var i klippet spelledaren är
+// och hur klippet tonas. På iPhone går volymen inte att ändra, så där börjar och slutar de tvärt.
 import { SILENCE } from './deezer.js';
 
 // Så långt får klippet glida från spelledarens innan mobilen spolar om. Mindre ger hack i ljudet.
@@ -20,10 +20,11 @@ export function musicPosition(music, sinceMs, duration) {
   return music.loop && duration ? pos % duration : pos;
 }
 
-// Volymen i väntemusiken eller vinnarlåten, med samma toning som hos spelledaren.
+// Volymen i väntemusiken eller vinnarlåten, med samma toning som hos spelledaren. Trumvirveln
+// tonas inte, och har då 0 som toning.
 export function musicVolume(music, pos, duration) {
-  const fadeIn = Math.min(1, pos * 1000 / music.fadeInMs);
-  const left = duration ? (duration - pos) * 1000 / music.fadeOutMs : 1;
+  const fadeIn = music.fadeInMs ? Math.min(1, pos * 1000 / music.fadeInMs) : 1;
+  const left = duration && music.fadeOutMs ? (duration - pos) * 1000 / music.fadeOutMs : 1;
   return music.volume * Math.min(fadeIn, left < 1 ? Math.max(0, left) ** 3 : 1);
 }
 
