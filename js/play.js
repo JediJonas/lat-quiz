@@ -8,6 +8,7 @@ import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
 import { createClipPlayer } from './klipp.js';
+import { showNowMusic } from './nuspelas.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
@@ -72,6 +73,7 @@ function onMessage(msg) {
   clipPlayer.update(view);
   // Väntemusiken spelas här när spelledaren har valt att spela ljud på alla enheter.
   $('#lobby-note').hidden = !(view.music && view.music.loop);
+  showNowMusic($('#now-music'), view.nowMusic);
 }
 
 // Spelledaren har ändrat inställningarna eller kategorin. Det visas en kort stund. Under en låt
