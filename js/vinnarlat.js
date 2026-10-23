@@ -1,35 +1,33 @@
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
-// Med Spotify som musiktjänst slumpas låten också, men den öppnas i Spotify när spelledaren trycker
-// på Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 import { SILENCE, findPreview } from './deezer.js';
 
 export const WINNER_SONGS = [
-  { artist: 'Queen', title: 'We Are the Champions', deezerId: 4092339021, spotifyId: '1lCRw5FEZ1gPDNPzy1K4zW' },
-  { artist: 'Kool & the Gang', title: 'Celebration', deezerId: 906583, spotifyId: '3K7Q9PHUWPTaknlbFPThn2' },
-  { artist: 'ABBA', title: 'The Winner Takes It All', deezerId: 884035, spotifyId: '3oEkrIfXfSh9zGnE7eBzSV' },
-  { artist: 'Survivor', title: 'Eye of the Tiger', deezerId: 576431, spotifyId: '2HHtWyy5CgaQbC7XSoOb0e' },
-  { artist: 'Tina Turner', title: 'The Best', deezerId: 3142379, spotifyId: '4OeFQtRyT7vsLnRTv7t8YT' },
-  { artist: 'Europe', title: 'The Final Countdown', deezerId: 565260, spotifyId: '3MrRksHupTVEQ7YbA0FsZK' },
-  { artist: 'Queen', title: "Don't Stop Me Now", deezerId: 4092329741, spotifyId: '5T8EDUDqKcs6OSOwEsfqG7' },
-  { artist: 'Pharrell Williams', title: 'Happy', deezerId: 701326562, spotifyId: '60nZcImufyMA1MKQY3dcCH' },
-  { artist: 'Katrina & the Waves', title: 'Walking on Sunshine', deezerId: 3166724, spotifyId: '0PMxyLltr8XbHka7EcZZ6G' },
-  { artist: 'Chumbawamba', title: 'Tubthumping', deezerId: 3154917, spotifyId: '22HYEJveCvykVDHDiEEmjZ' },
-  { artist: 'DJ Khaled', title: 'All I Do Is Win', deezerId: 66022789, spotifyId: '5NEKjqTQPKiqOiOG8YxLdS' },
-  { artist: 'Bill Conti', title: 'Gonna Fly Now', deezerId: 99127208, spotifyId: '5dulYd9AKIprMoF837OTDb' },
-  { artist: 'The Pointer Sisters', title: "I'm So Excited", deezerId: 5404568, spotifyId: '1ot6jEe4w4hYnsOPjd3xKQ' },
-  { artist: 'Måns Zelmerlöw', title: 'Heroes', deezerId: 95585876, spotifyId: '21BYhl07wWqGRQaj7sUxdV' },
-  { artist: 'Cliff Richard', title: 'Congratulations', deezerId: 3124130, spotifyId: '2qs5ZcLByNTctJKbhAZ9JE' },
-  { artist: 'ABBA', title: 'Waterloo', deezerId: 76376889, spotifyId: '5n3ZomaSndQ5v9eYUrFFI1' },
-  { artist: 'Loreen', title: 'Euphoria', deezerId: 67466760, spotifyId: '2knr7ikPt4l7bk92qS4ZXW' },
-  { artist: 'The Script', title: 'Hall of Fame', deezerId: 55848051, spotifyId: '7wMq5n8mYSKlQIGECKUgTX' },
-  { artist: 'Justin Timberlake', title: "Can't Stop the Feeling!", deezerId: 132635814, spotifyId: '6JV2JOEocMgcZxYSZelKcc' },
-  { artist: 'Harold Faltermeyer & Steve Stevens', title: 'Top Gun Anthem', deezerId: 7675060, spotifyId: '00Y9r5SfbDdEjJhNg7laQr' },
-  { artist: 'Vangelis', title: 'Chariots of Fire', deezerId: 624844592, spotifyId: '6GxhckZeqoWNF9n9XS91HS' },
-  { artist: 'P!nk', title: 'Raise Your Glass', deezerId: 15597831, spotifyId: '1gv4xPanImH17bKZ9rOveR' },
-  { artist: 'Mark Ronson & Bruno Mars', title: 'Uptown Funk', deezerId: 92734438, spotifyId: '32OlwWuMpZ6b0aN2RZOeMS' },
-  { artist: 'ABBA', title: 'Dancing Queen', deezerId: 884025, spotifyId: '2ATDkfqprlNNe9mYWodgdc' },
-  { artist: 'Shakira & Burna Boy', title: 'Dai Dai', deezerId: 4015341011, spotifyId: '0kosUz0jePvjiz4ctmR6wL' },
+  { artist: 'Queen', title: 'We Are the Champions', deezerId: 4092339021 },
+  { artist: 'Kool & the Gang', title: 'Celebration', deezerId: 906583 },
+  { artist: 'ABBA', title: 'The Winner Takes It All', deezerId: 884035 },
+  { artist: 'Survivor', title: 'Eye of the Tiger', deezerId: 576431 },
+  { artist: 'Tina Turner', title: 'The Best', deezerId: 3142379 },
+  { artist: 'Europe', title: 'The Final Countdown', deezerId: 565260 },
+  { artist: 'Queen', title: "Don't Stop Me Now", deezerId: 4092329741 },
+  { artist: 'Pharrell Williams', title: 'Happy', deezerId: 701326562 },
+  { artist: 'Katrina & the Waves', title: 'Walking on Sunshine', deezerId: 3166724 },
+  { artist: 'Chumbawamba', title: 'Tubthumping', deezerId: 3154917 },
+  { artist: 'DJ Khaled', title: 'All I Do Is Win', deezerId: 66022789 },
+  { artist: 'Bill Conti', title: 'Gonna Fly Now', deezerId: 99127208 },
+  { artist: 'The Pointer Sisters', title: "I'm So Excited", deezerId: 5404568 },
+  { artist: 'Måns Zelmerlöw', title: 'Heroes', deezerId: 95585876 },
+  { artist: 'Cliff Richard', title: 'Congratulations', deezerId: 3124130 },
+  { artist: 'ABBA', title: 'Waterloo', deezerId: 76376889 },
+  { artist: 'Loreen', title: 'Euphoria', deezerId: 67466760 },
+  { artist: 'The Script', title: 'Hall of Fame', deezerId: 55848051 },
+  { artist: 'Justin Timberlake', title: "Can't Stop the Feeling!", deezerId: 132635814 },
+  { artist: 'Harold Faltermeyer & Steve Stevens', title: 'Top Gun Anthem', deezerId: 7675060 },
+  { artist: 'Vangelis', title: 'Chariots of Fire', deezerId: 624844592 },
+  { artist: 'P!nk', title: 'Raise Your Glass', deezerId: 15597831 },
+  { artist: 'Mark Ronson & Bruno Mars', title: 'Uptown Funk', deezerId: 92734438 },
+  { artist: 'ABBA', title: 'Dancing Queen', deezerId: 884025 },
+  { artist: 'Shakira & Burna Boy', title: 'Dai Dai', deezerId: 4015341011 },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
@@ -91,16 +89,7 @@ export function createWinnerSong() {
   }
 
   // Anropas vid varje tryck hos spelledaren, så att ljudet får spela senare utan tryck.
-  // mix: Spotify spelar musiken. Då startas ingen ljudmotor, eftersom iPhone stoppar Spotify när
-  // sidan tar ljudet, och trumvirveln, som är det enda sidan spelar, låses upp blandad med Spotify.
-  function unlock({ mix = false } = {}) {
-    if (mix) {
-      if (navigator.audioSession) navigator.audioSession.type = 'ambient';
-      if (ctx && ctx.state === 'running') ctx.suspend().catch(() => {});
-      if (!drumAudio) drumAudio = new Audio();
-      unlockElement(drumAudio);
-      return;
-    }
+  function unlock() {
     if (!audio) audio = new Audio();
     if (!drumAudio) drumAudio = new Audio();
     unlockElement(audio);
@@ -116,13 +105,11 @@ export function createWinnerSong() {
 
   // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
-  // clip: false med Spotify som musiktjänst. Då slumpas bara låten, och inget Deezer-klipp
-  // hämtas eller spelas. Svaret kommer när virveln hörs, så att texten visas då, och direkt om
-  // den inte kunde spelas.
-  function drum({ clip = true } = {}) {
-    prepare({ clip });
+  // Svaret kommer när virveln hörs, så att texten visas då, och direkt om den inte kunde spelas.
+  function drum() {
+    prepare();
     if (!drumAudio) drumAudio = new Audio();
-    // Virveln ska höras även när ringsignalen är avstängd, också med Spotify.
+    // Virveln ska höras även när ringsignalen är avstängd.
     if (navigator.audioSession) navigator.audioSession.type = 'playback';
     drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
@@ -133,17 +120,17 @@ export function createWinnerSong() {
   }
 
   let prepared = null; // klippet, som hämtas medan texten innan vinnaren visas
-  let current = null; // den slumpade låten, för Spela vinnarlåt med Spotify
+  let current = null; // den slumpade låten
   let heardSong = null; // låten när den har börjat höras, för raden längst ner
 
   // Texten innan vinnaren visas. Klippet hämtas redan nu, så att låten startar direkt.
-  function prepare({ clip = true } = {}) {
+  function prepare() {
     stop();
     const song = pickWinnerSong(Math.random, last);
     last = song.deezerId;
     current = song;
     heardSong = null;
-    if (clip) prepared = findPreview(song).then(load).catch(() => null);
+    prepared = findPreview(song).then(load).catch(() => null);
   }
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement.
@@ -172,7 +159,7 @@ export function createWinnerSong() {
 
   // Låten börjar när trumvirveln är slut. Två klipp spelas aldrig samtidigt, eftersom iPhone då
   // ofta vägrar starta det andra. Svaret kommer när låten hörs, så att vinnarkortet visas då.
-  // Utan klipp, till exempel med Spotify eller när Deezer saknar det, kommer svaret när virveln är
+  // Utan klipp, till exempel när Deezer saknar det, kommer svaret när virveln är
   // slut, och kunde klippet inte spelas kommer det direkt.
   function play() {
     return new Promise((resolve) => {
@@ -268,5 +255,5 @@ export function createWinnerSong() {
   }
 
   // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
-  return { drum, play, stop, unlock, now, drumNow, current: () => current, heard: () => heardSong };
+  return { drum, play, stop, unlock, now, drumNow, heard: () => heardSong };
 }

@@ -60,8 +60,6 @@ await host.click('.menu-item:has-text("Om Låtquiz")');
 await host.waitForSelector('dialog.about[open]');
 await check(host, 'Om Låtquiz');
 await host.keyboard.press('Escape');
-await host.goto(BASE + 'verktyg/spotify-id.html');
-await check(host, 'Verktyget för Spotify-ID');
 
 await host.goto(BASE + 'host.html' + PEER);
 await host.waitForSelector('#create:not([disabled])');
@@ -114,15 +112,19 @@ await host.route('https://api.deezer.com/**', (route) => {
 });
 await host.route(PREVIEW, (route) => route.fulfill({ contentType: 'audio/wav', body: silence }));
 
-// Spotify kan inte öppnas här, så länken till appen stängs av.
-await host.evaluate(() => {
-  window.open = () => null;
-  const click = HTMLAnchorElement.prototype.click;
-  HTMLAnchorElement.prototype.click = function () { if (this.href.startsWith('http')) click.call(this); };
-});
-await host.click('#play');
-await host.waitForSelector('#timer');
+await host.click('#start-game');
+// Låten börjar efter nedräkningen Nu börjar det!
+await host.waitForSelector('#guess:not([hidden]) #guess-hint:has-text("Lyssna och gissa")', { timeout: 20000 });
 await check(host, 'Spelledare, låten spelas');
+
+// Pausa spel och Starta spel ligger i menyn under spelet.
+await openMenu(host);
+await check(host, 'Spelledare, menyn under spelet');
+await host.click('.menu-item:has-text("Pausa spel")');
+await host.waitForSelector('#guess-hint:has-text("Pausad")');
+await openMenu(host);
+await host.click('.menu-item:has-text("Starta spel")');
+await host.waitForSelector('#guess-hint:has-text("Lyssna och gissa")');
 await player.waitForSelector('#guess:not([hidden])');
 await check(player, 'Spelare, gissar');
 
@@ -157,15 +159,15 @@ if (!(await host.$eval('#artist', (el) => el.classList.contains('chosen')))) {
   problems.push('Spelledarens förslagslista: Enter valde inget svar');
 }
 
-await host.click('#next');
-await host.waitForSelector('.answer');
+// Rätt svar visas när tiden är slut, 30 sekunder efter att låten började.
+await host.waitForSelector('.answer', { timeout: 45000 });
 await player.waitForSelector('#result:not([hidden])');
 await check(host, 'Spelledare, rätt svar');
 await check(player, 'Spelare, rätt svar');
 
 // Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer.
 const show = (page, msg) => page.evaluate((m) => import('./js/meddelande.js').then((mod) => mod.showMessage(m)), msg);
-await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Spela låten i Spotify i stället.' });
+await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Välj Starta spel i menyn för att försöka igen.' });
 await check(host, 'Spelledare, felmeddelande');
 await show(player, { key: 'test', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
 await check(player, 'Spelare, meddelande');

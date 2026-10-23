@@ -105,7 +105,7 @@ export function createHost(code, handlers) {
     }
   }, PING_MS);
 
-  // I mobilen fryses sidan när den inte syns, till exempel när spelledaren har öppnat Spotify.
+  // I mobilen fryses sidan när den inte syns, till exempel när spelledaren har öppnat en annan app.
   // Förbindelsen till förmedlingsservern kan då ha dött utan att PeerJS märker det, och nya spelare
   // kommer inte fram. När sidan syns igen kopplas den upp på nytt. Spelare som redan är med påverkas inte.
   function onVisible() {

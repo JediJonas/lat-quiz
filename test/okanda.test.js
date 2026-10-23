@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from '../js/okanda.js';
 
-const song = { id: 'a-ha-take-on-me', artist: 'a-ha', title: 'Take On Me', year: 1985, spotifyId: 'x' };
+const song = { id: 'a-ha-take-on-me', artist: 'a-ha', title: 'Take On Me', year: 1985, deezerId: 664107 };
 
 test('en låt markeras och avmarkeras', () => {
   const marked = toggleUnknown({}, '80-tal', song);

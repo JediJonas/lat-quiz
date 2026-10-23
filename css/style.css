@@ -413,7 +413,7 @@ button.theme-switch:focus-visible .track { box-shadow: 0 0 0 4px var(--accent-so
 }
 /* Rutan man skriver i lägger sig överst, så att förslagslistan syns över rutorna under. */
 .card:focus-within { z-index: 2; }
-/* Korten är täta ytor. Glas används bara på det som svävar ovanför innehållet: kontrollpanelen,
+/* Korten är täta ytor. Glas används bara på det som svävar ovanför innehållet:
    menyn och meddelanderutan, som Apples Liquid Glass. */
 
 /* Etiketter */
@@ -595,7 +595,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Knappen har ingen marginal under sig, så att avståndet ner till Poäng blir detsamma
    på alla bredder och samma som under spelet. */
 #waiting .big { margin: 24px 0 0; }
-#waiting #lobby-song:not([hidden]) + .big { margin-top: 12px; }
 .answer { justify-content: flex-end; margin: 0; }
 /* Rubriken och Deezer står i övre kanten, även på vinnarkorten. */
 .answer .cover-head, .win .cover-head { position: absolute; top: 20px; left: 22px; right: 22px; }
@@ -791,7 +790,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   position: fixed;
   z-index: 50;
   left: 50%;
-  /* Samma avstånd till nederkanten som kontrollpanelen, lägre i Safari på iPhone. */
+  /* Lägre i Safari på iPhone, se --panel-bottom. */
   bottom: var(--panel-bottom);
   transform: translateX(-50%);
   display: flex;
@@ -828,8 +827,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   to { opacity: 1; transform: translateX(-50%); }
 }
 
-/* Menyn uppe till höger: en rund knapp med bara menyikonen, lika stor som knapparna i kontrollpanelen.
-   Den står lika långt från överkanten som kontrollpanelen från nederkanten, på alla sidor. Listan har ikon och text på varje rad. */
+/* Menyn uppe till höger: en rund knapp med bara menyikonen, på samma plats på alla sidor.
+   Listan har ikon och text på varje rad. */
 .menu {
   --menu-size: 52px;
   position: absolute; z-index: 60; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right));
@@ -1136,75 +1135,44 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 #join-url { word-break: break-all; }
 /* Ordet länken i texten kopierar länken. */
 .join-info button.link { margin: 0; font-size: inherit; }
-/* Spelledarens kontrollpanel med Spela eller Pausa och Nästa svävar längst ner, centrerad.
-   Ytan är halvgenomskinlig, med oskärpa bakom, så att sidan skymtar igenom men kontrasten håller. */
-.control-panel {
-  --panel-h: 72px;
-  position: fixed;
-  z-index: 40;
-  left: 50%;
-  bottom: var(--panel-bottom);
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  padding: 8px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--surface-solid) 70%, transparent);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
-  /* En kort skugga som tonar ut innan fönstrets nederkant, så att den inte klipps av i en rak linje. */
-  box-shadow: inset 0 0 0 0.5px var(--glass-edge), 0 2px 10px rgba(20, 20, 30, 0.16);
-}
-.control-panel .icon-btn { width: 56px; height: 56px; }
-.control-panel .icon-btn svg { width: 30px; height: 30px; }
-/* Panelens avstånd från nederkanten: 16 px som på datorn, även över iPhones hemindikator (34 px).
-   Safari på iPhone lämnar själv ungefär 13 px luft ovanför sitt verktygsfält, så där räcker 4 px
-   för att avståndet till fältet ska se ut som på datorn. */
+/* Avståndet från nederkanten för det som står längst ner, som meddelanderutan: 16 px som på datorn,
+   även över iPhones hemindikator (34 px). Safari på iPhone lämnar själv ungefär 13 px luft ovanför
+   sitt verktygsfält, så där räcker 4 px för att avståndet till fältet ska se ut som på datorn.
+   Namnet kommer från spelledarens kontrollpanel, som fanns till 23 oktober 2026. */
 :root { --panel-bottom: max(16px, env(safe-area-inset-bottom) - 18px); }
 @supports (-webkit-touch-callout: none) {
   :root { --panel-bottom: max(4px, env(safe-area-inset-bottom) - 18px); }
-  /* Safari klipper allt som hamnar under sidans nederkant i en rak linje, så här får skuggan
-     inte nå längre än de 4 px som finns under panelen. */
-  .control-panel { box-shadow: 0 1px 3px rgba(20, 20, 30, 0.18); }
-  /* Meddelanden utan panel under sig står lika lågt och får samma lilla skugga. */
-  body:not(:has(main.host:not([hidden]))) .message { box-shadow: inset 0 0 0 1px var(--message-edge), 0 1px 3px rgba(20, 20, 40, 0.24); }
+  /* Safari klipper allt som hamnar under sidans nederkant i en rak linje, så här får meddelandenas
+     skugga inte nå längre än de 4 px som finns under dem. */
+  .message { box-shadow: inset 0 0 0 1px var(--message-edge), 0 1px 3px rgba(20, 20, 40, 0.24); }
   /* Knapparna längst ner på startsidan och i Starta nytt spel står lika långt från nederkanten
-     som kontrollpanelen. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
+     som meddelandena. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
   main.start { padding-bottom: var(--panel-bottom); }
   @media (max-width: 600px) {
     main#setup { padding-bottom: var(--panel-bottom); }
   }
 }
-/* Sidan får luft längst ner, så att inget döljs bakom panelen, och meddelanden står ovanför den. */
-main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
 /* Väntemusiken eller vinnarlåten som spelas, diskret längst ner. */
 .now-music { margin: 28px 16px 0; text-align: center; font-size: 0.8125rem; color: var(--muted); }
 /* Versionen längst ner på sidorna. Tom i repot, ifylld vid publiceringen. */
 .app-version { margin: 32px 16px 0; text-align: center; font-size: 0.75rem; color: var(--muted); }
 /* Versionsnumret syns bara med ?debug=1, se början av varje sida. */
 .app-version:empty, :root:not([data-debug]) .app-version { display: none; }
-body:has(main.host:not([hidden])) .message { bottom: calc(70px + 12px + var(--panel-bottom)); }
-/* På bred skärm med QR-koden bredvid står panelen och meddelandena under spelets kolumn:
+/* På bred skärm med QR-koden bredvid står meddelandena under spelets kolumn:
    mitten av en kolumn på 640 px till höger om QR-kortet på 300 px och 40 px luft. */
 @media (min-width: 1040px) {
-  .host:not(.qr-hidden) .control-panel,
   body:has(main.host:not([hidden]):not(.qr-hidden)) .message { left: calc(50% + 170px); }
 }
-/* Aktiva ikoner i kontrollpanelen och menyn är gröna på ljusgröna cirklar, så att de syns som tryckbara. Ljusgröna knappar har samma toner. */
-.control-panel, .menu, .soft { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); --btn-off-bg: #ececf1; --btn-off-icon: #8e8e99; }
+/* Aktiva ikoner i menyn är gröna på ljusgröna cirklar, så att de syns som tryckbara. Ljusgröna knappar har samma toner. */
+.menu, .soft { --btn-bg: rgba(18, 130, 63, 0.13); --btn-icon: #0f7036; --btn-press: rgba(18, 130, 63, 0.22); }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .control-panel, :root:not([data-theme="light"]) .menu, :root:not([data-theme="light"]) .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #80808a; }
+  :root:not([data-theme="light"]) .menu, :root:not([data-theme="light"]) .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); }
 }
-:root[data-theme="dark"] .control-panel, :root[data-theme="dark"] .menu, :root[data-theme="dark"] .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); --btn-off-bg: rgba(255, 255, 255, 0.06); --btn-off-icon: #80808a; }
-.control-panel .icon-btn { background: var(--btn-bg); color: var(--btn-icon); }
-@media (hover: hover) { .control-panel .icon-btn:hover { background: var(--btn-press); } }
-.control-panel .icon-btn:active { background: var(--btn-press); }
+:root[data-theme="dark"] .menu, :root[data-theme="dark"] .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); }
 /* Ljusgrön knapp, till exempel Starta nytt spel på startsidan. Tonen läggs på en fast yta, som ikonerna på sin bar, så att bakgrunden inte gör den grå. */
 .soft, button.soft.big, .button.soft.big { background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid); color: var(--btn-icon); box-shadow: none; }
 @media (hover: hover) { .soft:hover { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); } }
 .soft:active { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); }
-/* Avstängda knappar förblir bleka och grå, så att bara de aktiva har färg. */
-.control-panel .icon-btn:disabled { background: var(--btn-off-bg); color: var(--btn-off-icon); opacity: 0.6; }
 .icon-btn {
   display: grid;
   place-items: center;
@@ -1377,7 +1345,7 @@ button.danger:hover { filter: brightness(1.08); }
   .modal.confirm h2 { margin-bottom: 8px; font-size: 1.375rem; }
   .modal.confirm > form > p { margin: 0 10px; }
 }
-/* I Safari på iPhone har arken knapparna lika långt från nederkanten som kontrollpanelen och
+/* I Safari på iPhone har arken knapparna lika långt från nederkanten som meddelandena och
    sidorna. Annars lägger Safaris luft till sig och knapparna hamnar för högt. */
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 600px) { .modal:not(.about) { padding-bottom: var(--panel-bottom); } }
