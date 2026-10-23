@@ -5,26 +5,24 @@
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
-  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
-  { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
-  { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
-  { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
-  { artist: 'Stan Getz & Charlie Byrd', title: 'Desafinado', deezerId: 602453972 },
-  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
-  { artist: 'Peter Gregson', title: '360', deezerId: 3854282761 },
   { artist: 'Flawed Mangoes', title: 'The Beginning', deezerId: 2493706161 },
   { artist: 'Ben Scott', title: 'The Bug Collector', deezerId: 2385850805 },
   { artist: 'Bill Evans', title: 'Peace Piece', deezerId: 1141122 },
   { artist: 'Esbjörn Svensson Trio', title: 'Seven Days of Falling', deezerId: 520623912 },
-  { artist: 'Ahmad Jamal', title: 'Poinciana', deezerId: 1065724 },
   { artist: 'Nils Frahm', title: 'Says', deezerId: 625675862 },
   { artist: 'Ólafur Arnalds', title: 'Saman', deezerId: 543154902 },
-  { artist: 'Chilly Gonzales', title: 'Gogol', deezerId: 128427825 },
   { artist: 'Hania Rani', title: 'Eden', deezerId: 1446303162 },
-  { artist: "Dustin O'Halloran", title: 'Opus 23', deezerId: 653786932 },
   { artist: 'Jinsang', title: 'Affection', deezerId: 3711015562 },
   { artist: 'No Lyrics', title: 'Floating', deezerId: 3131614881 },
   { artist: 'SYML', title: 'I Wanted to Leave', deezerId: 1628713032 },
+  { artist: 'bearbare', title: 'full of emptiness', deezerId: 996327372 },
+  { artist: 'slowly.', title: 'Comforting', deezerId: 3093721631 },
+  { artist: 'ourcq', title: 'Poppy Field', deezerId: 3717216142 },
+  { artist: 'the tofu paradigm', title: 'hummingbird', deezerId: 4291336022 },
+  { artist: 'Bogomolove', title: 'Rearview Horizon', deezerId: 4204947872 },
+  { artist: 'Smoke Trees', title: 'Pool Days', deezerId: 3218777061 },
+  { artist: 'Two Scents', title: 'Umami', deezerId: 3239334691 },
+  { artist: 'captain dreams', title: 'paper umbrellas', deezerId: 4223975852 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
