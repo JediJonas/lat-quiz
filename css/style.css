@@ -1106,6 +1106,8 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   /* Understa knappen står lika långt från nederkanten som på startsidan, se main.start. */
   .setup-actions { margin-top: auto; padding: 24px 0 max(46px, calc(12px + env(safe-area-inset-bottom))); }
   .setup-actions #create { margin: 0; }
+  /* Utan Tillbaka till står Dra igång! kvar där den står när knappen finns, och platsen under är tom. */
+  .setup-actions:has(#resume[hidden])::after { content: ""; display: block; height: calc(54px + 12px); }
   #resume button { margin: 12px 0 0; }
 }
 @media (max-width: 600px) and (min-height: 500px) {
