@@ -134,6 +134,7 @@ export function createWinnerSong() {
 
   let prepared = null; // klippet, som hämtas medan texten innan vinnaren visas
   let current = null; // den slumpade låten, för Spela vinnarlåt med Spotify
+  let heardSong = null; // låten när den har börjat höras, för raden längst ner
 
   // Texten innan vinnaren visas. Klippet hämtas redan nu, så att låten startar direkt.
   function prepare({ clip = true } = {}) {
@@ -141,6 +142,7 @@ export function createWinnerSong() {
     const song = pickWinnerSong(Math.random, last);
     last = song.deezerId;
     current = song;
+    heardSong = null;
     if (clip) prepared = findPreview(song).then(load).catch(() => null);
   }
 
@@ -208,6 +210,7 @@ export function createWinnerSong() {
     const clip = await prepared;
     if (turn !== playing) return;
     if (!clip) { heard(); return; }
+    heardSong = current;
     if (clip.buffer && ctx && ctx.state === 'running') {
       const at = ctx.currentTime;
       startBuffer(clip.buffer);
@@ -264,5 +267,6 @@ export function createWinnerSong() {
     return { url: DRUM_URL, posMs: Math.round(drumAudio.currentTime * 1000) };
   }
 
-  return { drum, play, stop, unlock, now, drumNow, current: () => current };
+  // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
+  return { drum, play, stop, unlock, now, drumNow, current: () => current, heard: () => heardSong };
 }
