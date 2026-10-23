@@ -1096,7 +1096,7 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .setup-actions:has(#resume:not([hidden])) #create { margin-bottom: 0; }
 #resume button { margin: 12px 0 16px; }
 /* I mobilen står Dra igång! och Tillbaka till längst ner på skärmen, där tummen når dem. Får sidan
-   inte plats står de fast längst ner medan man rullar, på en ton i sidans färg så att det som rullas
+   inte plats står de fast längst ner medan man rullar, på sidans färg så att det som rullas
    under inte syns igenom. På en mycket låg skärm, eller medan man skriver namnet och tangentbordet
    är uppe, följer de med sidan i stället. */
 @media (max-width: 600px) {
@@ -1109,7 +1109,9 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   #resume button { margin: 12px 0 0; }
 }
 @media (max-width: 600px) and (min-height: 500px) {
-  .setup-actions { position: sticky; z-index: 2; bottom: 0; background: linear-gradient(transparent, var(--bg) 24px); }
+  /* Gruppen har en hel bakgrundsfärg och ingen ton. Safari på iPhone färgar sitt verktygsfält efter
+     det som står fast längst ner, och utan egen färg tog det knappens gröna. */
+  .setup-actions { position: sticky; z-index: 2; bottom: 0; background: var(--bg); }
   main#setup:has(input:focus) .setup-actions { position: static; }
 }
 /* Utan namnfält, när spelledaren inte deltar, döljs den tomma gruppen. */
