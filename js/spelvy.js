@@ -30,7 +30,7 @@ function sparkles(count = 12) {
 // Prickarna vid pilen för den som klättrat: några gröna prickar som stiger uppåt och tonar bort.
 function risers(count = 6) {
   return '<span class="risers" aria-hidden="true">' + Array.from({ length: count }, (_, i) =>
-    `<i style="--x:${(i - (count - 1) / 2) * 5}px;--d:${(i % 2 ? 0.15 : 0) + Math.random() * 0.25}s"></i>`).join('')
+    `<i style="--x:${(i - (count - 1) / 2) * 5}px;--d:${(0.55 + (i % 2 ? 0.15 : 0) + Math.random() * 0.25).toFixed(2)}s"></i>`).join('')
     + '</span>';
 }
 
