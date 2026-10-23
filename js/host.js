@@ -970,8 +970,10 @@ function showQr() {
 
 // Pausa spel och Starta spel delar rad i menyn. Raden finns från första låten tills någon har
 // vunnit. Starta spel fortsätter efter en paus, eller försöker igen när klippet inte startade.
+// Medan spelarna går med står Starta spelet här, som knappen i vyn.
 function pauseItem() {
   const round = state.round;
+  if (!round && !state.winners) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: startClicked }];
   if (!round || state.winners) return [];
   if (state.pausedAt) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: resumeGame }];
   if (clipStuck(round)) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: playClipClicked }];
