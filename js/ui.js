@@ -98,50 +98,17 @@ export function scrollToTop() {
 }
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
-// Allt räknas i den synliga ytan: med tangentbordet uppe har Safari i iPhone ofta flyttat den
-// ner en bit på sidan (visualViewport.offsetTop). Med mus står sidan still om minst fyra förslag
-// får plats under fältet. Hoppet sker direkt vid fokus, innan tangentbordet öppnas. När
-// tangentbordet har öppnats och sidan har stannat rättas läget en gång, åt det håll som behövs.
-// Fler rättningar fick sidan att hoppa i iPhone.
+// Med mus står sidan still om minst fyra förslag får plats under fältet. Hoppet sker en gång,
+// innan tangentbordet öppnas (se js/spelvy.js). Rättningar efter att tangentbordet hade öppnats
+// drog i iPhone fram nedräkningen ovanför fältet i stället, så sådana görs inte.
 const GAP = 8;
-const visibleTop = (el) => el.getBoundingClientRect().top - Math.max(0, window.visualViewport?.offsetTop || 0);
 
 export function scrollFieldToTop(input, row) {
   const ROOM = 240; // fyra förslag med listans marginaler
-  const goal = GAP;
-  const rowTop = visibleTop(row);
+  const rowTop = row.getBoundingClientRect().top;
   if (!matchMedia('(pointer: coarse)').matches) {
     const room = window.innerHeight - input.getBoundingClientRect().bottom;
-    if (rowTop < goal || room >= Math.min(ROOM, window.innerHeight * 0.45)) return;
+    if (rowTop < GAP || room >= Math.min(ROOM, window.innerHeight * 0.45)) return;
   }
-  if (Math.abs(rowTop - goal) > 4) window.scrollTo({ top: window.scrollY + rowTop - goal, behavior: 'auto' });
-  settle(input, row, goal);
-}
-
-// När tangentbordet har öppnats och den synliga ytan har stannat flyttas raden till rätt
-// ställe. Bara en gång per fokus och inom en och en halv sekund, och inte alls om man har
-// börjat rulla själv.
-function settle(input, row, goal) {
-  const vv = window.visualViewport;
-  if (!vv) return;
-  let wait;
-  const stop = () => {
-    vv.removeEventListener('resize', later);
-    vv.removeEventListener('scroll', later);
-    window.removeEventListener('touchmove', stop);
-    input.removeEventListener('blur', stop);
-    clearTimeout(wait);
-    clearTimeout(timer);
-  };
-  const check = () => {
-    stop();
-    const off = visibleTop(row) - goal;
-    if (Math.abs(off) > 4) window.scrollTo({ top: window.scrollY + off, behavior: 'auto' });
-  };
-  const later = () => { clearTimeout(wait); wait = setTimeout(check, 150); };
-  const timer = setTimeout(stop, 1500);
-  vv.addEventListener('resize', later);
-  vv.addEventListener('scroll', later);
-  window.addEventListener('touchmove', stop, { passive: true });
-  input.addEventListener('blur', stop);
+  if (Math.abs(rowTop - GAP) > 4) window.scrollTo({ top: window.scrollY + rowTop - GAP, behavior: 'auto' });
 }
