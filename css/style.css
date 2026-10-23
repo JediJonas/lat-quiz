@@ -1079,6 +1079,12 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   border-radius: 50%;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2312823f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
 }
+/* Raden med omslag är lika hög som det högsta omslaget, där namnet går på två rader, som Hårdrock
+   och metal. Under de vanliga namnen på en rad blev det därför 17 px mer luft ner till Inställningar
+   än under andra grupper. Rubriken står närmare, så att avståndet ser ut som på andra ställen. */
+@media not all and (hover: hover) and (pointer: fine) {
+  .cat-picker + .settings-label { margin-top: 8px; }
+}
 /* På dator, med mus, väljs kategorin i en rullgardin under namnet i stället för bland omslag. */
 .cat-select-row { display: none; }
 @media (hover: hover) and (pointer: fine) {
