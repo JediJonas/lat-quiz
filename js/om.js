@@ -5,13 +5,13 @@ const TEXT = `
 
   <h3>Så spelar man</h3>
   <p>Spelledaren väljer kategori och startar ett nytt spel på sin enhet. Spelarna går med i spelet genom att skanna QR-koden med sina enheter. Det går också bra att skriva in en kod själv eller öppna en länk som spelledaren skickar.</p>
-  <p>Spelarna har en halv minut på sig att gissa artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng. Den som först når poänggränsen vinner, till exempel 10 poäng.</p>
+  <p>Spelarna har en halv minut på sig att gissa artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng. Först till 10 poäng vinner.</p>
 
   <h3>Musiken</h3>
-  <p>Musiken är förhandsklipp från Deezer, som spelas direkt i webbläsaren. Nästa låt startar av sig själv, och det behövs inget konto.</p>
+  <p>Musiken är förhandsklipp från <a href="https://www.deezer.com/" target="_blank" rel="noopener">Deezer</a> som spelas direkt i webbläsaren, utan konto.</p>
 
   <h3>Teknik</h3>
-  <p>Låtquiz är byggt med Claude, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
+  <p>Låtquiz är byggt med <a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
   <p>Spelet är vanliga webbsidor i HTML, CSS och JavaScript på GitHub Pages. Spelledarens webbläsare håller i låtar, svar och poäng, och spelarna ansluter direkt till den med WebRTC via PeerJS.</p>
   <p>Varje ändring kontrolleras automatiskt med tester: HTML-validering via W3C, tillgänglighet enligt WCAG 2.2 AA via Axe och prestanda i mobilen via Lighthouse.</p>`;
 
