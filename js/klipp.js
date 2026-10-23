@@ -20,12 +20,13 @@ export function musicPosition(music, sinceMs, duration) {
   return music.loop && duration ? pos % duration : pos;
 }
 
-// Volymen i väntemusiken eller vinnarlåten, med samma toning som hos spelledaren. Trumvirveln
-// tonas inte, och har då 0 som toning.
+// Volymen i väntemusiken eller vinnarlåten, med samma toning och utjämning som hos spelledaren.
+// Trumvirveln tonas inte, och har då 0 som toning. Ett ljudelement kan inte spela starkare än 1, så
+// ett svagt klipp som spelledaren skruvar upp mer än så blir något svagare här.
 export function musicVolume(music, pos, duration) {
   const fadeIn = music.fadeInMs ? Math.min(1, pos * 1000 / music.fadeInMs) : 1;
   const left = duration && music.fadeOutMs ? (duration - pos) * 1000 / music.fadeOutMs : 1;
-  return music.volume * Math.min(fadeIn, left < 1 ? Math.max(0, left) ** 3 : 1);
+  return Math.min(1, music.volume * Math.min(fadeIn, left < 1 ? Math.max(0, left) ** 3 : 1));
 }
 
 // Länken som ska spelas just nu, eller null. Quizlåten går före musiken.

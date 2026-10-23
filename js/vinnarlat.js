@@ -1,6 +1,7 @@
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 import { SILENCE, findPreview } from './deezer.js';
+import { levelGain } from './ljudniva.js';
 
 export const WINNER_SONGS = [
   { artist: 'Queen', title: 'We Are the Champions', deezerId: 4092339021 },
@@ -52,6 +53,8 @@ export const WINNER_SONGS = [
 const FADE_IN_MS = 1000;
 const FADE_MS = 5000;
 const VOLUME = 0.8;
+// Nivån som klippen jämnas ut mot, se ljudniva.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
+const LEVEL_DB = -12;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
@@ -63,7 +66,7 @@ export function pickWinnerSong(random = Math.random, last = null) {
 
 // Volymen under uttoningen. left går från 1 till 0. Volymen sänks efter en kurva, eftersom örat
 // uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
-const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
+const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
 export const WINNER_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_MS, loop: false };
@@ -159,7 +162,7 @@ export function createWinnerSong() {
       const res = await fetch(url);
       if (!res.ok) throw new Error('Inget svar');
       const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
-      return { url, buffer };
+      return { url, buffer, volume: VOLUME * levelGain(buffer, LEVEL_DB) };
     } catch {
       preload(url);
       return { url };
@@ -218,22 +221,23 @@ export function createWinnerSong() {
     heardSong = current;
     if (clip.buffer && ctx && ctx.state === 'running') {
       const at = ctx.currentTime;
-      startBuffer(clip.buffer);
-      heardClip = { url: clip.url, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
+      startBuffer(clip.buffer, clip.volume);
+      heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
       heard();
     } else {
       startElement(clip.url);
-      heardClip = { url: clip.url, position: () => audio.currentTime, ended: () => audio.ended };
+      heardClip = { url: clip.url, volume: VOLUME, position: () => audio.currentTime, ended: () => audio.ended };
     }
   }
 
-  function startBuffer(buffer) {
+  // volume: klippets volym efter utjämningen.
+  function startBuffer(buffer, volume) {
     const gain = ctx.createGain();
     const now = ctx.currentTime;
     const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
     gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(VOLUME, now + FADE_IN_MS / 1000);
-    const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49));
+    gain.gain.linearRampToValueAtTime(volume, now + FADE_IN_MS / 1000);
+    const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, volume));
     gain.gain.setValueCurveAtTime(steps, now + buffer.duration - fade, fade);
     source = ctx.createBufferSource();
     source.buffer = buffer;
@@ -263,7 +267,7 @@ export function createWinnerSong() {
   function now() {
     if (!heardClip) return null;
     if (heardClip.ended()) return null;
-    return { url: heardClip.url, posMs: Math.round(heardClip.position() * 1000) };
+    return { url: heardClip.url, posMs: Math.round(heardClip.position() * 1000), volume: heardClip.volume };
   }
 
   // Trumvirveln och var i den, eller null när den inte spelar. Spelarnas mobiler spelar den i takt.
