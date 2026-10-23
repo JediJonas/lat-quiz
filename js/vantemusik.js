@@ -23,6 +23,7 @@ export const LOBBY_SONGS = [
   { artist: 'Hania Rani', title: 'Eden', deezerId: 1446303162 },
   { artist: "Dustin O'Halloran", title: 'Opus 23', deezerId: 653786932 },
   { artist: 'Jinsang', title: 'Affection', deezerId: 3711015562 },
+  { artist: 'No Lyrics', title: 'Floating', deezerId: 3131614881 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
