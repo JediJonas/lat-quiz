@@ -556,10 +556,10 @@ function playClipClicked() {
 const clipStuck = (round) => Boolean(round && round.phase === 'ready' && clip.round === round.number
   && ['error', 'missing', 'blocked'].includes(clip.status));
 
-// Starta spel i menyn försöker igen, med en ny låt om Deezer saknade klippen.
+// Starta spelet i menyn försöker igen, med en ny låt om Deezer saknade klippen.
 function clipMessage(round) {
   if (!clipStuck(round)) return null;
-  const text = 'Välj Starta spel i menyn för att försöka igen.';
+  const text = 'Välj Starta spelet i menyn för att försöka igen.';
   if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text };
   if (clip.status === 'missing') return { kind: 'problem', title: 'Inga klipp från Deezer', text };
   return { kind: 'problem', title: 'Klippet startade inte', text };
@@ -968,15 +968,15 @@ function showQr() {
   scrollToTop();
 }
 
-// Pausa spelet och Starta spel delar rad i menyn. Raden finns från första låten tills någon har
-// vunnit. Starta spel fortsätter efter en paus, eller försöker igen när klippet inte startade.
+// Pausa spelet och Starta spelet delar rad i menyn. Raden finns från första låten tills någon har
+// vunnit. Starta spelet fortsätter efter en paus, eller försöker igen när klippet inte startade.
 // Medan spelarna går med står Starta spelet här, som knappen i vyn.
 function pauseItem() {
   const round = state.round;
   if (!round && !state.winners) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: startClicked }];
   if (!round || state.winners) return [];
-  if (state.pausedAt) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: resumeGame }];
-  if (clipStuck(round)) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: playClipClicked }];
+  if (state.pausedAt) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: resumeGame }];
+  if (clipStuck(round)) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: playClipClicked }];
   return [{ label: 'Pausa spelet', icon: MENU_ICONS.pause, action: pauseGame }];
 }
 
