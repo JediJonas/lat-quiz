@@ -42,6 +42,28 @@ function rules(view) {
   ];
 }
 
+// Med ?debug=1 visas en liten logg nederst på sidan över tryck, fokus och rullning kring
+// svarsfälten, så att det går att se vad Safari gör i en riktig telefon.
+function debugLog() {
+  if (!('debug' in document.documentElement.dataset)) return () => {};
+  const box = document.createElement('pre');
+  box.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99;margin:0;padding:4px 6px;max-height:40vh;overflow:auto;font:10px/1.3 ui-monospace,monospace;background:rgba(0,0,0,.8);color:#fff;pointer-events:none;white-space:pre-wrap';
+  document.body.append(box);
+  const lines = [];
+  let last = 0;
+  return (what, row, often = false) => {
+    const now = performance.now();
+    if (often && now - last < 100) return;
+    last = now;
+    const vv = window.visualViewport;
+    const r = (n) => Math.round(n ?? -1);
+    lines.push(`${(now / 1000).toFixed(2)} ${what} fokus=${document.activeElement?.id || '-'} y=${r(scrollY)} rad=${r(row.getBoundingClientRect().top)} vvTop=${r(vv?.offsetTop)} vvH=${r(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
+    if (lines.length > 30) lines.shift();
+    box.textContent = lines.join('\n');
+    box.scrollTop = box.scrollHeight;
+  };
+}
+
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
 // vinnare!" medan spelledaren spelar en trumvirvel, och sedan visas namnet.
 const WIN_DELAY_MS = 4000;
@@ -93,37 +115,48 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   // drog Safari sedan tillbaka sidan, så att fältet hamnade nere vid tangentbordet. Därför
   // tar vi själva hand om ett tryck på raden: först rullas fältet upp, och sedan får det
   // fokus utan att webbläsaren rullar. Står fältet redan överst har Safari inget att rulla.
-  // Har tangentbordet stängts medan fältet fortfarande har fokus gäller samma sak: fältet
-  // tappar fokus och får det igen, så att tangentbordet öppnas utan att Safari rullar.
-  const keyboardOpen = () => {
-    const vv = window.visualViewport;
-    return !vv || vv.height < document.documentElement.clientHeight - 100;
-  };
+  // Regel (se projektbeskrivningen): rulla aldrig i fokushändelsen och rätta inte läget efter att
+  // tangentbordet har öppnats. Prova ändringar i en riktig iPhone, både första och andra trycket.
+  // Har fältet redan fokus tappar det fokus och får det igen, så att tangentbordet öppnas om det
+  // var stängt, och sidan ändå inte rullar. Ett långt tryck lämnas åt webbläsaren, så att man
+  // kan markera text.
+  const log = debugLog();
   for (const id of ['artist', 'title']) {
     const input = $(`#${id}`);
     const row = input.closest('.field-row');
     let tapped = false;
     let start = null;
     row.addEventListener('touchstart', (e) => {
-      start = (document.activeElement === input && keyboardOpen()) || e.touches.length !== 1 || e.target.closest('button') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      start = e.touches.length !== 1 || e.target.closest('button') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY, at: Date.now() };
+      log(`touchstart ${id}`, row);
     }, { passive: true });
     row.addEventListener('touchend', (e) => {
       const t = e.changedTouches[0];
-      if (!start || !t || Math.hypot(t.clientX - start.x, t.clientY - start.y) > 10) return;
+      const tap = start && t && Date.now() - start.at < 500 && Math.hypot(t.clientX - start.x, t.clientY - start.y) <= 10;
       start = null;
+      log(`touchend ${id} ${tap ? 'tap' : 'skip'}`, row);
+      if (!tap) return;
       e.preventDefault();
       if (document.activeElement === input) input.blur();
       document.body.classList.add('typing');
       scrollFieldToTop(input, row);
       tapped = true;
       input.focus({ preventScroll: true });
+      log(`scrolled ${id}`, row);
     });
     input.addEventListener('focus', () => {
       document.body.classList.add('typing');
       if (!tapped) scrollFieldToTop(input, row);
+      log(`focus ${id}${tapped ? '' : ' (ej tryck)'}`, row);
       tapped = false;
     });
-    input.addEventListener('blur', () => document.body.classList.remove('typing'));
+    input.addEventListener('blur', () => {
+      document.body.classList.remove('typing');
+      log(`blur ${id}`, row);
+    });
+    const vv = window.visualViewport;
+    if (vv) for (const type of ['resize', 'scroll']) vv.addEventListener(type, () => log(`vv ${type}`, row, true));
+    window.addEventListener('scroll', () => log('scroll', row, true), { passive: true });
   }
   // Förslagslistan är stor. Den laddas i bakgrunden, så att sidan visas direkt.
   loadSuggestions().then((suggestions) => {
