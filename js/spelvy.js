@@ -27,6 +27,13 @@ function sparkles(count = 12) {
     + '</span>';
 }
 
+// Prickarna vid pilen för den som klättrat: några gröna prickar som stiger uppåt och tonar bort.
+function risers(count = 6) {
+  return '<span class="risers" aria-hidden="true">' + Array.from({ length: count }, (_, i) =>
+    `<i style="--x:${(i - (count - 1) / 2) * 5}px;--d:${(i % 2 ? 0.15 : 0) + Math.random() * 0.25}s"></i>`).join('')
+    + '</span>';
+}
+
 // Reglerna som små etiketter medan alla väntar på första låten, i stället för en lång mening.
 // Etiketterna följer kategorins ord, till exempel 1 p för kompositör.
 function rules(view) {
@@ -100,6 +107,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   let introEnds = 0; // när nedräkningen före första låten är slut
   let introTotal = 0; // hela nedräkningens längd, för ringen
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
+  const climbsShown = new Set(); // pilar som redan har animerats, så att de bara gör det en gång per låt
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
@@ -213,6 +221,14 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     const revealed = view.round && view.round.phase === 'revealed';
     if (!revealed) ranksBefore = new Map(ranked ? view.standings.map((p) => [p.id, rankOf(p)]) : []);
     const climb = (p) => (revealed && ranksBefore.has(p.id) ? ranksBefore.get(p.id) - rankOf(p) : 0);
+    // Första gången pilen syns hoppar den upp, och några gröna prickar stiger från den.
+    const climbArrow = (id, up) => {
+      const key = `${view.round.number}:${id}`;
+      const fresh = !climbsShown.has(key);
+      climbsShown.add(key);
+      return `<span class="up${fresh ? ' pop' : ''}">${fresh ? risers() : ''}<span aria-hidden="true">▲</span>${up}`
+        + '<span class="visually-hidden"> placeringar upp</span></span>';
+    };
     const podium = winnerView();
     const counts = [];
     const rows = view.standings.map((p) => {
@@ -225,7 +241,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       // Plats 1–3 får stora siffror.
       return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
       ${podium ? `<td class="rank${rank <= 3 ? ' top' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : score}
-      <td class="name"><span class="player"><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? `<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> placeringar upp</span></span>` : ''}</span></td>
+      <td class="name"><span class="player"><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? climbArrow(p.id, up) : ''}</span></td>
       <td class="status">${playerStatus(p.id)}</td>${podium ? `
       ${score}` : ''}</tr>`;
     });
