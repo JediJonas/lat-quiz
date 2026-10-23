@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { roundCheer, winComment, winIntro } from '../js/pepp.js';
-import { WINNER_SONGS, pickWinnerSong } from '../js/vinnarlat.js';
+import { existsSync } from 'node:fs';
+import { DRUM_SOUNDS, WINNER_SONGS, pickDrumSound, pickWinnerSong } from '../js/vinnarlat.js';
 
 const players = (...scores) => scores.map((score, i) => ({ id: `p${i}`, name: `P${i}`, score }));
 
@@ -29,6 +30,15 @@ test('vinnarlåten slumpas och blir inte samma två gånger i rad', () => {
   const first = pickWinnerSong(() => 0);
   assert.equal(first, WINNER_SONGS[0]);
   for (const r of [0, 0.5, 0.999]) assert.notEqual(pickWinnerSong(() => r, first.deezerId), first);
+});
+
+test('ljudet före vinnaren slumpas, finns och blir inte samma två gånger i rad', () => {
+  assert.ok(DRUM_SOUNDS.length >= 3);
+  for (const url of DRUM_SOUNDS) assert.ok(existsSync(new URL(`../${url}`, import.meta.url)), url);
+  assert.equal(pickDrumSound(() => 0), DRUM_SOUNDS[0]);
+  for (const last of DRUM_SOUNDS) {
+    for (const r of [0, 0.5, 0.999]) assert.notEqual(pickDrumSound(() => r, last), last);
+  }
 });
 
 test('texten innan vinnaren är densamma på alla enheter', () => {
