@@ -42,6 +42,7 @@ export const WINNER_SONGS = [
   { artist: 'Niklas Strömstedt', title: 'Oslagbara', deezerId: 16754571 },
   { artist: 'Albatraoz', title: 'Wunderbar', deezerId: 113948726 },
   { artist: 'Chesney Hawkes', title: 'The One and Only', deezerId: 1787674467 },
+  { artist: 'Nick Borgen', title: 'We Are All the Winners', deezerId: 3615874 },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
