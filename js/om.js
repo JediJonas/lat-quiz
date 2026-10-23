@@ -9,6 +9,7 @@ const TEXT = `
 
   <h3>Musiken</h3>
   <p>Musiken är förhandsklipp från <a href="https://www.deezer.com/" target="_blank" rel="noopener">Deezer</a> som spelas direkt i webbläsaren, utan konto.</p>
+  <p>Trumvirveln, fanfaren och publikjublet före vinnaren kommer från <a href="https://freesound.org/" target="_blank" rel="noopener">Freesound</a> och är fria att använda (CC0).</p>
 
   <h3>Teknik</h3>
   <p>Låtquiz är byggt med <a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
