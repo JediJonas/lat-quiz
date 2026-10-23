@@ -26,8 +26,9 @@ export const LOBBY_SONGS = [
   { artist: 'captain dreams', title: 'paper umbrellas', deezerId: 4223975852 },
 ];
 
-// Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
-const VOLUME = 0.5;
+// Musiken ligger i bakgrunden, så den är svagare än vinnarlåten, men inte så svag att quizlåtarna
+// sedan känns för starka.
+const VOLUME = 0.7;
 // Nivån som klippen jämnas ut mot, se ljudniva.js. Lugna låtar är ofta svagare mixade än poplåtar.
 const LEVEL_DB = -16;
 const FADE_IN_MS = 2000;
