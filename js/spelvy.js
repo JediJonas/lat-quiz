@@ -93,19 +93,26 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   // drog Safari sedan tillbaka sidan, så att fältet hamnade nere vid tangentbordet. Därför
   // tar vi själva hand om ett tryck på raden: först rullas fältet upp, och sedan får det
   // fokus utan att webbläsaren rullar. Står fältet redan överst har Safari inget att rulla.
+  // Har tangentbordet stängts medan fältet fortfarande har fokus gäller samma sak: fältet
+  // tappar fokus och får det igen, så att tangentbordet öppnas utan att Safari rullar.
+  const keyboardOpen = () => {
+    const vv = window.visualViewport;
+    return !vv || vv.height < document.documentElement.clientHeight - 100;
+  };
   for (const id of ['artist', 'title']) {
     const input = $(`#${id}`);
     const row = input.closest('.field-row');
     let tapped = false;
     let start = null;
     row.addEventListener('touchstart', (e) => {
-      start = document.activeElement === input || e.touches.length !== 1 || e.target.closest('button') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      start = (document.activeElement === input && keyboardOpen()) || e.touches.length !== 1 || e.target.closest('button') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
     }, { passive: true });
     row.addEventListener('touchend', (e) => {
       const t = e.changedTouches[0];
       if (!start || !t || Math.hypot(t.clientX - start.x, t.clientY - start.y) > 10) return;
       start = null;
       e.preventDefault();
+      if (document.activeElement === input) input.blur();
       document.body.classList.add('typing');
       scrollFieldToTop(input, row);
       tapped = true;
