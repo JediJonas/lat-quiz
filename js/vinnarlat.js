@@ -1,4 +1,4 @@
-// Vinnarlåten: först ett kort ljud, till exempel en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
+// Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 import { SILENCE, findPreview } from './deezer.js';
 import { levelGain } from './ljudniva.js';
@@ -51,20 +51,8 @@ const FADE_MS = 5000;
 const VOLUME = 0.8;
 // Nivån som klippen jämnas ut mot, se ljudniva.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
 const LEVEL_DB = -12;
-// Ljuden före vinnaren, ett slumpat varje gång men inte samma två gånger i rad. Alla är CC0 från
-// Freesound och runt fyra och en halv sekund. Fanfaren och publiken är kortade och utjämnade mot virveln.
-export const DRUM_SOUNDS = [
-  'ljud/trumvirvel.mp3', // ljud 111653 av bigjoedrummer, kortat till den första virveln
-  'ljud/fanfar.mp3', // ljud 413201 av joepayne
-  'ljud/publik.mp3', // ljud 32260 av moxobna, kortat och uttonat
-];
-const DRUM_TAIL_S = 0.15; // tystnaden i slutet av ljudet
-
-// Ett slumpat ljud före vinnaren, men inte samma som förra gången.
-export function pickDrumSound(random = Math.random, last = null) {
-  const choices = DRUM_SOUNDS.filter((s) => s !== last);
-  return choices[Math.floor(random() * choices.length) % choices.length];
-}
+const DRUM_URL = 'ljud/trumvirvel.mp3';
+const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
 // En slumpad låt, men inte samma som förra gången.
 export function pickWinnerSong(random = Math.random, last = null) {
@@ -108,7 +96,6 @@ export function createWinnerSong() {
   }
 
   let drumAudio = null;
-  let drumUrl = null; // ljudet före vinnaren, för att inte spela samma två gånger i rad
 
   // Ljudelementen spelar en kort tystnad vid ett tryck. Sedan låter iPhone dem spela utan tryck.
   const unlocked = new Set();
@@ -133,15 +120,15 @@ export function createWinnerSong() {
   }
 
 
-  // Trumvirveln eller ett av de andra ljuden i DRUM_SOUNDS, som börjar när texten före vinnaren visas.
+  // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
+  // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
   // Svaret kommer när virveln hörs, så att texten visas då, och direkt om den inte kunde spelas.
   function drum() {
     prepare();
     if (!drumAudio) drumAudio = new Audio();
     // Virveln ska höras även när ringsignalen är avstängd.
     if (navigator.audioSession) navigator.audioSession.type = 'playback';
-    drumUrl = pickDrumSound(Math.random, drumUrl);
-    drumAudio.src = drumUrl;
+    drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
     return new Promise((resolve) => {
       drumAudio.addEventListener('playing', () => resolve(), { once: true });
@@ -282,7 +269,7 @@ export function createWinnerSong() {
   // Trumvirveln och var i den, eller null när den inte spelar. Spelarnas mobiler spelar den i takt.
   function drumNow() {
     if (!drumAudio || drumAudio.paused || drumAudio.ended) return null;
-    return { url: drumUrl, posMs: Math.round(drumAudio.currentTime * 1000) };
+    return { url: DRUM_URL, posMs: Math.round(drumAudio.currentTime * 1000) };
   }
 
   // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
