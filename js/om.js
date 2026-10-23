@@ -8,7 +8,7 @@ const TEXT = `
   <p>Spelarna har en halv minut på sig att gissa artist och titel. Rätt artist och rätt titel ger en poäng var, och den som har båda rätt snabbt får en bonuspoäng. Först till 10 poäng vinner.</p>
 
   <h3>Musiken</h3>
-  <p>Musiken är förhandsklipp från Deezer, som spelas direkt i webbläsaren. Nästa låt startar av sig själv, och det behövs inget konto.</p>
+  <p>Musiken är förhandsklipp från Deezer som spelas direkt i webbläsaren, utan konto.</p>
 
   <h3>Teknik</h3>
   <p>Låtquiz är byggt med Claude, en AI från Anthropic, som har skrivit koden utifrån önskemål om hur spelet ska fungera.</p>
