@@ -452,8 +452,22 @@ td.rank { text-align: center; font-variant-numeric: tabular-nums; }
 td.score { text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
 .player { display: flex; align-items: center; gap: 12px; }
-/* Den som klättrat i listan får en liten grön pil med antalet placeringar. */
-.up { margin-left: -6px; font-size: 0.6875rem; font-weight: 800; color: var(--good); white-space: nowrap; }
+/* Den som klättrat i listan får en grön pil med antalet placeringar, i ungefär namnets storlek. */
+.up { margin-left: -4px; font-size: 0.875rem; font-weight: 800; color: var(--good); white-space: nowrap; position: relative; display: inline-block; }
+/* Första gången hoppar pilen upp från raden, och några gröna prickar stiger från den och tonar bort. */
+.up.pop { animation: climb-in 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 0.3s both; }
+@keyframes climb-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.risers { position: absolute; left: 0.4em; top: 30%; pointer-events: none; }
+.risers i { position: absolute; width: 5px; height: 5px; left: calc(var(--x) - 2.5px); border-radius: 50%; background: var(--good); opacity: 0; animation: rise 1.1s ease-out var(--d) both; }
+@keyframes rise {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-26px) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .risers { display: none; }
+  .up.pop { animation: none; }
+}
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
