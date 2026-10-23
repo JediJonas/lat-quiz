@@ -452,8 +452,8 @@ td.rank { text-align: center; font-variant-numeric: tabular-nums; }
 td.score { text-align: right; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .score .num { display: inline-block; }
 .player { display: flex; align-items: center; gap: 12px; }
-/* Den som klättrat i listan får en liten grön pil med antalet placeringar. */
-.up { margin-left: -6px; font-size: 0.6875rem; font-weight: 800; color: var(--good); white-space: nowrap; }
+/* Den som klättrat i listan får en grön pil med antalet placeringar, i ungefär namnets storlek. */
+.up { margin-left: -4px; font-size: 0.875rem; font-weight: 800; color: var(--good); white-space: nowrap; }
 td.status { color: var(--muted); font-size: 0.9rem; text-align: right; }
 td.status .tag:last-child { margin-right: 0; }
 tr.offline td { opacity: 0.5; }
