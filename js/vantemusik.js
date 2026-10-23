@@ -5,16 +5,12 @@
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
-  { artist: 'Herb Alpert & the Tijuana Brass', title: 'A Taste of Honey', deezerId: 1064027062 },
-  { artist: 'Ramsey Lewis Trio', title: 'The "In" Crowd', deezerId: 925778 },
   { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
-  { artist: 'Horace Silver', title: 'Song for My Father', deezerId: 3104557 },
   { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
   { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
   { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
   { artist: 'Stan Getz & Charlie Byrd', title: 'Desafinado', deezerId: 602453972 },
   { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
-  { artist: 'Vince Guaraldi Trio', title: 'Cast Your Fate to the Wind', deezerId: 2604673 },
   { artist: 'Peter Gregson', title: '360', deezerId: 3854282761 },
   { artist: 'Flawed Mangoes', title: 'The Beginning', deezerId: 2493706161 },
   { artist: 'Ben Scott', title: 'The Bug Collector', deezerId: 2385850805 },
