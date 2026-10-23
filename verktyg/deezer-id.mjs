@@ -3,11 +3,11 @@
 //   node verktyg/deezer-id.mjs 80-tal 90-tal
 //   node verktyg/deezer-id.mjs --igen 80-tal    (hämtar om även låtar med ID)
 //
-// 1. Wikidata slår upp låtens Spotify-ID och ger ISRC och artist. Med en ISRC
-//    hämtas exakt samma inspelning från Deezer. Det är en säker träff.
-// 2. Annars söks låten på Deezer. Rätt artist och titel krävs, och live,
-//    remix, cover, nyinspelningar och liknande sorteras bort. Bland det som
-//    återstår väljs den mest spelade, vilket nästan alltid är originalet.
+// Låten söks på Deezer. Rätt artist och titel krävs, och live, remix, cover,
+// nyinspelningar och liknande sorteras bort. Bland det som återstår väljs den
+// mest spelade nära låtens år, vilket nästan alltid är originalet.
+// Fram till 23 oktober 2026 gav låtens Spotify-ID först en ISRC via Wikidata, och
+// då hämtades exakt den inspelningen. Spotify-ID:na togs bort, se spotify-lardomar.md.
 //
 // Låtar med ett deezerId sedan tidigare rörs inte, utom med --igen. Rapporten med osäkra
 // träffar skrivs till verktyg/.deezer-rapport.json. Granskade val står i
@@ -21,7 +21,7 @@ const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 const CACHE = process.env.CACHE || new URL('./.cache.json', import.meta.url);
 const REPORT = new URL('./.deezer-rapport.json', import.meta.url);
 // Claudes egna val efter granskning: ett Deezer-ID, eller null när Deezer
-// saknar originalet och appen hellre ska söka själv eller använda Spotify.
+// saknar originalet och appen hellre ska söka själv.
 const CHOICES = JSON.parse(readFileSync(new URL('./deezer-val.json', import.meta.url), 'utf8'));
 const PERFORMERS = JSON.parse(readFileSync(new URL('./eurovision-artister.json', import.meta.url), 'utf8'));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -80,30 +80,6 @@ const deezer = async (path) => {
   if (!cached) await sleep(120);
   return data && data.error ? null : data;
 };
-
-// ISRC och artist för alla Spotify-ID i en enda fråga.
-export async function wikidata(songs) {
-  const values = songs.map((s) => JSON.stringify(s.spotifyId)).join(' ');
-  const query = `SELECT ?sp ?isrc ?perfLabel WHERE {
-    VALUES ?sp { ${values} }
-    ?item wdt:P2207 ?sp.
-    OPTIONAL { ?item wdt:P1243 ?isrc. }
-    OPTIONAL { ?item wdt:P175 ?perf. }
-    SERVICE wikibase:label { bd:serviceParam wikibase:language "en,sv,mul". }
-  }`;
-  const data = await getJson('https://query.wikidata.org/sparql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ query }).toString(),
-  });
-  const bySpotify = {};
-  for (const b of data.results.bindings) {
-    const row = bySpotify[b.sp.value] ||= { isrc: new Set(), performers: new Set() };
-    if (b.isrc) row.isrc.add(b.isrc.value.replace(/-/g, '').toUpperCase());
-    if (b.perfLabel) row.performers.add(b.perfLabel.value);
-  }
-  return bySpotify;
-}
 
 const UNWANTED = /\b(live|karaoke|instrumental|cover|covers|remix|remixes|remixed|mix|vs|acoustic|akustisk|unplugged|demo|re ?recorded|rerecorded|re ?record|new recording|nyinspelning|sped up|slowed|tribute|in the style of|originally performed|made famous|medley|megamix|orchestral|symphonic|lullaby|8 bit|piano version|extended|club mix|rehearsal|alternate|alternative|outtake|early take|session|sessions|commentary|interview|a cappella|acapella)\b/;
 // Ord som finns i låtens egen titel, som "live" i "Live and Let Die", räknas inte.
@@ -179,22 +155,10 @@ async function topTracks(name) {
   return (top && top.data) || [];
 }
 
-export async function find(song, category, wd) {
-  const info = wd[song.spotifyId] || { isrc: new Set(), performers: new Set() };
+export async function find(song, category) {
   const title = film(category) ? song.track : song.title;
   // I Eurovision är "artist" landet. Artisten står i verktyg/eurovision-artister.json.
-  const artists = countries(category)
-    ? [PERFORMERS[song.id], ...info.performers].filter(Boolean)
-    : [song.artist, ...info.performers];
-
-  // Samma inspelning kan ha flera ISRC. Den mest spelade utgåvan väljs.
-  const viaIsrc = [];
-  for (const isrc of info.isrc) {
-    const t = await deezer('track/isrc:' + isrc);
-    if (inSweden(t) && (!artists.length || artists.some((a) => artistMatches(a, t.artist.name)))) viaIsrc.push(t);
-  }
-  viaIsrc.sort((a, b) => (b.rank || 0) - (a.rank || 0));
-  if (viaIsrc.length) return { track: viaIsrc[0], status: 'säker', how: 'ISRC' };
+  const artists = countries(category) ? [PERFORMERS[song.id]].filter(Boolean) : [song.artist];
 
   if (classical(category)) {
     // Verket söks utan krav på artist, eftersom Deezer oftast anger orkestern.
@@ -243,7 +207,6 @@ for (const id of ids) {
   if (!category) throw new Error('Okänd kategori ' + id);
   const path = new URL(`../data/${category.file}`, import.meta.url);
   const songs = JSON.parse(readFileSync(path, 'utf8'));
-  const wd = await wikidata(songs);
   const rows = [];
   for (const song of songs) {
     if (song.deezerId && !again) continue;
@@ -253,12 +216,12 @@ for (const id of ids) {
       if (choice) song.deezerId = choice;
       continue;
     }
-    const hit = await find(song, category, wd);
+    const hit = await find(song, category);
     const row = { id: song.id, artist: song.artist, title: film(category) ? `${song.title} (${song.track})` : song.title, year: song.year };
     if (hit) {
       song.deezerId = hit.track.id;
       Object.assign(row, {
-        status: hit.status, how: hit.how || 'sökning', why: hit.why, deezerId: hit.track.id,
+        status: hit.status, why: hit.why, deezerId: hit.track.id,
         found: `${hit.track.artist.name} – ${hit.track.title} [${hit.track.album ? hit.track.album.title : ''}]`,
       });
     } else {
@@ -271,6 +234,6 @@ for (const id of ids) {
   report[id] = rows;
   writeFileSync(REPORT, JSON.stringify(report, null, 1) + '\n');
   const count = (s) => rows.filter((r) => r.status === s).length;
-  console.log(`\n${category.name}: ${count('säker')} säkra, ${count('trolig')} troliga, ${count('osäker')} osäkra, ${count('saknas')} saknas.\n`);
+  console.log(`\n${category.name}: ${count('trolig')} troliga, ${count('osäker')} osäkra, ${count('saknas')} saknas.\n`);
 }
 saveCache();

@@ -254,7 +254,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     const nextCount = $('#result-body .next');
     if (holding && nextCount) nextCount.classList.add('held');
     // När spelet har startats står Nu börjar det! på väntekortet tills första låten hörs.
-    const starting = phase === 'ready' && view.deezer && !$('#waiting').hidden;
+    const starting = phase === 'ready' && !$('#waiting').hidden;
     if (view.introMs) [introEnds, introTotal] = [Date.now() + view.introMs, view.introTotalMs];
     if (starting && $('#intro').hidden) {
       $('#intro').classList.add('reveal');
@@ -273,8 +273,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#result').hidden = phase !== 'revealed' && !(holding && !$('#result').hidden);
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
-    // På vinnarkortet gäller Deezer vinnarlåten och i lobbyn väntemusiken, inte quizlåtarna.
-    document.querySelectorAll('.clip-note').forEach((note) => { if (!note.closest('.win') && note.id !== 'lobby-note') note.hidden = !view.deezer; });
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
 
@@ -304,7 +302,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const fresh = shownResult !== key;
       // När någon har vunnit visas sista låten först som vanligt, och sedan tar vinnaren omslaget.
       const clipNote = '<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>';
-      const clip = view.deezer ? clipNote : '';
       const label = 'Spelet är slut';
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const cover = drum
@@ -316,7 +313,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
           <div class="cover-head"><p class="round-label">${label}</p>${view.winnerClip ? clipNote : ''}</div>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
           <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
-        : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clip}</div>
+        : `<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clipNote}</div>
           <div class="title">${esc(round.song.title)}</div>
           <div class="artist">${esc(round.song.artist)} · ${round.song.year}</div></div>`;
       // De egna svaren i en grupp: vad man svarade och vad det gav. Rätt är grönt, fel rött och inget svar grått.

@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Kvalitetskontroller som körs i CI: HTML, tillgänglighet, Lighthouse, länkar och sidvikt.",
   "scripts": {
-    "html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --also-check-css ../index.html ../host.html ../play.html ../verktyg/spotify-id.html ../css/style.css",
+    "html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --also-check-css ../index.html ../host.html ../play.html ../css/style.css",
     "peer": "peerjs --host 127.0.0.1 --port 9000",
     "axe": "node axe.mjs",
     "lighthouse": "node lighthouse.mjs",

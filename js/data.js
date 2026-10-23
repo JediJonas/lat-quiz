@@ -37,15 +37,3 @@ export function mergeSuggestions(decoys, songs) {
     titles: unique([...songs.map((s) => s.title), ...decoys.titles]),
   };
 }
-
-// Öppnar låten direkt i Spotify-appen. Kräver att appen är installerad. Utan autoplay
-// byter appen på datorn inte låt om en annan redan spelar.
-export function spotifyAppUrl(song) {
-  return song.spotifyId ? 'spotify:track:' + song.spotifyId + '?autoplay=true' : null;
-}
-
-// Utan Spotify-ID öppnas en sökning, där spelledaren väljer översta träffen.
-export function spotifyUrl(song) {
-  if (song.spotifyId) return 'https://open.spotify.com/track/' + song.spotifyId;
-  return 'https://open.spotify.com/search/' + encodeURIComponent(song.artist + ' ' + song.title);
-}

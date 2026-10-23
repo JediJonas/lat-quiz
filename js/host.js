@@ -1,7 +1,7 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
-import { loadCategories, loadSongs, spotifyUrl, spotifyAppUrl } from './data.js';
+import { loadCategories, loadSongs } from './data.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
@@ -11,7 +11,7 @@ import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { dragToClose } from './ark.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
-import { LOBBY_FADE, createLobbyMusic, pickLobbySong } from './vantemusik.js';
+import { LOBBY_FADE, createLobbyMusic } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
@@ -22,11 +22,12 @@ showUnexpectedErrors();
 const SAVE_KEY = 'latquiz-host';
 const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
-const MUSIC_KEY = 'latquiz-musik';
 const CLIP_ALL_KEY = 'latquiz-klipp-alla';
 const EXTRA_SOUNDS_KEY = 'latquiz-extraljud';
 // Tidigare fanns Spela vinnarlåt och Spela väntemusik var för sig. De tas bort när extraljuden sparas.
 const OLD_SOUND_KEYS = ['latquiz-vinnarlat', 'latquiz-vantemusik'];
+// Tidigare gick det att välja Spotify som musiktjänst. Valet tas bort, eftersom bara Deezer finns kvar.
+const OLD_MUSIC_KEY = 'latquiz-musik';
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
 
@@ -70,24 +71,10 @@ function saveSettings(settings) {
   storage(() => localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)));
 }
 
-// Musiktjänsten väljs i Inställningar. Deezer spelar klippet i sidan, Spotify öppnar låten
-// i spelledarens Spotify-app. Senaste valet gäller nästa spel.
-const MUSIC_SERVICES = [{ id: 'deezer', name: 'Deezer' }, { id: 'spotify', name: 'Spotify' }];
+storage(() => localStorage.removeItem(OLD_MUSIC_KEY));
 
-function cleanMusic(value) {
-  return value === 'spotify' ? 'spotify' : 'deezer';
-}
-
-function loadMusic() {
-  return cleanMusic(storage(() => localStorage.getItem(MUSIC_KEY), null));
-}
-
-function saveMusic(music) {
-  storage(() => localStorage.setItem(MUSIC_KEY, music));
-}
-
-// Med Deezer kan klippet också spelas i spelarnas mobiler. Det är av som standard, och
-// senaste valet gäller nästa spel.
+// Klippet kan också spelas i spelarnas mobiler. Det är av som standard, och senaste valet
+// gäller nästa spel.
 function loadClipAll() {
   return storage(() => localStorage.getItem(CLIP_ALL_KEY) === '1', false);
 }
@@ -123,29 +110,17 @@ const lobbyMusic = createLobbyMusic({ onStart: () => {
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
 
-// Med Deezer spelas bara Deezer-klipp och med Spotify bara låtar i Spotify-appen. Med Spotify
-// slumpas därför en väntelåt med Spotify-ID, som spelledaren startar med Spela väntemusik,
-// eftersom Spotify bara kan öppnas med ett klick. Den spelas då hel i Spotify.
-let lobbySpotifySong = null;
-let lastLobbySpotifyId = null;
-let lobbySpotifyStarted = false;
-// Spelledaren har öppnat vinnarlåten i Spotify, så att den står på raden längst ner.
-let winnerSpotifyStarted = false;
-
-// Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Med Spotify står
-// låten där när spelledaren har öppnat den, och med Deezer när klippet hörs. Vinnarlåten står
-// kvar tills en ny match börjar.
+// Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Låten står där
+// när klippet hörs, och vinnarlåten står kvar tills en ny match börjar.
 function currentMusic() {
   if (!state) return null;
-  const spotify = state.music === 'spotify';
-  if (lobbyWanted()) return nowMusic(spotify ? lobbySpotifyStarted && lobbySpotifySong : lobbyMusic.song());
+  if (lobbyWanted()) return nowMusic(lobbyMusic.song());
   if (!state.winners || !loadExtraSounds()) return null;
-  return nowMusic(spotify ? winnerSpotifyStarted && winnerSong.current() : winnerSong.heard());
+  return nowMusic(winnerSong.heard());
 }
 
 // När spelledaren startar spelet visas "Nu börjar det!" en kort stund innan första låten.
-// Klippet laddas under tiden och spelas när tiden är slut. Med Spotify visas ingen ruta,
-// eftersom Spotify bara kan öppnas direkt i klicket och då börjar spela med en gång.
+// Klippet laddas under tiden och spelas när tiden är slut.
 const INTRO_MS = 5000;
 let introEnds = 0;
 let introTimer = null;
@@ -159,22 +134,13 @@ function startIntro() {
 }
 
 // Equalizern på väntekortet rör sig snabbt när väntemusiken spelas, och långsamt annars.
-const lobbyPlaying = () => lobbyWanted() && (state.music !== 'spotify' || lobbySpotifyStarted);
+const lobbyPlaying = lobbyWanted;
 
 function updateLobbyMusic() {
   const on = lobbyWanted();
-  const spotify = Boolean(state && state.music === 'spotify');
-  if (on && !spotify) lobbyMusic.play();
+  if (on) lobbyMusic.play();
   else lobbyMusic.stop();
-  if (on && spotify && !lobbySpotifySong) {
-    lobbySpotifySong = pickLobbySong(Math.random, lastLobbySpotifyId, 'spotifyId');
-    lastLobbySpotifyId = lobbySpotifySong.spotifyId;
-  } else if (!(on && spotify)) {
-    lobbySpotifySong = null;
-    lobbySpotifyStarted = false;
-  }
-  $('#lobby-note').hidden = !(on && !spotify);
-  $('#lobby-song').hidden = !lobbySpotifySong;
+  $('#lobby-note').hidden = !on;
 }
 
 // Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
@@ -232,9 +198,8 @@ function viewFor(playerId) {
   const view = game.playerView(state, playerId, Date.now());
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
-  view.deezer = usesDeezer();
-  // Vinnarlåten är ett Deezer-klipp, utom med Spotify. Då står Deezer på vinnarkortet.
-  view.winnerClip = loadExtraSounds() && state.music !== 'spotify';
+  // Vinnarlåten är ett Deezer-klipp. Då står Deezer på vinnarkortet.
+  view.winnerClip = loadExtraSounds();
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
@@ -325,7 +290,7 @@ function onDisconnect(connId) {
 }
 
 // Kontakten med förmedlingsservern bryts oftast när spelledaren har lämnat webbläsaren, till
-// exempel för Spotify i mobilen. Meddelandet är därför allmänt, som hos spelarna.
+// exempel för en annan app i mobilen. Meddelandet är därför allmänt, som hos spelarna.
 const NET_MESSAGES = {
   relay: { kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' },
   'unavailable-id': { kind: 'busy', title: 'Väntar på koden…', text: 'Spelet startar strax.' },
@@ -350,7 +315,7 @@ function startNetwork() {
 }
 
 // Webbläsare bromsar timers i flikar som inte syns, till exempel när spelledaren
-// har bytt till Spotify, ibland till en gång i minuten. En timer i en worker
+// har bytt till en annan flik, ibland till en gång i minuten. En timer i en worker
 // bromsas inte lika hårt, så svaret visas i tid ändå.
 function startTicker(fn, ms) {
   try {
@@ -402,11 +367,9 @@ function setHostPlays(plays) {
 // Raden Inställningar på Starta nytt spel visar vad som gäller. Ändra öppnar samma ruta som i menyn.
 function renderSettingsSummary() {
   const s = loadSettings();
-  const music = MUSIC_SERVICES.find((m) => m.id === loadMusic()).name;
   // Samma ordning som i rutan Inställningar.
-  const clipAll = loadMusic() === 'deezer' && loadClipAll();
   const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    music, ...(clipAll ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
+    ...(loadClipAll() ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -427,11 +390,10 @@ async function startGame(categoryId, resumeState, name, plays = true) {
       settings: loadSettings(),
     });
     state.hostPlays = plays;
-    state.music = loadMusic();
     state.clipAll = loadClipAll();
   }
-  // Ett äldre sparat spel spelar med Deezer.
-  state.music = cleanMusic(state.music);
+  // Ett äldre sparat spel kan ha valt Spotify, som inte finns längre.
+  delete state.music;
   state.clipAll = state.clipAll === true;
   // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
   if (!state.hostId) state.hostId = newId();
@@ -449,50 +411,23 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   render();
 }
 
-// Bara låtar som finns hos den valda musiktjänsten kan spelas, och inte de som är markerade som okända.
+// Bara låtar med Deezer-ID kan spelas, och inte de som är markerade som okända.
 function playableSongs() {
-  const key = usesDeezer() ? 'deezerId' : 'spotifyId';
-  return withoutUnknown(loadUnknown(), category.id, songs).filter((song) => song[key]);
+  return withoutUnknown(loadUnknown(), category.id, songs).filter((song) => song.deezerId);
 }
 
 function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
-  if (Date.now() - revealedAt < DOUBLE_TAP_MS) return;
   // Sparade inställningar gäller från och med den här låten. Inget väntas in här, eftersom
-  // Spotify bara öppnas om det sker direkt i klicket.
+  // playDeezer måste anropas direkt från trycket på Starta spelet.
   if (pending && (!state.round || state.round.phase === 'revealed')) applyPending();
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
   const playable = playableSongs();
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
   const song = game.nextSong(state, playable);
   if (!song) return;
-  if (usesDeezer()) {
-    changed();
-    playDeezer(state.round.number);
-    return;
-  }
-  // Ett tryck räcker: låten öppnas i Spotify och timern startar direkt.
-  game.startRound(state, Date.now());
   changed();
-  openSpotify(song);
-}
-
-// I mobilen frågar webbläsaren varje gång en spotify:-länk ska öppna appen. Den vanliga
-// länken till open.spotify.com öppnar i stället appen direkt, om den finns.
-const MOBILE = window.matchMedia('(pointer: coarse)').matches;
-
-// Måste anropas direkt från klicket, annars kan webbläsaren stoppa öppnandet.
-function openSpotify(song) {
-  const app = spotifyAppUrl(song);
-  if (!app || MOBILE) {
-    window.open(spotifyUrl(song), '_blank', 'noopener');
-    return;
-  }
-  const link = document.createElement('a');
-  link.href = app;
-  document.body.append(link);
-  link.click();
-  link.remove();
+  playDeezer(state.round.number);
 }
 
 // ---- Deezer-klipp ----
@@ -501,24 +436,19 @@ const clip = { audio: null, round: 0, status: null, error: '', skipped: 0 };
 // Så många låtar i rad hoppas över när Deezer saknar klipp, innan spelledaren får veta det.
 const MAX_SKIPS = 5;
 
-// Med Spotify som musiktjänst öppnas alla låtar i Spotify, som när Deezer saknar klipp.
-function usesDeezer() {
-  return Boolean(category && (!state || state.music !== 'spotify'));
-}
-
 // Klipplänken som spelarnas mobiler spelar, om spelledaren har valt det. Länken säger inte
 // vilken låt det är, och den skickas inte längre när svaret visas.
 function clipUrlForPlayers() {
   const round = state && state.round;
-  if (!round || !state.clipAll || !usesDeezer() || round.phase === 'revealed') return null;
+  if (!round || !state.clipAll || round.phase === 'revealed') return null;
   if (clip.round !== round.number || !clip.audio || !clip.audio.src.startsWith('http')) return null;
   return clip.audio.src;
 }
 
 // Väntemusiken, trumvirveln och vinnarlåten spelas också i spelarnas mobiler, i takt med
-// spelledaren, när spelledaren har valt Deezer och att spela ljud på alla enheter.
+// spelledaren, när spelledaren har valt att spela ljud på alla enheter.
 function musicForPlayers() {
-  if (!state.clipAll || state.music === 'spotify') return null;
+  if (!state.clipAll) return null;
   const lobby = lobbyWanted() && lobbyMusic.now();
   if (lobby) return { ...LOBBY_FADE, ...lobby };
   if (!state.winners || !loadExtraSounds()) return null;
@@ -559,7 +489,7 @@ async function playDeezer(roundNumber, skipping = false) {
     render();
     return;
   }
-  // Saknar Deezer klippet hoppas låten över och en annan slumpas, utan att spela den i Spotify.
+  // Saknar Deezer klippet hoppas låten över och en annan slumpas.
   if (!url) {
     clip.skipped += 1;
     if (clip.skipped <= MAX_SKIPS && game.replaceSong(state, playableSongs())) {
@@ -620,13 +550,17 @@ function playClipClicked() {
   else playDeezer(round.number);
 }
 
-// Spela försöker igen, med en ny låt om Deezer saknade klippen.
+// Klippet har inte startat och behöver ett nytt tryck, till exempel när Deezer inte svarade.
+const clipStuck = (round) => Boolean(round && round.phase === 'ready' && clip.round === round.number
+  && ['error', 'missing', 'blocked'].includes(clip.status));
+
+// Starta spel i menyn försöker igen, med en ny låt om Deezer saknade klippen.
 function clipMessage(round) {
-  if (!round || round.phase === 'revealed' || !usesDeezer() || clip.round !== round.number) return null;
-  if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text: 'Tryck på spela för att försöka igen.' };
-  if (clip.status === 'missing') return { kind: 'problem', title: 'Inga klipp från Deezer', text: 'Tryck på spela för att försöka igen.' };
-  if (clip.status === 'blocked') return { kind: 'problem', title: 'Klippet startade inte', text: 'Tryck på spela igen.' };
-  return null;
+  if (!clipStuck(round)) return null;
+  const text = 'Välj Starta spel i menyn för att försöka igen.';
+  if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text };
+  if (clip.status === 'missing') return { kind: 'problem', title: 'Inga klipp från Deezer', text };
+  return { kind: 'problem', title: 'Klippet startade inte', text };
 }
 
 // Meddelandet visas när klippets läge ändras, inte vid varje render, så att det inte tar över
@@ -670,10 +604,6 @@ function restart() {
   for (const connId of connToPlayer.keys()) net.send(connId, { type: 'new-match' });
 }
 
-function startRound() {
-  if (game.startRound(state, Date.now())) changed();
-}
-
 // Pausen stoppar timern, klippet och nedräkningen till nästa låt.
 function pauseGame() {
   if (!game.pause(state, Date.now())) return;
@@ -687,21 +617,6 @@ function resumeGame() {
   if (state.round.phase === 'playing' && clip.status === 'playing' && clip.audio) clip.audio.play().catch(() => {});
   // Pausades spelet medan klippet laddades startar låten nu.
   if (state.round.phase === 'ready' && clip.round === state.round.number && clip.status === 'loaded') startClip();
-  changed();
-}
-
-// Samma knapp visar svaret och startar nästa låt. Ett dubbeltryck ska inte hoppa över svaret.
-const DOUBLE_TAP_MS = 1000;
-let revealedAt = 0;
-
-function revealNow() {
-  // Medan klippet laddas har låten inte börjat. Svaret kan ändå visas direkt.
-  if (state.round && state.round.phase === 'ready') {
-    stopClip();
-    game.startRound(state, Date.now());
-  }
-  if (!game.reveal(state)) return;
-  revealedAt = Date.now();
   changed();
 }
 
@@ -846,9 +761,9 @@ function wireHostPlays(dialog) {
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
 // running: ett spel pågår.
-// music: vald musiktjänst. clipAll: klippet spelas även i spelarnas mobiler.
+// clipAll: klippet spelas även i spelarnas mobiler.
 // extraSounds: väntemusiken, trumvirveln och vinnarlåten spelas.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, music = 'deezer', clipAll = false, extraSounds = true } = {}) {
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, clipAll = false, extraSounds = true } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -862,7 +777,6 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         </select></div>` : ''}
       ${SETTING_FIELDS.map(({ key, label, short, text }) => segmented(key, label,
         game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
-      ${segmented('music', 'Musiktjänst', MUSIC_SERVICES.map((m) => ({ value: m.id, short: m.name, text: m.name, checked: m.id === music })))}
       </div>
       <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
       ${hostNameRow()}
@@ -883,13 +797,8 @@ function showSettings(current, categories = null, categoryId = null, names = {},
   });
   wireUnknown(dialog, names);
   const host = wireHostPlays(dialog);
-  // Bara Deezers klipp kan spelas i mobilerna, så strömbrytaren syns bara med Deezer.
   let clipOn = clipAll;
-  const clipRow = dialog.querySelector('#setting-clip-all');
   mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela ljud på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
-  const showClipRow = () => { clipRow.hidden = new FormData(dialog.querySelector('form')).get('music') !== 'deezer'; };
-  dialog.querySelectorAll('input[name=music]').forEach((input) => input.addEventListener('change', showClipRow));
-  showClipRow();
   let soundsOn = extraSounds;
   mountSwitch(dialog.querySelector('#setting-extra-sounds'), 'Spela extraljud', () => soundsOn, () => { soundsOn = !soundsOn; });
   const mark = dialog.querySelector('#mark-unknown');
@@ -917,7 +826,6 @@ function showSettings(current, categories = null, categoryId = null, names = {},
         ? {
           ...game.cleanSettings(values),
           ...(categories ? { categoryId: values.categoryId } : {}),
-          music: cleanMusic(values.music),
           clipAll: clipOn,
           extraSounds: soundsOn,
           host: host(),
@@ -934,18 +842,16 @@ async function editSettings() {
   const categories = state ? all : null;
   const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
-  const music = pending ? pending.music : state ? state.music : loadMusic();
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
   const chosen = await showSettings(current, categories, currentCategory, names,
-    { running: Boolean(state), music, clipAll, extraSounds: loadExtraSounds() });
+    { running: Boolean(state), clipAll, extraSounds: loadExtraSounds() });
   if (!chosen) return;
-  const { categoryId, host, music: chosenMusic, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, ...settings } = chosen;
+  const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, ...settings } = chosen;
   // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
   // börjar eller tystnar direkt medan spelarna går med.
   saveExtraSounds(chosenExtraSounds);
   if (!chosenExtraSounds) winnerSong.stop();
   saveSettings(settings);
-  saveMusic(chosenMusic);
   saveClipAll(chosenClipAll);
   if (!state) {
     setHostPlays(host.plays);
@@ -955,7 +861,7 @@ async function editSettings() {
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
   // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
   const pickedSongs = picked ? await loadSongs(picked) : null;
-  pending = { settings, category: picked, songs: pickedSongs, host, music: chosenMusic, clipAll: chosenClipAll };
+  pending = { settings, category: picked, songs: pickedSongs, host, clipAll: chosenClipAll };
   // Har ingen låt spelats än gäller ändringen direkt. Det avgör changed().
   changed();
   // Gäller ändringen först från nästa låt får spelledaren veta det, men bara om något ändrades.
@@ -971,10 +877,10 @@ const SETTINGS_MESSAGE_MS = 4000;
 
 // Skiljer sig de sparade ändringarna från det som gäller nu?
 function pendingDiffers() {
-  const { settings, category: picked, host, music, clipAll } = pending;
+  const { settings, category: picked, host, clipAll } = pending;
   const now = game.cleanSettings(state);
   if (Object.keys(now).some((key) => now[key] !== settings[key])) return true;
-  if (picked || music !== state.music || clipAll !== state.clipAll) return true;
+  if (picked || clipAll !== state.clipAll) return true;
   if (!host) return false;
   if (host.plays !== (state.hostPlays !== false)) return true;
   const me = state.players[state.hostId];
@@ -982,14 +888,10 @@ function pendingDiffers() {
 }
 
 function applyPending() {
-  const { settings, category: picked, songs: pickedSongs, host, music, clipAll } = pending;
+  const { settings, category: picked, songs: pickedSongs, host, clipAll } = pending;
   pending = null;
   game.applySettings(state, settings);
   state.clipAll = clipAll;
-  if (music !== state.music) {
-    stopClip();
-    state.music = music;
-  }
   // En spelare kan ha tagit namnet medan låten pågick. Då heter spelledaren Spelledare.
   if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? DEFAULT_HOST_NAME : host.name);
   // Poängen och spelade låtar finns kvar.
@@ -1047,33 +949,35 @@ function showQr() {
   scrollToTop();
 }
 
-// I spelet finns QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet samma rader som på startsidan.
+// Pausa spel och Starta spel delar rad i menyn. Raden finns från första låten tills någon har
+// vunnit. Starta spel fortsätter efter en paus, eller försöker igen när klippet inte startade.
+function pauseItem() {
+  const round = state.round;
+  if (!round || state.winners) return [];
+  if (state.pausedAt) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: resumeGame }];
+  if (clipStuck(round)) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: playClipClicked }];
+  return [{ label: 'Pausa spel', icon: MENU_ICONS.pause, action: pauseGame }];
+}
+
+// I spelet finns Pausa spel, QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet
+// samma rader som på startsidan.
 function menuGroups() {
   const settings = { label: 'Inställningar', icon: MENU_ICONS.settings, action: editSettings };
   if (!state) return [startItems(), [settings], commonItems()];
   return [
-    [{ label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
+    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
     commonItems(),
     [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
   ];
 }
 
-const svg = (body) => `<svg viewBox="0 -960 960 960" aria-hidden="true">${body}</svg>`;
-// Material Symbols Rounded, fylld variant (Apache 2.0).
-const ICONS = {
-  next: svg('<path d="M680-270v-420q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v420q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37Zm-460-27v-366q0-13.5 9-21.75t21-8.25q5 0 9 1.5t8 4.5l263 182q7 5 10 11.3 3 6.29 3 13.7 0 7.41-3 13.7-3 6.3-10 11.3L267-273q-4 3-8 4.5t-9 1.5q-12 0-21-8.25T220-297Z"/>'),
-  play: svg('<path d="M320-258v-450q0-14 9-22t21-8q4 0 8 1t8 3l354 226q7 5 10.5 11t3.5 14q0 8-3.5 14T720-458L366-232q-4 2-8 3t-8 1q-12 0-21-8t-9-22Z"/>'),
-  external: svg('<path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h249q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H180v600h600v-249q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v249q0 24-18 42t-42 18H180Zm600-617L403-360q-9 9-21 8.5t-21-9.5q-9-9-9-21t9-21l377-377H549q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32 8.62-8.5 21.37-8.5h261q12.75 0 21.38 8.62Q840-822.75 840-810v261q0 12.75-8.68 21.37-8.67 8.63-21.5 8.63-12.82 0-21.32-8.63-8.5-8.62-8.5-21.37v-188Z"/>'),
-};
-
-// Nästa låt startar av sig själv en stund efter att svaret visats, om spelledaren inte
-// redan har tryckt. Bara när klippet spelas i sidan: Spotify kan bara öppnas med ett klick.
+// Nästa låt startar av sig själv en stund efter att svaret visats.
 const AUTO_NEXT_MS = 10000;
 let autoNext = { round: 0, at: 0 };
 
 function autoNextLeft() {
   const round = state.round;
-  if (!usesDeezer() || !round || round.phase !== 'revealed' || state.winners) return null;
+  if (!round || round.phase !== 'revealed' || state.winners) return null;
   if (autoNext.round !== round.number) autoNext = { round: round.number, at: Date.now() + AUTO_NEXT_MS };
   // Under en paus står nedräkningen still.
   return Math.max(0, autoNext.at - (state.pausedAt || Date.now()));
@@ -1088,136 +992,49 @@ function checkAutoNext() {
   nextSong();
 }
 
-// Vad spela gör just nu: startar spelet eller klippet eller fortsätter efter en paus. Med Spotify
-// startar spelet i Spotify, och nästa låt startas med Nästa låt. Efter matchen öppnar den vinnarlåten
-// i Spotify. null betyder att knappen är avstängd.
-function playAction() {
-  const round = state.round;
-  if (!round) return { action: 'start', label: 'Starta spelet' };
-  if (state.pausedAt) return { action: 'resume', label: 'Fortsätt' };
-  if (round.phase === 'ready') {
-    if (usesDeezer()) {
-      return clip.round === round.number && clip.status === 'loading' ? null : { action: 'clip', label: 'Spela klippet' };
-    }
-    return { action: 'spotify', label: 'Spela låten i Spotify' };
-  }
-  // Med Spotify öppnas vinnarlåten i Spotify när vinnarvyn har tagit över.
-  if (state.winners && gameView.winnerShown() && loadExtraSounds() && state.music === 'spotify' && winnerSong.current()) {
-    return { action: 'winner', label: 'Spela vinnarlåt' };
-  }
-  return null;
-}
-
-// Spola fram visar svaret under låten och startar nästa låt efter svaret.
-function nextAction() {
-  const round = state.round;
-  if (!round) return null;
-  if (round.phase !== 'revealed') return { action: 'reveal', label: 'Visa svar nu' };
-  if (!state.winners) return { action: 'next', label: 'Nästa låt' };
-  // Spela igen går att starta först när vinnarvyn har tagit över efter sista låten.
-  return gameView.winnerShown() ? { action: 'restart', label: 'Spela igen' } : null;
-}
-
-// Visar en av två knappar på samma plats. Hade den dolda knappen fokus flyttas fokus till den andra.
-function showOne(first, second, showFirst, focused) {
-  const shown = showFirst ? first : second;
-  const hidden = showFirst ? second : first;
-  hidden.hidden = true;
-  shown.hidden = false;
-  if (focused === hidden) shown.focus({ preventScroll: true });
-}
-
-function setButton(button, choice, fallback) {
-  button.disabled = !choice;
-  button.dataset.action = choice ? choice.action : '';
-  const label = choice ? choice.label : fallback;
-  button.setAttribute('aria-label', label);
-  button.title = label;
-}
-
-function playClicked() {
-  const choice = playAction();
-  if (!choice) return;
-  const song = state.round && state.round.song;
-  // QR-koden behövs inte längre när spelet har startat. Den kan visas igen med ikonen.
-  if (choice.action === 'start') {
-    setQrVisible(false);
-    if (usesDeezer()) startIntro();
-    nextSong();
-    // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
-    scrollToTop();
-  }
-  else if (choice.action === 'resume') resumeGame();
-  else if (choice.action === 'clip') playClipClicked();
-  else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
-  else if (choice.action === 'winner') { openSpotify(winnerSong.current()); winnerSpotifyStarted = true; render(); broadcast(); }
-}
-
-function nextClicked() {
-  const choice = nextAction();
-  if (!choice) return;
-  if (choice.action === 'reveal') revealNow();
-  // Spelvyn rullar upp till väntetexten och Starta spelet, både hos spelledaren och spelarna.
-  else if (choice.action === 'restart') restart();
-  else nextSong();
+// Starta spelet i vyn startar första låten. QR-koden behövs inte längre när spelet har startat.
+// Den kan visas igen i menyn.
+function startClicked() {
+  if (!state || state.round) return;
+  setQrVisible(false);
+  startIntro();
+  nextSong();
+  // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
+  scrollToTop();
 }
 
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
-// Med Spotify öppnas låten i stället med Spela vinnarlåt, eftersom Spotify bara kan öppnas med ett klick.
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
-  const drum = winnerSong.drum({ clip: state.music !== 'spotify' });
+  const drum = winnerSong.drum();
   return { drum, song: winnerSong.play() };
 }
 
-// "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela vinnarlåt visas när
-// vinnaren gör det. Spelarna får veta det direkt.
+// "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela igen visas när vinnaren
+// gör det. Spelarna får veta det direkt.
 function winnerShown() {
   render();
   broadcast();
 }
 
-// Samma vy som spelarna ser, och under den spelledarens kontrollpanel.
-// Panelen byggs bara om när den ändras, så att fokus stannar kvar.
+// Samma vy som spelarna ser, med Starta spelet och Spela igen för spelledaren.
 function render() {
   $('#category').textContent = category.name;
   // Vinnarlåten tystnar när en ny match börjar.
-  if (!state.winners) { winnerSong.stop(); winnerSpotifyStarted = false; }
+  if (!state.winners) winnerSong.stop();
   updateLobbyMusic();
   showNowMusic($('#now-music'), currentMusic());
   gameView.update(viewFor(state.hostId), state.hostId);
-  // Knapparna står kvar hela spelet och är avstängda när de inte går att använda.
   const round = state.round;
-  const focused = document.activeElement;
-  // Paus och nästa går att använda hela låten, även medan klippet laddas.
-  $('#pause').disabled = !round || Boolean(state.pausedAt)
-    || Boolean(state.winners && round.phase === 'revealed');
-  const play = playAction();
-  setButton($('#play'), play, 'Spela');
-  // Spela och pausa delar plats i kontrollpanelen. Pausa visas bara när spela inte går att använda.
-  showOne($('#play'), $('#pause'), Boolean(play) || $('#pause').disabled, focused);
-  // Spelet startas med knappen i vyn eller med spela, och en ny match på samma sätt med nästa.
-  $('#start-game').hidden = !(play && play.action === 'start');
-  $('#winner-song').hidden = !(play && play.action === 'winner');
-  const next = nextAction();
-  setButton($('#next'), next, 'Nästa låt');
-  setHtml($('#next'), ICONS.next);
-  $('#new-match').hidden = !(next && next.action === 'restart');
-  // Med Spotify startar nästa låt inte av sig själv, eftersom Spotify bara kan öppnas med ett klick.
-  $('#next-song').hidden = !(next && next.action === 'next' && !usesDeezer());
+  $('#start-game').hidden = Boolean(round);
+  // Spela igen går att starta först när vinnarvyn har tagit över efter sista låten.
+  $('#new-match').hidden = !(state.winners && gameView.winnerShown());
   updateClipMessage(round);
   // Första låten kan starta medan Inställningar är öppen. Denna låt är okänd gäller då den låt
   // som spelas nu.
   const mark = document.querySelector('dialog[open] #mark-unknown');
   if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
-}
-
-// Byggs bara om när innehållet ändras, så att fokus stannar kvar.
-function setHtml(box, html) {
-  if (box.dataset.html === html) return;
-  box.innerHTML = html;
-  box.dataset.html = html;
 }
 
 function showError(err) {
@@ -1229,13 +1046,7 @@ function showError(err) {
 // Vinnarlåten spelas utan tryck när vinnaren visas. Ljudmotorn får det bara om den har startats
 // av ett tryck tidigare, så varje tryck hos spelledaren startar den.
 // iPhone räknar ibland bara touchend och click som tryck, så alla fyra lyssnas på.
-// Med Spotify tar sidan inte ljudet vid trycken, eftersom iPhone då stoppar musiken i Spotify.
 function unlockSound() {
-  if ((state ? state.music : loadMusic()) === 'spotify') {
-    winnerSong.unlock({ mix: true });
-    lobbyMusic.mix();
-    return;
-  }
   winnerSong.unlock();
   lobbyMusic.unlock();
 }
@@ -1243,20 +1054,10 @@ for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.add
 
 document.addEventListener('click', (e) => {
   const id = e.target.closest('[id]')?.id;
-  if (id === 'play') playClicked();
-  else if (id === 'pause') pauseGame();
-  else if (id === 'next') nextClicked();
-  // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare.
-  else if (id === 'start-game') { playClicked(); $('#play').focus({ preventScroll: true }); }
-  else if (id === 'new-match') { nextClicked(); $('#start-game').focus({ preventScroll: true }); }
-  else if (id === 'next-song') { nextClicked(); $('#next').focus(); }
-  else if (id === 'winner-song') playClicked();
-  else if (id === 'lobby-song' && lobbySpotifySong) {
-    openSpotify(lobbySpotifySong);
-    lobbySpotifyStarted = true;
-    render();
-    broadcast();
-  }
+  // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare. Spelvyn rullar upp
+  // till väntetexten och Starta spelet efter Spela igen, både hos spelledaren och spelarna.
+  if (id === 'start-game') { startClicked(); $('#game .menu-button').focus({ preventScroll: true }); }
+  else if (id === 'new-match') { restart(); $('#start-game').focus({ preventScroll: true }); }
   else if (id === 'settings') editSettings();
   else if (id === 'hide-qr') setQrVisible(false);
 });
@@ -1265,7 +1066,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('touchstart', () => {}, { passive: true });
 
 // Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
-const ENTER_TARGETS = ['#create', '#play', '#next'];
+const ENTER_TARGETS = ['#create', '#start-game', '#new-match'];
 
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Enter' || e.repeat || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
@@ -1281,15 +1082,6 @@ document.addEventListener('keydown', (e) => {
 // spelledaren själv har avslutat det.
 let leaving = false;
 
-// En spotify:-länk räknas av webbläsaren som att sidan lämnas, fast den bara
-// öppnar appen. Varningen hoppas därför över en kort stund efter ett sådant klick.
-let appLinkAt = 0;
-
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href]');
-  if (link && !/^https?:/.test(link.href)) appLinkAt = Date.now();
-}, true);
-
 // Fliken stängs eller sidan laddas om. Spelet kan återupptas, så spelarna får veta att
 // spelledaren har lämnat och kanske kommer tillbaka. Meddelandet hinner inte alltid fram.
 window.addEventListener('pagehide', () => {
@@ -1298,7 +1090,7 @@ window.addEventListener('pagehide', () => {
 });
 
 window.addEventListener('beforeunload', (e) => {
-  if (leaving || Date.now() - appLinkAt < 1000) return;
+  if (leaving) return;
   if (state) e.preventDefault();
 });
 

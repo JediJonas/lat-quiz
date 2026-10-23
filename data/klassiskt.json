@@ -4,7 +4,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Eine kleine Nachtmusik",
   "year": 1787,
-  "spotifyId": "2eAAIKt2tWTiD6kcsRLlq4",
   "deezerId": 68301402
  },
  {
@@ -12,7 +11,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Für Elise",
   "year": 1810,
-  "spotifyId": "58CKgXTijq5HuHfu6aKdDU",
   "deezerId": 653772872
  },
  {
@@ -20,7 +18,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Symphony No. 5",
   "year": 1808,
-  "spotifyId": "02EjNQRJohFLY4NaXiFdH1",
   "deezerId": 65442076
  },
  {
@@ -28,7 +25,6 @@
   "artist": "Antonio Vivaldi",
   "title": "The Four Seasons",
   "year": 1721,
-  "spotifyId": "3RUBMVfbweULyfoVMXTOLV",
   "deezerId": 4182674
  },
  {
@@ -36,7 +32,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Toccata and Fugue in D minor",
   "year": 1708,
-  "spotifyId": "6BPxk2Yucpas8tXZuWU4CF",
   "deezerId": 3701745
  },
  {
@@ -44,7 +39,6 @@
   "artist": "Pyotr Ilyich Tchaikovsky",
   "title": "The Nutcracker",
   "year": 1892,
-  "spotifyId": "4cSNJJwzKz3Tr5Z1NcmUJs",
   "deezerId": 4285953932
  },
  {
@@ -52,7 +46,6 @@
   "artist": "Edvard Grieg",
   "title": "In the Hall of the Mountain King",
   "year": 1875,
-  "spotifyId": "0KEwsHT7BTLSS7tSNDcWNs",
   "deezerId": 67343982
  },
  {
@@ -60,7 +53,6 @@
   "artist": "Edvard Grieg",
   "title": "Morning Mood",
   "year": 1875,
-  "spotifyId": "116d4YFXnUlnr0FLuVsOpG",
   "deezerId": 67343979
  },
  {
@@ -68,7 +60,6 @@
   "artist": "Johann Pachelbel",
   "title": "Canon in D",
   "year": 1680,
-  "spotifyId": "7Ms2XiPHkXX5ilVcfM8Z9c",
   "deezerId": 3853949
  },
  {
@@ -76,7 +67,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Moonlight Sonata",
   "year": 1801,
-  "spotifyId": "7K1XoYi8ZiUvCny32UiJiI",
   "deezerId": 69089334
  },
  {
@@ -84,7 +74,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Rondo alla Turca",
   "year": 1783,
-  "spotifyId": "6pxvkXRVh4VZgg9b6J0VJA",
   "deezerId": 6960255
  },
  {
@@ -92,7 +81,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "The Magic Flute",
   "year": 1791,
-  "spotifyId": "4zvPLnRsVQU0a6wb2TNqgG",
   "deezerId": 62418267
  },
  {
@@ -100,7 +88,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "The Marriage of Figaro",
   "year": 1786,
-  "spotifyId": "7KO2AGrpHZphcUknG9Qwrs",
   "deezerId": 140783655
  },
  {
@@ -108,7 +95,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Symphony No. 40",
   "year": 1788,
-  "spotifyId": "0NxCM5csIKBJQU9Ux9Ja9Z",
   "deezerId": 2758331111
  },
  {
@@ -116,7 +102,6 @@
   "artist": "Johann Strauss II",
   "title": "The Blue Danube",
   "year": 1866,
-  "spotifyId": "0oqqlWx3yMuSIWpRQHj5dm",
   "deezerId": 66661420
  },
  {
@@ -124,7 +109,6 @@
   "artist": "Johann Strauss I",
   "title": "Radetzky March",
   "year": 1848,
-  "spotifyId": "7L9EzcVqFM0R7ks5XRyOO1",
   "deezerId": 65342707
  },
  {
@@ -132,7 +116,6 @@
   "artist": "Maurice Ravel",
   "title": "Boléro",
   "year": 1928,
-  "spotifyId": "3XfEX1t9wo1pFvFMuXIcUb",
   "deezerId": 4158451
  },
  {
@@ -140,7 +123,6 @@
   "artist": "Claude Debussy",
   "title": "Clair de lune",
   "year": 1905,
-  "spotifyId": "2Sy29yMjkdRgP4Gs5WauC1",
   "deezerId": 473143372
  },
  {
@@ -148,7 +130,6 @@
   "artist": "Erik Satie",
   "title": "Gymnopédies",
   "year": 1888,
-  "spotifyId": "7es2Ws35hTzwAUbAQuucIH",
   "deezerId": 1114839172
  },
  {
@@ -156,7 +137,6 @@
   "artist": "Richard Wagner",
   "title": "Ride of the Valkyries",
   "year": 1856,
-  "spotifyId": "4TAKSowfnnqkp5ayoiCXgx",
   "deezerId": 605043
  },
  {
@@ -164,7 +144,6 @@
   "artist": "Felix Mendelssohn",
   "title": "Wedding March",
   "year": 1842,
-  "spotifyId": "6JdTNYVguAWA1Th0rWrnSq",
   "deezerId": 68285073
  },
  {
@@ -172,7 +151,6 @@
   "artist": "Georges Bizet",
   "title": "Carmen",
   "year": 1875,
-  "spotifyId": "2CU0BlRJlTPLn6ulYbheGM",
   "deezerId": 3096468
  },
  {
@@ -180,7 +158,6 @@
   "artist": "Giuseppe Verdi",
   "title": "Aida",
   "year": 1871,
-  "spotifyId": "41FN4BdRwDsYZcafLrJzUc",
   "deezerId": 107865704
  },
  {
@@ -188,7 +165,6 @@
   "artist": "Giacomo Puccini",
   "title": "Nessun dorma",
   "year": 1926,
-  "spotifyId": "4yExS68Mx13esrKdZSirur",
   "deezerId": 4124348
  },
  {
@@ -196,7 +172,6 @@
   "artist": "Giacomo Puccini",
   "title": "O mio babbino caro",
   "year": 1918,
-  "spotifyId": "6CWc6whoqwyNCDGRJPcYIj",
   "deezerId": 86110077
  },
  {
@@ -204,7 +179,6 @@
   "artist": "Gioachino Rossini",
   "title": "The Barber of Seville",
   "year": 1816,
-  "spotifyId": "0mxfCPHV12fvs9ATDJGQXl",
   "deezerId": 68775957
  },
  {
@@ -212,7 +186,6 @@
   "artist": "Camille Saint-Saëns",
   "title": "The Carnival of the Animals",
   "year": 1886,
-  "spotifyId": "7qFfgP8pjK1LO6Pe3R1nEt",
   "deezerId": 2521042111
  },
  {
@@ -220,7 +193,6 @@
   "artist": "Camille Saint-Saëns",
   "title": "Danse macabre",
   "year": 1874,
-  "spotifyId": "1cqk9f8hnc6Af1ZvftWv4d",
   "deezerId": 134026176
  },
  {
@@ -228,7 +200,6 @@
   "artist": "Nikolai Rimsky-Korsakov",
   "title": "Flight of the Bumblebee",
   "year": 1900,
-  "spotifyId": "6K5J8qSRSGyjcrsahYuVcw",
   "deezerId": 3038710011
  },
  {
@@ -236,7 +207,6 @@
   "artist": "Nikolai Rimsky-Korsakov",
   "title": "Scheherazade",
   "year": 1888,
-  "spotifyId": "4ON8gtwpnBWeaZ0FBc3CoG",
   "deezerId": 6953014
  },
  {
@@ -244,7 +214,6 @@
   "artist": "Aram Khachaturian",
   "title": "Sabre Dance",
   "year": 1942,
-  "spotifyId": "0yEmcwO4KlQTU6s2mjwc9U",
   "deezerId": 6980214
  },
  {
@@ -252,7 +221,6 @@
   "artist": "Sergei Rachmaninoff",
   "title": "Piano Concerto No. 2",
   "year": 1901,
-  "spotifyId": "5VpsGbMLpvPhWnGnNv5lxN",
   "deezerId": 68247075
  },
  {
@@ -260,7 +228,6 @@
   "artist": "Pyotr Ilyich Tchaikovsky",
   "title": "1812 Overture",
   "year": 1880,
-  "spotifyId": "3FTtol76FmRdVNRUO42csG",
   "deezerId": 823708
  },
  {
@@ -268,7 +235,6 @@
   "artist": "Pyotr Ilyich Tchaikovsky",
   "title": "Piano Concerto No. 1",
   "year": 1875,
-  "spotifyId": "4p8Ige3XkPidJuruT6mtsr",
   "deezerId": 72314767
  },
  {
@@ -276,7 +242,6 @@
   "artist": "Antonín Dvořák",
   "title": "Symphony No. 9",
   "year": 1893,
-  "spotifyId": "0EhFfQQgUlunBXYXWKSNNi",
   "deezerId": 4157104
  },
  {
@@ -284,7 +249,6 @@
   "artist": "Bedřich Smetana",
   "title": "The Moldau",
   "year": 1874,
-  "spotifyId": "6Y4mgxDDmu0hwXj3fXYf13",
   "deezerId": 4157105
  },
  {
@@ -292,7 +256,6 @@
   "artist": "Jean Sibelius",
   "title": "Finlandia",
   "year": 1899,
-  "spotifyId": "6RyYaBC9dci4SKHepgbR2a",
   "deezerId": 67235120
  },
  {
@@ -300,7 +263,6 @@
   "artist": "Jean Sibelius",
   "title": "Valse triste",
   "year": 1904,
-  "spotifyId": "2svo5CiLB5bMHpgfgQMhKP",
   "deezerId": 67235122
  },
  {
@@ -308,7 +270,6 @@
   "artist": "Edvard Grieg",
   "title": "Piano Concerto in A minor",
   "year": 1868,
-  "spotifyId": "2Gr6LH7DKFBbjFvAO8X1cY",
   "deezerId": 68258030
  },
  {
@@ -316,7 +277,6 @@
   "artist": "Frédéric Chopin",
   "title": "Minute Waltz",
   "year": 1847,
-  "spotifyId": "02wcrwgM6pe1DMlxcD5eo5",
   "deezerId": 66412331
  },
  {
@@ -324,7 +284,6 @@
   "artist": "Frédéric Chopin",
   "title": "Fantaisie-Impromptu",
   "year": 1834,
-  "spotifyId": "09OBWKPwzKEY5AWRdeQBAp",
   "deezerId": 74783825
  },
  {
@@ -332,7 +291,6 @@
   "artist": "Frédéric Chopin",
   "title": "Revolutionary Étude",
   "year": 1831,
-  "spotifyId": "1IY1HRs9GGlqk98CCt9tTI",
   "deezerId": 67343847
  },
  {
@@ -340,7 +298,6 @@
   "artist": "Franz Liszt",
   "title": "Hungarian Rhapsody No. 2",
   "year": 1847,
-  "spotifyId": "6ObyglRXipQbpfuY3cOV61",
   "deezerId": 6922357
  },
  {
@@ -348,7 +305,6 @@
   "artist": "Franz Liszt",
   "title": "La campanella",
   "year": 1851,
-  "spotifyId": "1ug9o9zMz3Ok6ggQqIZnua",
   "deezerId": 71882406
  },
  {
@@ -356,7 +312,6 @@
   "artist": "Franz Liszt",
   "title": "Liebestraum",
   "year": 1850,
-  "spotifyId": "2HVAtX3MbIVWsVEU8Oaov4",
   "deezerId": 71882409
  },
  {
@@ -364,7 +319,6 @@
   "artist": "Franz Schubert",
   "title": "Unfinished Symphony",
   "year": 1822,
-  "spotifyId": "78MCpJNCBsAidU45Jg2plc",
   "deezerId": 1809965167
  },
  {
@@ -372,7 +326,6 @@
   "artist": "Robert Schumann",
   "title": "Träumerei",
   "year": 1838,
-  "spotifyId": "43lRg89dy8WeYtLq4UoVEM",
   "deezerId": 1711835617
  },
  {
@@ -380,7 +333,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Air on the G String",
   "year": 1730,
-  "spotifyId": "7Mslx5zJQ2MVfDWUXu03aQ",
   "deezerId": 4152845
  },
  {
@@ -388,7 +340,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Brandenburg Concertos",
   "year": 1721,
-  "spotifyId": "61L58281HH8n2CFE47tN0L",
   "deezerId": 67348054
  },
  {
@@ -396,7 +347,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Cello Suite No. 1",
   "year": 1720,
-  "spotifyId": "2gJPbllnJfWvnOwGF1itcv",
   "deezerId": 1437563712
  },
  {
@@ -404,7 +354,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Goldberg Variations",
   "year": 1741,
-  "spotifyId": "2bul9aqbbFMn6yf7gRWvKy",
   "deezerId": 1502306712
  },
  {
@@ -412,7 +361,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Christmas Oratorio",
   "year": 1734,
-  "spotifyId": "0HppevHEJZkdhw2nBjX5eq",
   "deezerId": 66402345
  },
  {
@@ -420,7 +368,6 @@
   "artist": "Joseph Haydn",
   "title": "Surprise Symphony",
   "year": 1791,
-  "spotifyId": "6T4dExgsUz3X6ZbK8UoGhX",
   "deezerId": 3117534
  },
  {
@@ -428,7 +375,6 @@
   "artist": "Joseph Haydn",
   "title": "Trumpet Concerto",
   "year": 1796,
-  "spotifyId": "1kEIUefcXQI23X8LrcwXXz",
   "deezerId": 4182923
  },
  {
@@ -436,7 +382,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Symphony No. 9",
   "year": 1824,
-  "spotifyId": "3BYONdK0snQhkHXEI3UgKK",
   "deezerId": 65442096
  },
  {
@@ -444,7 +389,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Eroica",
   "year": 1804,
-  "spotifyId": "5dGH8sBmpAca5M7j8zuaRW",
   "deezerId": 65442064
  },
  {
@@ -452,7 +396,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Pastoral Symphony",
   "year": 1808,
-  "spotifyId": "2NRP5xQuAe3PUAusQyUBdU",
   "deezerId": 4183332
  },
  {
@@ -460,7 +403,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Emperor Concerto",
   "year": 1811,
-  "spotifyId": "1hOmhFcULuYmlPgtXJPT08",
   "deezerId": 1421582212
  },
  {
@@ -468,7 +410,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Don Giovanni",
   "year": 1787,
-  "spotifyId": "7uD1QLf9ChPXZG9o2ADFyJ",
   "deezerId": 68300210
  },
  {
@@ -476,7 +417,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Queen of the Night aria",
   "year": 1791,
-  "spotifyId": "4dzdIlEKfKKIERGmhZO64l",
   "deezerId": 4667634
  },
  {
@@ -484,7 +424,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Clarinet Concerto",
   "year": 1791,
-  "spotifyId": "47xjqibY1hhhASewzXSOlh",
   "deezerId": 67344403
  },
  {
@@ -492,7 +431,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Piano Concerto No. 21",
   "year": 1785,
-  "spotifyId": "3h1lyYCAZXOglAozWpufBg",
   "deezerId": 66287138
  },
  {
@@ -500,7 +438,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Ave verum corpus",
   "year": 1791,
-  "spotifyId": "478v40Lhflg7tWmLAh9L8P",
   "deezerId": 12566701
  },
  {
@@ -508,7 +445,6 @@
   "artist": "Gustav Holst",
   "title": "The Planets",
   "year": 1916,
-  "spotifyId": "4WcI4EIzIOvViBIetWXt4u",
   "deezerId": 67943023
  },
  {
@@ -516,7 +452,6 @@
   "artist": "Edward Elgar",
   "title": "Pomp and Circumstance",
   "year": 1901,
-  "spotifyId": "2T4hSF9ltlupv8MWcXNW4q",
   "deezerId": 66243664
  },
  {
@@ -524,7 +459,6 @@
   "artist": "Edward Elgar",
   "title": "Enigma Variations",
   "year": 1899,
-  "spotifyId": "1hGMkA18T67hIj2jD3TVw6",
   "deezerId": 67344222
  },
  {
@@ -532,7 +466,6 @@
   "artist": "Samuel Barber",
   "title": "Adagio for Strings",
   "year": 1936,
-  "spotifyId": "0jkCpbTvO2yMBLKuKDD7nM",
   "deezerId": 5150588
  },
  {
@@ -540,7 +473,6 @@
   "artist": "Igor Stravinsky",
   "title": "The Rite of Spring",
   "year": 1913,
-  "spotifyId": "2trDQTHkk497sgftrW9N64",
   "deezerId": 67344482
  },
  {
@@ -548,7 +480,6 @@
   "artist": "Richard Strauss",
   "title": "Also sprach Zarathustra",
   "year": 1896,
-  "spotifyId": "3SOZcwfezNCWKs2vukSELD",
   "deezerId": 66644254
  },
  {
@@ -556,7 +487,6 @@
   "artist": "Richard Wagner",
   "title": "Tristan und Isolde",
   "year": 1865,
-  "spotifyId": "0Waxgp0gY4tTZ4XVUKpdpA",
   "deezerId": 2877225462
  },
  {
@@ -564,7 +494,6 @@
   "artist": "Hector Berlioz",
   "title": "Symphonie fantastique",
   "year": 1830,
-  "spotifyId": "7sfRGWyud8gTxbEt78szGu",
   "deezerId": 2981704251
  },
  {
@@ -572,7 +501,6 @@
   "artist": "Claude Debussy",
   "title": "La mer",
   "year": 1905,
-  "spotifyId": "4dwyvhoFILzdhZwssYJWYs",
   "deezerId": 68258001
  },
  {
@@ -580,7 +508,6 @@
   "artist": "Maurice Ravel",
   "title": "Pavane for a Dead Princess",
   "year": 1899,
-  "spotifyId": "3Ki9RGBqVOBQnGfIIuMdZx",
   "deezerId": 64105040
  },
  {
@@ -588,7 +515,6 @@
   "artist": "Paul Dukas",
   "title": "The Sorcerer's Apprentice",
   "year": 1897,
-  "spotifyId": "2uAH150ksN7Pw9VUN9QtQW",
   "deezerId": 815891
  },
  {
@@ -596,7 +522,6 @@
   "artist": "Georges Bizet",
   "title": "Habanera",
   "year": 1875,
-  "spotifyId": "3FHiLDJkV3FfQhgaeYCDPc",
   "deezerId": 3096478
  },
  {
@@ -604,7 +529,6 @@
   "artist": "Ruggero Leoncavallo",
   "title": "Vesti la giubba",
   "year": 1892,
-  "spotifyId": "62oQXTqF2VcLygX3pwqT0G",
   "deezerId": 1938921
  },
  {
@@ -612,7 +536,6 @@
   "artist": "Giuseppe Verdi",
   "title": "La traviata",
   "year": 1853,
-  "spotifyId": "21yTnGzQO3TPn0yphPHdUA",
   "deezerId": 2305584
  },
  {
@@ -620,7 +543,6 @@
   "artist": "Gioachino Rossini",
   "title": "La gazza ladra",
   "year": 1817,
-  "spotifyId": "4ZFNyfgcHmoGmQ7d6Q1M1y",
   "deezerId": 553010682
  },
  {
@@ -628,7 +550,6 @@
   "artist": "Gaetano Donizetti",
   "title": "Una furtiva lagrima",
   "year": 1832,
-  "spotifyId": "2x5U0BMP1PIMmEykURnmN1",
   "deezerId": 689390532
  },
  {
@@ -636,7 +557,6 @@
   "artist": "Johann Strauss II",
   "title": "Die Fledermaus",
   "year": 1874,
-  "spotifyId": "2Q7xoa39endwRDkxKOoEKX",
   "deezerId": 6973690
  },
  {
@@ -644,7 +564,6 @@
   "artist": "Johann Strauss II",
   "title": "Tales from the Vienna Woods",
   "year": 1868,
-  "spotifyId": "0KtaruU11C0XXKNlX41n6i",
   "deezerId": 6058113
  },
  {
@@ -652,7 +571,6 @@
   "artist": "Johann Strauss II",
   "title": "Tritsch-Tratsch-Polka",
   "year": 1858,
-  "spotifyId": "6edwIPlBUq8QEwHmmGyG6Y",
   "deezerId": 6644932
  },
  {
@@ -660,7 +578,6 @@
   "artist": "Jacques Offenbach",
   "title": "Orpheus in the Underworld",
   "year": 1858,
-  "spotifyId": "4t6R4dPEi8xOPPIVCzyWny",
   "deezerId": 1146133142
  },
  {
@@ -668,7 +585,6 @@
   "artist": "Sergei Rachmaninoff",
   "title": "Rhapsody on a Theme of Paganini",
   "year": 1934,
-  "spotifyId": "35wOpkklfuF9zdecfY0eVG",
   "deezerId": 1074164822
  },
  {
@@ -676,7 +592,6 @@
   "artist": "Sergei Rachmaninoff",
   "title": "Prelude in C-sharp minor",
   "year": 1892,
-  "spotifyId": "0waDV3Vr56oUVPLOc7ic4h",
   "deezerId": 3516876081
  },
  {
@@ -684,7 +599,6 @@
   "artist": "Niccolò Paganini",
   "title": "Caprice No. 24",
   "year": 1817,
-  "spotifyId": "0BwcebiJiZULY172K7MtA3",
   "deezerId": 6946685
  },
  {
@@ -692,7 +606,6 @@
   "artist": "Max Bruch",
   "title": "Violin Concerto No. 1",
   "year": 1866,
-  "spotifyId": "3Fq3Lvl3Dleu117qmUAuYD",
   "deezerId": 818566
  },
  {
@@ -700,7 +613,6 @@
   "artist": "Alexander Borodin",
   "title": "Polovtsian Dances",
   "year": 1890,
-  "spotifyId": "1cS9HbdjhIeqTRtCgvDhUd",
   "deezerId": 2771502881
  },
  {
@@ -708,7 +620,6 @@
   "artist": "Pyotr Ilyich Tchaikovsky",
   "title": "Symphony No. 6",
   "year": 1893,
-  "spotifyId": "3385ey9mfnBLldyUbfsBhK",
   "deezerId": 686721992
  },
  {
@@ -716,7 +627,6 @@
   "artist": "Jean Sibelius",
   "title": "Karelia Suite",
   "year": 1893,
-  "spotifyId": "4lyfPHuXbRuUcRcPUpiZLP",
   "deezerId": 66244456
  },
  {
@@ -724,7 +634,6 @@
   "artist": "Jean Sibelius",
   "title": "Violin Concerto",
   "year": 1904,
-  "spotifyId": "4sQELLTrakTtfDLzENVnTt",
   "deezerId": 4152834
  },
  {
@@ -732,7 +641,6 @@
   "artist": "Hugo Alfvén",
   "title": "Midsommarvaka",
   "year": 1903,
-  "spotifyId": "3AcGiQFsQRo6pphrbeIQNj",
   "deezerId": 2631658322
  },
  {
@@ -740,7 +648,6 @@
   "artist": "Arcangelo Corelli",
   "title": "Christmas Concerto",
   "year": 1714,
-  "spotifyId": "5teHcwMYiqm5JjQy4QUAr8",
   "deezerId": 67343888
  },
  {
@@ -748,7 +655,6 @@
   "artist": "Philip Glass",
   "title": "Glassworks",
   "year": 1982,
-  "spotifyId": "2XYEu7Deyz20WeL6Py3XLc",
   "deezerId": 1130249
  },
  {
@@ -756,7 +662,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Egmont Overture",
   "year": 1810,
-  "spotifyId": "6csWqp8lqB5dKv97eeDjHU",
   "deezerId": 66851410
  },
  {
@@ -764,7 +669,6 @@
   "artist": "Edvard Grieg",
   "title": "Anitra's Dance",
   "year": 1875,
-  "spotifyId": "51lEVEZynCl4xU4NqCoa3m",
   "deezerId": 67343981
  },
  {
@@ -772,7 +676,6 @@
   "artist": "Frédéric Chopin",
   "title": "Nocturne No. 20 in C-sharp minor, Op. posth.",
   "year": 1830,
-  "spotifyId": "2MSgFefjK0T7Iwjvr3OKqV",
   "deezerId": 1968835827
  },
  {
@@ -780,7 +683,6 @@
   "artist": "Giuseppe Verdi",
   "title": "Rigoletto",
   "year": 1850,
-  "spotifyId": "1uu51I3m4d7qsuLRl51hEA",
   "deezerId": 1095525
  },
  {
@@ -788,7 +690,6 @@
   "artist": "Frédéric Chopin",
   "title": "Prélude no. 4 in E minor, op. 28",
   "year": 1838,
-  "spotifyId": "0B5xalvQGHip7iQZbTkaLe",
   "deezerId": 66661530
  },
  {
@@ -796,7 +697,6 @@
   "artist": "Sergei Prokofiev",
   "title": "Romeo and Juliet",
   "year": 1935,
-  "spotifyId": "7HSs4srn1qnZhh7WRWBVOk",
   "deezerId": 3094221
  },
  {
@@ -804,7 +704,6 @@
   "artist": "Ralph Vaughan Williams",
   "title": "The Lark Ascending",
   "year": 1920,
-  "spotifyId": "67b02tR31CEv8f0DQ1M1C0",
   "deezerId": 1940926767
  },
  {
@@ -812,7 +711,6 @@
   "artist": "Frédéric Chopin",
   "title": "Nocturnes, Op. 9",
   "year": 1832,
-  "spotifyId": "2FP7JttwbYPXcXxIihEvop",
   "deezerId": 1457007802
  },
  {
@@ -820,7 +718,6 @@
   "artist": "Claude Debussy",
   "title": "Deux arabesques",
   "year": 1890,
-  "spotifyId": "3L0SyNok31C6FaFtg0S8yX",
   "deezerId": 2413761335
  },
  {
@@ -828,7 +725,6 @@
   "artist": "Pyotr Ilyich Tchaikovsky",
   "title": "Serenade for Strings",
   "year": 1880,
-  "spotifyId": "7uf3aFC1msj0t5cYImgOWy",
   "deezerId": 66759086
  },
  {
@@ -836,7 +732,6 @@
   "artist": "Frédéric Chopin",
   "title": "Ballade No. 1 in G minor, Op. 23",
   "year": 1831,
-  "spotifyId": "4NkWlfGbWziTBgN4NnLKjq",
   "deezerId": 848990
  },
  {
@@ -844,7 +739,6 @@
   "artist": "Maurice Ravel",
   "title": "Piano Concerto",
   "year": 1931,
-  "spotifyId": "4ju98rvX917EwXLKLnRbQ2",
   "deezerId": 68280332
  },
  {
@@ -852,7 +746,6 @@
   "artist": "Gabriel Fauré",
   "title": "Pavane, Op. 50",
   "year": 1887,
-  "spotifyId": "5etkHPCogGK9ZGYBf2iuDC",
   "deezerId": 65527031
  },
  {
@@ -860,7 +753,6 @@
   "artist": "Frédéric Chopin",
   "title": "Berceuse",
   "year": 1844,
-  "spotifyId": "2MqHSXGxnvLZgXJsUtyDql",
   "deezerId": 1754851187
  },
  {
@@ -868,7 +760,6 @@
   "artist": "Giacomo Puccini",
   "title": "Madama Butterfly",
   "year": 1903,
-  "spotifyId": "5ognTTeiL1cxUSD8bQtVDS",
   "deezerId": 86047027
  },
  {
@@ -876,7 +767,6 @@
   "artist": "Giuseppe Verdi",
   "title": "Nabucco",
   "year": 1841,
-  "spotifyId": "4UPPQcwiQJpmXYirbgicT9",
   "deezerId": 68299534
  },
  {
@@ -884,7 +774,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Piano Sonata No. 8",
   "year": 1797,
-  "spotifyId": "6VrjMDQMfVKaawVDTX26d5",
   "deezerId": 69089331
  },
  {
@@ -892,7 +781,6 @@
   "artist": "Gioachino Rossini",
   "title": "William Tell",
   "year": 1828,
-  "spotifyId": "04OI7MCwzUE1SSAJRSjw3R",
   "deezerId": 62393575
  },
  {
@@ -900,7 +788,6 @@
   "artist": "Erik Satie",
   "title": "Gymnopédie No. 1",
   "year": 1888,
-  "spotifyId": "5OPT7l9b5SMwfTQgLPoNl7",
   "deezerId": 75009998
  },
  {
@@ -908,7 +795,6 @@
   "artist": "Erik Satie",
   "title": "Gnossienne No. 1",
   "year": 1890,
-  "spotifyId": "5fdp9rXfEixCGLM1Og4EN1",
   "deezerId": 76071519
  },
  {
@@ -916,7 +802,6 @@
   "artist": "Claude Debussy",
   "title": "Rêverie",
   "year": 1890,
-  "spotifyId": "3j0x7VenudiseuHcqRa5tW",
   "deezerId": 6950855
  },
  {
@@ -924,7 +809,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Prelude in C major, BWV 846",
   "year": 1722,
-  "spotifyId": "1TGp4083lfFG6clpKGHVfc",
   "deezerId": 646298592
  },
  {
@@ -932,7 +816,6 @@
   "artist": "Johann Sebastian Bach",
   "title": "Jesu, Joy of Man's Desiring",
   "year": 1723,
-  "spotifyId": "5btW4CdJZW7IMqwnyFru8u",
   "deezerId": 4157932
  },
  {
@@ -940,7 +823,6 @@
   "artist": "George Frideric Handel",
   "title": "Sarabande in D minor",
   "year": 1733,
-  "spotifyId": "6QOxk7dSbNniwUgDh1zmBH",
   "deezerId": 11804645
  },
  {
@@ -948,7 +830,6 @@
   "artist": "George Frideric Handel",
   "title": "Hallelujah Chorus",
   "year": 1741,
-  "spotifyId": "4TNCQyG2gmepsGoeLdRKn4",
   "deezerId": 4183059
  },
  {
@@ -956,7 +837,6 @@
   "artist": "George Frideric Handel",
   "title": "Water Music",
   "year": 1717,
-  "spotifyId": "76IkG07VDXyZIc6TXD8Pr5",
   "deezerId": 4773283
  },
  {
@@ -964,7 +844,6 @@
   "artist": "George Frideric Handel",
   "title": "Zadok the Priest",
   "year": 1727,
-  "spotifyId": "37ZfVpV5frVFqnqlSVADUQ",
   "deezerId": 3096581
  },
  {
@@ -972,7 +851,6 @@
   "artist": "George Frideric Handel",
   "title": "Lascia ch'io pianga",
   "year": 1711,
-  "spotifyId": "0dfAHJmRg7JtCbitsageQG",
   "deezerId": 4111207
  },
  {
@@ -980,7 +858,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Requiem",
   "year": 1791,
-  "spotifyId": "3oHSL6pt9LpNrQZuQGu9wL",
   "deezerId": 140783673
  },
  {
@@ -988,7 +865,6 @@
   "artist": "Wolfgang Amadeus Mozart",
   "title": "Piano Sonata No. 16",
   "year": 1788,
-  "spotifyId": "0iGDZom5WctL4eSQogMhMp",
   "deezerId": 3033658681
  },
  {
@@ -996,7 +872,6 @@
   "artist": "Franz Liszt",
   "title": "Liebesträume No. 3",
   "year": 1850,
-  "spotifyId": "6GzMz3s0K1YKwRVI36CgRx",
   "deezerId": 4121671201
  },
  {
@@ -1004,7 +879,6 @@
   "artist": "Johannes Brahms",
   "title": "Hungarian Dance No. 5",
   "year": 1869,
-  "spotifyId": "2oLjhx7w8Hyd3gry9cCXr7",
   "deezerId": 6058117
  },
  {
@@ -1012,7 +886,6 @@
   "artist": "Johannes Brahms",
   "title": "Brahms' Lullaby",
   "year": 1868,
-  "spotifyId": "59cPOVxrn3Yjwydl1pullI",
   "deezerId": 675347282
  },
  {
@@ -1020,7 +893,6 @@
   "artist": "Pyotr Ilyich Tchaikovsky",
   "title": "Swan Lake",
   "year": 1876,
-  "spotifyId": "2xizRhme7pYeITbH1NLLGt",
   "deezerId": 3378679
  },
  {
@@ -1028,7 +900,6 @@
   "artist": "Carl Orff",
   "title": "O Fortuna",
   "year": 1937,
-  "spotifyId": "2d7139N7CJ9eJmGVE42Y44",
   "deezerId": 67332242
  },
  {
@@ -1036,7 +907,6 @@
   "artist": "Dmitri Shostakovich",
   "title": "Waltz No. 2",
   "year": 1938,
-  "spotifyId": "4bgyv4pOiNgNZTN7BMLRuW",
   "deezerId": 6944627
  },
  {
@@ -1044,7 +914,6 @@
   "artist": "Modest Mussorgsky",
   "title": "Night on Bald Mountain",
   "year": 1867,
-  "spotifyId": "5rPqo5uyPn5MDoJkkiu8Nr",
   "deezerId": 137200312
  },
  {
@@ -1052,7 +921,6 @@
   "artist": "Antonín Dvořák",
   "title": "Humoresque",
   "year": 1894,
-  "spotifyId": "6ZgBPqiowNI40FaLezqG9H",
   "deezerId": 3245029
  },
  {
@@ -1060,7 +928,6 @@
   "artist": "Franz Schubert",
   "title": "Ave Maria",
   "year": 1825,
-  "spotifyId": "4JsMpgsep6XpuHSzKCTxCz",
   "deezerId": 2171773147
  },
  {
@@ -1068,7 +935,6 @@
   "artist": "Franz Schubert",
   "title": "Ständchen",
   "year": 1828,
-  "spotifyId": "4b59u2E74KcDuyHCRBkf5v",
   "deezerId": 429649492
  },
  {
@@ -1076,7 +942,6 @@
   "artist": "Felix Mendelssohn",
   "title": "Violin Concerto in E minor",
   "year": 1844,
-  "spotifyId": "1KpZV5L3I2PWFi1zIXFLkI",
   "deezerId": 68285588
  },
  {
@@ -1084,7 +949,6 @@
   "artist": "Sergei Rachmaninoff",
   "title": "Vocalise",
   "year": 1915,
-  "spotifyId": "0H3JiNc4CGnFVwMqWvACmO",
   "deezerId": 3110563
  },
  {
@@ -1092,7 +956,6 @@
   "artist": "Frédéric Chopin",
   "title": "Waltz in C-sharp minor",
   "year": 1847,
-  "spotifyId": "3lHJHMAeFrmWvieiaWnJzf",
   "deezerId": 74783830
  },
  {
@@ -1100,7 +963,6 @@
   "artist": "Frédéric Chopin",
   "title": "Étude Op. 10 No. 3",
   "year": 1832,
-  "spotifyId": "5XUSigwfoZDo1d9uTikcE4",
   "deezerId": 67343838
  },
  {
@@ -1108,7 +970,6 @@
   "artist": "Jules Massenet",
   "title": "Méditation",
   "year": 1894,
-  "spotifyId": "7ijOLIYbAqtLsqMpjWYMfL",
   "deezerId": 1474530132
  },
  {
@@ -1116,7 +977,6 @@
   "artist": "Jacques Offenbach",
   "title": "Barcarolle",
   "year": 1881,
-  "spotifyId": "0fW7uCEe0wnwxHyt7iw5LJ",
   "deezerId": 1732717947
  },
  {
@@ -1124,7 +984,6 @@
   "artist": "Léo Delibes",
   "title": "Flower Duet",
   "year": 1883,
-  "spotifyId": "25M8AkXKn3GmLTqdc07BcX",
   "deezerId": 2652147
  },
  {
@@ -1132,7 +991,6 @@
   "artist": "Ludwig van Beethoven",
   "title": "Symphony No. 7",
   "year": 1812,
-  "spotifyId": "79RYNk7I1YDy4RLPamenAn",
   "deezerId": 65442086
  },
  {
@@ -1140,7 +998,6 @@
   "artist": "Antonio Vivaldi",
   "title": "Gloria",
   "year": 1715,
-  "spotifyId": "0KwdAf2et7QMsy2tLDP3u6",
   "deezerId": 65546067
  },
  {
@@ -1148,7 +1005,6 @@
   "artist": "Aram Khachaturian",
   "title": "Spartacus",
   "year": 1956,
-  "spotifyId": "0jLVAklgGXRF7RxY1ogh6E",
   "deezerId": 3385648
  },
  {
@@ -1156,7 +1012,6 @@
   "artist": "Aram Khachaturian",
   "title": "Masquerade",
   "year": 1941,
-  "spotifyId": "3kd8AhmS3VJkmuKt4tIHzD",
   "deezerId": 17695796
  },
  {
@@ -1164,7 +1019,6 @@
   "artist": "Giuseppe Verdi",
   "title": "Messa da Requiem",
   "year": 1874,
-  "spotifyId": "4UVwbnxKEzPGOuAtSEt2ic",
   "deezerId": 12786278
  },
  {
@@ -1172,7 +1026,6 @@
   "artist": "Charles Gounod",
   "title": "Ave Maria",
   "year": 1853,
-  "spotifyId": "2kyEgPaAW8wdpvevPnkf0Z",
   "deezerId": 931092032
  },
  {
@@ -1180,7 +1033,6 @@
   "artist": "Gabriel Fauré",
   "title": "Pie Jesu",
   "year": 1890,
-  "spotifyId": "2nywPXZrSK91Oepjw3p5kH",
   "deezerId": 13529903
  },
  {
@@ -1188,7 +1040,6 @@
   "artist": "Pietro Mascagni",
   "title": "Cavalleria rusticana",
   "year": 1890,
-  "spotifyId": "2ejVc73K8orfIk9W2uZKlg",
   "deezerId": 66243845
  },
  {
@@ -1196,7 +1047,6 @@
   "artist": "Camille Saint-Saëns",
   "title": "Symphony No. 3 \"Organ\"",
   "year": 1886,
-  "spotifyId": "2oSVf7bdGI2dsCVHpPsQme",
   "deezerId": 690294172
  },
  {
@@ -1204,7 +1054,6 @@
   "artist": "Edward Elgar",
   "title": "Salut d'amour",
   "year": 1888,
-  "spotifyId": "0P7UwPB9vL74bD6gzYaKIu",
   "deezerId": 430251062
  },
  {
@@ -1212,7 +1061,6 @@
   "artist": "Edward Elgar",
   "title": "Cello Concerto",
   "year": 1919,
-  "spotifyId": "4qIwQaY9y4wPownt1sS7sI",
   "deezerId": 3358159
  },
  {
@@ -1220,7 +1068,6 @@
   "artist": "Gustav Mahler",
   "title": "Symphony No. 5",
   "year": 1902,
-  "spotifyId": "0cqcRqZgkNHanWQ8slYA0v",
   "deezerId": 2089559787
  },
  {
@@ -1228,7 +1075,6 @@
   "artist": "Ralph Vaughan Williams",
   "title": "Fantasia on Greensleeves",
   "year": 1934,
-  "spotifyId": "32gYbV6WQ8kfzLFKv0wWs2",
   "deezerId": 6973163
  },
  {
@@ -1236,7 +1082,6 @@
   "artist": "Luigi Boccherini",
   "title": "Minuet",
   "year": 1771,
-  "spotifyId": "6e85fziCk6MwZUxWyG6Ijm",
   "deezerId": 3458456531
  }
 ]
