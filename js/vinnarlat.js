@@ -51,8 +51,8 @@ const FADE_MS = 5000;
 const VOLUME = 0.8;
 // Nivån som klippen jämnas ut mot, se ljudniva.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
 const LEVEL_DB = -12;
-// Ljuden före vinnaren, ett slumpat varje gång men inte samma två gånger i rad. Alla är CC0 från
-// Freesound och runt fyra och en halv sekund. Fanfaren och publiken är kortade och utjämnade mot virveln.
+// Ljuden före vinnaren, ett slumpat varje gång men inte samma två gånger i rad. Alla kommer från
+// Freesound och är runt fyra och en halv sekund. Fanfaren och publiken är kortade och utjämnade mot virveln.
 export const DRUM_SOUNDS = [
   'ljud/trumvirvel.mp3', // ljud 111653 av bigjoedrummer, kortat till den första virveln
   'ljud/fanfar.mp3', // ljud 413201 av joepayne
