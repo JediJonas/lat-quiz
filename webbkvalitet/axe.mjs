@@ -112,7 +112,9 @@ await host.route('https://api.deezer.com/**', (route) => {
 });
 await host.route(PREVIEW, (route) => route.fulfill({ contentType: 'audio/wav', body: silence }));
 
-await host.click('#start-game');
+// Starta spelet finns både i vyn och i menyn. Här startas det från menyn.
+await openMenu(host);
+await host.click('.menu-item:has-text("Starta spelet")');
 // Låten börjar efter nedräkningen Nu börjar det!
 await host.waitForSelector('#guess:not([hidden]) #guess-hint:has-text("Lyssna och gissa")', { timeout: 20000 });
 await check(host, 'Spelledare, låten spelas');
