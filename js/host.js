@@ -968,7 +968,7 @@ function showQr() {
   scrollToTop();
 }
 
-// Pausa spel och Starta spel delar rad i menyn. Raden finns från första låten tills någon har
+// Pausa spelet och Starta spel delar rad i menyn. Raden finns från första låten tills någon har
 // vunnit. Starta spel fortsätter efter en paus, eller försöker igen när klippet inte startade.
 // Medan spelarna går med står Starta spelet här, som knappen i vyn.
 function pauseItem() {
@@ -977,10 +977,10 @@ function pauseItem() {
   if (!round || state.winners) return [];
   if (state.pausedAt) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: resumeGame }];
   if (clipStuck(round)) return [{ label: 'Starta spel', icon: MENU_ICONS.play, action: playClipClicked }];
-  return [{ label: 'Pausa spel', icon: MENU_ICONS.pause, action: pauseGame }];
+  return [{ label: 'Pausa spelet', icon: MENU_ICONS.pause, action: pauseGame }];
 }
 
-// I spelet finns Pausa spel, QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet
+// I spelet finns Pausa spelet, QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet
 // samma rader som på startsidan.
 function menuGroups() {
   const settings = { label: 'Inställningar', icon: MENU_ICONS.settings, action: editSettings };
