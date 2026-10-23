@@ -112,12 +112,12 @@ function saveExtraSounds(on) {
 
 const winnerSong = createWinnerSong();
 
-// Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt.
-// Raden längst ner visar då också låten.
+// Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt, och raden längst
+// ner visar låten, både här och i mobilerna.
 const lobbyMusic = createLobbyMusic({ onStart: () => {
   if (!state) return;
   showNowMusic($('#now-music'), currentMusic());
-  if (state.clipAll) broadcast();
+  broadcast();
 } });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
@@ -138,9 +138,9 @@ let winnerSpotifyStarted = false;
 function currentMusic() {
   if (!state) return null;
   const spotify = state.music === 'spotify';
-  if (lobbyWanted()) return nowMusic('Väntemusik', spotify ? lobbySpotifyStarted && lobbySpotifySong : lobbyMusic.song());
+  if (lobbyWanted()) return nowMusic(spotify ? lobbySpotifyStarted && lobbySpotifySong : lobbyMusic.song());
   if (!state.winners || !loadExtraSounds()) return null;
-  return nowMusic('Vinnarlåt', spotify ? winnerSpotifyStarted && winnerSong.current() : winnerSong.heard());
+  return nowMusic(spotify ? winnerSpotifyStarted && winnerSong.current() : winnerSong.heard());
 }
 
 // När spelledaren startar spelet visas "Nu börjar det!" en kort stund innan första låten.
@@ -244,8 +244,8 @@ function viewFor(playerId) {
   if (url) view.clipUrl = url;
   const music = musicForPlayers();
   if (music) view.music = music;
-  // Spelas musiken även i mobilerna står låten på raden längst ner där också.
-  const playing = state.clipAll && state.music !== 'spotify' && currentMusic();
+  // Låten står på raden längst ner även i mobilerna, också när den bara spelas hos spelledaren.
+  const playing = currentMusic();
   if (playing) view.nowMusic = playing;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
   if (pending) {
@@ -1150,7 +1150,7 @@ function playClicked() {
   else if (choice.action === 'resume') resumeGame();
   else if (choice.action === 'clip') playClipClicked();
   else if (choice.action === 'spotify') { startRound(); openSpotify(song); }
-  else if (choice.action === 'winner') { openSpotify(winnerSong.current()); winnerSpotifyStarted = true; render(); }
+  else if (choice.action === 'winner') { openSpotify(winnerSong.current()); winnerSpotifyStarted = true; render(); broadcast(); }
 }
 
 function nextClicked() {
