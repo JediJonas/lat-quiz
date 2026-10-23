@@ -88,11 +88,33 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   };
   // Fältet man skriver i rullas upp, så att fler förslag syns under det. Under tiden får
   // sidan luft längst ner, så att den går att rulla så långt även när den är kort.
+  // I iPhone räknar Safari ut vart sidan ska rulla redan när fältet får fokus, utifrån var
+  // fältet stod då, och rullar dit när tangentbordet öppnas. Rullade vi i fokushändelsen
+  // drog Safari sedan tillbaka sidan, så att fältet hamnade nere vid tangentbordet. Därför
+  // tar vi själva hand om ett tryck på raden: först rullas fältet upp, och sedan får det
+  // fokus utan att webbläsaren rullar. Står fältet redan överst har Safari inget att rulla.
   for (const id of ['artist', 'title']) {
     const input = $(`#${id}`);
+    const row = input.closest('.field-row');
+    let tapped = false;
+    let start = null;
+    row.addEventListener('touchstart', (e) => {
+      start = document.activeElement === input || e.touches.length !== 1 || e.target.closest('button') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }, { passive: true });
+    row.addEventListener('touchend', (e) => {
+      const t = e.changedTouches[0];
+      if (!start || !t || Math.hypot(t.clientX - start.x, t.clientY - start.y) > 10) return;
+      start = null;
+      e.preventDefault();
+      document.body.classList.add('typing');
+      scrollFieldToTop(input, row);
+      tapped = true;
+      input.focus({ preventScroll: true });
+    });
     input.addEventListener('focus', () => {
       document.body.classList.add('typing');
-      scrollFieldToTop(input, input.closest('.field-row'));
+      if (!tapped) scrollFieldToTop(input, row);
+      tapped = false;
     });
     input.addEventListener('blur', () => document.body.classList.remove('typing'));
   }
