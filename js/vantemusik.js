@@ -3,6 +3,7 @@
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
+import { levelGain } from './ljudniva.js';
 
 export const LOBBY_SONGS = [
   { artist: 'Flawed Mangoes', title: 'The Beginning', deezerId: 2493706161 },
@@ -27,12 +28,14 @@ export const LOBBY_SONGS = [
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
 const VOLUME = 0.5;
+// Nivån som klippen jämnas ut mot, se ljudniva.js. Lugna låtar är ofta svagare mixade än poplåtar.
+const LEVEL_DB = -16;
 const FADE_IN_MS = 2000;
 const FADE_OUT_MS = 3000; // i slutet av varje klipp
 const STOP_MS = 800; // när spelet startar
 
 // Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
-const fadeLevel = (left) => VOLUME * Math.max(0, left) ** 3;
+const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
 // En slumpad låt, men inte samma som förra väntan.
 export function pickLobbySong(random = Math.random, last = null) {
@@ -107,7 +110,8 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error('Inget svar');
-        return { url, buffer: await ctx.decodeAudioData(await res.arrayBuffer()) };
+        const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
+        return { url, buffer, volume: VOLUME * levelGain(buffer, LEVEL_DB) };
       } catch {
         return { url };
       }
@@ -134,7 +138,7 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
         }
         clip = loaded;
       }
-      const playing = clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer) : playElement(clip.url);
+      const playing = clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer, clip.volume) : playElement(clip.url);
       if (current) { current.url = clip.url; onStart(); }
       const played = await playing;
       // Tillät inte webbläsaren ljud väntar musiken på nästa tryck, se unlock.
@@ -142,7 +146,8 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
     }
   }
 
-  function playBuffer(buffer) {
+  // volume: klippets volym efter utjämningen.
+  function playBuffer(buffer, volume) {
     return new Promise((resolve) => {
       const gain = ctx.createGain();
       const source = ctx.createBufferSource();
@@ -150,12 +155,13 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
       const length = buffer.duration;
       const fadeOut = Math.min(FADE_OUT_MS / 1000, length / 3);
       gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(VOLUME, now + Math.min(FADE_IN_MS / 1000, length / 3));
-      const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49));
+      gain.gain.linearRampToValueAtTime(volume, now + Math.min(FADE_IN_MS / 1000, length / 3));
+      const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, volume));
       gain.gain.setValueCurveAtTime(steps, now + length - fadeOut, fadeOut);
       source.buffer = buffer;
       source.connect(gain).connect(ctx.destination);
       const me = {
+        volume,
         position: () => ctx.currentTime - now,
         fadeOut() {
           const at = ctx.currentTime;
@@ -190,7 +196,7 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
         const left = el.duration ? (el.duration - el.currentTime) * 1000 / FADE_OUT_MS : 1;
         el.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
       }, 50);
-      const me = { position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
+      const me = { volume: VOLUME, position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
       const done = (played) => { clearInterval(timer); if (current === me) current = null; resolve(played); };
       el.addEventListener('ended', () => done(true), { once: true });
       el.play().catch(() => done(false));
@@ -198,8 +204,9 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
     });
   }
 
-  // Klippet som hörs och var i det, för spelarnas mobiler, eller null.
-  const now = () => (current && current.url ? { url: current.url, posMs: Math.round(current.position() * 1000) } : null);
+  // Klippet som hörs, var i det och med vilken volym, för spelarnas mobiler, eller null.
+  const now = () => (current && current.url
+    ? { url: current.url, posMs: Math.round(current.position() * 1000), volume: current.volume } : null);
 
   // Låten som hörs, för raden längst ner, eller null.
   const heardSong = () => (now() ? song : null);
