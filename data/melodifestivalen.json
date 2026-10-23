@@ -1349,5 +1349,124 @@
   "title": "My System",
   "year": 2026,
   "deezerId": 3819635851
+ },
+ {
+  "id": "after-dark-la-dolce-vita",
+  "artist": "After Dark",
+  "title": "La dolce vita",
+  "year": 2004,
+  "deezerId": 990850542
+ },
+ {
+  "id": "linda-bengtzing-alla-flickor",
+  "artist": "Linda Bengtzing",
+  "title": "Alla flickor",
+  "year": 2006,
+  "deezerId": 3615976
+ },
+ {
+  "id": "magnus-carlsson-lev-livet",
+  "artist": "Magnus Carlsson",
+  "title": "Lev livet!",
+  "year": 2006,
+  "deezerId": 15424148
+ },
+ {
+  "id": "yohio-heartbreak-hotel",
+  "artist": "YOHIO",
+  "title": "Heartbreak Hotel",
+  "year": 2013,
+  "deezerId": 1371776602
+ },
+ {
+  "id": "jon-henrik-fjallgren-daniel-s-joik",
+  "artist": "Jon Henrik Fjällgren",
+  "title": "Daniel's Joik",
+  "year": 2014,
+  "deezerId": 78370515
+ },
+ {
+  "id": "e-type-paradise",
+  "artist": "E-Type",
+  "title": "Paradise",
+  "year": 2004,
+  "deezerId": 2427198
+ },
+ {
+  "id": "shirley-clamp-min-karlek",
+  "artist": "Shirley Clamp",
+  "title": "Min kärlek",
+  "year": 2004,
+  "deezerId": 36077031
+ },
+ {
+  "id": "linda-bengtzing-jag-ljuger-sa-bra",
+  "artist": "Linda Bengtzing",
+  "title": "Jag ljuger så bra",
+  "year": 2005,
+  "deezerId": 14666547
+ },
+ {
+  "id": "bwo-sunshine-in-the-rain",
+  "artist": "BWO",
+  "title": "Sunshine in the Rain",
+  "year": 2006,
+  "deezerId": 124117186
+ },
+ {
+  "id": "andreas-johnson-sing-for-me",
+  "artist": "Andreas Johnson",
+  "title": "Sing for Me",
+  "year": 2006,
+  "deezerId": 692716
+ },
+ {
+  "id": "jessica-andersson-kalla-natter",
+  "artist": "Jessica Andersson",
+  "title": "Kalla nätter",
+  "year": 2006,
+  "deezerId": 3615749
+ },
+ {
+  "id": "alcazar-stay-the-night",
+  "artist": "Alcazar",
+  "title": "Stay the Night",
+  "year": 2009,
+  "deezerId": 2545757612
+ },
+ {
+  "id": "eric-saade-manboy",
+  "artist": "Eric Saade",
+  "title": "Manboy",
+  "year": 2010,
+  "deezerId": 76561639
+ },
+ {
+  "id": "timoteij-kom",
+  "artist": "Timoteij",
+  "title": "Kom",
+  "year": 2010,
+  "deezerId": 2337787375
+ },
+ {
+  "id": "ola-unstoppable",
+  "artist": "Ola",
+  "title": "Unstoppable",
+  "year": 2010,
+  "deezerId": 1179363982
+ },
+ {
+  "id": "anton-ewald-begging",
+  "artist": "Anton Ewald",
+  "title": "Begging",
+  "year": 2013,
+  "deezerId": 67513275
+ },
+ {
+  "id": "behrang-miri-det-rar-vi-inte-for",
+  "artist": "Behrang Miri",
+  "title": "Det rår vi inte för",
+  "year": 2015,
+  "deezerId": 94424868
  }
 ]

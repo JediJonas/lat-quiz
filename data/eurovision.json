@@ -1244,5 +1244,215 @@
   "title": "Amar pelos dois",
   "year": 2017,
   "deezerId": 1001004212
+ },
+ {
+  "id": "ryssland-ne-ver-ne-boysia",
+  "artist": "Ryssland",
+  "title": "Ne ver', ne boysia",
+  "year": 2003,
+  "deezerId": 884781
+ },
+ {
+  "id": "moldavien-boonika-bate-doba",
+  "artist": "Moldavien",
+  "title": "Boonika bate doba",
+  "year": 2005,
+  "deezerId": 686545
+ },
+ {
+  "id": "irland-irelande-douze-pointe",
+  "artist": "Irland",
+  "title": "Irelande Douze Pointe",
+  "year": 2008,
+  "deezerId": 13108564
+ },
+ {
+  "id": "italien-occidentali-s-karma",
+  "artist": "Italien",
+  "title": "Occidentali's Karma",
+  "year": 2017,
+  "deezerId": 3782900022
+ },
+ {
+  "id": "moldavien-hey-mamma",
+  "artist": "Moldavien",
+  "title": "Hey Mamma",
+  "year": 2017,
+  "deezerId": 2409359825
+ },
+ {
+  "id": "moldavien-my-lucky-day",
+  "artist": "Moldavien",
+  "title": "My Lucky Day",
+  "year": 2018,
+  "deezerId": 2617868212
+ },
+ {
+  "id": "island-hatri-mun-sigra",
+  "artist": "Island",
+  "title": "Hatrið mun sigra",
+  "year": 2019,
+  "deezerId": 1866525877
+ },
+ {
+  "id": "san-marino-say-na-na-na",
+  "artist": "San Marino",
+  "title": "Say Na Na Na",
+  "year": 2019,
+  "deezerId": 2844010262
+ },
+ {
+  "id": "norge-spirit-in-the-sky",
+  "artist": "Norge",
+  "title": "Spirit in the Sky",
+  "year": 2019,
+  "deezerId": 609806412
+ },
+ {
+  "id": "island-think-about-things",
+  "artist": "Island",
+  "title": "Think About Things",
+  "year": 2020,
+  "deezerId": 1951174127
+ },
+ {
+  "id": "island-10-years",
+  "artist": "Island",
+  "title": "10 Years",
+  "year": 2021,
+  "deezerId": 1875513447
+ },
+ {
+  "id": "ukraina-shum",
+  "artist": "Ukraina",
+  "title": "Shum",
+  "year": 2021,
+  "deezerId": 1454324742
+ },
+ {
+  "id": "litauen-discoteque",
+  "artist": "Litauen",
+  "title": "Discoteque",
+  "year": 2021,
+  "deezerId": 1212810032
+ },
+ {
+  "id": "kroatien-mama-sc",
+  "artist": "Kroatien",
+  "title": "Mama ŠČ!",
+  "year": 2023,
+  "deezerId": 2114884607
+ },
+ {
+  "id": "tyskland-no-no-never",
+  "artist": "Tyskland",
+  "title": "No No Never",
+  "year": 2006,
+  "deezerId": 1154160
+ },
+ {
+  "id": "armenien-qele-qele",
+  "artist": "Armenien",
+  "title": "Qélé, Qélé",
+  "year": 2008,
+  "deezerId": 925488642
+ },
+ {
+  "id": "grekland-yassou-maria",
+  "artist": "Grekland",
+  "title": "Yassou Maria",
+  "year": 2007,
+  "deezerId": 568124
+ },
+ {
+  "id": "australien-sound-of-silence",
+  "artist": "Australien",
+  "title": "Sound of Silence",
+  "year": 2016,
+  "deezerId": 120732226
+ },
+ {
+  "id": "bulgarien-beautiful-mess",
+  "artist": "Bulgarien",
+  "title": "Beautiful Mess",
+  "year": 2017,
+  "deezerId": 144210328
+ },
+ {
+  "id": "belgien-city-lights",
+  "artist": "Belgien",
+  "title": "City Lights",
+  "year": 2017,
+  "deezerId": 143464436
+ },
+ {
+  "id": "frankrike-voila",
+  "artist": "Frankrike",
+  "title": "Voilà",
+  "year": 2021,
+  "deezerId": 1125778602
+ },
+ {
+  "id": "sverige-the-worrying-kind",
+  "artist": "Sverige",
+  "title": "The Worrying Kind",
+  "year": 2007,
+  "deezerId": 68605491
+ },
+ {
+  "id": "sverige-hero",
+  "artist": "Sverige",
+  "title": "Hero",
+  "year": 2008,
+  "deezerId": 1088967
+ },
+ {
+  "id": "sverige-la-voix",
+  "artist": "Sverige",
+  "title": "La voix",
+  "year": 2009,
+  "deezerId": 70964971
+ },
+ {
+  "id": "sverige-popular",
+  "artist": "Sverige",
+  "title": "Popular",
+  "year": 2011,
+  "deezerId": 76458291
+ },
+ {
+  "id": "sverige-undo",
+  "artist": "Sverige",
+  "title": "Undo",
+  "year": 2014,
+  "deezerId": 75372562
+ },
+ {
+  "id": "sverige-if-i-were-sorry",
+  "artist": "Sverige",
+  "title": "If I Were Sorry",
+  "year": 2016,
+  "deezerId": 120037738
+ },
+ {
+  "id": "sverige-i-can-t-go-on",
+  "artist": "Sverige",
+  "title": "I Can't Go On",
+  "year": 2017,
+  "deezerId": 142931392
+ },
+ {
+  "id": "sverige-too-late-for-love",
+  "artist": "Sverige",
+  "title": "Too Late for Love",
+  "year": 2019,
+  "deezerId": 676125412
+ },
+ {
+  "id": "sverige-voices",
+  "artist": "Sverige",
+  "title": "Voices",
+  "year": 2021,
+  "deezerId": 1259074852
  }
 ]
