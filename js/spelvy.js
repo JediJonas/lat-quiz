@@ -3,7 +3,7 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions } from './data.js';
 import { autocomplete } from './autocomplete.js';
-import { announce, countUp, renderPie, renderRing, scoreTracker, pinTopBar, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
+import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 import { roundCheer, winComment, winIntro } from './pepp.js';
 
@@ -40,24 +40,6 @@ function rules(view) {
     ...(s.bonusMs ? [`Bonus inom ${s.bonusMs / 1000} s`] : []),
     `Först till ${s.winScore} p`,
   ];
-}
-
-// När loggan överst har rullat bort, till exempel medan man skriver ett svar, står
-// kategorin i stället liten mitt i en rad överst, som i iOS. Raden är bara utsmyckning:
-// rubriken finns kvar för skärmläsare. Medan en låt spelas står nedräkningen där i stället.
-function compactTitle() {
-  const heading = document.querySelector('.player-head h1');
-  const logo = document.querySelector('.player-head .logo');
-  if (!heading || !logo) return;
-  const bar = document.createElement('div');
-  bar.className = 'compact-bar';
-  bar.setAttribute('aria-hidden', 'true');
-  bar.innerHTML = '<span class="logo"></span><span class="compact-title"></span><span class="compact-title bar-time"></span>';
-  document.body.append(bar);
-  const title = bar.querySelector('.compact-title');
-  new MutationObserver(() => { title.textContent = heading.textContent; })
-    .observe(heading, { childList: true, characterData: true, subtree: true });
-  pinTopBar(logo);
 }
 
 // Så länge sista låten visas innan vinnaren tar över vyn. Först står till exempel "Vi har en
@@ -120,7 +102,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     fields.title.setList(suggestions.titles);
   }).catch(onError);
   setInterval(renderTimer, 250);
-  compactTitle();
 
   // Nedräkningen före första låten, som bara visas med Deezer.
   function renderIntro() {
@@ -132,8 +113,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   }
 
   function renderTimer() {
-    const barTime = document.querySelector('.bar-time');
-    document.body.classList.toggle('timing', Boolean(barTime && view && view.round && view.round.phase === 'playing'));
     if (!view || !view.round) return;
     renderIntro();
     // Under en paus står ringen och cirkeln still på det spelledaren skickade.
@@ -148,10 +127,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#timer').classList.remove('loading');
     const ms = view.paused ? view.round.remainingMs : Math.max(0, deadline - Date.now());
     renderRing($('#timer'), ms, view.round.roundMs, view.round.bonusMs > 0 && view.round.roundMs - ms <= view.round.bonusMs);
-    if (barTime) {
-      const seconds = Math.ceil(ms / 1000);
-      barTime.textContent = `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
-    }
   }
 
   function playerStatus(id) {
