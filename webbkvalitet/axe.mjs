@@ -119,10 +119,10 @@ await host.click('.menu-item:has-text("Starta spelet")');
 await host.waitForSelector('#guess:not([hidden]) #guess-hint:has-text("Lyssna och gissa")', { timeout: 20000 });
 await check(host, 'Spelledare, låten spelas');
 
-// Pausa spel och Starta spel ligger i menyn under spelet.
+// Pausa spelet och Starta spel ligger i menyn under spelet.
 await openMenu(host);
 await check(host, 'Spelledare, menyn under spelet');
-await host.click('.menu-item:has-text("Pausa spel")');
+await host.click('.menu-item:has-text("Pausa spelet")');
 await host.waitForSelector('#guess-hint:has-text("Pausad")');
 await openMenu(host);
 await host.click('.menu-item:has-text("Starta spel")');
