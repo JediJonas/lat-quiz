@@ -119,13 +119,13 @@ await host.click('.menu-item:has-text("Starta spelet")');
 await host.waitForSelector('#guess:not([hidden]) #guess-hint:has-text("Lyssna och gissa")', { timeout: 20000 });
 await check(host, 'Spelledare, låten spelas');
 
-// Pausa spelet och Starta spel ligger i menyn under spelet.
+// Pausa spelet och Starta spelet ligger i menyn under spelet.
 await openMenu(host);
 await check(host, 'Spelledare, menyn under spelet');
 await host.click('.menu-item:has-text("Pausa spelet")');
 await host.waitForSelector('#guess-hint:has-text("Pausad")');
 await openMenu(host);
-await host.click('.menu-item:has-text("Starta spel")');
+await host.click('.menu-item:has-text("Starta spelet")');
 await host.waitForSelector('#guess-hint:has-text("Lyssna och gissa")');
 await player.waitForSelector('#guess:not([hidden])');
 await check(player, 'Spelare, gissar');
@@ -169,7 +169,7 @@ await check(player, 'Spelare, rätt svar');
 
 // Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer.
 const show = (page, msg) => page.evaluate((m) => import('./js/meddelande.js').then((mod) => mod.showMessage(m)), msg);
-await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Välj Starta spel i menyn för att försöka igen.' });
+await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Välj Starta spelet i menyn för att försöka igen.' });
 await check(host, 'Spelledare, felmeddelande');
 await show(player, { key: 'test', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
 await check(player, 'Spelare, meddelande');
