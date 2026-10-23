@@ -5,18 +5,19 @@
 
 import { normalize } from './text.js';
 
-// Alltid 30 sekunder per låt, lika långt som Deezers klipp.
+// 30 sekunder per låt som standard, lika långt som hela Deezer-klippet.
 export const ROUND_MS = 30000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
 export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
 export const MAX_NAME = 10;
 
-// Inställningar som spelledaren kan välja. Bonus 0 betyder ingen bonus. Tiden går inte att ändra.
+// Inställningar som spelledaren kan välja. roundMs är hur lång del av klippet som spelas, och
+// lika lång tid har spelarna på sig. Bonus 0 betyder ingen bonus.
 export const SETTING_CHOICES = {
-  roundMs: [ROUND_MS],
+  roundMs: [10000, 15000, 20000, 25000, ROUND_MS],
   bonusMs: [0, 5000, 10000, 15000, 20000],
-  winScore: [5, 10, 15, 20, 30],
+  winScore: [3, 5, 10, 15, 20],
 };
 export const DEFAULT_SETTINGS = { roundMs: ROUND_MS, bonusMs: BONUS_MS, winScore: WIN_SCORE };
 
@@ -29,7 +30,16 @@ export function cleanSettings(settings = {}) {
     const value = raw == null || raw === '' ? NaN : Number(raw);
     clean[key] = choices.includes(value) ? value : DEFAULT_SETTINGS[key];
   }
+  // En bonus som räcker hela låten vore ingen bonus för snabbhet. Då gäller den längsta som är kortare.
+  if (!bonusAllowed(clean.bonusMs, clean.roundMs)) {
+    clean.bonusMs = Math.max(...SETTING_CHOICES.bonusMs.filter((v) => bonusAllowed(v, clean.roundMs)));
+  }
   return clean;
+}
+
+// Bonustiden måste vara kortare än tiden per låt.
+export function bonusAllowed(bonusMs, roundMs) {
+  return bonusMs < roundMs;
 }
 
 // Ändras inte mitt i en låt, eftersom timern och bonusen räknas från dem.
@@ -315,7 +325,8 @@ export function settingsChangeText(before, after) {
   if (!before || !after || !before.settings || !after.settings) return null;
   const parts = [];
   if (after.categoryName && after.categoryName !== before.categoryName) parts.push(`Ny kategori: ${after.categoryName}.`);
-  const { bonusMs } = after.settings;
+  const { roundMs, bonusMs } = after.settings;
+  if (roundMs !== before.settings.roundMs) parts.push(`${roundMs / 1000} sekunder per låt.`);
   if (bonusMs !== before.settings.bonusMs) parts.push(bonusMs ? `Bonus för svar inom ${bonusMs / 1000} sekunder.` : 'Ingen bonus.');
   if (after.settings.winScore !== before.settings.winScore) parts.push(`Först till ${after.settings.winScore} poäng vinner.`);
   return parts.length ? parts.join(' ') : null;

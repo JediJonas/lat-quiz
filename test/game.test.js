@@ -199,8 +199,9 @@ test('inställningar: utan sparade värden gäller standard, även för bonus', 
 });
 
 test('inställningar: okända värden ersätts med standard, bonus 0 betyder ingen bonus', () => {
-  assert.deepEqual(cleanSettings({ roundMs: 45000, bonusMs: 7, winScore: '20' }),
-    { roundMs: 30000, bonusMs: 15000, winScore: 20 });
+  assert.deepEqual(cleanSettings({ roundMs: 45000, bonusMs: 7, winScore: '30' }),
+    { roundMs: 30000, bonusMs: 15000, winScore: 10 });
+  assert.deepEqual(cleanSettings({ roundMs: '20000', winScore: '3' }), { roundMs: 20000, bonusMs: 15000, winScore: 3 });
   const state = createGame({ code: 'ABCD', categoryId: '80-tal', settings: { bonusMs: 0, winScore: 5 } });
   assert.equal(state.winScore, 5);
   addPlayer(state, { id: 'p1', name: 'Anna' });
@@ -214,6 +215,25 @@ test('inställningar: okända värden ersätts med standard, bonus 0 betyder ing
   assert.equal(applySettings(state, { roundMs: 30000, bonusMs: 10000, winScore: 15 }), true);
   assert.equal(state.roundMs, 30000);
   assert.equal(state.winScore, 15);
+});
+
+test('inställningar: bonusen är alltid kortare än tiden per låt', () => {
+  assert.equal(cleanSettings({ roundMs: 10000, bonusMs: 20000 }).bonusMs, 5000);
+  assert.equal(cleanSettings({ roundMs: 15000 }).bonusMs, 10000);
+  assert.equal(cleanSettings({ roundMs: 15000, bonusMs: 5000 }).bonusMs, 5000);
+  assert.equal(cleanSettings({ roundMs: 10000, bonusMs: 0 }).bonusMs, 0);
+  assert.equal(cleanSettings({ roundMs: 25000, bonusMs: 20000 }).bonusMs, 20000);
+});
+
+test('kortare tid per låt: tiden tar slut och svaren låses tidigare', () => {
+  const state = createGame({ code: 'ABCD', categoryId: '80-tal', settings: { roundMs: 10000 } });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  nextSong(state, songs, () => 0);
+  startRound(state, 1000);
+  assert.equal(remainingMs(state, 6000), 5000);
+  assert.equal(shouldReveal(state, 11000), true);
+  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 11001), false);
+  assert.equal(playerView(state, 'p1', 6000).round.roundMs, 10000);
 });
 
 test('spelarvyn visar kategorins namn och inställningar', () => {
@@ -363,6 +383,10 @@ test('settingsChangeText beskriver ändrad kategori, bonus och poänggräns', ()
   assert.equal(
     settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 30000, bonusMs: 5000, winScore: 15 } }),
     'Bonus för svar inom 5 sekunder. Först till 15 poäng vinner.',
+  );
+  assert.equal(
+    settingsChangeText(before, { categoryName: '80-tal', settings: { roundMs: 20000, bonusMs: 15000, winScore: 10 } }),
+    '20 sekunder per låt.',
   );
 });
 
