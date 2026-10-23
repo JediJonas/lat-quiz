@@ -1079,6 +1079,12 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   border-radius: 50%;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3 3 7-7' fill='none' stroke='%2312823f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
 }
+/* Raden med omslag är lika hög som det högsta omslaget, där namnet går på två rader, som Hårdrock
+   och metal. Under de vanliga namnen på en rad blev det därför 17 px mer luft ner till Inställningar
+   än under andra grupper. Rubriken står närmare, så att avståndet ser ut som på andra ställen. */
+@media not all and (hover: hover) and (pointer: fine) {
+  .cat-picker + .settings-label { margin-top: 8px; }
+}
 /* På dator, med mus, väljs kategorin i en rullgardin under namnet i stället för bland omslag. */
 .cat-select-row { display: none; }
 @media (hover: hover) and (pointer: fine) {
@@ -1105,36 +1111,6 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 @media (max-width: 600px) and (min-height: 500px) {
   .setup-actions { position: sticky; z-index: 2; bottom: 0; background: linear-gradient(transparent, var(--bg) 24px); }
   main#setup:has(input:focus) .setup-actions { position: static; }
-}
-/* I mobilen står Starta spelet och Spela igen fast längst ner, där tummen når dem, på en ton i sidans
-   färg som i Starta nytt spel. Sidan får lika mycket luft nedtill, så att poänglistan kan rullas fram
-   ovanför knappen, och meddelanderutan står ovanför den. På en mycket låg skärm står knappen kvar i rutan. */
-@media (max-width: 600px) and (min-height: 500px) {
-  :root { --bottom-button: calc(var(--panel-bottom) + 54px + 16px); }
-  #game:not([hidden]) :is(#start-game, #new-match):not([hidden]) {
-    position: fixed;
-    z-index: 3;
-    left: max(16px, env(safe-area-inset-left));
-    right: max(16px, env(safe-area-inset-right));
-    bottom: var(--panel-bottom);
-    width: auto;
-    margin: 0;
-  }
-  /* Kortet med knappen får inget eget lager, så att knappen hamnar över tonen och tonen över korten. */
-  #game :is(#waiting, #result):has(> :is(#start-game, #new-match):not([hidden])) { z-index: auto; }
-  #game:has(:is(#start-game, #new-match):not([hidden]))::after {
-    content: "";
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: calc(var(--bottom-button) + 8px);
-    background: linear-gradient(transparent, var(--bg) 24px);
-    pointer-events: none;
-  }
-  #game:has(:is(#start-game, #new-match):not([hidden])) { padding-bottom: calc(var(--bottom-button) + 24px); }
-  body:has(#game:not([hidden]) :is(#start-game, #new-match):not([hidden])) .message { bottom: var(--bottom-button); }
 }
 /* Utan namnfält, när spelledaren inte deltar, döljs den tomma gruppen. */
 .field-group:not(:has(> .field-row:not([hidden]))) { display: none; }
@@ -1252,7 +1228,14 @@ a.icon-btn { text-decoration: none; }
      kolumnens delar blir egna rader i gridden. */
   .host, .host.qr-hidden { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: calc(var(--game-width) + 32px); }
   .main-col { display: contents; }
-  .host .player-head { order: -1; }
+  .host .player-head { order: -2; }
+  /* Starta spelet står direkt under QR-rutan, så att spelledaren når den utan att rulla förbi
+     omslaget. Väntrutans delar blir därför också egna rader i gridden. Är QR-koden stängd står
+     knappen kvar under reglerna. */
+  .host .join-info, .host:not(.qr-hidden) #start-game { order: -1; }
+  .host #waiting:not([hidden]) { display: contents; }
+  .host #waiting > .cover { margin-top: 16px; }
+  .host:not(.qr-hidden) #start-game { margin: 16px 0 0; }
   /* Rutorna är egna rader i gridden, där marginaler inte slås ihop. Bara marginalen ovanför
      behålls, så att avstånden blir desamma som på datorn och på spelarens sida. */
   .host .card { margin: 16px 0 0; }
