@@ -98,24 +98,17 @@ export function scrollToTop() {
 }
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
-// I mobilen hamnar raden strax under den lilla raden som ligger fast överst, så att den
-// inte skymmer fältet. Allt räknas i den synliga ytan: med tangentbordet uppe har Safari i
-// iPhone ofta flyttat den ner en bit på sidan, och den fasta raden följer med (pinTopBar).
-// Med mus står sidan still om minst fyra förslag får plats under fältet. Hoppet sker direkt vid
-// fokus, innan tangentbordet öppnas. När tangentbordet har öppnats och sidan har stannat rättas
-// läget en gång, åt det håll som behövs. Fler rättningar fick sidan att hoppa i iPhone.
+// Allt räknas i den synliga ytan: med tangentbordet uppe har Safari i iPhone ofta flyttat den
+// ner en bit på sidan (visualViewport.offsetTop). Med mus står sidan still om minst fyra förslag
+// får plats under fältet. Hoppet sker direkt vid fokus, innan tangentbordet öppnas. När
+// tangentbordet har öppnats och sidan har stannat rättas läget en gång, åt det håll som behövs.
+// Fler rättningar fick sidan att hoppa i iPhone.
 const GAP = 8;
-function barHeight() {
-  const bar = document.querySelector('.compact-bar');
-  return bar && getComputedStyle(bar).display !== 'none' ? bar.offsetHeight : 0;
-}
-// Hur långt ner på sidan den fasta raden har flyttats med den synliga ytan (pinTopBar).
-let pinnedTop = 0;
-const visibleTop = (el) => el.getBoundingClientRect().top - pinnedTop;
+const visibleTop = (el) => el.getBoundingClientRect().top - Math.max(0, window.visualViewport?.offsetTop || 0);
 
 export function scrollFieldToTop(input, row) {
   const ROOM = 240; // fyra förslag med listans marginaler
-  const goal = barHeight() + GAP;
+  const goal = GAP;
   const rowTop = visibleTop(row);
   if (!matchMedia('(pointer: coarse)').matches) {
     const room = window.innerHeight - input.getBoundingClientRect().bottom;
@@ -151,34 +144,4 @@ function settle(input, row, goal) {
   vv.addEventListener('scroll', later);
   window.addEventListener('touchmove', stop, { passive: true });
   input.addEventListener('blur', stop);
-}
-
-// Det som ligger fast överst sitter i sidfönstret. I Safari på iPhone flyttar tangentbordet den
-// synliga ytan ner på sidan, och då hamnade raden ovanför det som syns. Här flyttas raden med,
-// genom --vv-top i css/style.css, men bara medan man skriver i ett fält. Annars fjädrar den
-// synliga ytan också när man drar förbi sidans slut, och raden skulle glida ner från
-// överkanten. Vid inzoomning står den kvar. Raden visas så fort loggan har rullat ut ovanför
-// det som syns.
-export function pinTopBar(logo) {
-  const vv = window.visualViewport;
-  const root = document.documentElement;
-  const update = () => {
-    const typing = document.activeElement?.matches('input, textarea');
-    const top = vv && typing && Math.abs(vv.scale - 1) < 0.01 ? Math.max(0, Math.round(vv.offsetTop)) : 0;
-    if (top !== pinnedTop) {
-      pinnedTop = top;
-      root.style.setProperty('--vv-top', `${top}px`);
-    }
-    const { bottom, height } = logo.getBoundingClientRect();
-    document.body.classList.toggle('compact', height > 0 && bottom <= top);
-  };
-  if (vv) {
-    vv.addEventListener('resize', update);
-    vv.addEventListener('scroll', update);
-  }
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-  document.addEventListener('focusin', update);
-  document.addEventListener('focusout', () => setTimeout(update, 0));
-  update();
 }
