@@ -127,7 +127,8 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   // tangentbordet har öppnats. Prova ändringar i en riktig iPhone, både första och andra trycket.
   // Har fältet redan fokus tappar det fokus och får det igen, så att tangentbordet öppnas om det
   // var stängt, och sidan ändå inte rullar. Ett långt tryck lämnas åt webbläsaren, så att man
-  // kan markera text.
+  // kan markera text. Tryck på förslagslistan och krysset lämnas också, så att ett val i listan
+  // stänger fältet som det ska.
   const log = debugLog();
   for (const id of ['artist', 'title']) {
     const input = $(`#${id}`);
@@ -135,7 +136,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     let tapped = false;
     let start = null;
     row.addEventListener('touchstart', (e) => {
-      start = e.touches.length !== 1 || e.target.closest('button') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY, at: Date.now() };
+      start = e.touches.length !== 1 || e.target.closest('button, .suggestions') ? null : { x: e.touches[0].clientX, y: e.touches[0].clientY, at: Date.now() };
       log(`touchstart ${id}`, row);
     }, { passive: true });
     row.addEventListener('touchend', (e) => {
