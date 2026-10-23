@@ -1221,7 +1221,6 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 main.host { padding-bottom: calc(24px + 70px + var(--panel-bottom)); }
 /* Väntemusiken eller vinnarlåten som spelas, diskret längst ner. */
 .now-music { margin: 28px 16px 0; text-align: center; font-size: 0.8125rem; color: var(--muted); }
-.now-music-label { margin-right: 4px; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 /* Versionen längst ner på sidorna. Tom i repot, ifylld vid publiceringen. */
 .app-version { margin: 32px 16px 0; text-align: center; font-size: 0.75rem; color: var(--muted); }
 /* Versionsnumret syns bara med ?debug=1, se början av varje sida. */
