@@ -19,17 +19,17 @@ export function renderRing(el, ms, totalMs, bonus) {
   el.classList.toggle('bonus', bonus);
 }
 
-// Liten grå ring som töms medurs, som ringen vid gissningen. Mitt i står sekunderna som är kvar.
-const PIE_R = 12;
+// Liten grå cirkel som är fylld från början och töms medurs, som en tårta, tills tiden är slut.
+// Det fyllda är en linje lika bred som cirkelns radie, så att den kan tömmas som ringen vid gissningen.
+const PIE_R = 7;
 const PIE_LEN = 2 * Math.PI * PIE_R;
 export function renderPie(el, ms, totalMs) {
   if (!el.querySelector('svg')) {
     el.innerHTML = `<svg viewBox="0 0 28 28" aria-hidden="true">
-        <circle class="pie-track" cx="14" cy="14" r="${PIE_R}"/>
-        <circle class="pie-bar" cx="14" cy="14" r="${PIE_R}" stroke-dasharray="${PIE_LEN}"/>
-      </svg><span class="pie-num" aria-hidden="true"></span>`;
+        <circle class="pie-track" cx="14" cy="14" r="14"/>
+        <circle class="pie-bar" cx="14" cy="14" r="${PIE_R}" stroke-width="${2 * PIE_R}" stroke-dasharray="${PIE_LEN}"/>
+      </svg>`;
   }
-  el.querySelector('.pie-num').textContent = Math.ceil(ms / 1000);
   const part = totalMs ? Math.max(0, Math.min(1, ms / totalMs)) : 0;
   el.querySelector('.pie-bar').style.strokeDashoffset = `${PIE_LEN * (1 - part)}px`;
 }

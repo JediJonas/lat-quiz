@@ -511,16 +511,13 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .round-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .round-head .round-label { margin: 0; }
 /* Tiden kvar tills nästa låt startar av sig själv */
-/* Nedräkningen är bara en upplysning, så den är ljusare än rubriken bredvid. Ringen kan vara
-   ljusast, medan siffran behåller den kontrast som text behöver. */
+/* Nedräkningen är bara en upplysning, så den är ljusare än rubriken bredvid. Cirkeln kan vara
+   ljusast, medan texten behåller den kontrast som text behöver. */
 .pie { position: relative; display: block; color: color-mix(in srgb, var(--muted) 80%, var(--surface-solid)); width: 18px; height: 18px; flex: none; }
 .pie svg { width: 100%; height: 100%; transform: rotate(-90deg) scaleY(-1); }
-/* Lika stor och tjock som snurran i meddelanderutorna och lika hög som equalizern: 18 px med
-   2,5 px linje (3,9 av ringens 28 enheter). */
-.pie circle { fill: none; stroke-width: 3.9; }
-.pie-track { stroke: var(--border); }
-.pie-bar { stroke: color-mix(in srgb, currentColor 60%, var(--surface-solid)); stroke-linecap: round; transition: stroke-dashoffset 0.25s linear; }
-.pie-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
+/* Lika stor som snurran i meddelanderutorna och lika hög som equalizern. Det som tömts blir ljust. */
+.pie-track { fill: var(--border); }
+.pie-bar { fill: none; stroke: color-mix(in srgb, currentColor 60%, var(--surface-solid)); transition: stroke-dashoffset 0.25s linear; }
 
 /* Rätt svar */
 /* Omslaget: låten har ett omslag i kategorins färger, med kategorins siffra eller förkortning
@@ -657,7 +654,6 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .points-short, :root[data-text="large"] .points-long { display: none; }
 :root[data-text="large"] .points-short { display: inline; }
 .next { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; white-space: nowrap; font-size: 0.9375rem; font-weight: 550; font-variant-numeric: tabular-nums; color: var(--muted); }
-.next .pie-num { display: none; }
 /* Ringen står först och texten efter, med fast storlek. Texten bryts aldrig. */
 .next #next-text { flex: none; }
 /* Sekunderna tar alltid lika stor plats som den längsta, till exempel 10 s, så att ringen och
@@ -678,9 +674,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
    nästa låt, men vit på omslaget. */
 #intro-text { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
 #intro-text .pie { color: inherit; }
-#intro-text .pie-track { stroke: rgba(255, 255, 255, 0.3); }
+#intro-text .pie-track { fill: rgba(255, 255, 255, 0.3); }
 #intro-text .pie-bar { stroke: currentColor; }
-#intro-text .pie-num { display: none; }
 /* Innan namnet pulserar till exempel Vi har en vinnare! en kort stund. */
 .win.drum .win-title { animation: drum-pulse 0.5s ease-in-out infinite alternate; transform-origin: left center; }
 @keyframes drum-pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
