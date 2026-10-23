@@ -5,10 +5,6 @@
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
-  { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
-  { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
-  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
-  { artist: 'Peter Gregson', title: '360', deezerId: 3854282761 },
   { artist: 'Flawed Mangoes', title: 'The Beginning', deezerId: 2493706161 },
   { artist: 'Ben Scott', title: 'The Bug Collector', deezerId: 2385850805 },
   { artist: 'Bill Evans', title: 'Peace Piece', deezerId: 1141122 },
