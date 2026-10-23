@@ -146,7 +146,7 @@ function currentMusic() {
 // När spelledaren startar spelet visas "Nu börjar det!" en kort stund innan första låten.
 // Klippet laddas under tiden och spelas när tiden är slut. Med Spotify visas ingen ruta,
 // eftersom Spotify bara kan öppnas direkt i klicket och då börjar spela med en gång.
-const INTRO_MS = 3000;
+const INTRO_MS = 5000;
 let introEnds = 0;
 let introTimer = null;
 const introLeft = () => Math.max(0, introEnds - Date.now());

@@ -274,9 +274,10 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Medan nästa låt laddas står förra kortet kvar, och låtkortet vänds fram när ljudet hörs.
     // Kommer man in medan låten laddas visas låtkortet med den fulla ringen direkt.
     const holding = phase === 'ready' && (!$('#waiting').hidden || !$('#result').hidden);
-    // Nedräkningen till nästa låt döljs, så att den inte står still medan klippet laddas.
+    // Nedräkningen till nästa låt döljs, så att den inte står still medan klippet laddas. Den
+    // behåller sin plats, så att poänglistan under inte flyttar sig.
     const nextCount = $('#result-body .next');
-    if (holding && nextCount) nextCount.hidden = true;
+    if (holding && nextCount) nextCount.classList.add('held');
     // När spelet har startats står Nu börjar det! på väntekortet tills första låten hörs.
     const starting = phase === 'ready' && view.deezer && !$('#waiting').hidden;
     if (view.introMs) [introEnds, introTotal] = [Date.now() + view.introMs, view.introTotalMs];
