@@ -71,9 +71,12 @@
         <p id="settings-text"></p>
         <button type="button" id="settings" class="soft" aria-label="Ändra inställningar" aria-describedby="settings-text">Ändra</button>
       </div>
-      <button id="create" class="big">Dra igång!</button>
+      <!-- I mobilen står knapparna fast längst ner, se .setup-actions i css/style.css. -->
+      <div class="setup-actions">
+        <button id="create" class="big">Dra igång!</button>
+        <div id="resume" hidden><button type="button" class="big soft"></button></div>
+      </div>
     </form>
-    <div id="resume" hidden><button class="big soft"></button></div>
 
     <!-- Versionen och när sidan publicerades. Fylls i vid publiceringen av verktyg/versioner.mjs och syns bara med ?debug=1. -->
     <p class="app-version"></p>
