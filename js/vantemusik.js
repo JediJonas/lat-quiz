@@ -1,5 +1,5 @@
 // Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
-// Låtarna är lugna, glada och instrumentala, utan sång, så att ingen börjar gissa redan i lobbyn, och
+// Låtarna är lugna och passar som bakgrundsmusik. Nästan alla är instrumentala, så att ingen börjar gissa redan i lobbyn, och
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
@@ -24,6 +24,7 @@ export const LOBBY_SONGS = [
   { artist: "Dustin O'Halloran", title: 'Opus 23', deezerId: 653786932 },
   { artist: 'Jinsang', title: 'Affection', deezerId: 3711015562 },
   { artist: 'No Lyrics', title: 'Floating', deezerId: 3131614881 },
+  { artist: 'SYML', title: 'I Wanted to Leave', deezerId: 1628713032 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
