@@ -5,9 +5,7 @@
 import { SILENCE, findPreview } from './deezer.js';
 
 export const LOBBY_SONGS = [
-  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3152183 },
   { artist: 'Santo & Johnny', title: 'Sleep Walk', deezerId: 791797812 },
-  { artist: 'Acker Bilk', title: 'Stranger on the Shore', deezerId: 3368088 },
   { artist: 'Erroll Garner', title: 'Misty', deezerId: 2237627 },
   { artist: 'Stan Getz & Charlie Byrd', title: 'Desafinado', deezerId: 602453972 },
   { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
@@ -25,6 +23,11 @@ export const LOBBY_SONGS = [
   { artist: 'bearbare', title: 'full of emptiness', deezerId: 996327372 },
   { artist: 'slowly.', title: 'Comforting', deezerId: 3093721631 },
   { artist: 'ourcq', title: 'Poppy Field', deezerId: 3717216142 },
+  { artist: 'the tofu paradigm', title: 'hummingbird', deezerId: 4291336022 },
+  { artist: 'Bogomolove', title: 'Rearview Horizon', deezerId: 4204947872 },
+  { artist: 'Smoke Trees', title: 'Pool Days', deezerId: 3218777061 },
+  { artist: 'Two Scents', title: 'Umami', deezerId: 3239334691 },
+  { artist: 'captain dreams', title: 'paper umbrellas', deezerId: 4223975852 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
