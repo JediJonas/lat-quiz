@@ -22,6 +22,9 @@ export const LOBBY_SONGS = [
   { artist: 'Jinsang', title: 'Affection', deezerId: 3711015562 },
   { artist: 'No Lyrics', title: 'Floating', deezerId: 3131614881 },
   { artist: 'SYML', title: 'I Wanted to Leave', deezerId: 1628713032 },
+  { artist: 'bearbare', title: 'full of emptiness', deezerId: 996327372 },
+  { artist: 'slowly.', title: 'Comforting', deezerId: 3093721631 },
+  { artist: 'ourcq', title: 'Poppy Field', deezerId: 3717216142 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
