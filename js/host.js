@@ -333,6 +333,8 @@ function tick() {
   checkAutoNext();
   if (!state.round || state.round.phase !== 'playing') return;
   if (game.shouldReveal(state, Date.now())) {
+    // Klippet är längre än tiden per låt när spelledaren har valt en kortare tid.
+    stopClip();
     game.reveal(state);
     changed();
   }
@@ -368,7 +370,7 @@ function setHostPlays(plays) {
 function renderSettingsSummary() {
   const s = loadSettings();
   // Samma ordning som i rutan Inställningar.
-  const parts = [s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
+  const parts = [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
     ...(loadClipAll() ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
@@ -644,6 +646,7 @@ async function endGame() {
 
 // short: den korta texten på segmentet. text: hela texten, som skärmläsare läser.
 const SETTING_FIELDS = [
+  { key: 'roundMs', label: 'Tid per låt', short: (v) => `${v / 1000} s`, text: (v) => `${v / 1000} sekunder per låt` },
   { key: 'bonusMs', label: 'Bonus för snabbt svar', short: (v) => (v ? `${v / 1000} s` : 'Av'), text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
   { key: 'winScore', label: 'Poänggräns', short: (v) => String(v), text: (v) => `Först till ${v} poäng` },
 ];
@@ -757,6 +760,21 @@ function wireHostPlays(dialog) {
   return () => ({ plays: on, name: hostName(input ? input.value : knownHostName()) });
 }
 
+// Bonustider som inte är kortare än tiden per låt går inte att välja. Var en sådan vald byts den
+// mot den längsta som går, samma val som cleanSettings gör.
+function wireBonus(dialog) {
+  const form = dialog.querySelector('form');
+  const update = () => {
+    const roundMs = Number(new FormData(form).get('roundMs'));
+    const inputs = [...form.querySelectorAll('input[name=bonusMs]')];
+    for (const input of inputs) input.disabled = !game.bonusAllowed(Number(input.value), roundMs);
+    const checked = inputs.find((input) => input.checked);
+    if (checked && checked.disabled) inputs.filter((input) => !input.disabled).at(-1).checked = true;
+  };
+  for (const input of form.querySelectorAll('input[name=roundMs]')) input.addEventListener('change', update);
+  update();
+}
+
 // Returnerar de valda inställningarna, eller null om spelledaren avbryter.
 // I ett pågående spel finns även kategorin med. Den returneras som categoryId.
 // names: kategoriernas namn, som används när okända låtar kopieras.
@@ -796,6 +814,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
     }
   });
   wireUnknown(dialog, names);
+  wireBonus(dialog);
   const host = wireHostPlays(dialog);
   let clipOn = clipAll;
   mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela ljud på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
