@@ -1109,26 +1109,23 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
    Den tar över Dra igång!s avstånd nedåt, så att knapparna slutar lika långt från nederkanten. */
 .setup-actions:has(#resume:not([hidden])) #create { margin-bottom: 0; }
 #resume button { margin: 12px 0 16px; }
-/* I mobilen står Dra igång! och Tillbaka till längst ner på skärmen, där tummen når dem. Får sidan
-   inte plats står de fast längst ner medan man rullar, på sidans färg så att det som rullas
-   under inte syns igenom. På en mycket låg skärm, eller medan man skriver namnet och tangentbordet
-   är uppe, följer de med sidan i stället. */
+/* I mobilen står Dra igång! och Tillbaka till längst ner på skärmen, där tummen når dem, när allt
+   får plats. Annars följer de direkt efter Inställningar, som med stor text. Sidan är därför lika hög
+   som skärmen, och innehållet som inte får plats rinner över och rullar som vanligt. */
 @media (max-width: 600px) {
-  main#setup { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; padding-bottom: 0; }
-  #setup-form { display: flex; flex-direction: column; flex: 1; }
+  main#setup { display: flex; flex-direction: column; height: 100vh; height: 100dvh; padding-bottom: 0; }
+  #setup-form { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+  /* Bara platsen under Dra igång! krymper. Rutorna behåller sin höjd, annars hamnade texten i
+     Inställningar utanför rutan. */
+  #setup-form > * { flex-shrink: 0; }
   #setup-form .settings-summary { margin-bottom: 4px; }
   /* Understa knappen står lika långt från nederkanten som på startsidan, se main.start. */
   .setup-actions { margin-top: auto; padding: 24px 0 max(46px, calc(12px + env(safe-area-inset-bottom))); }
   .setup-actions #create { margin: 0; }
-  /* Utan Tillbaka till står Dra igång! kvar där den står när knappen finns, och platsen under är tom. */
-  .setup-actions:has(#resume[hidden])::after { content: ""; display: block; height: calc(54px + 12px); }
+  /* Utan Tillbaka till står Dra igång! kvar där den står när knappen finns, och platsen under är tom.
+     Platsen krymper först när sidan inte får plats, så att knappen då följer direkt efter. */
+  #setup-form:has(#resume[hidden])::after { content: ""; flex: 0 1 calc(54px + 12px); }
   #resume button { margin: 12px 0 0; }
-}
-@media (max-width: 600px) and (min-height: 500px) {
-  /* Gruppen har en hel bakgrundsfärg och ingen ton. Safari på iPhone färgar sitt verktygsfält efter
-     det som står fast längst ner, och utan egen färg tog det knappens gröna. */
-  .setup-actions { position: sticky; z-index: 2; bottom: 0; background: var(--bg); }
-  main#setup:has(input:focus) .setup-actions { position: static; }
 }
 /* Utan namnfält, när spelledaren inte deltar, döljs den tomma gruppen. */
 .field-group:not(:has(> .field-row:not([hidden]))) { display: none; }
