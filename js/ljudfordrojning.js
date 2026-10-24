@@ -1,4 +1,4 @@
-// Ljudfördröjning: med en blåtandshögtalare hörs ljudet en stund efter att webbläsaren har börjat
+// Ljud-/bildfördröjning: med en blåtandshögtalare hörs ljudet en stund efter att webbläsaren har börjat
 // spela det. Det som väntar på att ljudet ska höras, som låtkortet och timern, trumvirvelns rubrik,
 // vinnarkortet och raden längst ner, väntar då så här mycket längre. Valet gäller spelledarens
 // enhet, eftersom det beror på högtalaren, och spelarnas mobiler följer spelledaren.

@@ -398,7 +398,7 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const parts = [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
     ...(loadClipAll() ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
-    ...(loadAudioDelay() ? [`Ljudfördröjning ${delayShort(loadAudioDelay())}`] : []),
+    ...(loadAudioDelay() ? [`Ljud-/bildfördröjning ${delayShort(loadAudioDelay())}`] : []),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -848,7 +848,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
       ${hostNameRow()}
       <div class="settings-group audio-delay">
-      ${segmented('audioDelay', 'Ljudfördröjning', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
+      ${segmented('audioDelay', 'Ljud-/bildfördröjning', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
       </div>
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
