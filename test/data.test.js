@@ -46,9 +46,9 @@ test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', as
   const forslag = read('data/forslag.json');
   const categories = read('data/categories.json').map((c) => ({ id: c.id, songs: read('data/' + c.file) }));
   const clean = cleanDecoys(forslag, categories);
-  for (const key of ['artists', 'titles']) {
+  for (const key of ['artists', 'titles', 'countries', 'composers', 'films', 'works']) {
     const kept = new Set(clean[key]);
-    const bad = forslag[key].filter((x) => !kept.has(x));
+    const bad = (forslag[key] || []).filter((x) => !kept.has(x));
     assert.deepEqual(bad, [], `Kör cleanDecoys i verktyg/lockbeten.mjs på data/forslag.json (${key})`);
   }
 });
@@ -61,12 +61,12 @@ test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
     { id: 'svenska', songs: [{ artist: 'E-Type', title: 'Välkommen hem' }] },
   ];
   const result = cleanDecoys({
-    artists: ['Azerbajdzjans bidrag i Eurovision Song Contest', 'E-Type feat. Na Na', 'ABBA & Abba', 'Eric Saade & Dev'],
+    artists: ['Azerbajdzjans bidrag i Eurovision Song Contest', 'E-Type feat. Na Na', 'ABBA & Abba', 'Eric Saade & Dev', 'Years & Years'],
     titles: ['Thor: En mörk värld', 'Välkommen hem / Välkommen hem (singback)', 'Carina (karaokeversion)',
       'Light Me Up (Gromee song)', 'Denmark in the Eurovision Song Contest 1957',
       "Hey Mr. DJ (Won't You Play Another Love Song)", 'Thorns'],
   }, categories);
-  assert.deepEqual(result.artists, ['ABBA', 'Eric Saade & Dev']);
+  assert.deepEqual(result.artists, ['ABBA', 'Eric Saade & Dev', 'Years & Years']);
   assert.deepEqual(result.titles, ['Carina', "Hey Mr. DJ (Won't You Play Another Love Song)", 'Light Me Up', 'Thorns']);
 });
 
@@ -88,8 +88,39 @@ test('förslagen visar varje svar en gång, med quizlåtens stavning', async () 
     { artist: 'Fröken Snusk', title: 'Carpe diem' },
     { artist: 'FRÖKEN SNUSK', title: 'Unga & fria' },
   ];
-  const result = mergeSuggestions({ artists: ['Fröken snusk', 'ABBA'], titles: ['Carpe Diem'] }, songs);
-  assert.deepEqual(result, { artists: ['ABBA', 'Fröken Snusk'], titles: ['Carpe diem', 'Unga & fria'] });
+  const result = mergeSuggestions({ artists: ['Fröken snusk', 'ABBA'], titles: ['Carpe Diem'] }, [{ songs }]);
+  assert.deepEqual(result.artists, ['ABBA', 'Fröken Snusk']);
+  assert.deepEqual(result.titles, ['Carpe diem', 'Unga & fria']);
+});
+
+test('förslagen visar bara svar av samma sort som fältet', async () => {
+  const { mergeSuggestions, suggestionKind } = await import('../js/data.js');
+  const result = mergeSuggestions({ artists: ['ABBA'], titles: ['Dancing Queen'], countries: ['Island'],
+    composers: ['Max Steiner'], films: ['Casablanca'], works: ['Bolero'] }, [
+    { songs: [{ artist: 'Loreen', title: 'Tattoo' }] },
+    { labels: { artist: 'Land', title: 'Låt' }, songs: [{ artist: 'Sverige', title: 'Euphoria' }] },
+    { labels: { artist: 'Kompositör', title: 'Film' }, songs: [{ artist: 'Hans Zimmer', title: 'Interstellar' }] },
+    { labels: { artist: 'Kompositör', title: 'Verk' }, songs: [{ artist: 'Edvard Grieg', title: 'Morgonstämning' }] },
+  ]);
+  const list = (field, label) => result[suggestionKind(field, label)];
+  assert.deepEqual(list('artist', 'Artist'), ['ABBA', 'Loreen']);
+  assert.deepEqual(list('artist', 'Land'), ['Island', 'Sverige']);
+  assert.deepEqual(list('artist', 'Kompositör'), ['Edvard Grieg', 'Hans Zimmer', 'Max Steiner']);
+  assert.deepEqual(list('title', 'Titel'), ['Dancing Queen', 'Euphoria', 'Tattoo']);
+  assert.deepEqual(list('title', 'Låt'), ['Dancing Queen', 'Euphoria', 'Tattoo']);
+  assert.deepEqual(list('title', 'Film'), ['Casablanca', 'Interstellar']);
+  assert.deepEqual(list('title', 'Verk'), ['Bolero', 'Morgonstämning']);
+});
+
+test('varje fältnamn i categories.json får förslag ur en egen lista', async () => {
+  const { suggestionKind } = await import('../js/data.js');
+  const known = { artist: ['Artist', 'Land', 'Kompositör'], title: ['Titel', 'Låt', 'Film', 'Verk'] };
+  for (const { id, labels = {} } of read('data/categories.json')) {
+    for (const field of ['artist', 'title']) {
+      if (labels[field]) assert.ok(known[field].includes(labels[field]), `${id}: ${labels[field]} saknas i KINDS i js/data.js`);
+    }
+  }
+  assert.equal(suggestionKind('artist', 'Land'), 'countries');
 });
 
 test('samma artist stavas likadant i alla kategorier', () => {
