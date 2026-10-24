@@ -41,6 +41,7 @@ export const WINNER_SONGS = [
   { artist: 'Bill Withers', title: 'Lovely Day', deezerId: 70016835 },
   { artist: 'Albatraoz', title: 'Wunderbar', deezerId: 113948726 },
   { artist: 'Chesney Hawkes', title: 'The One and Only', deezerId: 1787674467 },
+  { artist: 'PSY', title: 'Gangnam Style', deezerId: 60726278 },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
