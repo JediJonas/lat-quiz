@@ -1,29 +1,24 @@
 // Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
-// Låtarna är lugna och passar som bakgrundsmusik. Nästan alla är instrumentala, så att ingen börjar gissa redan i lobbyn, och
+// Låtarna är instrumental jazz med groove, i stil med Unsquare Dance, så att ingen börjar gissa redan i lobbyn, och
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
 import { levelGain } from './ljudniva.js';
 
 export const LOBBY_SONGS = [
-  { artist: 'Flawed Mangoes', title: 'The Beginning', deezerId: 2493706161 },
-  { artist: 'Ben Scott', title: 'The Bug Collector', deezerId: 2385850805 },
-  { artist: 'Bill Evans', title: 'Peace Piece', deezerId: 1141122 },
+  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
+  { artist: 'The Dave Brubeck Quartet', title: 'Three to Get Ready', deezerId: 3571290 },
+  { artist: 'The Dave Brubeck Quartet', title: "Kathy's Waltz", deezerId: 3571291 },
+  { artist: 'Ramsey Lewis', title: 'The "In" Crowd', deezerId: 925778 },
+  { artist: 'Herbie Mann', title: "Comin' Home Baby", deezerId: 1099848062 },
+  { artist: 'Jimmy Smith', title: 'The Cat', deezerId: 2515289 },
+  { artist: 'Herbie Hancock', title: 'Watermelon Man', deezerId: 3486410 },
+  { artist: 'Herbie Hancock', title: 'Cantaloupe Island', deezerId: 3363488 },
+  { artist: 'Lou Donaldson', title: 'Alligator Bogaloo', deezerId: 3234555 },
+  { artist: 'Oscar Peterson Trio', title: 'C Jam Blues', deezerId: 7290401 },
+  { artist: 'Vince Guaraldi Trio', title: 'Oh, Good Grief', deezerId: 104271088 },
+  { artist: 'Wes Montgomery', title: "Bumpin' on Sunset", deezerId: 2537494 },
   { artist: 'Esbjörn Svensson Trio', title: 'Seven Days of Falling', deezerId: 520623912 },
-  { artist: 'Nils Frahm', title: 'Says', deezerId: 625675862 },
-  { artist: 'Ólafur Arnalds', title: 'Saman', deezerId: 543154902 },
-  { artist: 'Hania Rani', title: 'Eden', deezerId: 1446303162 },
-  { artist: 'Jinsang', title: 'Affection', deezerId: 3711015562 },
-  { artist: 'No Lyrics', title: 'Floating', deezerId: 3131614881 },
-  { artist: 'SYML', title: 'I Wanted to Leave', deezerId: 1628713032 },
-  { artist: 'bearbare', title: 'full of emptiness', deezerId: 996327372 },
-  { artist: 'slowly.', title: 'Comforting', deezerId: 3093721631 },
-  { artist: 'ourcq', title: 'Poppy Field', deezerId: 3717216142 },
-  { artist: 'the tofu paradigm', title: 'hummingbird', deezerId: 4291336022 },
-  { artist: 'Bogomolove', title: 'Rearview Horizon', deezerId: 4204947872 },
-  { artist: 'Smoke Trees', title: 'Pool Days', deezerId: 3218777061 },
-  { artist: 'Two Scents', title: 'Umami', deezerId: 3239334691 },
-  { artist: 'captain dreams', title: 'paper umbrellas', deezerId: 4223975852 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
