@@ -462,9 +462,49 @@ function musicForPlayers() {
   return drum ? { ...DRUM_FADE, ...drum } : null;
 }
 
+// Med ?debug=1 visas överst på sidan en logg över quizlåtens ljud och spelledarens tryck, så att
+// det går att se vad som händer i en riktig iPhone när musiken stannar upp. Loggen säger när
+// ljudelementet pausar eller väntar på data, när låtens tid står still fast den spelar och när
+// sidan har varit upptagen så länge att en kontroll kom för sent.
+function audioDebug(el) {
+  if (!('debug' in document.documentElement.dataset)) return;
+  const box = document.createElement('pre');
+  box.style.cssText = 'position:fixed;left:0;right:0;top:0;z-index:99;margin:0;padding:4px 6px;max-height:35vh;overflow:auto;font:10px/1.3 ui-monospace,monospace;background:rgba(0,0,0,.8);color:#fff;pointer-events:none;white-space:pre-wrap';
+  document.body.append(box);
+  const lines = [];
+  const log = (text) => {
+    lines.push(`${(performance.now() / 1000).toFixed(2)} ${text}`);
+    if (lines.length > 40) lines.shift();
+    box.textContent = lines.join('\n');
+    box.scrollTop = box.scrollHeight;
+  };
+  const what = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
+  for (const type of ['play', 'playing', 'pause', 'waiting', 'stalled', 'seeking', 'seeked', 'emptied', 'ended', 'error']) {
+    el.addEventListener(type, () => log(`ljud ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
+  }
+  for (const type of ['pointerdown', 'touchend', 'click', 'focusin', 'focusout', 'change']) {
+    document.addEventListener(type, (e) => log(`${type} ${what(e.target)}`), true);
+  }
+  document.addEventListener('visibilitychange', () => log(`synlig=${document.visibilityState}`));
+  let lastTime = 0;
+  let lastAt = 0;
+  let stillSince = 0;
+  setInterval(() => {
+    const now = performance.now();
+    if (lastAt && now - lastAt > 300) log(`sidan upptagen ${Math.round(now - lastAt - 100)} ms`);
+    lastAt = now;
+    if (el.paused || !el.src.startsWith('http')) { stillSince = 0; return; }
+    const t = el.currentTime;
+    if (t === lastTime) { if (!stillSince) stillSince = now; }
+    else if (stillSince) { log(`tiden stod still ${Math.round(now - stillSince)} ms`); stillSince = 0; }
+    lastTime = t;
+  }, 100);
+}
+
 function clipAudio() {
   if (!clip.audio) {
     clip.audio = new Audio();
+    audioDebug(clip.audio);
     // Väntemusikens och vinnarlåtens ljudmotor vilar medan quizlåten hörs, se rest i vinnarlat.js.
     clip.audio.addEventListener('playing', () => {
       if (!clip.audio.src.startsWith('http')) return;
