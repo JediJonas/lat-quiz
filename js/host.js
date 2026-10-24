@@ -1080,18 +1080,16 @@ function startClicked() {
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
 // Med ljud-/bildfördröjning vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
-// Ljudmotorn hörs senare än ett ljudelement över blåtand, så när vinnarlåten spelas där väntar
-// vinnarkortet ENGINE_WAIT_MS extra (provat med blåtandshögtalare 24 oktober 2026).
-const ENGINE_WAIT_MS = 500;
+// Vinnarlåten hörs senare än trumvirveln över blåtand, både i ljudmotorn och som vanligt ljud
+// på iPhone, så vinnarkortet väntar WINNER_WAIT_MS extra (provat med blåtandshögtalare och
+// iPhone 24 oktober 2026).
+const WINNER_WAIT_MS = 500;
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
   const delay = loadAudioDelay();
   const drum = after(winnerSong.drum(), delay);
-  const song = winnerSong.play().then((kind) => wait(delay && kind === 'engine' ? delay + ENGINE_WAIT_MS : delay));
-  return { drum, song };
+  return { drum, song: after(winnerSong.play(), delay ? delay + WINNER_WAIT_MS : 0) };
 }
-
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela igen visas när vinnaren
 // gör det. Spelarna får veta det direkt.
