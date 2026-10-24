@@ -200,7 +200,8 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
   // Låten börjar när trumvirveln är slut. Två klipp spelas aldrig samtidigt, eftersom iPhone då
   // ofta vägrar starta det andra. Svaret kommer när låten hörs, så att vinnarkortet visas då.
   // Utan klipp, till exempel när Deezer saknar det, kommer svaret när virveln är
-  // slut, och kunde klippet inte spelas kommer det direkt.
+  // slut, och kunde klippet inte spelas kommer det direkt. Svaret är 'engine' när låten spelas i
+  // ljudmotorn, som hörs senare än ett ljudelement över blåtand.
   function play() {
     return new Promise((resolve) => {
       heard = resolve;
@@ -252,7 +253,7 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
       heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
       heardSong = current;
       onChange();
-      heard();
+      heard('engine');
     } else {
       startElement(clip.url, turn);
     }
