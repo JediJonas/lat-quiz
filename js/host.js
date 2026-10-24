@@ -1080,14 +1080,11 @@ function startClicked() {
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
 // Med ljud-/bildfördröjning vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
-// Vinnarlåten tonar in under första sekunden och känns därför senare än virveln, så vinnarkortet
-// väntar WINNER_FADE_WAIT_MS extra (uppmätt med blåtandshögtalare 24 oktober 2026).
-const WINNER_FADE_WAIT_MS = 500;
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
   const delay = loadAudioDelay();
   const drum = after(winnerSong.drum(), delay);
-  return { drum, song: after(winnerSong.play(), delay ? delay + WINNER_FADE_WAIT_MS : 0) };
+  return { drum, song: after(winnerSong.play(), delay) };
 }
 
 // "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela igen visas när vinnaren

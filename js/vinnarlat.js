@@ -46,8 +46,9 @@ export const WINNER_SONGS = [
   { artist: 'Baauer', title: 'Harlem Shake', deezerId: 64734097 },
 ];
 
-// Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
-const FADE_IN_MS = 1000;
+// Hela klippet spelas och börjar på full volym, så att det hörs tydligt när vinnarkortet visas.
+// De sista sekunderna tonar det ut. Intoningen på en sekund togs bort, eftersom låten då kändes
+// sen med en blåtandshögtalare (beslutat 24 oktober 2026).
 const FADE_MS = 5000;
 const VOLUME = 0.8;
 // Nivån som klippen jämnas ut mot, se ljudniva.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
@@ -69,7 +70,7 @@ const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 const CHECK_MS = 300;
 
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
-export const WINNER_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_MS, loop: false };
+export const WINNER_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: FADE_MS, loop: false };
 // Trumvirveln tonas inte, eftersom den börjar med ett tydligt slag.
 export const DRUM_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: 0, loop: false };
 
@@ -262,8 +263,7 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     const gain = ctx.createGain();
     const now = ctx.currentTime;
     const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(volume, now + FADE_IN_MS / 1000);
+    gain.gain.setValueAtTime(volume, now);
     const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, volume));
     gain.gain.setValueCurveAtTime(steps, now + buffer.duration - fade, fade);
     source = ctx.createBufferSource();
@@ -278,8 +278,7 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     const el = audio;
     // Klippet är oftast redan laddat medan trumvirveln spelade.
     if (el.src !== url) el.src = url;
-    // På iPhone går volymen inte att ändra, så där börjar klippet på full volym.
-    el.volume = 0;
+    el.volume = VOLUME;
     const onPlaying = () => {
       if (turn !== playing || heardSong) return;
       heardClip = { url, volume: VOLUME, position: () => el.currentTime, ended: () => el.ended };
@@ -299,12 +298,11 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     el.addEventListener('error', failed, { once: true });
     timers.push({ off: () => { el.removeEventListener('playing', onPlaying); el.removeEventListener('error', failed); } });
     el.play().catch(failed);
-    // Volymen höjs i början och sänks när klippet närmar sig slutet.
+    // Volymen sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
       if (audio.ended) { stop(); return; }
-      const fadeIn = Math.min(1, audio.currentTime * 1000 / FADE_IN_MS);
-      audio.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
+      audio.volume = left < 1 ? fadeLevel(left) : VOLUME;
     }, 50));
   }
 
