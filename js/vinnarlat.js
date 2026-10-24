@@ -115,7 +115,7 @@ export function createWinnerSong() {
     if (!Context) return;
     if (!ctx) ctx = new Context();
     // Annars tystar iPhone ljudmotorn när ringsignalen är avstängd, men inte vanliga ljudelement.
-    if (navigator.audioSession) navigator.audioSession.type = 'playback';
+    if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback';
     if (ctx.state !== 'running') ctx.resume().catch(() => {});
   }
 
@@ -127,7 +127,7 @@ export function createWinnerSong() {
     prepare();
     if (!drumAudio) drumAudio = new Audio();
     // Virveln ska höras även när ringsignalen är avstängd.
-    if (navigator.audioSession) navigator.audioSession.type = 'playback';
+    if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback';
     drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
     return new Promise((resolve) => {
