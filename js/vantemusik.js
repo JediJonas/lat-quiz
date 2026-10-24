@@ -82,6 +82,21 @@ export function createLobbyMusic({ onChange = () => {} } = {}) {
     if (wanted && !running) loop();
   }
 
+  // Medan quizlåten spelas vilar ljudmotorn, så att klippet är det enda ljud sidan har igång.
+  // Annars kan iPhone stanna upp klippet en kort stund när tangentbordet öppnas för ett svar.
+  // Efter låten startas den igen. Det tillåter iPhone utan tryck, eftersom ett tryck har startat
+  // den förut. Gör den inte det spelas ljudet med ljudelementet i stället.
+  let resting = false;
+  function rest() {
+    if (!ctx || ctx.state !== 'running') return;
+    resting = true;
+    ctx.suspend().catch(() => {});
+  }
+  function wake() {
+    if (resting && ctx) ctx.resume().catch(() => {});
+    resting = false;
+  }
+
   // Varje väntan får en ny slumpad låt, som loopar tills spelet startar.
   function play() {
     if (wanted) return;
@@ -263,5 +278,5 @@ export function createLobbyMusic({ onChange = () => {} } = {}) {
   // Låten som hörs, för raden längst ner, eller null.
   const heardSong = () => (now() ? song : null);
 
-  return { play, stop, unlock, silent, now, song: heardSong, playing: () => wanted };
+  return { play, stop, unlock, rest, wake, silent, now, song: heardSong, playing: () => wanted };
 }
