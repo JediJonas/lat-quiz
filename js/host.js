@@ -108,7 +108,7 @@ function loadAudioDelay() {
 // Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
 // blåtand, så med ljud-/bildfördröjning väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
 // (provat med blåtandshögtalare och iPhone 24 oktober 2026).
-const ENGINE_WAIT_MS = 500;
+const ENGINE_WAIT_MS = 1000;
 const musicDelay = () => { const delay = loadAudioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
 
 function saveAudioDelay(ms) {
