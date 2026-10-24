@@ -564,16 +564,14 @@ async function playDeezer(roundNumber, skipping = false) {
   startClip();
 }
 
-// Timern startar först när klippet hörs. Med ljudfördröjning hörs det så mycket senare i
-// högtalaren, och då vänds låtkortet och timern startar då. Mobilerna spelar klippet efter timern,
-// så de går i takt med högtalaren.
+// Timern startar först när klippet hörs. Ljud-/bildfördröjningen gäller inte quizlåten, eftersom
+// den inte behövdes där när Jonas provade med en blåtandshögtalare (24 oktober 2026).
 function startClip() {
   const audio = clipAudio();
   audio.currentTime = 0;
-  const roundNumber = state.round.number;
-  audio.play().then(() => new Promise((resolve) => setTimeout(resolve, loadAudioDelay()))).then(() => {
+  audio.play().then(() => {
     // Spelledaren kan ha pausat eller visat svaret medan klippet buffrades.
-    if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') { audio.pause(); return; }
+    if (!state.round || state.round.phase !== 'ready') { audio.pause(); return; }
     if (state.pausedAt) {
       audio.pause();
       clip.status = 'loaded';
@@ -1081,7 +1079,7 @@ function startClicked() {
 
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
-// Med ljudfördröjning vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
+// Med ljud-/bildfördröjning vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
   const delay = loadAudioDelay();
@@ -1096,18 +1094,11 @@ function winnerShown() {
   broadcast();
 }
 
-let awakeFor = null; // sista låten när högtalaren hölls vaken före trumvirveln
-
 // Samma vy som spelarna ser, med Starta spelet och Spela igen för spelledaren.
 function render() {
   $('#category').textContent = category.name;
   // Vinnarlåten tystnar när en ny match börjar.
-  if (!state.winners) { winnerSong.stop(); awakeFor = null; }
-  // Högtalaren hålls vaken från att sista svaret visas tills trumvirveln börjar, en gång per spel.
-  else if (awakeFor !== state.round.number && loadExtraSounds() && !gameView.winnerDrum() && !gameView.winnerShown()) {
-    awakeFor = state.round.number;
-    winnerSong.keepAwake();
-  }
+  if (!state.winners) winnerSong.stop();
   updateLobbyMusic();
   showNowMusic($('#now-music'), currentMusic());
   gameView.update(viewFor(state.hostId), state.hostId);
