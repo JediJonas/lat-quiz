@@ -105,6 +105,12 @@ function loadAudioDelay() {
   return cleanDelay(storage(() => localStorage.getItem(AUDIO_DELAY_KEY), 0));
 }
 
+// Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
+// blåtand, så med ljud-/bildfördröjning väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
+// (provat med blåtandshögtalare och iPhone 24 oktober 2026).
+const ENGINE_WAIT_MS = 500;
+const musicDelay = () => { const delay = loadAudioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
+
 function saveAudioDelay(ms) {
   storage(() => (ms ? localStorage.setItem(AUDIO_DELAY_KEY, String(ms)) : localStorage.removeItem(AUDIO_DELAY_KEY)));
 }
@@ -117,7 +123,7 @@ function musicChanged() {
   if (!state) return;
   showNowMusic($('#now-music'), currentMusic());
   broadcast();
-  const delay = loadAudioDelay();
+  const delay = musicDelay();
   if (delay) setTimeout(() => { if (state) { showNowMusic($('#now-music'), currentMusic()); broadcast(); } }, delay);
 }
 
@@ -132,7 +138,7 @@ const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !le
 function currentMusic() {
   const text = playingMusic();
   if (text !== musicSeen.text) musicSeen = { text, at: Date.now() };
-  return text && Date.now() - musicSeen.at >= loadAudioDelay() ? text : null;
+  return text && Date.now() - musicSeen.at >= musicDelay() ? text : null;
 }
 
 // Texten och när den började spela här. Med ljudfördröjning hörs den så mycket senare.
@@ -480,7 +486,7 @@ function clipUrlForPlayers() {
 // längre bak i klippet.
 function musicForPlayers() {
   const music = playerMusic();
-  return music ? { ...music, posMs: Math.max(0, music.posMs - loadAudioDelay()) } : null;
+  return music ? { ...music, posMs: Math.max(0, music.posMs - musicDelay()) } : null;
 }
 
 function playerMusic() {
@@ -1080,9 +1086,6 @@ function startClicked() {
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
 // Med ljud-/bildfördröjning vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
-// Ljudmotorn hörs senare än ett ljudelement över blåtand, så när vinnarlåten spelas där väntar
-// vinnarkortet ENGINE_WAIT_MS extra (provat med blåtandshögtalare 24 oktober 2026).
-const ENGINE_WAIT_MS = 500;
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
   const delay = loadAudioDelay();
