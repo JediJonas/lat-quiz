@@ -98,8 +98,11 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     prepared = null;
     started = false;
     heardClip = null;
-    if (audio) audio.pause();
-    if (drumAudio) drumAudio.pause();
+    // stop anropas vid varje omritning hos spelledaren, också när spelledaren väljer ett svar eller
+    // sparar Inställningar under en quizlåt. Pausas ett ljudelement i ett tryck tar iPhone ljudet
+    // från quizlåten en kort stund, även när elementet redan står still. Därför rörs bara det som spelar.
+    if (audio && !audio.paused) audio.pause();
+    if (drumAudio && !drumAudio.paused) drumAudio.pause();
     if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
   }
 
