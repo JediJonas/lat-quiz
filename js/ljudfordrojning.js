@@ -1,6 +1,6 @@
 // Ljud-/bildfördröjning: med en blåtandshögtalare hörs ljudet en stund efter att webbläsaren har börjat
-// spela det. Det som väntar på att ljudet ska höras, som låtkortet och timern, trumvirvelns rubrik,
-// vinnarkortet och raden längst ner, väntar då så här mycket längre. Valet gäller spelledarens
+// spela det. Trumvirvelns rubrik, vinnarkortet och raden längst ner väntar då så här mycket längre.
+// Quizlåtarna påverkas inte, eftersom fördröjningen inte märktes där. Valet gäller spelledarens
 // enhet, eftersom det beror på högtalaren, och spelarnas mobiler följer spelledaren.
 
 export const DELAY_CHOICES = [0, 250, 500, 750, 1000];

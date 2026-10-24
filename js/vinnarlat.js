@@ -104,17 +104,6 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
 
   let drumAudio = null;
 
-  // Många blåtandshögtalare somnar efter några sekunders tystnad och tar en stund att vakna, så att
-  // trumvirveln hördes sent. Från att sista svaret visas spelar virvelns ljudspelare därför tystnad
-  // tills virveln börjar. Det är samma spelare, så två ljud spelas aldrig samtidigt.
-  function keepAwake() {
-    if (!drumAudio) drumAudio = new Audio();
-    if (!drumAudio.paused) return;
-    drumAudio.src = SILENCE;
-    drumAudio.loop = true;
-    drumAudio.play().catch(() => {});
-  }
-
   // Ljudelementen spelar en kort tystnad vid ett tryck. Sedan låter iPhone dem spela utan tryck.
   const unlocked = new Set();
   function unlockElement(el) {
@@ -161,7 +150,6 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (!drumAudio) drumAudio = new Audio();
     // Virveln ska höras även när ringsignalen är avstängd.
     if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback';
-    drumAudio.loop = false;
     drumAudio.src = DRUM_URL;
     drumAudio.volume = VOLUME;
     return new Promise((resolve) => {
@@ -260,24 +248,13 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
         startElement(clip.url, turn);
         return;
       }
-      // Ljudmotorn har en egen buffert, och över blåtand hörs den ännu senare. Webbläsare som kan
-      // mäta det, som Chrome, säger hur länge, och då visas vinnarkortet först när låten hörs.
-      const latency = engineLatency();
-      await new Promise((resolve) => setTimeout(resolve, Math.max(0, latency * 1000 - CHECK_MS)));
-      if (turn !== playing) return;
-      heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at - latency, ended: () => ctx.currentTime - at >= clip.buffer.duration };
+      heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
       heardSong = current;
       onChange();
       heard();
     } else {
       startElement(clip.url, turn);
     }
-  }
-
-  // Hur sent ljudmotorns ljud hörs, i sekunder, eller 0 när webbläsaren inte kan mäta det.
-  function engineLatency() {
-    const total = (Number(ctx.outputLatency) || 0) + (Number(ctx.baseLatency) || 0);
-    return Math.min(2, Math.max(0, total));
   }
 
   // volume: klippets volym efter utjämningen.
@@ -340,11 +317,10 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
 
   // Trumvirveln och var i den, eller null när den inte spelar. Spelarnas mobiler spelar den i takt.
   function drumNow() {
-    // Tystnaden som håller högtalaren vaken skickas inte.
-    if (!drumAudio || drumAudio.paused || drumAudio.ended || drumAudio.loop) return null;
+    if (!drumAudio || drumAudio.paused || drumAudio.ended) return null;
     return { url: DRUM_URL, posMs: Math.round(drumAudio.currentTime * 1000) };
   }
 
   // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
-  return { drum, keepAwake, play, stop, unlock, rest, wake, now, drumNow, heard: () => heardSong };
+  return { drum, play, stop, unlock, rest, wake, now, drumNow, heard: () => heardSong };
 }
