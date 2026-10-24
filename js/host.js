@@ -610,14 +610,16 @@ async function playDeezer(roundNumber, skipping = false) {
   startClip();
 }
 
-// Timern startar först när klippet hörs. Ljud-/bildfördröjningen gäller inte quizlåten, eftersom
-// den inte behövdes där när Jonas provade med en blåtandshögtalare (24 oktober 2026).
+// Timern startar först när klippet hörs. Med ljud-/bildfördröjning hörs det så mycket senare i
+// högtalaren, och då vänds låtkortet och timern startar då, som för trumvirveln. Mobilerna spelar
+// klippet efter timern, så de går i takt med högtalaren.
 function startClip() {
   const audio = clipAudio();
   audio.currentTime = 0;
-  audio.play().then(() => {
+  const roundNumber = state.round.number;
+  audio.play().then(() => wait(loadAudioDelay())).then(() => {
     // Spelledaren kan ha pausat eller visat svaret medan klippet buffrades.
-    if (!state.round || state.round.phase !== 'ready') { audio.pause(); return; }
+    if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') { audio.pause(); return; }
     if (state.pausedAt) {
       audio.pause();
       clip.status = 'loaded';
