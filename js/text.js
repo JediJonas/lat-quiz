@@ -90,18 +90,34 @@ export function typos(query, key, starts, { max, short }) {
   return best <= max ? best : Infinity;
 }
 
+// Hur väl ett namn som innehåller texten stämmer: 0 om hela namnet stämmer,
+// 1 om ett ord börjar med texten och 2 om texten finns någon annanstans.
+// Ord i namnet får inte börja mitt i det man skrivit utan mellanslag, så "kent"
+// räknas inte som ett ord i Ken Thorne. breaks är var mellanslagen stod i texten.
+function level(query, breaks, { key, starts }) {
+  if (key === query) return 0;
+  for (let at = key.indexOf(query); at >= 0; at = key.indexOf(query, at + 1)) {
+    if (!starts.includes(at)) continue;
+    if (starts.every((s) => s <= at || s >= at + query.length || breaks.includes(s - at))) return 1;
+  }
+  return 2;
+}
+
 // Förslag för det man skrivit: först allt som innehåller texten, sedan det som
-// stämmer med början av ett ord trots stavfel. Båda delarna i listans ordning.
+// stämmer med början av ett ord trots stavfel. Det som innehåller texten står
+// i tre nivåer: hela namnet, ett ord som börjar med texten och resten, så att
+// "symphony" visar Symphony först. Inom varje nivå gäller listans ordning.
 export function findSuggestions(index, text) {
   const query = compact(text);
-  const exact = [];
+  const breaks = searchIndex([text])[0].starts;
+  const levels = [[], [], []];
   const close = [];
   const allowed = allowedTypos(query.length);
   for (const entry of index) {
-    if (entry.key.includes(query)) exact.push(entry.item);
+    if (entry.key.includes(query)) levels[level(query, breaks, entry)].push(entry.item);
     else if (allowed.max > 0 && typos(query, entry.key, entry.starts, allowed) <= allowed.max) close.push(entry.item);
   }
-  return { exact, close };
+  return { exact: levels.flat(), close };
 }
 
 // Namn som är kortare än det som krävs för förslag, som U2 och OK, föreslås när

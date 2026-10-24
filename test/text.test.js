@@ -67,3 +67,14 @@ test('korta namn föreslås när hela namnet är skrivet', () => {
   assert.deepEqual(findWhole(short, 'u'), []);
   assert.deepEqual(findWhole(short, ''), []);
 });
+
+test('hela namnet först, sedan ord som börjar med texten, sedan resten', () => {
+  const songs = searchIndex(['Bitter Sweet Symphony', 'Ken Thorne', 'Kent', 'Pastoral Symphony', 'Rolfe Kent', 'Symphony', 'Symphony No. 5']);
+  assert.deepEqual(suggest(songs, 'symphony').exact, ['Symphony', 'Bitter Sweet Symphony', 'Pastoral Symphony', 'Symphony No. 5']);
+  assert.deepEqual(suggest(songs, 'kent').exact, ['Kent', 'Rolfe Kent', 'Ken Thorne']);
+});
+
+test('ord som börjar med det man skrivit räknas även över mellanslag', () => {
+  const names = searchIndex(['Broken Thorne', 'Ken Thorne']);
+  assert.deepEqual(suggest(names, 'ken th').exact, ['Ken Thorne', 'Broken Thorne']);
+});
