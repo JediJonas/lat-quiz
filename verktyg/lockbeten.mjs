@@ -23,7 +23,8 @@ export function cleanTitle(title) {
 
 export function cleanArtist(artist) {
   const parts = artist.replace(/\s+feat\.?\s.*$/i, '').split(' & ').map((p) => p.trim());
-  // "ABBA & Abba" blir "ABBA".
+  // "ABBA & Abba" blir "ABBA". Ett namn som "Years & Years", där delarna stavas exakt lika, får vara kvar.
+  if (parts.every((p) => p === parts[0])) return parts.join(' & ');
   return parts.filter((p, i) => parts.findIndex((q) => normalize(q) === normalize(p)) === i).join(' & ');
 }
 
@@ -62,10 +63,16 @@ export function cleanDecoys(forslag, categories) {
   return {
     artists: clean(forslag.artists, cleanArtist, answers.artists, isConfusable),
     titles: clean(forslag.titles, cleanTitle, answers.titles, (t) => isSequel(t) || isSubtitled(t)),
+    // Lockbeten för fält som heter Land, Kompositör, Film och Verk, se suggestionKind i js/data.js.
+    countries: clean(forslag.countries || [], (c) => c.trim(), answers.artists, () => false),
+    composers: clean(forslag.composers || [], cleanArtist, answers.artists, isConfusable),
+    films: clean(forslag.films || [], cleanTitle, answers.titles, (t) => isSequel(t) || isSubtitled(t)),
+    works: clean(forslag.works || [], cleanTitle, answers.titles, isSubtitled),
   };
 }
 
-export function formatForslag({ artists, titles }) {
+export function formatForslag(forslag) {
   const lines = (items) => items.map((t) => JSON.stringify(t)).join(',\n');
-  return `{\n"artists": [\n${lines(artists)}\n],\n"titles": [\n${lines(titles)}\n]\n}\n`;
+  const keys = Object.keys(forslag).filter((key) => forslag[key].length);
+  return `{\n${keys.map((key) => `"${key}": [\n${lines(forslag[key])}\n]`).join(',\n')}\n}\n`;
 }

@@ -1,7 +1,7 @@
 // Spelvyn som spelarna och spelledaren delar: väntetexten, gissningen med
 // förslag, rätt svar och poänglistan. Den visar en playerView från game.js och
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
-import { loadSuggestions } from './data.js';
+import { loadSuggestions, suggestionKind } from './data.js';
 import { autocomplete } from './autocomplete.js';
 import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
@@ -167,9 +167,21 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     window.addEventListener('scroll', () => log('scroll', row, true), { passive: true });
   }
   // Förslagslistan är stor. Den laddas i bakgrunden, så att sidan visas direkt.
-  loadSuggestions().then((suggestions) => {
-    fields.artist.setList(suggestions.artists);
-    fields.title.setList(suggestions.titles);
+  // Fälten får förslag efter vad de heter i kategorin, och listan byts när kategorin byts.
+  let suggestions = null;
+  const shownKinds = { artist: null, title: null };
+  function showSuggestions() {
+    if (!suggestions || !view) return;
+    for (const field of ['artist', 'title']) {
+      const kind = suggestionKind(field, view.labels[field]);
+      if (kind === shownKinds[field]) continue;
+      shownKinds[field] = kind;
+      fields[field].setList(suggestions[kind]);
+    }
+  }
+  loadSuggestions().then((loaded) => {
+    suggestions = loaded;
+    showSuggestions();
   }).catch(onError);
   setInterval(renderTimer, 250);
 
@@ -349,6 +361,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     fields.title.disable(phase !== 'playing' || view.paused);
     $('label[for=artist]').textContent = view.labels.artist;
     $('label[for=title]').textContent = view.labels.title;
+    showSuggestions();
 
     if (phase !== 'revealed') shownResult = null;
     // Texten under timern säger vad man ska göra. Mätaren rör sig bara medan låten spelas.
