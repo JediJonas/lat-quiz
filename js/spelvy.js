@@ -32,11 +32,12 @@ const rankIn = (standings, score) => 1 + standings.filter((q) => q.score > score
 
 // Brickan vid poängen för den som klättrat: Plats och en siffra som rullar från den gamla
 // placeringen till den nya, som ett räkneverk, medan pilen hoppar en gång för varje placering.
-// Första gången svaret visas rullar den, annars står den på den nya placeringen.
+// Första gången svaret visas rullar den, annars står den på den nya placeringen. Skimret vid
+// ledning sveper strax efter att siffran har stannat, som rullar 0,32 sekunder per placering.
 function climbBadge(from, to, fresh) {
   const digits = [];
   for (let n = from; n >= to; n -= 1) digits.push(`<span>${n}</span>`);
-  return `<span class="climb${fresh ? ' pop' : ''}${to === 1 ? ' climb-lead' : ''}" style="--steps:${from - to}">`
+  return `<span class="climb${fresh ? ' pop' : ''}${to === 1 ? ' climb-lead' : ''}" style="--steps:${from - to};--shine-at:${(1.3 + (from - to) * 0.32).toFixed(2)}s">`
     + '<span aria-hidden="true"><span class="climb-arrow">▲</span>Plats&nbsp;'
     + `<span class="climb-roll"><span class="climb-strip">${digits.join('')}</span></span></span>`
     + `<span class="visually-hidden">Du klättrade till plats ${to}.</span></span>`;

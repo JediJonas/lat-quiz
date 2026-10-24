@@ -666,7 +666,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .climb.pop { animation: climb-in 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) 0.75s both; }
 .climb.pop .climb-arrow { animation: climb-hop 0.32s ease-out 1.15s var(--steps) both; }
 .climb.pop .climb-strip { animation: climb-roll calc(var(--steps) * 0.32s) cubic-bezier(0.45, 0, 0.55, 1) 1.15s both; }
-.climb.climb-lead.pop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, var(--climb-shine) 50%, transparent 70%); transform: translateX(-120%); animation: climb-shine 0.8s ease-in-out calc(1.3s + var(--steps) * 0.32s) both; }
+.climb.climb-lead.pop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, var(--climb-shine) 50%, transparent 70%); transform: translateX(-120%); animation: climb-shine 0.8s ease-in-out var(--shine-at) both; }
 @keyframes climb-in { from { opacity: 0; transform: translateX(-10px) scale(0.85); } to { opacity: 1; transform: none; } }
 @keyframes climb-hop { 0% { transform: none; } 45% { transform: translateY(-6px) scale(1.2); } 100% { transform: none; } }
 @keyframes climb-roll { from { transform: translateY(0); } to { transform: translateY(calc(var(--steps) * -1.2em)); } }
