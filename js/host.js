@@ -463,7 +463,18 @@ function musicForPlayers() {
 }
 
 function clipAudio() {
-  if (!clip.audio) clip.audio = new Audio();
+  if (!clip.audio) {
+    clip.audio = new Audio();
+    // Väntemusikens och vinnarlåtens ljudmotor vilar medan quizlåten hörs, se rest i vinnarlat.js.
+    clip.audio.addEventListener('playing', () => {
+      if (!clip.audio.src.startsWith('http')) return;
+      winnerSong.rest();
+      lobbyMusic.rest();
+    });
+    for (const type of ['pause', 'ended']) {
+      clip.audio.addEventListener(type, () => { winnerSong.wake(); lobbyMusic.wake(); });
+    }
+  }
   return clip.audio;
 }
 
