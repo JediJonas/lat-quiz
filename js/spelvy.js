@@ -27,11 +27,19 @@ function sparkles(count = 12) {
     + '</span>';
 }
 
-// Prickarna vid pilen för den som klättrat: några gröna prickar som stiger uppåt och tonar bort.
-function risers(count = 6) {
-  return '<span class="risers" aria-hidden="true">' + Array.from({ length: count }, (_, i) =>
-    `<i style="--x:${(i - (count - 1) / 2) * 5}px;--d:${(0.55 + (i % 2 ? 0.15 : 0) + Math.random() * 0.25).toFixed(2)}s"></i>`).join('')
-    + '</span>';
+// Placeringen i listan. Lika många poäng ger samma placering.
+const rankIn = (standings, score) => 1 + standings.filter((q) => q.score > score).length;
+
+// Brickan vid poängen för den som klättrat: Plats och en siffra som rullar från den gamla
+// placeringen till den nya, som ett räkneverk, medan pilen hoppar en gång för varje placering.
+// Första gången svaret visas rullar den, annars står den på den nya placeringen.
+function climbBadge(from, to, fresh) {
+  const digits = [];
+  for (let n = from; n >= to; n -= 1) digits.push(`<span>${n}</span>`);
+  return `<span class="climb${fresh ? ' pop' : ''}${to === 1 ? ' climb-lead' : ''}" style="--steps:${from - to}">`
+    + '<span aria-hidden="true"><span class="climb-arrow">▲</span>Plats&nbsp;'
+    + `<span class="climb-roll"><span class="climb-strip">${digits.join('')}</span></span></span>`
+    + `<span class="visually-hidden">Du klättrade till plats ${to}.</span></span>`;
 }
 
 // Reglerna som små etiketter medan alla väntar på första låten, i stället för en lång mening.
@@ -107,7 +115,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   let introEnds = 0; // när nedräkningen före första låten är slut
   let introTotal = 0; // hela nedräkningens längd, för ringen
   let ranksBefore = new Map(); // placeringen innan svaret visades, för att visa vem som klättrat
-  const climbsShown = new Set(); // pilar som redan har animerats, så att de bara gör det en gång per låt
   const local = { artist: '', title: '' };
   const scoreChanged = scoreTracker();
 
@@ -217,21 +224,16 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#standings-section').hidden = view.standings.length === 0;
     // Placeringen räknas när någon har fått poäng. Lika många poäng ger samma placering.
     const ranked = view.standings.some((p) => p.score > 0);
-    const rankOf = (p) => 1 + view.standings.filter((q) => q.score > p.score).length;
+    const rankOf = (p) => rankIn(view.standings, p.score);
     const podium = winnerView();
-    // När svaret visas får den som klättrat en liten pil med antalet placeringar.
+    // När svaret visas får den som klättrat en liten pil med antalet placeringar. Den står still,
+    // eftersom brickan vid poängen visar klättringen.
     const revealed = view.round && view.round.phase === 'revealed';
     if (!revealed) ranksBefore = new Map(ranked ? view.standings.map((p) => [p.id, rankOf(p)]) : []);
     // I vinnarvyn står placeringarna stora, så där visas ingen pil.
     const climb = (p) => (revealed && !podium && ranksBefore.has(p.id) ? ranksBefore.get(p.id) - rankOf(p) : 0);
-    // Första gången pilen syns hoppar den upp, och några gröna prickar stiger från den.
-    const climbArrow = (id, up) => {
-      const key = `${view.round.number}:${id}`;
-      const fresh = !climbsShown.has(key);
-      climbsShown.add(key);
-      return `<span class="up${fresh ? ' pop' : ''}">${fresh ? risers() : ''}<span aria-hidden="true">▲</span>${up}`
-        + '<span class="visually-hidden"> placeringar upp</span></span>';
-    };
+    const climbArrow = (up) => `<span class="up"><span aria-hidden="true">▲</span>${up}`
+      + '<span class="visually-hidden"> placeringar upp</span></span>';
     const counts = [];
     const rows = view.standings.map((p) => {
       const before = scoreChanged(p.id, p.score);
@@ -243,7 +245,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       // Plats 1–3 får stora siffror.
       return `<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${before !== null ? 'bump' : ''}">
       ${podium ? `<td class="rank${rank <= 3 ? ' top' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : score}
-      <td class="name"><span class="player"><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? climbArrow(p.id, up) : ''}</span></td>
+      <td class="name"><span class="player"><span>${esc(p.name)}${p.connected ? '' : '<span class="visually-hidden"> (frånkopplad)</span>'}</span>${up > 0 ? climbArrow(up) : ''}</span></td>
       <td class="status">${playerStatus(p.id)}</td>${podium ? `
       ${score}` : ''}</tr>`;
     });
@@ -408,9 +410,14 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const mineRows = own ? `<ul class="mine">${row(view.labels.artist, mine.artist, r.artist)}${row(view.labels.title, mine.title, r.title)}`
         + `${r.bonus ? bonusRow() : ''}</ul>` : '';
       // Med stor text skrivs poängen kort som p, så att den får plats på en rad. Skärmläsare får hela ordet.
+      // Har man klättrat står placeringen i en bricka till höger om poängen.
+      const meNow = view.standings.find((p) => p.id === me);
+      const rankFrom = ranksBefore.get(me);
+      const rankTo = meNow ? rankIn(view.standings, meNow.score) : 0;
+      const climb = own && rankFrom > rankTo ? climbBadge(rankFrom, rankTo, fresh) : '';
       const points = own ? `<p class="points${r.points ? '' : ' zero'}"><span aria-hidden="true">+${r.points} `
         + '<span class="points-long">poäng</span><span class="points-short">p</span></span>'
-        + `<span class="visually-hidden">+${r.points} poäng</span></p>` : '';
+        + `<span class="visually-hidden">+${r.points} poäng</span>${climb}</p>` : '';
       // Under poängen står en kort kommentar, till exempel Klockrent! när allt var rätt.
       const cheer = own ? `<p class="cheer">${esc(roundCheer(r, round.number))}</p>` : '';
       const rest = `${mineRows}
