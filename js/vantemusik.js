@@ -31,6 +31,11 @@ const LEVEL_DB = -16;
 const FADE_IN_MS = 2000;
 const FADE_OUT_MS = 3000; // i slutet av varje klipp
 const STOP_MS = 5000; // när spelet startar, lika länge som vinnarlåten tonar ut
+// Står ljudelementet still så här länge, till exempel för att nätet hackar, hämtas klippet igen.
+const STALL_MS = 10000;
+// Väntan efter ett klipp som inte gick att hämta eller spela, så att en kort störning hos Deezer
+// inte tar slut på alla låtar på en gång.
+const RETRY_MS = 2000;
 
 // Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
 const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
@@ -44,8 +49,9 @@ export function pickLobbySong(random = Math.random, last = null) {
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
 export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_OUT_MS, loop: true };
 
-// onStart: klippet har börjat höras, så att spelarnas mobiler kan börja spela det.
-export function createLobbyMusic({ onStart = () => {} } = {}) {
+// onChange: klippet har börjat höras, eller tystnat utan att musiken stoppades, så att raden längst
+// ner och spelarnas mobiler följer med.
+export function createLobbyMusic({ onChange = () => {} } = {}) {
   let wanted = false; // musiken ska spela, det vill säga spelet väntar på att starta
   let running = false; // en slinga spelar eller hämtar klipp
   let turn = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
@@ -53,6 +59,7 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
   let clip = null; // dess klipp, som hämtas en gång
   let current = null; // klippet som hörs, med sitt sätt att tona ut och var det är
   let silentAt = 0;
+  let abort = null; // avbryter ljudelementet medan det laddar eller har fastnat
   // Som vinnarlåten spelas klippen helst genom ljudmotorn, som kan tona även på iPhone.
   let ctx = null;
   let audio = null;
@@ -94,8 +101,11 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
       current.fadeOut();
       current = null;
       silentAt = Date.now() + STOP_MS;
-    } else if (wasWanted && audio && !audio.paused) audio.pause();
+    } else if (abort) abort();
+    else if (wasWanted && audio && !audio.paused) audio.pause();
   }
+
+  const wait = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
   const silent = () => new Promise((resolve) => { setTimeout(resolve, Math.max(0, silentAt - Date.now())); });
 
@@ -118,7 +128,7 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
     }
   }
 
-  // Samma klipp spelas om och om igen. Det hämtas bara en gång.
+  // Samma klipp spelas om och om igen. Det hämtas bara en gång, så länge det går att spela.
   async function loop() {
     const mine = turn;
     running = true;
@@ -131,21 +141,28 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
           // Saknar Deezer klippet tas en annan låt. Saknas alla, till exempel utan nätverk, blir det tyst.
           misses += 1;
           if (misses >= LOBBY_SONGS.length) { running = false; return; }
+          await wait(RETRY_MS);
+          if (mine !== turn) return;
           song = pickLobbySong(Math.random, song.deezerId);
           continue;
         }
         clip = loaded;
       }
-      const playing = clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip.buffer, clip.volume) : playElement(clip.url);
-      if (current) { current.url = clip.url; onStart(); }
-      const played = await playing;
+      const result = await (clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip) : playElement(clip));
+      if (mine !== turn) return;
       // Tillät inte webbläsaren ljud väntar musiken på nästa tryck, se unlock.
-      if (!played) { if (mine === turn) running = false; return; }
+      if (result === 'blocked') { running = false; return; }
+      if (result === 'played') { misses = 0; continue; }
+      // Klipplänken gäller bara en kvart, och nätet kan ha hackat. Då hämtas en ny länk.
+      clip = null;
+      misses += 1;
+      if (misses >= LOBBY_SONGS.length) { running = false; return; }
+      await wait(RETRY_MS);
     }
   }
 
-  // volume: klippets volym efter utjämningen.
-  function playBuffer(buffer, volume) {
+  // Klippet spelas i ljudmotorn, med volymen efter utjämningen. Det hörs direkt.
+  function playBuffer({ url, buffer, volume }) {
     return new Promise((resolve) => {
       const gain = ctx.createGain();
       const source = ctx.createBufferSource();
@@ -159,6 +176,7 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
       source.buffer = buffer;
       source.connect(gain).connect(ctx.destination);
       const me = {
+        url,
         volume,
         position: () => ctx.currentTime - now,
         fadeOut() {
@@ -170,36 +188,71 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
           try { source.stop(at + STOP_MS / 1000); } catch { /* redan stoppad */ }
         },
       };
-      source.onended = () => { if (current === me) current = null; resolve(true); };
+      source.onended = () => { if (current === me) current = null; resolve('played'); };
       source.start();
       current = me;
+      onChange();
     });
   }
 
   // På iPhone går volymen inte att ändra på ett ljudelement. Där börjar och slutar klippet tvärt.
-  function playElement(url) {
+  // Klippet räknas som hört först när det faktiskt spelar, och inte medan det laddar.
+  // Svaret är played när klippet är slut, blocked när webbläsaren inte tillåter ljud utan tryck,
+  // och failed när det inte gick att spela, till exempel för att länken har gått ut.
+  function playElement({ url }) {
     if (!audio) audio = new Audio();
     const el = audio;
     return new Promise((resolve) => {
       let stopping = 0;
+      let finished = false;
+      let lastPos = -1;
+      let movedAt = Date.now();
       el.src = url;
       el.volume = 0;
       const timer = setInterval(() => {
         if (stopping) {
           const left = (stopping - Date.now()) / STOP_MS;
-          if (left <= 0) { el.pause(); done(true); return; }
+          if (left <= 0) { el.pause(); done('played'); return; }
           el.volume = Math.min(el.volume, fadeLevel(left));
           return;
         }
+        if (el.currentTime !== lastPos) { lastPos = el.currentTime; movedAt = Date.now(); }
+        else if (Date.now() - movedAt > STALL_MS) { el.pause(); done('failed'); return; }
         const fadeIn = Math.min(1, el.currentTime * 1000 / FADE_IN_MS);
         const left = el.duration ? (el.duration - el.currentTime) * 1000 / FADE_OUT_MS : 1;
         el.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
       }, 50);
-      const me = { volume: VOLUME, position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
-      const done = (played) => { clearInterval(timer); if (current === me) current = null; resolve(played); };
-      el.addEventListener('ended', () => done(true), { once: true });
-      el.play().catch(() => done(false));
-      current = me;
+      const me = { url, volume: VOLUME, position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
+      // Raden längst ner syns medan klippet spelar, och försvinner när det fastnar och laddar.
+      const heard = (on) => {
+        if (finished || stopping || on === (current === me)) return;
+        current = on ? me : null;
+        onChange();
+      };
+      const onPlaying = () => heard(true);
+      const onWaiting = () => heard(false);
+      const onEnded = () => done('played');
+      const onError = () => done('failed');
+      const done = (result) => {
+        if (finished) return;
+        finished = true;
+        abort = null;
+        clearInterval(timer);
+        el.removeEventListener('playing', onPlaying);
+        el.removeEventListener('waiting', onWaiting);
+        el.removeEventListener('ended', onEnded);
+        el.removeEventListener('error', onError);
+        const wasHeard = current === me;
+        if (wasHeard) current = null;
+        if (wasHeard && result !== 'played') onChange();
+        resolve(result);
+      };
+      abort = () => { el.pause(); done('played'); };
+      el.addEventListener('playing', onPlaying);
+      el.addEventListener('waiting', onWaiting);
+      el.addEventListener('ended', onEnded);
+      el.addEventListener('error', onError);
+      el.play().catch((err) => done(err && err.name === 'NotAllowedError' ? 'blocked' : 'failed'));
     });
   }
 

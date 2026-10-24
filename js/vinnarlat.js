@@ -69,7 +69,9 @@ export const WINNER_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FA
 // Trumvirveln tonas inte, eftersom den börjar med ett tydligt slag.
 export const DRUM_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: 0, loop: false };
 
-export function createWinnerSong() {
+// onChange: låten har börjat höras, eller tystnat för att klippet inte gick att spela, så att raden
+// längst ner följer med.
+export function createWinnerSong({ onChange = () => {} } = {}) {
   let audio = null;
   let last = null;
   let timers = [];
@@ -82,7 +84,8 @@ export function createWinnerSong() {
   let source = null;
   let heardClip = null; // klippet som hörs och var i det, för spelarnas mobiler
 
-  const clear = () => { timers.forEach(clearInterval); timers = []; };
+  // Tidtagare och lyssnare som tas bort vid stopp.
+  const clear = () => { timers.forEach((t) => (t && t.off ? t.off() : clearInterval(t))); timers = []; };
 
   function stop() {
     playing += 1;
@@ -214,15 +217,15 @@ export function createWinnerSong() {
     const clip = await prepared;
     if (turn !== playing) return;
     if (!clip) { heard(); return; }
-    heardSong = current;
     if (clip.buffer && ctx && ctx.state === 'running') {
       const at = ctx.currentTime;
       startBuffer(clip.buffer, clip.volume);
       heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
+      heardSong = current;
+      onChange();
       heard();
     } else {
-      startElement(clip.url);
-      heardClip = { url: clip.url, volume: VOLUME, position: () => audio.currentTime, ended: () => audio.ended };
+      startElement(clip.url, turn);
     }
   }
 
@@ -241,15 +244,33 @@ export function createWinnerSong() {
     source.start();
   }
 
-  function startElement(url) {
+  // Låten räknas som hörd först när ljudelementet faktiskt spelar, och inte medan klippet laddar.
+  function startElement(url, turn) {
     if (!audio) audio = new Audio();
+    const el = audio;
     // Klippet är oftast redan laddat medan trumvirveln spelade.
-    if (audio.src !== url) audio.src = url;
+    if (el.src !== url) el.src = url;
     // På iPhone går volymen inte att ändra, så där börjar klippet på full volym.
-    audio.volume = 0;
-    // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud, blir det tyst.
-    audio.addEventListener('playing', () => heard(), { once: true });
-    audio.play().catch(() => heard());
+    el.volume = 0;
+    const onPlaying = () => {
+      if (turn !== playing || heardSong) return;
+      heardClip = { url, volume: VOLUME, position: () => el.currentTime, ended: () => el.ended };
+      heardSong = current;
+      onChange();
+      heard();
+    };
+    // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud eller länken inte
+    // fungerar, blir det tyst och raden längst ner försvinner.
+    const failed = () => {
+      if (turn !== playing) return;
+      stop();
+      if (heardSong) { heardSong = null; onChange(); }
+      heard();
+    };
+    el.addEventListener('playing', onPlaying);
+    el.addEventListener('error', failed, { once: true });
+    timers.push({ off: () => { el.removeEventListener('playing', onPlaying); el.removeEventListener('error', failed); } });
+    el.play().catch(failed);
     // Volymen höjs i början och sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;

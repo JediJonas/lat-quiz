@@ -97,21 +97,23 @@ function saveExtraSounds(on) {
   });
 }
 
-const winnerSong = createWinnerSong();
-
 // Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt, och raden längst
-// ner visar låten, både här och i mobilerna.
-const lobbyMusic = createLobbyMusic({ onStart: () => {
+// ner visar låten, både här och i mobilerna. Tystnar klippet för att det inte gick att spela,
+// till exempel när Deezer inte svarar, försvinner raden igen.
+function musicChanged() {
   if (!state) return;
   showNowMusic($('#now-music'), currentMusic());
   broadcast();
-} });
+}
+
+const winnerSong = createWinnerSong({ onChange: musicChanged });
+const lobbyMusic = createLobbyMusic({ onChange: musicChanged });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
 
 // Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Låten står där
-// när klippet hörs, och vinnarlåten står kvar tills en ny match börjar.
+// först när klippet faktiskt hörs, och vinnarlåten står kvar tills en ny match börjar.
 function currentMusic() {
   if (!state) return null;
   if (lobbyWanted()) return nowMusic(lobbyMusic.song());
