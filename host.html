@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="ikoner/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
-  <script>try { const d = document.documentElement.dataset, t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {}</script>
+  <script>{ const d = document.documentElement.dataset; d.theme = 'dark'; try { const t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {} }</script>
   <!-- ?debug=1 visar versionsnumret längst ner och sparar valet på enheten, ?debug=0 döljer det igen. -->
   <script>{ const q = new URLSearchParams(location.search).get('debug'); let on = q !== null && q !== '0'; try { if (q === null) on = localStorage.getItem('latquiz-debug') === '1'; else if (on) localStorage.setItem('latquiz-debug', '1'); else localStorage.removeItem('latquiz-debug'); } catch {} if (on) document.documentElement.dataset.debug = ''; }</script>
 </head>

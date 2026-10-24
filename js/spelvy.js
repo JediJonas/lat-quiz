@@ -6,19 +6,10 @@ import { autocomplete } from './autocomplete.js';
 import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 import { roundCheer, winComment, winIntro } from './pepp.js';
+import { pickWinEffect, startWinEffect } from './vinstanimation.js';
 
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
-
-// Konfettin när någon vinner: bitarna sprids över hela bredden och släpps i omgångar, så att
-// det regnar i ungefär tio sekunder. Var bit får egen fart, sidledsdrift och snurr.
-const CONFETTI_COLORS = ['#ffd166', '#fff', '#7cf0b0', '#ff9ecb'];
-function confetti(count = 110) {
-  const rand = (min, max) => min + Math.random() * (max - min);
-  return Array.from({ length: count }, (_, i) => `<i style="--x:${rand(-2, 98).toFixed(1)}%;`
-    + `--d:${rand(0, 7.8).toFixed(2)}s;--t:${rand(1.3, 2).toFixed(2)}s;--s:${rand(-40, 40).toFixed(0)}px;`
-    + `--r:${rand(-540, 540).toFixed(0)}deg;--c:${CONFETTI_COLORS[i % CONFETTI_COLORS.length]}"></i>`).join('');
-}
 
 // Gnistorna runt bonuspoängen: små stjärnor som skjuts ut åt alla håll och tonar bort.
 function sparkles(count = 12) {
@@ -392,7 +383,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
           <h2 class="win-title">${esc(intro)}</h2>
           <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`
         : winner
-        ? `<div class="cover win reveal"><div class="confetti" aria-hidden="true">${confetti()}</div>
+        ? `<div class="cover win reveal"><div class="win-fx" aria-hidden="true"></div>
           <div class="cover-head"><p class="round-label">${label}</p>${view.winnerClip ? clipNote : ''}</div>
           <h2 class="win-title">${esc(view.winners.join(' och '))} vinner!</h2>
           <p class="win-sub">${esc(winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore }))}</p></div>`
@@ -424,7 +415,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       const rest = `${mineRows}
         ${points || next ? `<div class="result-foot">${points ? `<div class="score-line">${points}${cheer}</div>` : ''}${next}</div>` : ''}`;
       // Ritas samma svar om, till exempel när spelledarens knappar byts, står omslaget kvar.
-      // Då fortsätter vändningen och konfettin i stället för att börja om eller stoppas.
+      // Då fortsätter vändningen och vinstanimationen i stället för att börja om eller stoppas.
       const body = $('#result-body');
       const kept = fresh ? null : body.querySelector(':scope > .cover');
       if (kept) {
@@ -432,6 +423,10 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
         kept.insertAdjacentHTML('afterend', rest);
       } else {
         body.innerHTML = `${cover}${rest}`;
+        // Vinnarkortet får konfetti, fyrverkeri eller strålkastare. Valet görs från sista låten och
+        // vinnarna, så att alla enheter visar samma utan att något skickas över nätet.
+        const fx = winner && body.querySelector('.win-fx');
+        if (fx) startWinEffect(fx, pickWinEffect(`${round.number}|${round.song.title}|${round.song.artist}|${view.winners.join('|')}`));
       }
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst.

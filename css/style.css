@@ -63,7 +63,7 @@
   color-scheme: light dark;
 }
 
-/* Mörkt läge: enhetens inställning, om inte spelaren valt något annat. */
+/* Mörkt läge: enhetens inställning, men bara om sidan körs utan JavaScript. Annars sätter <head> data-theme, mörkt som standard. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0a0a0d;
@@ -693,7 +693,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .score-line, .score-line + .next { align-self: last baseline; }
 /* Medan nästa låt laddas är nedräkningen osynlig men tar samma plats som förut. */
 .next.held { visibility: hidden; }
-/* Vinnaren tar omslaget, med konfetti som faller en gång. */
+/* Vinnaren tar omslaget, med en vinstanimation som spelas en gång (js/vinstanimation.js). */
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
 .win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
@@ -706,19 +706,37 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Innan namnet pulserar till exempel Vi har en vinnare! en kort stund. */
 .win.drum .win-title { animation: drum-pulse 0.5s ease-in-out infinite alternate; transform-origin: left center; }
 @keyframes drum-pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
-/* Konfettin regnar över hela omslaget och faller ut genom botten, där omslaget klipper den.
-   Bitarnas plats, fart och färg sätts i js/spelvy.js. */
-/* Var bit hänger överst i en osynlig pelare lika hög som omslaget. Pelaren glider ner sin
-   egen höjd, så biten faller hela vägen och ut genom botten. */
-.confetti { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.confetti i { position: absolute; top: 0; bottom: 0; left: var(--x); width: 9px; animation: confetti var(--t) cubic-bezier(0.35, 0, 0.75, 1) var(--d) both; }
-.confetti i::before { content: ""; position: absolute; top: -30px; left: 0; width: 9px; height: 16px; border-radius: 3px; background: var(--c); animation: confetti-spin var(--t) linear var(--d) both; }
-@keyframes confetti {
-  0% { opacity: 0; transform: translate(0, 0); }
-  8% { opacity: 0.95; }
-  100% { opacity: 0.95; transform: translate(var(--s), calc(100% + 60px)); }
+/* Vinstanimationen ligger bakom texten på omslaget: konfetti, fyrverkeri eller strålkastare, som
+   slumpas i js/vinstanimation.js. Konfettin och fyrverkeriet ritas på en canvas. */
+.win-fx { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.win-fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* Vid fyrverkeri och strålkastare mörknar omslaget lite, som när ljuset släcks inför en show, så att
+   ljuset syns och den vita texten får mer kontrast. Det ljusnar igen när showen är slut. Grundläget
+   är slutläget, så att minskad rörelse visar det direkt. */
+.win-fx.fyrverkeri::before, .win-fx.stralkastare::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
+.win-fx.stralkastare::before { background: rgba(8, 4, 24, 0.36); }
+.win-fx.done::before { opacity: 0; transition: opacity 1.6s ease-in-out; }
+@keyframes fx-in { from { opacity: 0; } }
+/* Strålkastarna: varje kägla utgår från en lampa utanför omslaget och vrids fram och tillbaka runt den. */
+.spot-beam { position: absolute; width: 0; height: 0; animation: fx-in 0.6s ease-out var(--in) backwards; }
+.spot-beam.top { top: -30px; }
+.spot-beam.bottom { top: calc(100% + 30px); }
+.spot-beam span { position: absolute; left: -70px; top: 0; width: 140px; height: var(--len); transform-origin: 50% 0;
+  background: linear-gradient(color-mix(in srgb, var(--c) 60%, transparent), color-mix(in srgb, var(--c) 16%, transparent) 65%, transparent);
+  clip-path: polygon(47% 0, 53% 0, 100% 100%, 0 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 32%, #000 68%, transparent); mask-image: linear-gradient(90deg, transparent, #000 32%, #000 68%, transparent);
+  mix-blend-mode: screen; transform: rotate(var(--a)); animation: beam-sway var(--t) ease-in-out calc(var(--t) / -2) infinite alternate; }
+@keyframes beam-sway {
+  from { transform: rotate(calc(var(--a) - var(--sw))); }
+  to { transform: rotate(calc(var(--a) + var(--sw))); }
 }
-@keyframes confetti-spin { to { transform: rotate(var(--r)); } }
+/* Efter elva sekunder slocknar ljuset långsamt och käglorna stannar. */
+.stralkastare.done .spot-beam { opacity: 0; transition: opacity 1.8s ease-in-out; }
+.stralkastare.done .spot-beam span { animation-play-state: paused; }
+/* Med minskad rörelse står käglorna still mitt i svepet. */
+@media (prefers-reduced-motion: reduce) {
+  .win-fx::before, .spot-beam, .spot-beam span { animation: none !important; }
+}
 .win-wait { text-align: center; margin: 18px 16px 0; font-size: 0.8125rem; }
 /* I ställningen står bara totalen, inte poängen för sista låten. */
 .podium .tag { display: none; }
