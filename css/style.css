@@ -63,7 +63,7 @@
   color-scheme: light dark;
 }
 
-/* Mörkt läge: enhetens inställning, om inte spelaren valt något annat. */
+/* Mörkt läge: enhetens inställning, men bara om sidan körs utan JavaScript. Annars sätter <head> data-theme, mörkt som standard. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0a0a0d;
