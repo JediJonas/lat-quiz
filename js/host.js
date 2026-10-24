@@ -14,6 +14,7 @@ import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
+import { DELAY_CHOICES, after, cleanDelay, delayShort, delayText } from './ljudfordrojning.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
@@ -24,6 +25,7 @@ const NAME_KEY = 'latquiz-namn';
 const SETTINGS_KEY = 'latquiz-settings';
 const CLIP_ALL_KEY = 'latquiz-klipp-alla';
 const EXTRA_SOUNDS_KEY = 'latquiz-extraljud';
+const AUDIO_DELAY_KEY = 'latquiz-ljudfordrojning';
 // Tidigare fanns Spela vinnarlåt och Spela väntemusik var för sig. De tas bort när extraljuden sparas.
 const OLD_SOUND_KEYS = ['latquiz-vinnarlat', 'latquiz-vantemusik'];
 // Tidigare gick det att välja Spotify som musiktjänst. Valet tas bort, eftersom bara Deezer finns kvar.
@@ -97,13 +99,26 @@ function saveExtraSounds(on) {
   });
 }
 
+// Ljudfördröjningen för en blåtandshögtalare, i millisekunder, se ljudfordrojning.js. Den är av
+// som standard, och valet gäller den här enheten.
+function loadAudioDelay() {
+  return cleanDelay(storage(() => localStorage.getItem(AUDIO_DELAY_KEY), 0));
+}
+
+function saveAudioDelay(ms) {
+  storage(() => (ms ? localStorage.setItem(AUDIO_DELAY_KEY, String(ms)) : localStorage.removeItem(AUDIO_DELAY_KEY)));
+}
+
 // Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt, och raden längst
 // ner visar låten, både här och i mobilerna. Tystnar klippet för att det inte gick att spela,
 // till exempel när Deezer inte svarar, försvinner raden igen.
+// Med ljudfördröjning visas raden först när musiken hörs i högtalaren.
 function musicChanged() {
   if (!state) return;
   showNowMusic($('#now-music'), currentMusic());
   broadcast();
+  const delay = loadAudioDelay();
+  if (delay) setTimeout(() => { if (state) { showNowMusic($('#now-music'), currentMusic()); broadcast(); } }, delay);
 }
 
 const winnerSong = createWinnerSong({ onChange: musicChanged });
@@ -115,6 +130,15 @@ const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !le
 // Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Låten står där
 // först när klippet faktiskt hörs, och vinnarlåten står kvar tills en ny match börjar.
 function currentMusic() {
+  const text = playingMusic();
+  if (text !== musicSeen.text) musicSeen = { text, at: Date.now() };
+  return text && Date.now() - musicSeen.at >= loadAudioDelay() ? text : null;
+}
+
+// Texten och när den började spela här. Med ljudfördröjning hörs den så mycket senare.
+let musicSeen = { text: null, at: 0 };
+
+function playingMusic() {
   if (!state) return null;
   if (lobbyWanted()) return nowMusic(lobbyMusic.song());
   if (!state.winners || !loadExtraSounds()) return null;
@@ -374,6 +398,7 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const parts = [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
     ...(loadClipAll() ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
+    ...(loadAudioDelay() ? [`Ljudfördröjning ${delayShort(loadAudioDelay())}`] : []),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -451,7 +476,14 @@ function clipUrlForPlayers() {
 
 // Väntemusiken, trumvirveln och vinnarlåten spelas också i spelarnas mobiler, i takt med
 // spelledaren, när spelledaren har valt att spela ljud på alla enheter.
+// Med ljudfördröjning hörs musiken senare i spelledarens högtalare, så mobilerna spelar så mycket
+// längre bak i klippet.
 function musicForPlayers() {
+  const music = playerMusic();
+  return music ? { ...music, posMs: Math.max(0, music.posMs - loadAudioDelay()) } : null;
+}
+
+function playerMusic() {
   if (!state.clipAll) return null;
   const lobby = lobbyWanted() && lobbyMusic.now();
   if (lobby) return { ...LOBBY_FADE, ...lobby };
@@ -532,13 +564,16 @@ async function playDeezer(roundNumber, skipping = false) {
   startClip();
 }
 
-// Timern startar först när klippet hörs.
+// Timern startar först när klippet hörs. Med ljudfördröjning hörs det så mycket senare i
+// högtalaren, och då vänds låtkortet och timern startar då. Mobilerna spelar klippet efter timern,
+// så de går i takt med högtalaren.
 function startClip() {
   const audio = clipAudio();
   audio.currentTime = 0;
-  audio.play().then(() => {
+  const roundNumber = state.round.number;
+  audio.play().then(() => new Promise((resolve) => setTimeout(resolve, loadAudioDelay()))).then(() => {
     // Spelledaren kan ha pausat eller visat svaret medan klippet buffrades.
-    if (!state.round || state.round.phase !== 'ready') { audio.pause(); return; }
+    if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') { audio.pause(); return; }
     if (state.pausedAt) {
       audio.pause();
       clip.status = 'loaded';
@@ -794,7 +829,8 @@ function wireBonus(dialog) {
 // running: ett spel pågår.
 // clipAll: klippet spelas även i spelarnas mobiler.
 // extraSounds: väntemusiken, trumvirveln och vinnarlåten spelas.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, clipAll = false, extraSounds = true } = {}) {
+// audioDelay: ljudfördröjningen för en blåtandshögtalare, i millisekunder.
+function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, clipAll = false, extraSounds = true, audioDelay = 0 } = {}) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal settings';
   dialog.innerHTML = `
@@ -811,6 +847,9 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       </div>
       <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
       ${hostNameRow()}
+      <div class="settings-group audio-delay">
+      ${segmented('audioDelay', 'Ljudfördröjning', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
+      </div>
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
         <button value="cancel" class="secondary">Avbryt</button>
@@ -860,6 +899,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
           ...(categories ? { categoryId: values.categoryId } : {}),
           clipAll: clipOn,
           extraSounds: soundsOn,
+          audioDelay: cleanDelay(values.audioDelay),
           host: host(),
         } : null);
       dialog.remove();
@@ -876,9 +916,11 @@ async function editSettings() {
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
   const chosen = await showSettings(current, categories, currentCategory, names,
-    { running: Boolean(state), clipAll, extraSounds: loadExtraSounds() });
+    { running: Boolean(state), clipAll, extraSounds: loadExtraSounds(), audioDelay: loadAudioDelay() });
   if (!chosen) return;
-  const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, ...settings } = chosen;
+  const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, audioDelay, ...settings } = chosen;
+  // Ljudfördröjningen gäller enheten, från nästa gång ett ljud börjar.
+  saveAudioDelay(audioDelay);
   // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
   // börjar eller tystnar direkt medan spelarna går med.
   saveExtraSounds(chosenExtraSounds);
@@ -1039,10 +1081,12 @@ function startClicked() {
 
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
+// Med ljudfördröjning vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
-  const drum = winnerSong.drum();
-  return { drum, song: winnerSong.play() };
+  const delay = loadAudioDelay();
+  const drum = after(winnerSong.drum(), delay);
+  return { drum, song: after(winnerSong.play(), delay) };
 }
 
 // "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela igen visas när vinnaren
