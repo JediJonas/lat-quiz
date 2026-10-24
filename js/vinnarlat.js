@@ -39,7 +39,6 @@ export const WINNER_SONGS = [
   { artist: 'Lionel Richie', title: 'Dancing on the Ceiling', deezerId: 905690 },
   { artist: 'American Authors', title: 'Best Day of My Life', deezerId: 75711295 },
   { artist: 'Bill Withers', title: 'Lovely Day', deezerId: 70016835 },
-  { artist: 'Niklas Strömstedt', title: 'Oslagbara', deezerId: 16754571 },
   { artist: 'Albatraoz', title: 'Wunderbar', deezerId: 113948726 },
   { artist: 'Chesney Hawkes', title: 'The One and Only', deezerId: 1787674467 },
 ];
