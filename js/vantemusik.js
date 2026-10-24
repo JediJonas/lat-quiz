@@ -1,7 +1,7 @@
 // Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
 // Låtarna är instrumental jazz med groove, i stil med Unsquare Dance, så att ingen börjar gissa redan i lobbyn, och
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
-// spelas om tills spelet startar. Då tonar musiken ut snabbt, och första låten väntar tills den är tyst.
+// spelas om tills spelet startar. Då tonar musiken ut, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
 import { levelGain } from './ljudniva.js';
 
@@ -30,7 +30,7 @@ const VOLUME = 0.5;
 const LEVEL_DB = -16;
 const FADE_IN_MS = 2000;
 const FADE_OUT_MS = 3000; // i slutet av varje klipp
-const STOP_MS = 800; // när spelet startar
+const STOP_MS = 5000; // när spelet startar, lika länge som vinnarlåten tonar ut
 
 // Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
 const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
@@ -163,9 +163,10 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
         position: () => ctx.currentTime - now,
         fadeOut() {
           const at = ctx.currentTime;
+          const from = gain.gain.value;
           gain.gain.cancelScheduledValues(at);
-          gain.gain.setValueAtTime(gain.gain.value, at);
-          gain.gain.linearRampToValueAtTime(0, at + STOP_MS / 1000);
+          const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, from));
+          gain.gain.setValueCurveAtTime(steps, at, STOP_MS / 1000);
           try { source.stop(at + STOP_MS / 1000); } catch { /* redan stoppad */ }
         },
       };
