@@ -10,6 +10,8 @@ export const LOBBY_SONGS = [
   { artist: 'The Dave Brubeck Quartet', title: 'Three to Get Ready', deezerId: 3571290 },
   { artist: 'The Dave Brubeck Quartet', title: "Kathy's Waltz", deezerId: 3571291 },
   { artist: 'Ramsey Lewis', title: 'The "In" Crowd', deezerId: 925778 },
+  { artist: 'Richard "Groove" Holmes', title: 'Misty', deezerId: 1164074 },
+  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3131203 },
   { artist: 'Herbie Mann', title: "Comin' Home Baby", deezerId: 1099848062 },
   { artist: 'Jimmy Smith', title: 'The Cat', deezerId: 2515289 },
   { artist: 'Herbie Hancock', title: 'Watermelon Man', deezerId: 3486410 },
