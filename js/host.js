@@ -1067,7 +1067,11 @@ function showError(err) {
 // Vinnarlåten spelas utan tryck när vinnaren visas. Ljudmotorn får det bara om den har startats
 // av ett tryck tidigare, så varje tryck hos spelledaren startar den.
 // iPhone räknar ibland bara touchend och click som tryck, så alla fyra lyssnas på.
+// Medan låten spelas görs det inte. Då är spelledarens tryck och tangenter nästan bara svar i
+// fälten, och ljudmotorn och ljudläget som startades om vid varje tryck kunde få klippet att
+// hacka till på iPhone. Trycken mellan låtarna räcker för att hålla ljudet upplåst.
 function unlockSound() {
+  if (clip.audio && !clip.audio.paused) return;
   winnerSong.unlock();
   lobbyMusic.unlock();
 }

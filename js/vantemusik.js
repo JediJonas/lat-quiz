@@ -70,7 +70,7 @@ export function createLobbyMusic({ onStart = () => {} } = {}) {
     const Context = window.AudioContext || window.webkitAudioContext;
     if (Context) {
       if (!ctx) ctx = new Context();
-      if (navigator.audioSession) navigator.audioSession.type = 'playback';
+      if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback';
       if (ctx.state !== 'running') ctx.resume().catch(() => {});
     }
     if (wanted && !running) loop();
