@@ -1090,7 +1090,13 @@ function winnerDrum() {
   if (!loadExtraSounds()) return null;
   const delay = loadAudioDelay();
   const drum = after(winnerSong.drum(), delay);
-  const song = winnerSong.play().then((kind) => wait(delay && kind === 'engine' ? delay + ENGINE_WAIT_MS : delay));
+  // Med ?debug=1 står det hur låten spelades, så att fördröjningen går att felsöka.
+  const song = winnerSong.play().then((kind) => {
+    if ('debug' in document.documentElement.dataset) {
+      showMessage({ key: 'debug', kind: 'info', title: 'Vinnarlåten', text: `${kind === 'engine' ? 'Ljudmotorn' : 'Vanligt ljud'}, kortet väntar ${musicDelay() / 1000} s.`, ms: 6000 });
+    }
+    return wait(musicDelay());
+  });
   return { drum, song };
 }
 
