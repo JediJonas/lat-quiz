@@ -65,6 +65,9 @@ export function pickWinnerSong(random = Math.random, last = null) {
 // uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
 const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
+// Så länge ljudmotorns klocka får stå still innan låten spelas med ljudelementet i stället.
+const CHECK_MS = 300;
+
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
 export const WINNER_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_MS, loop: false };
 // Trumvirveln tonas inte, eftersom den börjar med ett tydligt slag.
@@ -123,6 +126,21 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (ctx.state !== 'running') ctx.resume().catch(() => {});
   }
 
+
+  // Medan quizlåten spelas vilar ljudmotorn, så att klippet är det enda ljud sidan har igång.
+  // Annars kan iPhone stanna upp klippet en kort stund när tangentbordet öppnas för ett svar.
+  // Efter låten startas den igen. Det tillåter iPhone utan tryck, eftersom ett tryck har startat
+  // den förut. Gör den inte det spelas ljudet med ljudelementet i stället.
+  let resting = false;
+  function rest() {
+    if (!ctx || ctx.state !== 'running') return;
+    resting = true;
+    ctx.suspend().catch(() => {});
+  }
+  function wake() {
+    if (resting && ctx) ctx.resume().catch(() => {});
+    resting = false;
+  }
 
   // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
@@ -221,6 +239,15 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
     if (clip.buffer && ctx && ctx.state === 'running') {
       const at = ctx.currentTime;
       startBuffer(clip.buffer, clip.volume);
+      // iPhone kan säga att ljudmotorn går fast den står still och inget hörs. Rör sig inte dess
+      // klocka efter en kort stund spelas låten med ljudelementet i stället.
+      await new Promise((resolve) => setTimeout(resolve, CHECK_MS));
+      if (turn !== playing) return;
+      if (ctx.currentTime <= at) {
+        if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
+        startElement(clip.url, turn);
+        return;
+      }
       heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
       heardSong = current;
       onChange();
@@ -295,5 +322,5 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
   }
 
   // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
-  return { drum, play, stop, unlock, now, drumNow, heard: () => heardSong };
+  return { drum, play, stop, unlock, rest, wake, now, drumNow, heard: () => heardSong };
 }
