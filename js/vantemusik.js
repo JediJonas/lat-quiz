@@ -19,6 +19,7 @@ export const LOBBY_SONGS = [
   { artist: 'Vince Guaraldi Trio', title: 'Oh, Good Grief', deezerId: 104271088 },
   { artist: 'Wes Montgomery', title: "Bumpin' on Sunset", deezerId: 2537494 },
   { artist: 'Esbjörn Svensson Trio', title: 'Seven Days of Falling', deezerId: 520623912 },
+  { artist: 'Esbjörn Svensson Trio', title: 'When Everyone Has Gone', deezerId: 894835082 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
