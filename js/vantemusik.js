@@ -22,7 +22,6 @@ export const LOBBY_SONGS = [
   { artist: 'Wes Montgomery', title: "Bumpin' on Sunset", deezerId: 2537494 },
   { artist: 'Esbjörn Svensson Trio', title: 'Seven Days of Falling', deezerId: 520623912 },
   { artist: 'Esbjörn Svensson Trio', title: 'When Everyone Has Gone', deezerId: 894835082 },
-  { artist: 'Esbjörn Svensson Trio', title: 'The Well-Wisher', deezerId: 61536996 },
 ];
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
