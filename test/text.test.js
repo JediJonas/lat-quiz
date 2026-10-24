@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { searchIndex, findSuggestions } from '../js/text.js';
+import { searchIndex, findSuggestions, findWhole } from '../js/text.js';
 
 const artists = searchIndex([
   'ABBA', 'Abba Teens', 'Beyoncé', 'Britney Spears', 'Dr. Alban', 'George Michael', 'Kent',
@@ -56,4 +56,14 @@ test('förslag som inte liknar det man skrivit visas inte', () => {
 
 test('färre än 3 tecken ger inga stavfelsförslag', () => {
   assert.deepEqual(suggest(artists, 'ab').close, []);
+});
+
+test('korta namn föreslås när hela namnet är skrivet', () => {
+  const short = searchIndex(['OK', 'T.I.', 'U2', 'U2 & Green Day', 'X']);
+  assert.deepEqual(findWhole(short, 'u2'), ['U2']);
+  assert.deepEqual(findWhole(short, 'U 2'), ['U2']);
+  assert.deepEqual(findWhole(short, 'ti'), ['T.I.']);
+  assert.deepEqual(findWhole(short, 'x'), ['X']);
+  assert.deepEqual(findWhole(short, 'u'), []);
+  assert.deepEqual(findWhole(short, ''), []);
 });

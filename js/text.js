@@ -103,3 +103,10 @@ export function findSuggestions(index, text) {
   }
   return { exact, close };
 }
+
+// Namn som är kortare än det som krävs för förslag, som U2 och OK, föreslås när
+// man har skrivit hela namnet. Annars skulle de aldrig gå att välja.
+export function findWhole(index, text) {
+  const query = compact(text);
+  return query ? index.filter((entry) => entry.key === query).map((entry) => entry.item) : [];
+}
