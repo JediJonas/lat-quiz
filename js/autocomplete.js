@@ -1,12 +1,12 @@
 // Fält där svaret bara kan väljas ur en lista.
-// Förslag visas efter 3 tecken, i bokstavsordning: först det som innehåller texten,
+// Förslag visas efter 3 tecken, eller när ett kortare namn som U2 är helt skrivet, i bokstavsordning: först det som innehåller texten,
 // sedan det som liknar den trots stavfel ("micael" hittar "Michael Jackson").
 // Accenter och skiljetecken spelar ingen roll: "senorita" hittar "Señorita".
 // Fungerar med finger, mus och tangentbord (pilar, Enter och Esc), och
 // skärmläsare får fältet presenterat som en kombinationsruta med lista.
 // Ett kryss i fältet rensar det med ett tryck, så att man kan skriva ett nytt svar direkt.
 
-import { compact, searchIndex, findSuggestions } from './text.js';
+import { compact, searchIndex, findSuggestions, findWhole } from './text.js';
 
 const MIN_CHARS = 3;
 const MAX_SHOWN = 50;
@@ -156,9 +156,14 @@ export function autocomplete(input, list, onChange) {
     options = [];
     active = -1;
     input.removeAttribute('aria-activedescendant');
-    if (query.length < MIN_CHARS) { show(false); return; }
-    const { exact, close } = findSuggestions(index, query);
-    const hits = exact.concat(close);
+    const short = query.length < MIN_CHARS;
+    let hits;
+    if (short) hits = findWhole(index, query);
+    else {
+      const { exact, close } = findSuggestions(index, query);
+      hits = exact.concat(close);
+    }
+    if (short && !hits.length) { show(false); return; }
     for (const [i, item] of hits.slice(0, MAX_SHOWN).entries()) {
       const li = document.createElement('li');
       li.id = `${box.id}-${i}`;
