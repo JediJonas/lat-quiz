@@ -218,10 +218,12 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Placeringen räknas när någon har fått poäng. Lika många poäng ger samma placering.
     const ranked = view.standings.some((p) => p.score > 0);
     const rankOf = (p) => 1 + view.standings.filter((q) => q.score > p.score).length;
+    const podium = winnerView();
     // När svaret visas får den som klättrat en liten pil med antalet placeringar.
     const revealed = view.round && view.round.phase === 'revealed';
     if (!revealed) ranksBefore = new Map(ranked ? view.standings.map((p) => [p.id, rankOf(p)]) : []);
-    const climb = (p) => (revealed && ranksBefore.has(p.id) ? ranksBefore.get(p.id) - rankOf(p) : 0);
+    // I vinnarvyn står placeringarna stora, så där visas ingen pil.
+    const climb = (p) => (revealed && !podium && ranksBefore.has(p.id) ? ranksBefore.get(p.id) - rankOf(p) : 0);
     // Första gången pilen syns hoppar den upp, och några gröna prickar stiger från den.
     const climbArrow = (id, up) => {
       const key = `${view.round.number}:${id}`;
@@ -230,7 +232,6 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
       return `<span class="up${fresh ? ' pop' : ''}">${fresh ? risers() : ''}<span aria-hidden="true">▲</span>${up}`
         + '<span class="visually-hidden"> placeringar upp</span></span>';
     };
-    const podium = winnerView();
     const counts = [];
     const rows = view.standings.map((p) => {
       const before = scoreChanged(p.id, p.score);
