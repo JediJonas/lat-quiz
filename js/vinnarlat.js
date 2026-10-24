@@ -42,6 +42,7 @@ export const WINNER_SONGS = [
   { artist: 'Albatraoz', title: 'Wunderbar', deezerId: 113948726 },
   { artist: 'Chesney Hawkes', title: 'The One and Only', deezerId: 1787674467 },
   { artist: 'PSY', title: 'Gangnam Style', deezerId: 60726278 },
+  { artist: 'Loona', title: 'Vamos a la playa', deezerId: 143701522 },
 ];
 
 // Hela klippet spelas. Den första sekunden tonar det in, och de sista sekunderna tonar det ut.
