@@ -1096,11 +1096,18 @@ function winnerShown() {
   broadcast();
 }
 
+let awakeFor = null; // sista låten när högtalaren hölls vaken före trumvirveln
+
 // Samma vy som spelarna ser, med Starta spelet och Spela igen för spelledaren.
 function render() {
   $('#category').textContent = category.name;
   // Vinnarlåten tystnar när en ny match börjar.
-  if (!state.winners) winnerSong.stop();
+  if (!state.winners) { winnerSong.stop(); awakeFor = null; }
+  // Högtalaren hålls vaken från att sista svaret visas tills trumvirveln börjar, en gång per spel.
+  else if (awakeFor !== state.round.number && loadExtraSounds() && !gameView.winnerDrum() && !gameView.winnerShown()) {
+    awakeFor = state.round.number;
+    winnerSong.keepAwake();
+  }
   updateLobbyMusic();
   showNowMusic($('#now-music'), currentMusic());
   gameView.update(viewFor(state.hostId), state.hostId);
