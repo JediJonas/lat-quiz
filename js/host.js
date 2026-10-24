@@ -119,9 +119,9 @@ function currentMusic() {
   return nowMusic(winnerSong.heard());
 }
 
-// När spelledaren startar spelet visas "Nu börjar det!" en kort stund innan första låten.
-// Klippet laddas under tiden och spelas när tiden är slut.
-const INTRO_MS = 5000;
+// När spelledaren startar spelet visas "Nu börjar det!" innan första låten, lika länge som
+// nedräkningen mellan låtarna (AUTO_NEXT_MS). Klippet laddas under tiden och spelas när tiden är slut.
+const INTRO_MS = 10000;
 let introEnds = 0;
 let introTimer = null;
 const introLeft = () => Math.max(0, introEnds - Date.now());
