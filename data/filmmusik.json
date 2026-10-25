@@ -21,7 +21,7 @@
   "title": "Ensam hemma",
   "year": 1990,
   "track": "Somewhere in My Memory",
-  "deezerId": 421551522
+  "deezerId": 110148762
  },
  {
   "id": "trassel",
@@ -53,7 +53,7 @@
   "title": "Gladiator",
   "year": 2000,
   "track": "Now We Are Free",
-  "deezerId": 3507921871
+  "deezerId": 3055975
  },
  {
   "id": "herkules",
@@ -115,9 +115,9 @@
   "id": "star-wars",
   "artist": "John Williams",
   "title": "Star Wars",
-  "year": 1999,
-  "track": "Star Wars (Main Theme)",
-  "deezerId": 74673799
+  "year": 1977,
+  "track": "Main Title",
+  "deezerId": 193402301
  },
  {
   "id": "amelie-fran-montmartre",
@@ -221,7 +221,7 @@
   "title": "Harmonica - en hämnare",
   "year": 1968,
   "track": "Once Upon a Time in the West",
-  "deezerId": 123798364
+  "deezerId": 75643473
  },
  {
   "id": "frost",
@@ -261,7 +261,7 @@
   "title": "Titanic",
   "year": 1997,
   "track": "My Heart Will Go On",
-  "deezerId": 124187348
+  "deezerId": 17000055
  },
  {
   "id": "the-mission",
@@ -277,7 +277,7 @@
   "title": "Monsters, Inc.",
   "year": 2001,
   "track": "Monsters, Inc.",
-  "deezerId": 2786250942
+  "deezerId": 128946466
  },
  {
   "id": "pacific-rim",
@@ -699,9 +699,9 @@
   "id": "toy-story",
   "artist": "Randy Newman",
   "title": "Toy Story",
-  "year": 2010,
+  "year": 1995,
   "track": "You've Got a Friend in Me",
-  "deezerId": 131867198
+  "deezerId": 6813638
  },
  {
   "id": "good-bye-lenin",
@@ -741,7 +741,7 @@
   "title": "West Side Story",
   "year": 1961,
   "track": "America",
-  "deezerId": 66679852
+  "deezerId": 71946992
  },
  {
   "id": "captain-america",
@@ -813,7 +813,7 @@
   "title": "År 2001 – Ett rymdäventyr",
   "year": 1968,
   "track": "Also sprach Zarathustra",
-  "deezerId": 66644254
+  "deezerId": 66127007
  },
  {
   "id": "bilar",
@@ -877,7 +877,7 @@
   "title": "Pocahontas",
   "year": 1995,
   "track": "Colors of the Wind",
-  "deezerId": 2485963951
+  "deezerId": 13796262
  },
  {
   "id": "den-grona-milen",
@@ -924,8 +924,8 @@
   "artist": "John Williams",
   "title": "E.T. the Extra-Terrestrial",
   "year": 1982,
-  "track": "Flying Theme",
-  "deezerId": 13143577
+  "track": "Flying",
+  "deezerId": 93631702
  },
  {
   "id": "ett-smakryps-liv",
@@ -1091,9 +1091,9 @@
   "id": "indiana-jones",
   "artist": "John Williams",
   "title": "Indiana Jones",
-  "year": 1984,
+  "year": 1981,
   "track": "Raiders March",
-  "deezerId": 8146546
+  "deezerId": 518473892
  },
  {
   "id": "skonheten-och-odjuret",
@@ -1133,7 +1133,7 @@
   "title": "Min granne Totoro",
   "year": 1988,
   "track": "My Neighbour Totoro",
-  "deezerId": 879780702
+  "deezerId": 1120340152
  },
  {
   "id": "psycho",
@@ -1469,7 +1469,7 @@
   "title": "Zorba",
   "year": 1964,
   "track": "Zorba's Dance",
-  "deezerId": 1675822
+  "deezerId": 3752760862
  },
  {
   "id": "fyra-brollop-och-en-begravning",
@@ -1565,7 +1565,7 @@
   "title": "Bron över floden Kwai",
   "year": 1957,
   "track": "Colonel Bogey March",
-  "deezerId": 4380625
+  "deezerId": 13253500
  },
  {
   "id": "cocktail",
