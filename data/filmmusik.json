@@ -3,6 +3,10 @@
   "id": "tarzan",
   "artist": "Phil Collins",
   "title": "Tarzan",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1999,
   "track": "You'll Be in My Heart",
   "deezerId": 561875132
@@ -35,6 +39,10 @@
   "id": "lejonkungen",
   "artist": "Elton John",
   "title": "Lejonkungen",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1994,
   "track": "Can You Feel The Love Tonight",
   "deezerId": 3117869
@@ -65,8 +73,12 @@
  },
  {
   "id": "donnie-darko",
-  "artist": "Michael Andrews",
+  "artist": "Michael Andrews & Gary Jules",
   "title": "Donnie Darko",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2001,
   "track": "Mad World",
   "deezerId": 83151634
@@ -91,6 +103,10 @@
   "id": "into-the-wild",
   "artist": "Eddie Vedder",
   "title": "Into the Wild",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2007,
   "track": "Hard Sun",
   "deezerId": 407643962
@@ -155,6 +171,10 @@
   "id": "bjornbroder",
   "artist": "Phil Collins",
   "title": "Björnbröder",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2003,
   "track": "Look Through My Eyes",
   "deezerId": 3190831
@@ -166,14 +186,6 @@
   "year": 2006,
   "track": "Chevaliers De Sangreal",
   "deezerId": 2511688
- },
- {
-  "id": "the-theory-of-everything",
-  "artist": "Jóhann Jóhannsson",
-  "title": "The Theory of Everything",
-  "year": 2014,
-  "track": "The Theory of Everything",
-  "deezerId": 888607622
  },
  {
   "id": "harry-potter",
@@ -195,6 +207,10 @@
   "id": "8-mile",
   "artist": "Eminem",
   "title": "8 Mile",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2002,
   "track": "Lose Yourself",
   "deezerId": 1109731
@@ -206,14 +222,6 @@
   "year": 1993,
   "track": "This is Halloween",
   "deezerId": 1762460127
- },
- {
-  "id": "pearl-harbor",
-  "artist": "Hans Zimmer",
-  "title": "Pearl Harbor",
-  "year": 2001,
-  "track": "Tennessee",
-  "deezerId": 3598719
  },
  {
   "id": "harmonica-en-hamnare",
@@ -232,22 +240,6 @@
   "deezerId": 72371930
  },
  {
-  "id": "the-imitation-game",
-  "artist": "Alexandre Desplat",
-  "title": "The Imitation Game",
-  "year": 2014,
-  "track": "The Imitation Game",
-  "deezerId": 88725241
- },
- {
-  "id": "american-beauty",
-  "artist": "Thomas Newman",
-  "title": "American Beauty",
-  "year": 1999,
-  "track": "American Beauty",
-  "deezerId": 561867002
- },
- {
   "id": "den-gode-den-onde-den-fule",
   "artist": "Ennio Morricone",
   "title": "Den gode, den onde, den fule",
@@ -257,8 +249,12 @@
  },
  {
   "id": "titanic",
-  "artist": "James Horner",
+  "artist": "Céline Dion",
   "title": "Titanic",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1997,
   "track": "My Heart Will Go On",
   "deezerId": 17000055
@@ -272,44 +268,12 @@
   "deezerId": 3360270
  },
  {
-  "id": "monsters-inc",
-  "artist": "Randy Newman",
-  "title": "Monsters, Inc.",
-  "year": 2001,
-  "track": "Monsters, Inc.",
-  "deezerId": 128946466
- },
- {
-  "id": "pacific-rim",
-  "artist": "Ramin Djawadi",
-  "title": "Pacific Rim",
-  "year": 2013,
-  "track": "Pacific Rim",
-  "deezerId": 647363042
- },
- {
-  "id": "avatar",
-  "artist": "James Horner",
-  "title": "Avatar",
-  "year": 2009,
-  "track": "I See You",
-  "deezerId": 4828165
- },
- {
   "id": "gudfadern",
   "artist": "Nino Rota",
   "title": "Gudfadern",
   "year": 1972,
   "track": "Love Theme From \"The Godfather\"",
   "deezerId": 3040782
- },
- {
-  "id": "hostlegender",
-  "artist": "James Horner",
-  "title": "Höstlegender",
-  "year": 1994,
-  "track": "The Ludlows",
-  "deezerId": 1029388
  },
  {
   "id": "mission-impossible",
@@ -328,44 +292,16 @@
   "deezerId": 117725782
  },
  {
-  "id": "chocolat",
-  "artist": "Rachel Portman",
-  "title": "Chocolat",
-  "year": 2000,
-  "track": "Main Title",
-  "deezerId": 70603366
- },
- {
   "id": "wild-wild-west",
   "artist": "Will Smith",
   "title": "Wild Wild West",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1999,
   "track": "Wild Wild West",
   "deezerId": 13158462
- },
- {
-  "id": "her",
-  "artist": "Arcade Fire",
-  "title": "Her",
-  "year": 2013,
-  "track": "Song on the Beach",
-  "deezerId": 1239201142
- },
- {
-  "id": "iron-man",
-  "artist": "Brian Tyler",
-  "title": "Iron Man",
-  "year": 2013,
-  "track": "Iron Man 3",
-  "deezerId": 66608549
- },
- {
-  "id": "edward-scissorhands",
-  "artist": "Danny Elfman",
-  "title": "Edward Scissorhands",
-  "year": 1990,
-  "track": "Ice Dance",
-  "deezerId": 1097358
  },
  {
   "id": "alla-helgons-blodiga-natt",
@@ -376,44 +312,12 @@
   "deezerId": 4087971691
  },
  {
-  "id": "rattatouille",
-  "artist": "Michael Giacchino",
-  "title": "Råttatouille",
-  "year": 2007,
-  "track": "Ratatouille Main Theme",
-  "deezerId": 5167628
- },
- {
   "id": "lady-och-lufsen",
   "artist": "Peggy Lee",
   "title": "Lady och Lufsen",
   "year": 1955,
   "track": "Bella Notte",
   "deezerId": 24473241
- },
- {
-  "id": "the-revenant",
-  "artist": "Ryuichi Sakamoto",
-  "title": "The Revenant",
-  "year": 2015,
-  "track": "The Revenant Main Theme",
-  "deezerId": 977902872
- },
- {
-  "id": "the-dark-knight",
-  "artist": "Hans Zimmer",
-  "title": "The Dark Knight",
-  "year": 2008,
-  "track": "A Dark Knight",
-  "deezerId": 904641
- },
- {
-  "id": "the-batman",
-  "artist": "Michael Giacchino",
-  "title": "The Batman",
-  "year": 2022,
-  "track": "The Batman",
-  "deezerId": 1676658747
  },
  {
   "id": "batman",
@@ -432,132 +336,12 @@
   "deezerId": 1037311
  },
  {
-  "id": "joker",
-  "artist": "Hildur Guðnadóttir",
-  "title": "Joker",
-  "year": 2019,
-  "track": "Bathroom Dance",
-  "deezerId": 767121772
- },
- {
-  "id": "x-men",
-  "artist": "Henry Jackman",
-  "title": "X-Men",
-  "year": 2011,
-  "track": "First Class",
-  "deezerId": 12241602
- },
- {
-  "id": "tron",
-  "artist": "Daft Punk",
-  "title": "Tron",
-  "year": 2010,
-  "track": "TRON Legacy (End Titles)",
-  "deezerId": 1173630032
- },
- {
-  "id": "en-geishas-memoarer",
-  "artist": "John Williams",
-  "title": "En geishas memoarer",
-  "year": 2005,
-  "track": "Sayuri's Theme",
-  "deezerId": 8164705
- },
- {
-  "id": "man-of-steel",
-  "artist": "Hans Zimmer",
-  "title": "Man of Steel",
-  "year": 2013,
-  "track": "Flight",
-  "deezerId": 647343082
- },
- {
-  "id": "dune",
-  "artist": "Hans Zimmer",
-  "title": "Dune",
-  "year": 2024,
-  "track": "Paul's Dream",
-  "deezerId": 1458338372
- },
- {
-  "id": "the-twilight-saga-new-moon",
-  "artist": "Alexandre Desplat",
-  "title": "The Twilight Saga: New Moon",
-  "year": 2009,
-  "track": "New Moon (The Meadow)",
-  "deezerId": 14617382
- },
- {
-  "id": "berattelsen-om-narnia-haxan-och-lejonet",
-  "artist": "Harry Gregson-Williams",
-  "title": "Berättelsen om Narnia: Häxan och lejonet",
-  "year": 2005,
-  "track": "Only The Beginning of The Adventure",
-  "deezerId": 11233272
- },
- {
-  "id": "star-trek",
-  "artist": "Michael Giacchino",
-  "title": "Star Trek",
-  "year": 2009,
-  "track": "Star Trek Main Theme",
-  "deezerId": 118209944
- },
- {
-  "id": "gravity",
-  "artist": "Steven Price",
-  "title": "Gravity",
-  "year": 2013,
-  "track": "Gravity",
-  "deezerId": 647272712
- },
- {
-  "id": "anglar-och-demoner",
-  "artist": "Hans Zimmer",
-  "title": "Änglar och demoner",
-  "year": 2009,
-  "track": "503",
-  "deezerId": 3057666
- },
- {
-  "id": "the-shape-of-water",
-  "artist": "Alexandre Desplat",
-  "title": "The Shape of Water",
-  "year": 2017,
-  "track": "Elisa's Theme",
-  "deezerId": 1502772072
- },
- {
-  "id": "berattelsen-om-pi",
-  "artist": "Mychael Danna",
-  "title": "Berättelsen om Pi",
-  "year": 2012,
-  "track": "Pi's Lullaby",
-  "deezerId": 61543235
- },
- {
-  "id": "once-upon-a-time-in-america",
-  "artist": "Ennio Morricone",
-  "title": "Once Upon a Time in America",
-  "year": 1984,
-  "track": "Deborah's Theme",
-  "deezerId": 66001197
- },
- {
   "id": "spider-man",
   "artist": "Michael Giacchino",
   "title": "Spider-Man",
   "year": 2002,
   "track": "Spider-Man Theme",
   "deezerId": 371523561
- },
- {
-  "id": "thor",
-  "artist": "Brian Tyler",
-  "title": "Thor",
-  "year": 2013,
-  "track": "Thor: The Dark World",
-  "deezerId": 71705261
  },
  {
   "id": "den-rosa-pantern",
@@ -568,52 +352,12 @@
   "deezerId": 13163276
  },
  {
-  "id": "livet-efter-dig",
-  "artist": "Craig Armstrong",
-  "title": "Livet efter dig",
-  "year": 2016,
-  "track": "Me Before You Orchestral",
-  "deezerId": 647372932
- },
- {
-  "id": "cinema-paradiso",
-  "artist": "Ennio Morricone",
-  "title": "Cinema Paradiso",
-  "year": 1988,
-  "track": "Nuovo Cinema Paradiso",
-  "deezerId": 55132391
- },
- {
-  "id": "eternal-sunshine-of-the-spotless-mind",
-  "artist": "Jon Brion",
-  "title": "Eternal Sunshine of the Spotless Mind",
-  "year": 2004,
-  "track": "Theme",
-  "deezerId": 7289303
- },
- {
   "id": "pianot",
   "artist": "Michael Nyman",
   "title": "Pianot",
   "year": 1993,
   "track": "The Heart Asks Pleasure First",
   "deezerId": 3358366
- },
- {
-  "id": "1917",
-  "artist": "Thomas Newman",
-  "title": "1917",
-  "year": 2019,
-  "track": "Come Back to Us",
-  "deezerId": 823113702
- },
- {
-  "id": "den-fantastiska-raven",
-  "artist": "Alexandre Desplat",
-  "title": "Den fantastiska räven",
-  "year": 2009,
-  "track": "Mr. Fox in the Fields",
-  "deezerId": 10102011
  },
  {
   "id": "mulan",
@@ -624,68 +368,12 @@
   "deezerId": 5167566
  },
  {
-  "id": "truman-show",
-  "artist": "Philip Glass",
-  "title": "Truman Show",
-  "year": 1998,
-  "track": "Truman Sleeps",
-  "deezerId": 1166571922
- },
- {
-  "id": "love-actually",
-  "artist": "Craig Armstrong",
-  "title": "Love Actually",
-  "year": 2003,
-  "track": "Glasgow Love Theme",
-  "deezerId": 1540441122
- },
- {
-  "id": "hitta-nemo",
-  "artist": "Thomas Newman",
-  "title": "Hitta Nemo",
-  "year": 2003,
-  "track": "Finding Nemo",
-  "deezerId": 5167385
- },
- {
   "id": "the-hunger-games",
   "artist": "James Newton Howard",
   "title": "The Hunger Games",
   "year": 2012,
   "track": "The Hanging Tree",
   "deezerId": 90379179
- },
- {
-  "id": "femtio-nyanser-av-honom",
-  "artist": "Max Martin",
-  "title": "Femtio nyanser av honom",
-  "year": 2015,
-  "track": "Love Me Like You Do",
-  "deezerId": 111780476
- },
- {
-  "id": "nyckeln-till-frihet",
-  "artist": "Thomas Newman",
-  "title": "Nyckeln till frihet",
-  "year": 1994,
-  "track": "End Title",
-  "deezerId": 4273207
- },
- {
-  "id": "unga-kvinnor",
-  "artist": "Alexandre Desplat",
-  "title": "Unga kvinnor",
-  "year": 2019,
-  "track": "Laurie and Jo on the Hill",
-  "deezerId": 813352972
- },
- {
-  "id": "road-to-perdition",
-  "artist": "Thomas Newman",
-  "title": "Road to Perdition",
-  "year": 2002,
-  "track": "Road To Perdition",
-  "deezerId": 649758372
  },
  {
   "id": "tillbaka-till-framtiden",
@@ -699,41 +387,25 @@
   "id": "toy-story",
   "artist": "Randy Newman",
   "title": "Toy Story",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1995,
   "track": "You've Got a Friend in Me",
   "deezerId": 6813638
  },
  {
-  "id": "good-bye-lenin",
-  "artist": "Yann Tiersen",
-  "title": "Good Bye Lenin!",
-  "year": 2003,
-  "track": "Mother's Journey",
-  "deezerId": 3090544
- },
- {
   "id": "spider-verse",
-  "artist": "Post Malone",
+  "artist": "Post Malone & Swae Lee",
   "title": "Spider-Verse",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2018,
   "track": "Sunflower",
   "deezerId": 602456552
- },
- {
-  "id": "the-grand-budapest-hotel",
-  "artist": "Alexandre Desplat",
-  "title": "The Grand Budapest Hotel",
-  "year": 2014,
-  "track": "Mr. Moustafa",
-  "deezerId": 74929085
- },
- {
-  "id": "det-ljuva-livet",
-  "artist": "Nino Rota",
-  "title": "Det ljuva livet",
-  "year": 1960,
-  "track": "La dolce vita",
-  "deezerId": 267584
  },
  {
   "id": "west-side-story",
@@ -744,44 +416,12 @@
   "deezerId": 71946992
  },
  {
-  "id": "captain-america",
-  "artist": "Alan Silvestri",
-  "title": "Captain America",
-  "year": 2014,
-  "track": "Captain America",
-  "deezerId": 60724056
- },
- {
-  "id": "eyes-wide-shut",
-  "artist": "Dmitri Shostakovich",
-  "title": "Eyes Wide Shut",
-  "year": 1999,
-  "track": "Waltz No. 2",
-  "deezerId": 6944627
- },
- {
-  "id": "en-prinsessas-dagbok",
-  "artist": "John Debney",
-  "title": "En prinsessas dagbok",
-  "year": 2001,
-  "track": "The Princess Diaries Waltz",
-  "deezerId": 355708911
- },
- {
-  "id": "for-nagra-fa-dollar-mer",
-  "artist": "Ennio Morricone",
-  "title": "För några få dollar mer",
-  "year": 1965,
-  "track": "Per Qualche Dollaro in Più",
-  "deezerId": 3221383301
- },
- {
   "id": "encanto",
   "artist": "Lin-Manuel Miranda",
   "title": "Encanto",
   "year": 2021,
-  "track": "We Don't Talk About Bruno",
-  "deezerId": 2768464301
+  "track": "The Family Madrigal",
+  "deezerId": 1550821732
  },
  {
   "id": "superman",
@@ -793,19 +433,15 @@
  },
  {
   "id": "black-panther-wakanda-forever",
-  "artist": "Ludwig Göransson",
+  "artist": "Rihanna",
   "title": "Black Panther: Wakanda Forever",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2022,
   "track": "Lift Me Up",
-  "deezerId": 2006884037
- },
- {
-  "id": "wall-e",
-  "artist": "Peter Gabriel",
-  "title": "WALL-E",
-  "year": 2008,
-  "track": "Down to Earth",
-  "deezerId": 602440142
+  "deezerId": 1988270837
  },
  {
   "id": "ar-2001-ett-rymdaventyr",
@@ -819,57 +455,13 @@
   "id": "bilar",
   "artist": "Tom Cochrane",
   "title": "Bilar",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2006,
   "track": "Life Is A Highway",
   "deezerId": 3182179
- },
- {
-  "id": "kingdom-of-heaven",
-  "artist": "Harry Gregson-Williams",
-  "title": "Kingdom of Heaven",
-  "year": 2005,
-  "track": "Crusaders",
-  "deezerId": 71397115
- },
- {
-  "id": "radda-menige-ryan",
-  "artist": "John Williams",
-  "title": "Rädda menige Ryan",
-  "year": 1998,
-  "track": "Hymn To The Fallen",
-  "deezerId": 1108040
- },
- {
-  "id": "polarexpressen",
-  "artist": "Alan Silvestri",
-  "title": "Polarexpressen",
-  "year": 2004,
-  "track": "Believe",
-  "deezerId": 788266
- },
- {
-  "id": "fantastiska-vidunder-och-var-man-hittar-dem",
-  "artist": "James Newton Howard",
-  "title": "Fantastiska vidunder och var man hittar dem",
-  "year": 2016,
-  "track": "Main Titles",
-  "deezerId": 647335342
- },
- {
-  "id": "the-odyssey",
-  "artist": "Ludwig Göransson",
-  "title": "The Odyssey",
-  "year": 2026,
-  "track": "Odysseus",
-  "deezerId": 4152514422
- },
- {
-  "id": "tenet",
-  "artist": "Ludwig Göransson",
-  "title": "Tenet",
-  "year": 2020,
-  "track": "Rainy Night in Tallinn",
-  "deezerId": 1130197812
  },
  {
   "id": "pocahontas",
@@ -880,46 +472,6 @@
   "deezerId": 13796262
  },
  {
-  "id": "den-grona-milen",
-  "artist": "Thomas Newman",
-  "title": "Den gröna milen",
-  "year": 1999,
-  "track": "The Green Mile",
-  "deezerId": 7337321
- },
- {
-  "id": "lady-bird",
-  "artist": "Jon Brion",
-  "title": "Lady Bird",
-  "year": 2017,
-  "track": "Lady Bird",
-  "deezerId": 424999642
- },
- {
-  "id": "modig",
-  "artist": "Alex Mandel",
-  "title": "Modig",
-  "year": 2012,
-  "track": "Touch The Sky",
-  "deezerId": 35087811
- },
- {
-  "id": "black-panther",
-  "artist": "Ludwig Göransson",
-  "title": "Black Panther",
-  "year": 2018,
-  "track": "Wakanda",
-  "deezerId": 462106672
- },
- {
-  "id": "mitt-afrika",
-  "artist": "John Barry",
-  "title": "Mitt Afrika",
-  "year": 1985,
-  "track": "I Had a Farm (Main Title)",
-  "deezerId": 119876610
- },
- {
   "id": "e-t-the-extra-terrestrial",
   "artist": "John Williams",
   "title": "E.T. the Extra-Terrestrial",
@@ -928,52 +480,12 @@
   "deezerId": 93631702
  },
  {
-  "id": "ett-smakryps-liv",
-  "artist": "Randy Newman",
-  "title": "Ett småkryps liv",
-  "year": 1998,
-  "track": "The Time Of Your Life",
-  "deezerId": 1761725407
- },
- {
-  "id": "the-king-s-speech",
-  "artist": "Alexandre Desplat",
-  "title": "The King's Speech",
-  "year": 2010,
-  "track": "The King's Speech",
-  "deezerId": 1174057932
- },
- {
-  "id": "taxi-driver",
-  "artist": "Bernard Herrmann",
-  "title": "Taxi Driver",
-  "year": 1976,
-  "track": "Main Title",
-  "deezerId": 958971
- },
- {
   "id": "beetlejuice",
   "artist": "Danny Elfman",
   "title": "Beetlejuice",
   "year": 1988,
   "track": "Main Titles",
   "deezerId": 84605675
- },
- {
-  "id": "den-siste-mohikanen",
-  "artist": "Trevor Jones",
-  "title": "Den siste mohikanen",
-  "year": 1992,
-  "track": "Main Title",
-  "deezerId": 584306922
- },
- {
-  "id": "28-dagar-senare",
-  "artist": "John Murphy",
-  "title": "28 dagar senare",
-  "year": 2002,
-  "track": "In the House - In a Heartbeat",
-  "deezerId": 72691490
  },
  {
   "id": "braveheart",
@@ -987,97 +499,9 @@
   "id": "aladdin",
   "artist": "Alan Menken",
   "title": "Aladdin",
-  "year": 2019,
+  "year": 1992,
   "track": "A Whole New World",
   "deezerId": 120917666
- },
- {
-  "id": "lemony-snickets-berattelse-om-syskonen-baudelaires-olycksaliga-liv",
-  "artist": "Thomas Newman",
-  "title": "Lemony Snickets berättelse om syskonen Baudelaires olycksaliga liv",
-  "year": 2004,
-  "track": "The Letter That Never Came",
-  "deezerId": 595397
- },
- {
-  "id": "timmarna",
-  "artist": "Philip Glass",
-  "title": "Timmarna",
-  "year": 2002,
-  "track": "The Hours",
-  "deezerId": 742481
- },
- {
-  "id": "prometheus",
-  "artist": "Marc Streitenfeld",
-  "title": "Prometheus",
-  "year": 2012,
-  "track": "Life",
-  "deezerId": 31721191
- },
- {
-  "id": "natt-pa-museet",
-  "artist": "Alan Silvestri",
-  "title": "Natt på museet",
-  "year": 2006,
-  "track": "Night At The Museum",
-  "deezerId": 118583960
- },
- {
-  "id": "transformers",
-  "artist": "Steve Jablonsky",
-  "title": "Transformers",
-  "year": 2009,
-  "track": "Arrival to Earth",
-  "deezerId": 3583337
- },
- {
-  "id": "for-en-handfull-dollar",
-  "artist": "Ennio Morricone",
-  "title": "För en handfull dollar",
-  "year": 1964,
-  "track": "A Fistful of Dollars",
-  "deezerId": 25233361
- },
- {
-  "id": "mot-joe-black",
-  "artist": "Thomas Newman",
-  "title": "Möt Joe Black",
-  "year": 1998,
-  "track": "Whisper of a Thrill",
-  "deezerId": 908123
- },
- {
-  "id": "kalle-och-chokladfabriken",
-  "artist": "Danny Elfman",
-  "title": "Kalle och chokladfabriken",
-  "year": 2005,
-  "track": "Main Titles",
-  "deezerId": 647414792
- },
- {
-  "id": "sjalen",
-  "artist": "Trent Reznor & Atticus Ross",
-  "title": "Själen",
-  "year": 2020,
-  "track": "Epiphany",
-  "deezerId": 1173679662
- },
- {
-  "id": "rojar-ralf",
-  "artist": "Henry Jackman",
-  "title": "Röjar-Ralf",
-  "year": 2012,
-  "track": "Wreck-It Ralph",
-  "deezerId": 61289644
- },
- {
-  "id": "arrival",
-  "artist": "Max Richter",
-  "title": "Arrival",
-  "year": 2016,
-  "track": "On the Nature of Daylight",
-  "deezerId": 497150662
  },
  {
   "id": "hajen",
@@ -1121,11 +545,15 @@
  },
  {
   "id": "sound-of-music",
-  "artist": "Richard Rodgers",
+  "artist": "Julie Andrews",
   "title": "Sound of Music",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1965,
-  "track": "The Sound of Music",
-  "deezerId": 2556320062
+  "track": "My Favorite Things",
+  "deezerId": 1217345822
  },
  {
   "id": "min-granne-totoro",
@@ -1140,8 +568,8 @@
   "artist": "Bernard Herrmann",
   "title": "Psycho",
   "year": 1960,
-  "track": "Prelude",
-  "deezerId": 123818654
+  "track": "The Murder",
+  "deezerId": 123818686
  },
  {
   "id": "slumdog-millionaire",
@@ -1160,14 +588,6 @@
   "deezerId": 101112858
  },
  {
-  "id": "dansar-med-vargar",
-  "artist": "John Barry",
-  "title": "Dansar med vargar",
-  "year": 1990,
-  "track": "The John Dunbar Theme",
-  "deezerId": 581575
- },
- {
   "id": "rocky",
   "artist": "Bill Conti",
   "title": "Rocky",
@@ -1177,8 +597,12 @@
  },
  {
   "id": "top-gun",
-  "artist": "Giorgio Moroder",
+  "artist": "Kenny Loggins",
   "title": "Top Gun",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1986,
   "track": "Danger Zone",
   "deezerId": 7675051
@@ -1187,22 +611,34 @@
   "id": "ghostbusters",
   "artist": "Ray Parker Jr.",
   "title": "Ghostbusters",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1984,
   "track": "Ghostbusters",
   "deezerId": 969252
  },
  {
   "id": "dirty-dancing",
-  "artist": "Franke Previte",
+  "artist": "Bill Medley & Jennifer Warnes",
   "title": "Dirty Dancing",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1987,
   "track": "(I've Had) The Time of My Life",
   "deezerId": 13128250
  },
  {
   "id": "grease",
-  "artist": "Barry Gibb",
+  "artist": "Frankie Valli",
   "title": "Grease",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1978,
   "track": "Grease",
   "deezerId": 781563032
@@ -1211,6 +647,10 @@
   "id": "saturday-night-fever",
   "artist": "Bee Gees",
   "title": "Saturday Night Fever",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1977,
   "track": "Stayin' Alive",
   "deezerId": 427219162
@@ -1219,14 +659,22 @@
   "id": "footloose",
   "artist": "Kenny Loggins",
   "title": "Footloose",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1984,
   "track": "Footloose",
   "deezerId": 4155200162
  },
  {
   "id": "bodyguard",
-  "artist": "Dolly Parton",
+  "artist": "Whitney Houston",
   "title": "Bodyguard",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1992,
   "track": "I Will Always Love You",
   "deezerId": 7675403
@@ -1235,6 +683,10 @@
   "id": "pretty-woman",
   "artist": "Roy Orbison",
   "title": "Pretty Woman",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1990,
   "track": "Oh, Pretty Woman",
   "deezerId": 78033230
@@ -1265,8 +717,12 @@
  },
  {
   "id": "mary-poppins",
-  "artist": "Richard M. Sherman & Robert B. Sherman",
+  "artist": "Julie Andrews",
   "title": "Mary Poppins",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1964,
   "track": "Supercalifragilisticexpialidocious",
   "deezerId": 496743342
@@ -1297,16 +753,24 @@
  },
  {
   "id": "the-breakfast-club",
-  "artist": "Keith Forsey",
+  "artist": "Simple Minds",
   "title": "The Breakfast Club",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1985,
   "track": "Don't You (Forget About Me)",
   "deezerId": 3158973
  },
  {
   "id": "la-la-land",
-  "artist": "Justin Hurwitz",
+  "artist": "Ryan Gosling & Emma Stone",
   "title": "La La Land",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2016,
   "track": "City of Stars",
   "deezerId": 137727927
@@ -1321,8 +785,12 @@
  },
  {
   "id": "a-star-is-born",
-  "artist": "Lady Gaga",
+  "artist": "Lady Gaga & Bradley Cooper",
   "title": "A Star Is Born",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2018,
   "track": "Shallow",
   "deezerId": 561856742
@@ -1331,6 +799,10 @@
   "id": "barbie",
   "artist": "Billie Eilish",
   "title": "Barbie",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2023,
   "track": "What Was I Made For?",
   "deezerId": 2366043655
@@ -1339,6 +811,10 @@
   "id": "dumma-mej",
   "artist": "Pharrell Williams",
   "title": "Dumma mej",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2013,
   "track": "Happy",
   "deezerId": 701326562
@@ -1347,6 +823,10 @@
   "id": "trolls",
   "artist": "Justin Timberlake",
   "title": "Trolls",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2016,
   "track": "Can't Stop the Feeling!",
   "deezerId": 132635830
@@ -1385,8 +865,12 @@
  },
  {
   "id": "singin-in-the-rain",
-  "artist": "Nacio Herb Brown",
+  "artist": "Gene Kelly",
   "title": "Singin' in the Rain",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1952,
   "track": "Singin' in the Rain",
   "deezerId": 647366252
@@ -1401,8 +885,12 @@
  },
  {
   "id": "ghost",
-  "artist": "Alex North",
+  "artist": "The Righteous Brothers",
   "title": "Ghost",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1990,
   "track": "Unchained Melody",
   "deezerId": 2521400
@@ -1411,22 +899,34 @@
   "id": "purple-rain",
   "artist": "Prince",
   "title": "Purple Rain",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1984,
   "track": "Purple Rain",
   "deezerId": 374283061
  },
  {
   "id": "armageddon",
-  "artist": "Diane Warren",
+  "artist": "Aerosmith",
   "title": "Armageddon",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1998,
   "track": "I Don't Want to Miss a Thing",
   "deezerId": 70631608
  },
  {
   "id": "fame",
-  "artist": "Michael Gore",
+  "artist": "Irene Cara",
   "title": "Fame",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1980,
   "track": "Fame",
   "deezerId": 647797132
@@ -1435,14 +935,22 @@
   "id": "men-in-black",
   "artist": "Will Smith",
   "title": "Men in Black",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1997,
   "track": "Men in Black",
   "deezerId": 626417
  },
  {
   "id": "sa-som-i-himmelen",
-  "artist": "Stefan Nilsson",
+  "artist": "Helen Sjöholm",
   "title": "Så som i himmelen",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2004,
   "track": "Gabriellas sång",
   "deezerId": 479858352
@@ -1473,8 +981,12 @@
  },
  {
   "id": "fyra-brollop-och-en-begravning",
-  "artist": "Reg Presley",
+  "artist": "Wet Wet Wet",
   "title": "Fyra bröllop och en begravning",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1994,
   "track": "Love Is All Around",
   "deezerId": 2963317
@@ -1483,22 +995,34 @@
   "id": "philadelphia",
   "artist": "Bruce Springsteen",
   "title": "Philadelphia",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1993,
   "track": "Streets of Philadelphia",
   "deezerId": 900973
  },
  {
   "id": "kpop-demon-hunters",
-  "artist": "EJAE",
+  "artist": "HUNTR/X",
   "title": "KPop Demon Hunters",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2025,
   "track": "Golden",
   "deezerId": 3412534581
  },
  {
   "id": "wicked",
-  "artist": "Stephen Schwartz",
+  "artist": "Cynthia Erivo & Ariana Grande",
   "title": "Wicked",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2024,
   "track": "Defying Gravity",
   "deezerId": 3100316061
@@ -1507,6 +1031,10 @@
   "id": "shaft",
   "artist": "Isaac Hayes",
   "title": "Shaft",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1971,
   "track": "Theme from Shaft",
   "deezerId": 361114341
@@ -1515,14 +1043,22 @@
   "id": "flash-gordon",
   "artist": "Queen",
   "title": "Flash Gordon",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1980,
   "track": "Flash",
   "deezerId": 4092336171
  },
  {
   "id": "den-oandliga-historien",
-  "artist": "Giorgio Moroder",
+  "artist": "Limahl",
   "title": "Den oändliga historien",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1984,
   "track": "Never Ending Story",
   "deezerId": 3518231
@@ -1531,22 +1067,34 @@
   "id": "stand-by-me",
   "artist": "Ben E. King",
   "title": "Stand by Me",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1986,
   "track": "Stand by Me",
   "deezerId": 136710424
  },
  {
   "id": "mandomsprovet",
-  "artist": "Paul Simon",
+  "artist": "Simon & Garfunkel",
   "title": "Mandomsprovet",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1967,
   "track": "Mrs. Robinson",
   "deezerId": 17479904
  },
  {
   "id": "lego-filmen",
-  "artist": "Shawn Patterson",
+  "artist": "Tegan and Sara",
   "title": "Lego filmen",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2014,
   "track": "Everything Is Awesome",
   "deezerId": 647445312
@@ -1555,6 +1103,10 @@
   "id": "pulp-fiction",
   "artist": "Dick Dale",
   "title": "Pulp Fiction",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1994,
   "track": "Misirlou",
   "deezerId": 7680019
@@ -1571,16 +1123,288 @@
   "id": "cocktail",
   "artist": "The Beach Boys",
   "title": "Cocktail",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 1988,
   "track": "Kokomo",
   "deezerId": 3091987
  },
  {
   "id": "zootropolis",
-  "artist": "Sia",
+  "artist": "Shakira",
   "title": "Zootropolis",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
   "year": 2016,
   "track": "Try Everything",
   "deezerId": 586860862
+ },
+ {
+  "id": "flashdance",
+  "artist": "Irene Cara",
+  "title": "Flashdance",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1983,
+  "track": "Flashdance... What a Feeling",
+  "deezerId": 62419007
+ },
+ {
+  "id": "fast-and-furious",
+  "artist": "Wiz Khalifa & Charlie Puth",
+  "title": "Fast & Furious",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 2015,
+  "track": "See You Again",
+  "deezerId": 95813354
+ },
+ {
+  "id": "guardians-of-the-galaxy",
+  "artist": "Blue Swede",
+  "title": "Guardians of the Galaxy",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 2014,
+  "track": "Hooked on a Feeling",
+  "deezerId": 3402413
+ },
+ {
+  "id": "madagaskar",
+  "artist": "Reel 2 Real",
+  "title": "Madagaskar",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 2005,
+  "track": "I Like to Move It",
+  "deezerId": 3808592632
+ },
+ {
+  "id": "super-mario-bros-filmen",
+  "artist": "Jack Black",
+  "title": "Super Mario Bros. Filmen",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 2023,
+  "track": "Peaches",
+  "deezerId": 2208355417
+ },
+ {
+  "id": "notting-hill",
+  "artist": "Elvis Costello",
+  "title": "Notting Hill",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1999,
+  "track": "She",
+  "deezerId": 62471842
+ },
+ {
+  "id": "kill-bill",
+  "artist": "Tomoyasu Hotei",
+  "title": "Kill Bill",
+  "year": 2003,
+  "track": "Battle Without Honor or Humanity",
+  "deezerId": 3093563
+ },
+ {
+  "id": "rocky-horror-picture-show",
+  "artist": "Richard O'Brien",
+  "title": "Rocky Horror Picture Show",
+  "year": 1975,
+  "track": "Time Warp",
+  "deezerId": 4184461272
+ },
+ {
+  "id": "cabaret",
+  "artist": "Liza Minnelli",
+  "title": "Cabaret",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1972,
+  "track": "Cabaret",
+  "deezerId": 729599422
+ },
+ {
+  "id": "bohemian-rhapsody",
+  "artist": "Queen",
+  "title": "Bohemian Rhapsody",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 2018,
+  "track": "Bohemian Rhapsody",
+  "deezerId": 4091937401
+ },
+ {
+  "id": "nio-till-fem",
+  "artist": "Dolly Parton",
+  "title": "Nio till fem",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1980,
+  "track": "9 to 5",
+  "deezerId": 992937
+ },
+ {
+  "id": "jonssonligan",
+  "artist": "Ragnar Grippe",
+  "title": "Jönssonligan",
+  "year": 1981,
+  "track": "Jönssonligan",
+  "deezerId": 3151832741
+ },
+ {
+  "id": "exorcisten",
+  "artist": "Mike Oldfield",
+  "title": "Exorcisten",
+  "year": 1973,
+  "track": "Mike Oldfield's Single (Theme From Tubular Bells)",
+  "deezerId": 99930580
+ },
+ {
+  "id": "coyote-ugly",
+  "artist": "LeAnn Rimes",
+  "title": "Coyote Ugly",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 2000,
+  "track": "Can't Fight the Moonlight",
+  "deezerId": 75779409
+ },
+ {
+  "id": "blues-brothers",
+  "artist": "The Blues Brothers",
+  "title": "Blues Brothers",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1980,
+  "track": "Everybody Needs Somebody to Love",
+  "deezerId": 13100386
+ },
+ {
+  "id": "evita",
+  "artist": "Madonna",
+  "title": "Evita",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1996,
+  "track": "Don't Cry for Me Argentina",
+  "deezerId": 2794568
+ },
+ {
+  "id": "fantomen-pa-operan",
+  "artist": "Andrew Lloyd Webber",
+  "title": "Fantomen på Operan",
+  "year": 2004,
+  "track": "The Phantom of the Opera",
+  "deezerId": 3582495171
+ },
+ {
+  "id": "trollkarlen-fran-oz",
+  "artist": "Judy Garland",
+  "title": "Trollkarlen från Oz",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1939,
+  "track": "Over the Rainbow",
+  "deezerId": 647350552
+ },
+ {
+  "id": "austin-powers",
+  "artist": "Quincy Jones",
+  "title": "Austin Powers",
+  "year": 1997,
+  "track": "Soul Bossa Nova",
+  "deezerId": 2507005
+ },
+ {
+  "id": "trainspotting",
+  "artist": "Underworld",
+  "title": "Trainspotting",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1996,
+  "track": "Born Slippy .NUXX",
+  "deezerId": 82265248
+ },
+ {
+  "id": "fucking-amal",
+  "artist": "Robyn",
+  "title": "Fucking Åmål",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1998,
+  "track": "Show Me Love",
+  "deezerId": 2900091
+ },
+ {
+  "id": "bad-boys",
+  "artist": "Inner Circle",
+  "title": "Bad Boys",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1995,
+  "track": "Bad Boys",
+  "deezerId": 2557399732
+ },
+ {
+  "id": "mortal-kombat",
+  "artist": "The Immortals",
+  "title": "Mortal Kombat",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1995,
+  "track": "Techno Syndrome",
+  "deezerId": 441426162
+ },
+ {
+  "id": "ett-herrans-liv",
+  "artist": "Monty Python",
+  "title": "Ett herrans liv",
+  "labels": {
+   "artist": "Artist",
+   "title": "Film"
+  },
+  "year": 1979,
+  "track": "Always Look on the Bright Side of Life",
+  "deezerId": 1761084577
  }
 ]
