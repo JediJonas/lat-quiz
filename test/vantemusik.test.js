@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { norm } from '../js/lookup.js';
 import { LOBBY_SONGS, SEASON_LOBBY_SONGS, lobbySongs, pickLobbySong } from '../js/vantemusik.js';
+import { SEASON_WINNER_SONGS, WINNER_SONGS, pickWinnerSong, winnerSongs } from '../js/vinnarlat.js';
 
 const read = (file) => JSON.parse(readFileSync(new URL(`../data/${file}`, import.meta.url), 'utf8'));
 const quizSongs = read('categories.json').flatMap((c) => read(c.file));
@@ -42,4 +43,22 @@ test('väntemusiken slumpas och blir inte samma två väntor i rad', () => {
   const first = pickLobbySong(() => 0);
   assert.equal(first, LOBBY_SONGS[0]);
   for (const r of [0, 0.5, 0.999]) assert.notEqual(pickLobbySong(() => r, first.deezerId), first);
+});
+
+test('säsongskategorierna har egen vinnarlåt, som inte är quizlåt eller väntemusik', () => {
+  const categories = read('categories.json');
+  const ids = new Set(quizSongs.map((s) => s.deezerId));
+  const lobby = new Set([LOBBY_SONGS, ...Object.values(SEASON_LOBBY_SONGS)].flat().map((s) => s.deezerId));
+  for (const [id, songs] of Object.entries(SEASON_WINNER_SONGS)) {
+    assert.ok(categories.some((c) => c.id === id && c.season), `${id} är en säsongskategori`);
+    for (const song of songs) {
+      assert.ok(song.artist && song.title && Number.isInteger(song.deezerId), song.title);
+      assert.ok(!ids.has(song.deezerId) && !lobby.has(song.deezerId), song.title);
+    }
+  }
+  assert.equal(winnerSongs('halloween'), SEASON_WINNER_SONGS.halloween);
+  assert.equal(winnerSongs('80-tal'), WINNER_SONGS);
+  // Med en enda låt spelas samma låt även nästa gång.
+  const [only] = SEASON_WINNER_SONGS.jul;
+  assert.equal(pickWinnerSong(() => 0.5, only.deezerId, SEASON_WINNER_SONGS.jul), only);
 });
