@@ -1129,15 +1129,15 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .cat-option .tile { border-radius: 26px; }
 .cat-option .tile::after { font-size: 100px; top: -0.1em; right: -0.06em; }
 /* I mobilen får en förkortning med fler än två tecken inte plats i hörnet och klipptes mitt i.
-   Där står den i stället mitt i omslaget, både de små och det stora under spelet, och det som
-   inte får plats sticker ut lika mycket åt båda håll. Två tecken står kvar i hörnet. Listan
-   följer --cat-glyph ovan och räknar synliga tecken. */
+   Där står den i stället mitt i omslaget i sidled, på samma höjd som förut, både på de små och
+   det stora under spelet. Det som inte får plats sticker ut lika mycket åt båda håll. Två tecken
+   står kvar i hörnet. Listan följer --cat-glyph ovan och räknar synliga tecken. */
 @media (max-width: 600px) {
   .tile:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="halloween"], [data-kategori="jul"])::after,
   :root:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="halloween"], [data-kategori="jul"]) .cover::after {
-    inset: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
     white-space: nowrap;
     /* Det negativa teckenavståndet räknas även efter sista tecknet, så utan det här hamnar texten lite till höger. */
