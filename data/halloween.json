@@ -389,16 +389,16 @@
   "deezerId": 120301884
  },
  {
-  "id": "suspiria",
-  "artist": "Goblin",
-  "title": "Suspiria",
+  "id": "gremlins",
+  "artist": "Jerry Goldsmith",
+  "title": "Gremlins",
   "labels": {
    "artist": "Kompositör",
    "title": "Film"
   },
-  "year": 1977,
-  "track": "Suspiria",
-  "deezerId": 6827850
+  "year": 1984,
+  "track": "The Gremlin Rag",
+  "deezerId": 647943902
  },
  {
   "id": "ondskans-vardshus",
