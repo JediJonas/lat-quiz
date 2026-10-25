@@ -503,8 +503,7 @@ function ghosts(box) {
     draw();
     return;
   }
-  // När snöyran är slut ritas bara drivan.
-  play(box, area, dur, (now) => { t = now; draw(); }, () => { flakes.length = 0; draw(); });
+  play(box, area, dur, (now) => { t = now; draw(); });
 }
 
 // Ett ren i galopp, vänd åt höger med hovarna vid y = 9. leg går från -1 till 1.
