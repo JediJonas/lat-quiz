@@ -695,6 +695,9 @@ function unknownCheckbox() {
 // Spelarna får veta att en ny match har börjat. Spelledaren har själv valt det.
 function restart() {
   stopClip();
+  // Vinnarlåten tystnar när en ny match börjar, och bara då. Pausas ljud vid varje omritning
+  // kan quizlåten hacka till i iPhone när spelledaren trycker, se stop i vinnarlat.js.
+  winnerSong.stop();
   game.restart(state);
   changed();
   for (const connId of connToPlayer.keys()) net.send(connId, { type: 'new-match' });
@@ -1154,8 +1157,6 @@ function winnerShown() {
 // Samma vy som spelarna ser, med Starta spelet och Spela igen för spelledaren.
 function render() {
   $('#category').textContent = category.name;
-  // Vinnarlåten tystnar när en ny match börjar.
-  if (!state.winners) winnerSong.stop();
   updateLobbyMusic();
   showNowMusic($('#now-music'), currentMusic());
   gameView.update(viewFor(state.hostId), state.hostId);
