@@ -9,6 +9,13 @@ const rand = (min, max) => min + Math.random() * (max - min);
 const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const LEAF_COLORS = ['#e8730c', '#c9471a', '#f0a32a', '#8f3a12'];
 
+// Medan vinstanimationen spelas tonar lagret bort och står still, så att mobilen inte behöver rita
+// två animationer samtidigt. Sedan fortsätter det där det var.
+let pausedUntil = 0;
+export function pauseSeasonEffect(ms) {
+  pausedUntil = performance.now() + ms;
+}
+
 // Färgerna står i CSS, så att de följer ljust och mörkt läge.
 const color = (el, name) => getComputedStyle(el).getPropertyValue(name).trim();
 
@@ -47,8 +54,8 @@ function drawLeaf(ctx, l, w, h, t) {
   ctx.restore();
 }
 
-// En fladdermus med vingar som slår. flap går från -1 till 1.
-function drawBat(ctx, x, y, s, flap) {
+// En fladdermus med vingar som slår. flap går från -1 till 1. Används även av vinstanimationen.
+export function drawBat(ctx, x, y, s, flap) {
   const lift = flap * s * 0.6;
   ctx.beginPath();
   for (const side of [-1, 1]) {
@@ -115,6 +122,12 @@ function start(layer, effect) {
   const tick = (now) => {
     const dt = Math.min(0.1, (now - last) / 1000);
     last = now;
+    const paused = now < pausedUntil;
+    layer.classList.toggle('paused', paused);
+    if (paused) {
+      frame = requestAnimationFrame(tick);
+      return;
+    }
     for (const item of items) {
       item.y += item.speed * dt;
       if (item.y > h + 20) { item.y = -20; item.x = Math.random(); }

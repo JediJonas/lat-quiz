@@ -43,7 +43,6 @@ export const SEASON_LOBBY_SONGS = {
     { artist: 'Classic Carnival Circus Calliope Music', title: 'Dardanella', deezerId: 70731041 },
     { artist: 'Lalo Schifrin', title: 'Amityville Horror Main Title', deezerId: 1231894852 },
     { artist: 'Danny Elfman', title: 'Music Box', deezerId: 3453190731 },
-    { artist: 'Joseph Bishara', title: 'Annabelle Opening', deezerId: 647325872 },
     { artist: 'Raphaël Imbert', title: 'My Love (musical saw version)', deezerId: 64699066 },
   ],
 };
