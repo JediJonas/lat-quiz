@@ -25,7 +25,7 @@ export const LOBBY_SONGS = [
 ];
 
 // Säsongskategorierna har egen väntemusik, instrumental som jazzen, så att stämningen finns
-// redan i lobbyn. Ingen av låtarna finns bland quizlåtarna.
+// redan i lobbyn. Halloween har läskig orgel, som Jonas valde 25 oktober 2026. Ingen av låtarna finns bland quizlåtarna.
 export const SEASON_LOBBY_SONGS = {
   jul: [
     { artist: 'Vince Guaraldi Trio', title: 'Christmas Time Is Here', deezerId: 134403696 },
@@ -37,11 +37,9 @@ export const SEASON_LOBBY_SONGS = {
     { artist: 'Ramsey Lewis', title: 'The Sound of Christmas', deezerId: 1567696 },
   ],
   halloween: [
-    { artist: 'Vince Guaraldi', title: 'The Great Pumpkin Waltz', deezerId: 1873266257 },
     { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
-    { artist: 'Jack Marshall', title: 'The Ghoul', deezerId: 4008734431 },
-    { artist: 'Erich Kunzel', title: 'Funeral March of a Marionette', deezerId: 457300992 },
-    { artist: 'Alice Sara Ott', title: 'March of the Trolls', deezerId: 2200938377 },
+    { artist: 'Cybermonsters', title: 'Haunted Pipe Organ Stomp', deezerId: 3576637671 },
+    { artist: 'Conrad Askland', title: 'Halloween Organ', deezerId: 23197541 },
   ],
 };
 
