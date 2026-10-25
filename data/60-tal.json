@@ -42,13 +42,6 @@
   "deezerId": 3614150
  },
  {
-  "id": "roy-orbison-oh-pretty-woman",
-  "artist": "Roy Orbison",
-  "title": "Oh, Pretty Woman",
-  "year": 1964,
-  "deezerId": 78033230
- },
- {
   "id": "cliff-richard-congratulations",
   "artist": "Cliff Richard",
   "title": "Congratulations",
@@ -180,13 +173,6 @@
   "title": "Whole Lotta Love",
   "year": 1969,
   "deezerId": 78671026
- },
- {
-  "id": "simon-garfunkel-mrs-robinson",
-  "artist": "Simon & Garfunkel",
-  "title": "Mrs. Robinson",
-  "year": 1968,
-  "deezerId": 717247842
  },
  {
   "id": "the-foundations-build-me-up-buttercup",
@@ -644,13 +630,6 @@
   "deezerId": 132196486
  },
  {
-  "id": "ben-e-king-stand-by-me",
-  "artist": "Ben E. King",
-  "title": "Stand by Me",
-  "year": 1961,
-  "deezerId": 136710424
- },
- {
   "id": "the-mamas-the-papas-california-dreamin",
   "artist": "The Mamas & the Papas",
   "title": "California Dreamin'",
@@ -747,13 +726,6 @@
   "title": "What a Wonderful World",
   "year": 1967,
   "deezerId": 62347641
- },
- {
-  "id": "the-righteous-brothers-unchained-melody",
-  "artist": "The Righteous Brothers",
-  "title": "Unchained Melody",
-  "year": 1965,
-  "deezerId": 468253402
  },
  {
   "id": "aretha-franklin-i-say-a-little-prayer",

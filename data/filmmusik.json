@@ -1166,5 +1166,421 @@
   "year": 1990,
   "track": "The John Dunbar Theme",
   "deezerId": 581575
+ },
+ {
+  "id": "rocky",
+  "artist": "Bill Conti",
+  "title": "Rocky",
+  "year": 1976,
+  "track": "Gonna Fly Now",
+  "deezerId": 99127208
+ },
+ {
+  "id": "top-gun",
+  "artist": "Giorgio Moroder",
+  "title": "Top Gun",
+  "year": 1986,
+  "track": "Danger Zone",
+  "deezerId": 7675051
+ },
+ {
+  "id": "ghostbusters",
+  "artist": "Ray Parker Jr.",
+  "title": "Ghostbusters",
+  "year": 1984,
+  "track": "Ghostbusters",
+  "deezerId": 969252
+ },
+ {
+  "id": "dirty-dancing",
+  "artist": "Franke Previte",
+  "title": "Dirty Dancing",
+  "year": 1987,
+  "track": "(I've Had) The Time of My Life",
+  "deezerId": 13128250
+ },
+ {
+  "id": "grease",
+  "artist": "Barry Gibb",
+  "title": "Grease",
+  "year": 1978,
+  "track": "Grease",
+  "deezerId": 781563032
+ },
+ {
+  "id": "saturday-night-fever",
+  "artist": "Bee Gees",
+  "title": "Saturday Night Fever",
+  "year": 1977,
+  "track": "Stayin' Alive",
+  "deezerId": 427219162
+ },
+ {
+  "id": "footloose",
+  "artist": "Kenny Loggins",
+  "title": "Footloose",
+  "year": 1984,
+  "track": "Footloose",
+  "deezerId": 4155200162
+ },
+ {
+  "id": "bodyguard",
+  "artist": "Dolly Parton",
+  "title": "Bodyguard",
+  "year": 1992,
+  "track": "I Will Always Love You",
+  "deezerId": 7675403
+ },
+ {
+  "id": "pretty-woman",
+  "artist": "Roy Orbison",
+  "title": "Pretty Woman",
+  "year": 1990,
+  "track": "Oh, Pretty Woman",
+  "deezerId": 78033230
+ },
+ {
+  "id": "snuten-i-hollywood",
+  "artist": "Harold Faltermeyer",
+  "title": "Snuten i Hollywood",
+  "year": 1984,
+  "track": "Axel F",
+  "deezerId": 80538212
+ },
+ {
+  "id": "forrest-gump",
+  "artist": "Alan Silvestri",
+  "title": "Forrest Gump",
+  "year": 1994,
+  "track": "I'm Forrest... Forrest Gump",
+  "deezerId": 1014549
+ },
+ {
+  "id": "mamma-mia",
+  "artist": "Benny Andersson & Björn Ulvaeus",
+  "title": "Mamma Mia!",
+  "year": 2008,
+  "track": "Mamma Mia",
+  "deezerId": 1578992
+ },
+ {
+  "id": "mary-poppins",
+  "artist": "Richard M. Sherman & Robert B. Sherman",
+  "title": "Mary Poppins",
+  "year": 1964,
+  "track": "Supercalifragilisticexpialidocious",
+  "deezerId": 496743342
+ },
+ {
+  "id": "djungelboken",
+  "artist": "Terry Gilkyson",
+  "title": "Djungelboken",
+  "year": 1967,
+  "track": "The Bare Necessities",
+  "deezerId": 130320338
+ },
+ {
+  "id": "pinocchio",
+  "artist": "Leigh Harline",
+  "title": "Pinocchio",
+  "year": 1940,
+  "track": "When You Wish Upon a Star",
+  "deezerId": 677778432
+ },
+ {
+  "id": "snovit-och-de-sju-dvargarna",
+  "artist": "Frank Churchill",
+  "title": "Snövit och de sju dvärgarna",
+  "year": 1937,
+  "track": "Heigh-Ho",
+  "deezerId": 528341981
+ },
+ {
+  "id": "the-breakfast-club",
+  "artist": "Keith Forsey",
+  "title": "The Breakfast Club",
+  "year": 1985,
+  "track": "Don't You (Forget About Me)",
+  "deezerId": 3158973
+ },
+ {
+  "id": "la-la-land",
+  "artist": "Justin Hurwitz",
+  "title": "La La Land",
+  "year": 2016,
+  "track": "City of Stars",
+  "deezerId": 137727927
+ },
+ {
+  "id": "the-greatest-showman",
+  "artist": "Benj Pasek & Justin Paul",
+  "title": "The Greatest Showman",
+  "year": 2017,
+  "track": "This Is Me",
+  "deezerId": 435175512
+ },
+ {
+  "id": "a-star-is-born",
+  "artist": "Lady Gaga",
+  "title": "A Star Is Born",
+  "year": 2018,
+  "track": "Shallow",
+  "deezerId": 561856742
+ },
+ {
+  "id": "barbie",
+  "artist": "Billie Eilish",
+  "title": "Barbie",
+  "year": 2023,
+  "track": "What Was I Made For?",
+  "deezerId": 2366043655
+ },
+ {
+  "id": "dumma-mej",
+  "artist": "Pharrell Williams",
+  "title": "Dumma mej",
+  "year": 2013,
+  "track": "Happy",
+  "deezerId": 701326562
+ },
+ {
+  "id": "trolls",
+  "artist": "Justin Timberlake",
+  "title": "Trolls",
+  "year": 2016,
+  "track": "Can't Stop the Feeling!",
+  "deezerId": 132635830
+ },
+ {
+  "id": "coco",
+  "artist": "Kristen Anderson-Lopez & Robert Lopez",
+  "title": "Coco",
+  "year": 2017,
+  "track": "Remember Me",
+  "deezerId": 424600072
+ },
+ {
+  "id": "terminator",
+  "artist": "Brad Fiedel",
+  "title": "Terminator",
+  "year": 1984,
+  "track": "The Terminator Theme",
+  "deezerId": 889834852
+ },
+ {
+  "id": "doktor-zjivago",
+  "artist": "Maurice Jarre",
+  "title": "Doktor Zjivago",
+  "year": 1965,
+  "track": "Lara's Theme",
+  "deezerId": 4380627
+ },
+ {
+  "id": "borta-med-vinden",
+  "artist": "Max Steiner",
+  "title": "Borta med vinden",
+  "year": 1939,
+  "track": "Gone With the Wind (Tara's Theme)",
+  "deezerId": 15855833
+ },
+ {
+  "id": "singin-in-the-rain",
+  "artist": "Nacio Herb Brown",
+  "title": "Singin' in the Rain",
+  "year": 1952,
+  "track": "Singin' in the Rain",
+  "deezerId": 647366252
+ },
+ {
+  "id": "triumfens-ogonblick",
+  "artist": "Vangelis",
+  "title": "Triumfens ögonblick",
+  "year": 1981,
+  "track": "Chariots of Fire",
+  "deezerId": 624844652
+ },
+ {
+  "id": "ghost",
+  "artist": "Alex North",
+  "title": "Ghost",
+  "year": 1990,
+  "track": "Unchained Melody",
+  "deezerId": 2521400
+ },
+ {
+  "id": "purple-rain",
+  "artist": "Prince",
+  "title": "Purple Rain",
+  "year": 1984,
+  "track": "Purple Rain",
+  "deezerId": 374283061
+ },
+ {
+  "id": "armageddon",
+  "artist": "Diane Warren",
+  "title": "Armageddon",
+  "year": 1998,
+  "track": "I Don't Want to Miss a Thing",
+  "deezerId": 70631608
+ },
+ {
+  "id": "fame",
+  "artist": "Michael Gore",
+  "title": "Fame",
+  "year": 1980,
+  "track": "Fame",
+  "deezerId": 647797132
+ },
+ {
+  "id": "men-in-black",
+  "artist": "Will Smith",
+  "title": "Men in Black",
+  "year": 1997,
+  "track": "Men in Black",
+  "deezerId": 626417
+ },
+ {
+  "id": "sa-som-i-himmelen",
+  "artist": "Stefan Nilsson",
+  "title": "Så som i himmelen",
+  "year": 2004,
+  "track": "Gabriellas sång",
+  "deezerId": 479858352
+ },
+ {
+  "id": "pippi-langstrump",
+  "artist": "Jan Johansson",
+  "title": "Pippi Långstrump",
+  "year": 1969,
+  "track": "Här kommer Pippi Långstrump",
+  "deezerId": 963119072
+ },
+ {
+  "id": "blasningen",
+  "artist": "Scott Joplin",
+  "title": "Blåsningen",
+  "year": 1973,
+  "track": "The Entertainer",
+  "deezerId": 1097452
+ },
+ {
+  "id": "zorba",
+  "artist": "Mikis Theodorakis",
+  "title": "Zorba",
+  "year": 1964,
+  "track": "Zorba's Dance",
+  "deezerId": 1675822
+ },
+ {
+  "id": "fyra-brollop-och-en-begravning",
+  "artist": "Reg Presley",
+  "title": "Fyra bröllop och en begravning",
+  "year": 1994,
+  "track": "Love Is All Around",
+  "deezerId": 2963317
+ },
+ {
+  "id": "philadelphia",
+  "artist": "Bruce Springsteen",
+  "title": "Philadelphia",
+  "year": 1993,
+  "track": "Streets of Philadelphia",
+  "deezerId": 900973
+ },
+ {
+  "id": "kpop-demon-hunters",
+  "artist": "EJAE",
+  "title": "KPop Demon Hunters",
+  "year": 2025,
+  "track": "Golden",
+  "deezerId": 3412534581
+ },
+ {
+  "id": "wicked",
+  "artist": "Stephen Schwartz",
+  "title": "Wicked",
+  "year": 2024,
+  "track": "Defying Gravity",
+  "deezerId": 3100316061
+ },
+ {
+  "id": "shaft",
+  "artist": "Isaac Hayes",
+  "title": "Shaft",
+  "year": 1971,
+  "track": "Theme from Shaft",
+  "deezerId": 361114341
+ },
+ {
+  "id": "flash-gordon",
+  "artist": "Queen",
+  "title": "Flash Gordon",
+  "year": 1980,
+  "track": "Flash",
+  "deezerId": 4092336171
+ },
+ {
+  "id": "den-oandliga-historien",
+  "artist": "Giorgio Moroder",
+  "title": "Den oändliga historien",
+  "year": 1984,
+  "track": "Never Ending Story",
+  "deezerId": 3518231
+ },
+ {
+  "id": "stand-by-me",
+  "artist": "Ben E. King",
+  "title": "Stand by Me",
+  "year": 1986,
+  "track": "Stand by Me",
+  "deezerId": 136710424
+ },
+ {
+  "id": "mandomsprovet",
+  "artist": "Paul Simon",
+  "title": "Mandomsprovet",
+  "year": 1967,
+  "track": "Mrs. Robinson",
+  "deezerId": 17479904
+ },
+ {
+  "id": "lego-filmen",
+  "artist": "Shawn Patterson",
+  "title": "Lego filmen",
+  "year": 2014,
+  "track": "Everything Is Awesome",
+  "deezerId": 647445312
+ },
+ {
+  "id": "pulp-fiction",
+  "artist": "Dick Dale",
+  "title": "Pulp Fiction",
+  "year": 1994,
+  "track": "Misirlou",
+  "deezerId": 7680019
+ },
+ {
+  "id": "bron-over-floden-kwai",
+  "artist": "Malcolm Arnold",
+  "title": "Bron över floden Kwai",
+  "year": 1957,
+  "track": "Colonel Bogey March",
+  "deezerId": 4380625
+ },
+ {
+  "id": "cocktail",
+  "artist": "The Beach Boys",
+  "title": "Cocktail",
+  "year": 1988,
+  "track": "Kokomo",
+  "deezerId": 3091987
+ },
+ {
+  "id": "zootropolis",
+  "artist": "Sia",
+  "title": "Zootropolis",
+  "year": 2016,
+  "track": "Try Everything",
+  "deezerId": 586860862
  }
 ]
