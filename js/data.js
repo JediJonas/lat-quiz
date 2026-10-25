@@ -12,6 +12,25 @@ export function loadCategories() {
   return getJson('data/categories.json');
 }
 
+// Säsongskategorier, som Halloween, syns bara mellan två datum varje år. Datumen står som
+// "MM-DD" i categories.json, till exempel { "from": "10-15", "to": "11-05" }, och båda dagarna
+// räknas med. Ett fönster över nyår, som "12-01" till "01-06", går också.
+export function inSeason(category, date = new Date()) {
+  const { season } = category;
+  if (!season) return true;
+  const pad = (n) => String(n).padStart(2, '0');
+  const today = `${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+  return season.from <= season.to
+    ? today >= season.from && today <= season.to
+    : today >= season.from || today <= season.to;
+}
+
+// Kategorierna som går att välja. keep är en kategori som redan spelas och får stå kvar
+// i Inställningar även när säsongen har tagit slut.
+export function visibleCategories(categories, { date = new Date(), keep = null } = {}) {
+  return categories.filter((c) => c.id === keep || inSeason(c, date));
+}
+
 export async function loadSongs(category) {
   return getJson('data/' + category.file);
 }

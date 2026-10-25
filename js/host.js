@@ -1,7 +1,7 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
-import { loadCategories, loadSongs } from './data.js';
+import { loadCategories, loadSongs, visibleCategories } from './data.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { showAlert, showConfirm } from './dialog.js';
 import { currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
@@ -11,14 +11,16 @@ import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { dragToClose } from './ark.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
-import { LOBBY_FADE, createLobbyMusic } from './vantemusik.js';
+import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { DELAY_CHOICES, after, cleanDelay, delayShort, delayText } from './ljudfordrojning.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
+import { mountSeasonEffect } from './sasong.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
+mountSeasonEffect();
 
 const SAVE_KEY = 'latquiz-host';
 const NAME_KEY = 'latquiz-namn';
@@ -128,7 +130,7 @@ function musicChanged() {
 }
 
 const winnerSong = createWinnerSong({ onChange: musicChanged });
-const lobbyMusic = createLobbyMusic({ onChange: musicChanged });
+const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(category && category.id) });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
@@ -960,9 +962,9 @@ function showSettings(current, categories = null, categoryId = null, names = {},
 async function editSettings() {
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
-  const categories = state ? all : null;
   const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
+  const categories = state ? visibleCategories(all, { keep: currentCategory }) : null;
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
   const chosen = await showSettings(current, categories, currentCategory, names,
     { running: Boolean(state), clipAll, extraSounds: loadExtraSounds(), audioDelay: loadAudioDelay() });
@@ -1233,7 +1235,8 @@ window.addEventListener('beforeunload', (e) => {
 });
 
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
-// Här uppdateras de från listan och det val som redan är gjort behålls.
+// Här uppdateras de från listan och det val som redan är gjort behålls. Säsongskategorier,
+// som Halloween, står inte i host.html och kommer bara med när det är säsong för dem.
 function renderCategories(categories) {
   const picker = $('#category-picker');
   const chosen = chosenCategory();
@@ -1302,7 +1305,7 @@ async function init() {
     resume.querySelector('button').textContent = `Tillbaka till ${saved.code}`;
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
-  renderCategories(await loadCategories());
+  renderCategories(visibleCategories(await loadCategories()));
 }
 
 init().catch(showError);

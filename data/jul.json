@@ -1,0 +1,380 @@
+[
+ {
+  "id": "mariah-carey-all-i-want-for-christmas-is-you",
+  "artist": "Mariah Carey",
+  "title": "All I Want for Christmas Is You",
+  "year": 1994,
+  "deezerId": 62710442
+ },
+ {
+  "id": "wham-last-christmas",
+  "artist": "Wham!",
+  "title": "Last Christmas",
+  "year": 1984,
+  "deezerId": 1036586
+ },
+ {
+  "id": "brenda-lee-rockin-around-the-christmas-tree",
+  "artist": "Brenda Lee",
+  "title": "Rockin' Around the Christmas Tree",
+  "year": 1958,
+  "deezerId": 24136731
+ },
+ {
+  "id": "bobby-helms-jingle-bell-rock",
+  "artist": "Bobby Helms",
+  "title": "Jingle Bell Rock",
+  "year": 1957,
+  "deezerId": 24136701
+ },
+ {
+  "id": "bing-crosby-white-christmas",
+  "artist": "Bing Crosby",
+  "title": "White Christmas",
+  "year": 1942,
+  "deezerId": 89825343
+ },
+ {
+  "id": "nat-king-cole-the-christmas-song",
+  "artist": "Nat King Cole",
+  "title": "The Christmas Song",
+  "year": 1946,
+  "deezerId": 4228144
+ },
+ {
+  "id": "dean-martin-let-it-snow-let-it-snow-let-it-snow",
+  "artist": "Dean Martin",
+  "title": "Let It Snow! Let It Snow! Let It Snow!",
+  "year": 1959,
+  "deezerId": 4304510
+ },
+ {
+  "id": "andy-williams-it-s-the-most-wonderful-time-of-the-year",
+  "artist": "Andy Williams",
+  "title": "It's the Most Wonderful Time of the Year",
+  "year": 1963,
+  "deezerId": 585967
+ },
+ {
+  "id": "jose-feliciano-feliz-navidad",
+  "artist": "José Feliciano",
+  "title": "Feliz Navidad",
+  "year": 1970,
+  "deezerId": 991049
+ },
+ {
+  "id": "chris-rea-driving-home-for-christmas",
+  "artist": "Chris Rea",
+  "title": "Driving Home for Christmas",
+  "year": 1986,
+  "deezerId": 425956912
+ },
+ {
+  "id": "michael-buble-it-s-beginning-to-look-a-lot-like-christmas",
+  "artist": "Michael Bublé",
+  "title": "It's Beginning to Look a Lot Like Christmas",
+  "year": 2011,
+  "deezerId": 1934770197
+ },
+ {
+  "id": "ariana-grande-santa-tell-me",
+  "artist": "Ariana Grande",
+  "title": "Santa Tell Me",
+  "year": 2014,
+  "deezerId": 90728983
+ },
+ {
+  "id": "justin-bieber-mistletoe",
+  "artist": "Justin Bieber",
+  "title": "Mistletoe",
+  "year": 2011,
+  "deezerId": 14309710
+ },
+ {
+  "id": "john-lennon-happy-xmas-war-is-over",
+  "artist": "John Lennon",
+  "title": "Happy Xmas (War Is Over)",
+  "year": 1971,
+  "deezerId": 7163389
+ },
+ {
+  "id": "paul-mccartney-wonderful-christmastime",
+  "artist": "Paul McCartney",
+  "title": "Wonderful Christmastime",
+  "year": 1979,
+  "deezerId": 640963102
+ },
+ {
+  "id": "slade-merry-xmas-everybody",
+  "artist": "Slade",
+  "title": "Merry Xmas Everybody",
+  "year": 1973,
+  "deezerId": 4093543081
+ },
+ {
+  "id": "wizzard-i-wish-it-could-be-christmas-everyday",
+  "artist": "Wizzard",
+  "title": "I Wish It Could Be Christmas Everyday",
+  "year": 1973,
+  "deezerId": 3167852
+ },
+ {
+  "id": "the-pogues-fairytale-of-new-york",
+  "artist": "The Pogues",
+  "title": "Fairytale of New York",
+  "year": 1987,
+  "deezerId": 674162
+ },
+ {
+  "id": "shakin-stevens-merry-christmas-everyone",
+  "artist": "Shakin' Stevens",
+  "title": "Merry Christmas Everyone",
+  "year": 1985,
+  "deezerId": 571386672
+ },
+ {
+  "id": "elton-john-step-into-christmas",
+  "artist": "Elton John",
+  "title": "Step into Christmas",
+  "year": 1973,
+  "deezerId": 1124124
+ },
+ {
+  "id": "darlene-love-christmas-baby-please-come-home",
+  "artist": "Darlene Love",
+  "title": "Christmas (Baby Please Come Home)",
+  "year": 1963,
+  "deezerId": 13073002
+ },
+ {
+  "id": "the-ronettes-sleigh-ride",
+  "artist": "The Ronettes",
+  "title": "Sleigh Ride",
+  "year": 1963,
+  "deezerId": 13072996
+ },
+ {
+  "id": "eartha-kitt-santa-baby",
+  "artist": "Eartha Kitt",
+  "title": "Santa Baby",
+  "year": 1953,
+  "deezerId": 6815663
+ },
+ {
+  "id": "elvis-presley-blue-christmas",
+  "artist": "Elvis Presley",
+  "title": "Blue Christmas",
+  "year": 1957,
+  "deezerId": 69070914
+ },
+ {
+  "id": "chuck-berry-run-rudolph-run",
+  "artist": "Chuck Berry",
+  "title": "Run Rudolph Run",
+  "year": 1958,
+  "deezerId": 7372854
+ },
+ {
+  "id": "burl-ives-a-holly-jolly-christmas",
+  "artist": "Burl Ives",
+  "title": "A Holly Jolly Christmas",
+  "year": 1964,
+  "deezerId": 584448352
+ },
+ {
+  "id": "gene-autry-rudolph-the-red-nosed-reindeer",
+  "artist": "Gene Autry",
+  "title": "Rudolph the Red-Nosed Reindeer",
+  "year": 1949,
+  "deezerId": 609537
+ },
+ {
+  "id": "sia-snowman",
+  "artist": "Sia",
+  "title": "Snowman",
+  "year": 2017,
+  "deezerId": 576178932
+ },
+ {
+  "id": "ed-sheeran-merry-christmas",
+  "artist": "Ed Sheeran",
+  "title": "Merry Christmas",
+  "year": 2021,
+  "deezerId": 1568002692
+ },
+ {
+  "id": "mud-lonely-this-christmas",
+  "artist": "Mud",
+  "title": "Lonely This Christmas",
+  "year": 1974,
+  "deezerId": 3123854
+ },
+ {
+  "id": "east-17-stay-another-day",
+  "artist": "East 17",
+  "title": "Stay Another Day",
+  "year": 1994,
+  "deezerId": 428735552
+ },
+ {
+  "id": "cliff-richard-mistletoe-and-wine",
+  "artist": "Cliff Richard",
+  "title": "Mistletoe and Wine",
+  "year": 1988,
+  "deezerId": 3420982
+ },
+ {
+  "id": "queen-thank-god-it-s-christmas",
+  "artist": "Queen",
+  "title": "Thank God It's Christmas",
+  "year": 1984,
+  "deezerId": 4092348411
+ },
+ {
+  "id": "boney-m-mary-s-boy-child-oh-my-lord",
+  "artist": "Boney M.",
+  "title": "Mary's Boy Child / Oh My Lord",
+  "year": 1978,
+  "deezerId": 7599959
+ },
+ {
+  "id": "the-jackson-5-santa-claus-is-coming-to-town",
+  "artist": "The Jackson 5",
+  "title": "Santa Claus Is Coming to Town",
+  "year": 1970,
+  "deezerId": 4601779
+ },
+ {
+  "id": "bing-crosby-peace-on-earth-little-drummer-boy",
+  "artist": "Bing Crosby",
+  "title": "Peace on Earth / Little Drummer Boy",
+  "year": 1977,
+  "deezerId": 2433538075
+ },
+ {
+  "id": "the-darkness-christmas-time-don-t-let-the-bells-end",
+  "artist": "The Darkness",
+  "title": "Christmas Time (Don't Let the Bells End)",
+  "year": 2003,
+  "deezerId": 720300
+ },
+ {
+  "id": "coldplay-christmas-lights",
+  "artist": "Coldplay",
+  "title": "Christmas Lights",
+  "year": 2010,
+  "deezerId": 7857354
+ },
+ {
+  "id": "taylor-swift-christmas-tree-farm",
+  "artist": "Taylor Swift",
+  "title": "Christmas Tree Farm",
+  "year": 2019,
+  "deezerId": 825783572
+ },
+ {
+  "id": "leona-lewis-one-more-sleep",
+  "artist": "Leona Lewis",
+  "title": "One More Sleep",
+  "year": 2013,
+  "deezerId": 72435416
+ },
+ {
+  "id": "vince-guaraldi-trio-linus-and-lucy",
+  "artist": "Vince Guaraldi Trio",
+  "title": "Linus and Lucy",
+  "year": 1965,
+  "deezerId": 104271082
+ },
+ {
+  "id": "thurl-ravenscroft-you-re-a-mean-one-mr-grinch",
+  "artist": "Thurl Ravenscroft",
+  "title": "You're a Mean One, Mr. Grinch",
+  "year": 1966,
+  "deezerId": 1761197537
+ },
+ {
+  "id": "the-beach-boys-little-saint-nick",
+  "artist": "The Beach Boys",
+  "title": "Little Saint Nick",
+  "year": 1963,
+  "deezerId": 3253485
+ },
+ {
+  "id": "the-waitresses-christmas-wrapping",
+  "artist": "The Waitresses",
+  "title": "Christmas Wrapping",
+  "year": 1981,
+  "deezerId": 540501982
+ },
+ {
+  "id": "frank-sinatra-have-yourself-a-merry-little-christmas",
+  "artist": "Frank Sinatra",
+  "title": "Have Yourself a Merry Little Christmas",
+  "year": 1957,
+  "deezerId": 770417742
+ },
+ {
+  "id": "adolphson-and-falk-mer-jul",
+  "artist": "Adolphson & Falk",
+  "title": "Mer jul",
+  "year": 1983,
+  "deezerId": 3925919
+ },
+ {
+  "id": "triad-tand-ett-ljus",
+  "artist": "Triad",
+  "title": "Tänd ett ljus",
+  "year": 1987,
+  "deezerId": 87544459
+ },
+ {
+  "id": "agnetha-and-linda-nu-tandas-tusen-juleljus",
+  "artist": "Agnetha & Linda",
+  "title": "Nu tändas tusen juleljus",
+  "year": 1981,
+  "deezerId": 2598499
+ },
+ {
+  "id": "peter-joback-jag-kommer-hem-igen-till-jul",
+  "artist": "Peter Jöback",
+  "title": "Jag kommer hem igen till jul",
+  "year": 2002,
+  "deezerId": 4338466782
+ },
+ {
+  "id": "tommy-korberg-julen-ar-har",
+  "artist": "Tommy Körberg",
+  "title": "Julen är här",
+  "year": 1996,
+  "deezerId": 3867619
+ },
+ {
+  "id": "jussi-bjorling-o-helga-natt",
+  "artist": "Jussi Björling",
+  "title": "O helga natt",
+  "year": 1959,
+  "deezerId": 2800656842
+ },
+ {
+  "id": "cliff-edwards-when-you-wish-upon-a-star",
+  "artist": "Cliff Edwards",
+  "title": "When You Wish Upon a Star",
+  "year": 1940,
+  "deezerId": 677778432
+ },
+ {
+  "id": "carola-hej-mitt-vinterland",
+  "artist": "Carola",
+  "title": "Hej mitt vinterland",
+  "year": 1983,
+  "deezerId": 597610072
+ },
+ {
+  "id": "agnetha-and-linda-jag-sag-mamma-kyssa-tomten",
+  "artist": "Agnetha & Linda",
+  "title": "Jag såg mamma kyssa tomten",
+  "year": 1981,
+  "deezerId": 2598502
+ }
+]
