@@ -41,6 +41,9 @@ export const SEASON_LOBBY_SONGS = {
     { artist: 'Cybermonsters', title: 'Haunted Pipe Organ Stomp', deezerId: 3576637671 },
     { artist: 'Conrad Askland', title: 'Halloween Organ', deezerId: 23197541 },
     { artist: 'Classic Carnival Circus Calliope Music', title: 'Dardanella', deezerId: 70731041 },
+    { artist: 'Lalo Schifrin', title: 'Amityville Horror Main Title', deezerId: 1231894852 },
+    { artist: 'Danny Elfman', title: 'Music Box', deezerId: 3453190731 },
+    { artist: 'Joseph Bishara', title: 'Annabelle Opening', deezerId: 647325872 },
   ],
 };
 
