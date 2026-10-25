@@ -322,36 +322,25 @@ function batFrames(zoom) {
   });
 }
 
-// Fladdermöss: en svärm på 130 fladdermöss stiger först upp ur omslagets nederkant som en nästan
-// svart klump, där fladdermössen kretsar om varandra, framför en stor fullmåne. När klumpen har nått
-// upp till namnet delar den på sig. De flesta flyger rakt mot kameran, växer och försvinner ut ur
-// bild, och resten flaxar ut åt sidorna och uppåt, några eftersläntrare lite senare. Små
-// fladdermöss är längre bort och syns svagare.
+// Fladdermöss: 130 fladdermöss flyger rakt mot kameran från så långt bort att de inte syns, mitt i
+// omslaget, framför en stor fullmåne. Först dyker en liten svart klump upp, som växer och glesnar ju
+// närmare de kommer, tills de susar förbi kameran och försvinner ut ur bild. De kommer fram vid olika
+// tider, de flesta under de första åtta sekunderna.
 function bats(box) {
   const dur = 12.8;
-  // Små bilder för svärmen och stora för dem som kommer nära, eftersom det tar tid att krympa stora bilder.
+  // Små bilder för dem långt bort och stora för dem som kommer nära, eftersom det tar tid att krympa
+  // stora bilder.
   const small = batFrames(1);
   const large = batFrames(3);
-  const swarm = Array.from({ length: 130 }, (_, i) => {
-    const near = Math.random();
+  const swarm = Array.from({ length: 130 }, () => {
+    const r = Math.sqrt(Math.random());
+    const a = rand(0, 6.3);
     return {
-      // Var i klumpen fladdermusen kretsar: avstånd från mitten, vinkel och fart runt.
-      orbit: Math.sqrt(Math.random()), ang: rand(0, 6.3), spin: rand(1.5, 3) * (Math.random() < 0.5 ? -1 : 1),
-      split: 0.9 + Math.random() ** 2 * 1.6, s: 6 + near * 12, speed: 100 + near * 110,
-      // Sju av tio flyger mot kameran. trip är hur många sekunder det tar innan den är förbi.
-      toward: i % 10 < 7, trip: rand(1.1, 2),
-      turn: rand(0.3, 0.8) * (Math.random() < 0.5 ? -1 : 1), turnHz: rand(0.2, 0.5), ph: rand(0, 6.3),
-      flapHz: rand(3.2, 4.4) + (1 - near) * 1.2, alpha: 0.45 + near * 0.5,
+      // Var i flocken fladdermusen flyger, sett framifrån, och när den passerar kameran.
+      ox: Math.cos(a) * r, oy: Math.sin(a) * r * 0.75, at: 2.6 + Math.random() ** 2 * 6, s: rand(9, 18),
+      wob: rand(0.05, 0.12), wobHz: rand(0.3, 0.7), ph: rand(0, 6.3), flapHz: rand(3.2, 4.6),
     };
   });
-  // Klumpens mitt t sekunder in: den stiger snabbt från nederkanten upp till namnet och bromsar in.
-  const title = box.parentElement && box.parentElement.querySelector('.win-title');
-  const clump = (time) => {
-    const { w, h } = area;
-    const top = title ? title.offsetTop : h * 0.6;
-    const p = 1 - (1 - Math.min(1, time / 0.9)) ** 2;
-    return [w * (0.47 + 0.06 * Math.sin(time * 2)), h + 50 - (h - top + 50) * p];
-  };
   let t = 0;
   const moon = (a) => {
     const { ctx, w, h } = area;
@@ -378,12 +367,10 @@ function bats(box) {
     // De som är närmast kameran ritas sist, så att de hamnar framför de andra.
     const shown = swarm.filter((b) => b.x !== undefined && !b.out).sort((a, b) => a.size - b.size);
     for (const b of shown) {
-      // I klumpen och på väg mot kameran är fladdermössen nästan svarta. De som flyger iväg tonar
-      // till sin egen styrka.
-      const free = b.free && !b.toward ? Math.min(1, (t - b.split) / 1.2) : 0;
-      // De som är nästan förbi kameran tonar bort, så att de inte skymmer namnet länge.
-      const passing = b.toward ? Math.min(1, (h * 0.5 - b.size) / (h * 0.2)) : 1;
-      ctx.globalAlpha = (0.95 - (0.95 - b.alpha) * free) * out * passing;
+      // Fladdermössen syns först när de är några pixlar stora, och de som är nästan förbi kameran
+      // tonar bort, så att de inte skymmer namnet länge.
+      const passing = Math.min(1, (h * 0.5 - b.size) / (h * 0.2), Math.max(0, (b.size - 1.5) / 4));
+      ctx.globalAlpha = 0.95 * out * passing;
       const frames = b.size > 36 ? large : small;
       const frame = frames[Math.floor(((((t * b.flapHz + b.ph) % 1) + 1) % 1) * frames.length)];
       const k = b.size / 30;
@@ -391,54 +378,36 @@ function bats(box) {
     }
     ctx.globalAlpha = 1;
   };
-  const step = (dt) => {
+  const step = () => {
     const { w, h } = area;
-    const [cx, cy] = clump(t);
-    const radius = Math.min(w, h) * 0.14;
+    // Flocken är ungefär så bred som omslaget när den är framme vid det.
+    const spread = Math.min(w, h) * 0.55;
     for (const b of swarm) {
       if (b.out) continue;
-      if (!b.free) {
-        // I klumpen kretsar fladdermusen runt mitten, i en lite tillplattad ring.
-        b.ang += b.spin * dt;
-        b.x = cx + Math.cos(b.ang) * b.orbit * radius;
-        b.y = cy + Math.sin(b.ang) * b.orbit * radius * 0.7;
-        b.size = b.s;
-        if (t >= b.split) {
-          b.free = true;
-          b.a = Math.atan2(Math.sin(b.ang) * 0.7 - 0.5, Math.cos(b.ang));
-          b.from = [b.x, b.y, cx, cy];
-        }
-        continue;
-      }
-      const age = t - b.split;
-      if (b.toward) {
-        // Mot kameran: avståndet krymper, så fladdermusen växer och glider utåt från klumpens mitt
-        // tills den försvinner ut ur bild. Även de i klumpens mitt glider ut lite åt sitt håll.
-        const z = Math.max(0.04, 1 - age / b.trip);
-        const [x0, y0, mx, my] = b.from;
-        const dx = x0 - mx + Math.cos(b.ang) * 30;
-        const dy = y0 - my + Math.sin(b.ang) * 24;
-        b.x = mx + dx / z;
-        b.y = my + dy / z;
-        b.size = b.s / z;
-        if (z <= 0.04 || b.size > h * 0.5 || b.x < -b.size * 1.2 || b.x > w + b.size * 1.2 || b.y < -b.size || b.y > h + b.size) b.out = true;
-        continue;
-      }
-      const a = b.a + b.turn * Math.sin(age * b.turnHz * 6.283 + b.ph);
-      b.x += Math.cos(a) * b.speed * dt;
-      b.y += Math.sin(a) * b.speed * dt;
-      if (b.y < -40 || b.y > h + 40 || b.x < -40 || b.x > w + 40) b.out = true;
+      // Avståndet: z är 1 nära omslaget och 0 vid kameran. Långt bort närmar sig fladdermusen
+      // snabbare, så att den kommer från långt håll men susar förbi i jämn fart.
+      const left = b.at - t;
+      const z = 0.9 * left + 0.6 * left * left;
+      if (left <= 0.04) { b.out = true; continue; }
+      // Varje fladdermus slingrar sig lite i flocken.
+      const ox = b.ox + b.wob * Math.sin(t * b.wobHz * 6.283 + b.ph);
+      const oy = b.oy + b.wob * Math.cos(t * b.wobHz * 5.1 + b.ph);
+      b.x = w * 0.5 + (ox * spread) / z;
+      b.y = h * 0.42 + (oy * spread) / z;
+      b.size = b.s / z;
+      if (b.size > h * 0.5 || b.x < -b.size * 1.2 || b.x > w + b.size * 1.2 || b.y < -b.size || b.y > h + b.size) b.out = true;
     }
   };
   const area = canvasIn(box, draw);
   if (still()) {
-    // Med minskad rörelse står månen och svärmen still, just när den har börjat dela på sig.
+    // Med minskad rörelse står månen och flocken still, när de första fladdermössen är nära.
     area.start();
-    for (t = 0; t < 1.3; t += 1 / 30) step(1 / 30);
+    t = 2.4;
+    step();
     draw();
     return;
   }
-  play(box, area, dur, (now, dt) => { t = now; step(dt); draw(); });
+  play(box, area, dur, (now) => { t = now; step(); draw(); });
 }
 
 // Ett smalt lakansspöke med vågig fåll, s högt. wave flyttar fållens vågor och blink stänger ögonen.
