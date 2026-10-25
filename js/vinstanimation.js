@@ -384,9 +384,9 @@ function bats(box) {
     // De som är närmast kameran ritas sist, så att de hamnar framför de andra.
     const shown = swarm.filter((b) => b.x !== undefined && !b.out).sort((a, b) => a.size - b.size);
     for (const b of shown) {
-      // Fladdermössen syns först när de är några pixlar stora, och de som är nästan förbi kameran
-      // tonar bort, så att de inte skymmer namnet länge.
-      const passing = Math.min(1, (h * 0.5 - b.size) / (h * 0.2), Math.max(0, (b.size - 1.5) / 4));
+      // Fladdermössen tonar fram medan de är pyttesmå och är sedan helt mörka, så att de syns tydligt
+      // framför månen. De som är nästan förbi kameran tonar bort, så att de inte skymmer namnet länge.
+      const passing = Math.min(1, (h * 0.5 - b.size) / (h * 0.2), Math.max(0, b.size - 1));
       ctx.globalAlpha = 0.95 * out * passing;
       const frames = b.size > 36 ? large : small;
       const frame = frames[Math.floor(((((t * b.flapHz + b.ph) % 1) + 1) % 1) * frames.length)];

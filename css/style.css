@@ -732,6 +732,8 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .win-fx.stralkastare::before { background: rgba(8, 4, 24, 0.36); }
 .win-fx.done::before { opacity: 0; transition: opacity 1.6s ease-in-out; }
 @keyframes fx-in { from { opacity: 0; } }
+/* Fladdermössen flyger framför den stora bokstavstexten på omslaget, men bakom namnet. */
+.win:has(.fladdermoss)::after { z-index: -2; }
 /* Snödrivan i snöstormen når upp bakom texten, så där får texten en svag skugga. */
 .win:has(.snoyra) :is(.win-title, .win-sub) { text-shadow: 0 1px 3px rgba(40, 10, 10, 0.5); }
 /* Strålkastarna: varje kägla utgår från en lampa utanför omslaget och vrids fram och tillbaka runt den. */
