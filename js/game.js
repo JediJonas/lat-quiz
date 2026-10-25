@@ -4,6 +4,7 @@
 // Spelläget är ett vanligt objekt som går att spara som JSON.
 
 import { normalize } from './text.js';
+import { songLabels } from './data.js';
 
 // 30 sekunder per låt som standard, lika långt som hela Deezer-klippet.
 export const ROUND_MS = 30000;
@@ -291,7 +292,8 @@ export function playerView(state, playerId, now) {
     settings: { roundMs: state.roundMs, bonusMs: state.bonusMs, winScore: state.winScore || WIN_SCORE },
     winners: state.winners ? state.winners.map((id) => state.players[id].name) : null,
     paused: Boolean(state.pausedAt),
-    labels: state.labels || DEFAULT_LABELS,
+    // Låtens egna fältnamn syns redan medan man gissar, så att man vet att det är en film.
+    labels: songLabels(round && round.song, state.labels || DEFAULT_LABELS),
     round: null,
   };
   if (round) {

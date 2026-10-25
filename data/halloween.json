@@ -273,9 +273,76 @@
   "deezerId": 2440763155
  },
  {
+  "id": "tame-impala-dracula",
+  "artist": "Tame Impala",
+  "title": "Dracula",
+  "year": 2025,
+  "deezerId": 3567385391
+ },
+ {
+  "id": "britney-spears-toxic",
+  "artist": "Britney Spears",
+  "title": "Toxic",
+  "year": 2003,
+  "deezerId": 15391618
+ },
+ {
+  "id": "billie-eilish-bad-guy",
+  "artist": "Billie Eilish",
+  "title": "bad guy",
+  "year": 2019,
+  "deezerId": 655095912
+ },
+ {
+  "id": "lady-gaga-the-dead-dance",
+  "artist": "Lady Gaga",
+  "title": "The Dead Dance",
+  "year": 2025,
+  "deezerId": 3537990861
+ },
+ {
+  "id": "bow-wow-wow-i-want-candy",
+  "artist": "Bow Wow Wow",
+  "title": "I Want Candy",
+  "year": 1982,
+  "deezerId": 900670
+ },
+ {
+  "id": "duran-duran-hungry-like-the-wolf",
+  "artist": "Duran Duran",
+  "title": "Hungry Like the Wolf",
+  "year": 1982,
+  "deezerId": 3130433
+ },
+ {
+  "id": "steve-miller-band-abracadabra",
+  "artist": "Steve Miller Band",
+  "title": "Abracadabra",
+  "year": 1982,
+  "deezerId": 404237102
+ },
+ {
+  "id": "alice-cooper-poison",
+  "artist": "Alice Cooper",
+  "title": "Poison",
+  "year": 1989,
+  "deezerId": 1015071
+ },
+ {
+  "id": "kesha-cannibal",
+  "artist": "Kesha",
+  "title": "Cannibal",
+  "year": 2010,
+  "deezerId": 630085472
+ },
+ {
   "id": "alla-helgons-blodiga-natt",
   "artist": "John Carpenter",
   "title": "Alla helgons blodiga natt",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1978,
   "track": "Halloween Theme",
   "deezerId": 4087971691
@@ -284,6 +351,10 @@
   "id": "exorcisten",
   "artist": "Mike Oldfield",
   "title": "Exorcisten",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1973,
   "track": "Mike Oldfield's Single (Theme From Tubular Bells)",
   "deezerId": 99930580
@@ -292,14 +363,22 @@
   "id": "psycho",
   "artist": "Bernard Herrmann",
   "title": "Psycho",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1960,
-  "track": "Prelude",
-  "deezerId": 123818654
+  "track": "The Murder",
+  "deezerId": 123818686
  },
  {
   "id": "hajen",
   "artist": "John Williams",
   "title": "Hajen",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1975,
   "track": "Main Title",
   "deezerId": 93631710
@@ -308,6 +387,10 @@
   "id": "omen",
   "artist": "Jerry Goldsmith",
   "title": "Omen",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1976,
   "track": "Ave Satani",
   "deezerId": 120301884
@@ -316,6 +399,10 @@
   "id": "ondskans-vardshus",
   "artist": "Wendy Carlos",
   "title": "Ondskans värdshus",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1980,
   "track": "Main Title",
   "deezerId": 1105410342
@@ -324,6 +411,10 @@
   "id": "terror-pa-elm-street",
   "artist": "Charles Bernstein",
   "title": "Terror på Elm Street",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1984,
   "track": "Main Title",
   "deezerId": 647289582
@@ -332,6 +423,10 @@
   "id": "fredagen-den-13e",
   "artist": "Harry Manfredini",
   "title": "Fredagen den 13:e",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1980,
   "track": "Overlay of Evil / Main Title",
   "deezerId": 419382952
@@ -340,6 +435,10 @@
   "id": "beetlejuice",
   "artist": "Danny Elfman",
   "title": "Beetlejuice",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1988,
   "track": "Main Titles",
   "deezerId": 84605675
@@ -348,6 +447,10 @@
   "id": "the-nightmare-before-christmas",
   "artist": "Danny Elfman",
   "title": "The Nightmare Before Christmas",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 1993,
   "track": "This is Halloween",
   "deezerId": 1762460127
@@ -356,6 +459,10 @@
   "id": "saw",
   "artist": "Charlie Clouser",
   "title": "Saw",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
   "year": 2004,
   "track": "Hello Zepp",
   "deezerId": 426966262
@@ -364,6 +471,10 @@
   "id": "familjen-addams",
   "artist": "Vic Mizzy",
   "title": "Familjen Addams",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
   "year": 1964,
   "track": "The Addams Family",
   "deezerId": 10395828
@@ -372,6 +483,10 @@
   "id": "wednesday",
   "artist": "Danny Elfman",
   "title": "Wednesday",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
   "year": 2022,
   "track": "Wednesday Main Titles",
   "deezerId": 2355750635
@@ -380,6 +495,10 @@
   "id": "twin-peaks",
   "artist": "Angelo Badalamenti",
   "title": "Twin Peaks",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
   "year": 1990,
   "track": "Twin Peaks Theme",
   "deezerId": 7337260
@@ -388,6 +507,10 @@
   "id": "stranger-things",
   "artist": "Kyle Dixon & Michael Stein",
   "title": "Stranger Things",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
   "year": 2016,
   "track": "Stranger Things",
   "deezerId": 130871168
@@ -396,6 +519,10 @@
   "id": "the-walking-dead",
   "artist": "Bear McCreary",
   "title": "The Walking Dead",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
   "year": 2010,
   "track": "Theme from the Walking Dead",
   "deezerId": 414308332
@@ -404,14 +531,34 @@
   "id": "american-horror-story",
   "artist": "Cesar Davila-Irizarry",
   "title": "American Horror Story",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
   "year": 2011,
   "track": "American Horror Story Theme",
   "deezerId": 958035182
  },
  {
+  "id": "arkiv-x",
+  "artist": "Mark Snow",
+  "title": "Arkiv X",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Serie"
+  },
+  "year": 1993,
+  "track": "The X-Files",
+  "deezerId": 3910006
+ },
+ {
   "id": "bach-toccata-and-fugue-in-d-minor",
   "artist": "Johann Sebastian Bach",
   "title": "Toccata och fuga i d-moll",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Verk"
+  },
   "year": 1708,
   "deezerId": 3701745
  },
@@ -419,6 +566,10 @@
   "id": "saint-saens-danse-macabre",
   "artist": "Camille Saint-Saëns",
   "title": "Danse macabre",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Verk"
+  },
   "year": 1874,
   "deezerId": 134026176
  },
@@ -426,6 +577,10 @@
   "id": "mussorgsky-night-on-bald-mountain",
   "artist": "Modest Mussorgsky",
   "title": "En natt på Blåkulla",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Verk"
+  },
   "year": 1867,
   "deezerId": 137200312
  },
@@ -433,6 +588,10 @@
   "id": "grieg-in-the-hall-of-the-mountain-king",
   "artist": "Edvard Grieg",
   "title": "I bergakungens sal",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Verk"
+  },
   "year": 1875,
   "deezerId": 67343982
  },
@@ -440,6 +599,10 @@
   "id": "orff-o-fortuna",
   "artist": "Carl Orff",
   "title": "O Fortuna",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Verk"
+  },
   "year": 1937,
   "deezerId": 67332242
  }

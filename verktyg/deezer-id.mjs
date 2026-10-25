@@ -138,7 +138,7 @@ async function rank(candidates, artists, title, year) {
   return null;
 }
 
-const classical = (category) => Boolean(category.labels && /verk/i.test(category.labels.title));
+const classical = (category, song) => /verk/i.test(((song && song.labels) || category.labels || {}).title || '');
 // Ledmotiv från filmer och serier har spårets namn i track, även i blandade kategorier som Halloween.
 const film = (category, song) => category.id === 'filmmusik' || Boolean(song && song.track);
 const countries = (category) => Boolean(category.labels && /land/i.test(category.labels.artist));
@@ -161,7 +161,7 @@ export async function find(song, category) {
   // I Eurovision är "artist" landet. Artisten står i verktyg/eurovision-artister.json.
   const artists = countries(category) ? [PERFORMERS[song.id]].filter(Boolean) : [song.artist];
 
-  if (classical(category)) {
+  if (classical(category, song)) {
     // Verket söks utan krav på artist, eftersom Deezer oftast anger orkestern.
     const words = norm(song.title).split(' ').filter((w) => w.length > 2);
     const surname = norm(song.artist).split(' ').pop();

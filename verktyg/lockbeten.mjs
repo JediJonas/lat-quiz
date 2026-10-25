@@ -3,7 +3,7 @@
 // dyker de upp i förslagen precis när någon skriver rätt svar.
 
 import { normalize } from '../js/text.js';
-import { suggestionKind } from '../js/data.js';
+import { suggestionKind, songLabels } from '../js/data.js';
 
 const VERSION = /\s*\([^()]*(karaoke|instrumental|singback|sjung själv|maxi|unplugged|version|live|mix|edit|radio|censur)[^()]*\)$/i;
 // Förtydliganden från engelska Wikipedia, som "Light Me Up (Gromee song)". Gemen "song" med flit,
@@ -41,7 +41,7 @@ export function cleanDecoys(forslag, categories) {
     for (const song of songs) {
       answers.artists.add(normalize(song.artist));
       answers.titles.add(normalize(song.title));
-      for (const field of ['artist', 'title']) (same[suggestionKind(field, labels[field])] ||= new Set()).add(normalize(song[field]));
+      for (const field of ['artist', 'title']) (same[suggestionKind(field, songLabels(song, labels)[field])] ||= new Set()).add(normalize(song[field]));
       // Ledmotiv har spårets namn i track, även i Halloween, där titeln är filmen eller serien.
       if (id === 'filmmusik' || song.track) films.push(song.title);
     }

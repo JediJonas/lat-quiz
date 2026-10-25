@@ -192,6 +192,16 @@ test('kategorins rubriker skickas till spelarna', () => {
   assert.equal(playerView(classical, 'p1', 0).labels.artist, 'Kompositör');
 });
 
+test('en låt med egna rubriker, som ett ledmotiv i Halloween, visar dem redan medan man gissar', () => {
+  const state = createGame({ code: 'ABCD', categoryId: 'halloween' });
+  const songs = [{ id: 'hajen', artist: 'John Williams', title: 'Hajen', labels: { artist: 'Kompositör', title: 'Film' } }];
+  nextSong(state, songs, () => 0);
+  startRound(state, 0);
+  assert.deepEqual(playerView(state, 'p1', 0).labels, { artist: 'Kompositör', title: 'Film' });
+  nextSong(state, [{ id: 'thriller', artist: 'Michael Jackson', title: 'Thriller' }], () => 0);
+  assert.deepEqual(playerView(state, 'p1', 0).labels, { artist: 'Artist', title: 'Titel' });
+});
+
 test('inställningar: utan sparade värden gäller standard, även för bonus', () => {
   assert.deepEqual(cleanSettings(null), { roundMs: 30000, bonusMs: 15000, winScore: 10 });
   assert.deepEqual(cleanSettings({ bonusMs: null }), { roundMs: 30000, bonusMs: 15000, winScore: 10 });
