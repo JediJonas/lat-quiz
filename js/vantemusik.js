@@ -40,6 +40,7 @@ export const SEASON_LOBBY_SONGS = {
     { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
     { artist: 'Cybermonsters', title: 'Haunted Pipe Organ Stomp', deezerId: 3576637671 },
     { artist: 'Conrad Askland', title: 'Halloween Organ', deezerId: 23197541 },
+    { artist: 'Classic Carnival Circus Calliope Music', title: 'Dardanella', deezerId: 70731041 },
   ],
 };
 
