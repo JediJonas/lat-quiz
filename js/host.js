@@ -1254,9 +1254,14 @@ window.addEventListener('beforeunload', (e) => {
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
 // Här uppdateras de från listan och det val som redan är gjort behålls. Säsongskategorier,
 // som Halloween, står inte i host.html och kommer bara med när det är säsong för dem.
+// Sidan är förifylld med 60-tal förvalt, så att den syns innan kategorierna har laddats. Har man
+// inte hunnit välja själv blir den första kategorin förvald, och det är säsongskategorin när den
+// visas.
+let pickedCategory = false;
+
 function renderCategories(categories) {
   const picker = $('#category-picker');
-  const chosen = chosenCategory();
+  const chosen = pickedCategory ? chosenCategory() : null;
   picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
     + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
     + `${c.songs ? `<span class="cat-songs">${c.songs} låtar</span>` : ''}</span></label>`).join('');
@@ -1307,12 +1312,14 @@ async function init() {
   // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.
   enhanceSelect($('#category-select'));
   $('#category-picker').addEventListener('change', () => {
+    pickedCategory = true;
     $('#category-select').value = chosenCategory();
     showChosenCategory();
   });
   $('#category-select').addEventListener('change', (e) => {
     const radio = [...$('#category-picker').querySelectorAll('input')].find((r) => r.value === e.target.value);
     if (radio) radio.checked = true;
+    pickedCategory = true;
     showChosenCategory({ scroll: true });
   });
   const saved = loadSaved();
