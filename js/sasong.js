@@ -28,13 +28,13 @@ function leaves(n) {
 function drawFlake(ctx, f, w, h, t) {
   const x = f.x * w + Math.sin(t * f.sway + f.phase) * 12;
   ctx.beginPath();
-  ctx.arc(x, f.y * h, f.r, 0, Math.PI * 2);
+  ctx.arc(x, f.y, f.r, 0, Math.PI * 2);
   ctx.fill();
 }
 
 function drawLeaf(ctx, l, w, h, t) {
   ctx.save();
-  ctx.translate(l.x * w + Math.sin(t * l.sway + l.phase) * 24, l.y * h);
+  ctx.translate(l.x * w + Math.sin(t * l.sway + l.phase) * 24, l.y);
   ctx.rotate(t * l.spin + l.phase);
   // Bladet vänder sig när det singlar, som papper i luften.
   ctx.scale(1, 0.35 + 0.65 * Math.abs(Math.cos(t * l.sway + l.phase)));
@@ -78,13 +78,21 @@ function start(layer, effect) {
   let last = performance.now();
   let frame = 0;
 
+  // Bitarnas höjd står i pixlar och de skapas bara en gång. I iPhone ändras fönstrets höjd hela
+  // tiden när sidan studsar eller verktygsfältet döljs, och om bitarna skapades om eller räknades
+  // om efter höjden hoppade de, så att det såg ut som att de föll jättefort.
   const size = () => {
+    if (innerWidth === w && innerHeight === h) return;
     w = innerWidth;
     h = innerHeight;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    items = effect === 'sno' ? snow(count()) : leaves(Math.round(count() / 3));
+    if (!items.length) {
+      items = effect === 'sno' ? snow(count()) : leaves(Math.round(count() / 3));
+      for (const item of items) item.y *= h;
+    }
+    if (still()) draw(0);
   };
 
   const draw = (now) => {
@@ -108,8 +116,8 @@ function start(layer, effect) {
     const dt = Math.min(0.1, (now - last) / 1000);
     last = now;
     for (const item of items) {
-      item.y += (item.speed * dt) / h;
-      if (item.y * h > h + 20) { item.y = -20 / h; item.x = Math.random(); }
+      item.y += item.speed * dt;
+      if (item.y > h + 20) { item.y = -20; item.x = Math.random(); }
     }
     if (effect === 'lov') {
       if (!bat && now > nextBat) {
