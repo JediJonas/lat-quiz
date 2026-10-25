@@ -9,7 +9,7 @@
   { "id": "edm", "name": "EDM", "file": "edm.json", "songs": 156 },
   { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "labels": { "artist": "Land", "title": "Låt" }, "songs": 208 },
   { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Kompositör", "title": "Film" }, "songs": 143 },
-  { "id": "halloween", "name": "Halloween", "file": "halloween.json", "season": { "from": "10-15", "to": "11-05" }, "songs": 69 },
+  { "id": "halloween", "name": "Halloween", "file": "halloween.json", "season": { "from": "10-15", "to": "11-05" }, "songs": 70 },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "songs": 151 },
   { "id": "jul", "name": "Jul", "file": "jul.json", "season": { "from": "12-01", "to": "01-06" }, "songs": 54 },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 },

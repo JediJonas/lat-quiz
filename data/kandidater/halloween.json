@@ -371,6 +371,17 @@
    "track": "Ave Satani"
   },
   {
+    "id": "suspiria",
+    "artist": "Goblin",
+    "title": "Suspiria",
+    "labels": {
+      "artist": "Kompositör",
+      "title": "Film"
+    },
+    "year": 1977,
+    "track": "Suspiria"
+  },
+  {
    "id": "ondskans-vardshus",
    "artist": "Wendy Carlos",
    "title": "Ondskans värdshus",
