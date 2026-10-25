@@ -469,7 +469,7 @@ function nextSong() {
 
 // ---- Deezer-klipp ----
 
-const clip = { audio: null, round: 0, status: null, error: '', skipped: 0 };
+const clip = { audio: null, unlocked: false, round: 0, status: null, error: '', skipped: 0 };
 // Så många låtar i rad hoppas över när Deezer saknar klipp, innan spelledaren får veta det.
 const MAX_SKIPS = 5;
 
@@ -566,8 +566,11 @@ function stopClip() {
 async function playDeezer(roundNumber, skipping = false) {
   const audio = clipAudio();
   audio.pause();
-  audio.src = SILENCE;
-  audio.play().catch(() => {});
+  // Är klippets ljudelement redan upplåst av ett tidigare tryck behövs ingen tystnad här, se unlockClip.
+  if (!clip.unlocked) {
+    audio.src = SILENCE;
+    audio.play().catch(() => {});
+  }
   Object.assign(clip, { round: roundNumber, status: 'loading', error: '' });
   if (!skipping) clip.skipped = 0;
   render();
@@ -631,6 +634,8 @@ function startClip() {
     clip.status = 'playing';
     if (game.startRound(state, Date.now())) changed();
   }).catch(() => {
+    // Nästa tryck får låsa upp ljudelementet igen.
+    clip.unlocked = false;
     clip.status = 'blocked';
     render();
   });
@@ -1187,8 +1192,20 @@ function showError(err) {
 // hacka till på iPhone. Trycken mellan låtarna räcker för att hålla ljudet upplåst.
 function unlockSound() {
   if (clip.audio && !clip.audio.paused) return;
+  unlockClip();
   winnerSong.unlock();
   lobbyMusic.unlock();
+}
+
+// Quizlåtens ljudelement låses upp med en kort tystnad redan vid ett tryck innan väntemusiken
+// spelar, till exempel på Dra igång. Startade tystnaden först i trycket på Starta spelet stannade
+// väntemusiken tvärt i iPhone, för att sedan börja igen och tonas ut. Sedan får klippet spela utan tryck.
+function unlockClip() {
+  if (clip.unlocked || lobbyMusic.playing()) return;
+  const audio = clipAudio();
+  if (!audio.paused) return;
+  audio.src = SILENCE;
+  audio.play().then(() => { clip.unlocked = true; }, () => {});
 }
 for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, unlockSound, true);
 
