@@ -25,16 +25,15 @@ export const LOBBY_SONGS = [
 ];
 
 // Säsongskategorierna har egen väntemusik, instrumental som jazzen, så att stämningen finns
-// redan i lobbyn. Halloween har läskig orgel, som Jonas valde 25 oktober 2026. Ingen av låtarna finns bland quizlåtarna.
+// redan i lobbyn. Jul har jullåtar med orkester eller jazz kring Christmas Time Is Here, och Halloween har läskig orgel, båda valda av Jonas 25 oktober 2026. Ingen av låtarna finns bland quizlåtarna.
 export const SEASON_LOBBY_SONGS = {
   jul: [
     { artist: 'Vince Guaraldi Trio', title: 'Christmas Time Is Here', deezerId: 134403696 },
-    { artist: 'Vince Guaraldi Trio', title: 'Skating', deezerId: 134403700 },
-    { artist: 'Vince Guaraldi Trio', title: 'Christmas Is Coming', deezerId: 134403704 },
-    { artist: 'Jimmy Smith', title: 'God Rest Ye Merry Gentlemen', deezerId: 1761421527 },
-    { artist: 'Trans-Siberian Orchestra', title: 'Christmas Eve / Sarajevo 12/24', deezerId: 14615458 },
-    { artist: 'Duke Ellington', title: 'Overture (Nutcracker Suite)', deezerId: 2030566957 },
-    { artist: 'Ramsey Lewis', title: 'The Sound of Christmas', deezerId: 1567696 },
+    { artist: 'Leroy Anderson', title: 'A Christmas Festival', deezerId: 1873274967 },
+    { artist: 'Mannheim Steamroller', title: 'Deck the Halls', deezerId: 62251695 },
+    { artist: 'The Count Basie Orchestra', title: 'Jingle Bells', deezerId: 1762631337 },
+    { artist: 'Duke Ellington', title: 'Sugar Rum Cherry', deezerId: 1069215 },
+    { artist: 'Wynton Marsalis', title: 'Carol of the Bells', deezerId: 82550928 },
   ],
   halloween: [
     { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
