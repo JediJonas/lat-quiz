@@ -308,13 +308,6 @@
   "deezerId": 4762041
  },
  {
-  "id": "bruce-springsteen-streets-of-philadelphia",
-  "artist": "Bruce Springsteen",
-  "title": "Streets of Philadelphia",
-  "year": 1994,
-  "deezerId": 900973
- },
- {
   "id": "guns-n-roses-estranged",
   "artist": "Guns N' Roses",
   "title": "Estranged",
@@ -642,13 +635,6 @@
   "title": "What's My Age Again?",
   "year": 1999,
   "deezerId": 552496552
- },
- {
-  "id": "whitney-houston-i-will-always-love-you",
-  "artist": "Whitney Houston",
-  "title": "I Will Always Love You",
-  "year": 1992,
-  "deezerId": 7675403
  },
  {
   "id": "extreme-more-than-words",
