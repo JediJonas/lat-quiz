@@ -87,7 +87,7 @@ En kategori med `season` i `data/categories.json` syns bara mellan två datum va
 "season": { "from": "10-15", "to": "11-05" }
 ```
 
-Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som `12-01` till `01-06`, går också. Säsongskategorier står inte i `host.html` utan läggs till av `js/host.js` när det är säsong, och en kategori som redan spelas står kvar i Inställningar även om säsongen tar slut under spelet. De står sist i `data/categories.json`, så att 60-tal alltid är först och förvalt.
+Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som `12-01` till `01-06`, går också. Säsongskategorier står inte i `host.html` utan läggs till av `js/host.js` när det är säsong, och en kategori som redan spelas står kvar i Inställningar även om säsongen tar slut under spelet. Kategorierna står med årtiondena först och sedan resten i bokstavsordning, säsongskategorierna inräknade, så att 60-tal alltid är först och förvalt.
 
 Jul syns 1 december–6 januari och har jullåtar, både utländska och svenska.
 
