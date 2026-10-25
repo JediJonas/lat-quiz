@@ -78,6 +78,18 @@ npm run sidvikt
 
 En kategori kan döpa om fälten med `labels`, till exempel Kompositör och Verk för klassisk musik.
 
+### Säsongskategorier
+
+En kategori med `season` i `data/categories.json` syns bara mellan två datum varje år, båda dagarna inräknade, till exempel Halloween:
+
+```
+"season": { "from": "10-15", "to": "11-05" }
+```
+
+Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som `12-01` till `01-06`, går också. Säsongskategorier står inte i `host.html` utan läggs till av `js/host.js` när det är säsong, och en kategori som redan spelas står kvar i Inställningar även om säsongen tar slut under spelet.
+
+Halloween blandar läskiga låtar med ledmotiv från skräckfilmer och serier. För ledmotiven är Artist den som skrev det och Titel filmens eller seriens namn, som i Filmmusik, och spåret står i `track`.
+
 ## Deezer-ID
 
 Varje quizlåt kan ha ett fast `deezerId`, så att rätt inspelning spelas och inte en liveversion eller en cover. Claude hämtar dem med Node:

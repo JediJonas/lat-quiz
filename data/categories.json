@@ -1,4 +1,5 @@
 [
+  { "id": "halloween", "name": "Halloween", "file": "halloween.json", "season": { "from": "10-15", "to": "11-05" }, "songs": 61 },
   { "id": "60-tal", "name": "60-tal", "file": "60-tal.json", "songs": 186 },
   { "id": "70-tal", "name": "70-tal", "file": "70-tal.json", "songs": 146 },
   { "id": "80-tal", "name": "80-tal", "file": "80-tal.json", "songs": 159 },

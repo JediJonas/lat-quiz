@@ -30,9 +30,36 @@ test('kategorierna i host.html är desamma som i categories.json', () => {
   const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
   const options = [...html.matchAll(/<input type="radio" name="category" value="([^"]+)"[^>]*>.*?<span class="cat-name">([^<]+)<span class="cat-songs">(\d+) låtar<\/span><\/span>/g)]
     .map(([, id, name, songs]) => ({ id, name: name.replaceAll('&shy;', ''), songs: Number(songs) }));
-  const categories = read('data/categories.json').map(({ id, name, songs }) => ({ id, name, songs }));
+  // Säsongskategorier står inte i host.html. De läggs till när det är säsong för dem.
+  const categories = read('data/categories.json').filter((c) => !c.season).map(({ id, name, songs }) => ({ id, name, songs }));
   assert.deepEqual(options, categories, 'Uppdatera listan i host.html');
   assert.match(html, new RegExp(`${categories.length} kategorier`));
+});
+
+test('säsongskategorier syns bara mellan sina datum', async () => {
+  const { inSeason, visibleCategories } = await import('../js/data.js');
+  const halloween = { id: 'halloween', season: { from: '10-15', to: '11-05' } };
+  const jul = { id: 'jul', season: { from: '12-01', to: '01-06' } };
+  const day = (s) => new Date(s + 'T12:00:00');
+  assert.equal(inSeason(halloween, day('2026-10-14')), false);
+  assert.equal(inSeason(halloween, day('2026-10-15')), true);
+  assert.equal(inSeason(halloween, day('2026-10-31')), true);
+  assert.equal(inSeason(halloween, day('2026-11-05')), true);
+  assert.equal(inSeason(halloween, day('2026-11-06')), false);
+  assert.equal(inSeason(jul, day('2026-12-24')), true);
+  assert.equal(inSeason(jul, day('2027-01-06')), true);
+  assert.equal(inSeason(jul, day('2027-01-07')), false);
+  assert.equal(inSeason({ id: '80-tal' }, day('2026-06-01')), true);
+  const all = [{ id: '80-tal' }, halloween];
+  assert.deepEqual(visibleCategories(all, { date: day('2026-06-01') }).map((c) => c.id), ['80-tal']);
+  assert.deepEqual(visibleCategories(all, { date: day('2026-06-01'), keep: 'halloween' }).map((c) => c.id), ['80-tal', 'halloween']);
+});
+
+test('säsongernas datum i categories.json är giltiga', () => {
+  for (const { id, season } of read('data/categories.json')) {
+    if (!season) continue;
+    for (const d of [season.from, season.to]) assert.match(d, /^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, `${id}: ${d} ska vara MM-DD`);
+  }
 });
 
 test('antalet låtar i categories.json stämmer med kategorins fil', () => {
@@ -44,7 +71,7 @@ test('antalet låtar i categories.json stämmer med kategorins fil', () => {
 test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', async () => {
   const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
   const forslag = read('data/forslag.json');
-  const categories = read('data/categories.json').map((c) => ({ id: c.id, songs: read('data/' + c.file) }));
+  const categories = read('data/categories.json').map((c) => ({ id: c.id, labels: c.labels, songs: read('data/' + c.file) }));
   const clean = cleanDecoys(forslag, categories);
   for (const key of ['artists', 'titles', 'countries', 'composers', 'films', 'works']) {
     const kept = new Set(clean[key]);

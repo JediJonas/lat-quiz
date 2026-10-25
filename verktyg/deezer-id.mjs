@@ -139,7 +139,8 @@ async function rank(candidates, artists, title, year) {
 }
 
 const classical = (category) => Boolean(category.labels && /verk/i.test(category.labels.title));
-const film = (category) => category.id === 'filmmusik';
+// Ledmotiv från filmer och serier har spårets namn i track, även i blandade kategorier som Halloween.
+const film = (category, song) => category.id === 'filmmusik' || Boolean(song && song.track);
 const countries = (category) => Boolean(category.labels && /land/i.test(category.labels.artist));
 
 async function search(q) {
@@ -156,7 +157,7 @@ async function topTracks(name) {
 }
 
 export async function find(song, category) {
-  const title = film(category) ? song.track : song.title;
+  const title = film(category, song) ? song.track : song.title;
   // I Eurovision är "artist" landet. Artisten står i verktyg/eurovision-artister.json.
   const artists = countries(category) ? [PERFORMERS[song.id]].filter(Boolean) : [song.artist];
 
@@ -183,7 +184,7 @@ export async function find(song, category) {
     ];
     best = await rank(candidates, artists, title, song.year);
   }
-  if (!best && (countries(category) || film(category))) {
+  if (!best && (countries(category) || film(category, song))) {
     // Utan känd artist: den mest spelade inspelningen med exakt titel.
     const extra = countries(category) ? 'eurovision' : 'soundtrack';
     for (const q of [`track:"${title}"`, `${title} ${extra}`]) {
@@ -217,7 +218,7 @@ for (const id of ids) {
       continue;
     }
     const hit = await find(song, category);
-    const row = { id: song.id, artist: song.artist, title: film(category) ? `${song.title} (${song.track})` : song.title, year: song.year };
+    const row = { id: song.id, artist: song.artist, title: film(category, song) ? `${song.title} (${song.track})` : song.title, year: song.year };
     if (hit) {
       song.deezerId = hit.track.id;
       Object.assign(row, {

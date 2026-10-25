@@ -1,0 +1,446 @@
+[
+ {
+  "id": "michael-jackson-thriller",
+  "artist": "Michael Jackson",
+  "title": "Thriller",
+  "year": 1982,
+  "deezerId": 555639
+ },
+ {
+  "id": "ray-parker-jr-ghostbusters",
+  "artist": "Ray Parker Jr.",
+  "title": "Ghostbusters",
+  "year": 1984,
+  "deezerId": 969252
+ },
+ {
+  "id": "bobby-boris-pickett-monster-mash",
+  "artist": "Bobby \"Boris\" Pickett",
+  "title": "Monster Mash",
+  "year": 1962,
+  "deezerId": 7378740
+ },
+ {
+  "id": "rockwell-somebody-s-watching-me",
+  "artist": "Rockwell",
+  "title": "Somebody's Watching Me",
+  "year": 1984,
+  "deezerId": 1484703292
+ },
+ {
+  "id": "warren-zevon-werewolves-of-london",
+  "artist": "Warren Zevon",
+  "title": "Werewolves of London",
+  "year": 1978,
+  "deezerId": 773638
+ },
+ {
+  "id": "blue-oyster-cult-don-t-fear-the-reaper",
+  "artist": "Blue Öyster Cult",
+  "title": "(Don't Fear) The Reaper",
+  "year": 1976,
+  "deezerId": 82692320
+ },
+ {
+  "id": "screamin-jay-hawkins-i-put-a-spell-on-you",
+  "artist": "Screamin' Jay Hawkins",
+  "title": "I Put a Spell on You",
+  "year": 1956,
+  "deezerId": 1065475
+ },
+ {
+  "id": "creedence-clearwater-revival-bad-moon-rising",
+  "artist": "Creedence Clearwater Revival",
+  "title": "Bad Moon Rising",
+  "year": 1969,
+  "deezerId": 593439072
+ },
+ {
+  "id": "stevie-wonder-superstition",
+  "artist": "Stevie Wonder",
+  "title": "Superstition",
+  "year": 1972,
+  "deezerId": 2505668
+ },
+ {
+  "id": "talking-heads-psycho-killer",
+  "artist": "Talking Heads",
+  "title": "Psycho Killer",
+  "year": 1977,
+  "deezerId": 747527
+ },
+ {
+  "id": "donovan-season-of-the-witch",
+  "artist": "Donovan",
+  "title": "Season of the Witch",
+  "year": 1966,
+  "deezerId": 1064285
+ },
+ {
+  "id": "santana-black-magic-woman",
+  "artist": "Santana",
+  "title": "Black Magic Woman",
+  "year": 1970,
+  "deezerId": 81001890
+ },
+ {
+  "id": "eagles-witchy-woman",
+  "artist": "Eagles",
+  "title": "Witchy Woman",
+  "year": 1972,
+  "deezerId": 68094696
+ },
+ {
+  "id": "classics-iv-spooky",
+  "artist": "Classics IV",
+  "title": "Spooky",
+  "year": 1967,
+  "deezerId": 3251751
+ },
+ {
+  "id": "the-searchers-love-potion-no-9",
+  "artist": "The Searchers",
+  "title": "Love Potion No. 9",
+  "year": 1964,
+  "deezerId": 3816553092
+ },
+ {
+  "id": "sheb-wooley-the-purple-people-eater",
+  "artist": "Sheb Wooley",
+  "title": "The Purple People Eater",
+  "year": 1958,
+  "deezerId": 682071812
+ },
+ {
+  "id": "the-rolling-stones-paint-it-black",
+  "artist": "The Rolling Stones",
+  "title": "Paint It Black",
+  "year": 1966,
+  "deezerId": 7677788
+ },
+ {
+  "id": "alice-cooper-welcome-to-my-nightmare",
+  "artist": "Alice Cooper",
+  "title": "Welcome to My Nightmare",
+  "year": 1975,
+  "deezerId": 14615063
+ },
+ {
+  "id": "meat-loaf-bat-out-of-hell",
+  "artist": "Meat Loaf",
+  "title": "Bat Out of Hell",
+  "year": 1977,
+  "deezerId": 125468082
+ },
+ {
+  "id": "ac-dc-highway-to-hell",
+  "artist": "AC/DC",
+  "title": "Highway to Hell",
+  "year": 1979,
+  "deezerId": 92719900
+ },
+ {
+  "id": "ac-dc-hells-bells",
+  "artist": "AC/DC",
+  "title": "Hells Bells",
+  "year": 1980,
+  "deezerId": 92720036
+ },
+ {
+  "id": "ozzy-osbourne-bark-at-the-moon",
+  "artist": "Ozzy Osbourne",
+  "title": "Bark at the Moon",
+  "year": 1983,
+  "deezerId": 623616
+ },
+ {
+  "id": "rob-zombie-dragula",
+  "artist": "Rob Zombie",
+  "title": "Dragula",
+  "year": 1998,
+  "deezerId": 2307303
+ },
+ {
+  "id": "lordi-hard-rock-hallelujah",
+  "artist": "Lordi",
+  "title": "Hard Rock Hallelujah",
+  "year": 2006,
+  "deezerId": 562246
+ },
+ {
+  "id": "the-cramps-goo-goo-muck",
+  "artist": "The Cramps",
+  "title": "Goo Goo Muck",
+  "year": 1981,
+  "deezerId": 3105075
+ },
+ {
+  "id": "oingo-boingo-dead-man-s-party",
+  "artist": "Oingo Boingo",
+  "title": "Dead Man's Party",
+  "year": 1985,
+  "deezerId": 7375436
+ },
+ {
+  "id": "kate-bush-running-up-that-hill",
+  "artist": "Kate Bush",
+  "title": "Running Up That Hill",
+  "year": 1985,
+  "deezerId": 2173954687
+ },
+ {
+  "id": "the-cranberries-zombie",
+  "artist": "The Cranberries",
+  "title": "Zombie",
+  "year": 1994,
+  "deezerId": 980117
+ },
+ {
+  "id": "nick-cave-and-the-bad-seeds-red-right-hand",
+  "artist": "Nick Cave & The Bad Seeds",
+  "title": "Red Right Hand",
+  "year": 1994,
+  "deezerId": 3785902762
+ },
+ {
+  "id": "andrew-gold-spooky-scary-skeletons",
+  "artist": "Andrew Gold",
+  "title": "Spooky Scary Skeletons",
+  "year": 1996,
+  "deezerId": 774799612
+ },
+ {
+  "id": "evanescence-bring-me-to-life",
+  "artist": "Evanescence",
+  "title": "Bring Me to Life",
+  "year": 2003,
+  "deezerId": 80274512
+ },
+ {
+  "id": "rihanna-disturbia",
+  "artist": "Rihanna",
+  "title": "Disturbia",
+  "year": 2008,
+  "deezerId": 925118
+ },
+ {
+  "id": "shakira-she-wolf",
+  "artist": "Shakira",
+  "title": "She Wolf",
+  "year": 2009,
+  "deezerId": 3018798101
+ },
+ {
+  "id": "yeah-yeah-yeahs-heads-will-roll",
+  "artist": "Yeah Yeah Yeahs",
+  "title": "Heads Will Roll",
+  "year": 2009,
+  "deezerId": 555639002
+ },
+ {
+  "id": "lady-gaga-bloody-mary",
+  "artist": "Lady Gaga",
+  "title": "Bloody Mary",
+  "year": 2011,
+  "deezerId": 1414907362
+ },
+ {
+  "id": "eminem-the-monster",
+  "artist": "Eminem",
+  "title": "The Monster",
+  "year": 2013,
+  "deezerId": 72160317
+ },
+ {
+  "id": "katy-perry-dark-horse",
+  "artist": "Katy Perry",
+  "title": "Dark Horse",
+  "year": 2013,
+  "deezerId": 71645436
+ },
+ {
+  "id": "billie-eilish-bury-a-friend",
+  "artist": "Billie Eilish",
+  "title": "bury a friend",
+  "year": 2019,
+  "deezerId": 655095992
+ },
+ {
+  "id": "olivia-rodrigo-vampire",
+  "artist": "Olivia Rodrigo",
+  "title": "vampire",
+  "year": 2023,
+  "deezerId": 2440763155
+ },
+ {
+  "id": "alla-helgons-blodiga-natt",
+  "artist": "John Carpenter",
+  "title": "Alla helgons blodiga natt",
+  "year": 1978,
+  "track": "Halloween Theme",
+  "deezerId": 4087971691
+ },
+ {
+  "id": "exorcisten",
+  "artist": "Mike Oldfield",
+  "title": "Exorcisten",
+  "year": 1973,
+  "track": "Mike Oldfield's Single (Theme From Tubular Bells)",
+  "deezerId": 99930580
+ },
+ {
+  "id": "psycho",
+  "artist": "Bernard Herrmann",
+  "title": "Psycho",
+  "year": 1960,
+  "track": "Prelude",
+  "deezerId": 123818654
+ },
+ {
+  "id": "hajen",
+  "artist": "John Williams",
+  "title": "Hajen",
+  "year": 1975,
+  "track": "Main Title",
+  "deezerId": 93631710
+ },
+ {
+  "id": "omen",
+  "artist": "Jerry Goldsmith",
+  "title": "Omen",
+  "year": 1976,
+  "track": "Ave Satani",
+  "deezerId": 120301884
+ },
+ {
+  "id": "ondskans-vardshus",
+  "artist": "Wendy Carlos",
+  "title": "Ondskans värdshus",
+  "year": 1980,
+  "track": "Main Title",
+  "deezerId": 1105410342
+ },
+ {
+  "id": "terror-pa-elm-street",
+  "artist": "Charles Bernstein",
+  "title": "Terror på Elm Street",
+  "year": 1984,
+  "track": "Main Title",
+  "deezerId": 647289582
+ },
+ {
+  "id": "fredagen-den-13e",
+  "artist": "Harry Manfredini",
+  "title": "Fredagen den 13:e",
+  "year": 1980,
+  "track": "Overlay of Evil / Main Title",
+  "deezerId": 419382952
+ },
+ {
+  "id": "beetlejuice",
+  "artist": "Danny Elfman",
+  "title": "Beetlejuice",
+  "year": 1988,
+  "track": "Main Titles",
+  "deezerId": 84605675
+ },
+ {
+  "id": "the-nightmare-before-christmas",
+  "artist": "Danny Elfman",
+  "title": "The Nightmare Before Christmas",
+  "year": 1993,
+  "track": "This is Halloween",
+  "deezerId": 1762460387
+ },
+ {
+  "id": "saw",
+  "artist": "Charlie Clouser",
+  "title": "Saw",
+  "year": 2004,
+  "track": "Hello Zepp",
+  "deezerId": 426966262
+ },
+ {
+  "id": "familjen-addams",
+  "artist": "Vic Mizzy",
+  "title": "Familjen Addams",
+  "year": 1964,
+  "track": "The Addams Family",
+  "deezerId": 10395828
+ },
+ {
+  "id": "wednesday",
+  "artist": "Danny Elfman",
+  "title": "Wednesday",
+  "year": 2022,
+  "track": "Wednesday Main Titles",
+  "deezerId": 2355750635
+ },
+ {
+  "id": "twin-peaks",
+  "artist": "Angelo Badalamenti",
+  "title": "Twin Peaks",
+  "year": 1990,
+  "track": "Twin Peaks Theme",
+  "deezerId": 7337260
+ },
+ {
+  "id": "stranger-things",
+  "artist": "Kyle Dixon & Michael Stein",
+  "title": "Stranger Things",
+  "year": 2016,
+  "track": "Stranger Things",
+  "deezerId": 130871168
+ },
+ {
+  "id": "the-walking-dead",
+  "artist": "Bear McCreary",
+  "title": "The Walking Dead",
+  "year": 2010,
+  "track": "Theme from the Walking Dead",
+  "deezerId": 414308332
+ },
+ {
+  "id": "american-horror-story",
+  "artist": "Cesar Davila-Irizarry",
+  "title": "American Horror Story",
+  "year": 2011,
+  "track": "American Horror Story Theme",
+  "deezerId": 958035182
+ },
+ {
+  "id": "bach-toccata-and-fugue-in-d-minor",
+  "artist": "Johann Sebastian Bach",
+  "title": "Toccata and Fugue in D minor",
+  "year": 1708,
+  "deezerId": 3701745
+ },
+ {
+  "id": "saint-saens-danse-macabre",
+  "artist": "Camille Saint-Saëns",
+  "title": "Danse macabre",
+  "year": 1874,
+  "deezerId": 134026176
+ },
+ {
+  "id": "mussorgsky-night-on-bald-mountain",
+  "artist": "Modest Mussorgsky",
+  "title": "Night on Bald Mountain",
+  "year": 1867,
+  "deezerId": 137200312
+ },
+ {
+  "id": "grieg-in-the-hall-of-the-mountain-king",
+  "artist": "Edvard Grieg",
+  "title": "In the Hall of the Mountain King",
+  "year": 1875,
+  "deezerId": 67343982
+ },
+ {
+  "id": "orff-o-fortuna",
+  "artist": "Carl Orff",
+  "title": "O Fortuna",
+  "year": 1937,
+  "deezerId": 67332242
+ }
+]

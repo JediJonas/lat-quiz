@@ -3,6 +3,7 @@
 // dyker de upp i förslagen precis när någon skriver rätt svar.
 
 import { normalize } from '../js/text.js';
+import { suggestionKind } from '../js/data.js';
 
 const VERSION = /\s*\([^()]*(karaoke|instrumental|singback|sjung själv|maxi|unplugged|version|live|mix|edit|radio|censur)[^()]*\)$/i;
 // Förtydliganden från engelska Wikipedia, som "Light Me Up (Gromee song)". Gemen "song" med flit,
@@ -28,16 +29,21 @@ export function cleanArtist(artist) {
   return parts.filter((p, i) => parts.findIndex((q) => normalize(q) === normalize(p)) === i).join(' & ');
 }
 
-// categories: [{ id, songs }] med alla quizlåtar. Lockbeten som är samma som ett rätt svar tas bort,
-// eftersom rätt svar ändå läggs till i förslagen när spelet laddar.
+// categories: [{ id, labels, songs }] med alla quizlåtar. Lockbeten som är samma som ett rätt svar
+// tas bort, eftersom rätt svar ändå läggs till i förslagen när spelet laddar. Det gäller bara listan
+// som svaret hamnar i, så att Jerry Goldsmith finns kvar bland kompositörerna i Filmmusik även när
+// han är ett rätt svar som artist i Halloween.
 export function cleanDecoys(forslag, categories) {
   const answers = { artists: new Set(), titles: new Set() };
+  const same = {};
   const films = [];
-  for (const { id, songs } of categories) {
+  for (const { id, labels = {}, songs } of categories) {
     for (const song of songs) {
       answers.artists.add(normalize(song.artist));
       answers.titles.add(normalize(song.title));
-      if (id === 'filmmusik') films.push(song.title);
+      for (const field of ['artist', 'title']) (same[suggestionKind(field, labels[field])] ||= new Set()).add(normalize(song[field]));
+      // Ledmotiv har spårets namn i track, även i Halloween, där titeln är filmen eller serien.
+      if (id === 'filmmusik' || song.track) films.push(song.title);
     }
   }
   const isSequel = (title) => films.some((film) => title.startsWith(film) && SEQUEL.test(title.slice(film.length)));
@@ -52,7 +58,8 @@ export function cleanDecoys(forslag, categories) {
   const hasAnswer = (artist) => artist.split(/\s+[&+]\s+/)
     .some((p) => answers.artists.has(normalize(p)) || isFullName(p));
   const isConfusable = (artist) => isFullName(artist) || (/\s[&+]\s/.test(artist) && hasAnswer(artist));
-  const clean = (items, fix, wanted, extra) => {
+  const clean = (items, fix, kind, extra) => {
+    const wanted = same[kind] || new Set();
     // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas.
     const seen = new Map();
     const kept = items.map(fix).sort()
@@ -61,13 +68,13 @@ export function cleanDecoys(forslag, categories) {
     return [...seen.values()];
   };
   return {
-    artists: clean(forslag.artists, cleanArtist, answers.artists, isConfusable),
-    titles: clean(forslag.titles, cleanTitle, answers.titles, (t) => isSequel(t) || isSubtitled(t)),
+    artists: clean(forslag.artists, cleanArtist, 'artists', isConfusable),
+    titles: clean(forslag.titles, cleanTitle, 'titles', (t) => isSequel(t) || isSubtitled(t)),
     // Lockbeten för fält som heter Land, Kompositör, Film och Verk, se suggestionKind i js/data.js.
-    countries: clean(forslag.countries || [], (c) => c.trim(), answers.artists, () => false),
-    composers: clean(forslag.composers || [], cleanArtist, answers.artists, isConfusable),
-    films: clean(forslag.films || [], cleanTitle, answers.titles, (t) => isSequel(t) || isSubtitled(t)),
-    works: clean(forslag.works || [], cleanTitle, answers.titles, isSubtitled),
+    countries: clean(forslag.countries || [], (c) => c.trim(), 'countries', () => false),
+    composers: clean(forslag.composers || [], cleanArtist, 'composers', isConfusable),
+    films: clean(forslag.films || [], cleanTitle, 'films', (t) => isSequel(t) || isSubtitled(t)),
+    works: clean(forslag.works || [], cleanTitle, 'works', isSubtitled),
   };
 }
 
