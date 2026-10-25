@@ -1148,8 +1148,8 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
    det stora under spelet. Det som inte får plats sticker ut lika mycket åt båda håll. Två tecken
    står kvar i hörnet. Listan följer --cat-glyph ovan och räknar synliga tecken. */
 @media (max-width: 600px) {
-  .tile:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="halloween"], [data-kategori="jul"])::after,
-  :root:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="halloween"], [data-kategori="jul"]) .cover::after {
+  .tile:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="jul"])::after,
+  :root:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="jul"]) .cover::after {
     left: 0;
     right: 0;
     display: flex;
