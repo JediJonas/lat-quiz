@@ -166,7 +166,7 @@
 [data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; --cat-dim: 0.12; }
 [data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; --cat-dim: 0.02; }
 [data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; --cat-dim: 0.28; }
-[data-kategori="halloween"] { --cat-glyph: "BU"; --cat-1: #ff6600; --cat-2: #2e0f4f; --cat-dim: 0.28; }
+[data-kategori="halloween"] { --cat-glyph: "BOO"; --cat-1: #ff6600; --cat-2: #2e0f4f; --cat-dim: 0.28; }
 [data-kategori="jul"] { --cat-glyph: "JUL"; --cat-1: #e03a3e; --cat-2: #0f4d2e; --cat-dim: 0.15; }
 
 /* Säsongens stämning bakom innehållet, se js/sasong.js: snö i Jul och löv och fladdermöss i
@@ -1128,6 +1128,22 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .cat-option { position: relative; flex: none; margin: 0; width: 128px; scroll-snap-align: start; cursor: pointer; }
 .cat-option .tile { border-radius: 26px; }
 .cat-option .tile::after { font-size: 100px; top: -0.1em; right: -0.06em; }
+/* I mobilen får en förkortning med fler än två tecken inte plats i hörnet och klipptes mitt i.
+   Där står den i stället mitt i omslaget i sidled, på samma höjd som förut, både på de små och
+   det stora under spelet. Det som inte får plats sticker ut lika mycket åt båda håll. Två tecken
+   står kvar i hörnet. Listan följer --cat-glyph ovan och räknar synliga tecken. */
+@media (max-width: 600px) {
+  .tile:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="halloween"], [data-kategori="jul"])::after,
+  :root:is([data-kategori="eurovision"], [data-kategori="filmmusik"], [data-kategori="edm"], [data-kategori="halloween"], [data-kategori="jul"]) .cover::after {
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    /* Det negativa teckenavståndet räknas även efter sista tecknet, så utan det här hamnar texten lite till höger. */
+    padding-right: 0.07em;
+  }
+}
 .cat-option .cat-name { display: block; margin: 8px 2px 0; font-size: 0.875rem; font-weight: 650; line-height: 1.25; overflow-wrap: break-word; hyphens: auto; }
 .cat-option .cat-songs { display: block; font-size: 0.8125rem; font-weight: 500; color: var(--muted); }
 .cat-option input:checked + .tile { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--accent); }
