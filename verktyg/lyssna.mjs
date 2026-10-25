@@ -50,7 +50,8 @@ export function sections() {
 export function page(list = sections()) {
   const antal = list.filter((s) => s.kategori).reduce((n, s) => n + s.latar.length, 0);
   const lank = (s) => `<a href="#${s.id}">${s.rubrik}</a>`;
-  const avsnitt = (s) => `  <h2 id="${s.id}">${s.rubrik}</h2>\n  <p class="intro">${s.intro}</p>\n  <ol data-avsnitt="${s.id}"></ol>`;
+  // Varje avsnitt är hopfällt från början och fälls ut med ett tryck på rubriken.
+  const avsnitt = (s) => `  <details id="${s.id}">\n    <summary><h2><span>${s.rubrik}</span><span class="antal">${s.latar.length}</span></h2></summary>\n    <p class="intro">${s.intro}</p>\n    <ol data-avsnitt="${s.id}"></ol>\n  </details>`;
   return TEMPLATE
     .replace('%ANTAL%', antal)
     .replace('%KATEGORIER%', list.filter((s) => s.kategori).length)
@@ -81,8 +82,18 @@ const TEMPLATE = `<!doctype html>
   nav p { margin: 0 0 8px; }
   nav b { color: var(--svag); font-weight: 600; }
   a { color: var(--accent); text-decoration: none; }
-  h2 { font-size: 20px; margin: 28px 0 4px; }
-  h2 + .intro { margin-bottom: 10px; }
+  .alla { display: flex; gap: 16px; margin: 0 0 8px; }
+  .alla button { width: auto; height: auto; border-radius: 0; background: none; color: var(--accent); font-size: 14px; padding: 4px 0; }
+  details { background: var(--kort); border-radius: 12px; margin: 10px 0 0; }
+  summary { display: flex; align-items: center; gap: 10px; padding: 14px; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: ''; flex: none; width: 8px; height: 8px; border: solid var(--svag); border-width: 0 2px 2px 0; transform: rotate(-45deg); transition: transform .15s; margin-right: 2px; }
+  details[open] > summary::before { transform: rotate(45deg); }
+  h2 { flex: 1; display: flex; align-items: baseline; gap: 10px; font-size: 18px; margin: 0; }
+  h2 > span:first-child { flex: 1; }
+  .antal { flex: none; font-size: 13px; font-weight: 400; color: var(--svag); font-variant-numeric: tabular-nums; }
+  details > .intro { margin: -6px 14px 10px; }
+  details > ol { border-top: 1px solid var(--linje); border-radius: 0 0 12px 12px; }
   ol { list-style: none; margin: 0; padding: 0; background: var(--kort); border-radius: 12px; overflow: hidden; }
   li { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--linje); }
   li:first-child { border-top: 0; }
@@ -102,11 +113,12 @@ const TEMPLATE = `<!doctype html>
 <body>
 <main>
   <h1>Låtarna i appen</h1>
-  <p class="intro">Alla låtar som Låtquiz spelar: väntelåtarna, säsongskategoriernas väntelåtar, vinnarlåtarna och de %ANTAL% quizlåtarna i %KATEGORIER% kategorier. Tryck på en låt för att höra Deezer-klippet på 30 sekunder. Under varje låt står inspelningen som Deezer-ID:t pekar på, och den hämtas när raden syns. Klipplänken hämtas när du trycker, eftersom Deezers länkar går ut efter en stund.</p>
+  <p class="intro">Alla låtar som Låtquiz spelar: väntelåtarna, säsongskategoriernas väntelåtar, vinnarlåtarna och de %ANTAL% quizlåtarna i %KATEGORIER% kategorier. Tryck på en låt för att höra Deezer-klippet på 30 sekunder. Tryck på en rubrik för att fälla ut eller ihop den. Under varje låt står inspelningen som Deezer-ID:t pekar på, och den hämtas när raden syns. Klipplänken hämtas när du trycker, eftersom Deezers länkar går ut efter en stund.</p>
   <nav>
     <p><b>Extraljud:</b> %MENY_LJUD%</p>
     <p><b>Kategorier:</b> %MENY_KATEGORIER%</p>
   </nav>
+  <div class="alla"><button type="button" data-alla="1">Fäll ut alla</button><button type="button" data-alla="">Fäll ihop alla</button></div>
 %AVSNITT%
 </main>
 <script>
@@ -202,6 +214,14 @@ function visa(latar, lista) { latar.forEach(([artist, titel, id, ar]) => {
 }); }
 
 for (const lista of document.querySelectorAll('ol[data-avsnitt]')) visa(LATAR[lista.dataset.avsnitt], lista);
+
+// En länk i menyn fäller ut sitt avsnitt, så att låtarna syns när sidan har skrollat dit.
+function oppna(id) { const d = document.getElementById(id); if (d && d.tagName === 'DETAILS') d.open = true; }
+document.querySelector('nav').addEventListener('click', (e) => { const a = e.target.closest('a'); if (a) oppna(a.hash.slice(1)); });
+if (location.hash) oppna(location.hash.slice(1));
+for (const knapp of document.querySelectorAll('[data-alla]')) {
+  knapp.addEventListener('click', () => { for (const d of document.querySelectorAll('details')) d.open = Boolean(knapp.dataset.alla); });
+}
 
 audio.addEventListener('timeupdate', () => {
   if (!aktiv || !audio.duration) return;
