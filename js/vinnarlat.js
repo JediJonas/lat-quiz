@@ -58,7 +58,7 @@ const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
 // Säsongskategorierna har en egen vinnarlåt (beslutat 25 oktober 2026).
 export const SEASON_WINNER_SONGS = {
-  halloween: [{ artist: 'Conrad Askland', title: 'Halloween Organ', deezerId: 23197541 }],
+  halloween: [{ artist: 'Andrew Gold', title: 'Spooky, Scary Skeletons (Undead Tombstone Remix)', deezerId: 774799712 }],
   jul: [{ artist: 'Trans-Siberian Orchestra', title: 'Wizards in Winter', deezerId: 14615485 }],
 };
 
