@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect } from '../js/vinstanimation.js';
+import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect, spotlightPairs } from '../js/vinstanimation.js';
 
 test('samma match ger samma vinstanimation på alla enheter', () => {
   const key = '14|Take On Me|a-ha|Anna';
@@ -22,4 +22,10 @@ test('Halloween och Jul har bara sina egna vinstanimationer, ungefär lika ofta'
     for (let i = 0; i < 2000; i += 1) counts[pickWinEffect(`${i % 30}|Låt ${i}|Artist|Spelare ${i % 7}`, category)] += 1;
     for (const effect of effects) assert.ok(counts[effect] > 850, `${category} ${effect}: ${counts[effect]}`);
   }
+});
+
+test('strålkastarna släcks två och två, utifrån och in', () => {
+  // Samma placering som i spotlights: tre lampor uppe och tre nere.
+  const pairs = spotlightPairs([0.1, 0.45, 0.88, 0.2, 0.62, 0.95]);
+  assert.deepEqual(pairs, [[5, 0], [2, 3], [4, 1]]);
 });

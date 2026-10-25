@@ -747,8 +747,9 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   from { transform: rotate(calc(var(--a) - var(--sw))); }
   to { transform: rotate(calc(var(--a) + var(--sw))); }
 }
-/* Efter elva sekunder slocknar ljuset långsamt och käglorna stannar. */
-.stralkastare.done .spot-beam { opacity: 0; transition: opacity 1.8s ease-in-out; }
+/* Efter elva sekunder släcks lamporna två och två, snabbt som när någon slår av dem, och käglorna
+   stannar när den sista är släckt. */
+.spot-beam.off { opacity: 0; transition: opacity 0.12s ease-out; }
 .stralkastare.done .spot-beam span { animation-play-state: paused; }
 /* Med minskad rörelse står käglorna still mitt i svepet. */
 @media (prefers-reduced-motion: reduce) {
