@@ -56,9 +56,19 @@ const LEVEL_DB = -12;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
-// En slumpad låt, men inte samma som förra gången.
-export function pickWinnerSong(random = Math.random, last = null) {
-  const choices = WINNER_SONGS.filter((s) => s.deezerId !== last);
+// Säsongskategorierna har en egen vinnarlåt (beslutat 25 oktober 2026).
+export const SEASON_WINNER_SONGS = {
+  halloween: [{ artist: 'Conrad Askland', title: 'Halloween Organ', deezerId: 23197541 }],
+  jul: [{ artist: 'Trans-Siberian Orchestra', title: 'Wizards in Winter', deezerId: 14615485 }],
+};
+
+// Vinnarlåtarna för en kategori: säsongens egen, annars de vanliga.
+export const winnerSongs = (categoryId) => SEASON_WINNER_SONGS[categoryId] || WINNER_SONGS;
+
+// En slumpad låt, men inte samma som förra gången, om det finns fler att välja på.
+export function pickWinnerSong(random = Math.random, last = null, songs = WINNER_SONGS) {
+  const others = songs.filter((s) => s.deezerId !== last);
+  const choices = others.length ? others : songs;
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
@@ -75,8 +85,8 @@ export const WINNER_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: FADE_MS, lo
 export const DRUM_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: 0, loop: false };
 
 // onChange: låten har börjat höras, eller tystnat för att klippet inte gick att spela, så att raden
-// längst ner följer med.
-export function createWinnerSong({ onChange = () => {} } = {}) {
+// längst ner följer med. songs: låtarna för spelets kategori, se winnerSongs.
+export function createWinnerSong({ onChange = () => {}, songs = () => WINNER_SONGS } = {}) {
   let audio = null;
   let last = null;
   let timers = [];
@@ -169,7 +179,7 @@ export function createWinnerSong({ onChange = () => {} } = {}) {
   // Texten innan vinnaren visas. Klippet hämtas redan nu, så att låten startar direkt.
   function prepare() {
     stop();
-    const song = pickWinnerSong(Math.random, last);
+    const song = pickWinnerSong(Math.random, last, songs());
     last = song.deezerId;
     current = song;
     heardSong = null;

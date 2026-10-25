@@ -10,7 +10,7 @@ import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { dragToClose } from './ark.js';
-import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
+import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
@@ -129,7 +129,7 @@ function musicChanged() {
   if (delay) setTimeout(() => { if (state) { showNowMusic($('#now-music'), currentMusic()); broadcast(); } }, delay);
 }
 
-const winnerSong = createWinnerSong({ onChange: musicChanged });
+const winnerSong = createWinnerSong({ onChange: musicChanged, songs: () => winnerSongs(state && state.categoryId) });
 const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(category && category.id) });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
