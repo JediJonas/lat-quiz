@@ -1,4 +1,5 @@
 [
+  { "id": "jul", "name": "Jul", "file": "jul.json", "season": { "from": "11-25", "to": "01-06" }, "songs": 54 },
   { "id": "halloween", "name": "Halloween", "file": "halloween.json", "season": { "from": "10-15", "to": "11-05" }, "songs": 61 },
   { "id": "60-tal", "name": "60-tal", "file": "60-tal.json", "songs": 186 },
   { "id": "70-tal", "name": "70-tal", "file": "70-tal.json", "songs": 146 },

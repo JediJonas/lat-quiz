@@ -88,6 +88,8 @@ En kategori med `season` i `data/categories.json` syns bara mellan två datum va
 
 Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som `12-01` till `01-06`, går också. Säsongskategorier står inte i `host.html` utan läggs till av `js/host.js` när det är säsong, och en kategori som redan spelas står kvar i Inställningar även om säsongen tar slut under spelet.
 
+Jul syns 25 november–6 januari och har jullåtar, både utländska och svenska.
+
 Halloween blandar läskiga låtar med ledmotiv från skräckfilmer och serier. För ledmotiven är Artist den som skrev det och Titel filmens eller seriens namn, som i Filmmusik, och spåret står i `track`.
 
 ## Deezer-ID
