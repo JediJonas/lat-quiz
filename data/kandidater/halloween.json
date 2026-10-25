@@ -268,9 +268,67 @@
    "year": 2023
   },
   {
+   "id": "tame-impala-dracula",
+   "artist": "Tame Impala",
+   "title": "Dracula",
+   "year": 2025
+  },
+  {
+   "id": "britney-spears-toxic",
+   "artist": "Britney Spears",
+   "title": "Toxic",
+   "year": 2003
+  },
+  {
+   "id": "billie-eilish-bad-guy",
+   "artist": "Billie Eilish",
+   "title": "bad guy",
+   "year": 2019
+  },
+  {
+   "id": "lady-gaga-the-dead-dance",
+   "artist": "Lady Gaga",
+   "title": "The Dead Dance",
+   "year": 2025
+  },
+  {
+   "id": "bow-wow-wow-i-want-candy",
+   "artist": "Bow Wow Wow",
+   "title": "I Want Candy",
+   "year": 1982
+  },
+  {
+   "id": "duran-duran-hungry-like-the-wolf",
+   "artist": "Duran Duran",
+   "title": "Hungry Like the Wolf",
+   "year": 1982
+  },
+  {
+   "id": "steve-miller-band-abracadabra",
+   "artist": "Steve Miller Band",
+   "title": "Abracadabra",
+   "year": 1982
+  },
+  {
+   "id": "alice-cooper-poison",
+   "artist": "Alice Cooper",
+   "title": "Poison",
+   "year": 1989
+  },
+  {
+   "id": "kesha-cannibal",
+   "artist": "Kesha",
+   "title": "Cannibal",
+   "year": 2010
+  },
+  {
    "id": "alla-helgons-blodiga-natt",
    "artist": "John Carpenter",
    "title": "Alla helgons blodiga natt",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1978,
    "track": "Halloween Theme"
   },
@@ -278,6 +336,10 @@
    "id": "exorcisten",
    "artist": "Mike Oldfield",
    "title": "Exorcisten",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1973,
    "track": "Mike Oldfield's Single (Theme From Tubular Bells)"
   },
@@ -285,13 +347,21 @@
    "id": "psycho",
    "artist": "Bernard Herrmann",
    "title": "Psycho",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1960,
-   "track": "Prelude"
+   "track": "The Murder"
   },
   {
    "id": "hajen",
    "artist": "John Williams",
    "title": "Hajen",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1975,
    "track": "Main Title"
   },
@@ -299,6 +369,10 @@
    "id": "omen",
    "artist": "Jerry Goldsmith",
    "title": "Omen",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1976,
    "track": "Ave Satani"
   },
@@ -306,6 +380,10 @@
    "id": "ondskans-vardshus",
    "artist": "Wendy Carlos",
    "title": "Ondskans värdshus",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1980,
    "track": "Main Title"
   },
@@ -313,6 +391,10 @@
    "id": "terror-pa-elm-street",
    "artist": "Charles Bernstein",
    "title": "Terror på Elm Street",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1984,
    "track": "Main Title"
   },
@@ -320,6 +402,10 @@
    "id": "fredagen-den-13e",
    "artist": "Harry Manfredini",
    "title": "Fredagen den 13:e",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1980,
    "track": "Overlay of Evil / Main Title"
   },
@@ -327,6 +413,10 @@
    "id": "beetlejuice",
    "artist": "Danny Elfman",
    "title": "Beetlejuice",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1988,
    "track": "Main Titles"
   },
@@ -334,6 +424,10 @@
    "id": "the-nightmare-before-christmas",
    "artist": "Danny Elfman",
    "title": "The Nightmare Before Christmas",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1993,
    "track": "This is Halloween"
   },
@@ -341,6 +435,10 @@
    "id": "saw",
    "artist": "Charlie Clouser",
    "title": "Saw",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 2004,
    "track": "Hello Zepp"
   },
@@ -348,6 +446,10 @@
    "id": "familjen-addams",
    "artist": "Vic Mizzy",
    "title": "Familjen Addams",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 1964,
    "track": "The Addams Family"
   },
@@ -355,6 +457,10 @@
    "id": "wednesday",
    "artist": "Danny Elfman",
    "title": "Wednesday",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 2022,
    "track": "Wednesday Main Titles"
   },
@@ -362,6 +468,10 @@
    "id": "arkiv-x",
    "artist": "Mark Snow",
    "title": "Arkiv X",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 1993,
    "track": "The X-Files"
   },
@@ -369,6 +479,10 @@
    "id": "twin-peaks",
    "artist": "Angelo Badalamenti",
    "title": "Twin Peaks",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 1990,
    "track": "Twin Peaks Theme"
   },
@@ -376,6 +490,10 @@
    "id": "buffy-och-vampyrerna",
    "artist": "Nerf Herder",
    "title": "Buffy och vampyrerna",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
    "year": 1997,
    "track": "Buffy the Vampire Slayer Theme"
   },
@@ -383,6 +501,10 @@
    "id": "stranger-things",
    "artist": "Kyle Dixon & Michael Stein",
    "title": "Stranger Things",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 2016,
    "track": "Stranger Things"
   },
@@ -390,6 +512,10 @@
    "id": "the-walking-dead",
    "artist": "Bear McCreary",
    "title": "The Walking Dead",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 2010,
    "track": "Theme from the Walking Dead"
   },
@@ -397,6 +523,10 @@
    "id": "american-horror-story",
    "artist": "Cesar Davila-Irizarry",
    "title": "American Horror Story",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
    "year": 2011,
    "track": "American Horror Story Theme"
   },
@@ -404,30 +534,50 @@
    "id": "bach-toccata-and-fugue-in-d-minor",
    "artist": "Johann Sebastian Bach",
    "title": "Toccata och fuga i d-moll",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Verk"
+   },
    "year": 1708
   },
   {
    "id": "saint-saens-danse-macabre",
    "artist": "Camille Saint-Saëns",
    "title": "Danse macabre",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Verk"
+   },
    "year": 1874
   },
   {
    "id": "mussorgsky-night-on-bald-mountain",
    "artist": "Modest Mussorgsky",
    "title": "En natt på Blåkulla",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Verk"
+   },
    "year": 1867
   },
   {
    "id": "grieg-in-the-hall-of-the-mountain-king",
    "artist": "Edvard Grieg",
    "title": "I bergakungens sal",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Verk"
+   },
    "year": 1875
   },
   {
    "id": "orff-o-fortuna",
    "artist": "Carl Orff",
    "title": "O Fortuna",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Verk"
+   },
    "year": 1937
   }
  ]

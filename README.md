@@ -76,7 +76,7 @@ npm run sidvikt
 3. `verktyg/deezer-id.mjs` hämtar Deezer-ID, se nedan.
 4. Låtar utan Deezer-ID tas bort ur kategorin och läggs som lockbeten i `data/forslag.json`, städade av `verktyg/lockbeten.mjs` så att b-sidor, karaokeversioner, artikelrubriker och filmuppföljare inte kan förväxlas med rätt svar.
 
-En kategori kan döpa om fälten med `labels`, till exempel Kompositör och Verk för klassisk musik.
+En kategori kan döpa om fälten med `labels`, till exempel Kompositör och Verk för klassisk musik. En låt kan också ha egna `labels`, som går före kategorins. Det används i Halloween, där ledmotiv har Kompositör och Film eller Serie och klassiska verk har Kompositör och Verk.
 
 ### Säsongskategorier
 
@@ -88,7 +88,7 @@ En kategori med `season` i `data/categories.json` syns bara mellan två datum va
 
 Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som `12-01` till `01-06`, går också. Säsongskategorier står inte i `host.html` utan läggs till av `js/host.js` när det är säsong, och en kategori som redan spelas står kvar i Inställningar även om säsongen tar slut under spelet.
 
-Jul syns 25 november–6 januari och har jullåtar, både utländska och svenska.
+Jul syns 1 december–6 januari och har jullåtar, både utländska och svenska.
 
 Säsongskategorierna har egen väntemusik, `SEASON_LOBBY_SONGS` i `js/vantemusik.js`, och en effekt bakom sidan från `js/sasong.js`: snö i Jul och löv och en fladdermus då och då i Halloween. Effekten följer den valda kategorin, syns hos både spelledaren och spelarna och står still med minskad rörelse.
 

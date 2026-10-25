@@ -38,10 +38,17 @@ export async function loadSongs(category) {
 // Fälten heter olika i olika kategorier, och varje sorts fält får förslag ur en egen lista,
 // så att man bara ser länder när man gissar på land och bara filmer när man gissar på film.
 // Fält som heter något annat, som Artist, Titel och Låt, får artister och låtar.
+// Serier delar lista med filmerna.
 const KINDS = {
   artist: { Land: 'countries', Kompositör: 'composers' },
-  title: { Film: 'films', Verk: 'works' },
+  title: { Film: 'films', Serie: 'films', Verk: 'works' },
 };
+
+// I blandade kategorier som Halloween kan en låt ha egna fältnamn, som Kompositör och Film
+// för ett ledmotiv, och de går före kategorins.
+export function songLabels(song, labels) {
+  return (song && song.labels) || labels;
+}
 
 export function suggestionKind(field, label) {
   return KINDS[field][label] || (field === 'artist' ? 'artists' : 'titles');
@@ -66,9 +73,11 @@ export function mergeSuggestions(decoys, categories) {
   };
   const answers = {};
   for (const { labels = {}, songs } of categories) {
-    for (const field of ['artist', 'title']) {
-      const kind = suggestionKind(field, labels[field]);
-      (answers[kind] ||= []).push(...songs.map((s) => s[field]));
+    for (const song of songs) {
+      for (const field of ['artist', 'title']) {
+        const kind = suggestionKind(field, songLabels(song, labels)[field]);
+        (answers[kind] ||= []).push(song[field]);
+      }
     }
   }
   const kinds = [...Object.values(KINDS).flatMap(Object.values), 'artists', 'titles'];

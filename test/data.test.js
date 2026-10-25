@@ -139,12 +139,30 @@ test('förslagen visar bara svar av samma sort som fältet', async () => {
   assert.deepEqual(list('title', 'Verk'), ['Bolero', 'Morgonstämning']);
 });
 
+test('en låts egna rubriker styr vilken förslagslista svaret hamnar i', async () => {
+  const { mergeSuggestions } = await import('../js/data.js');
+  const result = mergeSuggestions({}, [{ songs: [
+    { artist: 'Michael Jackson', title: 'Thriller' },
+    { artist: 'John Williams', title: 'Hajen', labels: { artist: 'Kompositör', title: 'Film' } },
+    { artist: 'Vic Mizzy', title: 'Familjen Addams', labels: { artist: 'Kompositör', title: 'Serie' } },
+    { artist: 'Edvard Grieg', title: 'I bergakungens sal', labels: { artist: 'Kompositör', title: 'Verk' } },
+  ] }]);
+  assert.deepEqual(result.titles, ['Thriller']);
+  assert.deepEqual(result.films, ['Familjen Addams', 'Hajen']);
+  assert.deepEqual(result.works, ['I bergakungens sal']);
+  assert.deepEqual(result.composers, ['Edvard Grieg', 'John Williams', 'Vic Mizzy']);
+});
+
 test('varje fältnamn i categories.json får förslag ur en egen lista', async () => {
   const { suggestionKind } = await import('../js/data.js');
-  const known = { artist: ['Artist', 'Land', 'Kompositör'], title: ['Titel', 'Låt', 'Film', 'Verk'] };
-  for (const { id, labels = {} } of read('data/categories.json')) {
+  const known = { artist: ['Artist', 'Land', 'Kompositör'], title: ['Titel', 'Låt', 'Film', 'Serie', 'Verk'] };
+  for (const { id, labels = {}, file } of read('data/categories.json')) {
     for (const field of ['artist', 'title']) {
       if (labels[field]) assert.ok(known[field].includes(labels[field]), `${id}: ${labels[field]} saknas i KINDS i js/data.js`);
+      for (const song of read('data/' + file)) {
+        const label = song.labels && song.labels[field];
+        if (song.labels) assert.ok(known[field].includes(label), `${id}/${song.id}: ${label} saknas i KINDS i js/data.js`);
+      }
     }
   }
   assert.equal(suggestionKind('artist', 'Land'), 'countries');
