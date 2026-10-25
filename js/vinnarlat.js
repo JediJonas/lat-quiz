@@ -66,7 +66,7 @@ export const SEASON_WINNER_SONGS = {
   jul: [
     { artist: 'Trans-Siberian Orchestra', title: 'Wizards in Winter', deezerId: 14615485 },
     { artist: 'TANKYU', title: 'Jingle Bells', deezerId: 2031228087 },
-    { artist: 'TANKYU', title: 'Carol of the Bells', deezerId: 2056308587 },
+    { artist: 'Acko', title: 'We Wish You a Merry Christmas', deezerId: 3612968922 },
   ],
 };
 
