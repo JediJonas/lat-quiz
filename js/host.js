@@ -106,7 +106,7 @@ function loadAudioDelay() {
 }
 
 // Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
-// blåtand, så med ljudkorrigering väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
+// blåtand, så med ljudsynk väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
 // (provat med blåtandshögtalare och iPhone 24 oktober 2026).
 const ENGINE_WAIT_MS = 1000;
 const musicDelay = () => { const delay = loadAudioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
@@ -404,7 +404,7 @@ function renderSettingsSummary() {
   // Samma ordning som i rutan Inställningar.
   const parts = [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
     ...(loadClipAll() ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
-    ...(loadAudioDelay() ? [`Ljudkorrigering ${delayShort(loadAudioDelay())}`] : []),
+    ...(loadAudioDelay() ? [`Ljudsynk ${delayShort(loadAudioDelay())}`] : []),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -610,7 +610,7 @@ async function playDeezer(roundNumber, skipping = false) {
   startClip();
 }
 
-// Timern startar först när klippet hörs. Ljudkorrigeringen är hur mycket senare det hörs i
+// Timern startar först när klippet hörs. Ljudsynken är hur mycket senare det hörs i
 // högtalaren, och låtkortet vänds och timern startar först då, som för trumvirveln. Mobilerna spelar
 // klippet efter timern, så de går i takt med högtalaren.
 function startClip() {
@@ -897,7 +897,7 @@ function showSettings(current, categories = null, categoryId = null, names = {},
       <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
       ${hostNameRow()}
       <div class="settings-group audio-delay">
-      ${segmented('audioDelay', 'Ljudkorrigering', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
+      ${segmented('audioDelay', 'Ljudsynk', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
       </div>
       ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
       <div class="modal-actions">
@@ -1130,7 +1130,7 @@ function startClicked() {
 
 // Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
-// Med ljudkorrigering vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
+// Med ljudsynk vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
 function winnerDrum() {
   if (!loadExtraSounds()) return null;
   const delay = loadAudioDelay();
