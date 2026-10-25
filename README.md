@@ -90,6 +90,8 @@ Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som 
 
 Jul syns 25 november–6 januari och har jullåtar, både utländska och svenska.
 
+Säsongskategorierna har egen väntemusik, `SEASON_LOBBY_SONGS` i `js/vantemusik.js`, och en effekt bakom sidan från `js/sasong.js`: snö i Jul och löv och en fladdermus då och då i Halloween. Effekten följer den valda kategorin, syns hos både spelledaren och spelarna och står still med minskad rörelse.
+
 Halloween blandar läskiga låtar med ledmotiv från skräckfilmer och serier. För ledmotiven är Artist den som skrev det och Titel filmens eller seriens namn, som i Filmmusik, och spåret står i `track`.
 
 ## Deezer-ID

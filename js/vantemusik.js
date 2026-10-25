@@ -24,6 +24,30 @@ export const LOBBY_SONGS = [
   { artist: 'Esbjörn Svensson Trio', title: 'When Everyone Has Gone', deezerId: 894835082 },
 ];
 
+// Säsongskategorierna har egen väntemusik, instrumental som jazzen, så att stämningen finns
+// redan i lobbyn. Ingen av låtarna finns bland quizlåtarna.
+export const SEASON_LOBBY_SONGS = {
+  jul: [
+    { artist: 'Vince Guaraldi Trio', title: 'Christmas Time Is Here', deezerId: 134403696 },
+    { artist: 'Vince Guaraldi Trio', title: 'Skating', deezerId: 134403700 },
+    { artist: 'Vince Guaraldi Trio', title: 'Christmas Is Coming', deezerId: 134403704 },
+    { artist: 'Jimmy Smith', title: 'God Rest Ye Merry Gentlemen', deezerId: 1761421527 },
+    { artist: 'Trans-Siberian Orchestra', title: 'Christmas Eve / Sarajevo 12/24', deezerId: 14615458 },
+    { artist: 'Duke Ellington', title: 'Overture (Nutcracker Suite)', deezerId: 2030566957 },
+    { artist: 'Ramsey Lewis', title: 'The Sound of Christmas', deezerId: 1567696 },
+  ],
+  halloween: [
+    { artist: 'Vince Guaraldi', title: 'The Great Pumpkin Waltz', deezerId: 1873266257 },
+    { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
+    { artist: 'Jack Marshall', title: 'The Ghoul', deezerId: 4008734431 },
+    { artist: 'Erich Kunzel', title: 'Funeral March of a Marionette', deezerId: 457300992 },
+    { artist: 'Alice Sara Ott', title: 'March of the Trolls', deezerId: 2200938377 },
+  ],
+};
+
+// Väntemusiken för en kategori: säsongens egen, annars jazzen.
+export const lobbySongs = (categoryId) => SEASON_LOBBY_SONGS[categoryId] || LOBBY_SONGS;
+
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
 const VOLUME = 0.5;
 // Nivån som klippen jämnas ut mot, se ljudniva.js. Lugna låtar är ofta svagare mixade än poplåtar.
@@ -41,8 +65,8 @@ const RETRY_MS = 2000;
 const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
 // En slumpad låt, men inte samma som förra väntan.
-export function pickLobbySong(random = Math.random, last = null) {
-  const choices = LOBBY_SONGS.filter((s) => s.deezerId && s.deezerId !== last);
+export function pickLobbySong(random = Math.random, last = null, songs = LOBBY_SONGS) {
+  const choices = songs.filter((s) => s.deezerId && s.deezerId !== last);
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
 
@@ -50,8 +74,8 @@ export function pickLobbySong(random = Math.random, last = null) {
 export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_OUT_MS, loop: true };
 
 // onChange: klippet har börjat höras, eller tystnat utan att musiken stoppades, så att raden längst
-// ner och spelarnas mobiler följer med.
-export function createLobbyMusic({ onChange = () => {} } = {}) {
+// ner och spelarnas mobiler följer med. songs: låtarna för spelets kategori, se lobbySongs.
+export function createLobbyMusic({ onChange = () => {}, songs = () => LOBBY_SONGS } = {}) {
   let wanted = false; // musiken ska spela, det vill säga spelet väntar på att starta
   let running = false; // en slinga spelar eller hämtar klipp
   let turn = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
@@ -101,7 +125,7 @@ export function createLobbyMusic({ onChange = () => {} } = {}) {
   function play() {
     if (wanted) return;
     wanted = true;
-    song = pickLobbySong(Math.random, song && song.deezerId);
+    song = pickLobbySong(Math.random, song && song.deezerId, songs());
     clip = null;
     loop();
   }
@@ -155,10 +179,10 @@ export function createLobbyMusic({ onChange = () => {} } = {}) {
         if (!loaded) {
           // Saknar Deezer klippet tas en annan låt. Saknas alla, till exempel utan nätverk, blir det tyst.
           misses += 1;
-          if (misses >= LOBBY_SONGS.length) { running = false; return; }
+          if (misses >= songs().length) { running = false; return; }
           await wait(RETRY_MS);
           if (mine !== turn) return;
-          song = pickLobbySong(Math.random, song.deezerId);
+          song = pickLobbySong(Math.random, song.deezerId, songs());
           continue;
         }
         clip = loaded;
@@ -171,7 +195,7 @@ export function createLobbyMusic({ onChange = () => {} } = {}) {
       // Klipplänken gäller bara en kvart, och nätet kan ha hackat. Då hämtas en ny länk.
       clip = null;
       misses += 1;
-      if (misses >= LOBBY_SONGS.length) { running = false; return; }
+      if (misses >= songs().length) { running = false; return; }
       await wait(RETRY_MS);
     }
   }

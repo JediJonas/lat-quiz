@@ -9,9 +9,11 @@ import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
 import { createClipPlayer } from './klipp.js';
 import { showNowMusic } from './nuspelas.js';
+import { mountSeasonEffect } from './sasong.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
+mountSeasonEffect();
 
 const SAVE_KEY = 'latquiz-player';
 const MAX_NAME = 10;

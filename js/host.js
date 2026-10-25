@@ -11,14 +11,16 @@ import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { dragToClose } from './ark.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong } from './vinnarlat.js';
-import { LOBBY_FADE, createLobbyMusic } from './vantemusik.js';
+import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { DELAY_CHOICES, after, cleanDelay, delayShort, delayText } from './ljudfordrojning.js';
 import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
+import { mountSeasonEffect } from './sasong.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
+mountSeasonEffect();
 
 const SAVE_KEY = 'latquiz-host';
 const NAME_KEY = 'latquiz-namn';
@@ -128,7 +130,7 @@ function musicChanged() {
 }
 
 const winnerSong = createWinnerSong({ onChange: musicChanged });
-const lobbyMusic = createLobbyMusic({ onChange: musicChanged });
+const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(category && category.id) });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
 const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
