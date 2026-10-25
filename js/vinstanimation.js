@@ -261,17 +261,27 @@ function fireworks(box) {
 
 // Strålkastare: sex färgade ljuskäglor från omslagets kanter sveper fram och tillbaka i olika takt,
 // som ljusshowen på en konsert. Lamporna står utanför omslaget, så att bara ljuset syns, och där
-// käglorna korsar varandra blandas färgerna. Käglorna vrids med transform i css/style.css, så att
-// mobilen bara behöver vrida färdiga lager.
+// käglorna korsar varandra blandas färgerna. Käglorna lutar också lite mot och från kameran, i par
+// som speglar varandra: när den ena kommer mot kameran går den andra bort. Käglorna vrids och
+// skalas med transform i css/style.css, så att mobilen bara behöver flytta färdiga lager.
 function spotlights(box) {
   // Var lampan står (andel av bredden), om den lyser uppifrån eller nerifrån, färgen och åt vilket
   // håll den börjar svepa.
   const beams = [[0.1, 'top', '#ff5fb0', 1], [0.45, 'top', '#4fd8ff', -1], [0.88, 'top', '#ffd166', -1],
     [0.2, 'bottom', '#a98bff', -1], [0.62, 'bottom', '#7cf0b0', 1], [0.95, 'bottom', '#ff8a5c', 1]];
+  // Varje par lutar i en gemensam slumpad takt, och den andra lampan i paret åt motsatt håll.
+  const pairs = spotlightPairs(beams.map(([x]) => x));
+  const tilt = [];
+  for (const pair of pairs) {
+    const t = rand(2.2, 3);
+    const delay = -rand(0, t);
+    pair.forEach((j, k) => { tilt[j] = `--zt:${t.toFixed(2)}s;--zd:${delay.toFixed(2)}s;--zdir:${k ? 'alternate-reverse' : 'alternate'}`; });
+  }
   box.innerHTML = beams.map(([x, side, c, dir], i) => {
     const angle = side === 'top' ? (x - 0.5) * 50 : 180 + (0.5 - x) * 50;
     return `<div class="spot-beam ${side}" style="left:${x * 100}%;--c:${c};--a:${angle}deg;`
-      + `--sw:${(dir * rand(22, 32)).toFixed(0)}deg;--t:${rand(2.2, 3.4).toFixed(2)}s;--in:${(0.25 + i * 0.12).toFixed(2)}s"><span></span></div>`;
+      + `--sw:${(dir * rand(22, 32)).toFixed(0)}deg;--t:${rand(2.2, 3.4).toFixed(2)}s;--in:${(0.25 + i * 0.12).toFixed(2)}s;${tilt[i]}">`
+      + '<b class="spot-glow"></b><span><i></i></span></div>';
   }).join('');
   // Käglorna är lite längre än omslagets diagonal, så att de alltid når över hela omslaget.
   const size = () => box.style.setProperty('--len', `${Math.round(Math.hypot(box.offsetWidth, box.offsetHeight) * 1.1)}px`);
@@ -282,7 +292,6 @@ function spotlights(box) {
   // paren. När det sista paret släcks ljusnar omslaget igen, så att det är slut efter ungefär
   // 13 sekunder. Med minskad rörelse lyser de kvar, som på ett foto.
   const lamps = [...box.children];
-  const pairs = spotlightPairs(beams.map(([x]) => x));
   pairs.forEach((pair, i) => setTimeout(() => {
     if (still()) return;
     for (const j of pair) lamps[j].classList.add('off');
@@ -457,25 +466,50 @@ function drawGhost(ctx, s, wave, blink) {
 // Spöken: 36 smala lakansspöken, ungefär tolv åt gången, stiger snabbt från omslagets nederkant
 // medan de vaggar, böljar med fållen och blinkar. Där nere, bakom texten, är de nästan genomskinliga,
 // och de blir tydligare ju högre de kommer. Små spöken är längre bort, svävar lite långsammare och
-// syns svagare.
+// syns svagare. Sex av dem svävar dessutom mot kameran medan de stiger, växer allt snabbare och
+// susar förbi över överkanten.
 function ghosts(box) {
   const dur = 12.8;
+  // Sex av spökena, jämnt utspridda i tiden, svävar mot kameran medan de stiger.
+  const toward = new Set([3, 9, 15, 21, 27, 33]);
   const crowd = Array.from({ length: 36 }, (_, i) => {
     const near = Math.random();
-    return {
+    const g = {
       // Spökena sprids jämnt i sidled, i blandad ordning, så att de inte klumpar ihop sig.
       d: 0.1 + (i / 36) * 9 + rand(0, 0.3), x: ((i * 0.618) % 1) * 0.84 + 0.08, s: 24 + near * 34,
       rise: 4.2 - near * 1.3, alpha: 0.6 + near * 0.25, sway: rand(8, 16), swayHz: rand(0.12, 0.22), ph: rand(0, 6.3),
       blinkPh: rand(0, 4),
     };
-  }).sort((a, b) => a.s - b.s);
+    // Det börjar litet och långt bort vid nederkanten och glider utåt åt sitt håll. Det hinner
+    // susa förbi innan effekten är slut.
+    if (toward.has(i)) {
+      Object.assign(g, { toward: true, d: Math.min(g.d, 7), life: rand(4.7, 6), out: Math.cos(rand(0, 6.3)) * rand(0.06, 0.16), s: 14, alpha: 0.85 });
+    }
+    return g;
+  });
   let t = 0;
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
+    const list = [];
     for (const g of crowd) {
       const age = t - g.d;
       if (age < 0) continue;
+      const phase = age * g.swayHz * 6.283 + g.ph;
+      if (g.toward) {
+        const p = age / g.life;
+        if (p >= 1) continue;
+        // Perspektiv: avståndet till kameran krymper, så att spöket växer allt snabbare. Det stiger
+        // från nederkanten och susar sista biten upp över överkanten.
+        const k = 1 / (1 - 0.93 * p);
+        // Tonar in som de andra och tonar bort när det susar förbi kameran.
+        const a = Math.min(0.12 + p * 2.5, 1, (1 - p) / 0.22) * fade(t, dur) * g.alpha;
+        if (a > 0) {
+          list.push({ g, age, phase, a, s: g.s * k, x: w * (0.5 + g.out * k) + g.sway * 0.4 * Math.sin(phase) * k,
+            y: h * (0.45 + (0.5 - 0.7 * p) * k) });
+        }
+        continue;
+      }
       const from = h + g.s * 0.6;
       const p = age / g.rise;
       const y = from - (from + g.s) * p;
@@ -483,15 +517,18 @@ function ghosts(box) {
       // Spöket börjar nästan genomskinligt vid nederkanten, blir tydligare när det stiger och tonar
       // bort mot överkanten.
       const a = Math.min(0.12 + p * 1.8, 1, (y + g.s) / (h * 0.25)) * fade(t, dur) * g.alpha;
-      if (a <= 0) continue;
-      const phase = age * g.swayHz * 6.283 + g.ph;
+      if (a > 0) list.push({ g, age, phase, a, s: g.s, x: g.x * w + g.sway * Math.sin(phase), y });
+    }
+    // De närmaste ritas sist, så att de hamnar framför.
+    list.sort((p, q) => p.s - q.s);
+    for (const { g, age, phase, a, s, x, y } of list) {
       ctx.save();
-      ctx.translate(g.x * w + g.sway * Math.sin(phase), y);
+      ctx.translate(x, y);
       ctx.rotate(Math.cos(phase) * 0.12);
       ctx.globalAlpha = a;
       // Ögonen sluts en kort stund ungefär var tredje sekund.
       const blink = (age + g.blinkPh) % 3 < 0.14 ? 0.15 : 1;
-      drawGhost(ctx, g.s, age * 4 + g.ph, blink);
+      drawGhost(ctx, s, age * 4 + g.ph, blink);
       ctx.restore();
     }
   };
