@@ -1,5 +1,5 @@
-// Säsongens stämning bakom sidan: snö som faller i Jul och löv som singlar ner, med en fladdermus
-// då och då, i Halloween. Den följer kategorin på html-elementet, så den syns på startsidan när
+// Säsongens stämning bakom sidan: snö som faller i Jul och löv som singlar ner i Halloween. Den
+// följer kategorin på html-elementet, så den syns på startsidan när
 // kategorin väljs och genom hela spelet, hos spelledaren och spelarna. Lagret ligger bakom allt
 // innehåll och tar inte emot tryck. Med minskad rörelse står allt still, som en bild.
 
@@ -54,7 +54,7 @@ function drawLeaf(ctx, l, w, h, t) {
   ctx.restore();
 }
 
-// En fladdermus med vingar som slår. flap går från -1 till 1. Används även av vinstanimationen.
+// En fladdermus med vingar som slår. flap går från -1 till 1. Används av vinstanimationen.
 export function drawBat(ctx, x, y, s, flap) {
   const lift = flap * s * 0.6;
   ctx.beginPath();
@@ -80,8 +80,6 @@ function start(layer, effect) {
   // Färre bitar på en liten skärm, så att det känns lika glest och inte drar batteri i onödan.
   const count = () => Math.round(Math.min(120, Math.max(50, (innerWidth * innerHeight) / 7000)));
   let items = [];
-  let bat = null;
-  let nextBat = performance.now() + rand(4000, 9000);
   let last = performance.now();
   let frame = 0;
 
@@ -112,10 +110,6 @@ function start(layer, effect) {
       ctx.globalAlpha = 0.75;
       for (const l of items) drawLeaf(ctx, l, w, h, t);
       ctx.globalAlpha = 1;
-      if (bat) {
-        ctx.fillStyle = color(layer, '--season-bat');
-        drawBat(ctx, bat.x, bat.y + Math.sin(t * 3) * 10, bat.s, Math.sin(t * 14));
-      }
     }
   };
 
@@ -132,26 +126,14 @@ function start(layer, effect) {
       item.y += item.speed * dt;
       if (item.y > h + 20) { item.y = -20; item.x = Math.random(); }
     }
-    if (effect === 'lov') {
-      if (!bat && now > nextBat) {
-        const dir = Math.random() < 0.5 ? 1 : -1;
-        bat = { dir, x: dir > 0 ? -40 : w + 40, y: rand(h * 0.08, h * 0.35), s: rand(14, 22), speed: rand(110, 170) };
-      }
-      if (bat) {
-        bat.x += bat.dir * bat.speed * dt;
-        if (bat.x < -60 || bat.x > w + 60) { bat = null; nextBat = now + rand(12000, 25000); }
-      }
-    }
     draw(now);
     frame = requestAnimationFrame(tick);
   };
 
   size();
   addEventListener('resize', size);
-  if (still()) {
-    if (effect === 'lov') bat = { x: w * 0.78, y: h * 0.14, s: 18 };
-    draw(0);
-  } else frame = requestAnimationFrame(tick);
+  if (still()) draw(0);
+  else frame = requestAnimationFrame(tick);
   return () => {
     cancelAnimationFrame(frame);
     removeEventListener('resize', size);
