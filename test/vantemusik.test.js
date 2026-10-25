@@ -59,6 +59,6 @@ test('säsongskategorierna har egen vinnarlåt, som inte är quizlåt eller vän
   assert.equal(winnerSongs('halloween'), SEASON_WINNER_SONGS.halloween);
   assert.equal(winnerSongs('80-tal'), WINNER_SONGS);
   // Med en enda låt spelas samma låt även nästa gång.
-  const [only] = SEASON_WINNER_SONGS.jul;
-  assert.equal(pickWinnerSong(() => 0.5, only.deezerId, SEASON_WINNER_SONGS.jul), only);
+  const only = SEASON_WINNER_SONGS.jul.slice(0, 1);
+  assert.equal(pickWinnerSong(() => 0.5, only[0].deezerId, only), only[0]);
 });
