@@ -105,13 +105,6 @@
   "deezerId": 2891799832
  },
  {
-  "id": "simple-minds-don-t-you-forget-about-me",
-  "artist": "Simple Minds",
-  "title": "Don't You (Forget About Me)",
-  "year": 1985,
-  "deezerId": 6812056
- },
- {
   "id": "lionel-richie-all-night-long-all-night",
   "artist": "Lionel Richie",
   "title": "All Night Long (All Night)",
@@ -404,13 +397,6 @@
   "title": "Live Is Life",
   "year": 1985,
   "deezerId": 15379467
- },
- {
-  "id": "ray-parker-jr-ghostbusters",
-  "artist": "Ray Parker Jr.",
-  "title": "Ghostbusters",
-  "year": 1984,
-  "deezerId": 969252
  },
  {
   "id": "the-pointer-sisters-i-m-so-excited",
@@ -721,13 +707,6 @@
   "deezerId": 530300641
  },
  {
-  "id": "kenny-loggins-footloose",
-  "artist": "Kenny Loggins",
-  "title": "Footloose",
-  "year": 1984,
-  "deezerId": 4155200162
- },
- {
   "id": "phil-collins-in-the-air-tonight",
   "artist": "Phil Collins",
   "title": "In the Air Tonight",
@@ -810,13 +789,6 @@
   "title": "Little Lies",
   "year": 1987,
   "deezerId": 664456
- },
- {
-  "id": "kenny-loggins-danger-zone",
-  "artist": "Kenny Loggins",
-  "title": "Danger Zone",
-  "year": 1986,
-  "deezerId": 7675051
  },
  {
   "id": "def-leppard-pour-some-sugar-on-me",
