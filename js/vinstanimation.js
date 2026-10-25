@@ -320,28 +320,29 @@ function batFrames() {
   });
 }
 
-// Fladdermöss: en svärm på 300 fladdermöss väller upp ur omslagets nederkant, som ur en grotta,
-// framför en stor fullmåne. Strömmen slingrar sig fram och tillbaka medan den stiger, och svärmen
-// är tätast de första sekunderna. Små fladdermöss är längre bort och syns svagare, och några stora
-// susar förbi nära.
+// Fladdermöss: en svärm på 170 fladdermöss stiger först upp ur omslagets nederkant som en nästan
+// svart klump, där fladdermössen kretsar om varandra, framför en stor fullmåne. Efter några sekunder
+// delar svärmen på sig och fladdermössen flaxar ut åt alla håll, de flesta på en gång och några
+// eftersläntrare lite senare. Små fladdermöss är längre bort och syns svagare.
 function bats(box) {
   const dur = 12.8;
   const frames = batFrames();
-  // Strömmens riktning och var den väller upp, t sekunder in.
-  const heading = (time) => -Math.PI / 2 + 0.5 * Math.sin(time * 1.6);
-  const origin = (time) => 0.5 + 0.3 * Math.sin(time * 0.9 + 0.6);
-  const swarm = Array.from({ length: 300 }, (_, i) => {
-    // Över hälften släpps de första tre sekunderna, resten glesare fram till nio sekunder.
-    const d = i < 170 ? rand(0, 3) : rand(3, 9);
-    const close = i % 50 === 0;
-    const near = close ? 1.6 : Math.random();
+  const swarm = Array.from({ length: 170 }, () => {
+    const near = Math.random();
     return {
-      d, x0: origin(d) + rand(-0.06, 0.06), a: heading(d) + rand(-0.25, 0.25), s: 5 + near * 14,
-      speed: close ? 280 : 100 + near * 110, turn: rand(0.2, 0.5) * (Math.random() < 0.5 ? -1 : 1),
-      turnHz: rand(0.3, 0.7), ph: rand(0, 6.3), flapHz: rand(3.2, 4.4) + (1 - Math.min(near, 1)) * 1.2,
-      alpha: Math.min(0.95, 0.45 + near * 0.5),
+      // Var i klumpen fladdermusen kretsar: avstånd från mitten, vinkel och fart runt.
+      orbit: Math.sqrt(Math.random()), ang: rand(0, 6.3), spin: rand(1.5, 3) * (Math.random() < 0.5 ? -1 : 1),
+      split: 3.6 + Math.random() ** 3 * 4.5, s: 6 + near * 12, speed: 100 + near * 110,
+      turn: rand(0.3, 0.8) * (Math.random() < 0.5 ? -1 : 1), turnHz: rand(0.2, 0.5), ph: rand(0, 6.3),
+      flapHz: rand(3.2, 4.4) + (1 - near) * 1.2, alpha: 0.45 + near * 0.5,
     };
   }).sort((a, b) => a.s - b.s);
+  // Klumpens mitt t sekunder in: den stiger från nederkanten och bromsar in strax under mitten.
+  const clump = (time) => {
+    const { w, h } = area;
+    const p = 1 - (1 - Math.min(1, time / 2.4)) ** 2;
+    return [w * (0.47 + 0.06 * Math.sin(time * 2)), h + 50 - (h * 0.58 + 50) * p];
+  };
   let t = 0;
   const moon = (a) => {
     const { ctx, w, h } = area;
@@ -367,30 +368,43 @@ function bats(box) {
     moon(Math.min(1, t / 1.2) * out);
     for (const b of swarm) {
       if (b.x === undefined || b.out) continue;
-      ctx.globalAlpha = b.alpha * out;
-      const frame = frames[Math.floor(((((t - b.d) * b.flapHz + b.ph) % 1) + 1) % 1 * frames.length)];
+      // I klumpen är fladdermössen nästan svarta, och sedan tonar de till sin egen styrka.
+      const free = b.free ? Math.min(1, (t - b.split) / 1.2) : 0;
+      ctx.globalAlpha = (0.95 - (0.95 - b.alpha) * free) * out;
+      const frame = frames[Math.floor(((((t * b.flapHz + b.ph) % 1) + 1) % 1) * frames.length)];
       ctx.drawImage(frame, b.x - b.s * (32 / 30), b.y - b.s * (34 / 30), b.s * (64 / 30), b.s * (64 / 30));
     }
     ctx.globalAlpha = 1;
   };
-  // Varje fladdermus svänger lite fram och tillbaka, så att svärmen ser levande ut.
   const step = (dt) => {
     const { w, h } = area;
+    const [cx, cy] = clump(t);
+    const radius = Math.min(w, h) * 0.14;
     for (const b of swarm) {
-      const age = t - b.d;
-      if (age < 0 || b.out) continue;
-      if (b.x === undefined) { b.x = b.x0 * w; b.y = h + b.s; }
-      const a = b.a + b.turn * Math.sin(age * b.turnHz * 6.283 + b.ph);
+      if (b.out) continue;
+      if (!b.free) {
+        // I klumpen kretsar fladdermusen runt mitten, i en lite tillplattad ring.
+        b.ang += b.spin * dt;
+        b.x = cx + Math.cos(b.ang) * b.orbit * radius;
+        b.y = cy + Math.sin(b.ang) * b.orbit * radius * 0.7;
+        if (t >= b.split) {
+          // Den flyger ut från mitten, lite uppåt, och svänger sedan fram och tillbaka.
+          b.free = true;
+          b.a = Math.atan2(Math.sin(b.ang) * 0.7 - 0.5, Math.cos(b.ang));
+        }
+        continue;
+      }
+      const a = b.a + b.turn * Math.sin((t - b.split) * b.turnHz * 6.283 + b.ph);
       b.x += Math.cos(a) * b.speed * dt;
       b.y += Math.sin(a) * b.speed * dt;
-      if (b.y < -40 || b.x < -40 || b.x > w + 40) b.out = true;
+      if (b.y < -40 || b.y > h + 40 || b.x < -40 || b.x > w + 40) b.out = true;
     }
   };
   const area = canvasIn(box, draw);
   if (still()) {
-    // Med minskad rörelse står månen och svärmen still, mitt i flykten.
+    // Med minskad rörelse står månen och svärmen still, just när den börjar dela på sig.
     area.start();
-    for (t = 0; t < 2.2; t += 1 / 30) step(1 / 30);
+    for (t = 0; t < 4.1; t += 1 / 30) step(1 / 30);
     draw();
     return;
   }
@@ -424,17 +438,17 @@ function drawGhost(ctx, s, wave, blink) {
   ctx.fill();
 }
 
-// Spöken: 26 smala, lite genomskinliga lakansspöken tonar fram i omslagets mitt och svävar uppåt
-// medan de vaggar, böljar med fållen och blinkar. Små spöken är längre bort, svävar långsammare och
-// syns svagare. De tonar fram ovanför namnet, så att spökena inte hamnar bakom den vita texten.
+// Spöken: 36 smala, lite genomskinliga lakansspöken, ungefär tolv åt gången, tonar fram i omslagets
+// mitt och svävar snabbt uppåt medan de vaggar, böljar med fållen och blinkar. Små spöken är längre
+// bort, svävar lite långsammare och syns svagare. De tonar fram ovanför namnet, så att spökena inte hamnar bakom den vita texten.
 function ghosts(box) {
   const dur = 12.8;
-  const crowd = Array.from({ length: 26 }, (_, i) => {
+  const crowd = Array.from({ length: 36 }, (_, i) => {
     const near = Math.random();
     return {
       // Spökena sprids jämnt i sidled, i blandad ordning, så att de inte klumpar ihop sig.
-      d: 0.1 + (i / 26) * 8 + rand(0, 0.3), x: ((i * 0.618) % 1) * 0.84 + 0.08, s: 24 + near * 34,
-      rise: 7 - near * 2, alpha: 0.4 + near * 0.25, sway: rand(8, 16), swayHz: rand(0.12, 0.22), ph: rand(0, 6.3),
+      d: 0.1 + (i / 36) * 9 + rand(0, 0.3), x: ((i * 0.618) % 1) * 0.84 + 0.08, s: 24 + near * 34,
+      rise: 3.6 - near * 1.2, alpha: 0.4 + near * 0.25, sway: rand(8, 16), swayHz: rand(0.12, 0.22), ph: rand(0, 6.3),
       blinkPh: rand(0, 4),
     };
   }).sort((a, b) => a.s - b.s);
@@ -466,7 +480,7 @@ function ghosts(box) {
   if (still()) {
     // Med minskad rörelse svävar spökena still på olika höjd.
     area.start();
-    t = 8.5;
+    t = 6;
     draw();
     return;
   }
@@ -612,59 +626,81 @@ function sleigh(box) {
   play(box, area, dur, (now, dt) => { t = now; step(dt); draw(); });
 }
 
-// Snöstorm: samma runda snö som i säsongslagret bakom sidan, men i en storm som virvlar runt
-// omslagets mitt och sedan mojnar, tills det bara snöar stilla och glest. Snön som landar bygger
-// upp en driva längs nederkanten, som växer där mest snö faller.
+// En rund snöflinga med mjuk kant, ritad en gång och sedan kopierad i olika storlekar.
+function softFlake() {
+  const img = document.createElement('canvas');
+  img.width = img.height = 32;
+  const ctx = img.getContext('2d');
+  const glow = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+  glow.addColorStop(0, 'rgba(255, 255, 255, 1)');
+  glow.addColorStop(0.45, 'rgba(255, 255, 255, 0.9)');
+  glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, 32, 32);
+  return img;
+}
+
+// Snöstorm: runda flingor med mjuka kanter, som snön i säsongslagret, i en storm med oregelbundna
+// virvlar och byar runt omslagets mitt. Varje flinga följer vinden med lite eftersläpning, de små och
+// lätta snabbare än de stora, och fladdrar lite på egen hand. Stormen mojnar sedan tills det bara
+// snöar stilla och glest. Snön som landar bygger upp en ojämn driva längs nederkanten.
 function blizzard(box) {
   const dur = 13;
-  // Tre lager: små flingor långt bort, mellanstora och stora nära. Varje lager ritas i ett svep.
-  const layers = [[1, 0.5], [1.7, 0.7], [2.5, 0.9]];
-  // Från början ligger snön i en ring runt mitten, där virveln är.
-  const flakes = Array.from({ length: 240 }, (_, i) => {
-    const a = rand(0, 6.3);
-    const r = Math.sqrt(Math.random()) * 0.55;
-    return { layer: i % 3, x: 0.5 + Math.cos(a) * r, y: 0.42 + Math.sin(a) * r * 0.9, fall: rand(35, 65) * (1 + (i % 3) * 0.3), ph: rand(0, 6.3) };
+  const img = softFlake();
+  // Fyra virvlar som vandrar långsamt runt mitten, åt olika håll och med olika styrka.
+  const eddies = Array.from({ length: 4 }, (_, i) => ({
+    cx: rand(0.3, 0.7), cy: rand(0.25, 0.6), ax: rand(0.1, 0.2), ay: rand(0.06, 0.14), hz: rand(0.05, 0.12),
+    ph: rand(0, 6.3), spin: (i % 2 ? -1 : 1) * rand(0.7, 1.2), size: rand(0.18, 0.3),
+  }));
+  const flakes = Array.from({ length: 260 }, () => {
+    // Många små flingor långt bort och några få stora nära.
+    const r = 0.8 + Math.random() ** 2.5 * 3.4;
+    return {
+      x: Math.random(), y: Math.random() * 0.9, vx: 0, vy: 0, r, alpha: 0.45 + (r / 4.2) * 0.5,
+      fall: 22 + r * 14, follow: 4.5 - r * 0.7, ph: rand(0, 6.3), hz: rand(0.6, 1.6),
+    };
   });
   // Drivans höjd i pixlar, i 100 kolumner över omslagets bredd. Den blir högst 30 pixlar.
   const drift = new Float32Array(100);
+  const bumps = [rand(0, 6.3), rand(0, 6.3)];
   const deepest = 30;
-  // Virvelns styrka: en kraftig storm i början som mojnar under åtta sekunder.
-  const strength = (time) => 260 * Math.exp(-time / 2.8);
+  // Stormens styrka: kraftig i början, mojnar under åtta sekunder, och med byar.
+  const strength = (time) => 230 * Math.exp(-time / 2.8) * (0.75 + 0.25 * Math.sin(time * 2.3) * Math.sin(time * 0.9 + 1));
   // Hur stor del av flingorna som är kvar: stormen glesnar till en tredjedel.
   const share = (time) => Math.max(0.3, 1 - Math.max(0, time - 3) / 7);
   let t = 0;
-  let vx = 0;
-  let vy = 0;
-  // Farten för en flinga: runt mitten moturs, lite inåt så att snön stannar i virveln, och nedåt
-  // allt mer ju mer det mojnar.
-  const wind = (f, w, h) => {
-    const dx = (f.x - 0.5) * w;
-    const dy = (f.y - 0.42) * h;
-    const r = Math.max(1, Math.hypot(dx, dy));
-    const core = Math.min(w, h) * 0.32;
+  // Vinden i en punkt: summan av virvlarna, plus en svag vind som vänder fram och tillbaka.
+  const windAt = (x, y, w, h) => {
     const S = strength(t);
-    const v = S * (r < core ? r / core : (core / r) ** 0.6) * (0.85 + 0.3 * Math.sin(f.ph + t));
-    const pull = S * 0.07 * Math.min(1, r / core);
-    vx = (-dy / r) * v - (dx / r) * pull;
-    vy = (dx / r) * v - (dy / r) * pull + f.fall * (0.35 + 0.65 * (1 - S / 260));
+    let wx = S * 0.25 * Math.sin(t * 0.7 + y * 3);
+    let wy = 0;
+    const scale = Math.min(w, h);
+    for (const e of eddies) {
+      const ex = (e.cx + e.ax * Math.sin(t * e.hz * 6.283 + e.ph)) * w;
+      const ey = (e.cy + e.ay * Math.cos(t * e.hz * 6.283 + e.ph)) * h;
+      const dx = x - ex;
+      const dy = y - ey;
+      const core = e.size * scale;
+      const d2 = dx * dx + dy * dy;
+      // Snabbast en bit från virvelns mitt och svagare längre ut.
+      const v = S * e.spin * Math.exp(-d2 / (2 * core * core)) / core * 1.6;
+      wx += -dy * v;
+      wy += dx * v;
+    }
+    return [wx, wy];
   };
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
     const out = fade(t, dur);
-    ctx.fillStyle = '#ffffff';
-    layers.forEach(([r, alpha], layer) => {
-      ctx.globalAlpha = alpha * out;
-      ctx.beginPath();
-      for (let i = layer; i < flakes.length; i += 3) {
-        const f = flakes[i];
-        if (f.gone) continue;
-        ctx.moveTo(f.x * w + r, f.y * h);
-        ctx.arc(f.x * w, f.y * h, r, 0, Math.PI * 2);
-      }
-      ctx.fill();
-    });
+    for (const f of flakes) {
+      if (f.gone) continue;
+      ctx.globalAlpha = f.alpha * out;
+      const size = f.r * 2.6;
+      ctx.drawImage(img, f.x * w - size / 2, f.y * h - size / 2, size, size);
+    }
     ctx.globalAlpha = 0.92 * out;
+    ctx.fillStyle = '#ffffff';
     ctx.beginPath();
     ctx.moveTo(0, h);
     for (let i = 0; i < drift.length; i += 1) ctx.lineTo((i / (drift.length - 1)) * w, h - drift[i]);
@@ -675,30 +711,34 @@ function blizzard(box) {
   const step = (dt) => {
     const { w, h } = area;
     const kept = Math.round(flakes.length * share(t));
+    const calm = 1 - strength(t) / 230;
     flakes.forEach((f, i) => {
       if (f.gone) return;
-      wind(f, w, h);
-      f.x += (vx * dt) / w;
-      f.y += (vy * dt) / h;
+      const [wx, wy] = windAt(f.x * w, f.y * h, w, h);
+      // Flingan närmar sig vindens fart, och faller allt mer ju mer det mojnar.
+      const k = 1 - Math.exp(-f.follow * dt);
+      const flutter = Math.sin(t * f.hz * 6.283 + f.ph) * 10;
+      f.vx += (wx + flutter - f.vx) * k;
+      f.vy += (wy + f.fall * (0.4 + 0.6 * calm) - f.vy) * k;
+      f.x += (f.vx * dt) / w;
+      f.y += (f.vy * dt) / h;
       if (f.x > 1.03) f.x -= 1.06;
       if (f.x < -0.03) f.x += 1.06;
-      if (f.y < -0.05) f.y = -0.05;
+      if (f.y < -0.05) { f.y = -0.05; f.vy = Math.max(f.vy, 0); }
       // En flinga som når drivan stannar där, och drivan växer lite på det stället. Sedan börjar
       // flingan om högst upp, så länge stormen inte har glesnat förbi den.
       const col = Math.min(drift.length - 1, Math.max(0, Math.round(f.x * (drift.length - 1))));
       if (f.y * h > h - drift[col]) {
-        for (let k = -2; k <= 2; k += 1) {
-          const c = col + k;
-          if (c >= 0 && c < drift.length) drift[c] = Math.min(deepest, drift[c] + (k ? 0.5 : 1));
-        }
-        if (i < kept) { f.y = -0.03; f.x = Math.random(); } else f.gone = true;
+        for (let c = col - 2; c <= col + 2; c += 1) if (c >= 0 && c < drift.length) drift[c] = Math.min(deepest, drift[c] + (c === col ? 0.9 : 0.4) * f.r / 2);
+        if (i < kept) { f.y = -0.03; f.x = Math.random(); f.vx = 0; f.vy = f.fall; } else f.gone = true;
       }
     });
-    // Drivan jämnas ut lite hela tiden, som när snö rasar, och växer sakta även där inget landar.
+    // Drivan jämnas ut lite, som när snö rasar, och växer sakta överallt, mest i svackor och kullar.
     for (let i = 0; i < drift.length; i += 1) {
       const left = drift[Math.max(0, i - 1)];
       const right = drift[Math.min(drift.length - 1, i + 1)];
-      drift[i] = Math.min(deepest, drift[i] + ((left + right) / 2 - drift[i]) * 0.2 + dt * 1.6);
+      const hill = 1 + 0.6 * Math.sin(i * 0.09 + bumps[0]) + 0.3 * Math.sin(i * 0.23 + bumps[1]);
+      drift[i] = Math.min(deepest, drift[i] + ((left + right) / 2 - drift[i]) * 0.12 + dt * 1.3 * hill);
     }
   };
   const area = canvasIn(box, draw);
