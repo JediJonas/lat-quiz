@@ -266,9 +266,26 @@ function spotlights(box) {
   size();
   const observer = new ResizeObserver(size);
   observer.observe(box);
-  // Efter elva sekunder slocknar ljuset långsamt, så att det är slut efter ungefär 13 sekunder.
+  // Efter elva sekunder släcks lamporna två och två, utifrån och in, med 0,7 sekunder mellan
+  // paren. När det sista paret släcks ljusnar omslaget igen, så att det är slut efter ungefär
+  // 13 sekunder. Med minskad rörelse lyser de kvar, som på ett foto.
+  const lamps = [...box.children];
+  const pairs = spotlightPairs(beams.map(([x]) => x));
+  pairs.forEach((pair, i) => setTimeout(() => {
+    if (still()) return;
+    for (const j of pair) lamps[j].classList.add('off');
+  }, 11000 + i * 700));
   setTimeout(() => {
     observer.disconnect();
     if (!still()) box.classList.add('done');
-  }, 11000);
+  }, 11000 + (pairs.length - 1) * 700);
+}
+
+// Delar upp lamporna i par, utifrån och in: de två som står längst från mitten först. Tar emot
+// var lamporna står (andel av bredden) och ger paren som index.
+export function spotlightPairs(xs) {
+  const order = xs.map((x, i) => i).sort((a, b) => Math.abs(xs[b] - 0.5) - Math.abs(xs[a] - 0.5));
+  const pairs = [];
+  for (let i = 0; i < order.length; i += 2) pairs.push(order.slice(i, i + 2));
+  return pairs;
 }
