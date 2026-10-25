@@ -290,7 +290,8 @@ const fade = (t, dur) => Math.min(1, Math.max(0, (dur - t) / 1.5));
 
 // Kör en canvas-effekt i dur sekunder. step(t, dt) flyttar och ritar. Två sekunder före slutet får
 // rutan klassen done, så att ett mörkare omslag ljusnar igen samtidigt som effekten tonar bort.
-function play(box, area, dur, step) {
+// end ritar, om den finns, det som ska stå kvar när effekten är slut.
+function play(box, area, dur, step, end) {
   area.start();
   const start = performance.now();
   let last = start;
@@ -300,7 +301,7 @@ function play(box, area, dur, step) {
     last = now;
     if (t > dur - 2) box.classList.add('done');
     if (box.isConnected && t < dur) { step(t, dt); requestAnimationFrame(frame); }
-    else area.stop();
+    else { area.stop(); if (end) end(); }
   };
   requestAnimationFrame(frame);
 }
@@ -322,10 +323,10 @@ function batFrames(zoom) {
 }
 
 // Fladdermöss: en svärm på 130 fladdermöss stiger först upp ur omslagets nederkant som en nästan
-// svart klump, där fladdermössen kretsar om varandra, framför en stor fullmåne. Snart delar svärmen
-// på sig. De flesta flyger rakt mot kameran, växer och försvinner ut ur bild, och resten flaxar ut
-// åt sidorna och uppåt, några eftersläntrare lite senare. Små fladdermöss är längre bort och syns
-// svagare.
+// svart klump, där fladdermössen kretsar om varandra, framför en stor fullmåne. När klumpen har nått
+// upp till namnet delar den på sig. De flesta flyger rakt mot kameran, växer och försvinner ut ur
+// bild, och resten flaxar ut åt sidorna och uppåt, några eftersläntrare lite senare. Små
+// fladdermöss är längre bort och syns svagare.
 function bats(box) {
   const dur = 12.8;
   // Små bilder för svärmen och stora för dem som kommer nära, eftersom det tar tid att krympa stora bilder.
@@ -336,18 +337,20 @@ function bats(box) {
     return {
       // Var i klumpen fladdermusen kretsar: avstånd från mitten, vinkel och fart runt.
       orbit: Math.sqrt(Math.random()), ang: rand(0, 6.3), spin: rand(1.5, 3) * (Math.random() < 0.5 ? -1 : 1),
-      split: 2 + Math.random() ** 2 * 4, s: 6 + near * 12, speed: 100 + near * 110,
+      split: 0.9 + Math.random() ** 2 * 1.6, s: 6 + near * 12, speed: 100 + near * 110,
       // Sju av tio flyger mot kameran. trip är hur många sekunder det tar innan den är förbi.
       toward: i % 10 < 7, trip: rand(1.1, 2),
       turn: rand(0.3, 0.8) * (Math.random() < 0.5 ? -1 : 1), turnHz: rand(0.2, 0.5), ph: rand(0, 6.3),
       flapHz: rand(3.2, 4.4) + (1 - near) * 1.2, alpha: 0.45 + near * 0.5,
     };
   });
-  // Klumpens mitt t sekunder in: den stiger från nederkanten och bromsar in strax under mitten.
+  // Klumpens mitt t sekunder in: den stiger snabbt från nederkanten upp till namnet och bromsar in.
+  const title = box.parentElement && box.parentElement.querySelector('.win-title');
   const clump = (time) => {
     const { w, h } = area;
-    const p = 1 - (1 - Math.min(1, time / 1.6)) ** 2;
-    return [w * (0.47 + 0.06 * Math.sin(time * 2)), h + 50 - (h * 0.58 + 50) * p];
+    const top = title ? title.offsetTop : h * 0.6;
+    const p = 1 - (1 - Math.min(1, time / 0.9)) ** 2;
+    return [w * (0.47 + 0.06 * Math.sin(time * 2)), h + 50 - (h - top + 50) * p];
   };
   let t = 0;
   const moon = (a) => {
@@ -431,7 +434,7 @@ function bats(box) {
   if (still()) {
     // Med minskad rörelse står månen och svärmen still, just när den har börjat dela på sig.
     area.start();
-    for (t = 0; t < 2.5; t += 1 / 30) step(1 / 30);
+    for (t = 0; t < 1.3; t += 1 / 30) step(1 / 30);
     draw();
     return;
   }
@@ -514,7 +517,8 @@ function ghosts(box) {
     draw();
     return;
   }
-  play(box, area, dur, (now) => { t = now; draw(); });
+  // När snöyran är slut ritas bara drivan.
+  play(box, area, dur, (now) => { t = now; draw(); }, () => { flakes.length = 0; draw(); });
 }
 
 // Ett ren i galopp, vänd åt höger med hovarna vid y = 9. leg går från -1 till 1.
@@ -633,11 +637,11 @@ function sleigh(box) {
   };
   const step = (dt) => {
     const sled = where(t);
-    // Släden släpper stoft från medarnas bakände, ungefär 120 korn i sekunden.
+    // Släden släpper stoft en bit bakom medarnas bakände, ungefär 80 korn i sekunden.
     if (sled) {
       while (lastEmit < t) {
-        lastEmit += 1 / 120;
-        dust.push({ x: sled.x - sled.dir * 50 * sled.u + rand(-4, 4), y: sled.y + rand(4, 16) * sled.u,
+        lastEmit += 1 / 80;
+        dust.push({ x: sled.x - sled.dir * 57 * sled.u + rand(-4, 4), y: sled.y + rand(4, 16) * sled.u,
           vx: -sled.dir * rand(4, 26), vy: rand(6, 30), age: 0, life: rand(1.6, 3), r: rand(0.8, 2.2) * sled.u,
           ph: rand(0, 6.3), c: Math.random() < 0.6 ? '#ffd166' : '#ffffff' });
       }
@@ -673,16 +677,16 @@ function softFlake() {
 // Snöstorm: runda snöflingor med mjuka kanter, som snön i säsongslagret, yr snabbt i vinden, som
 // blåser i byar fram och tillbaka, och virvlar medan de faller. Stora flingor är närmare och faller
 // fortare, och bakom texten syns de svagare. Längs omslagets nederkant växer en snödriva upp till
-// den nedersta texten.
+// den nedersta texten, och den ligger kvar när det har slutat snöa.
 function blizzard(box) {
   const dur = 13;
   const img = softFlake();
-  const flakes = Array.from({ length: 600 }, (_, i) => {
+  const flakes = Array.from({ length: 1200 }, (_, i) => {
     const s = 3 + Math.random() ** 1.8 * 7;
     const fall = 70 + s * 12;
     return {
       // De första flingorna finns redan på omslaget när det vänds fram, utspridda över hela höjden.
-      d: i < 140 ? -rand(0, 3.2) : rand(0, 9.5), x0: Math.random(), s, fall,
+      d: i < 280 ? -rand(0, 3.2) : rand(0, 9.5), x0: Math.random(), s, fall,
       alpha: 0.55 + (s / 9.5) * 0.4, r: rand(6, 22), hz: rand(0.3, 0.8), ph: rand(0, 6.3),
     };
   });
@@ -710,7 +714,7 @@ function blizzard(box) {
     const deepest = sub ? Math.max(20, h - sub.offsetTop - sub.offsetHeight * 0.5) : 30;
     const top = deepest * Math.min(1, Math.max(0, (t - 0.5) / 8.5));
     if (top > 0.5) {
-      ctx.globalAlpha = 0.92 * out;
+      ctx.globalAlpha = 0.92;
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
       ctx.moveTo(0, h);
@@ -723,12 +727,13 @@ function blizzard(box) {
   const area = canvasIn(box, draw);
   if (still()) {
     // Med minskad rörelse hänger en glesare yra still över omslaget, med drivan färdig.
-    flakes.length = 220;
+    flakes.length = 440;
     area.start();
     t = 10;
     for (const f of flakes) f.d = t - (rand(0, area.h) + 10) / f.fall;
     draw();
     return;
   }
-  play(box, area, dur, (now) => { t = now; draw(); });
+  // När snöyran är slut ritas bara drivan.
+  play(box, area, dur, (now) => { t = now; draw(); }, () => { flakes.length = 0; draw(); });
 }
