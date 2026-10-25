@@ -25,13 +25,14 @@ export const LOBBY_SONGS = [
 ];
 
 // Säsongskategorierna har egen väntemusik, instrumental som jazzen, så att stämningen finns
-// redan i lobbyn. Jul har jullåtar med storband kring Christmas Time Is Here, och Halloween har läskig orgel, båda valda av Jonas 25 oktober 2026. Ingen av låtarna finns bland quizlåtarna.
+// redan i lobbyn. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har läskig orgel, båda valda av Jonas 25 oktober 2026. Ingen av låtarna finns bland quizlåtarna.
 export const SEASON_LOBBY_SONGS = {
   jul: [
     { artist: 'Vince Guaraldi Trio', title: 'Christmas Time Is Here', deezerId: 134403696 },
     { artist: 'The Count Basie Orchestra', title: 'Jingle Bells', deezerId: 1762631337 },
     { artist: "Gordon Goodwin's Big Phat Band", title: 'Carol of the Bells', deezerId: 110353364 },
     { artist: 'The Count Basie Orchestra', title: 'Good "Swing" Wenceslas', deezerId: 1762631377 },
+    { artist: "Booker T. & the M.G.'s", title: 'Jingle Bells', deezerId: 689606 },
   ],
   halloween: [
     { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
