@@ -7,6 +7,7 @@ import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTo
 import { setStandingMessage } from './meddelande.js';
 import { roundCheer, winComment, winIntro } from './pepp.js';
 import { pickWinEffect, startWinEffect } from './vinstanimation.js';
+import { pauseSeasonEffect } from './sasong.js';
 
 const $ = (sel) => document.querySelector(sel);
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -436,10 +437,14 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
         kept.insertAdjacentHTML('afterend', rest);
       } else {
         body.innerHTML = `${cover}${rest}`;
-        // Vinnarkortet får konfetti, fyrverkeri eller strålkastare. Valet görs från sista låten och
-        // vinnarna, så att alla enheter visar samma utan att något skickas över nätet.
+        // Vinnarkortet får konfetti, fyrverkeri eller strålkastare, eller säsongens egna effekter i
+        // Halloween och Jul. Valet görs från sista låten, vinnarna och kategorin, så att alla enheter
+        // visar samma utan att något skickas över nätet. Löven och snön bakom sidan pausas så länge.
         const fx = winner && body.querySelector('.win-fx');
-        if (fx) startWinEffect(fx, pickWinEffect(`${round.number}|${round.song.title}|${round.song.artist}|${view.winners.join('|')}`));
+        if (fx) {
+          pauseSeasonEffect(13500);
+          startWinEffect(fx, pickWinEffect(`${round.number}|${round.song.title}|${round.song.artist}|${view.winners.join('|')}`, view.categoryId));
+        }
       }
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst.

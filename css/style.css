@@ -172,7 +172,9 @@
 /* Säsongens stämning bakom innehållet, se js/sasong.js: snö i Jul och löv och fladdermöss i
    Halloween. Snön är ljust blågrå i ljust läge och vit i mörkt. */
 .season-fx { position: fixed; inset: 0; z-index: -1; pointer-events: none; --season-snow: 150 175 205; --season-bat: rgba(40, 24, 56, 0.6); }
-.season-fx canvas { display: block; width: 100%; height: 100%; }
+.season-fx canvas { display: block; width: 100%; height: 100%; transition: opacity 0.8s ease-in-out; }
+/* Medan vinstanimationen spelas är lagret borta. */
+.season-fx.paused canvas { opacity: 0; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .season-fx { --season-snow: 235 242 250; --season-bat: rgba(8, 4, 14, 0.75); }
 }
@@ -717,14 +719,17 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Innan namnet pulserar till exempel Vi har en vinnare! en kort stund. */
 .win.drum .win-title { animation: drum-pulse 0.5s ease-in-out infinite alternate; transform-origin: left center; }
 @keyframes drum-pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
-/* Vinstanimationen ligger bakom texten på omslaget: konfetti, fyrverkeri eller strålkastare, som
-   slumpas i js/vinstanimation.js. Konfettin och fyrverkeriet ritas på en canvas. */
+/* Vinstanimationen ligger bakom texten på omslaget: konfetti, fyrverkeri eller strålkastare, och i
+   Halloween och Jul fladdermöss, spöken, tomtens släde eller snöyra. Den slumpas i
+   js/vinstanimation.js, och allt utom strålkastarna ritas på en canvas. */
 .win-fx { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .win-fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 /* Vid fyrverkeri och strålkastare mörknar omslaget lite, som när ljuset släcks inför en show, så att
    ljuset syns och den vita texten får mer kontrast. Det ljusnar igen när showen är slut. Grundläget
-   är slutläget, så att minskad rörelse visar det direkt. */
-.win-fx.fyrverkeri::before, .win-fx.stralkastare::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
+   är slutläget, så att minskad rörelse visar det direkt. Fladdermössen, spökena och släden flyger
+   på en natthimmel, så där mörknar det också. */
+.win-fx.fyrverkeri::before, .win-fx.stralkastare::before, .win-fx.fladdermoss::before, .win-fx.spoken::before,
+.win-fx.slade::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
 .win-fx.stralkastare::before { background: rgba(8, 4, 24, 0.36); }
 .win-fx.done::before { opacity: 0; transition: opacity 1.6s ease-in-out; }
 @keyframes fx-in { from { opacity: 0; } }
