@@ -21,7 +21,7 @@
   "title": "Ensam hemma",
   "year": 1990,
   "track": "Somewhere in My Memory",
-  "deezerId": 421551522
+  "deezerId": 110148762
  },
  {
   "id": "trassel",
@@ -115,9 +115,9 @@
   "id": "star-wars",
   "artist": "John Williams",
   "title": "Star Wars",
-  "year": 1999,
-  "track": "Star Wars (Main Theme)",
-  "deezerId": 74673799
+  "year": 1977,
+  "track": "Main Title",
+  "deezerId": 193402301
  },
  {
   "id": "amelie-fran-montmartre",
@@ -924,8 +924,8 @@
   "artist": "John Williams",
   "title": "E.T. the Extra-Terrestrial",
   "year": 1982,
-  "track": "Flying Theme",
-  "deezerId": 13143577
+  "track": "Flying",
+  "deezerId": 93631702
  },
  {
   "id": "ett-smakryps-liv",
@@ -1091,9 +1091,9 @@
   "id": "indiana-jones",
   "artist": "John Williams",
   "title": "Indiana Jones",
-  "year": 1984,
+  "year": 1981,
   "track": "Raiders March",
-  "deezerId": 8146546
+  "deezerId": 518473892
  },
  {
   "id": "skonheten-och-odjuret",
