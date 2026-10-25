@@ -31,6 +31,7 @@ export const SEASON_LOBBY_SONGS = {
     { artist: 'Vince Guaraldi Trio', title: 'Christmas Time Is Here', deezerId: 134403696 },
     { artist: 'The Count Basie Orchestra', title: 'Jingle Bells', deezerId: 1762631337 },
     { artist: 'The Avalon Pops Orchestra', title: 'Carol of the Bells', deezerId: 73804893 },
+    { artist: "Gordon Goodwin's Big Phat Band", title: 'Carol of the Bells', deezerId: 110353364 },
     { artist: 'The Avalon Pops Orchestra', title: 'We Wish You a Merry Christmas', deezerId: 73804901 },
     { artist: 'The Count Basie Orchestra', title: 'Good "Swing" Wenceslas', deezerId: 1762631377 },
   ],
