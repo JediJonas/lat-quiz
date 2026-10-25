@@ -56,10 +56,18 @@ const LEVEL_DB = -12;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
-// Säsongskategorierna har en egen vinnarlåt (beslutat 25 oktober 2026).
+// Säsongskategorierna har egna vinnarlåtar (beslutat 25 oktober 2026).
 export const SEASON_WINNER_SONGS = {
-  halloween: [{ artist: 'Andrew Gold', title: 'Spooky, Scary Skeletons (Undead Tombstone Remix)', deezerId: 774799712 }],
-  jul: [{ artist: 'Trans-Siberian Orchestra', title: 'Wizards in Winter', deezerId: 14615485 }],
+  halloween: [
+    { artist: 'Andrew Gold', title: 'Spooky, Scary Skeletons (Undead Tombstone Remix)', deezerId: 774799712 },
+    { artist: 'Lady Gaga', title: 'The Dead Dance', deezerId: 3537990861 },
+    { artist: 'Richard Grey', title: 'Thriller (Full Vocal Club Mix)', deezerId: 46161191 },
+  ],
+  jul: [
+    { artist: 'Trans-Siberian Orchestra', title: 'Wizards in Winter', deezerId: 14615485 },
+    { artist: 'TANKYU', title: 'Jingle Bells', deezerId: 2031228087 },
+    { artist: 'Acko', title: 'We Wish You a Merry Christmas', deezerId: 3612968922 },
+  ],
 };
 
 // Vinnarlåtarna för en kategori: säsongens egen, annars de vanliga.

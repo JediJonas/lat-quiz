@@ -294,13 +294,6 @@
   "deezerId": 655095912
  },
  {
-  "id": "lady-gaga-the-dead-dance",
-  "artist": "Lady Gaga",
-  "title": "The Dead Dance",
-  "year": 2025,
-  "deezerId": 3537990861
- },
- {
   "id": "bow-wow-wow-i-want-candy",
   "artist": "Bow Wow Wow",
   "title": "I Want Candy",
@@ -394,6 +387,18 @@
   "year": 1976,
   "track": "Ave Satani",
   "deezerId": 120301884
+ },
+ {
+  "id": "gremlins",
+  "artist": "Jerry Goldsmith",
+  "title": "Gremlins",
+  "labels": {
+   "artist": "Kompositör",
+   "title": "Film"
+  },
+  "year": 1984,
+  "track": "The Gremlin Rag",
+  "deezerId": 647943902
  },
  {
   "id": "ondskans-vardshus",
