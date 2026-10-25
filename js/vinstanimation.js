@@ -466,25 +466,50 @@ function drawGhost(ctx, s, wave, blink) {
 // Spöken: 36 smala lakansspöken, ungefär tolv åt gången, stiger snabbt från omslagets nederkant
 // medan de vaggar, böljar med fållen och blinkar. Där nere, bakom texten, är de nästan genomskinliga,
 // och de blir tydligare ju högre de kommer. Små spöken är längre bort, svävar lite långsammare och
-// syns svagare.
+// syns svagare. Sex av dem svävar dessutom mot kameran medan de stiger, växer allt snabbare och
+// susar förbi över överkanten.
 function ghosts(box) {
   const dur = 12.8;
+  // Sex av spökena, jämnt utspridda i tiden, svävar mot kameran medan de stiger.
+  const toward = new Set([3, 9, 15, 21, 27, 33]);
   const crowd = Array.from({ length: 36 }, (_, i) => {
     const near = Math.random();
-    return {
+    const g = {
       // Spökena sprids jämnt i sidled, i blandad ordning, så att de inte klumpar ihop sig.
       d: 0.1 + (i / 36) * 9 + rand(0, 0.3), x: ((i * 0.618) % 1) * 0.84 + 0.08, s: 24 + near * 34,
       rise: 4.2 - near * 1.3, alpha: 0.6 + near * 0.25, sway: rand(8, 16), swayHz: rand(0.12, 0.22), ph: rand(0, 6.3),
       blinkPh: rand(0, 4),
     };
-  }).sort((a, b) => a.s - b.s);
+    // Det börjar litet och långt bort vid nederkanten och glider utåt åt sitt håll. Det hinner
+    // susa förbi innan effekten är slut.
+    if (toward.has(i)) {
+      Object.assign(g, { toward: true, d: Math.min(g.d, 7), life: rand(4.7, 6), out: Math.cos(rand(0, 6.3)) * rand(0.06, 0.16), s: 14, alpha: 0.85 });
+    }
+    return g;
+  });
   let t = 0;
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
+    const list = [];
     for (const g of crowd) {
       const age = t - g.d;
       if (age < 0) continue;
+      const phase = age * g.swayHz * 6.283 + g.ph;
+      if (g.toward) {
+        const p = age / g.life;
+        if (p >= 1) continue;
+        // Perspektiv: avståndet till kameran krymper, så att spöket växer allt snabbare. Det stiger
+        // från nederkanten och susar sista biten upp över överkanten.
+        const k = 1 / (1 - 0.93 * p);
+        // Tonar in som de andra och tonar bort när det susar förbi kameran.
+        const a = Math.min(0.12 + p * 2.5, 1, (1 - p) / 0.22) * fade(t, dur) * g.alpha;
+        if (a > 0) {
+          list.push({ g, age, phase, a, s: g.s * k, x: w * (0.5 + g.out * k) + g.sway * 0.4 * Math.sin(phase) * k,
+            y: h * (0.45 + (0.5 - 0.7 * p) * k) });
+        }
+        continue;
+      }
       const from = h + g.s * 0.6;
       const p = age / g.rise;
       const y = from - (from + g.s) * p;
@@ -492,15 +517,18 @@ function ghosts(box) {
       // Spöket börjar nästan genomskinligt vid nederkanten, blir tydligare när det stiger och tonar
       // bort mot överkanten.
       const a = Math.min(0.12 + p * 1.8, 1, (y + g.s) / (h * 0.25)) * fade(t, dur) * g.alpha;
-      if (a <= 0) continue;
-      const phase = age * g.swayHz * 6.283 + g.ph;
+      if (a > 0) list.push({ g, age, phase, a, s: g.s, x: g.x * w + g.sway * Math.sin(phase), y });
+    }
+    // De närmaste ritas sist, så att de hamnar framför.
+    list.sort((p, q) => p.s - q.s);
+    for (const { g, age, phase, a, s, x, y } of list) {
       ctx.save();
-      ctx.translate(g.x * w + g.sway * Math.sin(phase), y);
+      ctx.translate(x, y);
       ctx.rotate(Math.cos(phase) * 0.12);
       ctx.globalAlpha = a;
       // Ögonen sluts en kort stund ungefär var tredje sekund.
       const blink = (age + g.blinkPh) % 3 < 0.14 ? 0.15 : 1;
-      drawGhost(ctx, g.s, age * 4 + g.ph, blink);
+      drawGhost(ctx, s, age * 4 + g.ph, blink);
       ctx.restore();
     }
   };
