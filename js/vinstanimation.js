@@ -1,5 +1,6 @@
 // Vinstanimationen på vinnarkortet: konfetti, fyrverkeri eller strålkastare, och i
-// säsongskategorierna fladdermöss eller spöken i Halloween och tomtens släde eller snöyra i Jul.
+// säsongskategorierna en fladdermussvärm eller godisregn i Halloween och tomtens släde eller
+// snöstorm i Jul.
 // Den ligger bakom texten på omslaget och håller på i ungefär 13 sekunder. Med minskad rörelse
 // står den still, som ett foto. Valet slumpas per match men blir detsamma på alla enheter
 // (pickWinEffect).
@@ -8,7 +9,7 @@ import { drawBat } from './sasong.js';
 
 export const WIN_EFFECTS = ['konfetti', 'fyrverkeri', 'stralkastare'];
 // Säsongskategorierna har egna effekter i stället för de vanliga.
-export const SEASON_WIN_EFFECTS = { halloween: ['fladdermoss', 'spoken'], jul: ['slade', 'snoyra'] };
+export const SEASON_WIN_EFFECTS = { halloween: ['fladdermoss', 'godis'], jul: ['slade', 'snoyra'] };
 
 // Väljer effekt utifrån något som alla enheter känner till om matchen, till exempel sista låten
 // och vinnarna, och kategorin. Samma nyckel och kategori ger alltid samma effekt.
@@ -31,7 +32,7 @@ export function startWinEffect(box, effect) {
   if (effect === 'fyrverkeri') fireworks(box);
   else if (effect === 'stralkastare') spotlights(box);
   else if (effect === 'fladdermoss') bats(box);
-  else if (effect === 'spoken') ghosts(box);
+  else if (effect === 'godis') confetti(box, candy());
   else if (effect === 'slade') sleigh(box);
   else if (effect === 'snoyra') blizzard(box);
   else confetti(box);
@@ -62,16 +63,18 @@ function canvasIn(box, redraw) {
 // pendlar i sidled med lutningen åt det håll den glider, andra flippar runt och faller fortare, och
 // några snurrar som propellrar. När en bit vänder baksidan till blir den smalare och mörkare, som
 // papper i ljus. Bitarna släpps i omgångar, så att det regnar i ungefär tio sekunder.
-function confetti(box) {
+// Med sprites faller i stället färdigritade bilder, till exempel godis och pumpor (candy), som
+// tumlar men aldrig blir helt platta.
+function confetti(box, sprites) {
   const colors = ['#ffd166', '#ffffff', '#7cf0b0', '#ff9ecb'];
-  const pieces = Array.from({ length: 110 }, (_, i) => {
+  const pieces = Array.from({ length: sprites ? 80 : 110 }, (_, i) => {
     const kind = Math.random() < 0.3 ? 'dala' : Math.random() < 0.67 ? 'flippa' : 'snurra';
     const dala = kind === 'dala';
     return {
-      kind, x: rand(-0.02, 1.02), y: -rand(20, 60), c: colors[i % colors.length],
+      kind, i, x: rand(-0.02, 1.02), y: -rand(20, 60), c: colors[i % colors.length],
       // De första bitarna släpps genast, så att det börjar regna direkt.
       d: i < 24 ? rand(-0.8, 0.4) : rand(0, dala ? 6.5 : 7.8),
-      w: rand(8, 11), h: kind === 'snurra' ? rand(8, 10) : rand(13, 18),
+      w: sprites ? rand(24, 34) : rand(8, 11), h: kind === 'snurra' ? rand(8, 10) : rand(13, 18),
       fall: dala ? rand(46, 70) : kind === 'flippa' ? rand(85, 135) : rand(70, 100),
       drift: rand(-14, 14),
       sway: dala ? rand(13, 27) : rand(2.5, 7.5), swayHz: dala ? rand(0.55, 0.95) : rand(0.7, 1.4), swayPh: rand(0, 6.3),
@@ -100,6 +103,14 @@ function confetti(box) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(p.rot + p.spin * age + tilt);
+      if (sprites) {
+        ctx.scale(1, Math.max(Math.abs(flip), 0.35));
+        ctx.globalAlpha = flip < 0 ? 0.8 : 0.95;
+        const img = sprites[p.i % sprites.length];
+        ctx.drawImage(img, -p.w / 2, -p.w / 2, p.w, p.w);
+        ctx.restore();
+        continue;
+      }
       ctx.scale(1, Math.max(Math.abs(flip), 0.08));
       ctx.globalAlpha = 0.95;
       ctx.fillStyle = p.c;
@@ -129,6 +140,68 @@ function confetti(box) {
     else area.stop();
   };
   requestAnimationFrame(frame);
+}
+
+// Godiset i Halloween: pumpor med ansikte, inslagna karameller och candy corn, ritade en gång
+// och sedan kopierade.
+function candy() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const sprite = (paint) => {
+    const img = document.createElement('canvas');
+    img.width = img.height = Math.ceil(32 * dpr);
+    const ctx = img.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.translate(16, 16);
+    paint(ctx);
+    return img;
+  };
+  const pumpkin = (ctx) => {
+    ctx.fillStyle = '#ff7a1a';
+    ctx.beginPath();
+    for (const [x, rx] of [[-6, 8], [6, 8], [0, 8]]) ctx.ellipse(x, 3, rx, 11, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#c24d00';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.ellipse(0, 3, 5, 11, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = '#3f7a2a';
+    ctx.fillRect(-1.5, -12, 3, 5);
+    ctx.fillStyle = '#3a1500';
+    ctx.beginPath();
+    ctx.moveTo(-8, 0); ctx.lineTo(-3, 0); ctx.lineTo(-5.5, -4);
+    ctx.moveTo(8, 0); ctx.lineTo(3, 0); ctx.lineTo(5.5, -4);
+    ctx.moveTo(-8, 5); ctx.quadraticCurveTo(0, 12, 8, 5); ctx.quadraticCurveTo(0, 8, -8, 5);
+    ctx.fill();
+  };
+  const wrapped = (color) => (ctx) => {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(-7, 0); ctx.lineTo(-15, -6); ctx.lineTo(-15, 6);
+    ctx.moveTo(7, 0); ctx.lineTo(15, -6); ctx.lineTo(15, 6);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 9, 6.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-3, -5.5); ctx.lineTo(1, 5.5);
+    ctx.stroke();
+  };
+  const corn = (ctx) => {
+    const band = (y0, y1, color) => {
+      const half = (y) => 10 * (1 - (y + 12) / 26);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(-half(y0), y0); ctx.lineTo(half(y0), y0); ctx.lineTo(half(y1), y1); ctx.lineTo(-half(y1), y1);
+      ctx.fill();
+    };
+    band(-12, -4, '#ffd23f');
+    band(-4, 5, '#ff8a1a');
+    band(5, 14, '#fff6e0');
+  };
+  return [pumpkin, wrapped('#9b4dff'), corn, pumpkin, wrapped('#3fcf7f'), corn, wrapped('#ff5fb0')].map(sprite);
 }
 
 // Fyrverkeri: femton raketer stiger från nederkanten under drygt nio sekunder och slår ut i bollar,
@@ -304,18 +377,41 @@ function play(box, area, dur, step) {
   requestAnimationFrame(frame);
 }
 
-// Fladdermöss: en flock på 40 fladdermöss lyfter från omslagets nederkant och flaxar ut åt
-// olika håll framför en stor fullmåne. Små fladdermöss är längre bort, flyger långsammare och syns
-// svagare. Samma fladdermus som flyger förbi i säsongslagret (js/sasong.js).
+// Fladdermusen i åtta lägen av vingslaget, ritad en gång och sedan kopierad, så att mobilen orkar
+// med en hel svärm. Samma fladdermus som flyger förbi i säsongslagret (js/sasong.js).
+function batFrames() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  return Array.from({ length: 8 }, (_, i) => {
+    const img = document.createElement('canvas');
+    img.width = img.height = Math.ceil(64 * dpr);
+    const ctx = img.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.fillStyle = '#170a22';
+    drawBat(ctx, 32, 34, 30, Math.sin((i / 8) * Math.PI * 2));
+    return img;
+  });
+}
+
+// Fladdermöss: en svärm på 300 fladdermöss väller upp ur omslagets nederkant, som ur en grotta,
+// framför en stor fullmåne. Strömmen slingrar sig fram och tillbaka medan den stiger, och svärmen
+// är tätast de första sekunderna. Små fladdermöss är längre bort och syns svagare, och några stora
+// susar förbi nära.
 function bats(box) {
   const dur = 12.8;
-  const flock = Array.from({ length: 40 }, (_, i) => {
-    const near = Math.random();
+  const frames = batFrames();
+  // Strömmens riktning och var den väller upp, t sekunder in.
+  const heading = (time) => -Math.PI / 2 + 0.5 * Math.sin(time * 1.6);
+  const origin = (time) => 0.5 + 0.3 * Math.sin(time * 0.9 + 0.6);
+  const swarm = Array.from({ length: 300 }, (_, i) => {
+    // Över hälften släpps de första tre sekunderna, resten glesare fram till nio sekunder.
+    const d = i < 170 ? rand(0, 3) : rand(3, 9);
+    const close = i % 50 === 0;
+    const near = close ? 1.6 : Math.random();
     return {
-      // De första lyfter genast, de andra i omgångar under sju sekunder.
-      d: i < 12 ? rand(0, 0.7) : rand(0.7, 7.5), x0: rand(0.1, 0.9), s: 8 + near * 18, speed: 60 + near * 90,
-      a: -Math.PI / 2 + rand(-0.85, 0.85), turn: rand(0.4, 0.9) * (Math.random() < 0.5 ? -1 : 1),
-      turnHz: rand(0.25, 0.6), ph: rand(0, 6.3), flapHz: rand(6, 9) + (1 - near) * 3, alpha: 0.55 + near * 0.4,
+      d, x0: origin(d) + rand(-0.06, 0.06), a: heading(d) + rand(-0.25, 0.25), s: 5 + near * 14,
+      speed: close ? 280 : 100 + near * 110, turn: rand(0.2, 0.5) * (Math.random() < 0.5 ? -1 : 1),
+      turnHz: rand(0.3, 0.7), ph: rand(0, 6.3), flapHz: rand(7, 10) + (1 - Math.min(near, 1)) * 3,
+      alpha: Math.min(0.95, 0.45 + near * 0.5),
     };
   }).sort((a, b) => a.s - b.s);
   let t = 0;
@@ -339,114 +435,38 @@ function bats(box) {
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
-    const a = Math.min(1, t / 1.2) * fade(t, dur);
-    moon(a);
-    ctx.fillStyle = '#170a22';
-    for (const b of flock) {
+    const out = fade(t, dur);
+    moon(Math.min(1, t / 1.2) * out);
+    for (const b of swarm) {
       if (b.x === undefined || b.out) continue;
-      ctx.globalAlpha = b.alpha * fade(t, dur);
-      drawBat(ctx, b.x, b.y, b.s, Math.sin((t - b.d) * b.flapHz * 6.283));
+      ctx.globalAlpha = b.alpha * out;
+      const frame = frames[Math.floor(((((t - b.d) * b.flapHz + b.ph) % 1) + 1) % 1 * 8)];
+      ctx.drawImage(frame, b.x - b.s * (32 / 30), b.y - b.s * (34 / 30), b.s * (64 / 30), b.s * (64 / 30));
     }
     ctx.globalAlpha = 1;
   };
-  // Fladdermössen svänger fram och tillbaka medan de flyger, så att banorna slingrar sig.
+  // Varje fladdermus svänger lite fram och tillbaka, så att svärmen ser levande ut.
   const step = (dt) => {
     const { w, h } = area;
-    for (const b of flock) {
+    for (const b of swarm) {
       const age = t - b.d;
       if (age < 0 || b.out) continue;
       if (b.x === undefined) { b.x = b.x0 * w; b.y = h + b.s; }
-      const heading = b.a + b.turn * Math.sin(age * b.turnHz * 6.283 + b.ph);
-      b.x += Math.cos(heading) * b.speed * dt;
-      b.y += Math.sin(heading) * b.speed * dt;
+      const a = b.a + b.turn * Math.sin(age * b.turnHz * 6.283 + b.ph);
+      b.x += Math.cos(a) * b.speed * dt;
+      b.y += Math.sin(a) * b.speed * dt;
       if (b.y < -40 || b.x < -40 || b.x > w + 40) b.out = true;
     }
   };
   const area = canvasIn(box, draw);
   if (still()) {
-    // Med minskad rörelse står månen och en del av flocken still, mitt i flykten.
+    // Med minskad rörelse står månen och svärmen still, mitt i flykten.
     area.start();
-    t = 2;
-    flock.length = 14;
-    for (const b of flock) { b.x = rand(0.06, 0.94) * area.w; b.y = rand(0.08, 0.7) * area.h; b.d = rand(0, 1); }
+    for (t = 0; t < 2.2; t += 1 / 30) step(1 / 30);
     draw();
     return;
   }
   play(box, area, dur, (now, dt) => { t = now; step(dt); draw(); });
-}
-
-// Ett lakansspöke med vågig fåll, s brett. wave flyttar fållens vågor och blink stänger ögonen.
-function drawGhost(ctx, s, wave, blink) {
-  const bottom = s * 0.6;
-  ctx.beginPath();
-  ctx.moveTo(-s / 2, bottom);
-  ctx.lineTo(-s / 2, -s * 0.15);
-  ctx.arc(0, -s * 0.15, s / 2, Math.PI, 0);
-  ctx.lineTo(s / 2, bottom);
-  // Fållen har fyra flikar som böljar.
-  for (let i = 0; i < 4; i += 1) {
-    const x = s / 2 - (i + 0.5) * (s / 4);
-    const lift = s * (0.1 + 0.05 * Math.sin(wave + i * 1.7));
-    ctx.quadraticCurveTo(x, bottom - lift * 2, s / 2 - (i + 1) * (s / 4), bottom);
-  }
-  ctx.closePath();
-  ctx.fillStyle = '#ffffff';
-  ctx.fill();
-  ctx.fillStyle = '#1d0f2b';
-  ctx.beginPath();
-  for (const side of [-1, 1]) ctx.ellipse(side * s * 0.15, -s * 0.2, s * 0.065, s * 0.1 * blink, 0, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.ellipse(0, s * 0.03, s * 0.06, s * 0.085, 0, 0, Math.PI * 2);
-  ctx.fill();
-}
-
-// Spöken: sju lakansspöken tonar fram i omslagets mitt, en i taget, och svävar långsamt uppåt
-// medan de vaggar, böljar med fållen och blinkar. De tonar fram ovanför namnet, så att de vita
-// spökena inte hamnar bakom den vita texten.
-function ghosts(box) {
-  const dur = 12.8;
-  // Spökena får var sin plats i sidled, i blandad ordning, så att de inte klumpar ihop sig.
-  const slots = [0.14, 0.86, 0.42, 0.68, 0.24, 0.56, 0.78];
-  const crowd = slots.map((x, i) => ({
-    d: 0.2 + i * 1.05 + rand(0, 0.4), x, s: rand(34, 56), rise: rand(5.2, 6.4),
-    sway: rand(10, 18), swayHz: rand(0.12, 0.2), ph: rand(0, 6.3), blinkPh: rand(0, 4),
-  }));
-  let t = 0;
-  const draw = () => {
-    const { ctx, w, h } = area;
-    ctx.clearRect(0, 0, w, h);
-    const from = h * 0.62;
-    for (const g of crowd) {
-      const age = t - g.d;
-      if (age < 0) continue;
-      const y = from - (from + g.s) * (age / g.rise);
-      if (y < -g.s) continue;
-      // Spöket tonar fram den första sekunden och bort mot överkanten.
-      const a = Math.min(1, age, (y + g.s) / (h * 0.3)) * fade(t, dur) * 0.88;
-      if (a <= 0) continue;
-      const phase = age * g.swayHz * 6.283 + g.ph;
-      ctx.save();
-      ctx.translate(g.x * w + g.sway * Math.sin(phase), y);
-      ctx.rotate(Math.cos(phase) * 0.12);
-      ctx.globalAlpha = a;
-      // Ögonen sluts en kort stund ungefär var tredje sekund.
-      const blink = (age + g.blinkPh) % 3 < 0.14 ? 0.15 : 1;
-      drawGhost(ctx, g.s, age * 4 + g.ph, blink);
-      ctx.restore();
-    }
-  };
-  const area = canvasIn(box, draw);
-  if (still()) {
-    // Med minskad rörelse svävar fyra spöken på olika höjd.
-    crowd.length = 4;
-    area.start();
-    t = 8;
-    crowd.forEach((g, i) => { g.d = t - g.rise * [0.15, 0.5, 0.3, 0.62][i]; });
-    draw();
-    return;
-  }
-  play(box, area, dur, (now) => { t = now; draw(); });
 }
 
 // Ett ren i galopp, vänd åt höger med hovarna vid y = 9. leg går från -1 till 1.
@@ -588,69 +608,51 @@ function sleigh(box) {
   play(box, area, dur, (now, dt) => { t = now; step(dt); draw(); });
 }
 
-// En snöflinga med sex armar och små grenar, ritad en gång i varje storlek och sedan återanvänd,
-// så att mobilen bara behöver kopiera färdiga bilder.
-function flakeImage(size) {
-  const dpr = Math.min(devicePixelRatio || 1, 2);
-  const img = document.createElement('canvas');
-  img.width = img.height = Math.ceil(size * dpr);
-  const ctx = img.getContext('2d');
-  ctx.scale(dpr, dpr);
-  ctx.translate(size / 2, size / 2);
-  ctx.strokeStyle = '#ffffff';
-  ctx.lineCap = 'round';
-  ctx.lineWidth = Math.max(1, size / 14);
-  const r = size / 2 - ctx.lineWidth;
-  for (let i = 0; i < 6; i += 1) {
-    ctx.beginPath();
-    ctx.moveTo(0, 0); ctx.lineTo(0, -r);
-    for (const [at, len] of [[0.45, 0.28], [0.72, 0.2]]) {
-      ctx.moveTo(0, -r * at); ctx.lineTo(r * len, -r * (at + len));
-      ctx.moveTo(0, -r * at); ctx.lineTo(-r * len, -r * (at + len));
-    }
-    ctx.stroke();
-    ctx.rotate(Math.PI / 3);
-  }
-  return img;
-}
-
-// Snöyra: stora snöflingor yr in i vinden, som blåser i byar fram och tillbaka, och virvlar och
-// snurrar medan de faller. Stora flingor är närmare och faller fortare, och bakom texten syns de
-// svagare. Längs omslagets nederkant växer en låg snödriva, som håller sig under texten.
+// Snöstorm: samma runda snö som i säsongslagret bakom sidan, men i en storm som virvlar i byar
+// över omslaget och sedan avtar, tills det bara snöar stilla och glest. När det blåser hårt dras
+// flingorna ut till korta streck. Längs nederkanten växer en låg snödriva, som håller sig under texten.
 function blizzard(box) {
   const dur = 13;
-  const images = [10, 15, 22].map(flakeImage);
-  const flakes = Array.from({ length: 60 }, (_, i) => {
-    const s = rand(7, 21);
-    return {
-      // De första flingorna finns redan på omslaget när det vänds fram.
-      d: i < 16 ? rand(-2.4, 0) : rand(0, 8), x0: Math.random(), s, img: images[s < 11 ? 0 : s < 16 ? 1 : 2],
-      fall: 28 + s * 3, alpha: 0.5 + (s / 21) * 0.45, r: rand(6, 20), hz: rand(0.25, 0.6), ph: rand(0, 6.3),
-      rot: rand(0, 6.3), spin: rand(-1.2, 1.2),
-    };
-  });
-  // Vinden blåser åt höger i byar som ibland vänder. wind är hur långt den har blåst en flinga.
-  const wind = (time) => 30 * time - (50 / 0.7) * Math.cos(0.7 * time);
+  // Tre lager: små flingor långt bort, mellanstora och stora nära. Varje lager ritas i ett svep.
+  const layers = [[0.8, 0.45], [1.3, 0.65], [1.9, 0.85]];
+  const flakes = Array.from({ length: 240 }, (_, i) => ({
+    layer: i % 3, x: Math.random(), y: Math.random(), fall: rand(30, 60) * (1 + (i % 3) * 0.3), ph: rand(0, 6.3),
+  }));
+  // Vindens styrka: en kraftig storm i början som mojnar under åtta sekunder.
+  const strength = (time) => 20 + 300 * Math.exp(-time / 2.6);
+  // Hur stor del av flingorna som är kvar: stormen glesnar till en tredjedel.
+  const share = (time) => Math.max(0.3, 1 - Math.max(0, time - 2.5) / 7);
   let t = 0;
+  let vx = 0;
+  let vy = 0;
+  const wind = (f, w, h) => {
+    const W = strength(t);
+    // Virvlar som vandrar över omslaget, så att snön slingrar sig i stället för att blåsa rakt.
+    vx = W * (0.8 + 0.7 * Math.sin((f.y * h) * 0.022 + t * 1.3 + f.ph * 0.2));
+    vy = f.fall + W * 0.55 * Math.cos((f.x * w) * 0.019 - t * 1.1);
+  };
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
     const out = fade(t, dur);
-    for (const f of flakes) {
-      const age = t - f.d;
-      if (age < 0) continue;
-      const y = -20 + f.fall * age;
-      if (y > h + 20) continue;
-      const span = w + 40;
-      const x = ((((f.x0 * w + wind(t) - wind(f.d) + f.r * Math.sin(age * f.hz * 6.283 + f.ph)) % span) + span) % span) - 20;
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(f.rot + f.spin * age);
-      // Nertill, där namnet står, syns flingorna svagare, så att den vita texten går att läsa.
-      ctx.globalAlpha = f.alpha * out * (1 - 0.6 * Math.min(1, Math.max(0, (y - h * 0.5) / (h * 0.15))));
-      ctx.drawImage(f.img, -f.s / 2, -f.s / 2, f.s, f.s);
-      ctx.restore();
-    }
+    const shown = Math.round(flakes.length * share(t));
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineCap = 'round';
+    layers.forEach(([r, alpha], layer) => {
+      ctx.globalAlpha = alpha * out;
+      ctx.lineWidth = r * 2;
+      ctx.beginPath();
+      for (let i = layer; i < shown; i += 3) {
+        const f = flakes[i];
+        wind(f, w, h);
+        const x = f.x * w;
+        const y = f.y * h;
+        // Strecket bakåt längs farten blir längre ju hårdare det blåser.
+        ctx.moveTo(x - vx * 0.02, y - vy * 0.02);
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    });
     // Drivan växer under nio sekunder till högst 14 pixlar, så att den stannar under texten.
     const top = 14 * Math.min(1, Math.max(0, (t - 1) / 9));
     if (top > 0.5) {
@@ -664,15 +666,27 @@ function blizzard(box) {
     }
     ctx.globalAlpha = 1;
   };
+  const step = (dt) => {
+    const { w, h } = area;
+    for (const f of flakes) {
+      wind(f, w, h);
+      f.x += (vx * dt) / w;
+      f.y += (vy * dt) / h;
+      // Flingor som blåser ut kommer in igen på andra sidan, så att stormen håller i sig.
+      if (f.x > 1.03) f.x -= 1.06;
+      if (f.x < -0.03) f.x += 1.06;
+      if (f.y > 1.03) { f.y = -0.03; f.x = Math.random(); }
+      if (f.y < -0.03) f.y += 1.06;
+    }
+  };
   const area = canvasIn(box, draw);
   if (still()) {
-    // Med minskad rörelse hänger en glesare yra still över omslaget, med drivan färdig.
-    flakes.length = 30;
+    // Med minskad rörelse står stormen still när den har mojnat lite, med drivan färdig.
     area.start();
     t = 10;
-    for (const f of flakes) f.d = t - (rand(0, area.h) + 20) / f.fall;
+    for (const f of flakes) f.fall = 0;
     draw();
     return;
   }
-  play(box, area, dur, (now) => { t = now; draw(); });
+  play(box, area, dur, (now, dt) => { t = now; step(dt); draw(); });
 }

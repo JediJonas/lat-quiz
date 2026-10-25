@@ -16,7 +16,7 @@ test('alla tre vinstanimationerna förekommer ungefär lika ofta', () => {
 });
 
 test('Halloween och Jul har bara sina egna vinstanimationer, ungefär lika ofta', () => {
-  assert.deepEqual(SEASON_WIN_EFFECTS, { halloween: ['fladdermoss', 'spoken'], jul: ['slade', 'snoyra'] });
+  assert.deepEqual(SEASON_WIN_EFFECTS, { halloween: ['fladdermoss', 'godis'], jul: ['slade', 'snoyra'] });
   for (const [category, effects] of Object.entries(SEASON_WIN_EFFECTS)) {
     const counts = Object.fromEntries(effects.map((e) => [e, 0]));
     for (let i = 0; i < 2000; i += 1) counts[pickWinEffect(`${i % 30}|Låt ${i}|Artist|Spelare ${i % 7}`, category)] += 1;
