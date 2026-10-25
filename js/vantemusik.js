@@ -38,7 +38,6 @@ export const SEASON_LOBBY_SONGS = {
     { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
     { artist: 'Cybermonsters', title: 'Haunted Pipe Organ Stomp', deezerId: 3576637671 },
     { artist: 'Classic Carnival Circus Calliope Music', title: 'Dardanella', deezerId: 70731041 },
-    { artist: 'Lalo Schifrin', title: 'Amityville Horror Main Title', deezerId: 1231894852 },
     { artist: 'Danny Elfman', title: 'Music Box', deezerId: 3453190731 },
     { artist: 'Raphaël Imbert', title: 'My Love (musical saw version)', deezerId: 64699066 },
   ],
