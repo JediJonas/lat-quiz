@@ -16,56 +16,56 @@
  {
   "id": "beethoven-symphony-no-5",
   "artist": "Ludwig van Beethoven",
-  "title": "Symphony No. 5",
+  "title": "Symfoni nr 5",
   "year": 1808,
   "deezerId": 65442076
  },
  {
   "id": "vivaldi-the-four-seasons",
   "artist": "Antonio Vivaldi",
-  "title": "The Four Seasons",
+  "title": "De fyra årstiderna",
   "year": 1721,
   "deezerId": 4182674
  },
  {
   "id": "bach-toccata-and-fugue-in-d-minor",
   "artist": "Johann Sebastian Bach",
-  "title": "Toccata and Fugue in D minor",
+  "title": "Toccata och fuga i d-moll",
   "year": 1708,
   "deezerId": 3701745
  },
  {
   "id": "tchaikovsky-the-nutcracker",
   "artist": "Pyotr Ilyich Tchaikovsky",
-  "title": "The Nutcracker",
+  "title": "Nötknäpparen",
   "year": 1892,
   "deezerId": 4285953932
  },
  {
   "id": "grieg-in-the-hall-of-the-mountain-king",
   "artist": "Edvard Grieg",
-  "title": "In the Hall of the Mountain King",
+  "title": "I bergakungens sal",
   "year": 1875,
   "deezerId": 67343982
  },
  {
   "id": "grieg-morning-mood",
   "artist": "Edvard Grieg",
-  "title": "Morning Mood",
+  "title": "Morgonstämning",
   "year": 1875,
   "deezerId": 67343979
  },
  {
   "id": "pachelbel-canon-in-d",
   "artist": "Johann Pachelbel",
-  "title": "Canon in D",
+  "title": "Kanon i D",
   "year": 1680,
   "deezerId": 3853949
  },
  {
   "id": "beethoven-moonlight-sonata",
   "artist": "Ludwig van Beethoven",
-  "title": "Moonlight Sonata",
+  "title": "Månskenssonaten",
   "year": 1801,
   "deezerId": 69089334
  },
@@ -79,35 +79,35 @@
  {
   "id": "mozart-the-magic-flute",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "The Magic Flute",
+  "title": "Trollflöjten",
   "year": 1791,
   "deezerId": 62418267
  },
  {
   "id": "mozart-the-marriage-of-figaro",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "The Marriage of Figaro",
+  "title": "Figaros bröllop",
   "year": 1786,
   "deezerId": 140783655
  },
  {
   "id": "mozart-symphony-no-40",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "Symphony No. 40",
+  "title": "Symfoni nr 40",
   "year": 1788,
   "deezerId": 2758331111
  },
  {
   "id": "ii-the-blue-danube",
   "artist": "Johann Strauss II",
-  "title": "The Blue Danube",
+  "title": "An der schönen blauen Donau",
   "year": 1866,
   "deezerId": 66661420
  },
  {
   "id": "i-radetzky-march",
   "artist": "Johann Strauss I",
-  "title": "Radetzky March",
+  "title": "Radetzkymarsch",
   "year": 1848,
   "deezerId": 65342707
  },
@@ -135,14 +135,14 @@
  {
   "id": "wagner-ride-of-the-valkyries",
   "artist": "Richard Wagner",
-  "title": "Ride of the Valkyries",
+  "title": "Valkyrieritten",
   "year": 1856,
   "deezerId": 605043
  },
  {
   "id": "mendelssohn-wedding-march",
   "artist": "Felix Mendelssohn",
-  "title": "Wedding March",
+  "title": "Brudmarsch",
   "year": 1842,
   "deezerId": 68285073
  },
@@ -177,14 +177,14 @@
  {
   "id": "rossini-the-barber-of-seville",
   "artist": "Gioachino Rossini",
-  "title": "The Barber of Seville",
+  "title": "Barberaren i Sevilla",
   "year": 1816,
   "deezerId": 68775957
  },
  {
   "id": "saint-saens-the-carnival-of-the-animals",
   "artist": "Camille Saint-Saëns",
-  "title": "The Carnival of the Animals",
+  "title": "Djurens karneval",
   "year": 1886,
   "deezerId": 2521042111
  },
@@ -198,7 +198,7 @@
  {
   "id": "rimsky-korsakov-flight-of-the-bumblebee",
   "artist": "Nikolai Rimsky-Korsakov",
-  "title": "Flight of the Bumblebee",
+  "title": "Humlans flykt",
   "year": 1900,
   "deezerId": 3038710011
  },
@@ -219,35 +219,35 @@
  {
   "id": "rachmaninoff-piano-concerto-no-2",
   "artist": "Sergei Rachmaninoff",
-  "title": "Piano Concerto No. 2",
+  "title": "Pianokonsert nr 2",
   "year": 1901,
   "deezerId": 68247075
  },
  {
   "id": "tchaikovsky-1812-overture",
   "artist": "Pyotr Ilyich Tchaikovsky",
-  "title": "1812 Overture",
+  "title": "1812-ouvertyren",
   "year": 1880,
   "deezerId": 823708
  },
  {
   "id": "tchaikovsky-piano-concerto-no-1",
   "artist": "Pyotr Ilyich Tchaikovsky",
-  "title": "Piano Concerto No. 1",
+  "title": "Pianokonsert nr 1",
   "year": 1875,
   "deezerId": 72314767
  },
  {
   "id": "dvorak-symphony-no-9",
   "artist": "Antonín Dvořák",
-  "title": "Symphony No. 9",
+  "title": "Från Nya världen",
   "year": 1893,
   "deezerId": 4157104
  },
  {
   "id": "smetana-the-moldau",
   "artist": "Bedřich Smetana",
-  "title": "The Moldau",
+  "title": "Moldau",
   "year": 1874,
   "deezerId": 4157105
  },
@@ -268,14 +268,14 @@
  {
   "id": "grieg-piano-concerto-in-a-minor",
   "artist": "Edvard Grieg",
-  "title": "Piano Concerto in A minor",
+  "title": "Pianokonsert i a-moll",
   "year": 1868,
   "deezerId": 68258030
  },
  {
   "id": "chopin-minute-waltz",
   "artist": "Frédéric Chopin",
-  "title": "Minute Waltz",
+  "title": "Minutvalsen",
   "year": 1847,
   "deezerId": 66412331
  },
@@ -289,14 +289,14 @@
  {
   "id": "chopin-revolutionary-etude",
   "artist": "Frédéric Chopin",
-  "title": "Revolutionary Étude",
+  "title": "Revolutionsetyden",
   "year": 1831,
   "deezerId": 67343847
  },
  {
   "id": "liszt-hungarian-rhapsody-no-2",
   "artist": "Franz Liszt",
-  "title": "Hungarian Rhapsody No. 2",
+  "title": "Ungersk rapsodi nr 2",
   "year": 1847,
   "deezerId": 6922357
  },
@@ -317,7 +317,7 @@
  {
   "id": "schubert-unfinished-symphony",
   "artist": "Franz Schubert",
-  "title": "Unfinished Symphony",
+  "title": "Den ofullbordade",
   "year": 1822,
   "deezerId": 1809965167
  },
@@ -331,56 +331,56 @@
  {
   "id": "bach-air-on-the-g-string",
   "artist": "Johann Sebastian Bach",
-  "title": "Air on the G String",
+  "title": "Air på G-strängen",
   "year": 1730,
   "deezerId": 4152845
  },
  {
   "id": "bach-brandenburg-concertos",
   "artist": "Johann Sebastian Bach",
-  "title": "Brandenburg Concertos",
+  "title": "Brandenburgkonserterna",
   "year": 1721,
   "deezerId": 67348054
  },
  {
   "id": "bach-cello-suite-no-1",
   "artist": "Johann Sebastian Bach",
-  "title": "Cello Suite No. 1",
+  "title": "Cellosvit nr 1",
   "year": 1720,
   "deezerId": 1437563712
  },
  {
   "id": "bach-goldberg-variations",
   "artist": "Johann Sebastian Bach",
-  "title": "Goldberg Variations",
+  "title": "Goldbergvariationerna",
   "year": 1741,
   "deezerId": 1502306712
  },
  {
   "id": "bach-christmas-oratorio",
   "artist": "Johann Sebastian Bach",
-  "title": "Christmas Oratorio",
+  "title": "Juloratoriet",
   "year": 1734,
   "deezerId": 66402345
  },
  {
   "id": "haydn-surprise-symphony",
   "artist": "Joseph Haydn",
-  "title": "Surprise Symphony",
+  "title": "Pukslagssymfonin",
   "year": 1791,
   "deezerId": 3117534
  },
  {
   "id": "haydn-trumpet-concerto",
   "artist": "Joseph Haydn",
-  "title": "Trumpet Concerto",
+  "title": "Trumpetkonsert",
   "year": 1796,
   "deezerId": 4182923
  },
  {
   "id": "beethoven-symphony-no-9",
   "artist": "Ludwig van Beethoven",
-  "title": "Symphony No. 9",
+  "title": "Symfoni nr 9",
   "year": 1824,
   "deezerId": 65442096
  },
@@ -394,14 +394,14 @@
  {
   "id": "beethoven-pastoral-symphony",
   "artist": "Ludwig van Beethoven",
-  "title": "Pastoral Symphony",
+  "title": "Pastoralsymfonin",
   "year": 1808,
   "deezerId": 4183332
  },
  {
   "id": "beethoven-emperor-concerto",
   "artist": "Ludwig van Beethoven",
-  "title": "Emperor Concerto",
+  "title": "Kejsarkonserten",
   "year": 1811,
   "deezerId": 1421582212
  },
@@ -415,21 +415,21 @@
  {
   "id": "mozart-queen-of-the-night-aria",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "Queen of the Night aria",
+  "title": "Nattens drottnings aria",
   "year": 1791,
   "deezerId": 4667634
  },
  {
   "id": "mozart-clarinet-concerto",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "Clarinet Concerto",
+  "title": "Klarinettkonsert",
   "year": 1791,
   "deezerId": 67344403
  },
  {
   "id": "mozart-piano-concerto-no-21",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "Piano Concerto No. 21",
+  "title": "Pianokonsert nr 21",
   "year": 1785,
   "deezerId": 66287138
  },
@@ -443,7 +443,7 @@
  {
   "id": "holst-the-planets",
   "artist": "Gustav Holst",
-  "title": "The Planets",
+  "title": "Planeterna",
   "year": 1916,
   "deezerId": 67943023
  },
@@ -457,21 +457,21 @@
  {
   "id": "elgar-enigma-variations",
   "artist": "Edward Elgar",
-  "title": "Enigma Variations",
+  "title": "Enigmavariationerna",
   "year": 1899,
   "deezerId": 67344222
  },
  {
   "id": "barber-adagio-for-strings",
   "artist": "Samuel Barber",
-  "title": "Adagio for Strings",
+  "title": "Adagio för stråkar",
   "year": 1936,
   "deezerId": 5150588
  },
  {
   "id": "stravinsky-the-rite-of-spring",
   "artist": "Igor Stravinsky",
-  "title": "The Rite of Spring",
+  "title": "Våroffer",
   "year": 1913,
   "deezerId": 67344482
  },
@@ -506,14 +506,14 @@
  {
   "id": "ravel-pavane-for-a-dead-princess",
   "artist": "Maurice Ravel",
-  "title": "Pavane for a Dead Princess",
+  "title": "Pavane för en död prinsessa",
   "year": 1899,
   "deezerId": 64105040
  },
  {
   "id": "dukas-the-sorcerer-s-apprentice",
   "artist": "Paul Dukas",
-  "title": "The Sorcerer's Apprentice",
+  "title": "Trollkarlens lärling",
   "year": 1897,
   "deezerId": 815891
  },
@@ -562,7 +562,7 @@
  {
   "id": "ii-tales-from-the-vienna-woods",
   "artist": "Johann Strauss II",
-  "title": "Tales from the Vienna Woods",
+  "title": "G'schichten aus dem Wienerwald",
   "year": 1868,
   "deezerId": 6058113
  },
@@ -576,21 +576,21 @@
  {
   "id": "offenbach-orpheus-in-the-underworld",
   "artist": "Jacques Offenbach",
-  "title": "Orpheus in the Underworld",
+  "title": "Orfeus i underjorden",
   "year": 1858,
   "deezerId": 1146133142
  },
  {
   "id": "rachmaninoff-rhapsody-on-a-theme-of-paganini",
   "artist": "Sergei Rachmaninoff",
-  "title": "Rhapsody on a Theme of Paganini",
+  "title": "Rapsodi över ett tema av Paganini",
   "year": 1934,
   "deezerId": 1074164822
  },
  {
   "id": "rachmaninoff-prelude-in-c-sharp-minor",
   "artist": "Sergei Rachmaninoff",
-  "title": "Prelude in C-sharp minor",
+  "title": "Preludium i ciss-moll",
   "year": 1892,
   "deezerId": 3516876081
  },
@@ -604,35 +604,35 @@
  {
   "id": "bruch-violin-concerto-no-1",
   "artist": "Max Bruch",
-  "title": "Violin Concerto No. 1",
+  "title": "Violinkonsert nr 1",
   "year": 1866,
   "deezerId": 818566
  },
  {
   "id": "borodin-polovtsian-dances",
   "artist": "Alexander Borodin",
-  "title": "Polovtsian Dances",
+  "title": "Polovtsiska danser",
   "year": 1890,
   "deezerId": 2771502881
  },
  {
   "id": "tchaikovsky-symphony-no-6",
   "artist": "Pyotr Ilyich Tchaikovsky",
-  "title": "Symphony No. 6",
+  "title": "Symfoni nr 6",
   "year": 1893,
   "deezerId": 686721992
  },
  {
   "id": "sibelius-karelia-suite",
   "artist": "Jean Sibelius",
-  "title": "Karelia Suite",
+  "title": "Karelia-sviten",
   "year": 1893,
   "deezerId": 66244456
  },
  {
   "id": "sibelius-violin-concerto",
   "artist": "Jean Sibelius",
-  "title": "Violin Concerto",
+  "title": "Violinkonsert",
   "year": 1904,
   "deezerId": 4152834
  },
@@ -646,7 +646,7 @@
  {
   "id": "corelli-christmas-concerto",
   "artist": "Arcangelo Corelli",
-  "title": "Christmas Concerto",
+  "title": "Julkonserten",
   "year": 1714,
   "deezerId": 67343888
  },
@@ -660,21 +660,21 @@
  {
   "id": "beethoven-egmont-overture",
   "artist": "Ludwig van Beethoven",
-  "title": "Egmont Overture",
+  "title": "Egmont-ouvertyren",
   "year": 1810,
   "deezerId": 66851410
  },
  {
   "id": "grieg-anitras-dance",
   "artist": "Edvard Grieg",
-  "title": "Anitra's Dance",
+  "title": "Anitras dans",
   "year": 1875,
   "deezerId": 67343981
  },
  {
   "id": "chopin-nocturne-no-20-in-c-sharp-minor-op-posth",
   "artist": "Frédéric Chopin",
-  "title": "Nocturne No. 20 in C-sharp minor, Op. posth.",
+  "title": "Nocturne nr 20 i ciss-moll, op. posth.",
   "year": 1830,
   "deezerId": 1968835827
  },
@@ -688,14 +688,14 @@
  {
   "id": "chopin-prelude-no-4-in-e-minor-op-28",
   "artist": "Frédéric Chopin",
-  "title": "Prélude no. 4 in E minor, op. 28",
+  "title": "Preludium nr 4 i e-moll, op. 28",
   "year": 1838,
   "deezerId": 66661530
  },
  {
   "id": "prokofiev-romeo-and-juliet",
   "artist": "Sergei Prokofiev",
-  "title": "Romeo and Juliet",
+  "title": "Romeo och Julia",
   "year": 1935,
   "deezerId": 3094221
  },
@@ -709,7 +709,7 @@
  {
   "id": "chopin-nocturnes-op-9",
   "artist": "Frédéric Chopin",
-  "title": "Nocturnes, Op. 9",
+  "title": "Nocturner, op. 9",
   "year": 1832,
   "deezerId": 1457007802
  },
@@ -723,21 +723,21 @@
  {
   "id": "tchaikovsky-serenade-for-strings",
   "artist": "Pyotr Ilyich Tchaikovsky",
-  "title": "Serenade for Strings",
+  "title": "Serenad för stråkar",
   "year": 1880,
   "deezerId": 66759086
  },
  {
   "id": "chopin-ballade-no-1-in-g-minor-op-23",
   "artist": "Frédéric Chopin",
-  "title": "Ballade No. 1 in G minor, Op. 23",
+  "title": "Ballad nr 1 i g-moll, op. 23",
   "year": 1831,
   "deezerId": 848990
  },
  {
   "id": "ravel-piano-concerto",
   "artist": "Maurice Ravel",
-  "title": "Piano Concerto",
+  "title": "Pianokonsert i G-dur",
   "year": 1931,
   "deezerId": 68280332
  },
@@ -772,14 +772,14 @@
  {
   "id": "beethoven-piano-sonata-no-8",
   "artist": "Ludwig van Beethoven",
-  "title": "Piano Sonata No. 8",
+  "title": "Pianosonat nr 8",
   "year": 1797,
   "deezerId": 69089331
  },
  {
   "id": "rossini-william-tell",
   "artist": "Gioachino Rossini",
-  "title": "William Tell",
+  "title": "Wilhelm Tell",
   "year": 1828,
   "deezerId": 62393575
  },
@@ -807,7 +807,7 @@
  {
   "id": "bach-prelude-in-c-major-bwv-846",
   "artist": "Johann Sebastian Bach",
-  "title": "Prelude in C major, BWV 846",
+  "title": "Preludium i C-dur, BWV 846",
   "year": 1722,
   "deezerId": 646298592
  },
@@ -821,14 +821,14 @@
  {
   "id": "handel-sarabande-in-d-minor",
   "artist": "George Frideric Handel",
-  "title": "Sarabande in D minor",
+  "title": "Sarabande i d-moll",
   "year": 1733,
   "deezerId": 11804645
  },
  {
   "id": "handel-hallelujah-chorus",
   "artist": "George Frideric Handel",
-  "title": "Hallelujah Chorus",
+  "title": "Hallelujakören",
   "year": 1741,
   "deezerId": 4183059
  },
@@ -863,7 +863,7 @@
  {
   "id": "mozart-piano-sonata-no-16",
   "artist": "Wolfgang Amadeus Mozart",
-  "title": "Piano Sonata No. 16",
+  "title": "Pianosonat nr 16",
   "year": 1788,
   "deezerId": 3033658681
  },
@@ -877,21 +877,21 @@
  {
   "id": "brahms-hungarian-dance-no-5",
   "artist": "Johannes Brahms",
-  "title": "Hungarian Dance No. 5",
+  "title": "Ungersk dans nr 5",
   "year": 1869,
   "deezerId": 6058117
  },
  {
   "id": "brahms-brahms-lullaby",
   "artist": "Johannes Brahms",
-  "title": "Brahms' Lullaby",
+  "title": "Brahms vaggvisa",
   "year": 1868,
   "deezerId": 675347282
  },
  {
   "id": "tchaikovsky-swan-lake",
   "artist": "Pyotr Ilyich Tchaikovsky",
-  "title": "Swan Lake",
+  "title": "Svansjön",
   "year": 1876,
   "deezerId": 3378679
  },
@@ -905,21 +905,21 @@
  {
   "id": "shostakovich-waltz-no-2",
   "artist": "Dmitri Shostakovich",
-  "title": "Waltz No. 2",
+  "title": "Vals nr 2",
   "year": 1938,
   "deezerId": 6944627
  },
  {
   "id": "mussorgsky-night-on-bald-mountain",
   "artist": "Modest Mussorgsky",
-  "title": "Night on Bald Mountain",
+  "title": "En natt på Blåkulla",
   "year": 1867,
   "deezerId": 137200312
  },
  {
   "id": "dvorak-humoresque",
   "artist": "Antonín Dvořák",
-  "title": "Humoresque",
+  "title": "Humoresk",
   "year": 1894,
   "deezerId": 3245029
  },
@@ -940,7 +940,7 @@
  {
   "id": "mendelssohn-violin-concerto-in-e-minor",
   "artist": "Felix Mendelssohn",
-  "title": "Violin Concerto in E minor",
+  "title": "Violinkonsert i e-moll",
   "year": 1844,
   "deezerId": 68285588
  },
@@ -954,14 +954,14 @@
  {
   "id": "chopin-waltz-in-c-sharp-minor",
   "artist": "Frédéric Chopin",
-  "title": "Waltz in C-sharp minor",
+  "title": "Vals i ciss-moll",
   "year": 1847,
   "deezerId": 74783830
  },
  {
   "id": "chopin-etude-op-10-no-3",
   "artist": "Frédéric Chopin",
-  "title": "Étude Op. 10 No. 3",
+  "title": "Etyd op. 10 nr 3",
   "year": 1832,
   "deezerId": 67343838
  },
@@ -982,14 +982,14 @@
  {
   "id": "delibes-flower-duet",
   "artist": "Léo Delibes",
-  "title": "Flower Duet",
+  "title": "Blomsterduetten",
   "year": 1883,
   "deezerId": 2652147
  },
  {
   "id": "beethoven-symphony-no-7",
   "artist": "Ludwig van Beethoven",
-  "title": "Symphony No. 7",
+  "title": "Symfoni nr 7",
   "year": 1812,
   "deezerId": 65442086
  },
@@ -1010,7 +1010,7 @@
  {
   "id": "khachaturian-masquerade",
   "artist": "Aram Khachaturian",
-  "title": "Masquerade",
+  "title": "Maskerad",
   "year": 1941,
   "deezerId": 17695796
  },
@@ -1045,7 +1045,7 @@
  {
   "id": "saint-saens-symphony-no-3-organ",
   "artist": "Camille Saint-Saëns",
-  "title": "Symphony No. 3 \"Organ\"",
+  "title": "Orgelsymfonin",
   "year": 1886,
   "deezerId": 690294172
  },
@@ -1059,14 +1059,14 @@
  {
   "id": "elgar-cello-concerto",
   "artist": "Edward Elgar",
-  "title": "Cello Concerto",
+  "title": "Cellokonsert",
   "year": 1919,
   "deezerId": 3358159
  },
  {
   "id": "mahler-symphony-no-5",
   "artist": "Gustav Mahler",
-  "title": "Symphony No. 5",
+  "title": "Symfoni nr 5",
   "year": 1902,
   "deezerId": 2089559787
  },
@@ -1080,7 +1080,7 @@
  {
   "id": "boccherini-minuet",
   "artist": "Luigi Boccherini",
-  "title": "Minuet",
+  "title": "Menuett",
   "year": 1771,
   "deezerId": 3458456531
  }
