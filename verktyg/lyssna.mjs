@@ -16,6 +16,9 @@ const json = (path) => JSON.parse(readFileSync(new URL(path, root), 'utf8'));
 const MONTHS = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'];
 const day = (mmdd) => { const [m, d] = mmdd.split('-').map(Number); return `${d} ${MONTHS[m - 1]}`; };
 const row = (s, year) => [s.artist, s.title, s.deezerId, ...(year && s.year ? [s.year] : [])];
+// Låtarna står i bokstavsordning efter artist och sedan titel, med svensk sortering så att å, ä och ö kommer sist.
+const sv = new Intl.Collator('sv', { numeric: true });
+const sorted = (songs, year) => songs.map((s) => row(s, year)).sort((a, b) => sv.compare(a[0], b[0]) || sv.compare(a[1], b[1]));
 
 export function sections() {
   const categories = json('data/categories.json');
@@ -24,17 +27,18 @@ export function sections() {
     {
       id: 'vantelatar', rubrik: `De ${LOBBY_SONGS.length} väntelåtarna`,
       intro: 'Loopar i lobbyn medan spelarna går med. I appen tonar klippet in under 2 sekunder och ut under 3, och spelas svagare än vinnarlåten.',
-      latar: LOBBY_SONGS.map((s) => row(s)),
+      latar: sorted(LOBBY_SONGS),
     },
-    ...Object.entries(SEASON_LOBBY_SONGS).map(([id, songs]) => ({
+    // Säsongskategorierna står i samma ordning som i appen.
+    ...categories.filter((c) => SEASON_LOBBY_SONGS[c.id]).map(({ id }) => ({
       id: 'vantelatar-' + id, rubrik: `Väntelåtarna i ${name(id)}`,
       intro: `Spelas i lobbyn i stället för jazzen när spelet har kategorin ${name(id)}. De tonar in och ut på samma sätt.`,
-      latar: songs.map((s) => row(s)),
+      latar: sorted(SEASON_LOBBY_SONGS[id]),
     })),
     {
       id: 'vinnarlatar', rubrik: `De ${WINNER_SONGS.length} vinnarlåtarna`,
       intro: 'Spelas när vinnaren visas. I appen spelas hela klippet från full volym, och de sista fem sekunderna tonar ut.',
-      latar: WINNER_SONGS.map((s) => row(s)),
+      latar: sorted(WINNER_SONGS),
     },
   ];
   for (const c of categories) {
@@ -42,7 +46,7 @@ export function sections() {
     const delar = [`${songs.length} låtar.`];
     if (c.season) delar.push(`Säsongskategori som syns ${day(c.season.from)}–${day(c.season.to)}.`);
     if (c.labels) delar.push(`Fälten heter ${c.labels.artist} och ${c.labels.title}.`);
-    list.push({ id: 'kategori-' + c.id, rubrik: c.name, intro: delar.join(' '), latar: songs.map((s) => row(s, true)), kategori: true });
+    list.push({ id: 'kategori-' + c.id, rubrik: c.name, intro: delar.join(' '), latar: sorted(songs, true), kategori: true });
   }
   return list;
 }
@@ -113,7 +117,7 @@ const TEMPLATE = `<!doctype html>
 <body>
 <main>
   <h1>Låtarna i appen</h1>
-  <p class="intro">Alla låtar som Låtquiz spelar: väntelåtarna, säsongskategoriernas väntelåtar, vinnarlåtarna och de %ANTAL% quizlåtarna i %KATEGORIER% kategorier. Tryck på en låt för att höra Deezer-klippet på 30 sekunder. Tryck på en rubrik för att fälla ut eller ihop den. Under varje låt står inspelningen som Deezer-ID:t pekar på, och den hämtas när raden syns. Klipplänken hämtas när du trycker, eftersom Deezers länkar går ut efter en stund.</p>
+  <p class="intro">Alla låtar som Låtquiz spelar: väntelåtarna, säsongskategoriernas väntelåtar, vinnarlåtarna och de %ANTAL% quizlåtarna i %KATEGORIER% kategorier. Kategorierna står i samma ordning som i appen och låtarna i bokstavsordning efter artist. Tryck på en låt för att höra Deezer-klippet på 30 sekunder. Tryck på en rubrik för att fälla ut eller ihop den. Under varje låt står inspelningen som Deezer-ID:t pekar på, och den hämtas när raden syns. Klipplänken hämtas när du trycker, eftersom Deezers länkar går ut efter en stund.</p>
   <nav>
     <p><b>Extraljud:</b> %MENY_LJUD%</p>
     <p><b>Kategorier:</b> %MENY_KATEGORIER%</p>
