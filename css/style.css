@@ -1366,7 +1366,7 @@ button.danger:hover { filter: brightness(1.08); }
 .modal .clip-all { margin-top: 14px; }
 /* Utan Deezer döljs Spela ljud på alla enheter, och Spela extraljud blir första raden utan linje. */
 .modal .switches button.theme-switch[hidden] + button.theme-switch::before { display: none; }
-/* Ljud-/bildfördröjningen står i en egen grupp under strömbrytarna. */
+/* Ljudkorrigeringen står i en egen grupp under strömbrytarna. */
 .modal .audio-delay { margin-top: 14px; }
 /* Namnfältet för spelledaren under strömbrytarna, där Jag deltar i spelet står. */
 .modal .host-name-row { margin-top: 14px; }
