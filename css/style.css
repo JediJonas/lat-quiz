@@ -166,7 +166,7 @@
 [data-kategori="filmmusik"] { --cat-glyph: "FILM"; --cat-1: #b0560c; --cat-2: #1b2236; --cat-dim: 0.12; }
 [data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; --cat-dim: 0.02; }
 [data-kategori="edm"] { --cat-glyph: "EDM"; --cat-1: #079fbd; --cat-2: #6a2fd8; --cat-dim: 0.28; }
-[data-kategori="halloween"] { --cat-glyph: "BOO"; --cat-1: #ff6600; --cat-2: #2e0f4f; --cat-dim: 0.28; }
+[data-kategori="halloween"] { --cat-glyph: "BU"; --cat-1: #ff6600; --cat-2: #2e0f4f; --cat-dim: 0.28; }
 [data-kategori="jul"] { --cat-glyph: "JUL"; --cat-1: #e03a3e; --cat-2: #0f4d2e; --cat-dim: 0.15; }
 
 /* Säsongens stämning bakom innehållet, se js/sasong.js: snö i Jul och löv i Halloween.
