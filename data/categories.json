@@ -13,6 +13,6 @@
   { "id": "eurovision", "name": "Eurovision", "file": "eurovision.json", "labels": { "artist": "Land", "title": "Låt" }, "songs": 208 },
   { "id": "hardrock", "name": "Hårdrock och metal", "file": "hardrock.json", "songs": 151 },
   { "id": "edm", "name": "EDM", "file": "edm.json", "songs": 156 },
-  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Kompositör", "title": "Film" }, "songs": 198 },
+  { "id": "filmmusik", "name": "Filmmusik", "file": "filmmusik.json", "labels": { "artist": "Kompositör", "title": "Film" }, "songs": 143 },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 }
 ]

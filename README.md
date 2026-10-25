@@ -95,6 +95,8 @@ Säsongskategorierna har egen väntemusik, `SEASON_LOBBY_SONGS` i `js/vantemusik
 
 Halloween blandar läskiga låtar med ledmotiv från skräckfilmer och serier. För ledmotiven är Artist den som skrev det och Titel filmens eller seriens namn, som i Filmmusik, och spåret står i `track`.
 
+I Filmmusik heter fälten Kompositör och Film. Ledmotiv som sjungs av en artist har egna `labels` med Artist och Film, och då är artisten den som hörs på inspelningen, inte den som skrev låten.
+
 ## Deezer-ID
 
 Varje quizlåt kan ha ett fast `deezerId`, så att rätt inspelning spelas och inte en liveversion eller en cover. Claude hämtar dem med Node:
