@@ -3,7 +3,7 @@
 // dyker de upp i förslagen precis när någon skriver rätt svar.
 
 import { normalize } from '../js/text.js';
-import { suggestionKind, songLabels } from '../js/data.js';
+import { suggestionKind, suggestionKey, songLabels } from '../js/data.js';
 
 const VERSION = /\s*\([^()]*(karaoke|instrumental|singback|sjung själv|maxi|unplugged|version|live|mix|edit|radio|censur)[^()]*\)$/i;
 // Förtydliganden från engelska Wikipedia, som "Light Me Up (Gromee song)". Gemen "song" med flit,
@@ -41,7 +41,10 @@ export function cleanDecoys(forslag, categories) {
     for (const song of songs) {
       answers.artists.add(normalize(song.artist));
       answers.titles.add(normalize(song.title));
-      for (const field of ['artist', 'title']) (same[suggestionKind(field, songLabels(song, labels)[field])] ||= new Set()).add(normalize(song[field]));
+      for (const field of ['artist', 'title']) {
+        const kind = suggestionKind(field, songLabels(song, labels)[field]);
+        (same[kind] ||= new Set()).add(suggestionKey(song[field], kind));
+      }
       // Ledmotiv har spårets namn i track, även i Halloween, där titeln är filmen eller serien.
       if (id === 'filmmusik' || song.track) films.push(song.title);
     }
@@ -60,11 +63,14 @@ export function cleanDecoys(forslag, categories) {
   const isConfusable = (artist) => isFullName(artist) || (/\s[&+]\s/.test(artist) && hasAnswer(artist));
   const clean = (items, fix, kind, extra) => {
     const wanted = same[kind] || new Set();
-    // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas.
+    // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas. Samma namn
+    // med "and" i stället för "&" räknas också som rätt svar, som "Nick Cave and the Bad Seeds"
+    // när svaret är "Nick Cave & The Bad Seeds", se suggestionKey i js/data.js.
+    const key = (x) => suggestionKey(x, kind);
     const seen = new Map();
     const kept = items.map(fix).sort()
-      .filter((x) => x && !wanted.has(normalize(x)) && !JUNK.some((re) => re.test(x)) && !extra(x));
-    for (const x of kept) if (!seen.has(normalize(x))) seen.set(normalize(x), x);
+      .filter((x) => x && !wanted.has(key(x)) && !JUNK.some((re) => re.test(x)) && !extra(x));
+    for (const x of kept) if (!seen.has(key(x))) seen.set(key(x), x);
     return [...seen.values()];
   };
   return {

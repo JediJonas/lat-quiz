@@ -109,6 +109,46 @@ test('lockbeten städas från undertitlar, fullständiga namn, samarbeten med r�
   assert.deepEqual(result.titles, ['15 Minuter', 'Sweet Dreams Are Made of This']);
 });
 
+test('lockbeten som är samma artist eller titel som ett rätt svar med annan stavning tas bort', async () => {
+  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const categories = [{ id: 'halloween', songs: [
+    { artist: 'Nick Cave & The Bad Seeds', title: 'Red Right Hand' },
+    { artist: 'The Sweet', title: 'Power' },
+  ] }];
+  const result = cleanDecoys({
+    artists: ['Nick Cave and the Bad Seeds', 'Sweet', 'Misfits', 'The Misfits', 'Nick Cave'],
+    titles: ['Red right-hand', 'The Power', 'Fast & Furious', 'Fast and Furious'],
+  }, categories);
+  assert.deepEqual(result.artists, ['Misfits', 'Nick Cave']);
+  assert.deepEqual(result.titles, ['Fast & Furious', 'The Power']);
+});
+
+test('inget lockbete är samma svar som en quizlåt i samma förslagslista', async () => {
+  const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
+  const forslag = read('data/forslag.json');
+  const answers = {};
+  for (const c of read('data/categories.json')) {
+    for (const song of read('data/' + c.file)) {
+      for (const field of ['artist', 'title']) {
+        const kind = suggestionKind(field, songLabels(song, c.labels || {})[field]);
+        (answers[kind] ||= new Map()).set(suggestionKey(song[field], kind), song[field]);
+      }
+    }
+  }
+  const bad = Object.entries(forslag).flatMap(([kind, items]) => items
+    .filter((x) => answers[kind]?.has(suggestionKey(x, kind)))
+    .map((x) => `${x} (svaret är ${answers[kind].get(suggestionKey(x, kind))})`));
+  assert.deepEqual(bad, [], 'Kör cleanDecoys i verktyg/lockbeten.mjs på data/forslag.json');
+});
+
+test('förslagen visar ett svar en gång även med "and" i stället för "&"', async () => {
+  const { mergeSuggestions } = await import('../js/data.js');
+  const result = mergeSuggestions({ artists: ['Nick Cave and the Bad Seeds', 'Black Eyed Peas'], titles: ['Power'] },
+    [{ songs: [{ artist: 'Nick Cave & The Bad Seeds', title: 'The Power' }, { artist: 'The Black Eyed Peas', title: 'Where Is the Love?' }] }]);
+  assert.deepEqual(result.artists, ['Nick Cave & The Bad Seeds', 'The Black Eyed Peas']);
+  assert.deepEqual(result.titles, ['Power', 'The Power', 'Where Is the Love?']);
+});
+
 test('förslagen visar varje svar en gång, med quizlåtens stavning', async () => {
   const { mergeSuggestions } = await import('../js/data.js');
   const songs = [

@@ -75,7 +75,7 @@ npm run sidvikt
 1. Claude skriver en kandidatlista i `data/kandidater/<kategori>.json` med cirka 200 låtar och lägger till filen i `data/kandidater/index.json`. Kändheten kan mätas i antal strömningar på kworb.net.
 2. De låtar som väljs läggs i `data/<kategori>.json` med `id`, `artist`, `title` och `year`, och kategorin läggs till i `data/categories.json` och `host.html`.
 3. `verktyg/deezer-id.mjs` hämtar Deezer-ID, se nedan.
-4. Låtar utan Deezer-ID tas bort ur kategorin och läggs som lockbeten i `data/forslag.json`, städade av `verktyg/lockbeten.mjs` så att b-sidor, karaokeversioner, artikelrubriker och filmuppföljare inte kan förväxlas med rätt svar.
+4. Låtar utan Deezer-ID tas bort ur kategorin och läggs som lockbeten i `data/forslag.json`, städade av `verktyg/lockbeten.mjs` så att b-sidor, karaokeversioner, artikelrubriker och filmuppföljare inte kan förväxlas med rätt svar. Ett lockbete som bara stavas annorlunda än ett rätt svar, som "Nick Cave and the Bad Seeds" när svaret är "Nick Cave & The Bad Seeds", tas också bort: `answerKey` i `js/text.js` räknar "&", "+", "and" och "och" lika, bortser från mellanslag och bindestreck och, för artister, ett inledande "The". Rättningen använder samma nyckel. Kör verktyget och `npm test` när `data/forslag.json` eller en låtlista ändras.
 
 En kategori kan döpa om fälten med `labels`, till exempel Kompositör och Verk för klassisk musik. En låt kan också ha egna `labels`, som går före kategorins. Det används i Halloween, där ledmotiv har Kompositör och Film eller Serie och klassiska verk har Kompositör och Verk.
 
