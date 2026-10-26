@@ -316,6 +316,132 @@
    "year": 2010
   },
   {
+   "id": "the-specials-ghost-town",
+   "artist": "The Specials",
+   "title": "Ghost Town",
+   "year": 1981
+  },
+  {
+   "id": "bauhaus-bela-lugosi-s-dead",
+   "artist": "Bauhaus",
+   "title": "Bela Lugosi's Dead",
+   "year": 1979
+  },
+  {
+   "id": "david-bowie-scary-monsters-and-super-creeps",
+   "artist": "David Bowie",
+   "title": "Scary Monsters (And Super Creeps)",
+   "year": 1980
+  },
+  {
+   "id": "ramones-pet-sematary",
+   "artist": "Ramones",
+   "title": "Pet Sematary",
+   "year": 1989
+  },
+  {
+   "id": "the-doors-people-are-strange",
+   "artist": "The Doors",
+   "title": "People Are Strange",
+   "year": 1967
+  },
+  {
+   "id": "the-cure-lullaby",
+   "artist": "The Cure",
+   "title": "Lullaby",
+   "year": 1989
+  },
+  {
+   "id": "echo-the-bunnymen-the-killing-moon",
+   "artist": "Echo & the Bunnymen",
+   "title": "The Killing Moon",
+   "year": 1984
+  },
+  {
+   "id": "fleetwood-mac-rhiannon",
+   "artist": "Fleetwood Mac",
+   "title": "Rhiannon",
+   "year": 1975
+  },
+  {
+   "id": "siouxsie-and-the-banshees-spellbound",
+   "artist": "Siouxsie and the Banshees",
+   "title": "Spellbound",
+   "year": 1981
+  },
+  {
+   "id": "radiohead-creep",
+   "artist": "Radiohead",
+   "title": "Creep",
+   "year": 1992
+  },
+  {
+   "id": "david-seville-witch-doctor",
+   "artist": "David Seville",
+   "title": "Witch Doctor",
+   "year": 1958
+  },
+  {
+   "id": "skillet-monster",
+   "artist": "Skillet",
+   "title": "Monster",
+   "year": 2009
+  },
+  {
+   "id": "lady-gaga-monster",
+   "artist": "Lady Gaga",
+   "title": "Monster",
+   "year": 2009
+  },
+  {
+   "id": "ozzy-osbourne-mr-crowley",
+   "artist": "Ozzy Osbourne",
+   "title": "Mr. Crowley",
+   "year": 1980
+  },
+  {
+   "id": "black-sabbath-black-sabbath",
+   "artist": "Black Sabbath",
+   "title": "Black Sabbath",
+   "year": 1970
+  },
+  {
+   "id": "annie-lennox-love-song-for-a-vampire",
+   "artist": "Annie Lennox",
+   "title": "Love Song for a Vampire",
+   "year": 1992
+  },
+  {
+   "id": "my-chemical-romance-welcome-to-the-black-parade",
+   "artist": "My Chemical Romance",
+   "title": "Welcome to the Black Parade",
+   "year": 2006
+  },
+  {
+   "id": "edgar-winter-frankenstein",
+   "artist": "Edgar Winter",
+   "title": "Frankenstein",
+   "year": 1973
+  },
+  {
+   "id": "johnny-cash-ghost-riders-in-the-sky",
+   "artist": "Johnny Cash",
+   "title": "Ghost Riders in the Sky",
+   "year": 1979
+  },
+  {
+   "id": "the-rolling-stones-sympathy-for-the-devil",
+   "artist": "The Rolling Stones",
+   "title": "Sympathy for the Devil",
+   "year": 1968
+  },
+  {
+   "id": "inxs-devil-inside",
+   "artist": "INXS",
+   "title": "Devil Inside",
+   "year": 1987
+  },
+  {
    "id": "alla-helgons-blodiga-natt",
    "artist": "John Carpenter",
    "title": "Alla helgons blodiga natt",
@@ -523,6 +649,39 @@
    },
    "year": 2011,
    "track": "American Horror Story Theme"
+  },
+  {
+   "id": "rosemarys-baby",
+   "artist": "Krzysztof Komeda",
+   "title": "Rosemarys baby",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
+   "year": 1968,
+   "track": "Lullaby From Rosemary's Baby"
+  },
+  {
+   "id": "hellraiser",
+   "artist": "Christopher Young",
+   "title": "Hellraiser",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Film"
+   },
+   "year": 1987,
+   "track": "Hellraiser"
+  },
+  {
+   "id": "dexter",
+   "artist": "Rolfe Kent",
+   "title": "Dexter",
+   "labels": {
+    "artist": "Kompositör",
+    "title": "Serie"
+   },
+   "year": 2006,
+   "track": "Dexter Main Title"
   },
   {
    "id": "bach-toccata-and-fugue-in-d-minor",
