@@ -14,6 +14,18 @@ export function normalize(text) {
     .trim();
 }
 
+// Nyckel för att avgöra om två svar är samma namn. Utöver normalize räknas "&", "+", "and"
+// och "och" lika, och mellanslag och bindestreck spelar ingen roll, så "Nick Cave & The Bad Seeds"
+// och "Nick Cave and the Bad Seeds" blir samma, liksom "Diggi-Loo Diggi-Ley" och "Diggi loo diggi ley".
+// Med article räknas också ett inledande "The" bort, för artister som "The Sweet" och "Sweet".
+// Det används inte för titlar, där "The Power" och "Power" är olika låtar.
+export function answerKey(text, { article = false } = {}) {
+  const words = normalize((text || '').replace(/[&+]/g, ' och ')).split(' ')
+    .map((word) => (word === 'and' ? 'och' : word));
+  if (article && words[0] === 'the' && words.length > 1) words.shift();
+  return words.join('');
+}
+
 // Utan mellanslag, så att "ac dc" hittar "AC/DC" och "jay z" hittar "Jay-Z".
 export function compact(text) {
   return normalize(text).replace(/ /g, '');

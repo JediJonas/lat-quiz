@@ -3,7 +3,7 @@
 // bytas (till exempel mot Firebase) utan att något här ändras.
 // Spelläget är ett vanligt objekt som går att spara som JSON.
 
-import { normalize } from './text.js';
+import { normalize, answerKey } from './text.js';
 import { songLabels } from './data.js';
 
 // 30 sekunder per låt som standard, lika långt som hela Deezer-klippet.
@@ -229,8 +229,10 @@ export function shouldReveal(state, now) {
 }
 
 export function scoreAnswer(state, song, answer) {
-  const artist = Boolean(answer && normalize(answer.artist) === normalize(song.artist));
-  const title = Boolean(answer && normalize(answer.title) === normalize(song.title));
+  // Samma nycklar som förslagen, så att ett svar som bara stavas annorlunda, som
+  // "Nick Cave and the Bad Seeds" för "Nick Cave & The Bad Seeds", räknas som rätt.
+  const artist = Boolean(answer && answerKey(answer.artist, { article: true }) === answerKey(song.artist, { article: true }));
+  const title = Boolean(answer && answerKey(answer.title) === answerKey(song.title));
   const fast = Boolean(state.bonusMs > 0 && answer && answer.changedAt !== null
     && answer.changedAt - state.round.startedAt <= state.bonusMs);
   const bonus = artist && title && fast;

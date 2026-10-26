@@ -275,6 +275,28 @@ test('rättningen godtar svar utan accenter och apostrofer', () => {
   assert.equal(state.players.p1.score > 0, true);
 });
 
+test('samma namn med "and" i stället för "&" är samma svar', async () => {
+  const { answerKey } = await import('../js/text.js');
+  assert.equal(answerKey('Nick Cave & The Bad Seeds'), answerKey('Nick Cave and the Bad Seeds'));
+  assert.equal(answerKey('Florence + the Machine'), answerKey('Florence and the Machine'));
+  assert.equal(answerKey('Fyra Bugg & en Coca Cola'), answerKey('Fyra bugg och en Coca Cola'));
+  assert.equal(answerKey('Diggi-Loo Diggi-Ley'), answerKey('Diggi loo diggi ley'));
+  assert.equal(answerKey('The Sweet', { article: true }), answerKey('Sweet', { article: true }));
+  assert.notEqual(answerKey('The Power'), answerKey('Power'));
+  assert.notEqual(answerKey('And I Love Her'), answerKey('I Love Her'));
+});
+
+test('rättningen godtar "and" för "&" och artister utan "The"', () => {
+  const state = createGame({ code: 'ABCD', categoryId: 'x' });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  nextSong(state, [{ id: 's', artist: 'Nick Cave & The Bad Seeds', title: 'Red Right Hand' }], () => 0);
+  startRound(state, 1000);
+  submitAnswer(state, 'p1', 'artist', 'Nick Cave and the Bad Seeds', 2000);
+  submitAnswer(state, 'p1', 'title', 'Red Right Hand', 2000);
+  reveal(state);
+  assert.equal(state.players.p1.score >= 2, true);
+});
+
 test('kategorin kan bytas mellan låtarna men inte medan en låt pågår', () => {
   const state = createGame({ code: 'ABCD', categoryId: '80-tal', categoryName: '80-tal' });
   addPlayer(state, { id: 'p1', name: 'Anna' });

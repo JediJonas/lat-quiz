@@ -1,6 +1,6 @@
 // Läser låtlistor och förslagslista från data-mappen.
 
-import { normalize } from './text.js';
+import { answerKey } from './text.js';
 
 async function getJson(path) {
   const res = await fetch(path, { cache: 'no-cache' });
@@ -54,6 +54,12 @@ export function suggestionKind(field, label) {
   return KINDS[field][label] || (field === 'artist' ? 'artists' : 'titles');
 }
 
+// Nyckeln som avgör om två förslag av samma sort är samma svar, se answerKey i js/text.js.
+// Namn på artister, kompositörer och länder får tappa ett inledande "The", titlar inte.
+export function suggestionKey(item, kind) {
+  return answerKey(item, { article: !['titles', 'films', 'works'].includes(kind) });
+}
+
 // Förslagen är lockbetena plus alla quizlåtar, så att rätt svar alltid finns med.
 export async function loadSuggestions() {
   const [decoys, categories] = await Promise.all([getJson('data/forslag.json'), loadCategories()]);
@@ -62,13 +68,14 @@ export async function loadSuggestions() {
 }
 
 // categories: [{ labels, songs }]. Varje quizlåts svar hamnar i listan för fältets sort i kategorin.
-// Varje svar visas en gång, även om det stavas olika, som "Carpe Diem" och "Carpe diem".
+// Varje svar visas en gång, även om det stavas olika, som "Carpe Diem" och "Carpe diem"
+// eller "Florence + the Machine" och "Florence and the Machine".
 // Rättningen bortser ändå från sådana skillnader. Quizlåtarnas stavning går före lockbetenas.
 export function mergeSuggestions(decoys, categories) {
   const collator = new Intl.Collator('sv');
-  const unique = (items) => {
+  const unique = (items, kind) => {
     const seen = new Map();
-    for (const item of items) if (!seen.has(normalize(item))) seen.set(normalize(item), item);
+    for (const item of items) if (!seen.has(suggestionKey(item, kind))) seen.set(suggestionKey(item, kind), item);
     return [...seen.values()].sort(collator.compare);
   };
   const answers = {};
@@ -81,5 +88,5 @@ export function mergeSuggestions(decoys, categories) {
     }
   }
   const kinds = [...Object.values(KINDS).flatMap(Object.values), 'artists', 'titles'];
-  return Object.fromEntries(kinds.map((kind) => [kind, unique([...(answers[kind] || []), ...(decoys[kind] || [])])]));
+  return Object.fromEntries(kinds.map((kind) => [kind, unique([...(answers[kind] || []), ...(decoys[kind] || [])], kind)]));
 }
