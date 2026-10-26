@@ -789,5 +789,467 @@
   "title": "Så skimrande var aldrig havet",
   "year": 1948,
   "deezerId": 3346501
+ },
+ {
+  "id": "alice-babs-swing-it-magistern",
+  "artist": "Alice Babs",
+  "title": "Swing it, magistern",
+  "year": 1940,
+  "deezerId": 1243407282
+ },
+ {
+  "id": "povel-ramel-johanssons-boogie-woogie-vals",
+  "artist": "Povel Ramel",
+  "title": "Johanssons boogie-woogie-vals",
+  "year": 1944,
+  "deezerId": 2768508571
+ },
+ {
+  "id": "lasse-dahlquist-de-a-dans-pa-branno-brygga",
+  "artist": "Lasse Dahlquist",
+  "title": "De' ä' dans på Brännö brygga",
+  "year": 1939,
+  "deezerId": 3529710
+ },
+ {
+  "id": "owe-thornqvist-varm-korv-boogie",
+  "artist": "Owe Thörnqvist",
+  "title": "Varm korv boogie",
+  "year": 1959,
+  "deezerId": 346000001
+ },
+ {
+  "id": "lill-babs-ar-du-kar-i-mej-annu-klas-goran",
+  "artist": "Lill-Babs",
+  "title": "Är du kär i mej ännu Klas-Göran?",
+  "year": 1959,
+  "deezerId": 643003792
+ },
+ {
+  "id": "thore-skogman-pop-opp-i-topp",
+  "artist": "Thore Skogman & Lill-Babs",
+  "title": "Pop opp i topp",
+  "year": 1962,
+  "deezerId": 3180501
+ },
+ {
+  "id": "monica-zetterlund-sakta-vi-ga-genom-stan",
+  "artist": "Monica Zetterlund",
+  "title": "Sakta vi gå genom stan",
+  "year": 1962,
+  "deezerId": 949357502
+ },
+ {
+  "id": "sven-ingvars-froken-fraken",
+  "artist": "Sven-Ingvars",
+  "title": "Fröken Fräken",
+  "year": 1964,
+  "deezerId": 113835724
+ },
+ {
+  "id": "hootenanny-singers-omkring-tiggarn-fran-luossa",
+  "artist": "Hootenanny Singers",
+  "title": "Omkring tiggarn från Luossa",
+  "year": 1966,
+  "deezerId": 2536317
+ },
+ {
+  "id": "agnetha-faltskog-jag-var-sa-kar",
+  "artist": "Agnetha Fältskog",
+  "title": "Jag var så kär",
+  "year": 1967,
+  "deezerId": 4945044
+ },
+ {
+  "id": "tommy-korberg-judy-min-van",
+  "artist": "Tommy Körberg",
+  "title": "Judy min vän",
+  "year": 1969,
+  "deezerId": 10288330
+ },
+ {
+  "id": "pugh-rogefeldt-dinga-linga-lena",
+  "artist": "Pugh Rogefeldt",
+  "title": "Dinga linga Lena",
+  "year": 1969,
+  "deezerId": 688800
+ },
+ {
+  "id": "cornelis-vreeswijk-felicia-adjo",
+  "artist": "Cornelis Vreeswijk",
+  "title": "Felicia – adjö",
+  "year": 1971,
+  "deezerId": 14671584
+ },
+ {
+  "id": "ted-gardestad-sol-vind-och-vatten",
+  "artist": "Ted Gärdestad",
+  "title": "Sol, vind och vatten",
+  "year": 1972,
+  "deezerId": 909686712
+ },
+ {
+  "id": "ted-gardestad-jag-vill-ha-en-egen-mane",
+  "artist": "Ted Gärdestad",
+  "title": "Jag vill ha en egen måne",
+  "year": 1973,
+  "deezerId": 909686862
+ },
+ {
+  "id": "ted-gardestad-himlen-ar-oskyldigt-bla",
+  "artist": "Ted Gärdestad",
+  "title": "Himlen är oskyldigt blå",
+  "year": 1977,
+  "deezerId": 4190511
+ },
+ {
+  "id": "lasse-berghagen-stockholm-i-mitt-hjarta",
+  "artist": "Lasse Berghagen",
+  "title": "Stockholm i mitt hjärta",
+  "year": 1974,
+  "deezerId": 1895356427
+ },
+ {
+  "id": "nationalteatern-barn-av-var-tid",
+  "artist": "Nationalteatern",
+  "title": "Barn av vår tid",
+  "year": 1976,
+  "deezerId": 7827598
+ },
+ {
+  "id": "bjorn-skifs-det-blir-alltid-varre-framat-natten",
+  "artist": "Björn Skifs",
+  "title": "Det blir alltid värre framåt natten",
+  "year": 1978,
+  "deezerId": 359402821
+ },
+ {
+  "id": "tomas-ledin-sensuella-isabella",
+  "artist": "Tomas Ledin",
+  "title": "Sensuella Isabella",
+  "year": 1979,
+  "deezerId": 93842682
+ },
+ {
+  "id": "noice-en-kvall-i-tunnelbanan",
+  "artist": "Noice",
+  "title": "En kväll i tunnelbanan",
+  "year": 1979,
+  "deezerId": 2376915945
+ },
+ {
+  "id": "gyllene-tider-flickorna-pa-tv2",
+  "artist": "Gyllene Tider",
+  "title": "Flickorna på TV2",
+  "year": 1980,
+  "deezerId": 3480315
+ },
+ {
+  "id": "gyllene-tider-nar-vi-tva-blir-en",
+  "artist": "Gyllene Tider",
+  "title": "När vi två blir en",
+  "year": 1981,
+  "deezerId": 1855142987
+ },
+ {
+  "id": "gyllene-tider-sommartider",
+  "artist": "Gyllene Tider",
+  "title": "Sommartider",
+  "year": 1982,
+  "deezerId": 3480470
+ },
+ {
+  "id": "freestyle-vill-ha-dig",
+  "artist": "Freestyle",
+  "title": "Vill ha dig",
+  "year": 1981,
+  "deezerId": 697775
+ },
+ {
+  "id": "magnus-uggla-jag-mar-illa",
+  "artist": "Magnus Uggla",
+  "title": "Jag mår illa",
+  "year": 1981,
+  "deezerId": 16177198
+ },
+ {
+  "id": "lustans-lakejer-diamanter-ar-en-flickas-basta-van",
+  "artist": "Lustans Lakejer",
+  "title": "Diamanter är en flickas bästa vän",
+  "year": 1981,
+  "deezerId": 1574537
+ },
+ {
+  "id": "mikael-wiehe-flickan-och-krakan",
+  "artist": "Mikael Wiehe",
+  "title": "Flickan och kråkan",
+  "year": 1981,
+  "deezerId": 864737022
+ },
+ {
+  "id": "ebba-gron-staten-och-kapitalet",
+  "artist": "Ebba Grön",
+  "title": "Staten och kapitalet",
+  "year": 1981,
+  "deezerId": 7914872
+ },
+ {
+  "id": "ulf-lundell-oppna-landskap",
+  "artist": "Ulf Lundell",
+  "title": "Öppna landskap",
+  "year": 1982,
+  "deezerId": 3188264
+ },
+ {
+  "id": "kikki-danielsson-bra-vibrationer",
+  "artist": "Kikki Danielsson",
+  "title": "Bra vibrationer",
+  "year": 1985,
+  "deezerId": 802874
+ },
+ {
+  "id": "lasse-holm-e-de-det-har-du-kallar-karlek",
+  "artist": "Lasse Holm & Monica Törnell",
+  "title": "E' de' det här du kallar kärlek?",
+  "year": 1986,
+  "deezerId": 3615235
+ },
+ {
+  "id": "eldkvarn-karlekens-tunga",
+  "artist": "Eldkvarn",
+  "title": "Kärlekens tunga",
+  "year": 1986,
+  "deezerId": 77500809
+ },
+ {
+  "id": "lena-philipsson-dansa-i-neon",
+  "artist": "Lena Philipsson",
+  "title": "Dansa i neon",
+  "year": 1987,
+  "deezerId": 7239266
+ },
+ {
+  "id": "lotta-engberg-fyra-bugg-en-coca-cola",
+  "artist": "Lotta Engberg",
+  "title": "Fyra Bugg & en Coca Cola",
+  "year": 1987,
+  "deezerId": 3615551
+ },
+ {
+  "id": "bjorn-afzelius-tusen-bitar",
+  "artist": "Björn Afzelius",
+  "title": "Tusen bitar",
+  "year": 1988,
+  "deezerId": 4830115
+ },
+ {
+  "id": "imperiet-du-ska-va-president",
+  "artist": "Imperiet",
+  "title": "Du ska va president",
+  "year": 1988,
+  "deezerId": 7928170
+ },
+ {
+  "id": "mauro-scocco-sarah",
+  "artist": "Mauro Scocco",
+  "title": "Sarah",
+  "year": 1988,
+  "deezerId": 71488976
+ },
+ {
+  "id": "orup-jag-blir-hellre-jagad-av-vargar",
+  "artist": "Orup",
+  "title": "Jag blir hellre jagad av vargar",
+  "year": 1989,
+  "deezerId": 661291
+ },
+ {
+  "id": "tommy-nilsson-en-dag",
+  "artist": "Tommy Nilsson",
+  "title": "En dag",
+  "year": 1989,
+  "deezerId": 635800
+ },
+ {
+  "id": "jakob-hellman-vara-vanner",
+  "artist": "Jakob Hellman",
+  "title": "Vara vänner",
+  "year": 1989,
+  "deezerId": 15659833
+ },
+ {
+  "id": "eva-dahlgren-angeln-i-rummet",
+  "artist": "Eva Dahlgren",
+  "title": "Ängeln i rummet",
+  "year": 1991,
+  "deezerId": 4945024
+ },
+ {
+  "id": "arvingarna-eloise",
+  "artist": "Arvingarna",
+  "title": "Eloise",
+  "year": 1993,
+  "deezerId": 98754990
+ },
+ {
+  "id": "just-d-hur-e-d-mojligt",
+  "artist": "Just D",
+  "title": "Hur e d möjligt?",
+  "year": 1993,
+  "deezerId": 77837331
+ },
+ {
+  "id": "nordman-vandraren",
+  "artist": "Nordman",
+  "title": "Vandraren",
+  "year": 1994,
+  "deezerId": 903731972
+ },
+ {
+  "id": "uno-svenningsson-under-ytan",
+  "artist": "Uno Svenningsson",
+  "title": "Under ytan",
+  "year": 1994,
+  "deezerId": 2468126
+ },
+ {
+  "id": "lisa-ekdahl-vem-vet",
+  "artist": "Lisa Ekdahl",
+  "title": "Vem vet",
+  "year": 1994,
+  "deezerId": 3534714
+ },
+ {
+  "id": "thorleifs-grat-inga-tarar",
+  "artist": "Thorleifs",
+  "title": "Gråt inga tårar",
+  "year": 1974,
+  "deezerId": 3726757772
+ },
+ {
+  "id": "kent-747",
+  "artist": "Kent",
+  "title": "747",
+  "year": 1996,
+  "deezerId": 7861133
+ },
+ {
+  "id": "per-gessle-har-kommer-alla-kanslorna-pa-en-och-samma-gang",
+  "artist": "Per Gessle",
+  "title": "Här kommer alla känslorna (på en och samma gång)",
+  "year": 1997,
+  "deezerId": 3309918
+ },
+ {
+  "id": "bo-kaspers-orkester-undantag",
+  "artist": "Bo Kaspers Orkester",
+  "title": "Undantag",
+  "year": 1998,
+  "deezerId": 15108420
+ },
+ {
+  "id": "kent-musik-non-stop",
+  "artist": "Kent",
+  "title": "Musik non stop",
+  "year": 2000,
+  "deezerId": 1023918
+ },
+ {
+  "id": "kent-sverige",
+  "artist": "Kent",
+  "title": "Sverige",
+  "year": 2002,
+  "deezerId": 972118
+ },
+ {
+  "id": "hakan-hellstrom-kann-ingen-sorg-for-mig-goteborg",
+  "artist": "Håkan Hellström",
+  "title": "Känn ingen sorg för mig Göteborg",
+  "year": 2000,
+  "deezerId": 3480546
+ },
+ {
+  "id": "hakan-hellstrom-det-ar-sa-jag-sager-det",
+  "artist": "Håkan Hellström",
+  "title": "Det är så jag säger det",
+  "year": 2002,
+  "deezerId": 3480368
+ },
+ {
+  "id": "lars-winnerback-hum-hum-fran-humlegarden",
+  "artist": "Lars Winnerbäck",
+  "title": "Hum hum från Humlegården",
+  "year": 2003,
+  "deezerId": 2868644322
+ },
+ {
+  "id": "lena-philipsson-det-gor-ont",
+  "artist": "Lena Philipsson",
+  "title": "Det gör ont",
+  "year": 2004,
+  "deezerId": 14488819
+ },
+ {
+  "id": "linda-bengtzing-jag-ljuger-sa-bra",
+  "artist": "Linda Bengtzing",
+  "title": "Jag ljuger så bra",
+  "year": 2005,
+  "deezerId": 14666547
+ },
+ {
+  "id": "timbuktu-det-loser-sig",
+  "artist": "Timbuktu",
+  "title": "Det löser sig",
+  "year": 2006,
+  "deezerId": 583357102
+ },
+ {
+  "id": "timbuktu-alla-vill-till-himmelen-men-ingen-vill-do",
+  "artist": "Timbuktu",
+  "title": "Alla vill till himmelen men ingen vill dö",
+  "year": 2005,
+  "deezerId": 583357122
+ },
+ {
+  "id": "veronica-maggio-mandagsbarn",
+  "artist": "Veronica Maggio",
+  "title": "Måndagsbarn",
+  "year": 2008,
+  "deezerId": 980588
+ },
+ {
+  "id": "veronica-maggio-jag-kommer",
+  "artist": "Veronica Maggio",
+  "title": "Jag kommer",
+  "year": 2011,
+  "deezerId": 44112901
+ },
+ {
+  "id": "daniel-adams-ray-gubben-i-ladan",
+  "artist": "Daniel Adams-Ray",
+  "title": "Gubben i lådan",
+  "year": 2010,
+  "deezerId": 7217375
+ },
+ {
+  "id": "evert-taube-calle-schewens-vals",
+  "artist": "Evert Taube",
+  "title": "Calle Schewens vals",
+  "year": 1932,
+  "deezerId": 1611422182
+ },
+ {
+  "id": "herreys-diggi-loo-diggi-ley",
+  "artist": "Herreys",
+  "title": "Diggi-Loo Diggi-Ley",
+  "year": 1984,
+  "deezerId": 12732227
+ },
+ {
+  "id": "mando-diao-strovtag-i-hembygden",
+  "artist": "Mando Diao",
+  "title": "Strövtåg i hembygden",
+  "year": 2012,
+  "deezerId": 1138784612
  }
 ]
