@@ -746,21 +746,24 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
   from { transform: rotate(calc(var(--a) - var(--sw))); }
   to { transform: rotate(calc(var(--a) + var(--sw))); }
 }
-/* Käglan lutar samtidigt lite mot och från kameran, i en egen takt. Mot kameran blir den bredare,
-   kortare och starkare, från kameran smalare, längre och svagare. */
-.spot-beam i { position: absolute; inset: 0; transform-origin: 50% 0;
+/* Käglan. De flesta har samma styrka hela tiden. */
+.spot-beam i { position: absolute; inset: 0; transform-origin: 50% 0; opacity: 0.86;
   background: linear-gradient(color-mix(in srgb, var(--c) 70%, transparent), color-mix(in srgb, var(--c) 18%, transparent) 65%, transparent);
   clip-path: polygon(47% 0, 53% 0, 100% 100%, 0 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 32%, #000 68%, transparent); mask-image: linear-gradient(90deg, transparent, #000 32%, #000 68%, transparent);
-  animation: beam-tilt var(--zt) ease-in-out var(--zd) infinite var(--zdir); }
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 32%, #000 68%, transparent); mask-image: linear-gradient(90deg, transparent, #000 32%, #000 68%, transparent); }
+/* Två käglor lutar också lite mot och från kameran, i samma takt och fas som svepet: närmast
+   kameran i ena änden av svepet och längst bort i den andra. Mot kameran blir käglan bredare,
+   kortare och starkare, från kameran smalare, längre och svagare. */
+.spot-beam.tilt i { animation: beam-tilt var(--t) ease-in-out calc(var(--t) / -2) infinite alternate; }
 @keyframes beam-tilt {
   from { transform: scale(0.78, 1.06); opacity: 0.75; }
   to { transform: scale(1.45, 0.83); opacity: 1; }
 }
 /* När käglan pekar mot kameran lyser lampan upp omslagets kant. */
-.spot-glow { position: absolute; left: -110px; top: -110px; width: 220px; height: 220px; border-radius: 50%; mix-blend-mode: screen; opacity: 0;
+.spot-glow { display: none; }
+.spot-beam.tilt .spot-glow { display: block; position: absolute; left: -110px; top: -110px; width: 220px; height: 220px; border-radius: 50%; mix-blend-mode: screen; opacity: 0;
   background: radial-gradient(closest-side, color-mix(in srgb, #fff 55%, var(--c)), color-mix(in srgb, var(--c) 40%, transparent) 45%, transparent);
-  animation: glow-tilt var(--zt) ease-in-out var(--zd) infinite var(--zdir); }
+  animation: glow-tilt var(--t) ease-in-out calc(var(--t) / -2) infinite alternate; }
 @keyframes glow-tilt { to { opacity: 0.43; } }
 /* Efter elva sekunder släcks lamporna två och två, snabbt som när någon slår av dem, och käglorna
    stannar när den sista är släckt. */
