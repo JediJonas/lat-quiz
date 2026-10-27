@@ -614,67 +614,113 @@ function drawReindeer(ctx, leg, red) {
   ctx.fill();
 }
 
-// Den runda släden med en bullig tomte och säcken, vänd åt höger med medarna vid y = 10 och
-// fronten vid x = 0.
+// Släden med tomten och säcken, vänd åt höger med medarna vid y = 10 och fronten vid x = 0.
+// Tomten är bullig och glad, med stort vitt skägg, och håller i tömmarna. Släden har svängd
+// front, hög rygg med snirkel och guldmedar som rullar upp sig framtill.
 function drawSled(ctx) {
-  // Medarna i guld.
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  // Medarna och stöden i guld.
   ctx.strokeStyle = '#ffd166';
-  ctx.lineWidth = 2;
+  ctx.lineWidth = 1.8;
   ctx.beginPath();
-  ctx.moveTo(-50, 7); ctx.quadraticCurveTo(-53, 11, -48, 11); ctx.lineTo(-4, 11); ctx.quadraticCurveTo(4, 11, 2, 3);
-  ctx.moveTo(-38, 6); ctx.lineTo(-38, 11); ctx.moveTo(-14, 6); ctx.lineTo(-14, 11);
+  ctx.moveTo(-50, 11); ctx.lineTo(-4, 11); ctx.bezierCurveTo(4, 11, 7, 5, 3, 2.5); ctx.arc(2, 4.5, 2, -1.2, 3.6);
+  ctx.moveTo(-40, 5); ctx.lineTo(-40, 11); ctx.moveTo(-14, 5); ctx.lineTo(-14, 11);
   ctx.stroke();
-  // Säcken.
+  // Säcken bakom tomten.
   ctx.fillStyle = '#a0703f';
   ctx.beginPath();
-  ctx.ellipse(-38, -8, 8, 9, -0.2, 0, Math.PI * 2);
+  ctx.ellipse(-41, -7, 7.5, 9, -0.2, 0, Math.PI * 2);
   ctx.fill();
   ctx.fillStyle = '#7a5230';
   ctx.beginPath();
-  ctx.ellipse(-37, -17, 3, 1.6, 0, 0, Math.PI * 2);
+  ctx.ellipse(-40, -16, 3, 1.6, 0, 0, Math.PI * 2);
   ctx.fill();
-  // Tomtens runda kropp, ansikte, skägg och luva.
+  // Tomtens röda rock med vit kant och svart bälte.
   ctx.fillStyle = '#e8383d';
   ctx.beginPath();
-  ctx.arc(-23, -5, 9, 0, Math.PI * 2);
+  ctx.arc(-26, -5, 9.5, 0, Math.PI * 2);
   ctx.fill();
+  ctx.fillStyle = '#2b1a14';
+  ctx.fillRect(-35, -4.5, 18, 2.6);
+  ctx.fillStyle = '#ffd166';
+  ctx.fillRect(-22.5, -5, 3, 3.6);
+  // Armen sträcks fram och håller i tömmarna.
+  ctx.strokeStyle = '#e8383d';
+  ctx.lineWidth = 4.2;
+  ctx.beginPath();
+  ctx.moveTo(-24, -9); ctx.lineTo(-13, -6);
+  ctx.stroke();
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.ellipse(-12.6, -6, 1.6, 2.4, 0.3, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#2b1a14';
+  ctx.beginPath();
+  ctx.arc(-10, -5.6, 2.2, 0, Math.PI * 2);
+  ctx.fill();
+  // Ansiktet, det stora skägget och mustaschen.
   ctx.fillStyle = '#ffd9bf';
   ctx.beginPath();
-  ctx.arc(-21, -17, 5.6, 0, Math.PI * 2);
+  ctx.arc(-24, -19, 6.4, 0, Math.PI * 2);
   ctx.fill();
   ctx.fillStyle = '#ffffff';
   ctx.beginPath();
-  ctx.moveTo(-26.5, -16); ctx.bezierCurveTo(-27, -7, -15, -7, -15.5, -16); ctx.quadraticCurveTo(-21, -13, -26.5, -16);
+  ctx.moveTo(-30.5, -19); ctx.bezierCurveTo(-32, -6, -16, -6, -17.5, -19);
+  ctx.quadraticCurveTo(-24, -14.5, -30.5, -19);
+  ctx.moveTo(-23, -15.6); ctx.ellipse(-25.4, -15.6, 2.6, 1.5, 0.25, 0, Math.PI * 2);
+  ctx.moveTo(-18.6, -15.6); ctx.ellipse(-21, -15.6, 2.6, 1.5, -0.25, 0, Math.PI * 2);
   ctx.fill();
-  ctx.fillStyle = '#e8383d';
+  // Glad mun under mustaschen, rosa kinder och röd näsa.
+  ctx.fillStyle = '#b3262d';
   ctx.beginPath();
-  ctx.moveTo(-27, -20); ctx.quadraticCurveTo(-22, -31, -14, -27); ctx.quadraticCurveTo(-18, -26, -15, -20); ctx.closePath();
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.ellipse(-21, -20.5, 6.4, 2, 0, 0, Math.PI * 2);
-  ctx.moveTo(-11.5, -26.5); ctx.arc(-13.5, -26.5, 2.2, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#1d0f2b';
-  ctx.beginPath();
-  ctx.arc(-22.6, -17.4, 0.9, 0, Math.PI * 2);
-  ctx.arc(-18.6, -17.4, 0.9, 0, Math.PI * 2);
+  ctx.moveTo(-25.4, -13.6); ctx.quadraticCurveTo(-23.2, -10.4, -21, -13.6); ctx.closePath();
   ctx.fill();
   ctx.fillStyle = 'rgba(255,120,140,0.6)';
   ctx.beginPath();
-  ctx.arc(-16.8, -15, 1.2, 0, Math.PI * 2);
+  ctx.arc(-28.4, -17.2, 1.4, 0, Math.PI * 2);
+  ctx.arc(-18.6, -17.2, 1.4, 0, Math.PI * 2);
   ctx.fill();
-  // Själva släden, rund och röd med guldkant.
+  ctx.fillStyle = '#ef6f6f';
+  ctx.beginPath();
+  ctx.arc(-23.2, -17, 1.1, 0, Math.PI * 2);
+  ctx.fill();
+  // Glada ögon som små bågar.
+  ctx.strokeStyle = '#1d0f2b';
+  ctx.lineWidth = 0.9;
+  for (const x of [-26, -20.8]) {
+    ctx.beginPath();
+    ctx.arc(x, -19, 1.3, Math.PI * 1.15, Math.PI * 1.85);
+    ctx.stroke();
+  }
+  // Luvan hänger bakåt med en vit tofs och har en bred vit pälskant.
+  ctx.fillStyle = '#e8383d';
+  ctx.beginPath();
+  ctx.moveTo(-18, -22); ctx.bezierCurveTo(-18, -30, -24, -33, -29, -31);
+  ctx.quadraticCurveTo(-34, -29, -36, -25.5); ctx.quadraticCurveTo(-32, -27, -30.5, -22); ctx.closePath();
+  ctx.fill();
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.ellipse(-24.2, -22.6, 7.2, 2.3, 0, 0, Math.PI * 2);
+  ctx.moveTo(-34, -25.5); ctx.arc(-35.6, -25.5, 2.3, 0, Math.PI * 2);
+  ctx.fill();
+  // Släden: svängd front som rullar in sig, låg mitt och hög rygg med snirkel.
   ctx.fillStyle = '#c4161c';
   ctx.beginPath();
-  ctx.moveTo(-47, -6); ctx.quadraticCurveTo(-50, 6, -42, 6.5); ctx.lineTo(-8, 6.5);
-  ctx.quadraticCurveTo(-1, 6, -2, -3); ctx.quadraticCurveTo(-8, -1, -14, 0); ctx.lineTo(-40, 0);
-  ctx.quadraticCurveTo(-44, 0, -47, -6);
+  ctx.moveTo(-46, 6.5); ctx.lineTo(-10, 6.5);
+  ctx.bezierCurveTo(-2, 6.5, 2, 0, -1, -7); ctx.bezierCurveTo(-3, -11, -8, -9, -6, -6);
+  ctx.quadraticCurveTo(-9, -1, -16, -1); ctx.lineTo(-36, -1);
+  ctx.quadraticCurveTo(-40, -1, -43, -10); ctx.bezierCurveTo(-45, -17, -53, -16, -51, -11);
+  ctx.quadraticCurveTo(-49, -2, -46, 6.5);
   ctx.fill();
+  // Guldsnirklar på fronten, ryggen och sidan.
   ctx.strokeStyle = '#ffd166';
-  ctx.lineWidth = 1.2;
+  ctx.lineWidth = 1.1;
   ctx.beginPath();
-  ctx.moveTo(-46, -3); ctx.quadraticCurveTo(-44, 2, -40, 2.5); ctx.lineTo(-14, 2.5); ctx.quadraticCurveTo(-6, 2, -3, -1);
+  ctx.arc(-3.6, -7.5, 1.8, 0, Math.PI * 1.6);
+  ctx.moveTo(-46, -12.5); ctx.arc(-47.6, -12.5, 1.6, 0, Math.PI * 1.6);
+  ctx.moveTo(-44, 3); ctx.lineTo(-12, 3);
+  ctx.moveTo(-31, 3); ctx.quadraticCurveTo(-28, -0.2, -25, 3); ctx.quadraticCurveTo(-22, -0.2, -19, 3);
   ctx.stroke();
 }
 
@@ -739,13 +785,13 @@ function sleigh(box) {
       ctx.rotate(-0.1);
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
-      // Tömmarna från släden till det främsta renet.
+      drawSled(ctx);
+      // Tömmarna från tomtens hand till det främsta renet.
       ctx.strokeStyle = '#ffd166';
       ctx.lineWidth = 0.8;
       ctx.beginPath();
-      ctx.moveTo(-4, -2); ctx.quadraticCurveTo(48, 6, 92, -4);
+      ctx.moveTo(-10, -5.6); ctx.quadraticCurveTo(44, 6, 92, -4);
       ctx.stroke();
-      drawSled(ctx);
       // Det främsta renet har röd mule.
       [28, 60, 92].forEach((x, i) => {
         ctx.save();
