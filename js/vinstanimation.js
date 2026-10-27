@@ -432,34 +432,53 @@ function bats(box) {
   play(box, area, dur, (now) => { t = now; step(); draw(); });
 }
 
-// Ett smalt lakansspöke med vågig fåll, s högt. wave flyttar fållens vågor och blink stänger ögonen.
+// Ett runt och gulligt spöke, s högt, med stort huvud, små armar och droppande fåll. Den ena armen
+// vinkar. wave böljar fållen och armen, och blink stänger ögonen.
 function drawGhost(ctx, s, wave, blink) {
-  const half = s * 0.3;
-  const bottom = s * 0.55;
+  const u = s;
+  const wag = Math.sin(wave * 0.7) * 0.05;
   ctx.beginPath();
-  ctx.moveTo(-half, bottom);
-  ctx.lineTo(-half, -s * 0.15);
-  ctx.ellipse(0, -s * 0.15, half, s * 0.35, 0, Math.PI, 0);
-  ctx.lineTo(half, bottom);
-  // Fållen har tre flikar som böljar.
-  for (let i = 0; i < 3; i += 1) {
-    const x = half - (i + 0.5) * ((2 * half) / 3);
-    const lift = s * (0.08 + 0.04 * Math.sin(wave + i * 1.7));
-    ctx.quadraticCurveTo(x, bottom - lift * 2, half - (i + 1) * ((2 * half) / 3), bottom);
+  ctx.moveTo(-0.3 * u, 0.4 * u);
+  // Vänster sida med en liten arm som pekar ut och ner.
+  ctx.bezierCurveTo(-0.32 * u, 0.3 * u, -0.33 * u, 0.22 * u, -0.35 * u, 0.16 * u);
+  ctx.bezierCurveTo(-0.44 * u, 0.2 * u, -0.53 * u, 0.17 * u, -0.5 * u, 0.1 * u);
+  ctx.bezierCurveTo(-0.47 * u, 0.04 * u, -0.4 * u, 0.03 * u, -0.37 * u, 0.0 * u);
+  // Det runda huvudet.
+  ctx.bezierCurveTo(-0.42 * u, -0.25 * u, -0.27 * u, -0.5 * u, 0, -0.5 * u);
+  ctx.bezierCurveTo(0.27 * u, -0.5 * u, 0.4 * u, -0.28 * u, 0.37 * u, -0.1 * u);
+  // Höger arm vinkar uppåt.
+  ctx.bezierCurveTo(0.42 * u, -0.16 * u, 0.48 * u, (-0.26 + wag) * u, 0.53 * u, (-0.22 + wag) * u);
+  ctx.bezierCurveTo(0.58 * u, (-0.17 + wag) * u, 0.5 * u, 0.0 * u, 0.36 * u, 0.08 * u);
+  ctx.bezierCurveTo(0.34 * u, 0.2 * u, 0.33 * u, 0.3 * u, 0.32 * u, 0.4 * u);
+  // Fållen droppar i fyra rundade flikar.
+  for (let i = 0; i < 4; i += 1) {
+    const x0 = 0.32 - i * 0.155;
+    const x1 = x0 - 0.155;
+    const drop = 0.13 + 0.03 * Math.sin(wave + i * 1.7) + (i % 2 ? 0.02 : 0);
+    ctx.bezierCurveTo((x0 + 0.01) * u, (0.4 + drop) * u, (x1 - 0.01) * u, (0.4 + drop) * u, x1 * u, 0.4 * u);
   }
   ctx.closePath();
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = '#f6f3f8';
   ctx.fill();
+  // Ögon, öppen glad mun och rosa kinder.
   ctx.fillStyle = '#1d0f2b';
   ctx.beginPath();
-  for (const side of [-1, 1]) ctx.ellipse(side * s * 0.11, -s * 0.2, s * 0.05, s * 0.08 * blink, 0, 0, Math.PI * 2);
+  ctx.ellipse(-0.13 * u, -0.17 * u, 0.045 * u, 0.062 * u * blink, 0, 0, Math.PI * 2);
+  ctx.ellipse(0.11 * u, -0.2 * u, 0.045 * u, 0.062 * u * blink, 0, 0, Math.PI * 2);
   ctx.fill();
   ctx.beginPath();
-  ctx.ellipse(0, s * 0.02, s * 0.045, s * 0.07, 0, 0, Math.PI * 2);
+  ctx.moveTo(-0.09 * u, -0.06 * u);
+  ctx.quadraticCurveTo(0, -0.1 * u, 0.08 * u, -0.09 * u);
+  ctx.bezierCurveTo(0.09 * u, 0.02 * u, -0.08 * u, 0.04 * u, -0.09 * u, -0.06 * u);
+  ctx.fill();
+  ctx.fillStyle = 'rgba(255,140,160,0.45)';
+  ctx.beginPath();
+  ctx.ellipse(-0.22 * u, -0.08 * u, 0.045 * u, 0.026 * u, 0, 0, Math.PI * 2);
+  ctx.ellipse(0.2 * u, -0.11 * u, 0.045 * u, 0.026 * u, 0, 0, Math.PI * 2);
   ctx.fill();
 }
 
-// Spöken: 36 smala lakansspöken, ungefär tolv åt gången, stiger snabbt från omslagets nederkant
+// Spöken: 36 runda och gulliga spöken, ungefär tolv åt gången, stiger snabbt från omslagets nederkant
 // medan de vaggar, böljar med fållen och blinkar. Där nere, bakom texten, är de nästan genomskinliga,
 // och de blir tydligare ju högre de kommer. Små spöken är längre bort, svävar lite långsammare och
 // syns svagare. Sex av dem svävar dessutom mot kameran medan de stiger, växer allt snabbare och
@@ -474,7 +493,7 @@ function ghosts(box) {
       // Spökena sprids jämnt i sidled, i blandad ordning, så att de inte klumpar ihop sig.
       d: 0.1 + (i / 36) * 9 + rand(0, 0.3), x: ((i * 0.618) % 1) * 0.84 + 0.08, s: 24 + near * 34,
       rise: 4.2 - near * 1.3, alpha: 0.6 + near * 0.25, sway: rand(8, 16), swayHz: rand(0.12, 0.22), ph: rand(0, 6.3),
-      blinkPh: rand(0, 4),
+      blinkPh: rand(0, 4), flip: Math.random() < 0.5 ? -1 : 1,
     };
     // Det börjar litet och långt bort vid nederkanten och glider utåt åt sitt håll. Det hinner
     // susa förbi innan effekten är slut.
@@ -521,6 +540,8 @@ function ghosts(box) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(Math.cos(phase) * 0.12);
+      // Hälften är spegelvända, så att de vinkar åt olika håll.
+      ctx.scale(g.flip, 1);
       ctx.globalAlpha = a;
       // Ögonen sluts en kort stund ungefär var tredje sekund.
       const blink = (age + g.blinkPh) % 3 < 0.14 ? 0.15 : 1;
