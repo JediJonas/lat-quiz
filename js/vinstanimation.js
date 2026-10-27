@@ -615,7 +615,7 @@ function drawReindeer(ctx, leg, red) {
 }
 
 // Släden med tomten och säcken, vänd åt höger med medarna vid y = 10 och fronten vid x = 0.
-// Tomten är bullig och glad, med stort vitt skägg, och håller i tömmarna. Släden har svängd
+// Tomten är bullig och glad, med runt vitt skägg, och håller i tömmarna. Släden har svängd
 // front, hög rygg med snirkel och guldmedar som rullar upp sig framtill.
 function drawSled(ctx) {
   ctx.lineCap = 'round';
@@ -659,31 +659,29 @@ function drawSled(ctx) {
   ctx.beginPath();
   ctx.arc(-10, -5.6, 2.2, 0, Math.PI * 2);
   ctx.fill();
-  // Ansiktet, det stora skägget och mustaschen.
+  // Ansiktet och det runda skägget under det.
   ctx.fillStyle = '#ffd9bf';
   ctx.beginPath();
   ctx.arc(-24, -19, 6.4, 0, Math.PI * 2);
   ctx.fill();
   ctx.fillStyle = '#ffffff';
   ctx.beginPath();
-  ctx.moveTo(-30.5, -19); ctx.bezierCurveTo(-32, -6, -16, -6, -17.5, -19);
-  ctx.quadraticCurveTo(-24, -14.5, -30.5, -19);
-  ctx.moveTo(-23, -15.6); ctx.ellipse(-25.4, -15.6, 2.6, 1.5, 0.25, 0, Math.PI * 2);
-  ctx.moveTo(-18.6, -15.6); ctx.ellipse(-21, -15.6, 2.6, 1.5, -0.25, 0, Math.PI * 2);
+  ctx.moveTo(-30.2, -17.5); ctx.bezierCurveTo(-30.8, -7, -17.2, -7, -17.8, -17.5);
+  ctx.quadraticCurveTo(-24, -11, -30.2, -17.5);
   ctx.fill();
-  // Glad mun under mustaschen, rosa kinder och röd näsa.
+  // Liten glad mun, rosa kinder och röd näsa.
   ctx.fillStyle = '#b3262d';
   ctx.beginPath();
-  ctx.moveTo(-25.4, -13.6); ctx.quadraticCurveTo(-23.2, -10.4, -21, -13.6); ctx.closePath();
+  ctx.moveTo(-25.4, -15.6); ctx.quadraticCurveTo(-23.6, -13.2, -21.8, -15.6); ctx.closePath();
   ctx.fill();
   ctx.fillStyle = 'rgba(255,120,140,0.6)';
   ctx.beginPath();
-  ctx.arc(-28.4, -17.2, 1.4, 0, Math.PI * 2);
-  ctx.arc(-18.6, -17.2, 1.4, 0, Math.PI * 2);
+  ctx.arc(-28.2, -17.6, 1.3, 0, Math.PI * 2);
+  ctx.arc(-18.8, -17.6, 1.3, 0, Math.PI * 2);
   ctx.fill();
   ctx.fillStyle = '#ef6f6f';
   ctx.beginPath();
-  ctx.arc(-23.2, -17, 1.1, 0, Math.PI * 2);
+  ctx.arc(-23.4, -17.4, 1.1, 0, Math.PI * 2);
   ctx.fill();
   // Glada ögon som små bågar.
   ctx.strokeStyle = '#1d0f2b';
