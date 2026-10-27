@@ -261,26 +261,22 @@ function fireworks(box) {
 
 // Strålkastare: sex färgade ljuskäglor från omslagets kanter sveper fram och tillbaka i olika takt,
 // som ljusshowen på en konsert. Lamporna står utanför omslaget, så att bara ljuset syns, och där
-// käglorna korsar varandra blandas färgerna. Käglorna lutar också lite mot och från kameran, i par
-// som speglar varandra: när den ena kommer mot kameran går den andra bort. Käglorna vrids och
-// skalas med transform i css/style.css, så att mobilen bara behöver flytta färdiga lager.
+// käglorna korsar varandra blandas färgerna. Två av käglorna, ur olika par, lutar också lite mot och
+// från kameran i takt med svepet: närmast kameran i ena änden och längst bort i den andra, som en
+// lampa som vinklas på sitt stativ. Käglorna vrids och skalas med transform i css/style.css, så att
+// mobilen bara behöver flytta färdiga lager.
 function spotlights(box) {
   // Var lampan står (andel av bredden), om den lyser uppifrån eller nerifrån, färgen och åt vilket
   // håll den börjar svepa.
   const beams = [[0.1, 'top', '#ff5fb0', 1], [0.45, 'top', '#4fd8ff', -1], [0.88, 'top', '#ffd166', -1],
     [0.2, 'bottom', '#a98bff', -1], [0.62, 'bottom', '#7cf0b0', 1], [0.95, 'bottom', '#ff8a5c', 1]];
-  // Varje par lutar i en gemensam slumpad takt, och den andra lampan i paret åt motsatt håll.
+  // Två lampor ur olika par lutar, så att de inte står bredvid varandra.
   const pairs = spotlightPairs(beams.map(([x]) => x));
-  const tilt = [];
-  for (const pair of pairs) {
-    const t = rand(2.2, 3);
-    const delay = -rand(0, t);
-    pair.forEach((j, k) => { tilt[j] = `--zt:${t.toFixed(2)}s;--zd:${delay.toFixed(2)}s;--zdir:${k ? 'alternate-reverse' : 'alternate'}`; });
-  }
+  const tilting = [...pairs].sort(() => Math.random() - 0.5).slice(0, 2).map((pair) => pick(pair));
   box.innerHTML = beams.map(([x, side, c, dir], i) => {
     const angle = side === 'top' ? (x - 0.5) * 50 : 180 + (0.5 - x) * 50;
-    return `<div class="spot-beam ${side}" style="left:${x * 100}%;--c:${c};--a:${angle}deg;`
-      + `--sw:${(dir * rand(22, 32)).toFixed(0)}deg;--t:${rand(2.2, 3.4).toFixed(2)}s;--in:${(0.25 + i * 0.12).toFixed(2)}s;${tilt[i]}">`
+    return `<div class="spot-beam ${side}${tilting.includes(i) ? ' tilt' : ''}" style="left:${x * 100}%;--c:${c};--a:${angle}deg;`
+      + `--sw:${(dir * rand(22, 32)).toFixed(0)}deg;--t:${rand(2.2, 3.4).toFixed(2)}s;--in:${(0.25 + i * 0.12).toFixed(2)}s">`
       + '<b class="spot-glow"></b><span><i></i></span></div>';
   }).join('');
   // Käglorna är lite längre än omslagets diagonal, så att de alltid når över hela omslaget.
