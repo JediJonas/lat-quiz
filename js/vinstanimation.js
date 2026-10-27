@@ -669,11 +669,7 @@ function drawSled(ctx) {
   ctx.moveTo(-30.2, -17.5); ctx.bezierCurveTo(-30.8, -7, -17.2, -7, -17.8, -17.5);
   ctx.quadraticCurveTo(-24, -11, -30.2, -17.5);
   ctx.fill();
-  // Liten glad mun, rosa kinder och röd näsa.
-  ctx.fillStyle = '#b3262d';
-  ctx.beginPath();
-  ctx.moveTo(-25.4, -15.6); ctx.quadraticCurveTo(-23.6, -13.2, -21.8, -15.6); ctx.closePath();
-  ctx.fill();
+  // Rosa kinder och röd näsa.
   ctx.fillStyle = 'rgba(255,120,140,0.6)';
   ctx.beginPath();
   ctx.arc(-28.2, -17.6, 1.3, 0, Math.PI * 2);
