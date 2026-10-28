@@ -344,6 +344,21 @@ function batFrames(zoom) {
   });
 }
 
+// En stor fullmåne med ett varmt sken runt sig, som fladdermössen och tomtens släde flyger framför.
+function drawMoon(ctx, x, y, r, a) {
+  const glow = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 2.6);
+  glow.addColorStop(0, `rgba(255, 236, 170, ${0.35 * a})`);
+  glow.addColorStop(1, 'rgba(255, 236, 170, 0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(x - r * 2.6, y - r * 2.6, r * 5.2, r * 5.2);
+  ctx.globalAlpha = 0.92 * a;
+  ctx.fillStyle = '#fff3c4';
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+}
+
 // Fladdermöss: 130 fladdermöss flyger rakt mot kameran från så långt bort att de inte syns, mitt i
 // omslaget, framför en stor fullmåne. Först dyker en liten svart klump upp, som växer och glesnar ju
 // närmare de kommer, tills de susar förbi kameran och försvinner ut ur bild. De kommer fram vid olika
@@ -364,28 +379,11 @@ function bats(box) {
     };
   });
   let t = 0;
-  const moon = (a) => {
-    const { ctx, w, h } = area;
-    const x = w * 0.72;
-    const y = h * 0.3;
-    const r = Math.min(w, h) * 0.15;
-    const glow = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 2.6);
-    glow.addColorStop(0, `rgba(255, 236, 170, ${0.35 * a})`);
-    glow.addColorStop(1, 'rgba(255, 236, 170, 0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(x - r * 2.6, y - r * 2.6, r * 5.2, r * 5.2);
-    ctx.globalAlpha = 0.92 * a;
-    ctx.fillStyle = '#fff3c4';
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = 1;
-  };
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
     const out = fade(t, dur);
-    moon(Math.min(1, t / 1.2) * out);
+    drawMoon(ctx, w * 0.72, h * 0.3, Math.min(w, h) * 0.15, Math.min(1, t / 1.2) * out);
     // De som är närmast kameran ritas sist, så att de hamnar framför de andra.
     const shown = swarm.filter((b) => b.x !== undefined && !b.out).sort((a, b) => a.size - b.size);
     for (const b of shown) {
@@ -560,188 +558,58 @@ function ghosts(box) {
   play(box, area, dur, (now) => { t = now; draw(); });
 }
 
-// Ett runt och gulligt ren i galopp, vänt åt höger med hovarna vid y = 9. leg går från -1 till 1,
-// och red ger renet en röd mule som Rudolf.
-function drawReindeer(ctx, leg, red) {
-  // Fyra korta, runda ben som springer.
-  ctx.strokeStyle = '#8a5a3b';
-  ctx.lineWidth = 3.4;
-  ctx.beginPath();
-  for (const [x, dir] of [[6, 1], [-6, -1]]) {
-    const a = leg * 0.6 * dir;
-    ctx.moveTo(x, 2); ctx.lineTo(x + Math.sin(a + 0.4 * dir) * 6, 3 + Math.cos(a + 0.4 * dir) * 6);
-    ctx.moveTo(x - 2.5, 2); ctx.lineTo(x - 2.5 + Math.sin(-a + 0.2 * dir) * 6, 3 + Math.cos(-a + 0.2 * dir) * 6);
-  }
-  ctx.stroke();
-  // Hornen.
-  ctx.strokeStyle = '#f3e2c7';
-  ctx.lineWidth = 1.6;
-  ctx.beginPath();
-  ctx.moveTo(9, -14); ctx.quadraticCurveTo(7, -19, 4, -21); ctx.moveTo(7.3, -18); ctx.lineTo(9.5, -21);
-  ctx.moveTo(12, -14.5); ctx.quadraticCurveTo(12, -20, 10, -23); ctx.moveTo(11.6, -19); ctx.lineTo(14, -21.5);
-  ctx.stroke();
-  // Kropp, svans, öra och det stora runda huvudet.
-  ctx.fillStyle = '#c58b5c';
-  ctx.beginPath();
-  ctx.ellipse(0, 0, 10.5, 7, 0, 0, Math.PI * 2);
-  ctx.moveTo(-9, -4); ctx.arc(-10.5, -4, 2.4, 0, Math.PI * 2);
-  ctx.moveTo(6.5, -13); ctx.ellipse(5.5, -13, 2.6, 1.5, -0.5, 0, Math.PI * 2);
-  ctx.moveTo(12, -5); ctx.ellipse(8, -4, 5, 5, 0, 0, Math.PI * 2);
-  ctx.moveTo(17, -9); ctx.arc(11, -9, 6, 0, Math.PI * 2);
-  ctx.fill();
-  // Ljus mage och mule.
-  ctx.fillStyle = '#ecd2b4';
-  ctx.beginPath();
-  ctx.ellipse(1, 3, 6.5, 3.2, 0, 0, Math.PI * 2);
-  ctx.moveTo(19, -6.5); ctx.ellipse(15.5, -6.5, 3.6, 2.8, 0, 0, Math.PI * 2);
-  ctx.fill();
-  // Nosen, ögat med en ljus glimt och en rosa kind.
-  ctx.fillStyle = red ? '#ff3b3b' : '#3b2418';
-  ctx.beginPath();
-  ctx.arc(18.8, -7.4, red ? 2 : 1.6, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#1d0f2b';
-  ctx.beginPath();
-  ctx.ellipse(12.6, -10.6, 1.3, 1.7, 0, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.arc(13, -11.2, 0.5, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = 'rgba(255,140,160,0.55)';
-  ctx.beginPath();
-  ctx.ellipse(10.5, -6.8, 1.6, 1, 0, 0, Math.PI * 2);
-  ctx.fill();
-}
+// Siluetten av tomten i släden och fyra renar, vänd åt höger, 2601 × 734 enheter. Den kommer från
+// "Santa's sleigh and reindeer silhouette" på freesvg.org (public domain, CC0), med koordinaterna
+// avrundade till heltal. Path2D skapas först när den behövs.
+const SLEIGH_PATH = 'M2394 38c4-5 9-13 16-11c0 4-1 9-2 13c-20 27-18 61-2 77c-2-8-6-15-6-23c6-25 21-25 49-36c15-6 14-7 22-6c0 1 0 3 0 4c-18 20-40 11-51 27c-8 11-2 24 0 36c3-7 4-16 9-22c8-6 26-9 36-13c3-3 6-7 9-10c2-1 5-2 8-2c1 8-3 16-10 20c4 1 12 5 8 10c-12-1-16-11-39-1c-9 5-9 17-11 25c10-10 19-25 23-12c-8 4-14 12-15 21c3 6 11 7 18 9c13 4 12 2 19 16c9 1 19-2 28-5c9-1 17 7 26 4c12-4 26-21 24 4c-1 7 3 12 4 19c-5 3-11 4-17 4c-18 16-18 11-16 19c2 7 8 17 16 26c9 11 14 11 15 41c-2-3-4-7-6-10c1 11 2 23-3 33c-1-3-2-5-3-8c-1 16-5 23-7 26c0-2-1-6-1-8c-5 11-10 24-23 28c1-3 3-6 5-9c-2 2-4 3-6 5c2 10 9 17 14 25c12 4 13 4 23 6c23 4 11 15 34 45c0 2 0 4 0 6c-9 11-15 8-23 15c-9 23 1 23-19 36c-18 11-21 30-62 47c2-9 1-17 1-26c0-7 8-8 13-9c6-2 14 2 19-4c36-32 26-20 32-36c-11 6-21 12-32 17c-10 7-23 19-40 18c4-10 4-21 6-32c1-2 3-4 6-4c34 3 27 3 43-5c7-4 13-7 19-12c2-7-3-6-31-40c-90-5-82 0-82-20c-88 15-107-22-125-25c-10 4-16 15-25 20c-29 15-67-9-90 19c-28 32-61 38-54 49c3 7 8 12 13 18c3 4 3 9 4 13c-9 3-19 4-29 4c-17-38-17-34-10-59c4 1 8 3 12 3c4-2 7-4 10-6c10-6 17-6 26-23c11-22 12-39 15-49c43 1 52-14 59-32c-95 9-106 43-239 156c-5 3-6 7-6 12c-1-2-3-4-4-5c1 9 0 17-1 26c-1-3-2-6-3-9c-2 12-4 25-15 32c1-3 2-7 2-10c-2 2-4 5-6 7c5 8 12 14 19 20c10 5 34-4 41 7c9 15 22 27 27 33c-1 11-12 16-20 23c-1 8 0 17-1 25c-2 9-10 14-15 21c-20 30-14 30-45 54c0-21-9-29-2-33c6-4 13-8 21-7c11-11 18-24 28-36c0-4 0-7 0-11c-9 8-17 15-26 23c-11 11-20 25-36 27c1-9 0-18-1-27c1-14 0-8 34-15c10-8 20-16 29-25c-1-3-3-7-6-8c-12-7-22-16-34-23c0 0-32 6-77 12c-7-1-7-9-8-14c-18 8-37 12-56 15c-42 6-66-19-75-9c-7 9-12 20-22 26c-28 16-64 4-81 37c-21 37-40 39-41 54c4 8 12 12 18 17c4 3 5 8 6 12c-8 5-18 8-27 10c-18-22-27-31-23-55c4 0 8 1 12 0c5-4 10-10 15-14c7-5 11-13 13-21c10-35-1-52 8-53c62-16 41-43 51-80c-29-8 20 7-126-65c13 31 25 24-9 42c-2 8-4 16-6 23c-3 7-11 10-16 15c-24 20-16 23-55 42c4-21-2-27 4-31c7-3 15-4 22-3c5-2 31-26 32-27c2-3 2-7 2-10c-10 6-20 11-30 17c-11 8-23 18-38 17c6-16 3-34 11-33c9 1 19 1 28 2c11-5 22-11 32-18c-1-3-1-6-3-8c-10-9-18-20-27-30c-25 1-49-2-74-4c-5-3-3-10-3-14c-28 4-63 5-89-8c-18-9-27-20-34-14c-8 6-9 11-22 18c-28 12-55-8-81 14c-1 1-20 22-39 32c-6 4-13 7-16 14c1 9 9 15 14 22c2 7 2 6 2 11c-6 2-13 3-27 4c-17-33-16-37-10-56c3 1 7 2 10 3c7-4 13-8 20-11c14-7 23-32 26-47c1-6 1-17 7-17c15 0 30-2 42-11c-103 4-140 33-212 69c-7 4-7 4-10 5c-4 6-3 7-11 13c1-3 1-6 2-9c-2 2-4 4-5 6c4 7 11 13 17 19c5 5 28 1 39 4c6 6 14 22 30 36c1 11-8 15-17 23l-1 2c-3 12 3 26-7 36c-22 19-13 33-55 64c-2-24-7-26-3-32c5-4 11-6 16-8c2 0 4 0 6 0c6-5 15-20 26-32c4-4 2-9 3-14c-10 8-20 16-29 25c-11 11-18 22-33 24c1-11-1-21-1-32c0-10 29-4 37-12c9-7 18-15 26-23c-5-10 3 0-40-32c-24 5-60 10-79 12c-4-4-5-9-5-15c-17 8-43 13-61 15c-42 4-62-21-71-9c-18 22-9 28-64 37c-36 5-33 26-62 56c-7 6-15 13-19 22c4 8 11 13 18 18c5 3 6 8 8 13c-8 5-18 8-27 11c-19-25-26-29-22-56c13 2 10 2 18-6c9-10 29-12 26-78c0-5 6-4 10-6c51-12 40-49 43-70c-58-24-115-51-174-73c-19-7-39-12-58-20c-66-23-117-52-156-18c4 3 7 6 10 10c-9 12-5 7-20 9c-3 9-3 18-3 28c0 25 13 37 22 46c4 4-3 10-7 7c-27-21-25-53-25-68c-8 3-16 1-24 4c-8 3-16 6-24 9c0 4-2 11 4 12c7 0 13-7 21-4c4 0 4 5 4 8c8 2 19 4 20 14c1 12-5 23-7 35c-3 16-4 32-5 49c59-13 42-69 75-104c11-12 30-15 45-7c26 14 19 56-5 58c-16 1-18-31 2-21c-2-4-2-9-7-10c-17 1-26 16 0 46c16 19 6 63-25 76c1 3 3 5 3 8c-2 9-15 12-20 5c-3-3 0-6 1-9c-5-3-10-2-13 2c7 15 14 31 27 43c8 10 47 14 58-6c6-10-4-23-15-21c-3 1-6 3-6 7c3 2 8 3 10 7c0 4-4 6-7 8c-4-2-7-4-10-7c-7-8 1-22 10-24c10 0 20 6 26 15c4 8 1 17-1 25c63-34 60-93 32-107c2 10 3 23-5 31c-9 9-23 10-34 5c-23-11-23-49 0-60c19-8 43 0 55 17c19 25 19 72-9 101c-44 45-108 38-125 39c-282-6-288 12-311-27c-14-24-1-42 16-42c29 0 26 51-9 29c18 32 25 27 43 28c-19-16-15-44 11-47c6 0 10 6 13 11c6 12-17 24-17 9c2-3 6-4 9-5c-1-2-2-4-4-5c-10-4-21 9-15 18c4 7 14 14 22 11c16-12 24-30 33-48c-2-1-4-3-6-4c-2 1-4 2-5 2c1 3 3 5 1 8c-5 7-18 2-18-6c0-4 3-6 6-8c-32 1-64-1-78-30c-16-35-13-70 18-95c19-15 13-58-9-60c-9-1-18 2-23 10c-4 6-2 14-1 20c2-5 3-11 6-15c8-9 31-9 32 10c0 18-12 38-37 30c-40-12-36-86 13-92c-2-5-3-12-9-13c1-1 2-2 3-3c-3-1-6-3-9-4c8-7 19-5 29-8c-1-2-1-3-2-5c7-2 14 0 21-2c6-7 16-3 22 2c-4 1-8 3-12 6c1 0 4 1 5 2c0 1 0 4 0 5c37 18 49 32 41 83c9 11 19 22 28 33c25-27 9-60 14-85c-9 3-16-4-18-12c5-1 7 3 11 5c3 0 5-3 6-6c-2-5-6-10-6-16c-11 1-6 0-11-6c1-1 3-3 4-4c0-3 0-5 0-8c-6 10-15 19-25 25c0 4 1 9-3 11c-10 4-22-9-15-19c4-6 11-3 15 0c23-42 20-68 71-59c8 2 9 11 12 18c3-1 5-2 8-2c5 4 9 10 8 16c-1 4-4 7-7 10c3 1 5 3 8 4c-1 3-2 5-3 8c12 5 10 2 16 16c3 6 7 12 7 20c1 5 0 10 2 14c4 4 10 1 13-3c3-4-2-8-4-11c3 1 6 2 9 5c0 1-1 4-1 5c0 1 1 2 1 2c5-3 9 0 14 2c12-11 14-10 30-7c46-47 120-1 193 21c24 7 56 18 192 78c0-2 0-4 0-7c2 1 5 3 7 4c-4-7-5-15-3-22c2 4 4 7 7 11c-1-7-4-16 4-20c0 2 0 6 0 8c4-4 7-10 13-12c1 8-7 11-7 19c-1 7-2 15 4 21c7-1 12-6 18-9c15-8 46-15 77-6c11 3 49 7 65 0c17-7 18-10 24-14c12-7 26 1 29-55c-31-13-32-18-38-33c-30 12-25 13-37 13c16-27 25-23 41-22c-2-3-3-9-8-9c-46-3-47 1-66-13c-12-15-43-13-47-33c-2-10-4-20-1-30c7 7 4 18 9 26c4 9 16 10 24 14c-9-28-12-64 10-81c7 8 0 19-3 27c-5 22 0 49 20 63c-3-7-8-13-10-21c-1-27 18-31 42-48c5-4 11-7 17-10c1 1 3 2 3 3c-1 6-8 12-14 17c-10 7-25 9-30 21c-6 12 3 25 7 36c3-26-3-23 31-41c11-5 9-18 19-18c2 8 0 16-6 21c4 1 10 1 11 6c1 5-11 1-16 0c-33 4-28 23-28 36c13-21 11-24 20-17c-8 5-10 15-11 24c8 7 20 5 30 6c6 2 9 7 13 11c6-2 10-3 17-6c3-2 6-4 10-5c7-1 13 2 20 1c11-3 16-14 23-16c3 2 4 5 6 8c-1 7 3 13 7 18c0 8-10 8-15 10c-4 4-8 10-12 14c-9 8 32 38 33 39c4 5 7 11 13 28c-3-3-6-5-8-8c5 16 6 14 5 32c-2-2-4-4-6-7c1 6 1 12 1 19c-1 1-2 2-4 3l-1-3c0 1-1 4-1 6c0 0 66-33 66-33c51-25 104-37 160-37c9-17 2-12 16-42c-5-1-6-1-11-5c-2-4-2-8-1-12c2 2 5 4 7 5c-3-7-2-14 1-21c1 4 3 7 5 11c1-6 0-16 8-18c-1 3-1 6-2 8c4-3 7-6 11-9l4 0c-1 2-2 5-4 7c-8 6-10 17-8 27c2 3 6 1 9 0c23-10 54-6 73 1c15 9 32 14 49 17c15 4 31 1 45-6c20-8 21 9 39-46c-24-18-25-19-28-38c-35 7-28 7-37 3c20-18 23-17 43-11c-2-3-2-9-7-10c-41-12-48-9-63-32c-10-10-27-14-32-29c-1-11-1-23 5-32c5 8 0 17 3 26c2 10 13 12 19 19c-2-16-2-32 5-47c4-10 10-22 21-26c5 10-5 18-9 26c-8 19-9 45 6 60c-5-20-10-20 2-37c7-10 19-11 29-15c11-3 20-10 32-10c0 2-1 4-1 6c-7 6-15 11-25 13c-34 7-27 24-23 46c2-7 3-15 8-22c9-5 20-8 30-10c8-2 14-17 20-12c1 7-3 14-9 18c4 2 10 4 8 9c-6 2-11-4-17-4c-28-2-29 12-31 27c5-6 10-12 16-17c2 2 4 4 6 6c-8 4-12 12-16 20c6 7 16 8 25 11c6 2 8 8 11 14c8 0 16-2 24-4c8-2 14 4 22 4c11 0 21-13 26-8c4 6-1 14 3 20c1 3 3 6 1 9c-4 4-10 3-15 4c-5 4-10 9-16 13c6 27 24 34 27 46c2 8 3 16 4 23c-2-3-4-6-6-9c2 11 2 22-2 32c-1-3-2-5-3-8c0 9-3 17-6 25c0-3-1-5-1-8c-5 11-10 22-21 27c1-2 3-7 4-9c-1 1-4 4-5 5c0 7 5 12 9 17c111 55-75-43 158 80c0-5-1-10 0-15c2 3 5 6 7 10c-1-7-4-16 4-21c0 3 0 6 1 9c4-5 7-10 12-13c1 6-3 10-6 14c-2 9-3 19 3 26c7-4 37-27 85-19c18 6 37 6 56 6c24 0 40-19 48-20c6-2 13-5 16-12c5-11 6-29 7-41c-25-9-32-16-38-32c-32 14-27 14-37 12c17-23 18-23 41-22c-2-3-3-6-5-9c-15 0-29-2-44-2c-10 0-20-5-27-12c-17-19-54-5-48-61c2 2 5 3 5 6c7 34 11 23 29 34c-14-42-2-80 11-80c5 11-5 21-5 33c-3 20 3 45 22 56c-4-9-14-18-11-29c2-8 5-17 13-22c46-29 38-27 47-28c0 3 0 6-2 8c-22 29-61 15-34 69c1-8 0-16 3-23c9-9 21-13 32-20c5-5 6-14 14-16c3 8 1 17-5 23c3 1 7 1 10 3c1 2 0 4 1 6c-7-1-26-8-41 9c-4 7-3 16-3 24c13-19 10-24 19-18c0 3-3 5-5 7c-3 5-5 12-5 18c9 8 22 4 32 7c4 2 7 7 10 10c8-2 16-5 23-10c8-5 17 1 25-1c8-3 13-11 21-15c4 2 3 1 5 2c2 5 2 10 4 16c5 9 9 9 2 15c-16 6-7-2-25 21c7 13 17 23 29 31c12 7 15 21 19 33c-3-3-5-5-8-8c1 4 3 9 4 13c125-106 146-150 248-158c3-10 5-15 10-24c-17-6-14-11-14-17c1 0 2 0 3 1c1 1 3 3 5 4c-5-12 0-20 1-22c1 4 2 7 4 11c1-4 1-8 2-12c1-2 2-4 3-5c1 0 3-1 4-1c-1 3-1 6-1 8c4-3 8-6 12-10c1 0 2 1 3 1c-4 9-7 7-11 14c-2 8-6 16-1 24c9-3 19-7 29-8c23-2 48 1 68 13c45 19 69 15 86 6c7-4 15-1 22-6c10-7 15-24 21-42c-26-20-27-21-30-40c-32 5-29 8-39 4c21-19 24-18 46-12c-4-9 5-9-45-20c-20-4-26-23-33-27c-28-19-34-18-27-56c1-2 2-3 4-4c4 9-1 19 3 28c2 9 13 11 19 18C2379 78 2380 60 2394 38M286 316c-1 9-10 16-19 13c1 1 1 3 2 4c6-2 13-5 19-8C288 322 287 319 286 316M213 428c19 17 38 34 62 45c0-17 2-34 4-51C257 423 235 432 213 428z';
+let sleighShape = null;
+const sleighSilhouette = () => (sleighShape ||= new Path2D(SLEIGH_PATH));
 
-// Släden med tomten och säcken, vänd åt höger med medarna vid y = 10 och fronten vid x = 0.
-// Tomten är bullig och glad, med runt vitt skägg, och håller i tömmarna. Släden har svängd
-// front, hög rygg med snirkel och guldmedar som rullar upp sig framtill.
-function drawSled(ctx) {
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-  // Medarna och stöden i guld.
-  ctx.strokeStyle = '#ffd166';
-  ctx.lineWidth = 1.8;
-  ctx.beginPath();
-  ctx.moveTo(-50, 11); ctx.lineTo(-4, 11); ctx.bezierCurveTo(4, 11, 7, 5, 3, 2.5); ctx.arc(2, 4.5, 2, -1.2, 3.6);
-  ctx.moveTo(-40, 5); ctx.lineTo(-40, 11); ctx.moveTo(-14, 5); ctx.lineTo(-14, 11);
-  ctx.stroke();
-  // Säcken bakom tomten.
-  ctx.fillStyle = '#a0703f';
-  ctx.beginPath();
-  ctx.ellipse(-41, -7, 7.5, 9, -0.2, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#7a5230';
-  ctx.beginPath();
-  ctx.ellipse(-40, -16, 3, 1.6, 0, 0, Math.PI * 2);
-  ctx.fill();
-  // Tomtens röda rock med vit kant och svart bälte.
-  ctx.fillStyle = '#e8383d';
-  ctx.beginPath();
-  ctx.arc(-26, -5, 9.5, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#2b1a14';
-  ctx.fillRect(-35, -4.5, 18, 2.6);
-  ctx.fillStyle = '#ffd166';
-  ctx.fillRect(-22.5, -5, 3, 3.6);
-  // Armen sträcks fram och håller i tömmarna.
-  ctx.strokeStyle = '#e8383d';
-  ctx.lineWidth = 4.2;
-  ctx.beginPath();
-  ctx.moveTo(-24, -9); ctx.lineTo(-13, -6);
-  ctx.stroke();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.ellipse(-12.6, -6, 1.6, 2.4, 0.3, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#2b1a14';
-  ctx.beginPath();
-  ctx.arc(-10, -5.6, 2.2, 0, Math.PI * 2);
-  ctx.fill();
-  // Ansiktet och det runda skägget under det.
-  ctx.fillStyle = '#ffd9bf';
-  ctx.beginPath();
-  ctx.arc(-24, -19, 6.4, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.moveTo(-30.2, -17.5); ctx.bezierCurveTo(-30.8, -7, -17.2, -7, -17.8, -17.5);
-  ctx.quadraticCurveTo(-24, -11, -30.2, -17.5);
-  ctx.fill();
-  // Rosa kinder och röd näsa.
-  ctx.fillStyle = 'rgba(255,120,140,0.6)';
-  ctx.beginPath();
-  ctx.arc(-28.2, -17.6, 1.3, 0, Math.PI * 2);
-  ctx.arc(-18.8, -17.6, 1.3, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ef6f6f';
-  ctx.beginPath();
-  ctx.arc(-23.4, -17.4, 1.1, 0, Math.PI * 2);
-  ctx.fill();
-  // Glada ögon som små bågar.
-  ctx.strokeStyle = '#1d0f2b';
-  ctx.lineWidth = 0.9;
-  for (const x of [-26, -20.8]) {
-    ctx.beginPath();
-    ctx.arc(x, -19, 1.3, Math.PI * 1.15, Math.PI * 1.85);
-    ctx.stroke();
-  }
-  // Luvan hänger bakåt med en vit tofs och har en bred vit pälskant.
-  ctx.fillStyle = '#e8383d';
-  ctx.beginPath();
-  ctx.moveTo(-18, -22); ctx.bezierCurveTo(-18, -30, -24, -33, -29, -31);
-  ctx.quadraticCurveTo(-34, -29, -36, -25.5); ctx.quadraticCurveTo(-32, -27, -30.5, -22); ctx.closePath();
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.ellipse(-24.2, -22.6, 7.2, 2.3, 0, 0, Math.PI * 2);
-  ctx.moveTo(-34, -25.5); ctx.arc(-35.6, -25.5, 2.3, 0, Math.PI * 2);
-  ctx.fill();
-  // Släden: svängd front som rullar in sig, låg mitt och hög rygg med snirkel.
-  ctx.fillStyle = '#c4161c';
-  ctx.beginPath();
-  ctx.moveTo(-46, 6.5); ctx.lineTo(-10, 6.5);
-  ctx.bezierCurveTo(-2, 6.5, 2, 0, -1, -7); ctx.bezierCurveTo(-3, -11, -8, -9, -6, -6);
-  ctx.quadraticCurveTo(-9, -1, -16, -1); ctx.lineTo(-36, -1);
-  ctx.quadraticCurveTo(-40, -1, -43, -10); ctx.bezierCurveTo(-45, -17, -53, -16, -51, -11);
-  ctx.quadraticCurveTo(-49, -2, -46, 6.5);
-  ctx.fill();
-  // Guldsnirklar på fronten, ryggen och sidan.
-  ctx.strokeStyle = '#ffd166';
-  ctx.lineWidth = 1.1;
-  ctx.beginPath();
-  ctx.arc(-3.6, -7.5, 1.8, 0, Math.PI * 1.6);
-  ctx.moveTo(-46, -12.5); ctx.arc(-47.6, -12.5, 1.6, 0, Math.PI * 1.6);
-  ctx.moveTo(-44, 3); ctx.lineTo(-12, 3);
-  ctx.moveTo(-31, 3); ctx.quadraticCurveTo(-28, -0.2, -25, 3); ctx.quadraticCurveTo(-22, -0.2, -19, 3);
-  ctx.stroke();
-}
-
-// Tomtens släde: släden med tre renar flyger två gånger över omslagets övre del, först nära och
-// sedan längre bort åt andra hållet, och lämnar ett spår av glittrande stjärnstoft som långsamt
-// faller och slocknar. Små stjärnor tindrar på himlen hela tiden.
+// Tomtens släde: en svart siluett av släden och fyra renar flyger två gånger över omslaget, först
+// stor och rakt framför en fullmåne och sedan mindre och högre upp åt andra hållet. Släden lämnar
+// ett spår av glittrande stjärnstoft som långsamt faller och slocknar, och små stjärnor tindrar på
+// himlen hela tiden.
 function sleigh(box) {
   const dur = 12.8;
-  // När passagen börjar, hur länge den tar, åt vilket håll, på vilken höjd och hur stor släden är.
-  const passes = [[0.3, 4.6, 1, 0.36, 1], [5.9, 4.6, -1, 0.28, 0.7]];
+  // När passagen börjar, hur länge den tar, åt vilket håll, på vilken höjd och hur bred den är.
+  const passes = [[0.3, 5, 1, 0.32, 0.95], [6.2, 4.6, -1, 0.25, 0.55]];
   const stars = Array.from({ length: 18 }, () => ({ x: rand(0.04, 0.96), y: rand(0.05, 0.55), r: rand(0.6, 1.4), hz: rand(0.4, 1.1), ph: rand(0, 6.3) }));
   const dust = [];
   let t = 0;
   let lastEmit = 0;
-  // Var släden är t sekunder in, eller null mellan passagerna.
+  // Siluetten ritas en gång för varje passage, i rätt storlek och riktning, så att mobilen bara
+  // behöver kopiera en bild i varje bildruta.
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const sprites = new Map();
+  const sprite = ({ dir, k }) => {
+    const key = `${dir}|${k}`;
+    if (!sprites.has(key)) {
+      const img = document.createElement('canvas');
+      img.width = Math.ceil(2700 * k * dpr);
+      img.height = Math.ceil(1000 * k * dpr);
+      const c = img.getContext('2d');
+      c.translate(img.width / 2, img.height / 2);
+      c.scale(dir * k * dpr, k * dpr);
+      c.rotate(-0.05);
+      c.translate(-1300, -367);
+      c.fillStyle = '#120a14';
+      c.fill(sleighSilhouette());
+      sprites.set(key, img);
+    }
+    return sprites.get(key);
+  };
+  // Var siluettens mitt är t sekunder in och hur mycket den skalas, eller null mellan passagerna.
   const where = (time) => {
     const { w, h } = area;
-    for (const [start, len, dir, level, scale] of passes) {
+    for (const [start, len, dir, level, width] of passes) {
       const p = (time - start) / len;
       if (p < 0 || p > 1) continue;
-      // Släden är stor, så att tomten och renarna syns med ögon och allt.
-      const u = scale * Math.min(2, Math.max(1.25, w / 230));
-      const span = w + 300 * u;
-      const x = dir > 0 ? -150 * u + span * p : w + 150 * u - span * p;
-      // Släden stiger lite under passagen och gungar i takt med renarnas galopp.
-      const y = h * (level + (0.5 - p) * 0.1) + Math.sin(time * 6) * 2 * u;
-      return { x, y, dir, u };
+      const k = (w * width) / 2601;
+      const half = 1300 * k;
+      const x = dir > 0 ? -half + (w + 2 * half) * p : w + half - (w + 2 * half) * p;
+      // Släden stiger lite under passagen och gungar sakta.
+      const y = h * (level + (0.5 - p) * 0.08) + Math.sin(time * 3) * 2;
+      return { x, y, dir, k };
     }
     return null;
   };
@@ -749,6 +617,7 @@ function sleigh(box) {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
     const a = Math.min(1, t / 1.2) * fade(t, dur);
+    drawMoon(ctx, w * 0.62, h * 0.33, Math.min(w, h) * 0.2, a);
     ctx.globalCompositeOperation = 'lighter';
     ctx.fillStyle = '#fff6d8';
     for (const s of stars) {
@@ -772,39 +641,21 @@ function sleigh(box) {
     ctx.globalCompositeOperation = 'source-over';
     const sled = where(t);
     if (sled) {
-      ctx.save();
-      ctx.globalAlpha = 0.95 * fade(t, dur);
-      ctx.translate(sled.x, sled.y);
-      ctx.scale(sled.dir * sled.u, sled.u);
-      ctx.rotate(-0.1);
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      drawSled(ctx);
-      // Tömmarna från tomtens hand till det främsta renet.
-      ctx.strokeStyle = '#ffd166';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.moveTo(-10, -5.6); ctx.quadraticCurveTo(44, 6, 92, -4);
-      ctx.stroke();
-      // Det främsta renet har röd mule.
-      [28, 60, 92].forEach((x, i) => {
-        ctx.save();
-        ctx.translate(x, -2);
-        drawReindeer(ctx, Math.sin(t * 9 + i * 1.2), i === 2);
-        ctx.restore();
-      });
-      ctx.restore();
+      ctx.globalAlpha = fade(t, dur);
+      const img = sprite(sled);
+      ctx.drawImage(img, sled.x - img.width / dpr / 2, sled.y - img.height / dpr / 2, img.width / dpr, img.height / dpr);
     }
     ctx.globalAlpha = 1;
   };
   const step = (dt) => {
     const sled = where(t);
-    // Släden släpper stoft en bit bakom medarnas bakände, ungefär 80 korn i sekunden.
+    // Släden släpper stoft bakom medarnas bakände, ungefär 80 korn i sekunden.
     if (sled) {
+      const u = sled.k * 9;
       while (lastEmit < t) {
         lastEmit += 1 / 80;
-        dust.push({ x: sled.x - sled.dir * 57 * sled.u + rand(-4, 4), y: sled.y + rand(4, 16) * sled.u,
-          vx: -sled.dir * rand(4, 26), vy: rand(6, 30), age: 0, life: rand(1.6, 3), r: rand(0.8, 2.2) * sled.u,
+        dust.push({ x: sled.x - sled.dir * 1260 * sled.k + rand(-4, 4), y: sled.y + 200 * sled.k + rand(-4, 8) * u,
+          vx: -sled.dir * rand(4, 26), vy: rand(6, 30), age: 0, life: rand(1.6, 3), r: rand(0.8, 2.2) * Math.max(1, u),
           ph: rand(0, 6.3), c: Math.random() < 0.6 ? '#ffd166' : '#ffffff' });
       }
     } else lastEmit = t;
@@ -813,9 +664,9 @@ function sleigh(box) {
   };
   const area = canvasIn(box, draw);
   if (still()) {
-    // Med minskad rörelse står släden still mitt i den första passagen, med stoftet bakom sig.
+    // Med minskad rörelse står släden still framför månen, med stoftet bakom sig.
     area.start();
-    for (t = 0; t < 2.9; t += 1 / 30) step(1 / 30);
+    for (t = 0; t < 3.2; t += 1 / 30) step(1 / 30);
     draw();
     return;
   }
