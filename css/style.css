@@ -726,14 +726,14 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .win-fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 /* Vid fyrverkeri och strålkastare mörknar omslaget lite, som när ljuset släcks inför en show, så att
    ljuset syns och den vita texten får mer kontrast. Det ljusnar igen när showen är slut. Grundläget
-   är slutläget, så att minskad rörelse visar det direkt. Fladdermössen och släden flyger
+   är slutläget, så att minskad rörelse visar det direkt. Fladdermössen flyger
    på en natthimmel, så där mörknar det också. */
-.win-fx.fyrverkeri::before, .win-fx.stralkastare::before, .win-fx.fladdermoss::before, .win-fx.slade::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
+.win-fx.fyrverkeri::before, .win-fx.stralkastare::before, .win-fx.fladdermoss::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
 .win-fx.stralkastare::before { background: rgba(8, 4, 24, 0.36); }
 .win-fx.done::before { opacity: 0; transition: opacity 1.6s ease-in-out; }
 @keyframes fx-in { from { opacity: 0; } }
-/* Fladdermössen och tomtens släde flyger framför den stora bokstavstexten på omslaget, men bakom namnet. */
-.win:has(:is(.fladdermoss, .slade))::after { z-index: -2; }
+/* Fladdermössen flyger framför den stora bokstavstexten på omslaget, men bakom namnet. */
+.win:has(.fladdermoss)::after { z-index: -2; }
 /* Snödrivan i snöstormen når upp bakom texten, så där får texten en svag skugga. */
 .win:has(.snoyra) :is(.win-title, .win-sub) { text-shadow: 0 1px 3px rgba(40, 10, 10, 0.5); }
 /* Strålkastarna: varje kägla utgår från en lampa utanför omslaget och vrids fram och tillbaka runt den. */
