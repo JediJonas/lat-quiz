@@ -563,13 +563,18 @@ function ghosts(box) {
 // avrundade till heltal.
 const SLEIGH_PATH = 'M2394 38c4-5 9-13 16-11c0 4-1 9-2 13c-20 27-18 61-2 77c-2-8-6-15-6-23c6-25 21-25 49-36c15-6 14-7 22-6c0 1 0 3 0 4c-18 20-40 11-51 27c-8 11-2 24 0 36c3-7 4-16 9-22c8-6 26-9 36-13c3-3 6-7 9-10c2-1 5-2 8-2c1 8-3 16-10 20c4 1 12 5 8 10c-12-1-16-11-39-1c-9 5-9 17-11 25c10-10 19-25 23-12c-8 4-14 12-15 21c3 6 11 7 18 9c13 4 12 2 19 16c9 1 19-2 28-5c9-1 17 7 26 4c12-4 26-21 24 4c-1 7 3 12 4 19c-5 3-11 4-17 4c-18 16-18 11-16 19c2 7 8 17 16 26c9 11 14 11 15 41c-2-3-4-7-6-10c1 11 2 23-3 33c-1-3-2-5-3-8c-1 16-5 23-7 26c0-2-1-6-1-8c-5 11-10 24-23 28c1-3 3-6 5-9c-2 2-4 3-6 5c2 10 9 17 14 25c12 4 13 4 23 6c23 4 11 15 34 45c0 2 0 4 0 6c-9 11-15 8-23 15c-9 23 1 23-19 36c-18 11-21 30-62 47c2-9 1-17 1-26c0-7 8-8 13-9c6-2 14 2 19-4c36-32 26-20 32-36c-11 6-21 12-32 17c-10 7-23 19-40 18c4-10 4-21 6-32c1-2 3-4 6-4c34 3 27 3 43-5c7-4 13-7 19-12c2-7-3-6-31-40c-90-5-82 0-82-20c-88 15-107-22-125-25c-10 4-16 15-25 20c-29 15-67-9-90 19c-28 32-61 38-54 49c3 7 8 12 13 18c3 4 3 9 4 13c-9 3-19 4-29 4c-17-38-17-34-10-59c4 1 8 3 12 3c4-2 7-4 10-6c10-6 17-6 26-23c11-22 12-39 15-49c43 1 52-14 59-32c-95 9-106 43-239 156c-5 3-6 7-6 12c-1-2-3-4-4-5c1 9 0 17-1 26c-1-3-2-6-3-9c-2 12-4 25-15 32c1-3 2-7 2-10c-2 2-4 5-6 7c5 8 12 14 19 20c10 5 34-4 41 7c9 15 22 27 27 33c-1 11-12 16-20 23c-1 8 0 17-1 25c-2 9-10 14-15 21c-20 30-14 30-45 54c0-21-9-29-2-33c6-4 13-8 21-7c11-11 18-24 28-36c0-4 0-7 0-11c-9 8-17 15-26 23c-11 11-20 25-36 27c1-9 0-18-1-27c1-14 0-8 34-15c10-8 20-16 29-25c-1-3-3-7-6-8c-12-7-22-16-34-23c0 0-32 6-77 12c-7-1-7-9-8-14c-18 8-37 12-56 15c-42 6-66-19-75-9c-7 9-12 20-22 26c-28 16-64 4-81 37c-21 37-40 39-41 54c4 8 12 12 18 17c4 3 5 8 6 12c-8 5-18 8-27 10c-18-22-27-31-23-55c4 0 8 1 12 0c5-4 10-10 15-14c7-5 11-13 13-21c10-35-1-52 8-53c62-16 41-43 51-80c-29-8 20 7-126-65c13 31 25 24-9 42c-2 8-4 16-6 23c-3 7-11 10-16 15c-24 20-16 23-55 42c4-21-2-27 4-31c7-3 15-4 22-3c5-2 31-26 32-27c2-3 2-7 2-10c-10 6-20 11-30 17c-11 8-23 18-38 17c6-16 3-34 11-33c9 1 19 1 28 2c11-5 22-11 32-18c-1-3-1-6-3-8c-10-9-18-20-27-30c-25 1-49-2-74-4c-5-3-3-10-3-14c-28 4-63 5-89-8c-18-9-27-20-34-14c-8 6-9 11-22 18c-28 12-55-8-81 14c-1 1-20 22-39 32c-6 4-13 7-16 14c1 9 9 15 14 22c2 7 2 6 2 11c-6 2-13 3-27 4c-17-33-16-37-10-56c3 1 7 2 10 3c7-4 13-8 20-11c14-7 23-32 26-47c1-6 1-17 7-17c15 0 30-2 42-11c-103 4-140 33-212 69c-7 4-7 4-10 5c-4 6-3 7-11 13c1-3 1-6 2-9c-2 2-4 4-5 6c4 7 11 13 17 19c5 5 28 1 39 4c6 6 14 22 30 36c1 11-8 15-17 23l-1 2c-3 12 3 26-7 36c-22 19-13 33-55 64c-2-24-7-26-3-32c5-4 11-6 16-8c2 0 4 0 6 0c6-5 15-20 26-32c4-4 2-9 3-14c-10 8-20 16-29 25c-11 11-18 22-33 24c1-11-1-21-1-32c0-10 29-4 37-12c9-7 18-15 26-23c-5-10 3 0-40-32c-24 5-60 10-79 12c-4-4-5-9-5-15c-17 8-43 13-61 15c-42 4-62-21-71-9c-18 22-9 28-64 37c-36 5-33 26-62 56c-7 6-15 13-19 22c4 8 11 13 18 18c5 3 6 8 8 13c-8 5-18 8-27 11c-19-25-26-29-22-56c13 2 10 2 18-6c9-10 29-12 26-78c0-5 6-4 10-6c51-12 40-49 43-70c-58-24-115-51-174-73c-19-7-39-12-58-20c-66-23-117-52-156-18c4 3 7 6 10 10c-9 12-5 7-20 9c-3 9-3 18-3 28c0 25 13 37 22 46c4 4-3 10-7 7c-27-21-25-53-25-68c-8 3-16 1-24 4c-8 3-16 6-24 9c0 4-2 11 4 12c7 0 13-7 21-4c4 0 4 5 4 8c8 2 19 4 20 14c1 12-5 23-7 35c-3 16-4 32-5 49c59-13 42-69 75-104c11-12 30-15 45-7c26 14 19 56-5 58c-16 1-18-31 2-21c-2-4-2-9-7-10c-17 1-26 16 0 46c16 19 6 63-25 76c1 3 3 5 3 8c-2 9-15 12-20 5c-3-3 0-6 1-9c-5-3-10-2-13 2c7 15 14 31 27 43c8 10 47 14 58-6c6-10-4-23-15-21c-3 1-6 3-6 7c3 2 8 3 10 7c0 4-4 6-7 8c-4-2-7-4-10-7c-7-8 1-22 10-24c10 0 20 6 26 15c4 8 1 17-1 25c63-34 60-93 32-107c2 10 3 23-5 31c-9 9-23 10-34 5c-23-11-23-49 0-60c19-8 43 0 55 17c19 25 19 72-9 101c-44 45-108 38-125 39c-282-6-288 12-311-27c-14-24-1-42 16-42c29 0 26 51-9 29c18 32 25 27 43 28c-19-16-15-44 11-47c6 0 10 6 13 11c6 12-17 24-17 9c2-3 6-4 9-5c-1-2-2-4-4-5c-10-4-21 9-15 18c4 7 14 14 22 11c16-12 24-30 33-48c-2-1-4-3-6-4c-2 1-4 2-5 2c1 3 3 5 1 8c-5 7-18 2-18-6c0-4 3-6 6-8c-32 1-64-1-78-30c-16-35-13-70 18-95c19-15 13-58-9-60c-9-1-18 2-23 10c-4 6-2 14-1 20c2-5 3-11 6-15c8-9 31-9 32 10c0 18-12 38-37 30c-40-12-36-86 13-92c-2-5-3-12-9-13c1-1 2-2 3-3c-3-1-6-3-9-4c8-7 19-5 29-8c-1-2-1-3-2-5c7-2 14 0 21-2c6-7 16-3 22 2c-4 1-8 3-12 6c1 0 4 1 5 2c0 1 0 4 0 5c37 18 49 32 41 83c9 11 19 22 28 33c25-27 9-60 14-85c-9 3-16-4-18-12c5-1 7 3 11 5c3 0 5-3 6-6c-2-5-6-10-6-16c-11 1-6 0-11-6c1-1 3-3 4-4c0-3 0-5 0-8c-6 10-15 19-25 25c0 4 1 9-3 11c-10 4-22-9-15-19c4-6 11-3 15 0c23-42 20-68 71-59c8 2 9 11 12 18c3-1 5-2 8-2c5 4 9 10 8 16c-1 4-4 7-7 10c3 1 5 3 8 4c-1 3-2 5-3 8c12 5 10 2 16 16c3 6 7 12 7 20c1 5 0 10 2 14c4 4 10 1 13-3c3-4-2-8-4-11c3 1 6 2 9 5c0 1-1 4-1 5c0 1 1 2 1 2c5-3 9 0 14 2c12-11 14-10 30-7c46-47 120-1 193 21c24 7 56 18 192 78c0-2 0-4 0-7c2 1 5 3 7 4c-4-7-5-15-3-22c2 4 4 7 7 11c-1-7-4-16 4-20c0 2 0 6 0 8c4-4 7-10 13-12c1 8-7 11-7 19c-1 7-2 15 4 21c7-1 12-6 18-9c15-8 46-15 77-6c11 3 49 7 65 0c17-7 18-10 24-14c12-7 26 1 29-55c-31-13-32-18-38-33c-30 12-25 13-37 13c16-27 25-23 41-22c-2-3-3-9-8-9c-46-3-47 1-66-13c-12-15-43-13-47-33c-2-10-4-20-1-30c7 7 4 18 9 26c4 9 16 10 24 14c-9-28-12-64 10-81c7 8 0 19-3 27c-5 22 0 49 20 63c-3-7-8-13-10-21c-1-27 18-31 42-48c5-4 11-7 17-10c1 1 3 2 3 3c-1 6-8 12-14 17c-10 7-25 9-30 21c-6 12 3 25 7 36c3-26-3-23 31-41c11-5 9-18 19-18c2 8 0 16-6 21c4 1 10 1 11 6c1 5-11 1-16 0c-33 4-28 23-28 36c13-21 11-24 20-17c-8 5-10 15-11 24c8 7 20 5 30 6c6 2 9 7 13 11c6-2 10-3 17-6c3-2 6-4 10-5c7-1 13 2 20 1c11-3 16-14 23-16c3 2 4 5 6 8c-1 7 3 13 7 18c0 8-10 8-15 10c-4 4-8 10-12 14c-9 8 32 38 33 39c4 5 7 11 13 28c-3-3-6-5-8-8c5 16 6 14 5 32c-2-2-4-4-6-7c1 6 1 12 1 19c-1 1-2 2-4 3l-1-3c0 1-1 4-1 6c0 0 66-33 66-33c51-25 104-37 160-37c9-17 2-12 16-42c-5-1-6-1-11-5c-2-4-2-8-1-12c2 2 5 4 7 5c-3-7-2-14 1-21c1 4 3 7 5 11c1-6 0-16 8-18c-1 3-1 6-2 8c4-3 7-6 11-9l4 0c-1 2-2 5-4 7c-8 6-10 17-8 27c2 3 6 1 9 0c23-10 54-6 73 1c15 9 32 14 49 17c15 4 31 1 45-6c20-8 21 9 39-46c-24-18-25-19-28-38c-35 7-28 7-37 3c20-18 23-17 43-11c-2-3-2-9-7-10c-41-12-48-9-63-32c-10-10-27-14-32-29c-1-11-1-23 5-32c5 8 0 17 3 26c2 10 13 12 19 19c-2-16-2-32 5-47c4-10 10-22 21-26c5 10-5 18-9 26c-8 19-9 45 6 60c-5-20-10-20 2-37c7-10 19-11 29-15c11-3 20-10 32-10c0 2-1 4-1 6c-7 6-15 11-25 13c-34 7-27 24-23 46c2-7 3-15 8-22c9-5 20-8 30-10c8-2 14-17 20-12c1 7-3 14-9 18c4 2 10 4 8 9c-6 2-11-4-17-4c-28-2-29 12-31 27c5-6 10-12 16-17c2 2 4 4 6 6c-8 4-12 12-16 20c6 7 16 8 25 11c6 2 8 8 11 14c8 0 16-2 24-4c8-2 14 4 22 4c11 0 21-13 26-8c4 6-1 14 3 20c1 3 3 6 1 9c-4 4-10 3-15 4c-5 4-10 9-16 13c6 27 24 34 27 46c2 8 3 16 4 23c-2-3-4-6-6-9c2 11 2 22-2 32c-1-3-2-5-3-8c0 9-3 17-6 25c0-3-1-5-1-8c-5 11-10 22-21 27c1-2 3-7 4-9c-1 1-4 4-5 5c0 7 5 12 9 17c111 55-75-43 158 80c0-5-1-10 0-15c2 3 5 6 7 10c-1-7-4-16 4-21c0 3 0 6 1 9c4-5 7-10 12-13c1 6-3 10-6 14c-2 9-3 19 3 26c7-4 37-27 85-19c18 6 37 6 56 6c24 0 40-19 48-20c6-2 13-5 16-12c5-11 6-29 7-41c-25-9-32-16-38-32c-32 14-27 14-37 12c17-23 18-23 41-22c-2-3-3-6-5-9c-15 0-29-2-44-2c-10 0-20-5-27-12c-17-19-54-5-48-61c2 2 5 3 5 6c7 34 11 23 29 34c-14-42-2-80 11-80c5 11-5 21-5 33c-3 20 3 45 22 56c-4-9-14-18-11-29c2-8 5-17 13-22c46-29 38-27 47-28c0 3 0 6-2 8c-22 29-61 15-34 69c1-8 0-16 3-23c9-9 21-13 32-20c5-5 6-14 14-16c3 8 1 17-5 23c3 1 7 1 10 3c1 2 0 4 1 6c-7-1-26-8-41 9c-4 7-3 16-3 24c13-19 10-24 19-18c0 3-3 5-5 7c-3 5-5 12-5 18c9 8 22 4 32 7c4 2 7 7 10 10c8-2 16-5 23-10c8-5 17 1 25-1c8-3 13-11 21-15c4 2 3 1 5 2c2 5 2 10 4 16c5 9 9 9 2 15c-16 6-7-2-25 21c7 13 17 23 29 31c12 7 15 21 19 33c-3-3-5-5-8-8c1 4 3 9 4 13c125-106 146-150 248-158c3-10 5-15 10-24c-17-6-14-11-14-17c1 0 2 0 3 1c1 1 3 3 5 4c-5-12 0-20 1-22c1 4 2 7 4 11c1-4 1-8 2-12c1-2 2-4 3-5c1 0 3-1 4-1c-1 3-1 6-1 8c4-3 8-6 12-10c1 0 2 1 3 1c-4 9-7 7-11 14c-2 8-6 16-1 24c9-3 19-7 29-8c23-2 48 1 68 13c45 19 69 15 86 6c7-4 15-1 22-6c10-7 15-24 21-42c-26-20-27-21-30-40c-32 5-29 8-39 4c21-19 24-18 46-12c-4-9 5-9-45-20c-20-4-26-23-33-27c-28-19-34-18-27-56c1-2 2-3 4-4c4 9-1 19 3 28c2 9 13 11 19 18C2379 78 2380 60 2394 38M286 316c-1 9-10 16-19 13c1 1 1 3 2 4c6-2 13-5 19-8C288 322 287 319 286 316M213 428c19 17 38 34 62 45c0-17 2-34 4-51C257 423 235 432 213 428z';
 
-// Renarnas ben: vridpunkt vid höften eller bogen, sidled där benen finns och åt vilket håll de
-// svänger. Renarna 3 och 4 är kopior av 1 och 2, förskjutna i bilden.
-const LEGS = [[760, 470, 600, 815, -1], [1065, 478, 990, 1110, 1], [1300, 370, 1110, 1315, -1], [1545, 422, 1470, 1588, 1]];
-const REINDEER_LEGS = [...LEGS, ...LEGS.slice(0, 2).map(([x, y, a, b, s]) => [x + 975, y + 62, Math.max(a + 975, 1575), b + 975, s]),
-  ...LEGS.slice(2).map(([x, y, a, b, s]) => [x + 980, y - 52, a + 980, b + 980, s])];
-// Var renen sitter i raden avgör takten, så att de inte springer i exakt samma steg.
-const legPhase = (x) => Math.floor((x - 600) / 490) * 0.9;
+// När renarna står rakt klipps benen i originalet bort under en linje längs buken och ritas om rakt
+// nedåt. För varje ren: linjen under buken, var de två bakbenen och de två frambenen står i sidled,
+// hur högt upp i kroppen de börjar och hur långt ned hovarna når. Renarna 3 och 4 är kopior av 1 och
+// 2, förskjutna i bilden.
+const STANDING = [
+  [[560, 560, 640, 520, 690, 450, 730, 485, 800, 500, 900, 497, 980, 485, 1010, 465, 1040, 450, 1120, 450], [735, 775], 435, [955, 990], 445, 640],
+  [[1110, 425, 1180, 361, 1250, 357, 1290, 398, 1400, 402, 1450, 407, 1530, 410, 1545, 412, 1565, 421, 1590, 434, 1615, 448], [1290, 1330], 355, [1480, 1515], 395, 560],
+];
+const REINDEER_STANDING = [...STANDING, ...STANDING.map(([line, hind, hindTop, front, frontTop, low], r) => {
+  const [dx, dy] = r ? [980, -52] : [975, 62];
+  return [line.map((v, i) => v + (i % 2 ? dy : dx)), hind.map((x) => x + dx), hindTop + dy, front.map((x) => x + dx), frontTop + dy, low + dy];
+})];
 
 // Siluettens kurvor med absoluta koordinater, tolkade en gång.
 let sleighSegments = null;
@@ -600,51 +605,69 @@ function sleighCurves() {
   return (sleighSegments = segs);
 }
 
-const smooth = (v) => (v <= 0 ? 0 : v >= 1 ? 1 : v * v * (3 - 2 * v));
-
-// I siluetten är frambenen två ben, och konturen går mellan dem vid den här kurvan. Bakbenen är
-// ett enda ben, som ritas en gång till för det andra bakbenet. Talen är kurvornas ordning i SLEIGH_PATH.
-const FRONT_SPLIT = [161, 120, 88, 48];
-const HIND_LEGS = [[171, 181], [131, 142], [99, 110], [58, 68]];
-
-// Siluetten med renarnas ben vridna i galopp. phase går ett varv per steg. Benen vrids runt
-// höften och bogen, gradvis nedåt, så att de böjer sig utan att lossna från kroppen. Av de två
-// frambenen och de två bakbenen ligger det ena lite efter det andra, som i en riktig galopp.
-function sleighSilhouette(phase) {
-  // n är kurvans ordning i SLEIGH_PATH och other betyder det andra bakbenet. Det avgör vilket ben
-  // i paret som punkten hör till.
-  const move = (x, y, n, other) => {
-    for (const [r, [px, py, from, to, dir]] of REINDEER_LEGS.entries()) {
-      const w = smooth((y - py) / 50) * smooth((py + 225 - y) / 25) * smooth((x - from) / 25) * smooth((to - x) / 25);
-      if (w <= 0) continue;
-      // Det andra benet i paret ligger lite efter i steget.
-      const behind = r % 2 === 1 ? n > FRONT_SPLIT[r >> 1] : other;
-      const a = dir * 0.36 * Math.sin(phase + legPhase(px) - (behind ? 1.3 : 0)) * w;
-      const c = Math.cos(a); const s = Math.sin(a);
-      return [px + (x - px) * c - (y - py) * s, py + (x - px) * s + (y - py) * c];
+// Det som klipps bort under renarna och de raka benen som ritas i stället, som formar i siluettens
+// koordinater.
+let standingShapes = null;
+function standingLegs() {
+  if (standingShapes) return standingShapes;
+  const cut = new Path2D();
+  const legs = new Path2D();
+  for (const [line, hind, hindTop, front, frontTop, low] of REINDEER_STANDING) {
+    cut.moveTo(line[0], line[1]);
+    for (let i = 2; i < line.length; i += 2) cut.lineTo(line[i], line[i + 1]);
+    cut.lineTo(line[line.length - 2], 900);
+    cut.lineTo(line[0], 900);
+    cut.closePath();
+    // Bakbenen har ett kraftigt lår och smalnar av ned mot hasen och hoven.
+    for (const x of hind) {
+      legs.moveTo(x - 10, hindTop);
+      legs.bezierCurveTo(x - 45, hindTop + 40, x - 16, low - 90, x - 13, low - 55);
+      legs.lineTo(x - 9, low - 6);
+      legs.lineTo(x + 13, low);
+      legs.lineTo(x + 8, low - 18);
+      legs.lineTo(x + 6, low - 55);
+      legs.bezierCurveTo(x + 10, low - 90, x + 25, hindTop + 45, x + 20, hindTop);
+      legs.closePath();
     }
-    return [x, y];
-  };
-  const segs = sleighCurves();
-  const path = new Path2D();
-  const add = (n, other) => {
-    const [op, ...p] = segs[n];
-    if (op === 'Z') { path.closePath(); return; }
-    const q = [];
-    for (let j = 0; j < p.length; j += 2) q.push(...move(p[j], p[j + 1], n, other));
-    if (op === 'M') path.moveTo(...q);
-    else if (op === 'L') path.lineTo(...q);
-    else path.bezierCurveTo(...q);
-  };
-  segs.forEach((_, n) => add(n, false));
-  // Det andra bakbenet: samma kontur en gång till, som en egen form som börjar och slutar i kroppen.
-  for (const [first, last] of HIND_LEGS) {
-    const start = segs[first - 1];
-    path.moveTo(...move(start[start.length - 2], start[start.length - 1], first - 1, true));
-    for (let n = first; n <= last; n += 1) add(n, true);
-    path.closePath();
+    // Frambenen är smala och nästan raka, med ett litet knä.
+    for (const x of front) {
+      legs.moveTo(x - 10, frontTop);
+      legs.lineTo(x - 10, low - 55);
+      legs.lineTo(x - 8, low - 6);
+      legs.lineTo(x + 14, low);
+      legs.lineTo(x + 8, low - 18);
+      legs.lineTo(x + 8, low - 55);
+      legs.lineTo(x + 10, frontTop);
+      legs.closePath();
+    }
   }
-  return path;
+  return (standingShapes = { cut, legs });
+}
+
+// Siluetten som en form, byggd en gång.
+let sleighShape = null;
+function sleighSilhouette() {
+  if (sleighShape) return sleighShape;
+  const path = new Path2D();
+  for (const [op, ...p] of sleighCurves()) {
+    if (op === 'Z') path.closePath();
+    else if (op === 'M') path.moveTo(...p);
+    else if (op === 'L') path.lineTo(...p);
+    else path.bezierCurveTo(...p);
+  }
+  return (sleighShape = path);
+}
+
+// Ritar siluetten, antingen som i originalet med renarna mitt i hoppet, eller med renarna stående
+// med benen rakt under sig.
+function drawSleigh(c, stand) {
+  if (!stand) { c.fill(sleighSilhouette()); return; }
+  const { cut, legs } = standingLegs();
+  c.fill(sleighSilhouette());
+  c.globalCompositeOperation = 'destination-out';
+  c.fill(cut);
+  c.globalCompositeOperation = 'source-over';
+  c.fill(legs);
 }
 
 // Tomtens släde: en svart siluett av släden och fyra renar flyger två gånger över omslaget, först
@@ -659,13 +682,12 @@ function sleigh(box) {
   const dust = [];
   let t = 0;
   let lastEmit = 0;
-  // Siluetten ritas i åtta lägen av galoppen för varje passage, i rätt storlek och riktning, så att
-  // mobilen bara behöver kopiera en bild i varje bildruta.
+  // Siluetten ritas i sina två lägen för varje passage, i rätt storlek och riktning, så att mobilen
+  // bara behöver kopiera en bild i varje bildruta.
   const dpr = Math.min(devicePixelRatio || 1, 2);
   const sprites = new Map();
-  const STEPS = 8;
-  const sprite = ({ dir, k }, frame) => {
-    const key = `${dir}|${k}|${frame}`;
+  const sprite = ({ dir, k }, stand) => {
+    const key = `${dir}|${k}|${stand}`;
     if (!sprites.has(key)) {
       const img = document.createElement('canvas');
       img.width = Math.ceil(2700 * k * dpr);
@@ -676,7 +698,7 @@ function sleigh(box) {
       c.rotate(-0.05);
       c.translate(-1300, -367);
       c.fillStyle = '#120a14';
-      c.fill(sleighSilhouette((frame / STEPS) * Math.PI * 2));
+      drawSleigh(c, stand);
       sprites.set(key, img);
     }
     return sprites.get(key);
@@ -725,8 +747,9 @@ function sleigh(box) {
     const sled = where(t);
     if (sled) {
       ctx.globalAlpha = fade(t, dur);
-      // Renarna galopperar ungefär tre steg i sekunden.
-      const img = sprite(sled, Math.floor(t * 3 * STEPS) % STEPS);
+      // Som en neonskylt växlar renarna mellan att vara mitt i hoppet och att stå med benen rakt
+      // under sig, fyra gånger i sekunden.
+      const img = sprite(sled, Math.floor(t * 4) % 2 === 1);
       ctx.drawImage(img, sled.x - img.width / dpr / 2, sled.y - img.height / dpr / 2, img.width / dpr, img.height / dpr);
     }
     ctx.globalAlpha = 1;
