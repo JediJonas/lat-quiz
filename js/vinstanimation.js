@@ -565,7 +565,7 @@ const SLEIGH_PATH = 'M2394 38c4-5 9-13 16-11c0 4-1 9-2 13c-20 27-18 61-2 77c-2-8
 
 // Renarnas ben: vridpunkt vid höften eller bogen, sidled där benen finns och åt vilket håll de
 // svänger. Renarna 3 och 4 är kopior av 1 och 2, förskjutna i bilden.
-const LEGS = [[760, 470, 600, 815, -1], [1000, 470, 960, 1110, 1], [1300, 370, 1110, 1315, -1], [1450, 400, 1415, 1588, 1]];
+const LEGS = [[760, 470, 600, 815, -1], [1065, 478, 990, 1110, 1], [1300, 370, 1110, 1315, -1], [1545, 422, 1470, 1588, 1]];
 const REINDEER_LEGS = [...LEGS, ...LEGS.slice(0, 2).map(([x, y, a, b, s]) => [x + 975, y + 62, Math.max(a + 975, 1575), b + 975, s]),
   ...LEGS.slice(2).map(([x, y, a, b, s]) => [x + 980, y - 52, a + 980, b + 980, s])];
 // Var renen sitter i raden avgör takten, så att de inte springer i exakt samma steg.
@@ -602,27 +602,47 @@ function sleighCurves() {
 
 const smooth = (v) => (v <= 0 ? 0 : v >= 1 ? 1 : v * v * (3 - 2 * v));
 
+// I siluetten är frambenen två ben, och konturen går mellan dem vid den här kurvan. Bakbenen är
+// ett enda ben, som ritas en gång till för det andra bakbenet. Talen är kurvornas ordning i SLEIGH_PATH.
+const FRONT_SPLIT = [161, 120, 88, 48];
+const HIND_LEGS = [[171, 181], [131, 142], [99, 110], [58, 68]];
+
 // Siluetten med renarnas ben vridna i galopp. phase går ett varv per steg. Benen vrids runt
-// höften och bogen, gradvis nedåt, så att de böjer sig utan att lossna från kroppen.
+// höften och bogen, gradvis nedåt, så att de böjer sig utan att lossna från kroppen. Av de två
+// frambenen och de två bakbenen ligger det ena lite efter det andra, som i en riktig galopp.
 function sleighSilhouette(phase) {
-  const move = (x, y) => {
-    for (const [px, py, from, to, dir] of REINDEER_LEGS) {
-      const w = smooth((y - py) / 60) * smooth((py + 225 - y) / 25) * smooth((x - from) / 25) * smooth((to - x) / 25);
+  // n är kurvans ordning i SLEIGH_PATH och other betyder det andra bakbenet. Det avgör vilket ben
+  // i paret som punkten hör till.
+  const move = (x, y, n, other) => {
+    for (const [r, [px, py, from, to, dir]] of REINDEER_LEGS.entries()) {
+      const w = smooth((y - py) / 50) * smooth((py + 225 - y) / 25) * smooth((x - from) / 25) * smooth((to - x) / 25);
       if (w <= 0) continue;
-      const a = dir * 0.38 * Math.sin(phase + legPhase(px)) * w;
+      // Det andra benet i paret ligger lite efter i steget.
+      const behind = r % 2 === 1 ? n > FRONT_SPLIT[r >> 1] : other;
+      const a = dir * 0.36 * Math.sin(phase + legPhase(px) - (behind ? 1.3 : 0)) * w;
       const c = Math.cos(a); const s = Math.sin(a);
       return [px + (x - px) * c - (y - py) * s, py + (x - px) * s + (y - py) * c];
     }
     return [x, y];
   };
+  const segs = sleighCurves();
   const path = new Path2D();
-  for (const [op, ...p] of sleighCurves()) {
-    if (op === 'Z') { path.closePath(); continue; }
+  const add = (n, other) => {
+    const [op, ...p] = segs[n];
+    if (op === 'Z') { path.closePath(); return; }
     const q = [];
-    for (let j = 0; j < p.length; j += 2) q.push(...move(p[j], p[j + 1]));
+    for (let j = 0; j < p.length; j += 2) q.push(...move(p[j], p[j + 1], n, other));
     if (op === 'M') path.moveTo(...q);
     else if (op === 'L') path.lineTo(...q);
     else path.bezierCurveTo(...q);
+  };
+  segs.forEach((_, n) => add(n, false));
+  // Det andra bakbenet: samma kontur en gång till, som en egen form som börjar och slutar i kroppen.
+  for (const [first, last] of HIND_LEGS) {
+    const start = segs[first - 1];
+    path.moveTo(...move(start[start.length - 2], start[start.length - 1], first - 1, true));
+    for (let n = first; n <= last; n += 1) add(n, true);
+    path.closePath();
   }
   return path;
 }
