@@ -1,6 +1,5 @@
 // Vinstanimationen på vinnarkortet: konfetti, fyrverkeri eller strålkastare, och i
-// säsongskategorierna en fladdermussvärm eller spöken i Halloween och tomtens släde eller
-// snöstorm i Jul.
+// säsongskategorierna en fladdermussvärm i Halloween och snöstorm i Jul.
 // Den ligger bakom texten på omslaget och håller på i ungefär 13 sekunder. Med minskad rörelse
 // står den still, som ett foto. Valet slumpas per match men blir detsamma på alla enheter
 // (pickWinEffect).
@@ -9,7 +8,7 @@ import { drawBat } from './sasong.js';
 
 export const WIN_EFFECTS = ['konfetti', 'fyrverkeri', 'stralkastare'];
 // Säsongskategorierna har egna effekter i stället för de vanliga.
-export const SEASON_WIN_EFFECTS = { halloween: ['fladdermoss', 'spoken'], jul: ['slade', 'snoyra'] };
+export const SEASON_WIN_EFFECTS = { halloween: ['fladdermoss'], jul: ['snoyra'] };
 
 // Väljer effekt utifrån något som alla enheter känner till om matchen, till exempel sista låten
 // och vinnarna, och kategorin. Samma nyckel och kategori ger alltid samma effekt.
@@ -32,8 +31,6 @@ export function startWinEffect(box, effect) {
   if (effect === 'fyrverkeri') fireworks(box);
   else if (effect === 'stralkastare') spotlights(box);
   else if (effect === 'fladdermoss') bats(box);
-  else if (effect === 'spoken') ghosts(box);
-  else if (effect === 'slade') sleigh(box);
   else if (effect === 'snoyra') blizzard(box);
   else confetti(box);
 }
@@ -344,6 +341,21 @@ function batFrames(zoom) {
   });
 }
 
+// En stor fullmåne med ett varmt sken runt sig, som fladdermössen flyger framför.
+function drawMoon(ctx, x, y, r, a) {
+  const glow = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 2.6);
+  glow.addColorStop(0, `rgba(255, 236, 170, ${0.35 * a})`);
+  glow.addColorStop(1, 'rgba(255, 236, 170, 0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(x - r * 2.6, y - r * 2.6, r * 5.2, r * 5.2);
+  ctx.globalAlpha = 0.92 * a;
+  ctx.fillStyle = '#fff3c4';
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+}
+
 // Fladdermöss: 130 fladdermöss flyger rakt mot kameran från så långt bort att de inte syns, mitt i
 // omslaget, framför en stor fullmåne. Först dyker en liten svart klump upp, som växer och glesnar ju
 // närmare de kommer, tills de susar förbi kameran och försvinner ut ur bild. De kommer fram vid olika
@@ -364,28 +376,11 @@ function bats(box) {
     };
   });
   let t = 0;
-  const moon = (a) => {
-    const { ctx, w, h } = area;
-    const x = w * 0.72;
-    const y = h * 0.3;
-    const r = Math.min(w, h) * 0.15;
-    const glow = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 2.6);
-    glow.addColorStop(0, `rgba(255, 236, 170, ${0.35 * a})`);
-    glow.addColorStop(1, 'rgba(255, 236, 170, 0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(x - r * 2.6, y - r * 2.6, r * 5.2, r * 5.2);
-    ctx.globalAlpha = 0.92 * a;
-    ctx.fillStyle = '#fff3c4';
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = 1;
-  };
   const draw = () => {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
     const out = fade(t, dur);
-    moon(Math.min(1, t / 1.2) * out);
+    drawMoon(ctx, w * 0.72, h * 0.3, Math.min(w, h) * 0.15, Math.min(1, t / 1.2) * out);
     // De som är närmast kameran ritas sist, så att de hamnar framför de andra.
     const shown = swarm.filter((b) => b.x !== undefined && !b.out).sort((a, b) => a.size - b.size);
     for (const b of shown) {
@@ -430,396 +425,6 @@ function bats(box) {
     return;
   }
   play(box, area, dur, (now) => { t = now; step(); draw(); });
-}
-
-// Ett runt och gulligt spöke, s högt, med stort huvud, små armar och droppande fåll. Den ena armen
-// vinkar. wave böljar fållen och armen, och blink stänger ögonen.
-function drawGhost(ctx, s, wave, blink) {
-  const u = s;
-  const wag = Math.sin(wave * 0.7) * 0.05;
-  ctx.beginPath();
-  ctx.moveTo(-0.3 * u, 0.4 * u);
-  // Vänster sida med en liten arm som pekar ut och ner.
-  ctx.bezierCurveTo(-0.32 * u, 0.3 * u, -0.33 * u, 0.22 * u, -0.35 * u, 0.16 * u);
-  ctx.bezierCurveTo(-0.44 * u, 0.2 * u, -0.53 * u, 0.17 * u, -0.5 * u, 0.1 * u);
-  ctx.bezierCurveTo(-0.47 * u, 0.04 * u, -0.4 * u, 0.03 * u, -0.37 * u, 0.0 * u);
-  // Det runda huvudet.
-  ctx.bezierCurveTo(-0.42 * u, -0.25 * u, -0.27 * u, -0.5 * u, 0, -0.5 * u);
-  ctx.bezierCurveTo(0.27 * u, -0.5 * u, 0.4 * u, -0.28 * u, 0.37 * u, -0.1 * u);
-  // Höger arm vinkar uppåt.
-  ctx.bezierCurveTo(0.42 * u, -0.16 * u, 0.48 * u, (-0.26 + wag) * u, 0.53 * u, (-0.22 + wag) * u);
-  ctx.bezierCurveTo(0.58 * u, (-0.17 + wag) * u, 0.5 * u, 0.0 * u, 0.36 * u, 0.08 * u);
-  ctx.bezierCurveTo(0.34 * u, 0.2 * u, 0.33 * u, 0.3 * u, 0.32 * u, 0.4 * u);
-  // Fållen droppar i fyra rundade flikar.
-  for (let i = 0; i < 4; i += 1) {
-    const x0 = 0.32 - i * 0.155;
-    const x1 = x0 - 0.155;
-    const drop = 0.13 + 0.03 * Math.sin(wave + i * 1.7) + (i % 2 ? 0.02 : 0);
-    ctx.bezierCurveTo((x0 + 0.01) * u, (0.4 + drop) * u, (x1 - 0.01) * u, (0.4 + drop) * u, x1 * u, 0.4 * u);
-  }
-  ctx.closePath();
-  ctx.fillStyle = '#f6f3f8';
-  ctx.fill();
-  // Ögon, öppen glad mun och rosa kinder.
-  ctx.fillStyle = '#1d0f2b';
-  ctx.beginPath();
-  ctx.ellipse(-0.13 * u, -0.17 * u, 0.045 * u, 0.062 * u * blink, 0, 0, Math.PI * 2);
-  ctx.ellipse(0.11 * u, -0.2 * u, 0.045 * u, 0.062 * u * blink, 0, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(-0.09 * u, -0.06 * u);
-  ctx.quadraticCurveTo(0, -0.1 * u, 0.08 * u, -0.09 * u);
-  ctx.bezierCurveTo(0.09 * u, 0.02 * u, -0.08 * u, 0.04 * u, -0.09 * u, -0.06 * u);
-  ctx.fill();
-  ctx.fillStyle = 'rgba(255,140,160,0.45)';
-  ctx.beginPath();
-  ctx.ellipse(-0.22 * u, -0.08 * u, 0.045 * u, 0.026 * u, 0, 0, Math.PI * 2);
-  ctx.ellipse(0.2 * u, -0.11 * u, 0.045 * u, 0.026 * u, 0, 0, Math.PI * 2);
-  ctx.fill();
-}
-
-// Spöken: 36 runda och gulliga spöken, ungefär tolv åt gången, stiger snabbt från omslagets nederkant
-// medan de vaggar, böljar med fållen och blinkar. Där nere, bakom texten, är de nästan genomskinliga,
-// och de blir tydligare ju högre de kommer. Små spöken är längre bort, svävar lite långsammare och
-// syns svagare. Sex av dem svävar dessutom mot kameran medan de stiger, växer allt snabbare och
-// susar förbi över överkanten.
-function ghosts(box) {
-  const dur = 12.8;
-  // Sex av spökena, jämnt utspridda i tiden, svävar mot kameran medan de stiger.
-  const toward = new Set([3, 9, 15, 21, 27, 33]);
-  const crowd = Array.from({ length: 36 }, (_, i) => {
-    const near = Math.random();
-    const g = {
-      // Spökena sprids jämnt i sidled, i blandad ordning, så att de inte klumpar ihop sig.
-      d: 0.1 + (i / 36) * 9 + rand(0, 0.3), x: ((i * 0.618) % 1) * 0.84 + 0.08, s: 24 + near * 34,
-      rise: 4.2 - near * 1.3, alpha: 0.6 + near * 0.25, sway: rand(8, 16), swayHz: rand(0.12, 0.22), ph: rand(0, 6.3),
-      blinkPh: rand(0, 4), flip: Math.random() < 0.5 ? -1 : 1,
-    };
-    // Det börjar litet och långt bort vid nederkanten och glider utåt åt sitt håll. Det hinner
-    // susa förbi innan effekten är slut.
-    if (toward.has(i)) {
-      Object.assign(g, { toward: true, d: Math.min(g.d, 7), life: rand(4.7, 6), out: Math.cos(rand(0, 6.3)) * rand(0.06, 0.16), s: 14, alpha: 0.85 });
-    }
-    return g;
-  });
-  let t = 0;
-  const draw = () => {
-    const { ctx, w, h } = area;
-    ctx.clearRect(0, 0, w, h);
-    const list = [];
-    for (const g of crowd) {
-      const age = t - g.d;
-      if (age < 0) continue;
-      const phase = age * g.swayHz * 6.283 + g.ph;
-      if (g.toward) {
-        const p = age / g.life;
-        if (p >= 1) continue;
-        // Perspektiv: avståndet till kameran krymper, så att spöket växer allt snabbare. Det stiger
-        // från nederkanten och susar sista biten upp över överkanten.
-        const k = 1 / (1 - 0.93 * p);
-        // Tonar in som de andra och tonar bort när det susar förbi kameran.
-        const a = Math.min(0.12 + p * 2.5, 1, (1 - p) / 0.22) * fade(t, dur) * g.alpha;
-        if (a > 0) {
-          list.push({ g, age, phase, a, s: g.s * k, x: w * (0.5 + g.out * k) + g.sway * 0.4 * Math.sin(phase) * k,
-            y: h * (0.45 + (0.5 - 0.7 * p) * k) });
-        }
-        continue;
-      }
-      const from = h + g.s * 0.6;
-      const p = age / g.rise;
-      const y = from - (from + g.s) * p;
-      if (y < -g.s) continue;
-      // Spöket börjar nästan genomskinligt vid nederkanten, blir tydligare när det stiger och tonar
-      // bort mot överkanten.
-      const a = Math.min(0.12 + p * 1.8, 1, (y + g.s) / (h * 0.25)) * fade(t, dur) * g.alpha;
-      if (a > 0) list.push({ g, age, phase, a, s: g.s, x: g.x * w + g.sway * Math.sin(phase), y });
-    }
-    // De närmaste ritas sist, så att de hamnar framför.
-    list.sort((p, q) => p.s - q.s);
-    for (const { g, age, phase, a, s, x, y } of list) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(Math.cos(phase) * 0.12);
-      // Hälften är spegelvända, så att de vinkar åt olika håll.
-      ctx.scale(g.flip, 1);
-      ctx.globalAlpha = a;
-      // Ögonen sluts en kort stund ungefär var tredje sekund.
-      const blink = (age + g.blinkPh) % 3 < 0.14 ? 0.15 : 1;
-      drawGhost(ctx, s, age * 4 + g.ph, blink);
-      ctx.restore();
-    }
-  };
-  const area = canvasIn(box, draw);
-  if (still()) {
-    // Med minskad rörelse svävar spökena still på olika höjd.
-    area.start();
-    t = 6;
-    draw();
-    return;
-  }
-  play(box, area, dur, (now) => { t = now; draw(); });
-}
-
-// Ett runt och gulligt ren i galopp, vänt åt höger med hovarna vid y = 9. leg går från -1 till 1,
-// och red ger renet en röd mule som Rudolf.
-function drawReindeer(ctx, leg, red) {
-  // Fyra korta, runda ben som springer.
-  ctx.strokeStyle = '#8a5a3b';
-  ctx.lineWidth = 3.4;
-  ctx.beginPath();
-  for (const [x, dir] of [[6, 1], [-6, -1]]) {
-    const a = leg * 0.6 * dir;
-    ctx.moveTo(x, 2); ctx.lineTo(x + Math.sin(a + 0.4 * dir) * 6, 3 + Math.cos(a + 0.4 * dir) * 6);
-    ctx.moveTo(x - 2.5, 2); ctx.lineTo(x - 2.5 + Math.sin(-a + 0.2 * dir) * 6, 3 + Math.cos(-a + 0.2 * dir) * 6);
-  }
-  ctx.stroke();
-  // Hornen.
-  ctx.strokeStyle = '#f3e2c7';
-  ctx.lineWidth = 1.6;
-  ctx.beginPath();
-  ctx.moveTo(9, -14); ctx.quadraticCurveTo(7, -19, 4, -21); ctx.moveTo(7.3, -18); ctx.lineTo(9.5, -21);
-  ctx.moveTo(12, -14.5); ctx.quadraticCurveTo(12, -20, 10, -23); ctx.moveTo(11.6, -19); ctx.lineTo(14, -21.5);
-  ctx.stroke();
-  // Kropp, svans, öra och det stora runda huvudet.
-  ctx.fillStyle = '#c58b5c';
-  ctx.beginPath();
-  ctx.ellipse(0, 0, 10.5, 7, 0, 0, Math.PI * 2);
-  ctx.moveTo(-9, -4); ctx.arc(-10.5, -4, 2.4, 0, Math.PI * 2);
-  ctx.moveTo(6.5, -13); ctx.ellipse(5.5, -13, 2.6, 1.5, -0.5, 0, Math.PI * 2);
-  ctx.moveTo(12, -5); ctx.ellipse(8, -4, 5, 5, 0, 0, Math.PI * 2);
-  ctx.moveTo(17, -9); ctx.arc(11, -9, 6, 0, Math.PI * 2);
-  ctx.fill();
-  // Ljus mage och mule.
-  ctx.fillStyle = '#ecd2b4';
-  ctx.beginPath();
-  ctx.ellipse(1, 3, 6.5, 3.2, 0, 0, Math.PI * 2);
-  ctx.moveTo(19, -6.5); ctx.ellipse(15.5, -6.5, 3.6, 2.8, 0, 0, Math.PI * 2);
-  ctx.fill();
-  // Nosen, ögat med en ljus glimt och en rosa kind.
-  ctx.fillStyle = red ? '#ff3b3b' : '#3b2418';
-  ctx.beginPath();
-  ctx.arc(18.8, -7.4, red ? 2 : 1.6, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#1d0f2b';
-  ctx.beginPath();
-  ctx.ellipse(12.6, -10.6, 1.3, 1.7, 0, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.arc(13, -11.2, 0.5, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = 'rgba(255,140,160,0.55)';
-  ctx.beginPath();
-  ctx.ellipse(10.5, -6.8, 1.6, 1, 0, 0, Math.PI * 2);
-  ctx.fill();
-}
-
-// Släden med tomten och säcken, vänd åt höger med medarna vid y = 10 och fronten vid x = 0.
-// Tomten är bullig och glad, med runt vitt skägg, och håller i tömmarna. Släden har svängd
-// front, hög rygg med snirkel och guldmedar som rullar upp sig framtill.
-function drawSled(ctx) {
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-  // Medarna och stöden i guld.
-  ctx.strokeStyle = '#ffd166';
-  ctx.lineWidth = 1.8;
-  ctx.beginPath();
-  ctx.moveTo(-50, 11); ctx.lineTo(-4, 11); ctx.bezierCurveTo(4, 11, 7, 5, 3, 2.5); ctx.arc(2, 4.5, 2, -1.2, 3.6);
-  ctx.moveTo(-40, 5); ctx.lineTo(-40, 11); ctx.moveTo(-14, 5); ctx.lineTo(-14, 11);
-  ctx.stroke();
-  // Säcken bakom tomten.
-  ctx.fillStyle = '#a0703f';
-  ctx.beginPath();
-  ctx.ellipse(-41, -7, 7.5, 9, -0.2, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#7a5230';
-  ctx.beginPath();
-  ctx.ellipse(-40, -16, 3, 1.6, 0, 0, Math.PI * 2);
-  ctx.fill();
-  // Tomtens röda rock med vit kant och svart bälte.
-  ctx.fillStyle = '#e8383d';
-  ctx.beginPath();
-  ctx.arc(-26, -5, 9.5, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#2b1a14';
-  ctx.fillRect(-35, -4.5, 18, 2.6);
-  ctx.fillStyle = '#ffd166';
-  ctx.fillRect(-22.5, -5, 3, 3.6);
-  // Armen sträcks fram och håller i tömmarna.
-  ctx.strokeStyle = '#e8383d';
-  ctx.lineWidth = 4.2;
-  ctx.beginPath();
-  ctx.moveTo(-24, -9); ctx.lineTo(-13, -6);
-  ctx.stroke();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.ellipse(-12.6, -6, 1.6, 2.4, 0.3, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#2b1a14';
-  ctx.beginPath();
-  ctx.arc(-10, -5.6, 2.2, 0, Math.PI * 2);
-  ctx.fill();
-  // Ansiktet och det runda skägget under det.
-  ctx.fillStyle = '#ffd9bf';
-  ctx.beginPath();
-  ctx.arc(-24, -19, 6.4, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.moveTo(-30.2, -17.5); ctx.bezierCurveTo(-30.8, -7, -17.2, -7, -17.8, -17.5);
-  ctx.quadraticCurveTo(-24, -11, -30.2, -17.5);
-  ctx.fill();
-  // Rosa kinder och röd näsa.
-  ctx.fillStyle = 'rgba(255,120,140,0.6)';
-  ctx.beginPath();
-  ctx.arc(-28.2, -17.6, 1.3, 0, Math.PI * 2);
-  ctx.arc(-18.8, -17.6, 1.3, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ef6f6f';
-  ctx.beginPath();
-  ctx.arc(-23.4, -17.4, 1.1, 0, Math.PI * 2);
-  ctx.fill();
-  // Glada ögon som små bågar.
-  ctx.strokeStyle = '#1d0f2b';
-  ctx.lineWidth = 0.9;
-  for (const x of [-26, -20.8]) {
-    ctx.beginPath();
-    ctx.arc(x, -19, 1.3, Math.PI * 1.15, Math.PI * 1.85);
-    ctx.stroke();
-  }
-  // Luvan hänger bakåt med en vit tofs och har en bred vit pälskant.
-  ctx.fillStyle = '#e8383d';
-  ctx.beginPath();
-  ctx.moveTo(-18, -22); ctx.bezierCurveTo(-18, -30, -24, -33, -29, -31);
-  ctx.quadraticCurveTo(-34, -29, -36, -25.5); ctx.quadraticCurveTo(-32, -27, -30.5, -22); ctx.closePath();
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.ellipse(-24.2, -22.6, 7.2, 2.3, 0, 0, Math.PI * 2);
-  ctx.moveTo(-34, -25.5); ctx.arc(-35.6, -25.5, 2.3, 0, Math.PI * 2);
-  ctx.fill();
-  // Släden: svängd front som rullar in sig, låg mitt och hög rygg med snirkel.
-  ctx.fillStyle = '#c4161c';
-  ctx.beginPath();
-  ctx.moveTo(-46, 6.5); ctx.lineTo(-10, 6.5);
-  ctx.bezierCurveTo(-2, 6.5, 2, 0, -1, -7); ctx.bezierCurveTo(-3, -11, -8, -9, -6, -6);
-  ctx.quadraticCurveTo(-9, -1, -16, -1); ctx.lineTo(-36, -1);
-  ctx.quadraticCurveTo(-40, -1, -43, -10); ctx.bezierCurveTo(-45, -17, -53, -16, -51, -11);
-  ctx.quadraticCurveTo(-49, -2, -46, 6.5);
-  ctx.fill();
-  // Guldsnirklar på fronten, ryggen och sidan.
-  ctx.strokeStyle = '#ffd166';
-  ctx.lineWidth = 1.1;
-  ctx.beginPath();
-  ctx.arc(-3.6, -7.5, 1.8, 0, Math.PI * 1.6);
-  ctx.moveTo(-46, -12.5); ctx.arc(-47.6, -12.5, 1.6, 0, Math.PI * 1.6);
-  ctx.moveTo(-44, 3); ctx.lineTo(-12, 3);
-  ctx.moveTo(-31, 3); ctx.quadraticCurveTo(-28, -0.2, -25, 3); ctx.quadraticCurveTo(-22, -0.2, -19, 3);
-  ctx.stroke();
-}
-
-// Tomtens släde: släden med tre renar flyger två gånger över omslagets övre del, först nära och
-// sedan längre bort åt andra hållet, och lämnar ett spår av glittrande stjärnstoft som långsamt
-// faller och slocknar. Små stjärnor tindrar på himlen hela tiden.
-function sleigh(box) {
-  const dur = 12.8;
-  // När passagen börjar, hur länge den tar, åt vilket håll, på vilken höjd och hur stor släden är.
-  const passes = [[0.3, 4.6, 1, 0.36, 1], [5.9, 4.6, -1, 0.28, 0.7]];
-  const stars = Array.from({ length: 18 }, () => ({ x: rand(0.04, 0.96), y: rand(0.05, 0.55), r: rand(0.6, 1.4), hz: rand(0.4, 1.1), ph: rand(0, 6.3) }));
-  const dust = [];
-  let t = 0;
-  let lastEmit = 0;
-  // Var släden är t sekunder in, eller null mellan passagerna.
-  const where = (time) => {
-    const { w, h } = area;
-    for (const [start, len, dir, level, scale] of passes) {
-      const p = (time - start) / len;
-      if (p < 0 || p > 1) continue;
-      // Släden är stor, så att tomten och renarna syns med ögon och allt.
-      const u = scale * Math.min(2, Math.max(1.25, w / 230));
-      const span = w + 300 * u;
-      const x = dir > 0 ? -150 * u + span * p : w + 150 * u - span * p;
-      // Släden stiger lite under passagen och gungar i takt med renarnas galopp.
-      const y = h * (level + (0.5 - p) * 0.1) + Math.sin(time * 6) * 2 * u;
-      return { x, y, dir, u };
-    }
-    return null;
-  };
-  const draw = () => {
-    const { ctx, w, h } = area;
-    ctx.clearRect(0, 0, w, h);
-    const a = Math.min(1, t / 1.2) * fade(t, dur);
-    ctx.globalCompositeOperation = 'lighter';
-    ctx.fillStyle = '#fff6d8';
-    for (const s of stars) {
-      ctx.globalAlpha = a * (0.35 + 0.35 * Math.sin(t * s.hz * 6.283 + s.ph));
-      ctx.beginPath();
-      ctx.arc(s.x * w, s.y * h, s.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    // Stjärnstoftet: små fyruddiga stjärnor som tindrar medan de slocknar.
-    for (const d of dust) {
-      const left = 1 - d.age / d.life;
-      ctx.globalAlpha = Math.min(1, left * 1.5) * (0.6 + 0.4 * Math.sin(d.age * 18 + d.ph)) * fade(t, dur);
-      ctx.fillStyle = d.c;
-      const r = d.r;
-      ctx.beginPath();
-      ctx.moveTo(d.x, d.y - r * 2.2); ctx.lineTo(d.x + r * 0.5, d.y - r * 0.5); ctx.lineTo(d.x + r * 2.2, d.y);
-      ctx.lineTo(d.x + r * 0.5, d.y + r * 0.5); ctx.lineTo(d.x, d.y + r * 2.2); ctx.lineTo(d.x - r * 0.5, d.y + r * 0.5);
-      ctx.lineTo(d.x - r * 2.2, d.y); ctx.lineTo(d.x - r * 0.5, d.y - r * 0.5);
-      ctx.fill();
-    }
-    ctx.globalCompositeOperation = 'source-over';
-    const sled = where(t);
-    if (sled) {
-      ctx.save();
-      ctx.globalAlpha = 0.95 * fade(t, dur);
-      ctx.translate(sled.x, sled.y);
-      ctx.scale(sled.dir * sled.u, sled.u);
-      ctx.rotate(-0.1);
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      drawSled(ctx);
-      // Tömmarna från tomtens hand till det främsta renet.
-      ctx.strokeStyle = '#ffd166';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.moveTo(-10, -5.6); ctx.quadraticCurveTo(44, 6, 92, -4);
-      ctx.stroke();
-      // Det främsta renet har röd mule.
-      [28, 60, 92].forEach((x, i) => {
-        ctx.save();
-        ctx.translate(x, -2);
-        drawReindeer(ctx, Math.sin(t * 9 + i * 1.2), i === 2);
-        ctx.restore();
-      });
-      ctx.restore();
-    }
-    ctx.globalAlpha = 1;
-  };
-  const step = (dt) => {
-    const sled = where(t);
-    // Släden släpper stoft en bit bakom medarnas bakände, ungefär 80 korn i sekunden.
-    if (sled) {
-      while (lastEmit < t) {
-        lastEmit += 1 / 80;
-        dust.push({ x: sled.x - sled.dir * 57 * sled.u + rand(-4, 4), y: sled.y + rand(4, 16) * sled.u,
-          vx: -sled.dir * rand(4, 26), vy: rand(6, 30), age: 0, life: rand(1.6, 3), r: rand(0.8, 2.2) * sled.u,
-          ph: rand(0, 6.3), c: Math.random() < 0.6 ? '#ffd166' : '#ffffff' });
-      }
-    } else lastEmit = t;
-    for (const d of dust) { d.age += dt; d.x += d.vx * dt; d.y += d.vy * dt; }
-    for (let i = dust.length - 1; i >= 0; i -= 1) if (dust[i].age >= dust[i].life) dust.splice(i, 1);
-  };
-  const area = canvasIn(box, draw);
-  if (still()) {
-    // Med minskad rörelse står släden still mitt i den första passagen, med stoftet bakom sig.
-    area.start();
-    for (t = 0; t < 2.9; t += 1 / 30) step(1 / 30);
-    draw();
-    return;
-  }
-  play(box, area, dur, (now, dt) => { t = now; step(dt); draw(); });
 }
 
 // En rund snöflinga med mjuk kant, ritad en gång och sedan kopierad i olika storlekar.
