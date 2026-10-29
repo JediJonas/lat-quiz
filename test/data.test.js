@@ -225,3 +225,26 @@ test('varje filmmusiklåt har ledmotivets spårnamn', () => {
     assert.ok(typeof song.track === 'string' && song.track.trim(), `filmmusik.json: ${song.id} saknar track`);
   }
 });
+
+test('en datafil hämtas igen när den inte gick att läsa', async () => {
+  const { getJson } = await import('../js/data.js');
+  const original = globalThis.fetch;
+  try {
+    let calls = 0;
+    globalThis.fetch = async () => {
+      calls += 1;
+      if (calls === 1) return { ok: false };
+      if (calls === 2) throw new TypeError('Load failed');
+      return { ok: true, json: async () => ({ ok: 1 }) };
+    };
+    assert.deepEqual(await getJson('data/edm.json', { retries: [0, 0] }), { ok: 1 });
+    assert.equal(calls, 3);
+
+    calls = 0;
+    globalThis.fetch = async () => { calls += 1; return { ok: false }; };
+    await assert.rejects(getJson('data/edm.json', { retries: [0, 0] }), /Kunde inte läsa data\/edm.json/);
+    assert.equal(calls, 3);
+  } finally {
+    globalThis.fetch = original;
+  }
+});

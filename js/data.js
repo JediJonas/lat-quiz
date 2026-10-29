@@ -2,10 +2,21 @@
 
 import { answerKey } from './text.js';
 
-async function getJson(path) {
-  const res = await fetch(path, { cache: 'no-cache' });
-  if (!res.ok) throw new Error('Kunde inte läsa ' + path);
-  return res.json();
+// Ett enstaka fel, som när GitHub Pages just har publicerat en ny version eller mobilnätet
+// hackar till, ska inte stoppa spelet. Därför försöker sidan igen två gånger innan den ger upp.
+const RETRY_MS = [500, 1500];
+
+export async function getJson(path, { retries = RETRY_MS } = {}) {
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      const res = await fetch(path, { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Inget svar');
+      return await res.json();
+    } catch {
+      if (attempt >= retries.length) throw new Error('Kunde inte läsa ' + path);
+      await new Promise((resolve) => { setTimeout(resolve, retries[attempt]); });
+    }
+  }
 }
 
 export function loadCategories() {
