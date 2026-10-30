@@ -975,6 +975,13 @@
    "title": "Falcon Crest",
    "year": 1981,
    "track": "Falcon Crest Main Theme"
+  },
+  {
+   "id": "fragglarna",
+   "artist": "Fraggle Rock",
+   "title": "Fragglarna",
+   "year": 1983,
+   "track": "Fraggle Rock Theme"
   }
  ]
 }

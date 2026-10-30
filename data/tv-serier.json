@@ -734,5 +734,13 @@
   "year": 1981,
   "track": "Falcon Crest Main Theme",
   "deezerId": 81565752
+ },
+ {
+  "id": "fragglarna",
+  "artist": "Fraggle Rock",
+  "title": "Fragglarna",
+  "year": 1983,
+  "track": "Fraggle Rock Theme",
+  "deezerId": 1617083582
  }
 ]
