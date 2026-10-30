@@ -415,7 +415,7 @@ function renderSettingsSummary() {
 async function startGame(categoryId, resumeState, name, plays = true) {
   await scriptsLoaded;
   const categories = await loadCategories();
-  category = categories.find((c) => c.id === categoryId) || categories[0];
+  category = categories.find((c) => c.id === categoryId) || visibleCategories(categories)[0];
   songs = await loadSongs(category);
   if (resumeState) {
     state = resumeState;

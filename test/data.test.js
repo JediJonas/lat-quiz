@@ -26,16 +26,6 @@ test('varje quizlåt har ett unikt id och ett giltigt Deezer-ID', () => {
   }
 });
 
-test('kategorierna i host.html är desamma som i categories.json', () => {
-  const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
-  const options = [...html.matchAll(/<input type="radio" name="category" value="([^"]+)"[^>]*>.*?<span class="cat-name">([^<]+)<span class="cat-songs">(\d+) låtar<\/span><\/span>/g)]
-    .map(([, id, name, songs]) => ({ id, name: name.replaceAll('&shy;', ''), songs: Number(songs) }));
-  // Säsongskategorier står inte i host.html. De läggs till när det är säsong för dem.
-  const categories = read('data/categories.json').filter((c) => !c.season).map(({ id, name, songs }) => ({ id, name, songs }));
-  assert.deepEqual(options, categories, 'Uppdatera listan i host.html');
-  assert.match(html, new RegExp(`${categories.length} kategorier`));
-});
-
 test('säsongskategorier syns bara mellan sina datum', async () => {
   const { inSeason, visibleCategories } = await import('../js/data.js');
   const halloween = { id: 'halloween', season: { from: '10-15', to: '11-05' } };
@@ -53,12 +43,23 @@ test('säsongskategorier syns bara mellan sina datum', async () => {
   const all = [{ id: '80-tal' }, halloween];
   assert.deepEqual(visibleCategories(all, { date: day('2026-06-01') }).map((c) => c.id), ['80-tal']);
   assert.deepEqual(visibleCategories(all, { date: day('2026-06-01'), keep: 'halloween' }).map((c) => c.id), ['80-tal', 'halloween']);
+  // En avstängd kategori syns inte, inte heller under säsongen, men står kvar om den redan spelas.
+  const off = [{ id: '80-tal', active: false }, { id: '90-tal', active: true }, { ...halloween, active: false }];
+  assert.deepEqual(visibleCategories(off, { date: day('2026-10-31') }).map((c) => c.id), ['90-tal']);
+  assert.deepEqual(visibleCategories(off, { date: day('2026-10-31'), keep: '80-tal' }).map((c) => c.id), ['80-tal', '90-tal']);
 });
 
 test('säsongernas datum i categories.json är giltiga', () => {
   for (const { id, season } of read('data/categories.json')) {
     if (!season) continue;
     for (const d of [season.from, season.to]) assert.match(d, /^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, `${id}: ${d} ska vara MM-DD`);
+  }
+});
+
+test('active i categories.json är true eller false', () => {
+  // "false" som text skulle räknas som på, så bara true och false går.
+  for (const c of read('data/categories.json')) {
+    if ('active' in c) assert.equal(typeof c.active, 'boolean', `${c.id}: active ska vara true eller false`);
   }
 });
 

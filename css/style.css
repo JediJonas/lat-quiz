@@ -1140,6 +1140,9 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   scrollbar-width: none;
 }
 .cat-shelf::-webkit-scrollbar { display: none; }
+/* Omslagen byggs från categories.json när sidan har laddat. Raden har sin höjd från början
+   (omslaget, namnet på två rader och antalet låtar), så att Inställningar inte hoppar ner. */
+#category-picker { min-height: calc(146px + 3.25rem); }
 /* Radioknappen ligger dold inuti sitt omslag. Utan position: relative hamnade de dolda knapparna
    utanför raden, och då blev hela sidan bredare än skärmen i mobilen. Omslagen har ingen egen
    marginal, så att rubriken Kategori har samma luft under sig som Inställningar. */
