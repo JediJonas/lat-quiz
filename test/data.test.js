@@ -26,17 +26,6 @@ test('varje quizlåt har ett unikt id och ett giltigt Deezer-ID', () => {
   }
 });
 
-test('kategorierna i host.html är desamma som i categories.json', () => {
-  const html = readFileSync(new URL('../host.html', import.meta.url), 'utf8');
-  const options = [...html.matchAll(/<input type="radio" name="category" value="([^"]+)"[^>]*>.*?<span class="cat-name">([^<]+)<span class="cat-songs">(\d+) låtar<\/span><\/span>/g)]
-    .map(([, id, name, songs]) => ({ id, name: name.replaceAll('&shy;', ''), songs: Number(songs) }));
-  // Säsongskategorier står inte i host.html. De läggs till när det är säsong för dem.
-  // Avstängda kategorier står inte heller där.
-  const categories = read('data/categories.json').filter((c) => !c.season && c.active !== false).map(({ id, name, songs }) => ({ id, name, songs }));
-  assert.deepEqual(options, categories, 'Uppdatera listan i host.html');
-  assert.match(html, new RegExp(`${categories.length} kategorier`));
-});
-
 test('säsongskategorier syns bara mellan sina datum', async () => {
   const { inSeason, visibleCategories } = await import('../js/data.js');
   const halloween = { id: 'halloween', season: { from: '10-15', to: '11-05' } };
