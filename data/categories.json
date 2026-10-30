@@ -15,5 +15,5 @@
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 },
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "songs": 210 },
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "songs": 178 },
-  { "id": "tv-serier", "name": "TV-serier", "file": "tv-serier.json", "labels": { "title": "Serie" }, "active": false, "songs": 71 }
+  { "id": "tv-serier", "name": "TV-serier", "file": "tv-serier.json", "labels": { "title": "Serie" }, "active": false, "songs": 72 }
 ]
