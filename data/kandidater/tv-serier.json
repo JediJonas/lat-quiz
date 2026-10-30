@@ -947,6 +947,27 @@
    "title": "Gummibjörnarna",
    "year": 1985,
    "track": "Gummi Bears Theme"
+  },
+  {
+   "id": "mash",
+   "artist": "The Mash",
+   "title": "M*A*S*H",
+   "year": 1972,
+   "track": "Suicide Is Painless"
+  },
+  {
+   "id": "wallander",
+   "artist": "Emily Barker",
+   "title": "Wallander",
+   "year": 2008,
+   "track": "Nostalgia"
+  },
+  {
+   "id": "bluey",
+   "artist": "Joff Bush",
+   "title": "Bluey",
+   "year": 2018,
+   "track": "Bluey Theme Tune"
   }
  ]
 }

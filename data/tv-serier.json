@@ -528,30 +528,6 @@
   "deezerId": 548862472
  },
  {
-  "id": "peter-gunn",
-  "artist": "Henry Mancini",
-  "title": "Peter Gunn",
-  "year": 1958,
-  "track": "Peter Gunn Theme",
-  "deezerId": 890538
- },
- {
-  "id": "rawhide",
-  "artist": "Frankie Laine",
-  "title": "Rawhide",
-  "year": 1959,
-  "track": "Rawhide",
-  "deezerId": 495173142
- },
- {
-  "id": "veronica-mars",
-  "artist": "The Dandy Warhols",
-  "title": "Veronica Mars",
-  "year": 2004,
-  "track": "We Used to Be Friends",
-  "deezerId": 2126030287
- },
- {
   "id": "orange-is-the-new-black",
   "artist": "Regina Spektor",
   "title": "Orange Is the New Black",
@@ -560,28 +536,12 @@
   "deezerId": 68529043
  },
  {
-  "id": "nypd-blue",
-  "artist": "Mike Post",
-  "title": "NYPD Blue",
-  "year": 1993,
-  "track": "Theme From NYPD Blue",
-  "deezerId": 62253405
- },
- {
   "id": "law-and-order",
   "artist": "Mike Post",
   "title": "Law & Order",
   "year": 1990,
   "track": "The Theme of Law & Order",
   "deezerId": 62253411
- },
- {
-  "id": "lagens-anglar",
-  "artist": "Mike Post",
-  "title": "Lagens änglar",
-  "year": 1986,
-  "track": "The Theme From L.A. Law",
-  "deezerId": 3669266362
  },
  {
   "id": "the-equalizer",
@@ -646,14 +606,6 @@
   "year": 1999,
   "track": "Here with Me",
   "deezerId": 962165
- },
- {
-  "id": "grannar",
-  "artist": "Barry Crocker",
-  "title": "Grannar",
-  "year": 1985,
-  "track": "Neighbours Theme",
-  "deezerId": 62512662
  },
  {
   "id": "hulken",
@@ -806,5 +758,37 @@
   "year": 2016,
   "track": "Stranger Things",
   "deezerId": 130871168
+ },
+ {
+  "id": "mash",
+  "artist": "The Mash",
+  "title": "M*A*S*H",
+  "year": 1972,
+  "track": "Suicide Is Painless",
+  "deezerId": 5404505
+ },
+ {
+  "id": "doctor-who",
+  "artist": "Delia Derbyshire",
+  "title": "Doctor Who",
+  "year": 1963,
+  "track": "Doctor Who",
+  "deezerId": 3508495781
+ },
+ {
+  "id": "wallander",
+  "artist": "Emily Barker",
+  "title": "Wallander",
+  "year": 2008,
+  "track": "Nostalgia",
+  "deezerId": 706080082
+ },
+ {
+  "id": "bluey",
+  "artist": "Joff Bush",
+  "title": "Bluey",
+  "year": 2018,
+  "track": "Bluey Theme Tune",
+  "deezerId": 1136191072
  }
 ]
