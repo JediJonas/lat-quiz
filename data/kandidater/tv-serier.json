@@ -723,6 +723,13 @@
    "title": "Stranger Things",
    "year": 2016,
    "track": "Stranger Things"
+  },
+  {
+   "id": "bert",
+   "artist": "Lill-Babs",
+   "title": "Bert",
+   "year": 1994,
+   "track": "Älskade ängel"
   }
  ]
 }
