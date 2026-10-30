@@ -718,5 +718,21 @@
   "year": 2018,
   "track": "Bluey Theme Tune",
   "deezerId": 1136191072
+ },
+ {
+  "id": "dallas",
+  "artist": "Dominik Hauser",
+  "title": "Dallas",
+  "year": 1978,
+  "track": "Dallas Theme",
+  "deezerId": 116040812
+ },
+ {
+  "id": "falcon-crest",
+  "artist": "Marc Bradley",
+  "title": "Falcon Crest",
+  "year": 1981,
+  "track": "Falcon Crest Main Theme",
+  "deezerId": 81565752
  }
 ]
