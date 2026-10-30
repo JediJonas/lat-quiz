@@ -1,0 +1,728 @@
+{
+ "id": "tv-serier",
+ "name": "TV-serier",
+ "file": "tv-serier.json",
+ "songs": [
+  {
+   "id": "vanner",
+   "artist": "The Rembrandts",
+   "title": "Vänner",
+   "year": 1994,
+   "track": "I'll Be There for You"
+  },
+  {
+   "id": "skal",
+   "artist": "Gary Portnoy",
+   "title": "Skål",
+   "year": 1982,
+   "track": "Where Everybody Knows Your Name"
+  },
+  {
+   "id": "frasier",
+   "artist": "Kelsey Grammer",
+   "title": "Frasier",
+   "year": 1993,
+   "track": "Tossed Salads and Scrambled Eggs"
+  },
+  {
+   "id": "seinfeld",
+   "artist": "Jonathan Wolff",
+   "title": "Seinfeld",
+   "year": 1989,
+   "track": "Seinfeld"
+  },
+  {
+   "id": "fresh-prince",
+   "artist": "Will Smith",
+   "title": "Fresh Prince i Bel-Air",
+   "year": 1990,
+   "track": "The Fresh Prince of Bel-Air"
+  },
+  {
+   "id": "vara-varsta-ar",
+   "artist": "Frank Sinatra",
+   "title": "Våra värsta år",
+   "year": 1987,
+   "track": "Love and Marriage"
+  },
+  {
+   "id": "huset-fullt",
+   "artist": "Jesse Frederick",
+   "title": "Huset fullt",
+   "year": 1987,
+   "track": "Everywhere You Look"
+  },
+  {
+   "id": "malcolm",
+   "artist": "They Might Be Giants",
+   "title": "Malcolm in the Middle",
+   "year": 2000,
+   "track": "Boss of Me"
+  },
+  {
+   "id": "det-var-da",
+   "artist": "Cheap Trick",
+   "title": "That '70s Show",
+   "year": 1998,
+   "track": "That '70s Song"
+  },
+  {
+   "id": "scrubs",
+   "artist": "Lazlo Bane",
+   "title": "Scrubs",
+   "year": 2001,
+   "track": "Superman"
+  },
+  {
+   "id": "himym",
+   "artist": "The Solids",
+   "title": "How I Met Your Mother",
+   "year": 2005,
+   "track": "Hey Beautiful"
+  },
+  {
+   "id": "big-bang",
+   "artist": "Barenaked Ladies",
+   "title": "The Big Bang Theory",
+   "year": 2007,
+   "track": "Big Bang Theory Theme"
+  },
+  {
+   "id": "new-girl",
+   "artist": "Zooey Deschanel",
+   "title": "New Girl",
+   "year": 2011,
+   "track": "Hey Girl"
+  },
+  {
+   "id": "the-office",
+   "artist": "The Scrantones",
+   "title": "The Office",
+   "year": 2005,
+   "track": "The Office Theme"
+  },
+  {
+   "id": "brooklyn",
+   "artist": "Dan Marocco",
+   "title": "Brooklyn Nine-Nine",
+   "year": 2013,
+   "track": "Brooklyn Nine-Nine"
+  },
+  {
+   "id": "parks",
+   "artist": "Gaby Moreno",
+   "title": "Parks and Recreation",
+   "year": 2009,
+   "track": "Parks and Recreation"
+  },
+  {
+   "id": "curb",
+   "artist": "Luciano Michelini",
+   "title": "Curb Your Enthusiasm",
+   "year": 2000,
+   "track": "Frolic"
+  },
+  {
+   "id": "pang-i-bygget",
+   "artist": "Dennis Wilson",
+   "title": "Pang i bygget",
+   "year": 1975,
+   "track": "Fawlty Towers"
+  },
+  {
+   "id": "mr-bean",
+   "artist": "Howard Goodall",
+   "title": "Mr. Bean",
+   "year": 1990,
+   "track": "Mr. Bean"
+  },
+  {
+   "id": "blackadder",
+   "artist": "Howard Goodall",
+   "title": "Blackadder",
+   "year": 1983,
+   "track": "Blackadder"
+  },
+  {
+   "id": "it-crowd",
+   "artist": "Neil Hannon",
+   "title": "The IT Crowd",
+   "year": 2006,
+   "track": "The IT Crowd"
+  },
+  {
+   "id": "ganget-och-jag",
+   "artist": "Pratt & McClain",
+   "title": "Gänget och jag",
+   "year": 1974,
+   "track": "Happy Days"
+  },
+  {
+   "id": "simpsons",
+   "artist": "Danny Elfman",
+   "title": "Simpsons",
+   "year": 1989,
+   "track": "The Simpsons"
+  },
+  {
+   "id": "futurama",
+   "artist": "Christopher Tyng",
+   "title": "Futurama",
+   "year": 1999,
+   "track": "Futurama"
+  },
+  {
+   "id": "south-park",
+   "artist": "Primus",
+   "title": "South Park",
+   "year": 1997,
+   "track": "South Park"
+  },
+  {
+   "id": "family-guy",
+   "artist": "Walter Murphy",
+   "title": "Family Guy",
+   "year": 1999,
+   "track": "Family Guy"
+  },
+  {
+   "id": "rick-and-morty",
+   "artist": "Ryan Elder",
+   "title": "Rick and Morty",
+   "year": 2013,
+   "track": "Rick and Morty"
+  },
+  {
+   "id": "familjen-flinta",
+   "artist": "Hoyt Curtin",
+   "title": "Familjen Flinta",
+   "year": 1960,
+   "track": "Meet the Flintstones"
+  },
+  {
+   "id": "mupparna",
+   "artist": "The Muppets",
+   "title": "Mupparna",
+   "year": 1976,
+   "track": "The Muppet Show Theme"
+  },
+  {
+   "id": "dallas",
+   "artist": "Jerrold Immel",
+   "title": "Dallas",
+   "year": 1978,
+   "track": "Dallas"
+  },
+  {
+   "id": "dynastin",
+   "artist": "Bill Conti",
+   "title": "Dynastin",
+   "year": 1981,
+   "track": "Dynasty"
+  },
+  {
+   "id": "miami-vice",
+   "artist": "Jan Hammer",
+   "title": "Miami Vice",
+   "year": 1984,
+   "track": "Miami Vice Theme"
+  },
+  {
+   "id": "knight-rider",
+   "artist": "Stu Phillips",
+   "title": "Knight Rider",
+   "year": 1982,
+   "track": "Knight Rider"
+  },
+  {
+   "id": "macgyver",
+   "artist": "Randy Edelman",
+   "title": "MacGyver",
+   "year": 1985,
+   "track": "MacGyver"
+  },
+  {
+   "id": "magnum",
+   "artist": "Mike Post",
+   "title": "Magnum",
+   "year": 1980,
+   "track": "Magnum, P.I."
+  },
+  {
+   "id": "a-team",
+   "artist": "Mike Post",
+   "title": "A-Team",
+   "year": 1983,
+   "track": "The A-Team"
+  },
+  {
+   "id": "baywatch",
+   "artist": "Jimi Jamison",
+   "title": "Baywatch",
+   "year": 1989,
+   "track": "I'm Always Here"
+  },
+  {
+   "id": "charlies-anglar",
+   "artist": "Jack Elliott",
+   "title": "Charlies änglar",
+   "year": 1976,
+   "track": "Charlie's Angels"
+  },
+  {
+   "id": "par-i-brott",
+   "artist": "Al Jarreau",
+   "title": "Par i brott",
+   "year": 1985,
+   "track": "Moonlighting"
+  },
+  {
+   "id": "hill-street",
+   "artist": "Mike Post",
+   "title": "Spanarna på Hill Street",
+   "year": 1981,
+   "track": "Hill Street Blues"
+  },
+  {
+   "id": "beverly-hills",
+   "artist": "John E. Davis",
+   "title": "Beverly Hills 90210",
+   "year": 1990,
+   "track": "Beverly Hills 90210"
+  },
+  {
+   "id": "ally-mcbeal",
+   "artist": "Vonda Shepard",
+   "title": "Ally McBeal",
+   "year": 1997,
+   "track": "Searchin' My Soul"
+  },
+  {
+   "id": "dawsons-creek",
+   "artist": "Paula Cole",
+   "title": "Dawson's Creek",
+   "year": 1998,
+   "track": "I Don't Want to Wait"
+  },
+  {
+   "id": "oc",
+   "artist": "Phantom Planet",
+   "title": "OC",
+   "year": 2003,
+   "track": "California"
+  },
+  {
+   "id": "gilmore-girls",
+   "artist": "Carole King",
+   "title": "Gilmore Girls",
+   "year": 2000,
+   "track": "Where You Lead"
+  },
+  {
+   "id": "one-tree-hill",
+   "artist": "Gavin DeGraw",
+   "title": "One Tree Hill",
+   "year": 2003,
+   "track": "I Don't Want to Be"
+  },
+  {
+   "id": "forhaxad",
+   "artist": "Love Spit Love",
+   "title": "Förhäxad",
+   "year": 1998,
+   "track": "How Soon Is Now?"
+  },
+  {
+   "id": "buffy",
+   "artist": "Nerf Herder",
+   "title": "Buffy och vampyrerna",
+   "year": 1997,
+   "track": "Buffy the Vampire Slayer"
+  },
+  {
+   "id": "smallville",
+   "artist": "Remy Zero",
+   "title": "Smallville",
+   "year": 2001,
+   "track": "Save Me"
+  },
+  {
+   "id": "sex-and-the-city",
+   "artist": "Douglas J. Cuomo",
+   "title": "Sex and the City",
+   "year": 1998,
+   "track": "Sex and the City"
+  },
+  {
+   "id": "desperate-housewives",
+   "artist": "Danny Elfman",
+   "title": "Desperate Housewives",
+   "year": 2004,
+   "track": "Desperate Housewives"
+  },
+  {
+   "id": "cityakuten",
+   "artist": "James Newton Howard",
+   "title": "Cityakuten",
+   "year": 1994,
+   "track": "ER"
+  },
+  {
+   "id": "csi",
+   "artist": "The Who",
+   "title": "CSI",
+   "year": 2000,
+   "track": "Who Are You"
+  },
+  {
+   "id": "house",
+   "artist": "Massive Attack",
+   "title": "House",
+   "year": 2004,
+   "track": "Teardrop"
+  },
+  {
+   "id": "arkiv-x",
+   "artist": "Mark Snow",
+   "title": "Arkiv X",
+   "year": 1993,
+   "track": "The X-Files"
+  },
+  {
+   "id": "sopranos",
+   "artist": "Alabama 3",
+   "title": "Sopranos",
+   "year": 1999,
+   "track": "Woke Up This Morning"
+  },
+  {
+   "id": "six-feet-under",
+   "artist": "Thomas Newman",
+   "title": "Six Feet Under",
+   "year": 2001,
+   "track": "Six Feet Under"
+  },
+  {
+   "id": "dexter",
+   "artist": "Rolfe Kent",
+   "title": "Dexter",
+   "year": 2006,
+   "track": "Dexter"
+  },
+  {
+   "id": "mad-men",
+   "artist": "RJD2",
+   "title": "Mad Men",
+   "year": 2007,
+   "track": "A Beautiful Mine"
+  },
+  {
+   "id": "breaking-bad",
+   "artist": "Dave Porter",
+   "title": "Breaking Bad",
+   "year": 2008,
+   "track": "Breaking Bad"
+  },
+  {
+   "id": "better-call-saul",
+   "artist": "Little Barrie",
+   "title": "Better Call Saul",
+   "year": 2015,
+   "track": "Better Call Saul"
+  },
+  {
+   "id": "sons-of-anarchy",
+   "artist": "Curtis Stigers",
+   "title": "Sons of Anarchy",
+   "year": 2008,
+   "track": "This Life"
+  },
+  {
+   "id": "weeds",
+   "artist": "Malvina Reynolds",
+   "title": "Weeds",
+   "year": 2005,
+   "track": "Little Boxes"
+  },
+  {
+   "id": "entourage",
+   "artist": "Jane's Addiction",
+   "title": "Entourage",
+   "year": 2004,
+   "track": "Superhero"
+  },
+  {
+   "id": "prison-break",
+   "artist": "Ramin Djawadi",
+   "title": "Prison Break",
+   "year": 2005,
+   "track": "Prison Break"
+  },
+  {
+   "id": "true-detective",
+   "artist": "The Handsome Family",
+   "title": "True Detective",
+   "year": 2014,
+   "track": "Far From Any Road"
+  },
+  {
+   "id": "peaky-blinders",
+   "artist": "Nick Cave & The Bad Seeds",
+   "title": "Peaky Blinders",
+   "year": 2013,
+   "track": "Red Right Hand"
+  },
+  {
+   "id": "narcos",
+   "artist": "Rodrigo Amarante",
+   "title": "Narcos",
+   "year": 2015,
+   "track": "Tuyo"
+  },
+  {
+   "id": "la-casa-de-papel",
+   "artist": "Cecilia Krull",
+   "title": "La casa de papel",
+   "year": 2017,
+   "track": "My Life Is Going On"
+  },
+  {
+   "id": "squid-game",
+   "artist": "Jung Jae-il",
+   "title": "Squid Game",
+   "year": 2021,
+   "track": "Way Back Then"
+  },
+  {
+   "id": "vikings",
+   "artist": "Fever Ray",
+   "title": "Vikings",
+   "year": 2013,
+   "track": "If I Had a Heart"
+  },
+  {
+   "id": "walking-dead",
+   "artist": "Bear McCreary",
+   "title": "The Walking Dead",
+   "year": 2010,
+   "track": "The Walking Dead"
+  },
+  {
+   "id": "game-of-thrones",
+   "artist": "Ramin Djawadi",
+   "title": "Game of Thrones",
+   "year": 2011,
+   "track": "Main Title"
+  },
+  {
+   "id": "westworld",
+   "artist": "Ramin Djawadi",
+   "title": "Westworld",
+   "year": 2016,
+   "track": "Westworld"
+  },
+  {
+   "id": "witcher",
+   "artist": "Joey Batey",
+   "title": "The Witcher",
+   "year": 2019,
+   "track": "Toss a Coin to Your Witcher"
+  },
+  {
+   "id": "mandalorian",
+   "artist": "Ludwig Göransson",
+   "title": "The Mandalorian",
+   "year": 2019,
+   "track": "The Mandalorian"
+  },
+  {
+   "id": "last-of-us",
+   "artist": "Gustavo Santaolalla",
+   "title": "The Last of Us",
+   "year": 2023,
+   "track": "The Last of Us"
+  },
+  {
+   "id": "succession",
+   "artist": "Nicholas Britell",
+   "title": "Succession",
+   "year": 2018,
+   "track": "Succession"
+  },
+  {
+   "id": "white-lotus",
+   "artist": "Cristobal Tapia de Veer",
+   "title": "The White Lotus",
+   "year": 2021,
+   "track": "Aloha!"
+  },
+  {
+   "id": "the-crown",
+   "artist": "Hans Zimmer",
+   "title": "The Crown",
+   "year": 2016,
+   "track": "The Crown"
+  },
+  {
+   "id": "downton-abbey",
+   "artist": "John Lunn",
+   "title": "Downton Abbey",
+   "year": 2010,
+   "track": "Downton Abbey"
+  },
+  {
+   "id": "sherlock",
+   "artist": "David Arnold",
+   "title": "Sherlock",
+   "year": 2010,
+   "track": "Sherlock"
+  },
+  {
+   "id": "doctor-who",
+   "artist": "Ron Grainer",
+   "title": "Doctor Who",
+   "year": 1963,
+   "track": "Doctor Who"
+  },
+  {
+   "id": "midsomer",
+   "artist": "Jim Parker",
+   "title": "Morden i Midsomer",
+   "year": 1997,
+   "track": "Midsomer Murders"
+  },
+  {
+   "id": "band-of-brothers",
+   "artist": "Michael Kamen",
+   "title": "Band of Brothers",
+   "year": 2001,
+   "track": "Band of Brothers"
+  },
+  {
+   "id": "star-trek",
+   "artist": "Alexander Courage",
+   "title": "Star Trek",
+   "year": 1966,
+   "track": "Star Trek"
+  },
+  {
+   "id": "euphoria",
+   "artist": "Labrinth",
+   "title": "Euphoria",
+   "year": 2019,
+   "track": "Still Don't Know My Name"
+  },
+  {
+   "id": "ted-lasso",
+   "artist": "Marcus Mumford",
+   "title": "Ted Lasso",
+   "year": 2020,
+   "track": "Ted Lasso Theme"
+  },
+  {
+   "id": "severance",
+   "artist": "Theodore Shapiro",
+   "title": "Severance",
+   "year": 2022,
+   "track": "Severance"
+  },
+  {
+   "id": "dark",
+   "artist": "Apparat",
+   "title": "Dark",
+   "year": 2017,
+   "track": "Goodbye"
+  },
+  {
+   "id": "big-little-lies",
+   "artist": "Michael Kiwanuka",
+   "title": "Big Little Lies",
+   "year": 2017,
+   "track": "Cold Little Heart"
+  },
+  {
+   "id": "yellowstone",
+   "artist": "Brian Tyler",
+   "title": "Yellowstone",
+   "year": 2018,
+   "track": "Yellowstone"
+  },
+  {
+   "id": "only-murders",
+   "artist": "Siddhartha Khosla",
+   "title": "Only Murders in the Building",
+   "year": 2021,
+   "track": "Only Murders in the Building"
+  },
+  {
+   "id": "fargo",
+   "artist": "Jeff Russo",
+   "title": "Fargo",
+   "year": 2014,
+   "track": "Fargo"
+  },
+  {
+   "id": "macken",
+   "artist": "Galenskaparna & After Shave",
+   "title": "Macken",
+   "year": 1986,
+   "track": "Macken"
+  },
+  {
+   "id": "hem-till-byn",
+   "artist": "Jan Johansson",
+   "title": "Hem till byn",
+   "year": 1971,
+   "track": "Berg-Kirstis polska"
+  },
+  {
+   "id": "lorry",
+   "artist": "Earth, Wind & Fire",
+   "title": "Lorry",
+   "year": 1989,
+   "track": "In the Stone"
+  },
+  {
+   "id": "skargardsdoktorn",
+   "artist": "Stefan Nilsson",
+   "title": "Skärgårdsdoktorn",
+   "year": 1997,
+   "track": "Mot skärgården"
+  },
+  {
+   "id": "bron",
+   "artist": "Choir of Young Believers",
+   "title": "Bron",
+   "year": 2011,
+   "track": "Hollow Talk"
+  },
+  {
+   "id": "familjen-addams",
+   "artist": "Vic Mizzy",
+   "title": "Familjen Addams",
+   "year": 1964,
+   "track": "The Addams Family"
+  },
+  {
+   "id": "wednesday",
+   "artist": "Danny Elfman",
+   "title": "Wednesday",
+   "year": 2022,
+   "track": "Wednesday Main Titles"
+  },
+  {
+   "id": "twin-peaks",
+   "artist": "Angelo Badalamenti",
+   "title": "Twin Peaks",
+   "year": 1990,
+   "track": "Twin Peaks Theme"
+  },
+  {
+   "id": "stranger-things",
+   "artist": "Kyle Dixon & Michael Stein",
+   "title": "Stranger Things",
+   "year": 2016,
+   "track": "Stranger Things"
+  }
+ ]
+}

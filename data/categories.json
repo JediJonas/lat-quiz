@@ -14,5 +14,6 @@
   { "id": "jul", "name": "Jul", "file": "jul.json", "season": { "from": "12-01", "to": "01-06" }, "songs": 54 },
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" }, "songs": 155 },
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "songs": 210 },
-  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "songs": 178 }
+  { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "songs": 178 },
+  { "id": "tv-serier", "name": "TV-serier", "file": "tv-serier.json", "labels": { "title": "Serie" }, "active": false, "songs": 69 }
 ]

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
-  cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, joinedMessage, pause, resume, setHostPlaying, hasAnsweredBoth, replaceSong,
+  cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, joinedMessage, pause, resume, setHostPlaying, hasAnsweredAll, replaceSong,
 } from '../js/game.js';
 
 const songs = [
@@ -78,6 +78,35 @@ test('svaret visas först när tiden är slut, även om alla har svarat', () => 
   setConnected(state, 'p2', false);
   assert.equal(shouldReveal(state, 3000), false);
   assert.equal(remainingMs(state, 3000), 28000);
+});
+
+// TV-serier: bara fältet Serie gissas. Rätt serie ger 1 poäng och bonusen 1 till.
+function setupSeries() {
+  const state = createGame({ code: 'ABCD', categoryId: 'tv-serier', labels: { title: 'Serie' } });
+  addPlayer(state, { id: 'p1', name: 'Anna' });
+  addPlayer(state, { id: 'p2', name: 'Bo' });
+  nextSong(state, [{ id: 'v', artist: 'The Rembrandts', title: 'Vänner', year: 1994 }], () => 0);
+  startRound(state, 1000);
+  return state;
+}
+
+test('med bara titelfältet ger rätt titel 1 poäng och bonus utan artist', () => {
+  const state = setupSeries();
+  submitAnswer(state, 'p1', 'title', 'Vänner', 5000);
+  assert.equal(hasAnsweredAll(state, 'p1'), true);
+  assert.deepEqual(playerView(state, 'p1', 6000).answered, ['p1']);
+  submitAnswer(state, 'p2', 'title', 'Vänner', 20000);
+  reveal(state);
+  assert.deepEqual(state.round.results.p1, { artist: false, title: true, bonus: true, points: 2 });
+  assert.deepEqual(state.round.results.p2, { artist: false, title: true, bonus: false, points: 1 });
+});
+
+test('med bara titelfältet ger en gissad artist inga poäng', () => {
+  const state = setupSeries();
+  submitAnswer(state, 'p1', 'artist', 'The Rembrandts', 2000);
+  submitAnswer(state, 'p1', 'title', 'Simpsons', 2000);
+  reveal(state);
+  assert.deepEqual(state.round.results.p1, { artist: false, title: false, bonus: false, points: 0 });
 });
 
 test('en spelare som har svarat kan ändra sitt svar, och bonusen räknas från ändringen', () => {
@@ -358,7 +387,7 @@ test('spelledaren som inte deltar finns inte bland spelarna och kan inte svara',
   assert.equal(submitAnswer(state, 'h', 'artist', 'a-ha', 2000), false);
   submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
   submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
-  assert.equal(hasAnsweredBoth(state, 'p1'), true);
+  assert.equal(hasAnsweredAll(state, 'p1'), true);
   reveal(state);
   assert.deepEqual(standings(state).map((p) => p.id), ['p1']);
   assert.equal(state.round.results.h, undefined);

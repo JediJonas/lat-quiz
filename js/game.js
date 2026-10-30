@@ -11,6 +11,16 @@ export const ROUND_MS = 30000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
 export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
+
+// Fälten som gissas. En kategori utan artistfält, som TV-serier där man bara gissar på
+// serien, har bara titelfältet.
+export function guessFields(labels) {
+  return labels && !labels.artist ? ['title'] : ['artist', 'title'];
+}
+
+function roundLabels(state) {
+  return songLabels(state.round && state.round.song, state.labels || DEFAULT_LABELS);
+}
 export const MAX_NAME = 10;
 
 // Inställningar som spelledaren kan välja. roundMs är hur lång del av klippet som spelas, och
@@ -215,9 +225,10 @@ export function answeredFields(state, playerId) {
   return { artist: Boolean(answer && answer.artist), title: Boolean(answer && answer.title) };
 }
 
-export function hasAnsweredBoth(state, playerId) {
+// Alla fält är ifyllda: båda, eller bara titeln i en kategori med ett fält.
+export function hasAnsweredAll(state, playerId) {
   const answer = state.round && state.round.answers[playerId];
-  return Boolean(answer && answer.artist && answer.title);
+  return Boolean(answer && guessFields(roundLabels(state)).every((field) => answer[field]));
 }
 
 // Svaret visas först när tiden är slut, även om alla har svarat, så att
@@ -231,11 +242,13 @@ export function shouldReveal(state, now) {
 export function scoreAnswer(state, song, answer) {
   // Samma nycklar som förslagen, så att ett svar som bara stavas annorlunda, som
   // "Nick Cave and the Bad Seeds" för "Nick Cave & The Bad Seeds", räknas som rätt.
-  const artist = Boolean(answer && answerKey(answer.artist, { article: true }) === answerKey(song.artist, { article: true }));
+  // Med bara titelfältet ger rätt titel 1 poäng, och bonusen kräver bara den (30 oktober 2026).
+  const both = guessFields(songLabels(song, state.labels || DEFAULT_LABELS)).length === 2;
+  const artist = both && Boolean(answer && answerKey(answer.artist, { article: true }) === answerKey(song.artist, { article: true }));
   const title = Boolean(answer && answerKey(answer.title) === answerKey(song.title));
   const fast = Boolean(state.bonusMs > 0 && answer && answer.changedAt !== null
     && answer.changedAt - state.round.startedAt <= state.bonusMs);
-  const bonus = artist && title && fast;
+  const bonus = (artist || !both) && title && fast;
   return { artist, title, bonus, points: Number(artist) + Number(title) + Number(bonus) };
 }
 
@@ -289,13 +302,13 @@ export function playerView(state, playerId, now) {
     categoryId: state.categoryId || '',
     categoryName: state.categoryName || '',
     standings: standings(state),
-    answered: round ? Object.keys(state.players).filter((id) => hasAnsweredBoth(state, id)) : [],
+    answered: round ? Object.keys(state.players).filter((id) => hasAnsweredAll(state, id)) : [],
     winScore: state.winScore || WIN_SCORE,
     settings: { roundMs: state.roundMs, bonusMs: state.bonusMs, winScore: state.winScore || WIN_SCORE },
     winners: state.winners ? state.winners.map((id) => state.players[id].name) : null,
     paused: Boolean(state.pausedAt),
     // Låtens egna fältnamn syns redan medan man gissar, så att man vet att det är en film.
-    labels: songLabels(round && round.song, state.labels || DEFAULT_LABELS),
+    labels: roundLabels(state),
     round: null,
   };
   if (round) {
