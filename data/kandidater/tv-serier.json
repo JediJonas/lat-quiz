@@ -758,6 +758,195 @@
    "title": "Kalles klätterträd",
    "year": 1975,
    "track": "Kalles klätterträd"
+  },
+  {
+   "id": "pantertanter",
+   "artist": "Andrew Gold",
+   "title": "Pantertanter",
+   "year": 1985,
+   "track": "Thank You for Being a Friend"
+  },
+  {
+   "id": "love-boat",
+   "artist": "Jack Jones",
+   "title": "Love Boat",
+   "year": 1977,
+   "track": "Love Boat"
+  },
+  {
+   "id": "the-wire",
+   "artist": "The Blind Boys of Alabama",
+   "title": "The Wire",
+   "year": 2002,
+   "track": "Way Down in the Hole"
+  },
+  {
+   "id": "house-of-cards",
+   "artist": "Jeff Beal",
+   "title": "House of Cards",
+   "year": 2013,
+   "track": "House of Cards Main Title Theme"
+  },
+  {
+   "id": "en-harlig-tid",
+   "artist": "Joe Cocker",
+   "title": "En härlig tid",
+   "year": 1988,
+   "track": "With a Little Help from My Friends"
+  },
+  {
+   "id": "peter-gunn",
+   "artist": "Henry Mancini",
+   "title": "Peter Gunn",
+   "year": 1958,
+   "track": "Peter Gunn Theme"
+  },
+  {
+   "id": "rawhide",
+   "artist": "Frankie Laine",
+   "title": "Rawhide",
+   "year": 1959,
+   "track": "Rawhide"
+  },
+  {
+   "id": "veronica-mars",
+   "artist": "The Dandy Warhols",
+   "title": "Veronica Mars",
+   "year": 2004,
+   "track": "We Used to Be Friends"
+  },
+  {
+   "id": "orange-is-the-new-black",
+   "artist": "Regina Spektor",
+   "title": "Orange Is the New Black",
+   "year": 2013,
+   "track": "You've Got Time"
+  },
+  {
+   "id": "nypd-blue",
+   "artist": "Mike Post",
+   "title": "NYPD Blue",
+   "year": 1993,
+   "track": "Theme From NYPD Blue"
+  },
+  {
+   "id": "law-and-order",
+   "artist": "Mike Post",
+   "title": "Law & Order",
+   "year": 1990,
+   "track": "The Theme of Law & Order"
+  },
+  {
+   "id": "lagens-anglar",
+   "artist": "Mike Post",
+   "title": "Lagens änglar",
+   "year": 1986,
+   "track": "The Theme From L.A. Law"
+  },
+  {
+   "id": "the-equalizer",
+   "artist": "Stewart Copeland",
+   "title": "The Equalizer",
+   "year": 1985,
+   "track": "The Equalizer Busy Equalizing"
+  },
+  {
+   "id": "taxi",
+   "artist": "Bob James",
+   "title": "Taxi",
+   "year": 1978,
+   "track": "Angela"
+  },
+  {
+   "id": "svampbob-fyrkant",
+   "artist": "SpongeBob SquarePants",
+   "title": "SvampBob Fyrkant",
+   "year": 1999,
+   "track": "SpongeBob SquarePants Theme Song"
+  },
+  {
+   "id": "hero-turtles",
+   "artist": "Teenage Mutant Ninja Turtles",
+   "title": "Teenage Mutant Hero Turtles",
+   "year": 1987,
+   "track": "Teenage Mutant Ninja Turtles Theme"
+  },
+  {
+   "id": "hannah-montana",
+   "artist": "Hannah Montana",
+   "title": "Hannah Montana",
+   "year": 2006,
+   "track": "The Best of Both Worlds"
+  },
+  {
+   "id": "thunderbirds",
+   "artist": "Barry Gray",
+   "title": "Thunderbirds",
+   "year": 1965,
+   "track": "Thunderbirds Main Titles"
+  },
+  {
+   "id": "suits",
+   "artist": "Ima Robot",
+   "title": "Suits",
+   "year": 2011,
+   "track": "Greenback Boogie"
+  },
+  {
+   "id": "roswell",
+   "artist": "Dido",
+   "title": "Roswell",
+   "year": 1999,
+   "track": "Here with Me"
+  },
+  {
+   "id": "grannar",
+   "artist": "Barry Crocker",
+   "title": "Grannar",
+   "year": 1985,
+   "track": "Neighbours Theme"
+  },
+  {
+   "id": "hulken",
+   "artist": "Joe Harnell",
+   "title": "Hulken",
+   "year": 1977,
+   "track": "The Lonely Man Theme"
+  },
+  {
+   "id": "benny-hill",
+   "artist": "Boots Randolph",
+   "title": "Benny Hill Show",
+   "year": 1969,
+   "track": "Yakety Sax"
+  },
+  {
+   "id": "pretty-little-liars",
+   "artist": "The Pierces",
+   "title": "Pretty Little Liars",
+   "year": 2010,
+   "track": "Secret"
+  },
+  {
+   "id": "ducktales",
+   "artist": "The Disney Afternoon Studio Chorus",
+   "title": "Ducktales",
+   "year": 1987,
+   "track": "DuckTales Theme"
+  },
+  {
+   "id": "raddningspatrullen",
+   "artist": "The Disney Afternoon Studio Chorus",
+   "title": "Piff och Puff – Räddningspatrullen",
+   "year": 1989,
+   "track": "Chip 'n Dale's Rescue Rangers Theme Song"
+  },
+  {
+   "id": "gummibjornarna",
+   "artist": "The Disney Afternoon Studio Chorus",
+   "title": "Gummibjörnarna",
+   "year": 1985,
+   "track": "Gummi Bears Theme"
   }
  ]
 }
