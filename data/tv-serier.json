@@ -64,14 +64,6 @@
   "deezerId": 958034982
  },
  {
-  "id": "curb",
-  "artist": "Luciano Michelini",
-  "title": "Curb Your Enthusiasm",
-  "year": 2000,
-  "track": "Frolic",
-  "deezerId": 119127652
- },
- {
   "id": "ganget-och-jag",
   "artist": "Pratt & McClain",
   "title": "Gänget och jag",
@@ -158,14 +150,6 @@
   "year": 1985,
   "track": "Moonlighting",
   "deezerId": 14637931
- },
- {
-  "id": "hill-street",
-  "artist": "Mike Post",
-  "title": "Spanarna på Hill Street",
-  "year": 1981,
-  "track": "Hill Street Blues",
-  "deezerId": 756636
  },
  {
   "id": "beverly-hills",
@@ -294,22 +278,6 @@
   "year": 2008,
   "track": "This Life",
   "deezerId": 15117571
- },
- {
-  "id": "weeds",
-  "artist": "Malvina Reynolds",
-  "title": "Weeds",
-  "year": 2005,
-  "track": "Little Boxes",
-  "deezerId": 67292542
- },
- {
-  "id": "entourage",
-  "artist": "Jane's Addiction",
-  "title": "Entourage",
-  "year": 2004,
-  "track": "Superhero",
-  "deezerId": 3090837
  },
  {
   "id": "true-detective",
@@ -536,30 +504,6 @@
   "deezerId": 68529043
  },
  {
-  "id": "law-and-order",
-  "artist": "Mike Post",
-  "title": "Law & Order",
-  "year": 1990,
-  "track": "The Theme of Law & Order",
-  "deezerId": 62253411
- },
- {
-  "id": "the-equalizer",
-  "artist": "Stewart Copeland",
-  "title": "The Equalizer",
-  "year": 1985,
-  "track": "The Equalizer Busy Equalizing",
-  "deezerId": 3260789
- },
- {
-  "id": "taxi",
-  "artist": "Bob James",
-  "title": "Taxi",
-  "year": 1978,
-  "track": "Angela",
-  "deezerId": 531413901
- },
- {
   "id": "svampbob-fyrkant",
   "artist": "SpongeBob SquarePants",
   "title": "SvampBob Fyrkant",
@@ -584,28 +528,12 @@
   "deezerId": 3058835
  },
  {
-  "id": "thunderbirds",
-  "artist": "Barry Gray",
-  "title": "Thunderbirds",
-  "year": 1965,
-  "track": "Thunderbirds Main Titles",
-  "deezerId": 3508607621
- },
- {
   "id": "suits",
   "artist": "Ima Robot",
   "title": "Suits",
   "year": 2011,
   "track": "Greenback Boogie",
   "deezerId": 3157780971
- },
- {
-  "id": "roswell",
-  "artist": "Dido",
-  "title": "Roswell",
-  "year": 1999,
-  "track": "Here with Me",
-  "deezerId": 962165
  },
  {
   "id": "hulken",
