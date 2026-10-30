@@ -6,6 +6,7 @@ import { autocomplete } from './autocomplete.js';
 import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
 import { roundCheer, winComment, winIntro } from './pepp.js';
+import { guessFields as fieldsOf } from './game.js';
 import { pickWinEffect, startWinEffect } from './vinstanimation.js';
 import { pauseSeasonEffect } from './sasong.js';
 
@@ -43,8 +44,7 @@ function rules(view) {
   const lower = (label) => label.toLocaleLowerCase('sv');
   return [
     `${s.roundMs / 1000} s per låt`,
-    `1 p för ${lower(view.labels.artist)}`,
-    `1 p för ${lower(view.labels.title)}`,
+    ...fieldsOf(view.labels).map((field) => `1 p för ${lower(view.labels[field])}`),
     ...(s.bonusMs ? [`Bonus inom ${s.bonusMs / 1000} s`] : []),
     `Först till ${s.winScore} p`,
   ];
@@ -360,7 +360,10 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('#result').hidden = phase !== 'revealed' && !(holding && !$('#result').hidden);
     fields.artist.disable(phase !== 'playing' || view.paused);
     fields.title.disable(phase !== 'playing' || view.paused);
-    $('label[for=artist]').textContent = view.labels.artist;
+    // I en kategori utan artistfält, som TV-serier, gissar man bara på titeln.
+    const single = fieldsOf(view.labels).length === 1;
+    $('#artist').closest('.field-row').hidden = single;
+    $('label[for=artist]').textContent = view.labels.artist || '';
     $('label[for=title]').textContent = view.labels.title;
     showSuggestions();
 
@@ -413,7 +416,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
         .replace('<li class="right">', `<li class="right bonus${fresh ? ' pop' : ''}">`)
         .replace('<span class="pts">', `<span class="pts">${fresh ? sparkles() : ''}`);
       const own = playing && !winner && !drum;
-      const mineRows = own ? `<ul class="mine">${row(view.labels.artist, mine.artist, r.artist)}${row(view.labels.title, mine.title, r.title)}`
+      const mineRows = own ? `<ul class="mine">${fieldsOf(view.labels).map((field) => row(view.labels[field], mine[field], r[field])).join('')}`
         + `${r.bonus ? bonusRow() : ''}</ul>` : '';
       // Med stor text skrivs poängen kort som p, så att den får plats på en rad. Skärmläsare får hela ordet.
       // Har man klättrat står placeringen i en bricka till höger om poängen.
@@ -425,7 +428,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
         + '<span class="points-long">poäng</span><span class="points-short">p</span></span>'
         + `<span class="visually-hidden">+${r.points} poäng</span>${climb}</p>` : '';
       // Under poängen står en kort kommentar, till exempel Klockrent! när allt var rätt.
-      const cheer = own ? `<p class="cheer">${esc(roundCheer(r, round.number))}</p>` : '';
+      const cheer = own ? `<p class="cheer">${esc(roundCheer(r, round.number, fieldsOf(view.labels).length))}</p>` : '';
       const rest = `${mineRows}
         ${points || next ? `<div class="result-foot">${points ? `<div class="score-line">${points}${cheer}</div>` : ''}${next}</div>` : ''}`;
       // Ritas samma svar om, till exempel när spelledarens knappar byts, står omslaget kvar.

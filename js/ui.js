@@ -1,5 +1,7 @@
 // Gemensamma visningsdelar för spelledare och spelare.
 
+import { guessFields } from './game.js';
+
 const RING_R = 54;
 const RING_LEN = 2 * Math.PI * RING_R;
 
@@ -36,17 +38,19 @@ export function renderPie(el, ms, totalMs) {
 
 // Etiketter för en spelares läge i omgången, samma för spelledare och spelare.
 // progress: { artist, title } medan låten spelas. result: rättning när svaret visas.
+// En kategori utan artistfält, som TV-serier, får bara titelns etikett.
 export function statusTags({ phase, progress, result, labels, esc, points = true }) {
   const tag = (cls, label) => `<span class="tag ${cls}">${esc(label)}</span>`;
+  const fields = guessFields(labels);
   if (phase === 'playing' && progress) {
-    return tag(progress.artist ? 'answered' : '', labels.artist) + tag(progress.title ? 'answered' : '', labels.title);
+    return fields.map((field) => tag(progress[field] ? 'answered' : '', labels[field])).join('');
   }
   if (phase === 'revealed' && result) {
     // Grått för fält som inte besvarades, rött bara för fel svar.
     // Poängen för låten står sist som en egen etikett: gul med bonus, grön med poäng.
     const graded = (field) => (result[field] ? 'good' : progress && !progress[field] ? '' : 'bad');
     const pointsClass = result.bonus ? 'bonus' : result.points > 0 ? 'good' : '';
-    return tag(`field ${graded('artist')}`, labels.artist) + tag(`field ${graded('title')}`, labels.title)
+    return fields.map((field) => tag(`field ${graded(field)}`, labels[field])).join('')
       + (points ? tag(`gain ${pointsClass}`, `+${result.points}`) : '');
   }
   return '';

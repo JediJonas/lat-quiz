@@ -18,9 +18,10 @@ const CHEERS = {
 };
 
 // Kommentaren efter en låt. result: { artist, title, points } för den som tittar.
-export function roundCheer(result, roundNumber) {
+// fields: hur många fält som gissas, 1 i en kategori som bara har titelfältet.
+export function roundCheer(result, roundNumber, fields = 2) {
   const right = Number(Boolean(result.artist)) + Number(Boolean(result.title));
-  const list = right === 2 ? CHEERS.all : right === 1 ? CHEERS.half : CHEERS.none;
+  const list = right === fields ? CHEERS.all : right > 0 ? CHEERS.half : CHEERS.none;
   return pick(list, `${roundNumber}`);
 }
 

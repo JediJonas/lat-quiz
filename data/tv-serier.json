@@ -1,0 +1,810 @@
+[
+ {
+  "id": "vanner",
+  "artist": "The Rembrandts",
+  "title": "Vänner",
+  "year": 1994,
+  "track": "I'll Be There for You",
+  "deezerId": 769477
+ },
+ {
+  "id": "skal",
+  "artist": "Gary Portnoy",
+  "title": "Skål",
+  "year": 1982,
+  "track": "Where Everybody Knows Your Name",
+  "deezerId": 72633352
+ },
+ {
+  "id": "fresh-prince",
+  "artist": "DJ Jazzy Jeff & The Fresh Prince",
+  "title": "Fresh Prince i Bel-Air",
+  "year": 1990,
+  "track": "The Fresh Prince of Bel-Air",
+  "deezerId": 831350
+ },
+ {
+  "id": "vara-varsta-ar",
+  "artist": "Frank Sinatra",
+  "title": "Våra värsta år",
+  "year": 1987,
+  "track": "Love and Marriage",
+  "deezerId": 97327612
+ },
+ {
+  "id": "scrubs",
+  "artist": "Lazlo Bane",
+  "title": "Scrubs",
+  "year": 2001,
+  "track": "Superman",
+  "deezerId": 9125239
+ },
+ {
+  "id": "himym",
+  "artist": "The Solids",
+  "title": "How I Met Your Mother",
+  "year": 2005,
+  "track": "Hey Beautiful",
+  "deezerId": 923204312
+ },
+ {
+  "id": "big-bang",
+  "artist": "Barenaked Ladies",
+  "title": "The Big Bang Theory",
+  "year": 2007,
+  "track": "Big Bang Theory Theme",
+  "deezerId": 13805986
+ },
+ {
+  "id": "new-girl",
+  "artist": "Zooey Deschanel",
+  "title": "New Girl",
+  "year": 2011,
+  "track": "Hey Girl",
+  "deezerId": 958034982
+ },
+ {
+  "id": "curb",
+  "artist": "Luciano Michelini",
+  "title": "Curb Your Enthusiasm",
+  "year": 2000,
+  "track": "Frolic",
+  "deezerId": 119127652
+ },
+ {
+  "id": "ganget-och-jag",
+  "artist": "Pratt & McClain",
+  "title": "Gänget och jag",
+  "year": 1974,
+  "track": "Happy Days",
+  "deezerId": 758527
+ },
+ {
+  "id": "simpsons",
+  "artist": "Danny Elfman",
+  "title": "Simpsons",
+  "year": 1989,
+  "track": "The Simpsons",
+  "deezerId": 2786250902
+ },
+ {
+  "id": "futurama",
+  "artist": "Christopher Tyng",
+  "title": "Futurama",
+  "year": 1999,
+  "track": "Futurama",
+  "deezerId": 913656202
+ },
+ {
+  "id": "south-park",
+  "artist": "Primus",
+  "title": "South Park",
+  "year": 1997,
+  "track": "South Park",
+  "deezerId": 2576770162
+ },
+ {
+  "id": "rick-and-morty",
+  "artist": "Ryan Elder",
+  "title": "Rick and Morty",
+  "year": 2013,
+  "track": "Rick and Morty",
+  "deezerId": 1392861552
+ },
+ {
+  "id": "familjen-flinta",
+  "artist": "Hoyt Curtin",
+  "title": "Familjen Flinta",
+  "year": 1960,
+  "track": "Meet the Flintstones",
+  "deezerId": 100140706
+ },
+ {
+  "id": "miami-vice",
+  "artist": "Jan Hammer",
+  "title": "Miami Vice",
+  "year": 1984,
+  "track": "Miami Vice Theme",
+  "deezerId": 906590
+ },
+ {
+  "id": "knight-rider",
+  "artist": "Stu Phillips",
+  "title": "Knight Rider",
+  "year": 1982,
+  "track": "Knight Rider",
+  "deezerId": 3836544621
+ },
+ {
+  "id": "magnum",
+  "artist": "Mike Post",
+  "title": "Magnum",
+  "year": 1980,
+  "track": "Magnum, P.I.",
+  "deezerId": 756660
+ },
+ {
+  "id": "baywatch",
+  "artist": "Jimi Jamison",
+  "title": "Baywatch",
+  "year": 1989,
+  "track": "I'm Always Here",
+  "deezerId": 11344488
+ },
+ {
+  "id": "par-i-brott",
+  "artist": "Al Jarreau",
+  "title": "Par i brott",
+  "year": 1985,
+  "track": "Moonlighting",
+  "deezerId": 14637931
+ },
+ {
+  "id": "hill-street",
+  "artist": "Mike Post",
+  "title": "Spanarna på Hill Street",
+  "year": 1981,
+  "track": "Hill Street Blues",
+  "deezerId": 756636
+ },
+ {
+  "id": "beverly-hills",
+  "artist": "John E. Davis",
+  "title": "Beverly Hills 90210",
+  "year": 1990,
+  "track": "Beverly Hills 90210",
+  "deezerId": 14630815
+ },
+ {
+  "id": "ally-mcbeal",
+  "artist": "Vonda Shepard",
+  "title": "Ally McBeal",
+  "year": 1997,
+  "track": "Searchin' My Soul",
+  "deezerId": 3659853
+ },
+ {
+  "id": "dawsons-creek",
+  "artist": "Paula Cole",
+  "title": "Dawson's Creek",
+  "year": 1998,
+  "track": "I Don't Want to Wait",
+  "deezerId": 3667834
+ },
+ {
+  "id": "oc",
+  "artist": "Phantom Planet",
+  "title": "OC",
+  "year": 2003,
+  "track": "California",
+  "deezerId": 624206
+ },
+ {
+  "id": "gilmore-girls",
+  "artist": "Carole King",
+  "title": "Gilmore Girls",
+  "year": 2000,
+  "track": "Where You Lead",
+  "deezerId": 119819712
+ },
+ {
+  "id": "one-tree-hill",
+  "artist": "Gavin DeGraw",
+  "title": "One Tree Hill",
+  "year": 2003,
+  "track": "I Don't Want to Be",
+  "deezerId": 88209919
+ },
+ {
+  "id": "smallville",
+  "artist": "Remy Zero",
+  "title": "Smallville",
+  "year": 2001,
+  "track": "Save Me",
+  "deezerId": 3664135
+ },
+ {
+  "id": "desperate-housewives",
+  "artist": "Danny Elfman",
+  "title": "Desperate Housewives",
+  "year": 2004,
+  "track": "Desperate Housewives",
+  "deezerId": 4242620
+ },
+ {
+  "id": "csi",
+  "artist": "The Who",
+  "title": "CSI",
+  "year": 2000,
+  "track": "Who Are You",
+  "deezerId": 540165792
+ },
+ {
+  "id": "house",
+  "artist": "Massive Attack",
+  "title": "House",
+  "year": 2004,
+  "track": "Teardrop",
+  "deezerId": 3129748
+ },
+ {
+  "id": "arkiv-x",
+  "artist": "Mark Snow",
+  "title": "Arkiv X",
+  "year": 1993,
+  "track": "The X-Files",
+  "deezerId": 3910006
+ },
+ {
+  "id": "sopranos",
+  "artist": "Alabama 3",
+  "title": "Sopranos",
+  "year": 1999,
+  "track": "Woke Up This Morning",
+  "deezerId": 97021202
+ },
+ {
+  "id": "dexter",
+  "artist": "Rolfe Kent",
+  "title": "Dexter",
+  "year": 2006,
+  "track": "Dexter",
+  "deezerId": 117921494
+ },
+ {
+  "id": "mad-men",
+  "artist": "RJD2",
+  "title": "Mad Men",
+  "year": 2007,
+  "track": "A Beautiful Mine",
+  "deezerId": 1885522
+ },
+ {
+  "id": "breaking-bad",
+  "artist": "Dave Porter",
+  "title": "Breaking Bad",
+  "year": 2008,
+  "track": "Breaking Bad",
+  "deezerId": 69838319
+ },
+ {
+  "id": "sons-of-anarchy",
+  "artist": "Curtis Stigers",
+  "title": "Sons of Anarchy",
+  "year": 2008,
+  "track": "This Life",
+  "deezerId": 15117571
+ },
+ {
+  "id": "weeds",
+  "artist": "Malvina Reynolds",
+  "title": "Weeds",
+  "year": 2005,
+  "track": "Little Boxes",
+  "deezerId": 67292542
+ },
+ {
+  "id": "entourage",
+  "artist": "Jane's Addiction",
+  "title": "Entourage",
+  "year": 2004,
+  "track": "Superhero",
+  "deezerId": 3090837
+ },
+ {
+  "id": "true-detective",
+  "artist": "The Handsome Family",
+  "title": "True Detective",
+  "year": 2014,
+  "track": "Far From Any Road",
+  "deezerId": 105572014
+ },
+ {
+  "id": "peaky-blinders",
+  "artist": "Nick Cave & The Bad Seeds",
+  "title": "Peaky Blinders",
+  "year": 2013,
+  "track": "Red Right Hand",
+  "deezerId": 3782900242
+ },
+ {
+  "id": "narcos",
+  "artist": "Rodrigo Amarante",
+  "title": "Narcos",
+  "year": 2015,
+  "track": "Tuyo",
+  "deezerId": 573659482
+ },
+ {
+  "id": "la-casa-de-papel",
+  "artist": "Cecilia Krull",
+  "title": "La casa de papel",
+  "year": 2017,
+  "track": "My Life Is Going On",
+  "deezerId": 2281206727
+ },
+ {
+  "id": "vikings",
+  "artist": "Fever Ray",
+  "title": "Vikings",
+  "year": 2013,
+  "track": "If I Had a Heart",
+  "deezerId": 1855670247
+ },
+ {
+  "id": "game-of-thrones",
+  "artist": "Ramin Djawadi",
+  "title": "Game of Thrones",
+  "year": 2011,
+  "track": "Main Title",
+  "deezerId": 117729426
+ },
+ {
+  "id": "westworld",
+  "artist": "Ramin Djawadi",
+  "title": "Westworld",
+  "year": 2016,
+  "track": "Westworld",
+  "deezerId": 647367982
+ },
+ {
+  "id": "witcher",
+  "artist": "Joey Batey",
+  "title": "The Witcher",
+  "year": 2019,
+  "track": "Toss a Coin to Your Witcher",
+  "deezerId": 854475212
+ },
+ {
+  "id": "mandalorian",
+  "artist": "Ludwig Göransson",
+  "title": "The Mandalorian",
+  "year": 2019,
+  "track": "The Mandalorian",
+  "deezerId": 798742662
+ },
+ {
+  "id": "last-of-us",
+  "artist": "Gustavo Santaolalla",
+  "title": "The Last of Us",
+  "year": 2023,
+  "track": "The Last of Us",
+  "deezerId": 67770820
+ },
+ {
+  "id": "succession",
+  "artist": "Nicholas Britell",
+  "title": "Succession",
+  "year": 2018,
+  "track": "Succession",
+  "deezerId": 890421312
+ },
+ {
+  "id": "white-lotus",
+  "artist": "Cristobal Tapia de Veer",
+  "title": "The White Lotus",
+  "year": 2021,
+  "track": "Aloha!",
+  "deezerId": 1422928642
+ },
+ {
+  "id": "downton-abbey",
+  "artist": "John Lunn",
+  "title": "Downton Abbey",
+  "year": 2010,
+  "track": "Downton Abbey",
+  "deezerId": 1728101187
+ },
+ {
+  "id": "midsomer",
+  "artist": "Jim Parker",
+  "title": "Morden i Midsomer",
+  "year": 1997,
+  "track": "Midsomer Murders",
+  "deezerId": 3507648721
+ },
+ {
+  "id": "star-trek",
+  "artist": "Alexander Courage",
+  "title": "Star Trek",
+  "year": 1966,
+  "track": "Star Trek",
+  "deezerId": 5741011
+ },
+ {
+  "id": "euphoria",
+  "artist": "Labrinth",
+  "title": "Euphoria",
+  "year": 2019,
+  "track": "Still Don't Know My Name",
+  "deezerId": 761653242
+ },
+ {
+  "id": "ted-lasso",
+  "artist": "Marcus Mumford",
+  "title": "Ted Lasso",
+  "year": 2020,
+  "track": "Ted Lasso Theme",
+  "deezerId": 1124438322
+ },
+ {
+  "id": "severance",
+  "artist": "Theodore Shapiro",
+  "title": "Severance",
+  "year": 2022,
+  "track": "Severance",
+  "deezerId": 1644141492
+ },
+ {
+  "id": "big-little-lies",
+  "artist": "Michael Kiwanuka",
+  "title": "Big Little Lies",
+  "year": 2017,
+  "track": "Cold Little Heart",
+  "deezerId": 128548959
+ },
+ {
+  "id": "yellowstone",
+  "artist": "Brian Tyler",
+  "title": "Yellowstone",
+  "year": 2018,
+  "track": "Yellowstone",
+  "deezerId": 537878752
+ },
+ {
+  "id": "only-murders",
+  "artist": "Siddhartha Khosla",
+  "title": "Only Murders in the Building",
+  "year": 2021,
+  "track": "Only Murders in the Building",
+  "deezerId": 1470227982
+ },
+ {
+  "id": "fargo",
+  "artist": "Jeff Russo",
+  "title": "Fargo",
+  "year": 2014,
+  "track": "Fargo",
+  "deezerId": 79266197
+ },
+ {
+  "id": "pantertanter",
+  "artist": "Andrew Gold",
+  "title": "Pantertanter",
+  "year": 1985,
+  "track": "Thank You for Being a Friend",
+  "deezerId": 729141
+ },
+ {
+  "id": "love-boat",
+  "artist": "Jack Jones",
+  "title": "Love Boat",
+  "year": 1977,
+  "track": "Love Boat",
+  "deezerId": 1428734372
+ },
+ {
+  "id": "the-wire",
+  "artist": "The Blind Boys of Alabama",
+  "title": "The Wire",
+  "year": 2002,
+  "track": "Way Down in the Hole",
+  "deezerId": 736732
+ },
+ {
+  "id": "house-of-cards",
+  "artist": "Jeff Beal",
+  "title": "House of Cards",
+  "year": 2013,
+  "track": "House of Cards Main Title Theme",
+  "deezerId": 117728240
+ },
+ {
+  "id": "en-harlig-tid",
+  "artist": "Joe Cocker",
+  "title": "En härlig tid",
+  "year": 1988,
+  "track": "With a Little Help from My Friends",
+  "deezerId": 548862472
+ },
+ {
+  "id": "peter-gunn",
+  "artist": "Henry Mancini",
+  "title": "Peter Gunn",
+  "year": 1958,
+  "track": "Peter Gunn Theme",
+  "deezerId": 890538
+ },
+ {
+  "id": "rawhide",
+  "artist": "Frankie Laine",
+  "title": "Rawhide",
+  "year": 1959,
+  "track": "Rawhide",
+  "deezerId": 495173142
+ },
+ {
+  "id": "veronica-mars",
+  "artist": "The Dandy Warhols",
+  "title": "Veronica Mars",
+  "year": 2004,
+  "track": "We Used to Be Friends",
+  "deezerId": 2126030287
+ },
+ {
+  "id": "orange-is-the-new-black",
+  "artist": "Regina Spektor",
+  "title": "Orange Is the New Black",
+  "year": 2013,
+  "track": "You've Got Time",
+  "deezerId": 68529043
+ },
+ {
+  "id": "nypd-blue",
+  "artist": "Mike Post",
+  "title": "NYPD Blue",
+  "year": 1993,
+  "track": "Theme From NYPD Blue",
+  "deezerId": 62253405
+ },
+ {
+  "id": "law-and-order",
+  "artist": "Mike Post",
+  "title": "Law & Order",
+  "year": 1990,
+  "track": "The Theme of Law & Order",
+  "deezerId": 62253411
+ },
+ {
+  "id": "lagens-anglar",
+  "artist": "Mike Post",
+  "title": "Lagens änglar",
+  "year": 1986,
+  "track": "The Theme From L.A. Law",
+  "deezerId": 3669266362
+ },
+ {
+  "id": "the-equalizer",
+  "artist": "Stewart Copeland",
+  "title": "The Equalizer",
+  "year": 1985,
+  "track": "The Equalizer Busy Equalizing",
+  "deezerId": 3260789
+ },
+ {
+  "id": "taxi",
+  "artist": "Bob James",
+  "title": "Taxi",
+  "year": 1978,
+  "track": "Angela",
+  "deezerId": 531413901
+ },
+ {
+  "id": "svampbob-fyrkant",
+  "artist": "SpongeBob SquarePants",
+  "title": "SvampBob Fyrkant",
+  "year": 1999,
+  "track": "SpongeBob SquarePants Theme Song",
+  "deezerId": 2958441
+ },
+ {
+  "id": "hero-turtles",
+  "artist": "Teenage Mutant Ninja Turtles",
+  "title": "Teenage Mutant Hero Turtles",
+  "year": 1987,
+  "track": "Teenage Mutant Ninja Turtles Theme",
+  "deezerId": 2459471335
+ },
+ {
+  "id": "hannah-montana",
+  "artist": "Hannah Montana",
+  "title": "Hannah Montana",
+  "year": 2006,
+  "track": "The Best of Both Worlds",
+  "deezerId": 3058835
+ },
+ {
+  "id": "thunderbirds",
+  "artist": "Barry Gray",
+  "title": "Thunderbirds",
+  "year": 1965,
+  "track": "Thunderbirds Main Titles",
+  "deezerId": 3508607621
+ },
+ {
+  "id": "suits",
+  "artist": "Ima Robot",
+  "title": "Suits",
+  "year": 2011,
+  "track": "Greenback Boogie",
+  "deezerId": 3157780971
+ },
+ {
+  "id": "roswell",
+  "artist": "Dido",
+  "title": "Roswell",
+  "year": 1999,
+  "track": "Here with Me",
+  "deezerId": 962165
+ },
+ {
+  "id": "grannar",
+  "artist": "Barry Crocker",
+  "title": "Grannar",
+  "year": 1985,
+  "track": "Neighbours Theme",
+  "deezerId": 62512662
+ },
+ {
+  "id": "hulken",
+  "artist": "Joe Harnell",
+  "title": "Hulken",
+  "year": 1977,
+  "track": "The Lonely Man Theme",
+  "deezerId": 1987536807
+ },
+ {
+  "id": "benny-hill",
+  "artist": "Boots Randolph",
+  "title": "Benny Hill Show",
+  "year": 1969,
+  "track": "Yakety Sax",
+  "deezerId": 14861253
+ },
+ {
+  "id": "pretty-little-liars",
+  "artist": "The Pierces",
+  "title": "Pretty Little Liars",
+  "year": 2010,
+  "track": "Secret",
+  "deezerId": 11007001
+ },
+ {
+  "id": "ducktales",
+  "artist": "The Disney Afternoon Studio Chorus",
+  "title": "Ducktales",
+  "year": 1987,
+  "track": "DuckTales Theme",
+  "deezerId": 677778992
+ },
+ {
+  "id": "raddningspatrullen",
+  "artist": "The Disney Afternoon Studio Chorus",
+  "title": "Piff och Puff – Räddningspatrullen",
+  "year": 1989,
+  "track": "Chip 'n Dale's Rescue Rangers Theme Song",
+  "deezerId": 677779002
+ },
+ {
+  "id": "gummibjornarna",
+  "artist": "The Disney Afternoon Studio Chorus",
+  "title": "Gummibjörnarna",
+  "year": 1985,
+  "track": "Gummi Bears Theme",
+  "deezerId": 677778982
+ },
+ {
+  "id": "macken",
+  "artist": "Galenskaparna & After Shave",
+  "title": "Macken",
+  "year": 1986,
+  "track": "Macken",
+  "deezerId": 895094242
+ },
+ {
+  "id": "bert",
+  "artist": "Lill-Babs",
+  "title": "Bert",
+  "year": 1994,
+  "track": "Älskade ängel",
+  "deezerId": 3859590991
+ },
+ {
+  "id": "fem-myror",
+  "artist": "Magnus, Brasse & Eva",
+  "title": "Fem myror är fler än fyra elefanter",
+  "year": 1973,
+  "track": "Fem myror är fler än fyra elefanter",
+  "deezerId": 14650264
+ },
+ {
+  "id": "i-en-annan-del-av-koping",
+  "artist": "Mama Cass",
+  "title": "I en annan del av Köping",
+  "year": 2011,
+  "track": "Make Your Own Kind of Music",
+  "deezerId": 530974531
+ },
+ {
+  "id": "bjornes-magasin",
+  "artist": "Anders Linder",
+  "title": "Björnes magasin",
+  "year": 1987,
+  "track": "Björnes magasin",
+  "deezerId": 580063642
+ },
+ {
+  "id": "kalles-klattertrad",
+  "artist": "Jojje Wadenius",
+  "title": "Kalles klätterträd",
+  "year": 1975,
+  "track": "Kalles klätterträd",
+  "deezerId": 805092
+ },
+ {
+  "id": "hem-till-byn",
+  "artist": "Jan Johansson",
+  "title": "Hem till byn",
+  "year": 1971,
+  "track": "Berg-Kirstis polska",
+  "deezerId": 61592660
+ },
+ {
+  "id": "lorry",
+  "artist": "Earth, Wind & Fire",
+  "title": "Lorry",
+  "year": 1989,
+  "track": "In the Stone",
+  "deezerId": 27532991
+ },
+ {
+  "id": "skargardsdoktorn",
+  "artist": "Stefan Nilsson",
+  "title": "Skärgårdsdoktorn",
+  "year": 1997,
+  "track": "Mot skärgården",
+  "deezerId": 580325172
+ },
+ {
+  "id": "familjen-addams",
+  "artist": "Vic Mizzy",
+  "title": "Familjen Addams",
+  "year": 1964,
+  "track": "The Addams Family",
+  "deezerId": 10395828
+ },
+ {
+  "id": "wednesday",
+  "artist": "Danny Elfman",
+  "title": "Wednesday",
+  "year": 2022,
+  "track": "Wednesday Main Titles",
+  "deezerId": 2355750635
+ },
+ {
+  "id": "twin-peaks",
+  "artist": "Angelo Badalamenti",
+  "title": "Twin Peaks",
+  "year": 1990,
+  "track": "Twin Peaks Theme",
+  "deezerId": 7337260
+ },
+ {
+  "id": "stranger-things",
+  "artist": "Kyle Dixon & Michael Stein",
+  "title": "Stranger Things",
+  "year": 2016,
+  "track": "Stranger Things",
+  "deezerId": 130871168
+ }
+]

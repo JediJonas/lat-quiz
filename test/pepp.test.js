@@ -9,6 +9,7 @@ test('kommentaren efter en låt följer hur många rätt man hade', () => {
   assert.match(roundCheer({ artist: true, title: true }, 1), /Klockrent|Snyggt|Vilken koll|Mitt i prick/);
   assert.match(roundCheer({ artist: true, title: false }, 1), /Halvvägs|en av två|Nästan/);
   assert.match(roundCheer({ artist: false, title: false }, 1), /Nästa tar du|klurig|Ny chans/);
+  assert.match(roundCheer({ artist: false, title: true }, 1, 1), /Klockrent|Snyggt|Vilken koll|Mitt i prick/);
   assert.equal(roundCheer({ artist: true, title: true }, 7), roundCheer({ artist: true, title: true }, 7));
 });
 
