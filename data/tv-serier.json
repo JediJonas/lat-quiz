@@ -64,14 +64,6 @@
   "deezerId": 958034982
  },
  {
-  "id": "curb",
-  "artist": "Luciano Michelini",
-  "title": "Curb Your Enthusiasm",
-  "year": 2000,
-  "track": "Frolic",
-  "deezerId": 119127652
- },
- {
   "id": "ganget-och-jag",
   "artist": "Pratt & McClain",
   "title": "Gänget och jag",
@@ -158,14 +150,6 @@
   "year": 1985,
   "track": "Moonlighting",
   "deezerId": 14637931
- },
- {
-  "id": "hill-street",
-  "artist": "Mike Post",
-  "title": "Spanarna på Hill Street",
-  "year": 1981,
-  "track": "Hill Street Blues",
-  "deezerId": 756636
  },
  {
   "id": "beverly-hills",
@@ -294,22 +278,6 @@
   "year": 2008,
   "track": "This Life",
   "deezerId": 15117571
- },
- {
-  "id": "weeds",
-  "artist": "Malvina Reynolds",
-  "title": "Weeds",
-  "year": 2005,
-  "track": "Little Boxes",
-  "deezerId": 67292542
- },
- {
-  "id": "entourage",
-  "artist": "Jane's Addiction",
-  "title": "Entourage",
-  "year": 2004,
-  "track": "Superhero",
-  "deezerId": 3090837
  },
  {
   "id": "true-detective",
@@ -528,76 +496,12 @@
   "deezerId": 548862472
  },
  {
-  "id": "peter-gunn",
-  "artist": "Henry Mancini",
-  "title": "Peter Gunn",
-  "year": 1958,
-  "track": "Peter Gunn Theme",
-  "deezerId": 890538
- },
- {
-  "id": "rawhide",
-  "artist": "Frankie Laine",
-  "title": "Rawhide",
-  "year": 1959,
-  "track": "Rawhide",
-  "deezerId": 495173142
- },
- {
-  "id": "veronica-mars",
-  "artist": "The Dandy Warhols",
-  "title": "Veronica Mars",
-  "year": 2004,
-  "track": "We Used to Be Friends",
-  "deezerId": 2126030287
- },
- {
   "id": "orange-is-the-new-black",
   "artist": "Regina Spektor",
   "title": "Orange Is the New Black",
   "year": 2013,
   "track": "You've Got Time",
   "deezerId": 68529043
- },
- {
-  "id": "nypd-blue",
-  "artist": "Mike Post",
-  "title": "NYPD Blue",
-  "year": 1993,
-  "track": "Theme From NYPD Blue",
-  "deezerId": 62253405
- },
- {
-  "id": "law-and-order",
-  "artist": "Mike Post",
-  "title": "Law & Order",
-  "year": 1990,
-  "track": "The Theme of Law & Order",
-  "deezerId": 62253411
- },
- {
-  "id": "lagens-anglar",
-  "artist": "Mike Post",
-  "title": "Lagens änglar",
-  "year": 1986,
-  "track": "The Theme From L.A. Law",
-  "deezerId": 3669266362
- },
- {
-  "id": "the-equalizer",
-  "artist": "Stewart Copeland",
-  "title": "The Equalizer",
-  "year": 1985,
-  "track": "The Equalizer Busy Equalizing",
-  "deezerId": 3260789
- },
- {
-  "id": "taxi",
-  "artist": "Bob James",
-  "title": "Taxi",
-  "year": 1978,
-  "track": "Angela",
-  "deezerId": 531413901
  },
  {
   "id": "svampbob-fyrkant",
@@ -624,36 +528,12 @@
   "deezerId": 3058835
  },
  {
-  "id": "thunderbirds",
-  "artist": "Barry Gray",
-  "title": "Thunderbirds",
-  "year": 1965,
-  "track": "Thunderbirds Main Titles",
-  "deezerId": 3508607621
- },
- {
   "id": "suits",
   "artist": "Ima Robot",
   "title": "Suits",
   "year": 2011,
   "track": "Greenback Boogie",
   "deezerId": 3157780971
- },
- {
-  "id": "roswell",
-  "artist": "Dido",
-  "title": "Roswell",
-  "year": 1999,
-  "track": "Here with Me",
-  "deezerId": 962165
- },
- {
-  "id": "grannar",
-  "artist": "Barry Crocker",
-  "title": "Grannar",
-  "year": 1985,
-  "track": "Neighbours Theme",
-  "deezerId": 62512662
  },
  {
   "id": "hulken",
@@ -806,5 +686,77 @@
   "year": 2016,
   "track": "Stranger Things",
   "deezerId": 130871168
+ },
+ {
+  "id": "mash",
+  "artist": "The Mash",
+  "title": "M*A*S*H",
+  "year": 1972,
+  "track": "Suicide Is Painless",
+  "deezerId": 5404505
+ },
+ {
+  "id": "doctor-who",
+  "artist": "Delia Derbyshire",
+  "title": "Doctor Who",
+  "year": 1963,
+  "track": "Doctor Who",
+  "deezerId": 3508495781
+ },
+ {
+  "id": "wallander",
+  "artist": "Emily Barker",
+  "title": "Wallander",
+  "year": 2008,
+  "track": "Nostalgia",
+  "deezerId": 706080082
+ },
+ {
+  "id": "bluey",
+  "artist": "Joff Bush",
+  "title": "Bluey",
+  "year": 2018,
+  "track": "Bluey Theme Tune",
+  "deezerId": 1136191072
+ },
+ {
+  "id": "dallas",
+  "artist": "Dominik Hauser",
+  "title": "Dallas",
+  "year": 1978,
+  "track": "Dallas Theme",
+  "deezerId": 116040812
+ },
+ {
+  "id": "falcon-crest",
+  "artist": "Marc Bradley",
+  "title": "Falcon Crest",
+  "year": 1981,
+  "track": "Falcon Crest Main Theme",
+  "deezerId": 81565752
+ },
+ {
+  "id": "fragglarna",
+  "artist": "Fraggle Rock",
+  "title": "Fragglarna",
+  "year": 1983,
+  "track": "Fraggle Rock Theme",
+  "deezerId": 1617083582
+ },
+ {
+  "id": "doktorn-kan-komma",
+  "artist": "Johnny Pearson",
+  "title": "Doktorn kan komma",
+  "year": 1978,
+  "track": "Piano Parchment",
+  "deezerId": 1913804977
+ },
+ {
+  "id": "svenska-hjartan",
+  "artist": "Magnus Strömberg",
+  "title": "Svenska hjärtan",
+  "year": 1987,
+  "track": "Svenska hjärtan",
+  "deezerId": 3750641652
  }
 ]

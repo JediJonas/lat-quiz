@@ -947,6 +947,55 @@
    "title": "Gummibjörnarna",
    "year": 1985,
    "track": "Gummi Bears Theme"
+  },
+  {
+   "id": "mash",
+   "artist": "The Mash",
+   "title": "M*A*S*H",
+   "year": 1972,
+   "track": "Suicide Is Painless"
+  },
+  {
+   "id": "wallander",
+   "artist": "Emily Barker",
+   "title": "Wallander",
+   "year": 2008,
+   "track": "Nostalgia"
+  },
+  {
+   "id": "bluey",
+   "artist": "Joff Bush",
+   "title": "Bluey",
+   "year": 2018,
+   "track": "Bluey Theme Tune"
+  },
+  {
+   "id": "falcon-crest",
+   "artist": "Marc Bradley",
+   "title": "Falcon Crest",
+   "year": 1981,
+   "track": "Falcon Crest Main Theme"
+  },
+  {
+   "id": "fragglarna",
+   "artist": "Fraggle Rock",
+   "title": "Fragglarna",
+   "year": 1983,
+   "track": "Fraggle Rock Theme"
+  },
+  {
+   "id": "doktorn-kan-komma",
+   "artist": "Johnny Pearson",
+   "title": "Doktorn kan komma",
+   "year": 1978,
+   "track": "Piano Parchment"
+  },
+  {
+   "id": "svenska-hjartan",
+   "artist": "Magnus Strömberg",
+   "title": "Svenska hjärtan",
+   "year": 1987,
+   "track": "Svenska hjärtan"
   }
  ]
 }
