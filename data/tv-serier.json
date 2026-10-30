@@ -64,14 +64,6 @@
   "deezerId": 958034982
  },
  {
-  "id": "ganget-och-jag",
-  "artist": "Pratt & McClain",
-  "title": "Gänget och jag",
-  "year": 1974,
-  "track": "Happy Days",
-  "deezerId": 758527
- },
- {
   "id": "simpsons",
   "artist": "Danny Elfman",
   "title": "Simpsons",
@@ -216,14 +208,6 @@
   "deezerId": 4242620
  },
  {
-  "id": "csi",
-  "artist": "The Who",
-  "title": "CSI",
-  "year": 2000,
-  "track": "Who Are You",
-  "deezerId": 540165792
- },
- {
   "id": "house",
   "artist": "Massive Attack",
   "title": "House",
@@ -278,14 +262,6 @@
   "year": 2008,
   "track": "This Life",
   "deezerId": 15117571
- },
- {
-  "id": "true-detective",
-  "artist": "The Handsome Family",
-  "title": "True Detective",
-  "year": 2014,
-  "track": "Far From Any Road",
-  "deezerId": 105572014
  },
  {
   "id": "peaky-blinders",
@@ -534,14 +510,6 @@
   "year": 2011,
   "track": "Greenback Boogie",
   "deezerId": 3157780971
- },
- {
-  "id": "hulken",
-  "artist": "Joe Harnell",
-  "title": "Hulken",
-  "year": 1977,
-  "track": "The Lonely Man Theme",
-  "deezerId": 1987536807
  },
  {
   "id": "benny-hill",
