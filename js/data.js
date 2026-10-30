@@ -36,10 +36,14 @@ export function inSeason(category, date = new Date()) {
     : today >= season.from || today <= season.to;
 }
 
+// En kategori med "active": false i categories.json är avstängd och syns inte alls, inte ens
+// under sin säsong. Utan active är kategorin på.
+export const isActive = (category) => category.active !== false;
+
 // Kategorierna som går att välja. keep är en kategori som redan spelas och får stå kvar
-// i Inställningar även när säsongen har tagit slut.
+// i Inställningar även när säsongen har tagit slut eller kategorin har stängts av.
 export function visibleCategories(categories, { date = new Date(), keep = null } = {}) {
-  return categories.filter((c) => c.id === keep || inSeason(c, date));
+  return categories.filter((c) => c.id === keep || (isActive(c) && inSeason(c, date)));
 }
 
 export async function loadSongs(category) {
