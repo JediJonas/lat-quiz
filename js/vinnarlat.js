@@ -86,6 +86,8 @@ const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
 // Så länge ljudmotorns klocka får stå still innan låten spelas med ljudelementet i stället.
 const CHECK_MS = 300;
+// Så länge låten väntar på att ljudmotorn ska starta igen.
+const RESUME_MS = 500;
 
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
 export const WINNER_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: FADE_MS, loop: false };
@@ -191,7 +193,17 @@ export function createWinnerSong({ onChange = () => {}, songs = () => WINNER_SON
     last = song.deezerId;
     current = song;
     heardSong = null;
+    // Ljudmotorn kan ha vilat under sista quizlåten utan att vakna igen. Den väcks redan nu, så att
+    // den hinner gå när låten börjar. Annars spelas låten som vanligt ljud, som inte kan tonas på iPhone.
+    resting = false;
+    resume();
     prepared = findPreview(song).then(load).catch(() => null);
+  }
+
+  // Startar ljudmotorn om den står still. Svaret kommer när den går, eller efter en kort stund.
+  function resume() {
+    if (!ctx || ctx.state === 'running') return Promise.resolve();
+    return Promise.race([ctx.resume().catch(() => {}), new Promise((r) => setTimeout(r, RESUME_MS))]);
   }
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement.
@@ -259,6 +271,8 @@ export function createWinnerSong({ onChange = () => {}, songs = () => WINNER_SON
     const clip = await prepared;
     if (turn !== playing) return;
     if (!clip) { heard(); return; }
+    if (clip.buffer) await resume();
+    if (turn !== playing) return;
     if (clip.buffer && ctx && ctx.state === 'running') {
       const at = ctx.currentTime;
       startBuffer(clip.buffer, clip.volume);
