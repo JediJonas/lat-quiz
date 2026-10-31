@@ -996,6 +996,41 @@
    "title": "Svenska hjärtan",
    "year": 1987,
    "track": "Svenska hjärtan"
+  },
+  {
+   "id": "arcane",
+   "artist": "Imagine Dragons",
+   "title": "Arcane",
+   "year": 2021,
+   "track": "Enemy"
+  },
+  {
+   "id": "bridgerton",
+   "artist": "Kris Bowers",
+   "title": "Bridgerton",
+   "year": 2020,
+   "track": "Bridgerton Main Title"
+  },
+  {
+   "id": "queens-gambit",
+   "artist": "Carlos Rafael Rivera",
+   "title": "The Queen's Gambit",
+   "year": 2020,
+   "track": "Main Title"
+  },
+  {
+   "id": "shogun",
+   "artist": "Atticus Ross",
+   "title": "Shōgun",
+   "year": 2024,
+   "track": "Main Title"
+  },
+  {
+   "id": "outlander",
+   "artist": "Bear McCreary",
+   "title": "Outlander",
+   "year": 2014,
+   "track": "The Skye Boat Song"
   }
  ]
 }
