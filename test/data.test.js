@@ -221,6 +221,23 @@ test('samma artist stavas likadant i alla kategorier', () => {
   assert.deepEqual(different, []);
 });
 
+// Samma inspelning i flera kategorier ska ha samma titel, annars visas båda stavningarna
+// bland förslagen och den ena räknas som fel, som "Running Up That Hill" och
+// "Running Up That Hill (A Deal with God)".
+test('samma låt har samma titel i alla kategorier', async () => {
+  const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
+  const titles = new Map();
+  for (const c of read('data/categories.json')) {
+    for (const song of read('data/' + c.file)) {
+      const kind = suggestionKind('title', songLabels(song, c.labels || {}).title);
+      const id = `${kind}:${song.deezerId}`;
+      titles.set(id, new Map([...(titles.get(id) || []), [suggestionKey(song.title, kind), song.title]]));
+    }
+  }
+  const different = [...titles.values()].filter((t) => t.size > 1).map((t) => [...t.values()].join(' / '));
+  assert.deepEqual(different, []);
+});
+
 test('varje filmmusiklåt har ledmotivets spårnamn', () => {
   for (const song of read('data/filmmusik.json')) {
     assert.ok(typeof song.track === 'string' && song.track.trim(), `filmmusik.json: ${song.id} saknar track`);
