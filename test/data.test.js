@@ -221,20 +221,22 @@ test('samma artist stavas likadant i alla kategorier', () => {
   assert.deepEqual(different, []);
 });
 
-// Samma inspelning i flera kategorier ska ha samma titel, annars visas båda stavningarna
+// Samma inspelning i flera kategorier ska ha samma svar, annars visas båda stavningarna
 // bland förslagen och den ena räknas som fel, som "Running Up That Hill" och
-// "Running Up That Hill (A Deal with God)".
-test('samma låt har samma titel i alla kategorier', async () => {
+// "Running Up That Hill (A Deal with God)" eller "Eva Roos" och "Ewa Roos".
+test('samma låt har samma artist och titel i alla kategorier', async () => {
   const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
-  const titles = new Map();
+  const answers = new Map();
   for (const c of read('data/categories.json')) {
     for (const song of read('data/' + c.file)) {
-      const kind = suggestionKind('title', songLabels(song, c.labels || {}).title);
-      const id = `${kind}:${song.deezerId}`;
-      titles.set(id, new Map([...(titles.get(id) || []), [suggestionKey(song.title, kind), song.title]]));
+      for (const field of ['artist', 'title']) {
+        const kind = suggestionKind(field, songLabels(song, c.labels || {})[field]);
+        const id = `${kind}:${song.deezerId}`;
+        answers.set(id, new Map([...(answers.get(id) || []), [suggestionKey(song[field], kind), song[field]]]));
+      }
     }
   }
-  const different = [...titles.values()].filter((t) => t.size > 1).map((t) => [...t.values()].join(' / '));
+  const different = [...answers.values()].filter((a) => a.size > 1).map((a) => [...a.values()].join(' / '));
   assert.deepEqual(different, []);
 });
 
