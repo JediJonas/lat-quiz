@@ -71,13 +71,13 @@ test('antalet låtar i categories.json stämmer med kategorins fil', () => {
 
 test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', async () => {
   const { cleanDecoys } = await import('../tools/decoys.mjs');
-  const suggestions = read('data/suggestions.json');
+  const decoys = read('data/decoys.json');
   const categories = read('data/categories.json').map((c) => ({ id: c.id, labels: c.labels, songs: read('data/' + c.file) }));
-  const clean = cleanDecoys(suggestions, categories);
+  const clean = cleanDecoys(decoys, categories);
   for (const key of ['artists', 'titles', 'countries', 'composers', 'films', 'works']) {
     const kept = new Set(clean[key]);
-    const bad = (suggestions[key] || []).filter((x) => !kept.has(x));
-    assert.deepEqual(bad, [], `Kör cleanDecoys i tools/decoys.mjs på data/suggestions.json (${key})`);
+    const bad = (decoys[key] || []).filter((x) => !kept.has(x));
+    assert.deepEqual(bad, [], `Kör cleanDecoys i tools/decoys.mjs på data/decoys.json (${key})`);
   }
 });
 
@@ -126,7 +126,7 @@ test('lockbeten som är samma artist eller titel som ett rätt svar med annan st
 
 test('inget lockbete är samma svar som en quizlåt i samma förslagslista', async () => {
   const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
-  const suggestions = read('data/suggestions.json');
+  const decoys = read('data/decoys.json');
   const answers = {};
   for (const c of read('data/categories.json')) {
     for (const song of read('data/' + c.file)) {
@@ -136,10 +136,10 @@ test('inget lockbete är samma svar som en quizlåt i samma förslagslista', asy
       }
     }
   }
-  const bad = Object.entries(suggestions).flatMap(([kind, items]) => items
+  const bad = Object.entries(decoys).flatMap(([kind, items]) => items
     .filter((x) => answers[kind]?.has(suggestionKey(x, kind)))
     .map((x) => `${x} (svaret är ${answers[kind].get(suggestionKey(x, kind))})`));
-  assert.deepEqual(bad, [], 'Kör cleanDecoys i tools/decoys.mjs på data/suggestions.json');
+  assert.deepEqual(bad, [], 'Kör cleanDecoys i tools/decoys.mjs på data/decoys.json');
 });
 
 test('förslagen visar ett svar en gång även med "and" i stället för "&"', async () => {
