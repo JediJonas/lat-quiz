@@ -7,6 +7,7 @@
 // Ett kryss i fältet rensar det med ett tryck, så att man kan skriva ett nytt svar direkt.
 
 import { compact, searchIndex, findSuggestions, findWhole } from './text.js';
+import { t } from './shared/lang.js';
 
 const MIN_CHARS = 3;
 const MAX_SHOWN = 50;
@@ -20,7 +21,7 @@ export function autocomplete(input, list, onChange) {
   box.className = 'suggestions';
   box.id = input.id + '-suggestions';
   box.setAttribute('role', 'listbox');
-  box.setAttribute('aria-label', 'Förslag');
+  box.setAttribute('aria-label', t('autocomplete.label'));
   box.hidden = true;
   input.after(box);
   input.setAttribute('autocomplete', 'off');
@@ -33,8 +34,8 @@ export function autocomplete(input, list, onChange) {
   const clear = document.createElement('button');
   clear.type = 'button';
   clear.className = 'clear-input';
-  clear.setAttribute('aria-label', label ? `Rensa ${label.textContent.toLowerCase()}` : 'Rensa');
-  clear.title = 'Rensa';
+  clear.setAttribute('aria-label', label ? t('autocomplete.clearField', { field: label.textContent.toLowerCase() }) : t('autocomplete.clear'));
+  clear.title = t('autocomplete.clear');
   clear.innerHTML = CLEAR_ICON;
   clear.hidden = true;
   box.before(clear);
@@ -177,8 +178,8 @@ export function autocomplete(input, list, onChange) {
     allOptions = options;
     lastLimit = null;
     box.style.maxHeight = '';
-    if (items.length === 0) note('Laddar förslag…');
-    else if (hits.length === 0) note('Inga träffar');
+    if (items.length === 0) note(t('autocomplete.loading'));
+    else if (hits.length === 0) note(t('autocomplete.none'));
     show(true);
   }
 

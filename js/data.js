@@ -2,6 +2,7 @@
 // Läser låtlistor och förslagslista från data-mappen.
 
 import { answerKey } from './text.js';
+import { t } from './shared/lang.js';
 
 // Ett enstaka fel, som när GitHub Pages just har publicerat en ny version eller mobilnätet
 // hackar till, ska inte stoppa spelet. Därför försöker sidan igen två gånger innan den ger upp.
@@ -14,7 +15,7 @@ export async function getJson(path, { retries = RETRY_MS } = {}) {
       if (!res.ok) throw new Error('Inget svar');
       return await res.json();
     } catch {
-      if (attempt >= retries.length) throw new Error('Kunde inte läsa ' + path);
+      if (attempt >= retries.length) throw new Error(t('error.read', { path }));
       await new Promise((resolve) => { setTimeout(resolve, retries[attempt]); });
     }
   }

@@ -26,7 +26,7 @@ function roundLabels(state) {
 export const MAX_NAME = 10;
 
 // Utan namn heter spelledaren Spelledare.
-export const DEFAULT_HOST_NAME = 'Spelledare';
+export const DEFAULT_HOST_NAME = t('host.defaultName');
 
 // Namnet som spelledaren deltar med, kortat som spelarnas.
 export function cleanHostName(name) {
@@ -351,11 +351,11 @@ export function upcomingSettings(view) {
 export function settingsChangeText(before, after) {
   if (!before || !after || !before.settings || !after.settings) return null;
   const parts = [];
-  if (after.categoryName && after.categoryName !== before.categoryName) parts.push(`Ny kategori: ${after.categoryName}.`);
+  if (after.categoryName && after.categoryName !== before.categoryName) parts.push(t('changed.category', { name: after.categoryName }));
   const { roundMs, bonusMs } = after.settings;
-  if (roundMs !== before.settings.roundMs) parts.push(`${roundMs / 1000} sekunder per låt.`);
-  if (bonusMs !== before.settings.bonusMs) parts.push(bonusMs ? `Bonus för svar inom ${bonusMs / 1000} sekunder.` : 'Ingen bonus.');
-  if (after.settings.winScore !== before.settings.winScore) parts.push(`Först till ${after.settings.winScore} poäng vinner.`);
+  if (roundMs !== before.settings.roundMs) parts.push(t('changed.roundMs', { s: roundMs / 1000 }));
+  if (bonusMs !== before.settings.bonusMs) parts.push(bonusMs ? t('changed.bonusMs', { s: bonusMs / 1000 }) : t('changed.noBonus'));
+  if (after.settings.winScore !== before.settings.winScore) parts.push(t('changed.winScore', { score: after.settings.winScore }));
   return parts.length ? parts.join(' ') : null;
 }
 

@@ -1,5 +1,6 @@
 // Modaler i stället för webbläsarens alert() och confirm().
 // Bygger på <dialog>, som sköter fokus, Esc och bakgrunden.
+import { t } from './shared/lang.js';
 
 // Material Symbols Rounded (Apache 2.0): info_i.
 const INFO_ICON = '<svg viewBox="0 -960 960 960"><path d="M480-680q-33 0-56.5-23.5T400-760q0-33 23.5-56.5T480-840q33 0 56.5 23.5T560-760q0 33-23.5 56.5T480-680Zm0 560q-25 0-42.5-17.5T420-180v-360q0-25 17.5-42.5T480-600q25 0 42.5 17.5T540-540v360q0 25-17.5 42.5T480-120Z"/></svg>';
@@ -44,5 +45,5 @@ export function showAlert(message, options = {}) {
 }
 
 export function showConfirm(message, options = {}) {
-  return open({ message, okText: 'OK', cancelText: 'Avbryt', ...options });
+  return open({ message, okText: t('dialog.ok'), cancelText: t('dialog.cancel'), ...options });
 }

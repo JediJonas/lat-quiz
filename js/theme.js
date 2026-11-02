@@ -1,6 +1,7 @@
 // Ljust eller mörkt läge. Utan eget val är sidan mörk, eftersom den är snyggast så.
 // Själva valet läses in redan i <head>, så att sidan inte blinkar till.
 import { dragToClose } from './ark.js';
+import { t } from './shared/lang.js';
 import { KEYS, writeText } from './shared/storage.js';
 
 const deviceDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -44,17 +45,17 @@ export function showUserSettings() {
   dialog.setAttribute('aria-labelledby', 'user-settings-title');
   dialog.innerHTML = `
     <form method="dialog">
-      <h2 id="user-settings-title">Utseende</h2>
+      <h2 id="user-settings-title">${t('menu.appearance')}</h2>
       <div class="switches">
         <button type="button" class="theme-switch" id="switch-dark"></button>
         <button type="button" class="theme-switch" id="switch-text"></button>
       </div>
       <div class="modal-actions">
-        <button value="ok">OK</button>
+        <button value="ok">${t('dialog.ok')}</button>
       </div>
     </form>`;
-  mountSwitch(dialog.querySelector('#switch-dark'), 'Mörkt läge', isDark, () => setTheme(isDark() ? 'light' : 'dark'));
-  mountSwitch(dialog.querySelector('#switch-text'), 'Stor text', isLargeText, () => setLargeText(!isLargeText()));
+  mountSwitch(dialog.querySelector('#switch-dark'), t('appearance.dark'), isDark, () => setTheme(isDark() ? 'light' : 'dark'));
+  mountSwitch(dialog.querySelector('#switch-text'), t('appearance.largeText'), isLargeText, () => setLargeText(!isLargeText()));
   // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.
   dialog.addEventListener('keydown', (e) => e.stopPropagation());
   dialog.addEventListener('close', () => dialog.remove(), { once: true });

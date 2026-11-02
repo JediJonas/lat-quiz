@@ -2,6 +2,7 @@
 // QR-koden och länken för att gå med i spelet, likadana hos spelledaren och spelarna.
 // qrcode kommer från vendor/qrcode.js via en script-tagg.
 import { $ } from './shared/dom.js';
+import { t } from './shared/lang.js';
 
 /** Skriver länken och ritar QR-koden för den. @param {string} url */
 export function renderJoinInfo(url) {
@@ -25,10 +26,10 @@ export async function copyJoinLink(url) {
   const status = $('#copy-status');
   try {
     await navigator.clipboard.writeText(url);
-    button.textContent = 'länken (kopierad)';
-    status.textContent = 'Länken är kopierad';
+    button.textContent = t('join.copied');
+    status.textContent = t('join.copiedStatus');
     clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => { button.textContent = 'länken'; status.textContent = ''; }, 3000);
+    copiedTimer = setTimeout(() => { button.textContent = t('join.copy'); status.textContent = ''; }, 3000);
   } catch {
     $('#join-url-row').hidden = false;
     status.textContent = '';

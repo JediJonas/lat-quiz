@@ -1,5 +1,6 @@
 // Kategorivalet på Starta nytt spel: omslag i mobilen och en rullgardin på dator, som hålls lika.
 import { $, esc } from './shared/dom.js';
+import { t } from './shared/lang.js';
 import { enhanceSelect } from './rullista.js';
 
 // Sidan är förifylld med 60-tal förvalt, så att den syns innan kategorierna har laddats. Har man
@@ -12,8 +13,8 @@ export function renderCategories(categories) {
   const chosen = pickedCategory ? chosenCategory() : null;
   picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
     + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
-    + `${c.songs ? `<span class="cat-songs">${c.songs} låtar</span>` : ''}</span></label>`).join('');
-  $('.cat-count').textContent = `${categories.length} kategorier`;
+    + `${c.songs ? `<span class="cat-songs">${t('category.songs', { count: c.songs })}</span>` : ''}</span></label>`).join('');
+  $('.cat-count').textContent = t('category.count', { count: categories.length });
   $('#category-select').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
   const radios = [...picker.querySelectorAll('input')];
   (radios.find((r) => r.value === chosen) || radios[0]).checked = true;

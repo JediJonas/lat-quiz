@@ -1,5 +1,6 @@
 // Spelarvyn i mobilen.
 import { codeBoxes } from './kodrutor.js';
+import { t } from './shared/lang.js';
 import { createClient } from './net.js';
 import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './game-view.js';
@@ -55,12 +56,12 @@ function onMessage(msg) {
   if (msg.type === MSG.ended) { gameEnded(); return; }
   if (msg.type === MSG.leaving) { hostLeft = true; showHostLeft(); return; }
   if (msg.type === MSG.newMatch) {
-    showMessage({ key: 'new-match', kind: 'info', title: 'Vi kör igen!', text: 'Alla börjar om från noll. Lycka till!', ms: INFO_MS });
+    showMessage({ key: 'new-match', kind: 'info', title: t('newMatch.title'), text: t('newMatch.text'), ms: INFO_MS });
     return;
   }
   if (msg.type === MSG.joined) { showJoined(String(msg.name || '')); return; }
   if (msg.type === MSG.left) { showLeft(String(msg.name || '')); return; }
-  if (msg.type === MSG.nameTaken) { leave(`Det finns redan en ${msg.name} i spelet. Välj ett annat namn, till exempel med en initial.`, false); return; }
+  if (msg.type === MSG.nameTaken) { leave(t('join.nameTaken', { name: msg.name }), false); return; }
   if (msg.type !== MSG.state) return;
   if (pending) showLobby();
   view = msg.view;
@@ -85,7 +86,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text, ms: INFO_MS });
+    showMessage({ key: 'settings', kind: 'info', title: t('changed.title'), text, ms: INFO_MS });
   }, SETTINGS_SETTLE_MS);
 }
 
@@ -100,7 +101,7 @@ let connectingTimer = null;
 let hostLeft = false;
 
 function showHostLeft() {
-  showMessage({ key: 'net', kind: 'busy', title: 'Spelledaren är borta', text: 'Väntar på spelledaren…' });
+  showMessage({ key: 'net', kind: 'busy', title: t('net.hostGone.title'), text: t('net.hostGone.text') });
 }
 
 // Webbläsaren kan säga att spelledarens sida lämnas fast den finns kvar, till exempel när den
@@ -117,13 +118,13 @@ function gameEnded() {
   net.destroy();
   net = null;
   remove(KEYS.player);
-  showMessage({ key: 'net', kind: 'info', title: 'Spelet avslutades', text: 'Tack för att du var med!' });
+  showMessage({ key: 'net', kind: 'info', title: t('net.ended.title'), text: t('net.ended.text') });
 }
 
 function onStatus(status) {
   if (status === 'connected') {
     clearTimeout(connectingTimer);
-    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: 'Välkommen tillbaka!', text: 'Du är med i spelet igen.' });
+    if (dropped || hostLeft) showMessage({ key: 'net', kind: 'ok', title: t('net.back.title'), text: t('net.back.text') });
     else hideMessage('net');
     connectedOnce = true;
     dropped = false;
@@ -134,7 +135,7 @@ function onStatus(status) {
     showHostLeft();
   } else if (connectedOnce) {
     dropped = true;
-    showMessage({ key: 'net', kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' });
+    showMessage({ key: 'net', kind: 'busy', title: t('net.lost.title'), text: t('net.retrying') });
   }
 }
 
@@ -152,7 +153,7 @@ function join(name, code, fromForm) {
   dropped = false;
   hostLeft = false;
   clearTimeout(connectingTimer);
-  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: 'Ansluter till spelet…', text: 'Det kan ta några sekunder.' }), CONNECTING_DELAY_MS);
+  connectingTimer = setTimeout(() => showMessage({ key: 'net', kind: 'busy', title: t('net.connecting.title'), text: t('net.connecting.text') }), CONNECTING_DELAY_MS);
   if (fromForm) setPending(true);
   else showLobby();
   net = createClient(code, { onOpen, onMessage, onHeard, onStatus, onNotFound, onUnreachable });
@@ -190,23 +191,23 @@ function showLobby() {
 
 // Koden är fel eller spelet är avslutat: tillbaka till sidan där man anger kod.
 function onNotFound() {
-  leave(`Vi hittar inget spel med koden ${me.code}. Kolla koden och prova igen.`, true);
+  leave(t('join.notFound', { code: me.code }), true);
 }
 
 // Anslutningen lyckades aldrig, fast spelet finns. Koden står kvar, och spelaren sparas så att
 // ett nytt försök går med som samma spelare och inte får namnet upptaget av sig själv.
 function onUnreachable(reason) {
   const message = reason === 'relay'
-    ? 'Det gick inte att ansluta. Kontrollera att du har internet och försök igen.'
-    : `Spelet med koden ${me.code} svarar inte. Kontrollera att spelledarens sida är öppen och försök igen. Är du på ett gästnät? Prova samma wifi som spelledaren eller mobildata.`;
+    ? t('join.noInternet')
+    : t('join.unreachable', { code: me.code });
   leave(message, false, true);
 }
 
 // Spelaren lämnar spelet och hamnar på startsidan. Spelaren sparas, så att den som går med
 // igen med samma kod får tillbaka sina poäng.
 async function leaveGame() {
-  const ok = await showConfirm('Du kan gå med igen med samma kod och får då tillbaka dina poäng.', {
-    title: 'Lämna spelet?', okText: 'Lämna', danger: true, icon: ICONS.leave,
+  const ok = await showConfirm(t('leave.text'), {
+    title: t('leave.title'), okText: t('leave.ok'), danger: true, icon: ICONS.leave,
   });
   if (!ok) return;
   // Spelledaren och de andra spelarna får veta det. Vänta lite, så att meddelandet hinner iväg.
@@ -226,9 +227,9 @@ async function leaveGame() {
 function menuGroups() {
   if ($('#lobby').hidden) return [startItems(), commonItems()];
   return [
-    [{ label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: joinInfoShown() || !net }],
+    [{ label: t('menu.showQr'), icon: ICONS.qr, action: showQr, disabled: joinInfoShown() || !net }],
     commonItems(),
-    [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame }],
+    [{ label: t('menu.leave'), icon: ICONS.leave, action: leaveGame }],
   ];
 }
 
@@ -298,7 +299,7 @@ async function init() {
 }
 
 function showError(err) {
-  showMessage({ key: 'error', kind: 'problem', title: 'Något gick fel', text: err.message });
+  showMessage({ key: 'error', kind: 'problem', title: t('message.unexpected.title'), text: err.message });
 }
 
 init().catch(showError);

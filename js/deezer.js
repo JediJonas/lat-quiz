@@ -3,6 +3,7 @@
 // hämtat med verktyg/deezer-id.mjs, så att rätt inspelning spelas.
 // Deezers API saknar CORS, så sökningen görs med JSONP. Klipplänkarna går ut
 // efter en stund och hämtas därför precis innan låten spelas.
+import { t } from './shared/lang.js';
 
 // En kort tystnad som spelas direkt i ett klick eller tryck. Då räknas ljudet som startat av
 // användaren, och klippet får spela fast det hämtas först efteråt (Safari).
@@ -36,9 +37,9 @@ function jsonp(url) {
     const name = 'deezerSvar' + (++counter);
     const script = document.createElement('script');
     const done = () => { delete window[name]; script.remove(); clearTimeout(timer); };
-    const timer = setTimeout(() => { done(); reject(new Error('Deezer svarade inte.')); }, TIMEOUT_MS);
+    const timer = setTimeout(() => { done(); reject(new Error(t('deezer.timeout'))); }, TIMEOUT_MS);
     window[name] = (data) => { done(); resolve(data); };
-    script.onerror = () => { done(); reject(new Error('Kunde inte nå Deezer.')); };
+    script.onerror = () => { done(); reject(new Error(t('deezer.unreachable'))); };
     script.src = url + '&output=jsonp&callback=' + name;
     document.head.append(script);
   });

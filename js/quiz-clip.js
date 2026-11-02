@@ -7,6 +7,7 @@
 // 'missing' (inga klipp, även efter flera låtar) eller 'blocked' (webbläsaren stoppade ljudet).
 // De tre sista behöver ett nytt tryck på Starta spelet.
 import * as game from './game.js';
+import { t } from './shared/lang.js';
 import { SILENCE, findPreview } from './deezer.js';
 import * as prefs from './shared/preferences.js';
 
@@ -202,10 +203,10 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
   // Meddelandet för ett klipp som har fastnat, eller null.
   function message(round) {
     if (!stuck(round)) return null;
-    const text = 'Välj Starta spelet i menyn för att försöka igen.';
+    const text = t('clip.retry');
     if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text };
-    if (clip.status === 'missing') return { kind: 'problem', title: 'Inga klipp från Deezer', text };
-    return { kind: 'problem', title: 'Klippet startade inte', text };
+    if (clip.status === 'missing') return { kind: 'problem', title: t('clip.missing'), text };
+    return { kind: 'problem', title: t('clip.blocked'), text };
   }
 
   // Klipplänken som spelarnas mobiler spelar, om spelledaren har valt det. Länken säger inte
