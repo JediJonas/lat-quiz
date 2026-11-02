@@ -5,7 +5,7 @@
 // - omslagens färger, tecken och mörkhetsgrad (cover) som CSS-variabler i css/style.css
 // - listan över tecken med fler än två tecken, som står mitt i omslaget i mobilen
 //
-//   node verktyg/categories.mjs
+//   node tools/categories.mjs
 //
 // Ett test (test/categories.test.js) säger till om verktyget behöver köras.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -19,9 +19,9 @@ export const CATEGORIES = 'data/categories.json';
 export const CSS = 'css/style.css';
 
 // CSS:en mellan markeringarna skrivs av verktyget. Markeringarna står kvar.
-const START = '/* Från data/categories.json, skrivs av verktyg/categories.mjs. */';
-const END = '/* Slut på det som skrivs av verktyg/categories.mjs. */';
-const LONG_START = '/* Långa tecken, skrivs av verktyg/categories.mjs. */';
+const START = '/* Från data/categories.json, skrivs av tools/categories.mjs. */';
+const END = '/* Slut på det som skrivs av tools/categories.mjs. */';
+const LONG_START = '/* Långa tecken, skrivs av tools/categories.mjs. */';
 const LONG_END = '/* Slut på långa tecken. */';
 
 // Hur många synliga tecken tecknet har. Fler än två får inte plats i hörnet i mobilen.
@@ -30,12 +30,12 @@ const visible = (glyph) => [...glyph].length;
 /** Färgerna och tecknen för varje kategori, som CSS. */
 export function coverCss(categories) {
   return categories.map(({ id, cover: { glyph, colors: [c1, c2], dim } }) =>
-    `[data-kategori="${id}"] { --cat-glyph: "${glyph}"; --cat-1: ${c1}; --cat-2: ${c2}; --cat-dim: ${dim.toFixed(2)}; }`).join('\n');
+    `[data-category="${id}"] { --cat-glyph: "${glyph}"; --cat-1: ${c1}; --cat-2: ${c2}; --cat-dim: ${dim.toFixed(2)}; }`).join('\n');
 }
 
 /** Väljarna för kategorierna vars tecken står mitt i omslaget i mobilen. */
 export function longGlyphCss(categories) {
-  const list = categories.filter((c) => visible(c.cover.glyph) > 2).map((c) => `[data-kategori="${c.id}"]`).join(', ');
+  const list = categories.filter((c) => visible(c.cover.glyph) > 2).map((c) => `[data-category="${c.id}"]`).join(', ');
   return `  .tile:is(${list})::after,\n  :root:is(${list}) .cover::after {`;
 }
 

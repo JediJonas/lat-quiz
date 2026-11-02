@@ -105,7 +105,7 @@ export default {
     'Låtquizets mästare!',
   ],
 
-  // Sidorna, som verktyg/texts.mjs skriver in i index.html, host.html och play.html.
+  // Sidorna, som tools/texts.mjs skriver in i index.html, host.html och play.html.
   'page.title.host': 'Låtquiz – Starta nytt spel',
   'page.title.play': 'Låtquiz – Gå med i spel',
   'page.description.index': 'Låtquiz för familj och vänner. Gissa artist och titel med din enhet medan spelledaren spelar låtarna.',

@@ -1,7 +1,7 @@
 // Hämtar fasta Deezer-ID för en eller flera kategorier. Körs med Node av Claude:
 //
-//   node verktyg/deezer-id.mjs 80-tal 90-tal
-//   node verktyg/deezer-id.mjs --igen 80-tal    (hämtar om även låtar med ID)
+//   node tools/deezer-id.mjs 80-tal 90-tal
+//   node tools/deezer-id.mjs --igen 80-tal    (hämtar om även låtar med ID)
 //
 // Låten söks på Deezer. Rätt artist och titel krävs, och live, remix, cover,
 // nyinspelningar och liknande sorteras bort. Bland det som återstår väljs den
@@ -10,8 +10,8 @@
 // då hämtades exakt den inspelningen. Spotify-ID:na togs bort, se spotify-lardomar.md.
 //
 // Låtar med ett deezerId sedan tidigare rörs inte, utom med --igen. Rapporten med osäkra
-// träffar skrivs till verktyg/.deezer-rapport.json. Granskade val står i
-// verktyg/deezer-val.json och går före sökningen.
+// träffar skrivs till tools/.deezer-report.json. Granskade val står i
+// tools/deezer-choices.json och går före sökningen.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { norm, baseTitle, titleMatches } from '../js/lookup.js';
@@ -19,11 +19,11 @@ import { norm, baseTitle, titleMatches } from '../js/lookup.js';
 const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 // Parallella körningar behöver var sin cache, till exempel CACHE=/tmp/c1.json.
 const CACHE = process.env.CACHE || new URL('./.cache.json', import.meta.url);
-const REPORT = new URL('./.deezer-rapport.json', import.meta.url);
+const REPORT = new URL('./.deezer-report.json', import.meta.url);
 // Claudes egna val efter granskning: ett Deezer-ID, eller null när Deezer
 // saknar originalet och appen hellre ska söka själv.
-const CHOICES = JSON.parse(readFileSync(new URL('./deezer-val.json', import.meta.url), 'utf8'));
-const PERFORMERS = JSON.parse(readFileSync(new URL('./eurovision-artister.json', import.meta.url), 'utf8'));
+const CHOICES = JSON.parse(readFileSync(new URL('./deezer-choices.json', import.meta.url), 'utf8'));
+const PERFORMERS = JSON.parse(readFileSync(new URL('./eurovision-artists.json', import.meta.url), 'utf8'));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const cache = existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, 'utf8')) : {};
 
@@ -158,7 +158,7 @@ async function topTracks(name) {
 
 export async function find(song, category) {
   const title = film(category, song) ? song.track : song.title;
-  // I Eurovision är "artist" landet. Artisten står i verktyg/eurovision-artister.json.
+  // I Eurovision är "artist" landet. Artisten står i tools/eurovision-artists.json.
   const artists = countries(category) ? [PERFORMERS[song.id]].filter(Boolean) : [song.artist];
 
   if (classical(category, song)) {

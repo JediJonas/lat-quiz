@@ -1,5 +1,5 @@
 // @ts-check
-// Textmatchning för verktyget som hämtar Deezer-ID (verktyg/deezer-id.mjs).
+// Textmatchning för verktyget som hämtar Deezer-ID (tools/deezer-id.mjs).
 // Funktionerna här gör inga anrop, så de kan testas utan nätverk.
 
 export function norm(text) {

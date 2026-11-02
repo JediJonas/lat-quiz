@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: webbkvalitet/package-lock.json
+          cache-dependency-path: quality/package-lock.json
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -25,51 +25,51 @@ jobs:
 
       # Samma versionsnummer som vid publiceringen, så att kontrollerna gäller det som publiceras.
       - name: Versionsnummer på CSS och JS
-        run: node verktyg/versioner.mjs
+        run: node tools/versions.mjs
 
       - name: Installera kontrollverktygen
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm ci
 
       - name: Lint (ESLint)
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm run lint
 
       - name: Typkontroll (JSDoc och tsc)
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm run types
 
       - name: Starta webbserver och PeerJS-server
-        working-directory: webbkvalitet
+        working-directory: quality
         run: |
           (cd .. && python3 -m http.server 8080 &)
           npx peerjs --host 127.0.0.1 --port 9000 &
           sleep 3
 
       - name: Röktest (ett helt spel)
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm run smoke
         env:
           CHROME_PATH: /usr/bin/google-chrome
 
       - name: HTML-validering (W3C Nu)
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm run html
 
       - name: Tillgänglighet (axe, WCAG 2.2 AA)
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm run axe
 
       - name: Lighthouse (mobil)
-        working-directory: webbkvalitet
+        working-directory: quality
         run: npm run lighthouse
         env:
           CHROME_PATH: /usr/bin/google-chrome
 
       - name: Länkkontroll
-        working-directory: webbkvalitet
-        run: npm run lankar
+        working-directory: quality
+        run: npm run links
 
       - name: Sidvikt
-        working-directory: webbkvalitet
-        run: npm run -s sidvikt >> "$GITHUB_STEP_SUMMARY" && cat "$GITHUB_STEP_SUMMARY"
+        working-directory: quality
+        run: npm run -s page-weight >> "$GITHUB_STEP_SUMMARY" && cat "$GITHUB_STEP_SUMMARY"

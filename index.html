@@ -6,7 +6,7 @@
   <title data-t="app.name">Låtquiz</title>
   <meta name="description" data-t-content="page.description.index" content="Låtquiz för familj och vänner. Gissa artist och titel med din enhet medan spelledaren spelar låtarna.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="ikoner/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
   <script>{ const d = document.documentElement.dataset; d.theme = 'dark'; try { const t = localStorage.getItem('latquiz-tema'), s = localStorage.getItem('latquiz-text'); if (t) d.theme = t; if (s) d.text = s; } catch {} }</script>
@@ -17,9 +17,9 @@
   <main class="narrow start">
     <!-- Omslagen är bara utsmyckning och glider sakta förbi, som skivor i en hylla. Kategorierna väljs i Starta nytt spel. -->
     <div class="start-shelf" aria-hidden="true">
-      <div class="shelf-row"><span class="tile" data-kategori="60-tal">60-tal</span><span class="tile" data-kategori="70-tal">70-tal</span><span class="tile" data-kategori="80-tal">80-tal</span><span class="tile" data-kategori="90-tal">90-tal</span><span class="tile" data-kategori="2000-tal">2000-tal</span><span class="tile" data-kategori="2010-tal">2010-tal</span></div>
-      <div class="shelf-row"><span class="tile" data-kategori="2020-tal">2020-tal</span><span class="tile" data-kategori="svenska">Svenska klassiker</span><span class="tile" data-kategori="melodifestivalen">Melodifestivalen</span><span class="tile" data-kategori="eurovision">Eurovision</span><span class="tile" data-kategori="hardrock">Hårdrock och metal</span><span class="tile" data-kategori="edm">EDM</span></div>
-      <div class="shelf-row"><span class="tile" data-kategori="eurovision">Eurovision</span><span class="tile" data-kategori="hardrock">Hårdrock och metal</span><span class="tile" data-kategori="edm">EDM</span><span class="tile" data-kategori="filmmusik">Filmmusik</span><span class="tile" data-kategori="klassiskt">Klassisk musik</span><span class="tile" data-kategori="60-tal">60-tal</span></div>
+      <div class="shelf-row"><span class="tile" data-category="60-tal">60-tal</span><span class="tile" data-category="70-tal">70-tal</span><span class="tile" data-category="80-tal">80-tal</span><span class="tile" data-category="90-tal">90-tal</span><span class="tile" data-category="2000-tal">2000-tal</span><span class="tile" data-category="2010-tal">2010-tal</span></div>
+      <div class="shelf-row"><span class="tile" data-category="2020-tal">2020-tal</span><span class="tile" data-category="svenska">Svenska klassiker</span><span class="tile" data-category="melodifestivalen">Melodifestivalen</span><span class="tile" data-category="eurovision">Eurovision</span><span class="tile" data-category="hardrock">Hårdrock och metal</span><span class="tile" data-category="edm">EDM</span></div>
+      <div class="shelf-row"><span class="tile" data-category="eurovision">Eurovision</span><span class="tile" data-category="hardrock">Hårdrock och metal</span><span class="tile" data-category="edm">EDM</span><span class="tile" data-category="filmmusik">Filmmusik</span><span class="tile" data-category="klassiskt">Klassisk musik</span><span class="tile" data-category="60-tal">60-tal</span></div>
     </div>
     <div class="start-text">
       <h1 class="logo"><span class="visually-hidden" data-t="app.name">Låtquiz</span></h1>
@@ -30,7 +30,7 @@
       <a class="button big" href="play.html" data-t="menu.join">Gå med i spel</a>
       <a class="button big soft" href="host.html" data-t="menu.newGame">Starta nytt spel</a>
     </div>
-    <!-- Versionen och när sidan publicerades. Fylls i vid publiceringen av verktyg/versioner.mjs och syns bara med ?debug=1. -->
+    <!-- Versionen och när sidan publicerades. Fylls i vid publiceringen av tools/versions.mjs och syns bara med ?debug=1. -->
     <p class="app-version"></p>
   </main>
   <script>

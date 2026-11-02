@@ -150,12 +150,12 @@ export function mountSeasonEffect() {
   let current = null;
   let stop = () => {};
   const update = () => {
-    const effect = SEASON_EFFECTS[document.documentElement.dataset.kategori] || null;
+    const effect = SEASON_EFFECTS[document.documentElement.dataset.category] || null;
     if (effect === current) return;
     stop();
     current = effect;
     stop = effect ? start(layer, effect) : () => {};
   };
-  new MutationObserver(update).observe(document.documentElement, { attributes: true, attributeFilter: ['data-kategori'] });
+  new MutationObserver(update).observe(document.documentElement, { attributes: true, attributeFilter: ['data-category'] });
   update();
 }
