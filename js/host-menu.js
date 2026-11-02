@@ -4,6 +4,7 @@ import { ICONS, commonItems, startItems } from './meny.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { peerQuery } from './net.js';
 import { $ } from './shared/dom.js';
+import { t } from './shared/lang.js';
 import { scrollToTop } from './ui.js';
 
 // QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel, men inte när
@@ -49,11 +50,11 @@ export function showQr() {
  */
 export function pauseItem(state, { stuck, start, resume, retry, pause }) {
   const round = state.round;
-  if (!round && !state.winners) return [{ label: 'Starta spelet', icon: ICONS.play, action: start }];
+  if (!round && !state.winners) return [{ label: t('menu.start'), icon: ICONS.play, action: start }];
   if (!round || state.winners) return [];
-  if (state.pausedAt) return [{ label: 'Starta spelet', icon: ICONS.play, action: resume }];
-  if (stuck(round)) return [{ label: 'Starta spelet', icon: ICONS.play, action: retry }];
-  return [{ label: 'Pausa spelet', icon: ICONS.pause, action: pause }];
+  if (state.pausedAt) return [{ label: t('menu.start'), icon: ICONS.play, action: resume }];
+  if (stuck(round)) return [{ label: t('menu.start'), icon: ICONS.play, action: retry }];
+  return [{ label: t('menu.pause'), icon: ICONS.pause, action: pause }];
 }
 
 /**
@@ -63,12 +64,12 @@ export function pauseItem(state, { stuck, start, resume, retry, pause }) {
  * @param {Parameters<typeof pauseItem>[1] & { settings: () => void, end: () => void }} actions
  */
 export function menuGroups(state, actions) {
-  const settingsItem = { label: 'Inställningar', icon: ICONS.settings, action: actions.settings };
+  const settingsItem = { label: t('menu.settings'), icon: ICONS.settings, action: actions.settings };
   if (!state) return [startItems(), [settingsItem], commonItems()];
   return [
-    [...pauseItem(state, actions), { label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: joinInfoShown() }, settingsItem],
+    [...pauseItem(state, actions), { label: t('menu.showQr'), icon: ICONS.qr, action: showQr, disabled: joinInfoShown() }, settingsItem],
     commonItems(),
-    [{ label: 'Avsluta spelet', icon: ICONS.leave, action: actions.end }],
+    [{ label: t('menu.endGame'), icon: ICONS.leave, action: actions.end }],
   ];
 }
 

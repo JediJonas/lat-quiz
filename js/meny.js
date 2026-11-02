@@ -3,6 +3,7 @@
 // Raderna har ikon och text. Rader som inte går att använda just nu visas inte.
 import { showUserSettings } from './theme.js';
 import { showAbout } from './om.js';
+import { t } from './shared/lang.js';
 
 const svg = (d) => `<svg viewBox="0 -960 960 960" aria-hidden="true"><path d="${d}"/></svg>`;
 // Material Symbols Rounded (Apache 2.0): menu, login, logout, add, pause, play_arrow, qr_code, settings, info_i, contrast och delete.
@@ -33,16 +34,16 @@ const onPage = (page) => location.pathname.endsWith('/' + page);
 // Raderna före ett spel.
 export function startItems() {
   return [
-    { label: 'Gå med i spel', icon: ICONS.join, href: pageUrl('play.html'), current: onPage('play.html') },
-    { label: 'Starta nytt spel', icon: ICONS.newGame, href: pageUrl('host.html'), current: onPage('host.html') },
+    { label: t('menu.join'), icon: ICONS.join, href: pageUrl('play.html'), current: onPage('play.html') },
+    { label: t('menu.newGame'), icon: ICONS.newGame, href: pageUrl('host.html'), current: onPage('host.html') },
   ];
 }
 
 // Raderna som finns överallt.
 export function commonItems() {
   return [
-    { label: 'Om Låtquiz', icon: ICONS.about, action: showAbout },
-    { label: 'Utseende', icon: ICONS.appearance, action: showUserSettings },
+    { label: t('menu.about'), icon: ICONS.about, action: showAbout },
+    { label: t('menu.appearance'), icon: ICONS.appearance, action: showUserSettings },
   ];
 }
 
@@ -62,8 +63,8 @@ export function mountMenu(container, groups) {
   const id = `menu-list-${++count}`;
   const nav = document.createElement('nav');
   nav.className = 'menu';
-  nav.setAttribute('aria-label', 'Meny');
-  nav.innerHTML = `<button type="button" class="menu-button" aria-label="Meny" title="Meny" aria-expanded="false" aria-controls="${id}">${ICONS.menu}</button>
+  nav.setAttribute('aria-label', t('menu.label'));
+  nav.innerHTML = `<button type="button" class="menu-button" aria-label="${t('menu.label')}" title="${t('menu.label')}" aria-expanded="false" aria-controls="${id}">${ICONS.menu}</button>
     <div class="menu-panel" id="${id}" hidden></div>`;
   const button = nav.querySelector('.menu-button');
   const panel = nav.querySelector('.menu-panel');
