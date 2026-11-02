@@ -1,6 +1,5 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
-import { peerQuery } from './net.js';
 import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
 import { showConfirm } from './dialog.js';
 import { hideMessage, showMessage, showUnexpectedErrors } from './meddelande.js';
@@ -12,16 +11,16 @@ import * as prefs from './shared/preferences.js';
 import * as protocol from './shared/protocol.js';
 import { scrollToTop } from './ui.js';
 import { showNowMusic } from './nuspelas.js';
-import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
+import { ICONS as MENU_ICONS, mountMenu } from './meny.js';
 import { withoutUnknown } from './okanda.js';
 import { mountSeasonEffect } from './sasong.js';
 import { createQuizClip } from './quiz-clip.js';
 import { createSoundDirector } from './sound-director.js';
 import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game-flow.js';
-import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
 import { createConnections } from './host-connections.js';
 import { createHostSettings } from './host-settings.js';
+import { menuGroups, mountCopyLink, mountKeys, setQrVisible, showJoinInfo } from './host-menu.js';
 import { startTicker } from './shared/ticker.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
@@ -82,15 +81,6 @@ const settings = createHostSettings({
   changed: () => changed(),
   showUnknown: prefs.showUnknown(location.search),
 });
-
-function joinUrl() {
-  const url = new URL('play.html', location.href);
-  url.search = peerQuery();
-  url.searchParams.set('kod', state.code);
-  return url.toString();
-}
-
-// ---- Kommunikation ----
 
 // Spelvyn för en spelare, med tiden kvar tills nästa låt startar av sig själv.
 function viewFor(playerId) {
@@ -184,7 +174,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#setup').hidden = true;
   $('#game').hidden = false;
   // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
-  showJoinInfo({ qrOpen: !resumeState });
+  showJoinInfo(state.code, !resumeState);
   gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: sound.winnerDrum, onWinnerDrumShown: winnerShown, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
@@ -278,50 +268,13 @@ async function endGame() {
 
 // ---- Visning ----
 
-function showJoinInfo({ qrOpen = true } = {}) {
-  $('#code').textContent = state.code;
-  setQrVisible(qrOpen);
-  renderJoinInfo(joinUrl());
-}
+mountCopyLink(() => state.code);
 
-$('#copy-link').addEventListener('click', () => copyJoinLink(joinUrl()));
-
-// QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel, men inte när
-// spelledaren går tillbaka till ett spel.
-function setQrVisible(visible) {
-  $('#join-info').hidden = !visible;
-  $('#game').classList.toggle('qr-hidden', !visible);
-}
-
-// QR-koden visas överst, och sidan rullar upp så att den syns.
-function showQr() {
-  setQrVisible(true);
-  scrollToTop();
-}
-
-// Pausa spelet och Starta spelet delar rad i menyn. Raden finns från första låten tills någon har
-// vunnit. Starta spelet fortsätter efter en paus, eller försöker igen när klippet inte startade.
-// Medan spelarna går med står Starta spelet här, som knappen i vyn.
-function pauseItem() {
-  const round = state.round;
-  if (!round && !state.winners) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: startClicked }];
-  if (!round || state.winners) return [];
-  if (state.pausedAt) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: resumeGame }];
-  if (quizClip.stuck(round)) return [{ label: 'Starta spelet', icon: MENU_ICONS.play, action: quizClip.retry }];
-  return [{ label: 'Pausa spelet', icon: MENU_ICONS.pause, action: pauseGame }];
-}
-
-// I spelet finns Pausa spelet, QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet
-// samma rader som på startsidan.
-function menuGroups() {
-  const settingsItem = { label: 'Inställningar', icon: MENU_ICONS.settings, action: settings.edit };
-  if (!state) return [startItems(), [settingsItem], commonItems()];
-  return [
-    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: joinInfoShown() }, settingsItem],
-    commonItems(),
-    [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
-  ];
-}
+// Menyn, se host-menu.js.
+const menu = () => menuGroups(state, {
+  stuck: (round) => quizClip.stuck(round), start: startClicked, resume: resumeGame, retry: () => quizClip.retry(),
+  pause: pauseGame, settings: () => settings.edit(), end: endGame,
+});
 
 // Starta spelet i vyn startar första låten. QR-koden behövs inte längre när spelet har startat.
 // Den kan visas igen i menyn.
@@ -391,21 +344,7 @@ document.addEventListener('click', (e) => {
   else if (id === 'hide-qr') setQrVisible(false);
 });
 
-// Safari på iPhone visar bara :active-läget när sidan lyssnar på touchstart.
-document.addEventListener('touchstart', () => {}, { passive: true });
-
-// Enter trycker på vyns huvudknapp, så att spelledaren slipper musen.
-const ENTER_TARGETS = ['#create', '#start-game', '#new-match'];
-
-document.addEventListener('keydown', (e) => {
-  if (e.key !== 'Enter' || e.repeat || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
-  if (document.querySelector('dialog[open]')) return; // modalen sköter sig själv
-  if (e.target.closest('button, a, input, textarea')) return; // fokuserade knappar och länkar trycks redan
-  const target = ENTER_TARGETS.map((sel) => $(sel)).find((el) => el && el.offsetParent && !el.disabled);
-  if (!target) return;
-  e.preventDefault();
-  target.click();
-});
+mountKeys();
 
 // Varnar om fliken stängs av misstag mitt i ett spel, men inte när
 // spelledaren själv har avslutat det.
@@ -422,9 +361,6 @@ window.addEventListener('beforeunload', (e) => {
   if (state) e.preventDefault();
 });
 
-// Kategorierna står redan i host.html, så att sidan inte blinkar till.
-// Här uppdateras de från listan och det val som redan är gjort behålls. Säsongskategorier,
-// som Halloween, står inte i host.html och kommer bara med när det är säsong för dem.
 // PeerJS och QR-koden laddas efter den här modulen, så att startsidan visas utan
 // att vänta på dem. Ett snabbt klick väntar in dem innan spelet startar.
 const scriptsLoaded = new Promise((resolve) => {
@@ -433,8 +369,8 @@ const scriptsLoaded = new Promise((resolve) => {
 });
 
 async function init() {
-  mountMenu($('#setup'), menuGroups);
-  mountMenu($('#game'), menuGroups);
+  mountMenu($('#setup'), menu);
+  mountMenu($('#game'), menu);
   settings.renderSummary();
   $('#host-name').value = prefs.hostName();
   $('#setup-form').addEventListener('submit', (e) => {
@@ -453,6 +389,8 @@ async function init() {
     resume.querySelector('button').textContent = `Tillbaka till ${saved.code}`;
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
+  // Kategorierna står redan i host.html, så att sidan inte blinkar till. Här uppdateras de, och
+  // säsongskategorier som Halloween kommer bara med när det är säsong för dem.
   renderCategories(visibleCategories(await loadCategories()));
 }
 
