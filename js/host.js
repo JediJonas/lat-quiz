@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { peerQuery } from './net.js';
 import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
 import { showConfirm } from './dialog.js';
-import { INFO_MS, currentMessage, hideMessage, showMessage, showUnexpectedErrors } from './meddelande.js';
+import { hideMessage, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './game-view.js';
 import { $ } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
@@ -13,16 +13,15 @@ import * as protocol from './shared/protocol.js';
 import { scrollToTop } from './ui.js';
 import { showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
-import { delayShort } from './ljudfordrojning.js';
-import { isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
+import { withoutUnknown } from './okanda.js';
 import { mountSeasonEffect } from './sasong.js';
-import { showSettings } from './settings-dialog.js';
 import { createQuizClip } from './quiz-clip.js';
 import { createSoundDirector } from './sound-director.js';
 import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game-flow.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
 import { createConnections } from './host-connections.js';
+import { createHostSettings } from './host-settings.js';
 import { startTicker } from './shared/ticker.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
@@ -39,8 +38,6 @@ let category = null;
 let ticker = null;
 // Spelledaren spelar med och gissar i samma vy som spelarna, om spelledaren inte har valt att bara leda spelet.
 let gameView = null;
-// Strömbrytaren Jag deltar i spelet i Inställningar, innan spelet startar. Spelledaren deltar om inget annat väljs.
-let hostPlays = true;
 
 // Inget sparas när spelet har avslutats. Annars sparas det igen när anslutningarna stängs,
 // och knappen för att gå tillbaka till spelet finns kvar.
@@ -74,8 +71,17 @@ let introTimer = null;
 // Klippet spelas när nedräkningen före första låten är slut.
 const introDone = () => new Promise((resolve) => setTimeout(resolve, flow.introLeft()));
 
-// Avdelningen Okända låtar i Inställningar syns bara med ?okanda=1, se preferences.js.
-const showUnknown = prefs.showUnknown(location.search);
+// Inställningar, och ändringarna som görs medan spelet pågår, se host-settings.js.
+// Avdelningen Okända låtar syns bara med ?okanda=1.
+const settings = createHostSettings({
+  state: () => state,
+  category: () => category,
+  categoryChanged: (picked, pickedSongs) => { category = picked; songs = pickedSongs; },
+  stopClip: () => quizClip.stop(),
+  stopWinnerSong: () => sound.winnerSong.stop(),
+  changed: () => changed(),
+  showUnknown: prefs.showUnknown(location.search),
+});
 
 function joinUrl() {
   const url = new URL('play.html', location.href);
@@ -106,12 +112,8 @@ function viewFor(playerId) {
   const playing = sound.currentMusic();
   if (playing) view.nowMusic = playing;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
-  if (pending) {
-    view.upcoming = {
-      categoryName: pending.category ? pending.category.name : view.categoryName,
-      settings: { ...view.settings, ...pending.settings },
-    };
-  }
+  const upcoming = settings.upcoming(view);
+  if (upcoming) view.upcoming = upcoming;
   return view;
 }
 
@@ -119,12 +121,9 @@ function broadcast() {
   connections.broadcast();
 }
 
-// Ändringar som görs medan spelet pågår. De gäller när nästa låt startar, eller direkt om
-// ingen låt har spelats än.
-let pending = null;
-
 function changed() {
-  if (pending && !state.round) applyPending();
+  // Ändringar i Inställningar gäller direkt om ingen låt har spelats än.
+  if (settings.hasPending() && !state.round) settings.apply();
   save();
   broadcast();
   render();
@@ -154,30 +153,6 @@ function hostAnswer(field, value) {
 }
 
 // ---- Spelets steg ----
-
-function hostNameTaken(name) {
-  return game.nameTaken(state, { id: state.hostId, name: game.cleanHostName(name) });
-}
-
-// Utan att delta behövs inget namn på startsidan, och spelledaren kan varken svara eller få poäng.
-function setHostPlays(plays) {
-  hostPlays = plays;
-  $('#host-name-row').hidden = !plays;
-  $('#host-name').required = plays;
-  renderSettingsSummary();
-}
-
-// Raden Inställningar på Starta nytt spel visar vad som gäller. Ändra öppnar samma ruta som i menyn.
-function renderSettingsSummary() {
-  const s = prefs.lastSettings();
-  // Samma ordning som i rutan Inställningar.
-  const parts = [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    ...(prefs.clipAll() ? ['Ljud på alla enheter'] : []), ...(prefs.extraSounds() ? [] : ['Inga extraljud']),
-    ...(prefs.audioDelay() ? [`Ljudsynk ${delayShort(prefs.audioDelay())}`] : []),
-    ...(hostPlays ? [] : ['Jag deltar inte'])];
-  // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
-  $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
-}
 
 async function startGame(categoryId, resumeState, name, plays = true) {
   await scriptsLoaded;
@@ -224,7 +199,7 @@ function nextSong() {
   if (state.round && state.round.phase === 'playing') return;
   // Sparade inställningar gäller från och med den här låten. Inget väntas in här, eftersom
   // quizClip.play måste anropas direkt från trycket på Starta spelet.
-  if (pending && (!state.round || state.round.phase === 'revealed')) applyPending();
+  if (settings.hasPending() && (!state.round || state.round.phase === 'revealed')) settings.apply();
   // Spelade låtar gäller bara det här spelet. Tar de slut börjar listan om.
   const playable = playableSongs();
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
@@ -257,17 +232,6 @@ function updateClipMessage(round) {
   clipShown = id;
   if (msg) showMessage({ key: 'clip', ...msg });
   else hideMessage('clip');
-}
-
-// Strömbrytaren Denna låt är okänd i Inställningar.
-function currentUnknown() {
-  const song = state.round && state.round.song;
-  return Boolean(song) && isUnknown(prefs.unknownSongs(), category.id, song.id);
-}
-
-function toggleCurrentUnknown() {
-  const song = state.round && state.round.song;
-  if (song) prefs.setUnknownSongs(toggleUnknown(prefs.unknownSongs(), category.id, song));
 }
 
 // Spelarna får veta att en ny match har börjat. Spelledaren har själv valt det.
@@ -312,98 +276,6 @@ async function endGame() {
   location.href = 'index.html' + location.search;
 }
 
-// Strömbrytaren Jag deltar i spelet står i Inställningar, både före och under spelet.
-function currentHost() {
-  if (!state) return { plays: hostPlays };
-  if (pending && pending.host) return pending.host;
-  return { plays: state.hostPlays !== false };
-}
-
-// Namnet som spelledaren redan har angett, i spelet eller i ett tidigare spel. Spelledare räknas inte.
-function knownHostName() {
-  const player = state && (state.players[state.hostId] || state.benchedHost);
-  if (player && player.name && player.name !== game.DEFAULT_HOST_NAME) return player.name;
-  if (pending && pending.host && pending.host.name !== game.DEFAULT_HOST_NAME) return pending.host.name;
-  return prefs.hostName();
-}
-
-// Under spelet sparas ändringarna och gäller från nästa låt.
-async function editSettings() {
-  const all = await loadCategories();
-  const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
-  const current = pending ? pending.settings : state ? game.cleanSettings(state) : prefs.lastSettings();
-  const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
-  const categories = state ? visibleCategories(all, { keep: currentCategory }) : null;
-  const clipAll = pending ? pending.clipAll : state ? state.clipAll : prefs.clipAll();
-  const knownName = knownHostName();
-  const chosen = await showSettings(current, {
-    categories, categoryId: currentCategory, names, clipAll, extraSounds: prefs.extraSounds(), audioDelay: prefs.audioDelay(),
-    host: { plays: currentHost().plays, knownName, askName: Boolean(state) && !knownName, isTaken: hostNameTaken },
-    unknown: {
-      show: showUnknown,
-      songPlaying: Boolean(state && state.round && state.round.song),
-      isCurrent: currentUnknown,
-      toggleCurrent: toggleCurrentUnknown,
-    },
-  });
-  if (!chosen) return;
-  const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, audioDelay, ...settings } = chosen;
-  // Ljudfördröjningen gäller enheten, från nästa gång ett ljud börjar.
-  prefs.setAudioDelay(audioDelay);
-  // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
-  // börjar eller tystnar direkt medan spelarna går med.
-  prefs.setExtraSounds(chosenExtraSounds);
-  if (!chosenExtraSounds) sound.winnerSong.stop();
-  prefs.setLastSettings(settings);
-  prefs.setClipAll(chosenClipAll);
-  if (!state) {
-    setHostPlays(host.plays);
-    return;
-  }
-  if (host.plays && host.name !== game.DEFAULT_HOST_NAME) prefs.setHostName(host.name);
-  const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
-  // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
-  const pickedSongs = picked ? await loadSongs(picked) : null;
-  pending = { settings, category: picked, songs: pickedSongs, host, clipAll: chosenClipAll };
-  // Har ingen låt spelats än gäller ändringen direkt. Det avgör changed().
-  changed();
-  // Gäller ändringen först från nästa låt får spelledaren veta det, men bara om något ändrades.
-  // Ett fel eller något som pågår får stå kvar.
-  const shown = currentMessage();
-  if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
-  if (pending && pendingDiffers()) {
-    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text: 'Ändringarna gäller från nästa låt.', ms: INFO_MS });
-  }
-}
-
-
-// Skiljer sig de sparade ändringarna från det som gäller nu?
-function pendingDiffers() {
-  const { settings, category: picked, host, clipAll } = pending;
-  const now = game.cleanSettings(state);
-  if (Object.keys(now).some((key) => now[key] !== settings[key])) return true;
-  if (picked || clipAll !== state.clipAll) return true;
-  if (!host) return false;
-  if (host.plays !== (state.hostPlays !== false)) return true;
-  const me = state.players[state.hostId];
-  return Boolean(host.plays && me && me.name !== host.name);
-}
-
-function applyPending() {
-  const { settings, category: picked, songs: pickedSongs, host, clipAll } = pending;
-  pending = null;
-  game.applySettings(state, settings);
-  state.clipAll = clipAll;
-  // En spelare kan ha tagit namnet medan låten pågick. Då heter spelledaren Spelledare.
-  if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? game.DEFAULT_HOST_NAME : host.name);
-  // Poängen och spelade låtar finns kvar.
-  if (picked && game.changeCategory(state, { categoryId: picked.id, categoryName: picked.name, labels: picked.labels })) {
-    quizClip.stop();
-    category = picked;
-    songs = pickedSongs;
-  }
-}
-
 // ---- Visning ----
 
 function showJoinInfo({ qrOpen = true } = {}) {
@@ -442,10 +314,10 @@ function pauseItem() {
 // I spelet finns Pausa spelet, QR-koden, inställningarna och Avsluta spelet i menyn. Före spelet
 // samma rader som på startsidan.
 function menuGroups() {
-  const settings = { label: 'Inställningar', icon: MENU_ICONS.settings, action: editSettings };
-  if (!state) return [startItems(), [settings], commonItems()];
+  const settingsItem = { label: 'Inställningar', icon: MENU_ICONS.settings, action: settings.edit };
+  if (!state) return [startItems(), [settingsItem], commonItems()];
   return [
-    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: joinInfoShown() }, settings],
+    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: joinInfoShown() }, settingsItem],
     commonItems(),
     [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
   ];
@@ -486,7 +358,7 @@ function render() {
   // Första låten kan starta medan Inställningar är öppen. Denna låt är okänd gäller då den låt
   // som spelas nu.
   const mark = document.querySelector('dialog[open] #mark-unknown');
-  if (mark) mark.setAttribute('aria-checked', String(currentUnknown()));
+  if (mark) mark.setAttribute('aria-checked', String(settings.currentUnknown()));
 }
 
 function showError(err) {
@@ -515,7 +387,7 @@ document.addEventListener('click', (e) => {
   // till väntetexten och Starta spelet efter Spela igen, både hos spelledaren och spelarna.
   if (id === 'start-game') { startClicked(); $('#game .menu-button').focus({ preventScroll: true }); }
   else if (id === 'new-match') { restart(); $('#start-game').focus({ preventScroll: true }); }
-  else if (id === 'settings') editSettings();
+  else if (id === 'settings') settings.edit();
   else if (id === 'hide-qr') setQrVisible(false);
 });
 
@@ -563,14 +435,15 @@ const scriptsLoaded = new Promise((resolve) => {
 async function init() {
   mountMenu($('#setup'), menuGroups);
   mountMenu($('#game'), menuGroups);
-  renderSettingsSummary();
+  settings.renderSummary();
   $('#host-name').value = prefs.hostName();
   $('#setup-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#host-name').value.trim().slice(0, game.MAX_NAME);
-    if (hostPlays && !name) return;
-    if (hostPlays) prefs.setHostName(name);
-    startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
+    const plays = settings.hostPlays();
+    if (plays && !name) return;
+    if (plays) prefs.setHostName(name);
+    startGame(chosenCategory(), null, plays ? name : '', plays);
   });
   mountCategoryPicker();
   const saved = loadSaved();
