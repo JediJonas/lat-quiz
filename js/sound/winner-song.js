@@ -228,7 +228,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
       if (turn !== playing) return;
       if (ctx.currentTime <= at) {
         if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
-        startElement(clip.url, turn, 'ljudmotorns klocka stod still');
+        startElement(clip.url, turn, 'audio engine clock stood still');
         return;
       }
       heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };

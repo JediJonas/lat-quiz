@@ -12,12 +12,12 @@ test('klippet hamnar i ljudmotorn när Deezer tillåter hämtningen', async () =
 
 // På iPhone kan bara ljudmotorn tona. Därför ska det gå att se varför den inte användes.
 test('det står varför klippet inte kunde spelas i ljudmotorn', async () => {
-  assert.match((await loadToEngine(null, 'u', ok)).why, /inget tryck/);
+  assert.match((await loadToEngine(null, 'u', ok)).why, /no tap/);
   const refused = async () => { throw new TypeError('Load failed'); };
   assert.match((await loadToEngine(ctx, 'u', refused)).why, /CORS/);
   const missing = async () => ({ ok: false, status: 403, arrayBuffer: async () => new ArrayBuffer(0) });
-  assert.equal((await loadToEngine(ctx, 'u', missing)).why, 'Deezer svarade 403');
+  assert.equal((await loadToEngine(ctx, 'u', missing)).why, 'Deezer answered 403');
   const broken = { decodeAudioData: async () => { throw new Error('EncodingError'); } };
-  assert.match((await loadToEngine(broken, 'u', ok)).why, /avkoda/);
-  assert.equal(engineStopped({ state: 'interrupted' }), 'ljudmotorn var interrupted');
+  assert.match((await loadToEngine(broken, 'u', ok)).why, /decoded/);
+  assert.equal(engineStopped({ state: 'interrupted' }), 'audio engine was interrupted');
 });

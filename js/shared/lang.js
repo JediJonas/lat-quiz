@@ -22,7 +22,7 @@ const texts = sv;
 export function t(key, values = {}) {
   const text = texts[key];
   if (text === undefined) {
-    console.error(`Texten ${key} saknas i språkfilen`);
+    console.error(`Text ${key} is missing from the language file`);
     return key;
   }
   if (typeof text === 'function') return text(values);
@@ -38,7 +38,7 @@ export function t(key, values = {}) {
 export function tList(key) {
   const list = texts[key];
   if (!Array.isArray(list)) {
-    console.error(`Listan ${key} saknas i språkfilen`);
+    console.error(`List ${key} is missing from the language file`);
     return [key];
   }
   return list;

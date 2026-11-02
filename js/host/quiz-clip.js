@@ -27,23 +27,23 @@ function audioDebug(el) {
   const log = debugLine;
   const describeNode = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
   for (const type of ['play', 'playing', 'pause', 'waiting', 'stalled', 'seeking', 'seeked', 'emptied', 'ended', 'error']) {
-    el.addEventListener(type, () => log(`ljud ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
+    el.addEventListener(type, () => log(`audio ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
   }
   for (const type of ['pointerdown', 'touchend', 'click', 'focusin', 'focusout', 'change']) {
     document.addEventListener(type, (e) => log(`${type} ${describeNode(e.target)}`), true);
   }
-  document.addEventListener('visibilitychange', () => log(`synlig=${document.visibilityState}`));
+  document.addEventListener('visibilitychange', () => log(`visible=${document.visibilityState}`));
   let lastTime = 0;
   let lastAt = 0;
   let stillSince = 0;
   setInterval(() => {
     const now = performance.now();
-    if (lastAt && now - lastAt > 300) log(`sidan upptagen ${Math.round(now - lastAt - 100)} ms`);
+    if (lastAt && now - lastAt > 300) log(`page busy ${Math.round(now - lastAt - 100)} ms`);
     lastAt = now;
     if (el.paused || !el.src.startsWith('http')) { stillSince = 0; return; }
     const t = el.currentTime;
     if (t === lastTime) { if (!stillSince) stillSince = now; }
-    else if (stillSince) { log(`tiden stod still ${Math.round(now - stillSince)} ms`); stillSince = 0; }
+    else if (stillSince) { log(`time stood still ${Math.round(now - stillSince)} ms`); stillSince = 0; }
     lastTime = t;
   }, 100);
 }

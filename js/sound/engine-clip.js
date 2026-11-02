@@ -10,22 +10,22 @@
  * @returns {Promise<{ buffer: AudioBuffer } | { why: string }>}
  */
 export async function loadToEngine(ctx, url, get = (u) => fetch(u)) {
-  if (!ctx) return { why: 'ingen ljudmotor, inget tryck än' };
+  if (!ctx) return { why: 'no audio engine, no tap yet' };
   let res;
   try {
     res = await get(url);
   } catch {
     // fetch säger inte varför, men oftast är det att Deezer inte tillåter hämtningen (CORS).
-    return { why: 'hämtningen nekades, troligen av Deezer (CORS)' };
+    return { why: 'fetch was refused, probably by Deezer (CORS)' };
   }
-  if (!res.ok) return { why: `Deezer svarade ${res.status}` };
+  if (!res.ok) return { why: `Deezer answered ${res.status}` };
   try {
     return { buffer: await ctx.decodeAudioData(await res.arrayBuffer()) };
   } catch {
-    return { why: 'klippet gick inte att avkoda' };
+    return { why: 'clip could not be decoded' };
   }
 }
 
 // Varför klippet spelas som vanligt ljud när det fanns i ljudmotorn: motorn gick inte.
 /** @param {{ state: string } | null} ctx */
-export const engineStopped = (ctx) => `ljudmotorn var ${ctx ? ctx.state : 'borta'}`;
+export const engineStopped = (ctx) => `audio engine was ${ctx ? ctx.state : 'gone'}`;
