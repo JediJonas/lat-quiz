@@ -1,3 +1,4 @@
+// @ts-check
 // Rutan Inställningar hos spelledaren, både på Starta nytt spel och under spelet.
 // Modulen bygger rutan och returnerar valen. Vad valen gör, och när, avgör host.js.
 import * as game from './game.js';
@@ -183,10 +184,11 @@ export function showSettings(current, {
   // En rullista skickar inte formuläret med Enter, så Enter sparar här. I namnfältet skulle
   // Enter annars trycka på formulärets första knapp, Avbryt.
   dialog.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT')) {
+    const tag = /** @type {Element} */ (e.target).tagName;
+    if (e.key === 'Enter' && (tag === 'SELECT' || tag === 'INPUT')) {
       e.preventDefault();
       e.stopPropagation(); // annars startar Enter även spelet
-      dialog.querySelector('[value=ok]').click();
+      /** @type {HTMLButtonElement} */ (dialog.querySelector('[value=ok]')).click();
     }
   });
   wireUnknown(dialog, names);

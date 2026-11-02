@@ -1,3 +1,4 @@
+// @ts-check
 // En rullgardin i appens stil för kategorin på dator. Systemets egen lista går knappt att
 // ge appens utseende, så med mus visas en knapp och en lista som förslagslistan, med en bock
 // vid den valda. Den vanliga select-rutan står kvar dold och håller värdet, så att formulär
@@ -29,7 +30,7 @@ export function enhanceSelect(select, { touch = false } = {}) {
   list.setAttribute('role', 'listbox');
   list.hidden = true;
   button.setAttribute('aria-controls', list.id);
-  const label = document.querySelector(`label[for="${select.id}"]`);
+  const label = /** @type {HTMLLabelElement | null} */ (document.querySelector(`label[for="${select.id}"]`));
   if (label) {
     label.htmlFor = button.id;
     if (!label.id) label.id = `${select.id}-label`;
@@ -41,7 +42,7 @@ export function enhanceSelect(select, { touch = false } = {}) {
   select.tabIndex = -1;
 
   let active = -1;
-  const options = () => [...list.children];
+  const options = () => /** @type {HTMLElement[]} */ ([...list.children]);
 
   function showValue() {
     const option = select.selectedOptions[0];
@@ -106,11 +107,11 @@ export function enhanceSelect(select, { touch = false } = {}) {
   list.addEventListener('mousedown', (e) => e.preventDefault());
   list.addEventListener('pointerdown', (e) => e.preventDefault());
   list.addEventListener('click', (e) => {
-    const li = e.target.closest('li');
+    const li = /** @type {Element} */ (e.target).closest('li');
     if (li) choose(options().indexOf(li));
   });
   list.addEventListener('mousemove', (e) => {
-    const li = e.target.closest('li');
+    const li = /** @type {Element} */ (e.target).closest('li');
     if (li && options().indexOf(li) !== active) setActive(options().indexOf(li));
   });
   button.addEventListener('blur', close);
@@ -143,5 +144,5 @@ export function enhanceSelect(select, { touch = false } = {}) {
     }
   });
   // Klick utanför stänger listan.
-  document.addEventListener('pointerdown', (e) => { if (!wrap.contains(e.target)) close(); });
+  document.addEventListener('pointerdown', (e) => { if (!wrap.contains(/** @type {Node} */ (e.target))) close(); });
 }

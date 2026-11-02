@@ -1,3 +1,4 @@
+// @ts-check
 // Om Låtquiz, som en ruta. Den går att läsa när som helst, även under ett spel.
 import { t } from './shared/lang.js';
 

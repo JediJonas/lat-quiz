@@ -1,3 +1,4 @@
+// @ts-check
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
 import { t } from './shared/lang.js';
@@ -155,12 +156,14 @@ async function startGame(categoryId, resumeState, name, plays = true) {
     // Alla räknas som frånkopplade tills de hör av sig igen.
     for (const player of Object.values(state.players)) player.connected = false;
   } else {
-    state = game.createGame({
-      code: newCode(), categoryId: category.id, categoryName: category.name, labels: category.labels,
-      settings: prefs.lastSettings(),
-    });
-    state.hostPlays = plays;
-    state.clipAll = prefs.clipAll();
+    state = {
+      ...game.createGame({
+        code: newCode(), categoryId: category.id, categoryName: category.name, labels: category.labels,
+        settings: prefs.lastSettings(),
+      }),
+      hostPlays: plays,
+      clipAll: prefs.clipAll(),
+    };
   }
   // Ett äldre sparat spel kan ha valt Spotify, som inte finns längre.
   delete state.music;
@@ -336,7 +339,7 @@ function unlockSound() {
 for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, unlockSound, true);
 
 document.addEventListener('click', (e) => {
-  const id = e.target.closest('[id]')?.id;
+  const id = /** @type {Element} */ (e.target).closest('[id]')?.id;
   // Knapparna i vyn försvinner när de har tryckts, så fokus flyttas vidare. Spelvyn rullar upp
   // till väntetexten och Starta spelet efter Spela igen, både hos spelledaren och spelarna.
   if (id === 'start-game') { startClicked(); $('#game .menu-button').focus({ preventScroll: true }); }

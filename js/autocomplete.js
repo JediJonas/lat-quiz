@@ -1,3 +1,4 @@
+// @ts-check
 // Fält där svaret bara kan väljas ur en lista.
 // Förslag visas efter 3 tecken, eller när ett kortare namn som U2 är helt skrivet, i bokstavsordning: först det som innehåller texten,
 // sedan det som liknar den trots stavfel ("micael" hittar "Michael Jackson").

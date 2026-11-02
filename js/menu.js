@@ -1,3 +1,4 @@
+// @ts-check
 // Menyn uppe till höger, samma på alla sidor. Det som används sällan ligger här: gå med i spel,
 // starta nytt spel, pausa spelet, QR-kod, inställningar, Om Låtquiz, Utseende och att lämna eller avsluta spelet.
 // Raderna har ikon och text. Rader som inte går att använda just nu visas inte.
@@ -66,8 +67,8 @@ export function mountMenu(container, groups) {
   nav.setAttribute('aria-label', t('menu.label'));
   nav.innerHTML = `<button type="button" class="menu-button" aria-label="${t('menu.label')}" title="${t('menu.label')}" aria-expanded="false" aria-controls="${id}">${ICONS.menu}</button>
     <div class="menu-panel" id="${id}" hidden></div>`;
-  const button = nav.querySelector('.menu-button');
-  const panel = nav.querySelector('.menu-panel');
+  const button = /** @type {HTMLButtonElement} */ (nav.querySelector('.menu-button'));
+  const panel = /** @type {HTMLElement} */ (nav.querySelector('.menu-panel'));
 
   function close(focusButton = false) {
     if (panel.hidden) return;
@@ -82,18 +83,20 @@ export function mountMenu(container, groups) {
       const ul = document.createElement('ul');
       for (const item of group) {
         const li = document.createElement('li');
-        const el = document.createElement(item.href ? 'a' : 'button');
-        el.className = 'menu-item';
-        el.innerHTML = item.icon;
-        el.append(item.label);
+        let el;
         if (item.href) {
+          el = document.createElement('a');
           el.href = item.href;
           if (item.current) el.setAttribute('aria-current', 'page');
         } else {
+          el = document.createElement('button');
           el.type = 'button';
           el.disabled = Boolean(item.disabled);
         }
-        el.addEventListener('click', (e) => {
+        el.className = 'menu-item';
+        el.innerHTML = item.icon;
+        el.append(item.label);
+        el.addEventListener('click', (/** @type {MouseEvent} */ e) => {
           if (item.current) e.preventDefault();
           // Med tangentbordet går fokus tillbaka till menyknappen. Efter ett tryck eller klick
           // (detail > 0) flyttas inte fokus, för då visar Safari en fokusring runt knappen.
@@ -112,16 +115,16 @@ export function mountMenu(container, groups) {
     render();
     panel.hidden = false;
     button.setAttribute('aria-expanded', 'true');
-    if (keyboard) panel.querySelector('.menu-item:not(:disabled)')?.focus();
+    if (keyboard) /** @type {HTMLElement | null} */ (panel.querySelector('.menu-item:not(:disabled)'))?.focus();
   }
 
-  button.addEventListener('click', (e) => (panel.hidden ? open(e.detail === 0) : close()));
+  button.addEventListener('click', (/** @type {MouseEvent} */ e) => (panel.hidden ? open(e.detail === 0) : close()));
   // Piltangenterna stegar mellan raderna, och Home och End går till första och sista raden.
   // Pil ned på den stängda menyknappen öppnar menyn. Tab fungerar som vanligt.
   function moveFocus(key) {
-    const items = [...panel.querySelectorAll('.menu-item:not(:disabled)')];
+    const items = /** @type {HTMLElement[]} */ ([...panel.querySelectorAll('.menu-item:not(:disabled)')]);
     if (!items.length) return;
-    const i = items.indexOf(document.activeElement);
+    const i = items.indexOf(/** @type {HTMLElement} */ (document.activeElement));
     let next;
     if (key === 'Home') next = 0;
     else if (key === 'End') next = items.length - 1;
@@ -145,8 +148,8 @@ export function mountMenu(container, groups) {
     moveFocus(e.key);
   });
   // Menyn stängs när man trycker utanför den eller tabbar vidare.
-  document.addEventListener('pointerdown', (e) => { if (!nav.contains(e.target)) close(); });
-  nav.addEventListener('focusout', (e) => { if (e.relatedTarget && !nav.contains(e.relatedTarget)) close(); });
+  document.addEventListener('pointerdown', (e) => { if (!nav.contains(/** @type {Node} */ (e.target))) close(); });
+  nav.addEventListener('focusout', (e) => { if (e.relatedTarget && !nav.contains(/** @type {Node} */ (e.relatedTarget))) close(); });
 
   container.prepend(nav);
   return { close };
