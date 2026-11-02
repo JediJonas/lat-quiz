@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clipPosition, musicPosition, musicVolume, wantedClip } from '../js/clip-player.js';
+import { clipPosition, musicPosition, musicVolume, wantedClip } from '../js/sound/clip-player.js';
 
 const round = (phase, remainingMs = 30000) => ({ phase, remainingMs, roundMs: 30000 });
 

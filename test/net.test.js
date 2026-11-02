@@ -43,7 +43,7 @@ function setVisibility(state) {
   globalThis.document.visibilityState = state;
   for (const fn of visibilityListeners) fn();
 }
-const { createClient, createHost } = await import('../js/net.js');
+const { createClient, createHost } = await import('../js/shared/net.js');
 
 function setup() {
   peers.length = 0;

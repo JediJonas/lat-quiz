@@ -1,12 +1,12 @@
 // @ts-check
-// En av vinstanimationens effekter, i Halloween. Se js/winner-animation.js.
+// En av vinstanimationens effekter, i Halloween. Se js/winner-animation/winner-animation.js.
 import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
-import { drawBat } from '../season.js';
+import { drawBat } from '../views/season.js';
 import { canvasIn, fade, play } from './canvas.js';
 
 // Fladdermusen i tolv lägen av vingslaget, ritad en gång och sedan kopierad, så att mobilen orkar
 // med en hel svärm. zoom ger större bilder, så att fladdermöss som flyger mot kameran blir skarpa.
-// Samma fladdermus som flyger förbi i säsongslagret (js/season.js).
+// Samma fladdermus som flyger förbi i säsongslagret (js/views/season.js).
 function batFrames(zoom) {
   const dpr = Math.min(devicePixelRatio || 1, 2);
   return Array.from({ length: 12 }, (_, i) => {

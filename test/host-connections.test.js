@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import * as game from '../js/game.js';
+import * as game from '../js/game/game.js';
 import * as protocol from '../js/shared/protocol.js';
-import { createConnections } from '../js/host-connections.js';
+import { createConnections } from '../js/host/host-connections.js';
 
 // En spelledare med falskt nät, som minns vad som skickades till vem.
 function setup() {

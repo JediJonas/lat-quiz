@@ -170,12 +170,12 @@ await check(host, 'Spelledare, rätt svar');
 await check(player, 'Spelare, rätt svar');
 
 // Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer. I den byggda
-// sidan ligger js/message.js inne i bundlen och går inte att importera, så rutan visas i en sida
+// sidan ligger js/controls/message.js inne i bundlen och går inte att importera, så rutan visas i en sida
 // från källfilerna, där modulen finns som egen fil.
 async function show(file, msg) {
   const page = await (await browser.newContext()).newPage();
   await page.goto(SOURCE + file);
-  await page.evaluate((m) => import('./js/message.js').then((mod) => mod.showMessage(m)), msg);
+  await page.evaluate((m) => import('./js/controls/message.js').then((mod) => mod.showMessage(m)), msg);
   await page.waitForSelector('.message:not([hidden])');
   return page;
 }

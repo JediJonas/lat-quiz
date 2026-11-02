@@ -1,12 +1,12 @@
 // @ts-check
 // Spelarvyn i mobilen.
 import { wait } from './shared/wait.js';
-import { codeBoxes } from './code-boxes.js';
+import { codeBoxes } from './controls/code-boxes.js';
 import { t } from './shared/lang.js';
-import { createClient } from './net.js';
-import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './message.js';
-import { createGameView } from './game-view.js';
-import { MAX_NAME, settingsChangeText, upcomingSettings } from './game.js';
+import { createClient } from './shared/net.js';
+import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './controls/message.js';
+import { createGameView } from './views/game-view.js';
+import { MAX_NAME, settingsChangeText, upcomingSettings } from './game/game.js';
 import { $ } from './shared/dom.js';
 import { newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
@@ -14,12 +14,12 @@ import * as protocol from './shared/protocol.js';
 
 const { MSG } = protocol;
 import { ICONS, commonItems, mountMenu, startItems } from './menu.js';
-import { showConfirm } from './dialog.js';
-import { scrollToTop } from './ui.js';
-import { createClipPlayer } from './clip-player.js';
-import { showNowMusic } from './now-playing.js';
-import { mountSeasonEffect } from './season.js';
-import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
+import { showConfirm } from './controls/dialog.js';
+import { scrollToTop } from './views/ui.js';
+import { createClipPlayer } from './sound/clip-player.js';
+import { showNowMusic } from './sound/now-playing.js';
+import { mountSeasonEffect } from './views/season.js';
+import { copyJoinLink, joinInfoShown, renderJoinInfo } from './shared/join-info.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();

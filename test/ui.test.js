@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { scoreTracker } from '../js/ui.js';
+import { scoreTracker } from '../js/views/ui.js';
 
 test('poängräknaren ger den förra poängen bara när den har ändrats', () => {
   const changed = scoreTracker();

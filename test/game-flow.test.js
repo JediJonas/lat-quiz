@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import * as game from '../js/game.js';
-import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from '../js/game-flow.js';
+import * as game from '../js/game/game.js';
+import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from '../js/game/game-flow.js';
 
 const SONGS = [{ id: 'a', artist: 'A', title: 'Ett' }, { id: 'b', artist: 'B', title: 'Två' }, { id: 'c', artist: 'C', title: 'Tre' }];
 

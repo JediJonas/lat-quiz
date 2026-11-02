@@ -4,11 +4,11 @@
 // testa i Node, och createResultCard lägger in den på sidan.
 import { $ } from '../shared/dom.js';
 import { html, join } from '../shared/html.js';
-import { announce, renderPie, scrollToTop } from '../ui.js';
-import { roundCheer, winComment, winIntro } from '../cheer.js';
-import { guessFields as fieldsOf } from '../game.js';
-import { WIN_EFFECT_MS, pickWinEffect, startWinEffect } from '../winner-animation.js';
-import { pauseSeasonEffect } from '../season.js';
+import { announce, renderPie, scrollToTop } from './ui.js';
+import { roundCheer, winComment, winIntro } from '../game/cheer.js';
+import { guessFields as fieldsOf } from '../game/game.js';
+import { WIN_EFFECT_MS, pickWinEffect, startWinEffect } from '../winner-animation/winner-animation.js';
+import { pauseSeasonEffect } from './season.js';
 import { rankIn } from './standings.js';
 import { t } from '../shared/lang.js';
 

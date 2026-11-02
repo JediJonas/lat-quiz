@@ -2,7 +2,7 @@
 // Låtkortet medan låten laddas och spelar: rubriken, timern och texten under den. Svarsfälten
 // sköts av game-view.js, eftersom de har egna regler för iPhone.
 import { $ } from '../shared/dom.js';
-import { announce, renderRing } from '../ui.js';
+import { announce, renderRing } from './ui.js';
 import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */

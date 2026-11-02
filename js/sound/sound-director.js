@@ -2,9 +2,9 @@
 // Ljudregin hos spelledaren: vilket extraljud som spelas när. Väntemusiken spelas medan
 // spelarna går med, trumvirveln och vinnarlåten när någon har vunnit, och raden Nu spelas
 // visar låten först när den hörs. Quizklippet sköts av quiz-clip.js.
-import { wait } from './shared/wait.js';
-import * as prefs from './shared/preferences.js';
-import { showMessage } from './message.js';
+import { wait } from '../shared/wait.js';
+import * as prefs from '../shared/preferences.js';
+import { showMessage } from '../controls/message.js';
 import { delayAfter } from './audio-delay.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './winner-song.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './lobby-music.js';

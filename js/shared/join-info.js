@@ -1,8 +1,8 @@
 // @ts-check
 // QR-koden och länken för att gå med i spelet, likadana hos spelledaren och spelarna.
 // qrcode kommer från vendor/qrcode.js via en script-tagg.
-import { $ } from './shared/dom.js';
-import { t } from './shared/lang.js';
+import { $ } from './dom.js';
+import { t } from './lang.js';
 
 // Så länge knappen visar att länken är kopierad.
 const COPIED_SHOWN_MS = 3000;

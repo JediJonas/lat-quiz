@@ -8,10 +8,10 @@
 // key anger vad meddelandet gäller, så att hideMessage inte tar bort ett nyare meddelande.
 // Ett stående meddelande, till exempel att spelet är pausat, visas när inget annat visas.
 
-import { announce } from './ui.js';
-import { joinedMessage } from './game.js';
-import { esc } from './shared/dom.js';
-import { t } from './shared/lang.js';
+import { announce } from '../views/ui.js';
+import { joinedMessage } from '../game/game.js';
+import { esc } from '../shared/dom.js';
+import { t } from '../shared/lang.js';
 
 const OK_MS = 3000;
 // Ikoner: Material Symbols Rounded (Apache 2.0): info_i, pause, check och priority_high.

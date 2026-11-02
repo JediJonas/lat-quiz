@@ -1,7 +1,7 @@
 // @ts-check
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
-import { wait } from './shared/wait.js';
+import { wait } from '../shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
 

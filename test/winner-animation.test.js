@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect } from '../js/winner-animation.js';
+import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect } from '../js/winner-animation/winner-animation.js';
 import { spotlightPairs } from '../js/winner-animation/spotlights.js';
 
 test('samma match ger samma vinstanimation på alla enheter', () => {

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { normalize } from '../js/text.js';
+import { normalize } from '../js/game/text.js';
 
 const read = (path) => JSON.parse(readFileSync(new URL('../' + path, import.meta.url)));
 
@@ -27,7 +27,7 @@ test('varje quizlåt har ett unikt id och ett giltigt Deezer-ID', () => {
 });
 
 test('säsongskategorier syns bara mellan sina datum', async () => {
-  const { inSeason, visibleCategories } = await import('../js/data.js');
+  const { inSeason, visibleCategories } = await import('../js/game/data.js');
   const halloween = { id: 'halloween', season: { from: '10-15', to: '11-05' } };
   const jul = { id: 'jul', season: { from: '12-01', to: '01-06' } };
   const day = (s) => new Date(s + 'T12:00:00');
@@ -125,7 +125,7 @@ test('lockbeten som är samma artist eller titel som ett rätt svar med annan st
 });
 
 test('inget lockbete är samma svar som en quizlåt i samma förslagslista', async () => {
-  const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
+  const { suggestionKind, suggestionKey, songLabels } = await import('../js/game/data.js');
   const decoys = read('data/decoys.json');
   const answers = {};
   for (const c of read('data/categories.json')) {
@@ -143,7 +143,7 @@ test('inget lockbete är samma svar som en quizlåt i samma förslagslista', asy
 });
 
 test('förslagen visar ett svar en gång även med "and" i stället för "&"', async () => {
-  const { mergeSuggestions } = await import('../js/data.js');
+  const { mergeSuggestions } = await import('../js/game/data.js');
   const result = mergeSuggestions({ artists: ['Nick Cave and the Bad Seeds', 'Black Eyed Peas'], titles: ['Power'] },
     [{ songs: [{ artist: 'Nick Cave & The Bad Seeds', title: 'The Power' }, { artist: 'The Black Eyed Peas', title: 'Where Is the Love?' }] }]);
   assert.deepEqual(result.artists, ['Nick Cave & The Bad Seeds', 'The Black Eyed Peas']);
@@ -151,7 +151,7 @@ test('förslagen visar ett svar en gång även med "and" i stället för "&"', a
 });
 
 test('förslagen visar varje svar en gång, med quizlåtens stavning', async () => {
-  const { mergeSuggestions } = await import('../js/data.js');
+  const { mergeSuggestions } = await import('../js/game/data.js');
   const songs = [
     { artist: 'Fröken Snusk', title: 'Carpe diem' },
     { artist: 'FRÖKEN SNUSK', title: 'Unga & fria' },
@@ -162,7 +162,7 @@ test('förslagen visar varje svar en gång, med quizlåtens stavning', async () 
 });
 
 test('förslagen visar bara svar av samma sort som fältet', async () => {
-  const { mergeSuggestions, suggestionKind } = await import('../js/data.js');
+  const { mergeSuggestions, suggestionKind } = await import('../js/game/data.js');
   const result = mergeSuggestions({ artists: ['ABBA'], titles: ['Dancing Queen'], countries: ['Island'],
     composers: ['Max Steiner'], films: ['Casablanca'], works: ['Bolero'] }, [
     { songs: [{ artist: 'Loreen', title: 'Tattoo' }] },
@@ -181,7 +181,7 @@ test('förslagen visar bara svar av samma sort som fältet', async () => {
 });
 
 test('en låts egna rubriker styr vilken förslagslista svaret hamnar i', async () => {
-  const { mergeSuggestions } = await import('../js/data.js');
+  const { mergeSuggestions } = await import('../js/game/data.js');
   const result = mergeSuggestions({}, [{ songs: [
     { artist: 'Michael Jackson', title: 'Thriller' },
     { artist: 'John Williams', title: 'Hajen', labels: { artist: 'Kompositör', title: 'Film' } },
@@ -195,14 +195,14 @@ test('en låts egna rubriker styr vilken förslagslista svaret hamnar i', async 
 });
 
 test('varje fältnamn i categories.json får förslag ur en egen lista', async () => {
-  const { suggestionKind } = await import('../js/data.js');
+  const { suggestionKind } = await import('../js/game/data.js');
   const known = { artist: ['Artist', 'Land', 'Kompositör'], title: ['Titel', 'Låt', 'Film', 'Serie', 'Verk'] };
   for (const { id, labels = {}, file } of read('data/categories.json')) {
     for (const field of ['artist', 'title']) {
-      if (labels[field]) assert.ok(known[field].includes(labels[field]), `${id}: ${labels[field]} saknas i KINDS i js/data.js`);
+      if (labels[field]) assert.ok(known[field].includes(labels[field]), `${id}: ${labels[field]} saknas i KINDS i js/game/data.js`);
       for (const song of read('data/' + file)) {
         const label = song.labels && song.labels[field];
-        if (song.labels) assert.ok(known[field].includes(label), `${id}/${song.id}: ${label} saknas i KINDS i js/data.js`);
+        if (song.labels) assert.ok(known[field].includes(label), `${id}/${song.id}: ${label} saknas i KINDS i js/game/data.js`);
       }
     }
   }
@@ -225,7 +225,7 @@ test('samma artist stavas likadant i alla kategorier', () => {
 // bland förslagen och den ena räknas som fel, som "Running Up That Hill" och
 // "Running Up That Hill (A Deal with God)" eller "Eva Roos" och "Ewa Roos".
 test('samma låt har samma artist och titel i alla kategorier', async () => {
-  const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
+  const { suggestionKind, suggestionKey, songLabels } = await import('../js/game/data.js');
   const answers = new Map();
   for (const c of read('data/categories.json')) {
     for (const song of read('data/' + c.file)) {
@@ -247,7 +247,7 @@ test('varje filmmusiklåt har ledmotivets spårnamn', () => {
 });
 
 test('en datafil hämtas igen när den inte gick att läsa', async () => {
-  const { getJson } = await import('../js/data.js');
+  const { getJson } = await import('../js/game/data.js');
   const original = globalThis.fetch;
   try {
     let calls = 0;

@@ -4,7 +4,7 @@ import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
   shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs, restart,
   cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, joinedMessage, pause, resume, setHostPlaying, hasAnsweredAll, replaceSong,
-} from '../js/game.js';
+} from '../js/game/game.js';
 
 const songs = [
   { id: 'a', artist: 'a-ha', title: 'Take On Me', year: 1985 },
@@ -284,7 +284,7 @@ test('spelarvyn visar kategorins namn och inställningar', () => {
 });
 
 test('normalize bortser från accenter och skiljetecken', async () => {
-  const { normalize, withoutSpaces } = await import('../js/text.js');
+  const { normalize, withoutSpaces } = await import('../js/game/text.js');
   assert.equal(normalize("Don't Go Breaking My Heart"), normalize('dont go breaking my heart'));
   assert.equal(normalize('Señorita'), 'senorita');
   assert.equal(normalize('  Beyoncé   –  Halo! '), 'beyonce halo');
@@ -305,7 +305,7 @@ test('rättningen godtar svar utan accenter och apostrofer', () => {
 });
 
 test('samma namn med "and" i stället för "&" är samma svar', async () => {
-  const { answerKey } = await import('../js/text.js');
+  const { answerKey } = await import('../js/game/text.js');
   assert.equal(answerKey('Nick Cave & The Bad Seeds'), answerKey('Nick Cave and the Bad Seeds'));
   assert.equal(answerKey('Florence + the Machine'), answerKey('Florence and the Machine'));
   assert.equal(answerKey('Fyra Bugg & en Coca Cola'), answerKey('Fyra bugg och en Coca Cola'));

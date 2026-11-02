@@ -1,16 +1,16 @@
 // @ts-check
 // Rutan Inställningar hos spelledaren, både på Starta nytt spel och under spelet.
 // Modulen bygger rutan och returnerar valen. Vad valen gör, och när, avgör host.js.
-import * as game from './game.js';
-import { t } from './shared/lang.js';
-import { showConfirm } from './dialog.js';
-import { esc } from './shared/dom.js';
-import * as prefs from './shared/preferences.js';
-import { enhanceSelect } from './custom-select.js';
-import { mountSwitch } from './theme.js';
-import { dragToClose } from './sheet.js';
-import { ICONS as MENU_ICONS } from './menu.js';
-import { DELAY_CHOICES, cleanDelay, delayShort, delayText } from './audio-delay.js';
+import * as game from '../game/game.js';
+import { t } from '../shared/lang.js';
+import { showConfirm } from '../controls/dialog.js';
+import { esc } from '../shared/dom.js';
+import * as prefs from '../shared/preferences.js';
+import { enhanceSelect } from '../controls/custom-select.js';
+import { mountSwitch } from '../controls/theme.js';
+import { dragToClose } from '../controls/sheet.js';
+import { ICONS as MENU_ICONS } from '../menu.js';
+import { DELAY_CHOICES, cleanDelay, delayShort, delayText } from '../sound/audio-delay.js';
 import { countUnknown, formatUnknown } from './unknown-songs.js';
 
 // short: den korta texten på segmentet. text: hela texten, som skärmläsare läser.

@@ -5,11 +5,11 @@
 // står den still, som ett foto. Valet slumpas per match men blir detsamma på alla enheter
 // (pickWinEffect).
 
-import { confetti } from './winner-animation/confetti.js';
-import { fireworks } from './winner-animation/fireworks.js';
-import { spotlights } from './winner-animation/spotlights.js';
-import { bats } from './winner-animation/bats.js';
-import { blizzard } from './winner-animation/blizzard.js';
+import { confetti } from './confetti.js';
+import { fireworks } from './fireworks.js';
+import { spotlights } from './spotlights.js';
+import { bats } from './bats.js';
+import { blizzard } from './blizzard.js';
 
 // Så länge effekterna håller på, med lite marginal. Säsongens löv och snö bakom sidan pausas så länge.
 export const WIN_EFFECT_MS = 13500;

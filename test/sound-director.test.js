@@ -11,7 +11,7 @@ globalThis.localStorage = {
 globalThis.document = { documentElement: { dataset: {} } };
 
 const prefs = await import('../js/shared/preferences.js');
-const { createSoundDirector } = await import('../js/sound-director.js');
+const { createSoundDirector } = await import('../js/sound/sound-director.js');
 
 const music = { lobby: { default: [] }, winner: { default: [] } };
 

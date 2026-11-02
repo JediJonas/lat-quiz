@@ -4,18 +4,18 @@
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 // Varje kort ritas av en egen modul i js/views/. Här bestäms vilket kort som syns, och här
 // finns svarsfälten med sina regler för iPhone.
-import { loadSuggestions, suggestionKind } from './data.js';
-import { $ } from './shared/dom.js';
-import { autocomplete } from './autocomplete.js';
+import { loadSuggestions, suggestionKind } from '../game/data.js';
+import { $ } from '../shared/dom.js';
+import { autocomplete } from '../controls/autocomplete.js';
 import { announce, scrollFieldToTop, scrollToTop } from './ui.js';
-import { setStandingMessage } from './message.js';
-import { t } from './shared/lang.js';
-import { guessFields as fieldsOf } from './game.js';
-import { createWaitingCard } from './views/waiting-card.js';
-import { renderSongCard, tickSongTimer } from './views/song-card.js';
-import { createResultCard } from './views/result-card.js';
-import { createStandings } from './views/standings.js';
-import { createWinnerTiming } from './views/winner-timing.js';
+import { setStandingMessage } from '../controls/message.js';
+import { t } from '../shared/lang.js';
+import { guessFields as fieldsOf } from '../game/game.js';
+import { createWaitingCard } from './waiting-card.js';
+import { renderSongCard, tickSongTimer } from './song-card.js';
+import { createResultCard } from './result-card.js';
+import { createStandings } from './standings.js';
+import { createWinnerTiming } from './winner-timing.js';
 
 // Hur ofta timern ritas om medan en låt spelas.
 const TIMER_REDRAW_MS = 250;

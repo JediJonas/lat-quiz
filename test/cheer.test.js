@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { roundCheer, winComment, winIntro } from '../js/cheer.js';
+import { roundCheer, winComment, winIntro } from '../js/game/cheer.js';
 import { readFileSync } from 'node:fs';
-import { pickWinnerSong } from '../js/winner-song.js';
+import { pickWinnerSong } from '../js/sound/winner-song.js';
 
 const WINNER_SONGS = JSON.parse(readFileSync(new URL('../data/music.json', import.meta.url), 'utf8')).winner.default;
 

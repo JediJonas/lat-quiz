@@ -1,8 +1,8 @@
 // @ts-check
 // Kategorivalet på Starta nytt spel: omslag i mobilen och en rullgardin på dator, som hålls lika.
-import { $, esc } from './shared/dom.js';
-import { t } from './shared/lang.js';
-import { enhanceSelect } from './custom-select.js';
+import { $, esc } from '../shared/dom.js';
+import { t } from '../shared/lang.js';
+import { enhanceSelect } from '../controls/custom-select.js';
 
 // Sidan är förifylld med 60-tal förvalt, så att den syns innan kategorierna har laddats. Har man
 // inte hunnit välja själv blir den första kategorin förvald, och det är säsongskategorin när den

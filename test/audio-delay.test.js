@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DELAY_CHOICES, delayAfter, cleanDelay, delayShort, delayText } from '../js/audio-delay.js';
+import { DELAY_CHOICES, delayAfter, cleanDelay, delayShort, delayText } from '../js/sound/audio-delay.js';
 
 test('ljudsynken väljs i steg om 0,2 sekunder upp till 0,8 sekunder', () => {
   assert.deepEqual(DELAY_CHOICES, [0, 200, 400, 600, 800]);

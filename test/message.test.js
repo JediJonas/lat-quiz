@@ -20,7 +20,7 @@ globalThis.document = {
 };
 
 mock.timers.enable({ apis: ['setTimeout'] });
-const { showMessage, hideMessage, setStandingMessage, currentMessage, showJoined, showLeft, INFO_MS } = await import('../js/message.js');
+const { showMessage, hideMessage, setStandingMessage, currentMessage, showJoined, showLeft, INFO_MS } = await import('../js/controls/message.js');
 
 const reset = () => { setStandingMessage(null); hideMessage(); };
 
