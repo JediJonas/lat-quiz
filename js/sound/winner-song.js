@@ -4,6 +4,7 @@
 import { wait } from '../shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
+import { engineStopped, loadToEngine } from './engine-clip.js';
 
 // Låtarna står i data/music.json under winner: default för alla kategorier, och en egen lista
 // för säsongskategorierna (beslutat 25 oktober 2026).
@@ -156,19 +157,14 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     return Promise.race([ctx.resume().catch(() => {}), wait(RESUME_MS)]);
   }
 
-  // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement.
+  // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement,
+  // och why säger varför, så att det syns med ?debug=1.
   async function load(url) {
     if (!url) return null;
-    try {
-      if (!ctx) throw new Error('Ingen ljudmotor');
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Inget svar');
-      const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
-      return { url, buffer, volume: VOLUME * levelGain(buffer, LEVEL_DB) };
-    } catch {
-      preload(url);
-      return { url };
-    }
+    const loaded = await loadToEngine(ctx, url);
+    if ('buffer' in loaded) return { url, buffer: loaded.buffer, volume: VOLUME * levelGain(loaded.buffer, LEVEL_DB) };
+    preload(url);
+    return { url, why: loaded.why };
   }
 
   // Ljudelementet börjar ladda klippet medan trumvirveln spelar, så att låten startar direkt.
@@ -184,7 +180,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   // ofta vägrar starta det andra. Svaret kommer när låten hörs, så att vinnarkortet visas då.
   // Utan klipp, till exempel när Deezer saknar det, kommer svaret när virveln är
   // slut, och kunde klippet inte spelas kommer det direkt. Svaret är 'engine' när låten spelas i
-  // ljudmotorn, som hörs senare än ett ljudelement över blåtand.
+  // ljudmotorn, som hörs senare än ett ljudelement över blåtand, och annars varför ljudmotorn inte användes.
   function play() {
     return new Promise((resolve) => {
       heard = resolve;
@@ -223,7 +219,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     if (!clip) { heard(); return; }
     if (clip.buffer) await resume();
     if (turn !== playing) return;
-    if (clip.buffer && ctx && ctx.state === 'running') {
+    if (clip.buffer && ctx.state === 'running') {
       const at = ctx.currentTime;
       startBuffer(clip.buffer, clip.volume);
       // iPhone kan säga att ljudmotorn går fast den står still och inget hörs. Rör sig inte dess
@@ -232,7 +228,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
       if (turn !== playing) return;
       if (ctx.currentTime <= at) {
         if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
-        startElement(clip.url, turn);
+        startElement(clip.url, turn, 'ljudmotorns klocka stod still');
         return;
       }
       heardClip = { url: clip.url, volume: clip.volume, position: () => ctx.currentTime - at, ended: () => ctx.currentTime - at >= clip.buffer.duration };
@@ -240,7 +236,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
       onChange();
       heard('engine');
     } else {
-      startElement(clip.url, turn);
+      startElement(clip.url, turn, clip.why || engineStopped(ctx));
     }
   }
 
@@ -259,7 +255,8 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   }
 
   // Låten räknas som hörd först när ljudelementet faktiskt spelar, och inte medan klippet laddar.
-  function startElement(url, turn) {
+  // why: varför ljudmotorn inte används. Svaret till play blir det, så att ?debug=1 kan visa det.
+  function startElement(url, turn, why) {
     if (!audio) audio = new Audio();
     const el = audio;
     // Klippet är oftast redan laddat medan trumvirveln spelade.
@@ -270,7 +267,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
       heardClip = { url, volume: VOLUME, position: () => el.currentTime, ended: () => el.ended };
       heardSong = current;
       onChange();
-      heard();
+      heard(why);
     };
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud eller länken inte
     // fungerar, blir det tyst och raden längst ner försvinner.

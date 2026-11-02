@@ -44,3 +44,10 @@ test('raden Nu spelas är tom när ingen musik hörs', () => {
   assert.equal(director({ state: null }).currentMusic(), null);
   assert.equal(director({ state: { round: { number: 2 }, winners: null } }).currentMusic(), null);
 });
+
+test('med ?debug=1 står det om ljudmotorn användes, och annars varför inte', async () => {
+  const { describeHow } = await import('../js/sound/sound-director.js');
+  assert.equal(describeHow('engine'), 'Ljudmotorn');
+  assert.equal(describeHow('ljudmotorn var suspended'), 'Vanligt ljud, ljudmotorn var suspended');
+  assert.equal(describeHow(undefined), 'Vanligt ljud, ingen låt hördes');
+});
