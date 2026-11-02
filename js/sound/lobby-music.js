@@ -6,7 +6,7 @@
 import { wait } from '../shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
-import { engineStopped, loadToEngine } from './engine-clip.js';
+import { createAudioEngine, engineStopped, loadToEngine } from './engine-clip.js';
 
 // Låtarna står i data/music.json under lobby: default för alla kategorier, och en egen lista för
 // säsongskategorierna. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har
@@ -30,8 +30,6 @@ const STALL_MS = 10000;
 const RETRY_MS = 2000;
 // Hur ofta volymen ändras när ett ljudelement tonar in eller ut.
 const VOLUME_STEP_MS = 50;
-// Så länge klippet väntar på att ljudmotorn ska starta igen, som för vinnarlåten.
-const RESUME_MS = 500;
 
 // En slumpad låt, men inte samma som förra väntan.
 export function pickLobbySong(random, last, songs) {
@@ -54,7 +52,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
   let silentAt = 0;
   let abort = null; // avbryter ljudelementet medan det laddar eller har fastnat
   // Som vinnarlåten spelas klippen helst genom ljudmotorn, som kan tona även på iPhone.
-  let ctx = null;
+  const engine = createAudioEngine();
   let audio = null;
   let unlocked = false;
 
@@ -66,28 +64,8 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
       audio.src = SILENCE;
       audio.play().then(() => { unlocked = true; }, () => {});
     }
-    const Context = window.AudioContext || window.webkitAudioContext;
-    if (Context) {
-      if (!ctx) ctx = new Context();
-      if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback';
-      if (ctx.state !== 'running') ctx.resume().catch(() => {});
-    }
+    engine.unlock();
     if (wanted && !running) loop();
-  }
-
-  // Medan quizlåten spelas vilar ljudmotorn, så att klippet är det enda ljud sidan har igång.
-  // Annars kan iPhone stanna upp klippet en kort stund när tangentbordet öppnas för ett svar.
-  // Efter låten startas den igen. Det tillåter iPhone utan tryck, eftersom ett tryck har startat
-  // den förut. Gör den inte det spelas ljudet med ljudelementet i stället.
-  let resting = false;
-  function pauseEngine() {
-    if (!ctx || ctx.state !== 'running') return;
-    resting = true;
-    ctx.suspend().catch(() => {});
-  }
-  function resumeEngine() {
-    if (resting && ctx) ctx.resume().catch(() => {});
-    resting = false;
   }
 
   // Varje väntan får en ny slumpad låt, som loopar tills spelet startar.
@@ -125,16 +103,9 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
       return null;
     }
     if (!url) return null;
-    const loaded = await loadToEngine(ctx, url);
+    const loaded = await loadToEngine(engine.context(), url);
     if ('buffer' in loaded) return { url, buffer: loaded.buffer, volume: VOLUME * levelGain(loaded.buffer, LEVEL_DB) };
-    return { url, why: loaded.why, engineTried: Boolean(ctx) };
-  }
-
-  // Startar ljudmotorn om den står still, till exempel efter att ha vilat under en quizlåt eller
-  // när iPhone har avbrutit den. Svaret kommer när den går, eller efter en kort stund.
-  function resume() {
-    if (!ctx || ctx.state === 'running') return Promise.resolve();
-    return Promise.race([ctx.resume().catch(() => {}), wait(RESUME_MS)]);
+    return { url, why: loaded.why, engineTried: Boolean(engine.context()) };
   }
 
   // Hur klippet spelas: 'engine' i ljudmotorn, annars varför ljudmotorn inte används.
@@ -145,17 +116,17 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
   async function playOnce(clip, mine) {
     // Hämtades klippet före första trycket, till exempel när spelledaren gick tillbaka till ett
     // sparat spel, finns ljudmotorn nu. Då hämtas det till den, så att det kan tonas.
-    if (!clip.buffer && !clip.engineTried && ctx) {
+    if (!clip.buffer && !clip.engineTried && engine.context()) {
       const again = await load(song);
       Object.assign(clip, again, { engineTried: true });
     }
-    if (clip.buffer) await resume();
+    if (clip.buffer) await engine.resume();
     if (mine !== turn) return 'played';
-    if (clip.buffer && ctx.state === 'running') {
+    if (clip.buffer && engine.running()) {
       how = 'engine';
       return playBuffer(clip);
     }
-    how = clip.why || engineStopped(ctx);
+    how = clip.why || engineStopped(engine.context());
     return playElement(clip);
   }
 
@@ -194,6 +165,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
 
   // Klippet spelas i ljudmotorn, med volymen efter utjämningen. Det hörs direkt.
   function playBuffer({ url, buffer, volume }) {
+    const ctx = engine.context();
     return new Promise((resolve) => {
       const gain = ctx.createGain();
       const source = ctx.createBufferSource();
@@ -294,5 +266,5 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
   // Låten som hörs, för raden längst ner, eller null.
   const heardSong = () => (now() ? song : null);
 
-  return { play, stop, unlock, pauseEngine, resumeEngine, untilSilent, now, song: heardSong, playing: () => wanted, howPlayed: () => how };
+  return { play, stop, unlock, pauseEngine: engine.pause, resumeEngine: engine.wake, untilSilent, now, song: heardSong, playing: () => wanted, howPlayed: () => how };
 }

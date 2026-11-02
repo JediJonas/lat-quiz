@@ -4,7 +4,7 @@
 import { wait } from '../shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
-import { engineStopped, loadToEngine } from './engine-clip.js';
+import { createAudioEngine, engineStopped, loadToEngine } from './engine-clip.js';
 
 // Låtarna står i data/music.json under winner: default för alla kategorier, och en egen lista
 // för säsongskategorierna (beslutat 25 oktober 2026).
@@ -36,8 +36,6 @@ export function pickWinnerSong(random, last, songs) {
 
 // Så länge ljudmotorns klocka får stå still innan låten spelas med ljudelementet i stället.
 const CHECK_MS = 300;
-// Så länge låten väntar på att ljudmotorn ska starta igen.
-const RESUME_MS = 500;
 
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
 export const WINNER_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: FADE_MS, loop: false };
@@ -56,7 +54,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   let heard = () => {}; // säger till när låten hörs, så att vinnarkortet kan visas då
   // På iPhone går det inte att ändra volymen på ett ljudelement. Därför spelas låten helst genom
   // webbläsarens ljudmotor, som kan tona. Den måste startas av ett tryck, se unlock.
-  let ctx = null;
+  const engine = createAudioEngine();
   let source = null;
   let heardClip = null; // klippet som hörs och var i det, för spelarnas mobiler
 
@@ -93,28 +91,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     if (!drumAudio) drumAudio = new Audio();
     unlockElement(audio);
     unlockElement(drumAudio);
-    const Context = window.AudioContext || window.webkitAudioContext;
-    if (!Context) return;
-    if (!ctx) ctx = new Context();
-    // Annars tystar iPhone ljudmotorn när ringsignalen är avstängd, men inte vanliga ljudelement.
-    if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback';
-    if (ctx.state !== 'running') ctx.resume().catch(() => {});
-  }
-
-
-  // Medan quizlåten spelas vilar ljudmotorn, så att klippet är det enda ljud sidan har igång.
-  // Annars kan iPhone stanna upp klippet en kort stund när tangentbordet öppnas för ett svar.
-  // Efter låten startas den igen. Det tillåter iPhone utan tryck, eftersom ett tryck har startat
-  // den förut. Gör den inte det spelas ljudet med ljudelementet i stället.
-  let resting = false;
-  function pauseEngine() {
-    if (!ctx || ctx.state !== 'running') return;
-    resting = true;
-    ctx.suspend().catch(() => {});
-  }
-  function resumeEngine() {
-    if (resting && ctx) ctx.resume().catch(() => {});
-    resting = false;
+    engine.unlock();
   }
 
   // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
@@ -146,22 +123,15 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     heardSong = null;
     // Ljudmotorn kan ha vilat under sista quizlåten utan att vakna igen. Den väcks redan nu, så att
     // den hinner gå när låten börjar. Annars spelas låten som vanligt ljud, som inte kan tonas på iPhone.
-    resting = false;
-    resume();
+    engine.resume();
     prepared = findPreview(song).then(load).catch(() => null);
-  }
-
-  // Startar ljudmotorn om den står still. Svaret kommer när den går, eller efter en kort stund.
-  function resume() {
-    if (!ctx || ctx.state === 'running') return Promise.resolve();
-    return Promise.race([ctx.resume().catch(() => {}), wait(RESUME_MS)]);
   }
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement,
   // och why säger varför, så att det syns med ?debug=1.
   async function load(url) {
     if (!url) return null;
-    const loaded = await loadToEngine(ctx, url);
+    const loaded = await loadToEngine(engine.context(), url);
     if ('buffer' in loaded) return { url, buffer: loaded.buffer, volume: VOLUME * levelGain(loaded.buffer, LEVEL_DB) };
     preload(url);
     return { url, why: loaded.why };
@@ -217,9 +187,10 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     const clip = await prepared;
     if (turn !== playing) return;
     if (!clip) { heard(); return; }
-    if (clip.buffer) await resume();
+    if (clip.buffer) await engine.resume();
     if (turn !== playing) return;
-    if (clip.buffer && ctx.state === 'running') {
+    const ctx = engine.context();
+    if (clip.buffer && engine.running()) {
       const at = ctx.currentTime;
       startBuffer(clip.buffer, clip.volume);
       // iPhone kan säga att ljudmotorn går fast den står still och inget hörs. Rör sig inte dess
@@ -242,6 +213,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
 
   // volume: klippets volym efter utjämningen.
   function startBuffer(buffer, volume) {
+    const ctx = engine.context();
     const gain = ctx.createGain();
     const now = ctx.currentTime;
     const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
@@ -303,5 +275,5 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   }
 
   // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
-  return { playDrumRoll, play, stop, unlock, pauseEngine, resumeEngine, now, drumNow, heard: () => heardSong };
+  return { playDrumRoll, play, stop, unlock, pauseEngine: engine.pause, resumeEngine: engine.wake, now, drumNow, heard: () => heardSong };
 }

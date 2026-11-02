@@ -21,3 +21,25 @@ test('det står varför klippet inte kunde spelas i ljudmotorn', async () => {
   assert.match((await loadToEngine(broken, 'u', ok)).why, /decoded/);
   assert.equal(engineStopped({ state: 'interrupted' }), 'audio engine was interrupted');
 });
+
+test('ljudmotorn vilar under quizlåten och väcks bara om den vilade', async () => {
+  const calls = [];
+  const ctx = {
+    state: 'suspended',
+    resume: async () => { calls.push('resume'); ctx.state = 'running'; },
+    suspend: async () => { calls.push('suspend'); ctx.state = 'suspended'; },
+  };
+  globalThis.window = { AudioContext: function AudioContext() { return ctx; } };
+  Object.defineProperty(globalThis, 'navigator', { value: {}, configurable: true });
+  const { createAudioEngine } = await import('../js/sound/engine-clip.js');
+  const engine = createAudioEngine();
+  assert.equal(engine.context(), null);
+  engine.wake();
+  engine.unlock();
+  await engine.resume();
+  assert.equal(engine.running(), true);
+  engine.wake();
+  engine.pause();
+  engine.wake();
+  assert.deepEqual(calls, ['resume', 'suspend', 'resume']);
+});
