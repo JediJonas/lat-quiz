@@ -207,7 +207,7 @@ export default {
     'Rakt in på förstaplatsen!',
     'Etta på listan!',
     'Kan alla låtar utantill!',
-    'Ge den här personen en mikrofon!',
+    'En stark insats!',
   ],
 
   // Sidorna, som tools/texts.mjs skriver in i index.html, host.html och play.html.
