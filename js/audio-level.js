@@ -43,3 +43,15 @@ export function levelGain(buffer, targetDb) {
   const gain = 10 ** ((targetDb - db) / 20);
   return Math.min(Math.max(MIN_GAIN, Math.min(MAX_GAIN, gain)), Math.max(1, 1 / peak));
 }
+
+// Volymen under en uttoning. left går från 1 till 0. Volymen sänks efter en kurva, eftersom örat
+// uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
+// Väntemusiken och vinnarlåten tonar ut efter samma kurva.
+export const fadeLevel = (left, volume) => volume * Math.max(0, left) ** 3;
+
+// Antal steg i uttoningens kurva till ljudmotorn (setValueCurveAtTime).
+const FADE_STEPS = 50;
+
+// Uttoningen från volume till tyst, som kurva till ljudmotorn.
+export const fadeOutCurve = (volume) =>
+  Float32Array.from({ length: FADE_STEPS }, (_, i) => fadeLevel(1 - i / (FADE_STEPS - 1), volume));

@@ -7,7 +7,7 @@ import { html, join } from '../shared/html.js';
 import { announce, renderPie, scrollToTop } from '../ui.js';
 import { roundCheer, winComment, winIntro } from '../cheer.js';
 import { guessFields as fieldsOf } from '../game.js';
-import { pickWinEffect, startWinEffect } from '../winner-animation.js';
+import { WIN_EFFECT_MS, pickWinEffect, startWinEffect } from '../winner-animation.js';
 import { pauseSeasonEffect } from '../season.js';
 import { rankIn } from './standings.js';
 import { t } from '../shared/lang.js';
@@ -144,7 +144,7 @@ export function createResultCard() {
         // visar samma utan att något skickas över nätet. Löven och snön bakom sidan pausas så länge.
         const fx = winner && body.querySelector('.win-fx');
         if (fx) {
-          pauseSeasonEffect(13500);
+          pauseSeasonEffect(WIN_EFFECT_MS);
           startWinEffect(fx, pickWinEffect(`${round.number}|${round.song.title}|${round.song.artist}|${view.winners.join('|')}`, view.categoryId));
         }
       }

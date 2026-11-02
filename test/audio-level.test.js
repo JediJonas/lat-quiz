@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { measureLevel, levelGain } from '../js/audio-level.js';
+import { fadeLevel, fadeOutCurve, measureLevel, levelGain } from '../js/audio-level.js';
 import { musicVolume } from '../js/clip-player.js';
 
 // Ett påhittat klipp med samma delar som ljudmotorns AudioBuffer: en ton med amplituden amp,
@@ -49,4 +49,13 @@ test('ett svagt klipp skruvas inte upp så att det slår i taket, och tystnad l�
 test('mobilerna spelar som starkast på full volym', () => {
   const lobby = { posMs: 0, loop: true, volume: 1.2, fadeInMs: 2000, fadeOutMs: 3000 };
   assert.equal(musicVolume(lobby, 15, 30), 1);
+});
+
+test('uttoningen börjar på volymen, slutar tyst och sjunker hela vägen', () => {
+  const curve = fadeOutCurve(0.8);
+  assert.equal(curve.length, 50);
+  assert.ok(Math.abs(curve[0] - 0.8) < 1e-6);
+  assert.equal(curve[curve.length - 1], 0);
+  assert.ok(curve.every((v, i) => i === 0 || v <= curve[i - 1]));
+  assert.equal(fadeLevel(0.5, 0.8), 0.8 * 0.125);
 });

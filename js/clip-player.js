@@ -9,6 +9,8 @@ import { t } from './shared/lang.js';
 
 // Så långt får klippet glida från spelledarens innan mobilen spolar om. Mindre ger hack i ljudet.
 const DRIFT_S = 0.4;
+// Hur ofta volymen ändras när väntemusiken eller vinnarlåten tonar.
+const VOLUME_STEP_MS = 50;
 
 // Var i klippet låten är, i sekunder. Klippet och timern startar samtidigt hos spelledaren.
 // sinceMs: tiden sedan läget kom från spelledaren.
@@ -81,7 +83,7 @@ export function createClipPlayer({ onBlocked }) {
     const music = !quizClip(view) && view && view.music;
     audio.volume = music ? musicVolume(music, audio.currentTime, audio.duration) : 1;
   }
-  setInterval(() => { if (!audio.paused) setVolume(); }, 50);
+  setInterval(() => { if (!audio.paused) setVolume(); }, VOLUME_STEP_MS);
 
   function sync() {
     const want = wantedClip(view);

@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect, spotlightPairs } from '../js/winner-animation.js';
+import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect } from '../js/winner-animation.js';
+import { spotlightPairs } from '../js/win-effects/spotlights.js';
 
 test('samma match ger samma vinstanimation på alla enheter', () => {
   const key = '14|Take On Me|a-ha|Anna';

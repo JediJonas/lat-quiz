@@ -4,6 +4,9 @@
 import { $ } from './shared/dom.js';
 import { t } from './shared/lang.js';
 
+// Så länge knappen visar att länken är kopierad.
+const COPIED_SHOWN_MS = 3000;
+
 /** Skriver länken och ritar QR-koden för den. @param {string} url */
 export function renderJoinInfo(url) {
   $('#join-url').textContent = url;
@@ -29,7 +32,7 @@ export async function copyJoinLink(url) {
     button.textContent = t('join.copied');
     status.textContent = t('join.copiedStatus');
     clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => { button.textContent = t('join.copy'); status.textContent = ''; }, 3000);
+    copiedTimer = setTimeout(() => { button.textContent = t('join.copy'); status.textContent = ''; }, COPIED_SHOWN_MS);
   } catch {
     $('#join-url-row').hidden = false;
     status.textContent = '';

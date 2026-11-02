@@ -31,6 +31,8 @@ mountSeasonEffect();
 
 // Ett sparat spel går att gå tillbaka till i tolv timmar.
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
+// Hur ofta spelledaren kollar om en låt ska börja, sluta eller visa svaret.
+const TICK_MS = 250;
 
 let state = null;
 let songs = [];
@@ -123,7 +125,7 @@ function changed() {
 
 function startNetwork() {
   connections.start(state.code);
-  ticker = startTicker(tick, 250);
+  ticker = startTicker(tick, TICK_MS);
 }
 
 function tick() {
