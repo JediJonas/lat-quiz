@@ -130,7 +130,6 @@ export default {
     'Det vänder snart!',
     'Heja heja!',
     'Du fixar nästa!',
-    'Alla kan inte allt!',
   ],
   'win.intro': [
     'Vi har en vinnare!',
