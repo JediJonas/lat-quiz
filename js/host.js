@@ -11,15 +11,14 @@ import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import * as prefs from './shared/preferences.js';
 import * as protocol from './shared/protocol.js';
 import { scrollToTop } from './ui.js';
-import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './vinnarlat.js';
-import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
-import { nowMusic, showNowMusic } from './nuspelas.js';
+import { showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
-import { after, delayShort } from './ljudfordrojning.js';
+import { delayShort } from './ljudfordrojning.js';
 import { isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 import { mountSeasonEffect } from './sasong.js';
 import { showSettings } from './settings-dialog.js';
 import { createQuizClip } from './quiz-clip.js';
+import { createSoundDirector } from './sound-director.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
 
@@ -54,47 +53,14 @@ function loadSaved() {
   return saved.state;
 }
 
-// Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
-// blåtand, så med ljudsynk väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
-// (provat med blåtandshögtalare och iPhone 24 oktober 2026).
-const ENGINE_WAIT_MS = 1000;
-const musicDelay = () => { const delay = prefs.audioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
-
-// Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt, och raden längst
-// ner visar låten, både här och i mobilerna. Tystnar klippet för att det inte gick att spela,
-// till exempel när Deezer inte svarar, försvinner raden igen.
-// Med ljudfördröjning visas raden först när musiken hörs i högtalaren.
-function musicChanged() {
-  if (!state) return;
-  showNowMusic($('#now-music'), currentMusic());
-  broadcast();
-  const delay = musicDelay();
-  if (delay) setTimeout(() => { if (state) { showNowMusic($('#now-music'), currentMusic()); broadcast(); } }, delay);
-}
-
-const winnerSong = createWinnerSong({ onChange: musicChanged, songs: () => winnerSongs(state && state.categoryId) });
-const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(category && category.id) });
-
-// Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
-const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && prefs.extraSounds());
-
-// Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Låten står där
-// först när klippet faktiskt hörs, och vinnarlåten står kvar tills en ny match börjar.
-function currentMusic() {
-  const text = playingMusic();
-  if (text !== musicSeen.text) musicSeen = { text, at: Date.now() };
-  return text && Date.now() - musicSeen.at >= musicDelay() ? text : null;
-}
-
-// Texten och när den började spela här. Med ljudfördröjning hörs den så mycket senare.
-let musicSeen = { text: null, at: 0 };
-
-function playingMusic() {
-  if (!state) return null;
-  if (lobbyWanted()) return nowMusic(lobbyMusic.song());
-  if (!state.winners || !prefs.extraSounds()) return null;
-  return nowMusic(winnerSong.heard());
-}
+// Väntemusiken, trumvirveln, vinnarlåten och raden Nu spelas, se sound-director.js.
+const sound = createSoundDirector({
+  state: () => state,
+  categoryId: () => category && category.id,
+  leaving: () => leaving,
+  // Raden längst ner visar låten, både här och i mobilerna, som får veta när klippet börjar.
+  changed: () => { showNowMusic($('#now-music'), sound.currentMusic()); broadcast(); },
+});
 
 // När spelledaren startar spelet visas "Nu börjar det!" innan första låten, lika länge som
 // nedräkningen mellan låtarna (AUTO_NEXT_MS). Klippet laddas under tiden och spelas när tiden är slut.
@@ -108,16 +74,6 @@ function startIntro() {
   introEnds = Date.now() + INTRO_MS;
   clearTimeout(introTimer);
   introTimer = setTimeout(() => { render(); broadcast(); }, INTRO_MS);
-}
-
-// Equalizern på väntekortet rör sig snabbt när väntemusiken spelas, och långsamt annars.
-const lobbyPlaying = lobbyWanted;
-
-function updateLobbyMusic() {
-  const on = lobbyWanted();
-  if (on) lobbyMusic.play();
-  else lobbyMusic.stop();
-  $('#lobby-note').hidden = !on;
 }
 
 // Avdelningen Okända låtar i Inställningar syns bara med ?okanda=1, se preferences.js.
@@ -148,14 +104,14 @@ function viewFor(playerId) {
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
-  view.lobbyPlaying = lobbyPlaying();
+  view.lobbyPlaying = sound.lobbyWanted();
   if (introLeft() > 0) Object.assign(view, { introMs: introLeft(), introTotalMs: INTRO_MS });
   const url = quizClip.urlForPlayers();
   if (url) view.clipUrl = url;
-  const music = musicForPlayers();
+  const music = sound.forPlayers();
   if (music) view.music = music;
   // Låten står på raden längst ner även i mobilerna, också när den bara spelas hos spelledaren.
-  const playing = currentMusic();
+  const playing = sound.currentMusic();
   if (playing) view.nowMusic = playing;
   // Ändringar under en låt syns för spelarna direkt, fast de gäller först från nästa låt.
   if (pending) {
@@ -349,7 +305,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   $('#game').hidden = false;
   // Går spelledaren tillbaka till ett spel har spelarna redan gått med, så QR-koden är stängd.
   showJoinInfo({ qrOpen: !resumeState });
-  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: winnerDrum, onWinnerDrumShown: winnerShown, onWinnerShown: winnerShown, host: true });
+  gameView = createGameView({ onAnswer: hostAnswer, onError: showError, onWinnerDrum: sound.winnerDrum, onWinnerDrumShown: winnerShown, onWinnerShown: winnerShown, host: true });
   startNetwork();
   render();
 }
@@ -378,33 +334,13 @@ function nextSong() {
 const quizClip = createQuizClip({
   state: () => state,
   playableSongs,
-  ready: async () => { await lobbyMusic.silent(); await introDone(); },
-  otherMusic: [winnerSong, lobbyMusic],
+  ready: async () => { await sound.lobbyMusic.silent(); await introDone(); },
+  otherMusic: [sound.winnerSong, sound.lobbyMusic],
   render: () => render(),
   save: () => save(),
   broadcast: () => broadcast(),
   started: () => changed(),
 });
-
-// Väntemusiken, trumvirveln och vinnarlåten spelas också i spelarnas mobiler, i takt med
-// spelledaren, när spelledaren har valt att spela ljud på alla enheter.
-// Med ljudfördröjning hörs musiken senare i spelledarens högtalare, så mobilerna spelar så mycket
-// längre bak i klippet.
-function musicForPlayers() {
-  const music = playerMusic();
-  return music ? { ...music, posMs: Math.max(0, music.posMs - musicDelay()) } : null;
-}
-
-function playerMusic() {
-  if (!state.clipAll) return null;
-  const lobby = lobbyWanted() && lobbyMusic.now();
-  if (lobby) return { ...LOBBY_FADE, ...lobby };
-  if (!state.winners || !prefs.extraSounds()) return null;
-  const winner = winnerSong.now();
-  if (winner) return { ...WINNER_FADE, ...winner };
-  const drum = winnerSong.drumNow();
-  return drum ? { ...DRUM_FADE, ...drum } : null;
-}
 
 // Meddelandet visas när klippets läge ändras, inte vid varje render, så att det inte tar över
 // ett nyare meddelande om anslutningen.
@@ -434,7 +370,7 @@ function restart() {
   quizClip.stop();
   // Vinnarlåten tystnar när en ny match börjar, och bara då. Pausas ljud vid varje omritning
   // kan quizlåten hacka till i iPhone när spelledaren trycker, se stop i vinnarlat.js.
-  winnerSong.stop();
+  sound.winnerSong.stop();
   game.restart(state);
   changed();
   for (const connId of connToPlayer.keys()) net.send(connId, protocol.newMatch());
@@ -462,8 +398,8 @@ async function endGame() {
   leaving = true;
   remove(KEYS.hostGame);
   quizClip.stop();
-  winnerSong.stop();
-  lobbyMusic.stop();
+  sound.winnerSong.stop();
+  sound.lobbyMusic.stop();
   // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
   // En kort stund behövs för att meddelandet ska hinna fram innan anslutningarna stängs.
   if (net) {
@@ -517,7 +453,7 @@ async function editSettings() {
   // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
   // börjar eller tystnar direkt medan spelarna går med.
   prefs.setExtraSounds(chosenExtraSounds);
-  if (!chosenExtraSounds) winnerSong.stop();
+  if (!chosenExtraSounds) sound.winnerSong.stop();
   prefs.setLastSettings(settings);
   prefs.setClipAll(chosenClipAll);
   if (!state) {
@@ -647,24 +583,6 @@ function startClicked() {
   scrollToTop();
 }
 
-// Texten innan vinnaren visas. Då spelas en trumvirvel, om vinnarlåten är på, och låten börjar när
-// virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
-// Med ljudsynk vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
-function winnerDrum() {
-  if (!prefs.extraSounds()) return null;
-  const delay = prefs.audioDelay();
-  const drum = after(winnerSong.drum(), delay);
-  // Med ?debug=1 står det hur låten spelades, så att fördröjningen går att felsöka.
-  const song = winnerSong.play().then((kind) => {
-    if ('debug' in document.documentElement.dataset) {
-      showMessage({ key: 'debug', kind: 'info', title: 'Vinnarlåten', text: `${kind === 'engine' ? 'Ljudmotorn' : 'Vanligt ljud'}, kortet väntar ${musicDelay() / 1000} s.`, ms: 6000 });
-    }
-    return wait(musicDelay());
-  });
-  return { drum, song };
-}
-
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela igen visas när vinnaren
 // gör det. Spelarna får veta det direkt.
@@ -676,8 +594,8 @@ function winnerShown() {
 // Samma vy som spelarna ser, med Starta spelet och Spela igen för spelledaren.
 function render() {
   $('#category').textContent = category.name;
-  updateLobbyMusic();
-  showNowMusic($('#now-music'), currentMusic());
+  $('#lobby-note').hidden = !sound.updateLobby();
+  showNowMusic($('#now-music'), sound.currentMusic());
   gameView.update(viewFor(state.hostId), state.hostId);
   const round = state.round;
   $('#start-game').hidden = Boolean(round);
@@ -704,9 +622,8 @@ function showError(err) {
 // hacka till på iPhone. Trycken mellan låtarna räcker för att hålla ljudet upplåst.
 function unlockSound() {
   if (quizClip.sounding()) return;
-  quizClip.unlock(lobbyMusic.playing());
-  winnerSong.unlock();
-  lobbyMusic.unlock();
+  quizClip.unlock(sound.lobbyMusic.playing());
+  sound.unlock();
 }
 
 for (const type of ['pointerdown', 'touchend', 'click', 'keydown']) document.addEventListener(type, unlockSound, true);
