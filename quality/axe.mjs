@@ -1,11 +1,13 @@
 // Tillgänglighetskontroll med axe-core (WCAG 2.2 AA) genom ett helt spel:
 // startsida, spelledare med inställningar, spelare som går med, gissning hos båda
 // med förslagslistan och rätt svar. Varje vy kontrolleras i ljust och mörkt läge.
-// Kräver att sidorna serveras på BASE och att en PeerJS-server kör på 127.0.0.1:9000.
+// Kräver att den byggda sidan (_site/) serveras på BASE, källfilerna (repots rot) på SOURCE och att en
+// PeerJS-server kör på 127.0.0.1:9000.
 import { chromium } from 'playwright-core';
 import AxeBuilder from '@axe-core/playwright';
 
 const BASE = process.env.BASE || 'http://localhost:8080/';
+const SOURCE = process.env.SOURCE || 'http://localhost:8081/';
 const PEER = '?peerHost=127.0.0.1&peerPort=9000';
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'];
 
@@ -167,12 +169,20 @@ await player.waitForSelector('#result:not([hidden])');
 await check(host, 'Spelledare, rätt svar');
 await check(player, 'Spelare, rätt svar');
 
-// Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer.
-const show = (page, msg) => page.evaluate((m) => import('./js/message.js').then((mod) => mod.showMessage(m)), msg);
-await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Välj Starta spelet i menyn för att försöka igen.' });
-await check(host, 'Spelledare, felmeddelande');
-await show(player, { key: 'test', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });
-await check(player, 'Spelare, meddelande');
+// Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer. I den byggda
+// sidan ligger js/message.js inne i bundlen och går inte att importera, så rutan visas i en sida
+// från källfilerna, där modulen finns som egen fil.
+async function show(file, msg) {
+  const page = await (await browser.newContext()).newPage();
+  await page.goto(SOURCE + file);
+  await page.evaluate((m) => import('./js/message.js').then((mod) => mod.showMessage(m)), msg);
+  await page.waitForSelector('.message:not([hidden])');
+  return page;
+}
+await check(await show('host.html', { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Välj Starta spelet i menyn för att försöka igen.' }),
+  'Spelledare, felmeddelande');
+await check(await show('play.html', { key: 'test', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' }),
+  'Spelare, meddelande');
 
 await browser.close();
 if (problems.length) {

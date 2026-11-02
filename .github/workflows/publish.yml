@@ -1,7 +1,8 @@
 name: Publicera
 
-# Publicerar sidan på GitHub Pages när main ändras. CSS och JS får versionsnummer
-# vid publiceringen, så att webbläsaren hämtar nya filer i stället för gamla från cachen.
+# Publicerar sidan på GitHub Pages när main ändras. tools/build.mjs bundlar och minifierar
+# JS och CSS och ger dem versionsnummer, så att webbläsaren hämtar nya filer i stället för
+# gamla från cachen. Resultatet i _site/ är det som publiceras.
 on:
   push:
     branches: [main]
@@ -27,14 +28,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
-      - name: Versionsnummer på CSS och JS
-        run: node tools/versions.mjs
+      - name: Installera esbuild
+        run: npm ci
 
-      - name: Samla sidan
-        run: |
-          mkdir _site
-          cp -r *.html *.svg *.webmanifest css data icons js sounds vendor _site/
+      - name: Bygg sidan (bundling, minifiering och versionsnummer)
+        run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:

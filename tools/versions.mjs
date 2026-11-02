@@ -1,23 +1,26 @@
 // Versionsnummer på CSS och JS, så att webbläsaren hämtar nya filer efter varje deploy.
 // GitHub Pages låter webbläsaren spara filerna i tio minuter, och då kan ny HTML visas med gammal CSS.
-// Numret är en kort hash av alla filerna. Moduler som importeras av andra moduler får numret via en
-// import map i varje sida. Skriptet körs av sig självt när sidan publiceras och i CI, aldrig för hand,
-// så sidorna i repot saknar versionsnummer. Längst ner på varje sida står numret och när sidan
-// publicerades, så att det går att se vilken version som körs.
+// Numret är en kort hash av alla filerna. Moduler som importeras från en sida (som js/menu.js i
+// index.html) får numret via en import map i varje sida. Körs av tools/build.mjs på den byggda
+// sidan i _site/, aldrig på sidorna i repot, så de saknar versionsnummer. Längst ner på varje sida
+// står numret och när sidan publicerades, så att det går att se vilken version som körs.
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 
-const root = new URL('../', import.meta.url);
-const read = (path) => readFileSync(new URL(path, root), 'utf8');
 export const PAGES = ['index.html', 'host.html', 'play.html'];
-// Alla moduler i js/, även i undermappar som js/shared/, till exempel 'shared/storage.js'.
-const MODULES = readdirSync(new URL('js/', root), { recursive: true })
-  .map(String).map((f) => f.split('\\').join('/')).filter((f) => f.endsWith('.js')).sort();
 
-export function contentHash() {
+/** Alla moduler i js/ under dir, även i undermappar, till exempel 'shared/storage.js'. */
+export function modules(dir) {
+  return readdirSync(new URL('js/', dir), { recursive: true })
+    .map(String).map((f) => f.split('\\').join('/')).filter((f) => f.endsWith('.js')).sort();
+}
+
+/** En kort hash av CSS och alla moduler under dir. */
+export function contentHash(dir, mods = modules(dir)) {
   const hash = createHash('sha256');
-  for (const file of ['css/style.css', ...MODULES.map((f) => 'js/' + f)]) hash.update(file + '\0' + read(file));
+  for (const file of ['css/style.css', ...mods.map((f) => 'js/' + f)]) {
+    hash.update(file + '\0' + readFileSync(new URL(file, dir), 'utf8'));
+  }
   return hash.digest('hex').slice(0, 8);
 }
 
@@ -29,8 +32,8 @@ export function versionText(v, date = new Date()) {
   return `Version ${when} · ${v}`;
 }
 
-export function withVersion(html, v, text = versionText(v)) {
-  const map = { imports: Object.fromEntries(MODULES.map((f) => [`./js/${f}`, `./js/${f}?v=${v}`])) };
+export function withVersion(html, v, mods, text = versionText(v)) {
+  const map = { imports: Object.fromEntries(mods.map((f) => [`./js/${f}`, `./js/${f}?v=${v}`])) };
   const importMap = `<script type="importmap">${JSON.stringify(map)}</script>`;
   html = html.replace(/href="css\/style\.css(\?v=\w+)?"/g, `href="css/style.css?v=${v}"`)
     .replace(/src="js\/([\w-]+)\.js(\?v=\w+)?"/g, `src="js/$1.js?v=${v}"`)
@@ -40,8 +43,13 @@ export function withVersion(html, v, text = versionText(v)) {
   return html.replace(/( *)(<link rel="stylesheet" href="css\/style\.css[^"]*">)/, `$1$2\n$1${importMap}`);
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const v = contentHash();
-  for (const page of PAGES) writeFileSync(new URL(page, root), withVersion(read(page), v));
-  console.log(`Version ${v} i ${PAGES.join(', ')}`);
+/** Sätter versionsnumret i sidorna under dir och returnerar numret. */
+export function stampVersions(dir) {
+  const mods = modules(dir);
+  const v = contentHash(dir, mods);
+  for (const page of PAGES) {
+    const file = new URL(page, dir);
+    writeFileSync(file, withVersion(readFileSync(file, 'utf8'), v, mods));
+  }
+  return v;
 }
