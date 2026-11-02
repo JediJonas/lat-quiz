@@ -6,6 +6,7 @@
 import { wait } from '../shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
+import { engineStopped, loadToEngine } from './engine-clip.js';
 
 // Låtarna står i data/music.json under lobby: default för alla kategorier, och en egen lista för
 // säsongskategorierna. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har
@@ -29,6 +30,8 @@ const STALL_MS = 10000;
 const RETRY_MS = 2000;
 // Hur ofta volymen ändras när ett ljudelement tonar in eller ut.
 const VOLUME_STEP_MS = 50;
+// Så länge klippet väntar på att ljudmotorn ska starta igen, som för vinnarlåten.
+const RESUME_MS = 500;
 
 // En slumpad låt, men inte samma som förra väntan.
 export function pickLobbySong(random, last, songs) {
@@ -112,23 +115,48 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
 
   const untilSilent = () => wait(Math.max(0, silentAt - Date.now()));
 
-  // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ljudelementet.
+  // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ljudelementet,
+  // och why säger varför, så att det syns med ?debug=1.
   async function load(song) {
+    let url;
     try {
-      const url = await findPreview(song);
-      if (!url) return null;
-      if (!ctx) return { url };
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('Inget svar');
-        const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
-        return { url, buffer, volume: VOLUME * levelGain(buffer, LEVEL_DB) };
-      } catch {
-        return { url };
-      }
+      url = await findPreview(song);
     } catch {
       return null;
     }
+    if (!url) return null;
+    const loaded = await loadToEngine(ctx, url);
+    if ('buffer' in loaded) return { url, buffer: loaded.buffer, volume: VOLUME * levelGain(loaded.buffer, LEVEL_DB) };
+    return { url, why: loaded.why, engineTried: Boolean(ctx) };
+  }
+
+  // Startar ljudmotorn om den står still, till exempel efter att ha vilat under en quizlåt eller
+  // när iPhone har avbrutit den. Svaret kommer när den går, eller efter en kort stund.
+  function resume() {
+    if (!ctx || ctx.state === 'running') return Promise.resolve();
+    return Promise.race([ctx.resume().catch(() => {}), wait(RESUME_MS)]);
+  }
+
+  // Hur klippet spelas: 'engine' i ljudmotorn, annars varför ljudmotorn inte används.
+  let how = null;
+
+  // Spelar klippet en gång, helst i ljudmotorn, som kan tona även på iPhone. mine: slingans
+  // omgång. Har musiken stoppats medan ljudmotorn startade spelas inget, och svaret är played.
+  async function playOnce(clip, mine) {
+    // Hämtades klippet före första trycket, till exempel när spelledaren gick tillbaka till ett
+    // sparat spel, finns ljudmotorn nu. Då hämtas det till den, så att det kan tonas.
+    if (!clip.buffer && !clip.engineTried && ctx) {
+      const again = await load(song);
+      Object.assign(clip, again, { engineTried: true });
+    }
+    if (clip.buffer) await resume();
+    if (mine !== turn) return 'played';
+    if (clip.buffer && ctx.state === 'running') {
+      how = 'engine';
+      return playBuffer(clip);
+    }
+    how = clip.why || engineStopped(ctx);
+    return playElement(clip);
   }
 
   // Samma klipp spelas om och om igen. Det hämtas bara en gång, så länge det går att spela.
@@ -151,7 +179,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
         }
         clip = loaded;
       }
-      const result = await (clip.buffer && ctx && ctx.state === 'running' ? playBuffer(clip) : playElement(clip));
+      const result = await playOnce(clip, mine);
       if (mine !== turn) return;
       // Tillät inte webbläsaren ljud väntar musiken på nästa tryck, se unlock.
       if (result === 'blocked') { running = false; return; }
@@ -266,5 +294,5 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
   // Låten som hörs, för raden längst ner, eller null.
   const heardSong = () => (now() ? song : null);
 
-  return { play, stop, unlock, pauseEngine, resumeEngine, untilSilent, now, song: heardSong, playing: () => wanted };
+  return { play, stop, unlock, pauseEngine, resumeEngine, untilSilent, now, song: heardSong, playing: () => wanted, howPlayed: () => how };
 }

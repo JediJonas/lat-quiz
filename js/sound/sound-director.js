@@ -14,6 +14,13 @@ import { nowMusic } from './now-playing.js';
 // blåtand, så med ljudsynk väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
 // (provat med blåtandshögtalare och iPhone 24 oktober 2026).
 const ENGINE_WAIT_MS = 1000;
+// Så länge rutorna med ?debug=1 syns.
+const DEBUG_SHOWN_MS = 6000;
+
+// Med ?debug=1 står det hur väntemusiken och vinnarlåten spelas, så att det går att se i en riktig
+// iPhone varför de inte tonas. how: 'engine', annars varför ljudmotorn inte användes.
+const debugging = () => 'debug' in document.documentElement.dataset;
+export const describeHow = (how) => (how === 'engine' ? 'Ljudmotorn' : `Vanligt ljud, ${how || 'ingen låt hördes'}`);
 
 
 /**
@@ -33,6 +40,7 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
   // svarar, försvinner raden igen. Med ljudfördröjning visas raden först när musiken hörs i högtalaren.
   function musicChanged() {
     if (!state()) return;
+    showLobbyHow();
     changed();
     const delay = musicDelay();
     if (delay) setTimeout(() => { if (state()) changed(); }, delay);
@@ -40,6 +48,15 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
 
   const winnerSong = createWinnerSong({ onChange: musicChanged, songs: () => winnerSongs(music(), state() && state().categoryId) });
   const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(music(), categoryId()) });
+
+  // Med ?debug=1 visas hur väntemusiken spelas när den börjar höras, och igen om det ändras.
+  let lobbyHowShown = null;
+  function showLobbyHow() {
+    const how = lobbyMusic.howPlayed();
+    if (!debugging() || !lobbyMusic.now() || how === lobbyHowShown) return;
+    lobbyHowShown = how;
+    showMessage({ key: 'debug-lobby', kind: 'info', title: 'Väntemusiken', text: `${describeHow(how)}.`, ms: DEBUG_SHOWN_MS });
+  }
 
   // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
   // Equalizern på väntekortet rör sig snabbt när den spelar, och långsamt annars.
@@ -105,8 +122,8 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
     const drum = delayAfter(winnerSong.playDrumRoll(), delay);
     // Med ?debug=1 står det hur låten spelades, så att fördröjningen går att felsöka.
     const song = winnerSong.play().then((kind) => {
-      if ('debug' in document.documentElement.dataset) {
-        showMessage({ key: 'debug', kind: 'info', title: 'Vinnarlåten', text: `${kind === 'engine' ? 'Ljudmotorn' : 'Vanligt ljud'}, kortet väntar ${musicDelay() / 1000} s.`, ms: 6000 });
+      if (debugging()) {
+        showMessage({ key: 'debug', kind: 'info', title: 'Vinnarlåten', text: `${describeHow(kind)}. Kortet väntar ${musicDelay() / 1000} s.`, ms: DEBUG_SHOWN_MS });
       }
       return wait(musicDelay());
     });
