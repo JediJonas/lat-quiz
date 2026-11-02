@@ -11,6 +11,7 @@
 import { announce } from './ui.js';
 import { joinedMessage } from './game.js';
 import { esc } from './shared/dom.js';
+import { t } from './shared/lang.js';
 
 const OK_MS = 3000;
 // Ikoner: Material Symbols Rounded (Apache 2.0): info_i, pause, check och priority_high.
@@ -41,7 +42,7 @@ function elements() {
     alertRow.setAttribute('role', 'alert');
     // Allt innehåll ska ligga i ett landmärke.
     const aside = document.createElement('aside');
-    aside.setAttribute('aria-label', 'Meddelande');
+    aside.setAttribute('aria-label', t('message.label'));
     aside.append(box, alertRow);
     document.body.append(aside);
   }
@@ -115,7 +116,7 @@ export function showJoined(name) {
 // En spelare har valt Lämna spelet i menyn. Visas lika länge som en ny spelare, och inte över ett fel.
 export function showLeft(name) {
   if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
-  showMessage({ key: 'left', kind: 'info', title: `Hej då, ${name}!`, text: `${name} har lämnat spelet.`, ms: INFO_MS });
+  showMessage({ key: 'left', kind: 'info', title: t('message.left.title', { name }), text: t('message.left.text', { name }), ms: INFO_MS });
 }
 
 // Oväntade fel, till exempel ett programmeringsfel, visas i rutan. Annars stannar sidan bara
@@ -123,6 +124,6 @@ export function showLeft(name) {
 export function showUnexpectedErrors() {
   window.addEventListener('error', (event) => {
     const detail = event.message ? ` (${event.message})` : '';
-    showMessage({ key: 'unexpected', kind: 'problem', title: 'Något gick fel', text: `Ladda om sidan och försök igen.${detail}` });
+    showMessage({ key: 'unexpected', kind: 'problem', title: t('message.unexpected.title'), text: t('message.unexpected.text', { detail }) });
   });
 }

@@ -6,6 +6,7 @@
 
 import { normalize, answerKey } from './text.js';
 import { songLabels } from './data.js';
+import { t } from './shared/lang.js';
 
 // 30 sekunder per låt som standard, lika långt som hela Deezer-klippet.
 export const ROUND_MS = 30000;
@@ -360,6 +361,8 @@ export function settingsChangeText(before, after) {
 
 // Rutan när nya spelare har gått med: rubriken Välkommen, Anna! eller Välkomna! och till exempel "Anna och Bo har gått med i spelet."
 export function joinedMessage(names) {
-  const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} och ${names[names.length - 1]}` : names[0];
-  return { title: names.length > 1 ? 'Välkomna!' : `Välkommen, ${names[0]}!`, text: `${list} har gått med i spelet.` };
+  return {
+    title: names.length > 1 ? t('message.joined.titleMany') : t('message.joined.titleOne', { name: names[0] }),
+    text: t('message.joined.text', { names }),
+  };
 }
