@@ -1,9 +1,12 @@
 // Spelarvyn i mobilen.
 import { codeBoxes } from './kodrutor.js';
 import { createClient } from './net.js';
-import { hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
+import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './spelvy.js';
-import { settingsChangeText, upcomingSettings } from './game.js';
+import { MAX_NAME, settingsChangeText, upcomingSettings } from './game.js';
+import { $ } from './shared/dom.js';
+import { newId } from './shared/ids.js';
+import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
@@ -15,12 +18,8 @@ import { mountSeasonEffect } from './sasong.js';
 showUnexpectedErrors();
 mountSeasonEffect();
 
-const SAVE_KEY = 'latquiz-player';
-const MAX_NAME = 10;
-const SETTINGS_MESSAGE_MS = 4000;
 // Kategori och inställningar kan komma i olika lägen direkt efter varandra. De visas tillsammans.
 const SETTINGS_SETTLE_MS = 400;
-const $ = (sel) => document.querySelector(sel);
 
 let me = null; // { playerId, name, code }
 let net = null;
@@ -33,14 +32,6 @@ let pending = false;
 // Inställningarna som spelaren senast fick veta om, och timern som samlar ändringarna.
 let knownSettings = null;
 let settingsTimer = null;
-
-function storage(fn, fallback) {
-  try { return fn(); } catch { return fallback; }
-}
-
-function newId() {
-  return (crypto.randomUUID && crypto.randomUUID()) || String(Math.random()).slice(2) + Date.now();
-}
 
 function sendAnswer(field, value) {
   if (net) net.send({ type: 'answer', field, value });
@@ -60,7 +51,7 @@ function onMessage(msg) {
   if (msg.type === 'ended') { gameEnded(); return; }
   if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
   if (msg.type === 'new-match') {
-    showMessage({ key: 'new-match', kind: 'info', title: 'Vi kör igen!', text: 'Alla börjar om från noll. Lycka till!', ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'new-match', kind: 'info', title: 'Vi kör igen!', text: 'Alla börjar om från noll. Lycka till!', ms: INFO_MS });
     return;
   }
   if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
@@ -90,7 +81,7 @@ function checkSettings() {
     const text = settingsChangeText(knownSettings, now);
     knownSettings = now;
     if (!text) return;
-    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text, ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text, ms: INFO_MS });
   }, SETTINGS_SETTLE_MS);
 }
 
@@ -121,7 +112,7 @@ function gameEnded() {
   clipPlayer.stop();
   net.destroy();
   net = null;
-  storage(() => localStorage.removeItem(SAVE_KEY));
+  remove(KEYS.player);
   showMessage({ key: 'net', kind: 'info', title: 'Spelet avslutades', text: 'Tack för att du var med!' });
 }
 
@@ -146,10 +137,10 @@ function onStatus(status) {
 // Från formuläret stannar man kvar där tills spelledaren har svarat, så att ett upptaget namn
 // visas som ett fel i formuläret. Vid återanslutning visas spelvyn direkt.
 function join(name, code, fromForm) {
-  const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
+  const saved = readJson(KEYS.player, null);
   const playerId = saved && saved.code === code ? saved.playerId : newId();
   me = { playerId, name, code };
-  storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify(me)));
+  writeJson(KEYS.player, me);
   $('#join-error').hidden = true;
   $('#me').textContent = code;
   renderJoinInfo();
@@ -276,7 +267,7 @@ function leave(message, clearCode, keepPlayer = false) {
   clearTimeout(settingsTimer);
   setQrVisible(false);
   hideMessage('net');
-  if (!keepPlayer) storage(() => localStorage.removeItem(SAVE_KEY));
+  if (!keepPlayer) remove(KEYS.player);
   const params = new URLSearchParams(location.search);
   if (clearCode) {
     params.delete('kod');
@@ -303,7 +294,7 @@ async function init() {
 
   const params = new URLSearchParams(location.search);
   const code = (params.get('kod') || '').toUpperCase();
-  const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
+  const saved = readJson(KEYS.player, null);
   $('#code-input').value = code;
   codeBoxes($('#code-input'));
   if (saved) $('#name-input').value = saved.name;

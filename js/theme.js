@@ -1,8 +1,8 @@
 // Ljust eller mörkt läge. Utan eget val är sidan mörk, eftersom den är snyggast så.
 // Själva valet läses in redan i <head>, så att sidan inte blinkar till.
 import { dragToClose } from './ark.js';
+import { KEYS, writeText } from './shared/storage.js';
 
-const THEME_KEY = 'latquiz-tema';
 const deviceDark = window.matchMedia('(prefers-color-scheme: dark)');
 
 function isDark() {
@@ -11,7 +11,6 @@ function isDark() {
 }
 
 // Stor text gör all text större, för den som vill se bättre.
-const TEXT_KEY = 'latquiz-text';
 
 function isLargeText() {
   return document.documentElement.dataset.text === 'large';
@@ -20,14 +19,13 @@ function isLargeText() {
 function setLargeText(large) {
   const root = document.documentElement;
   if (large) root.dataset.text = 'large'; else delete root.dataset.text;
-  try {
-    if (large) localStorage.setItem(TEXT_KEY, 'large'); else localStorage.removeItem(TEXT_KEY);
-  } catch { /* privat läge */ }
+  writeText(KEYS.text, large ? 'large' : null);
 }
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem(THEME_KEY, theme); } catch { /* privat läge: gäller bara den här sidvisningen */ }
+  // I privat läge gäller valet bara den här sidvisningen.
+  writeText(KEYS.theme, theme);
 }
 
 // Gör en knapp till en strömbrytare.

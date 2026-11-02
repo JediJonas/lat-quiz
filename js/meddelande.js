@@ -10,6 +10,7 @@
 
 import { announce } from './ui.js';
 import { joinedMessage } from './game.js';
+import { esc } from './shared/dom.js';
 
 const OK_MS = 3000;
 // Ikoner: Material Symbols Rounded (Apache 2.0): info_i, pause, check och priority_high.
@@ -46,8 +47,6 @@ function elements() {
   }
   return box;
 }
-
-const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 // ms: meddelandet försvinner av sig självt efter så lång tid. Klart försvinner alltid efter en stund.
 // icon: en annan ikon än den som hör till kind, till exempel person när en spelare går med.
@@ -90,10 +89,12 @@ export function currentMessage() {
   return current;
 }
 
+// Så länge står ett kort info-meddelande, som Välkommen, Anna! eller Spelet ändrades.
+export const INFO_MS = 4000;
+
 // En ny spelare har gått med. Spelare som går med nästan samtidigt, eller medan rutan visas,
 // läggs till i samma ruta. En spelare som ansluter igen räknas inte som ny. Ett fel eller något som pågår, till exempel
 // att anslutningen bröts, är viktigare och får stå kvar.
-const JOINED_MS = 4000;
 const JOINED_SETTLE_MS = 400;
 let joined = [];
 let joinedShown = [];
@@ -107,14 +108,14 @@ export function showJoined(name) {
     joined = [];
     if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
     joinedShown = current && current.key === 'joined' ? [...joinedShown, ...names] : names;
-    showMessage({ key: 'joined', kind: 'info', icon: 'person', ...joinedMessage(joinedShown), ms: JOINED_MS });
+    showMessage({ key: 'joined', kind: 'info', icon: 'person', ...joinedMessage(joinedShown), ms: INFO_MS });
   }, JOINED_SETTLE_MS);
 }
 
 // En spelare har valt Lämna spelet i menyn. Visas lika länge som en ny spelare, och inte över ett fel.
 export function showLeft(name) {
   if (current && (current.kind === 'problem' || current.kind === 'busy')) return;
-  showMessage({ key: 'left', kind: 'info', title: `Hej då, ${name}!`, text: `${name} har lämnat spelet.`, ms: JOINED_MS });
+  showMessage({ key: 'left', kind: 'info', title: `Hej då, ${name}!`, text: `${name} har lämnat spelet.`, ms: INFO_MS });
 }
 
 // Oväntade fel, till exempel ett programmeringsfel, visas i rutan. Annars stannar sidan bara
