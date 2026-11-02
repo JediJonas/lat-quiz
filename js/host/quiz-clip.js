@@ -25,25 +25,35 @@ const MAX_SKIPS = 5;
 function audioDebug(el) {
   if (!debugging()) return;
   const log = debugLine;
-  const describeNode = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
+  // Vad som trycktes på: taggen och id, annars första klassen, och för knappar och länkar
+  // även texten eller aria-label, så att det syns vilken knapp det var.
+  const describeNode = (node) => {
+    if (!node || !node.tagName) return '-';
+    const name = node.tagName.toLowerCase() + (node.id ? '#' + node.id : node.classList[0] ? '.' + node.classList[0] : '');
+    const target = node.closest?.('button, a, [role="button"]');
+    if (!target) return name;
+    const label = (target.getAttribute('aria-label') || target.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 30);
+    const where = target === node ? name : `${name} in ${target.tagName.toLowerCase()}${target.id ? '#' + target.id : ''}`;
+    return label ? `${where} "${label}"` : where;
+  };
   for (const type of ['play', 'playing', 'pause', 'waiting', 'stalled', 'seeking', 'seeked', 'emptied', 'ended', 'error']) {
-    el.addEventListener(type, () => log(`ljud ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
+    el.addEventListener(type, () => log(`audio ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
   }
   for (const type of ['pointerdown', 'touchend', 'click', 'focusin', 'focusout', 'change']) {
     document.addEventListener(type, (e) => log(`${type} ${describeNode(e.target)}`), true);
   }
-  document.addEventListener('visibilitychange', () => log(`synlig=${document.visibilityState}`));
+  document.addEventListener('visibilitychange', () => log(`visible=${document.visibilityState}`));
   let lastTime = 0;
   let lastAt = 0;
   let stillSince = 0;
   setInterval(() => {
     const now = performance.now();
-    if (lastAt && now - lastAt > 300) log(`sidan upptagen ${Math.round(now - lastAt - 100)} ms`);
+    if (lastAt && now - lastAt > 300) log(`page busy ${Math.round(now - lastAt - 100)} ms`);
     lastAt = now;
     if (el.paused || !el.src.startsWith('http')) { stillSince = 0; return; }
     const t = el.currentTime;
     if (t === lastTime) { if (!stillSince) stillSince = now; }
-    else if (stillSince) { log(`tiden stod still ${Math.round(now - stillSince)} ms`); stillSince = 0; }
+    else if (stillSince) { log(`time stood still ${Math.round(now - stillSince)} ms`); stillSince = 0; }
     lastTime = t;
   }, 100);
 }

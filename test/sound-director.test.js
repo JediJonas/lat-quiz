@@ -47,7 +47,7 @@ test('raden Nu spelas är tom när ingen musik hörs', () => {
 
 test('med ?debug=1 står det om ljudmotorn användes, och annars varför inte', async () => {
   const { describeHow } = await import('../js/sound/sound-director.js');
-  assert.equal(describeHow('engine'), 'Ljudmotorn');
-  assert.equal(describeHow('ljudmotorn var suspended'), 'Vanligt ljud, ljudmotorn var suspended');
-  assert.equal(describeHow(undefined), 'Vanligt ljud, ingen låt hördes');
+  assert.equal(describeHow('engine'), 'Audio engine');
+  assert.equal(describeHow('audio engine was suspended'), 'Plain audio, audio engine was suspended');
+  assert.equal(describeHow(undefined), 'Plain audio, no song was heard');
 });

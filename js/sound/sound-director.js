@@ -17,7 +17,7 @@ const ENGINE_WAIT_MS = 1000;
 
 // Med ?debug=1 står det hur väntemusiken och vinnarlåten spelas, så att det går att se i en riktig
 // iPhone varför de inte tonas. how: 'engine', annars varför ljudmotorn inte användes.
-export const describeHow = (how) => (how === 'engine' ? 'Ljudmotorn' : `Vanligt ljud, ${how || 'ingen låt hördes'}`);
+export const describeHow = (how) => (how === 'engine' ? 'Audio engine' : `Plain audio, ${how || 'no song was heard'}`);
 
 
 /**
@@ -52,7 +52,7 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
     const how = lobbyMusic.howPlayed();
     if (!debugging() || !lobbyMusic.now() || how === lobbyHowShown) return;
     lobbyHowShown = how;
-    debugLine(`Väntemusiken: ${describeHow(how)}`);
+    debugLine(`Lobby music: ${describeHow(how)}`);
   }
 
   // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
@@ -120,7 +120,7 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
     // Med ?debug=1 skrivs i loggen hur låten spelades, så att fördröjningen går att felsöka.
     const song = winnerSong.play().then((kind) => {
       if (debugging()) {
-        debugLine(`Vinnarlåten: ${describeHow(kind)}, kortet väntar ${musicDelay() / 1000} s`);
+        debugLine(`Winner song: ${describeHow(kind)}, card waits ${musicDelay() / 1000} s`);
       }
       return wait(musicDelay());
     });

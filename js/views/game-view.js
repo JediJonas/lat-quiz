@@ -32,7 +32,7 @@ function debugLog() {
     last = now;
     const vv = window.visualViewport;
     const px = (n) => Math.round(n ?? -1);
-    debugLine(`${what} fokus=${document.activeElement?.id || '-'} y=${px(scrollY)} rad=${px(row.getBoundingClientRect().top)} vvTop=${px(vv?.offsetTop)} vvH=${px(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
+    debugLine(`${what} focus=${document.activeElement?.id || '-'} y=${px(scrollY)} row=${px(row.getBoundingClientRect().top)} vvTop=${px(vv?.offsetTop)} vvH=${px(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
   };
 }
 
@@ -100,7 +100,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     input.addEventListener('focus', () => {
       document.body.classList.add('typing');
       if (!tapped) scrollFieldToTop(input, row);
-      log(`focus ${id}${tapped ? '' : ' (ej tryck)'}`, row);
+      log(`focus ${id}${tapped ? '' : ' (no tap)'}`, row);
       tapped = false;
     });
     input.addEventListener('blur', () => {

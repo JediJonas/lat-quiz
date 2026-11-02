@@ -6,8 +6,9 @@
 // inte heller fokus, så att tangentbordet inte stängs av ett tryck på den.
 // När tangentbordet är öppet flyttas rutan och knappen upp till nederkanten av det som syns.
 
-// Så många rader text som syns i den hopfällda rutan.
-const VISIBLE_ROWS = 3;
+// Den hopfällda rutan är lika hög som knappen, så att knappen alltid ligger inuti den,
+// även när loggen bara har en rad. Tre rader text får plats.
+const COLLAPSED_HEIGHT_PX = 44;
 // Så många poster som sparas, så att det finns något att läsa i helskärm.
 const KEPT_ENTRIES = 200;
 // Hopfälld under meddelanderutorna (z-index 50 i style.css), utfälld över allt.
@@ -25,13 +26,14 @@ export const debugging = () => 'debug' in document.documentElement.dataset;
 const BOX_STYLE = 'position:fixed;left:0;right:0;bottom:0;margin:0;box-sizing:border-box;'
   + 'font:10px/1.3 ui-monospace,monospace;background:rgba(0,0,0,.8);color:#fff;'
   + 'white-space:pre-wrap;overflow-wrap:anywhere;user-select:none;';
-const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 40px 2px 6px;`
-  + `max-height:calc(${VISIBLE_ROWS} * 1.3em + 4px);overflow:hidden;pointer-events:none;`;
-const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 44px;`
+const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 52px 2px 6px;`
+  + `height:${COLLAPSED_HEIGHT_PX}px;overflow:hidden;pointer-events:none;`;
+const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 50px;`
   + 'overflow:auto;overscroll-behavior:contain;pointer-events:auto;user-select:text;';
-const BUTTON_STYLE = `position:fixed;right:4px;bottom:4px;z-index:${Z_EXPANDED + 1};width:32px;height:28px;`
-  + 'padding:0;border:1px solid rgba(255,255,255,.5);border-radius:8px;background:rgba(0,0,0,.85);'
-  + 'color:#fff;font:14px/1 system-ui,sans-serif;touch-action:manipulation;';
+// Knappen sitter tätt i hörnet längst ner till höger, i samma svarta som loggen.
+const BUTTON_STYLE = `position:fixed;right:0;bottom:0;z-index:${Z_EXPANDED + 1};width:48px;height:${COLLAPSED_HEIGHT_PX}px;`
+  + 'padding:0;border:0;border-radius:12px 0 0 0;background:rgba(0,0,0,.9);'
+  + 'color:#fff;font:20px/1 system-ui,sans-serif;touch-action:manipulation;';
 
 function followViewport() {
   const vv = window.visualViewport;
