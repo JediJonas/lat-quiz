@@ -148,6 +148,7 @@ export default {
     'Dött lopp!',
     'Fler vinnare, mer jubel!',
     'Lika bra, lika glada!',
+    'Trångt på prispallen!',
   ],
   'win.alone': [
     'Seger! Nästa gång tar du med kompisar.',
