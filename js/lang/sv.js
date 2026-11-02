@@ -154,6 +154,7 @@ export default {
     'Seger! Nästa gång tar du med kompisar.',
     'Ensam är stark!',
     'Guld i soloklassen!',
+    'Ensamt på prispallen!',
   ],
   'win.close': [
     'Det var jämnt in i det sista!',
