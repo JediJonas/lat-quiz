@@ -1,5 +1,6 @@
 // @ts-check
 // Spelarvyn i mobilen.
+import { wait } from './shared/wait.js';
 import { codeBoxes } from './code-boxes.js';
 import { t } from './shared/lang.js';
 import { createClient } from './net.js';
@@ -216,7 +217,7 @@ async function leaveGame() {
   // Spelledaren och de andra spelarna får veta det. Vänta lite, så att meddelandet hinner iväg.
   if (net) {
     net.send(protocol.leave());
-    await new Promise((resolve) => setTimeout(resolve, LEAVE_SEND_MS));
+    await wait(LEAVE_SEND_MS);
     net.destroy();
   }
   net = null;

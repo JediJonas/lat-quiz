@@ -11,6 +11,9 @@ function hash(text) {
   return h;
 }
 
+// Så många poäng före tvåan som räknas som en stor seger.
+const BIG_LEAD = 5;
+
 const pick = (list, seed) => list[hash(seed) % list.length];
 
 // Kommentaren efter en låt. result: { artist, title, points } för den som tittar.
@@ -31,7 +34,7 @@ export function winComment({ winners, standings, songs, winScore }) {
   const lead = scores[0] - scores[1];
   if (lead <= 1) return pick(tList('win.close'), seed);
   if (songs <= Math.ceil(winScore / 2)) return t('win.fast');
-  if (lead >= 5) return pick(tList('win.big'), seed);
+  if (lead >= BIG_LEAD) return pick(tList('win.big'), seed);
   if (songs >= winScore * 1.5) return t('win.long');
   return pick(tList('win.general'), seed);
 }

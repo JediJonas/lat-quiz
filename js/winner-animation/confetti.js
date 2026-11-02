@@ -1,6 +1,7 @@
 // @ts-check
 // En av vinstanimationens effekter, se js/winner-animation.js.
-import { rand, still, canvasIn } from './canvas.js';
+import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
+import { canvasIn } from './canvas.js';
 
 // Konfetti som papper: varje bit faller på sitt eget sätt. Ungefär var tredje dalar långsamt och
 // pendlar i sidled med lutningen åt det håll den glider, andra flippar runt och faller fortare, och
@@ -12,15 +13,15 @@ export function confetti(box) {
     const kind = Math.random() < 0.3 ? 'dala' : Math.random() < 0.67 ? 'flippa' : 'snurra';
     const dala = kind === 'dala';
     return {
-      kind, x: rand(-0.02, 1.02), y: -rand(20, 60), c: colors[i % colors.length],
+      kind, x: randomBetween(-0.02, 1.02), y: -randomBetween(20, 60), c: colors[i % colors.length],
       // De första bitarna släpps genast, så att det börjar regna direkt.
-      d: i < 24 ? rand(-0.8, 0.4) : rand(0, dala ? 6.5 : 7.8),
-      w: rand(8, 11), h: kind === 'snurra' ? rand(8, 10) : rand(13, 18),
-      fall: dala ? rand(46, 70) : kind === 'flippa' ? rand(85, 135) : rand(70, 100),
-      drift: rand(-14, 14),
-      sway: dala ? rand(13, 27) : rand(2.5, 7.5), swayHz: dala ? rand(0.55, 0.95) : rand(0.7, 1.4), swayPh: rand(0, 6.3),
-      flipHz: dala ? rand(0.35, 0.75) : kind === 'flippa' ? rand(1.7, 2.8) : rand(0.8, 1.5), flipPh: rand(0, 6.3),
-      spin: kind === 'snurra' ? rand(4, 7.5) * (Math.random() < 0.5 ? -1 : 1) : rand(-2, 2), rot: rand(0, 6.3),
+      d: i < 24 ? randomBetween(-0.8, 0.4) : randomBetween(0, dala ? 6.5 : 7.8),
+      w: randomBetween(8, 11), h: kind === 'snurra' ? randomBetween(8, 10) : randomBetween(13, 18),
+      fall: dala ? randomBetween(46, 70) : kind === 'flippa' ? randomBetween(85, 135) : randomBetween(70, 100),
+      drift: randomBetween(-14, 14),
+      sway: dala ? randomBetween(13, 27) : randomBetween(2.5, 7.5), swayHz: dala ? randomBetween(0.55, 0.95) : randomBetween(0.7, 1.4), swayPh: randomBetween(0, 6.3),
+      flipHz: dala ? randomBetween(0.35, 0.75) : kind === 'flippa' ? randomBetween(1.7, 2.8) : randomBetween(0.8, 1.5), flipPh: randomBetween(0, 6.3),
+      spin: kind === 'snurra' ? randomBetween(4, 7.5) * (Math.random() < 0.5 ? -1 : 1) : randomBetween(-2, 2), rot: randomBetween(0, 6.3),
     };
   });
   let t = 0;
@@ -57,11 +58,11 @@ export function confetti(box) {
     return left;
   };
   const area = canvasIn(box, draw);
-  if (still()) {
+  if (prefersReducedMotion()) {
     // Med minskad rörelse står en glesare konfetti still över hela omslaget, som på ett foto mitt i regnet.
     pieces.length = 45;
     area.start();
-    for (const p of pieces) p.d = -((rand(0, area.h) - p.y) / p.fall + 1 / 3);
+    for (const p of pieces) p.d = -((randomBetween(0, area.h) - p.y) / p.fall + 1 / 3);
     draw();
     return;
   }

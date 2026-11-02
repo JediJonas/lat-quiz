@@ -3,6 +3,7 @@
 // Låtarna är instrumental jazz med groove, i stil med Unsquare Dance, så att ingen börjar gissa redan i lobbyn, och
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut, och första låten väntar tills den är tyst.
+import { wait } from './shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
 
@@ -109,9 +110,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
     else if (wasWanted && audio && !audio.paused) audio.pause();
   }
 
-  const wait = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
-
-  const untilSilent = () => new Promise((resolve) => { setTimeout(resolve, Math.max(0, silentAt - Date.now())); });
+  const untilSilent = () => wait(Math.max(0, silentAt - Date.now()));
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ljudelementet.
   async function load(song) {

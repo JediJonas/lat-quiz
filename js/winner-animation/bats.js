@@ -1,7 +1,8 @@
 // @ts-check
 // En av vinstanimationens effekter, i Halloween. Se js/winner-animation.js.
+import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
 import { drawBat } from '../season.js';
-import { rand, still, canvasIn, fade, play } from './canvas.js';
+import { canvasIn, fade, play } from './canvas.js';
 
 // Fladdermusen i tolv lägen av vingslaget, ritad en gång och sedan kopierad, så att mobilen orkar
 // med en hel svärm. zoom ger större bilder, så att fladdermöss som flyger mot kameran blir skarpa.
@@ -48,11 +49,11 @@ export function bats(box) {
   /** @type {{ ox: number, oy: number, at: number, s: number, wob: number, wobHz: number, ph: number, flapHz: number, x?: number, y?: number, size?: number, out?: boolean }[]} */
   const swarm = Array.from({ length: 130 }, () => {
     const r = Math.sqrt(Math.random());
-    const a = rand(0, 6.3);
+    const a = randomBetween(0, 6.3);
     return {
       // Var i flocken fladdermusen flyger, sett framifrån, och när den passerar kameran.
-      ox: Math.cos(a) * r, oy: Math.sin(a) * r * 0.75, at: 2.6 + Math.random() ** 2 * 6, s: rand(9, 18),
-      wob: rand(0.05, 0.12), wobHz: rand(0.3, 0.7), ph: rand(0, 6.3), flapHz: rand(3.2, 4.6),
+      ox: Math.cos(a) * r, oy: Math.sin(a) * r * 0.75, at: 2.6 + Math.random() ** 2 * 6, s: randomBetween(9, 18),
+      wob: randomBetween(0.05, 0.12), wobHz: randomBetween(0.3, 0.7), ph: randomBetween(0, 6.3), flapHz: randomBetween(3.2, 4.6),
     };
   });
   let t = 0;
@@ -96,7 +97,7 @@ export function bats(box) {
     }
   };
   const area = canvasIn(box, draw);
-  if (still()) {
+  if (prefersReducedMotion()) {
     // Med minskad rörelse står månen och flocken still, när de första fladdermössen är nära.
     area.start();
     t = 2.4;

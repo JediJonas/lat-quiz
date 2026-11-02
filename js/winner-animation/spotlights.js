@@ -1,6 +1,6 @@
 // @ts-check
 // En av vinstanimationens effekter, se js/winner-animation.js.
-import { rand, pick, still } from './canvas.js';
+import { randomBetween, pickRandom, prefersReducedMotion } from '../shared/motion.js';
 
 // Strålkastare: sex färgade ljuskäglor från omslagets kanter sveper fram och tillbaka i olika takt,
 // som ljusshowen på en konsert. Lamporna står utanför omslaget, så att bara ljuset syns, och där
@@ -16,11 +16,11 @@ export function spotlights(box) {
     [0.2, 'bottom', '#a98bff', -1], [0.62, 'bottom', '#7cf0b0', 1], [0.95, 'bottom', '#ff8a5c', 1]];
   // Två lampor ur olika par lutar, så att de inte står bredvid varandra.
   const pairs = spotlightPairs(beams.map(([x]) => x));
-  const tilting = [...pairs].sort(() => Math.random() - 0.5).slice(0, 2).map((pair) => pick(pair));
+  const tilting = [...pairs].sort(() => Math.random() - 0.5).slice(0, 2).map((pair) => pickRandom(pair));
   box.innerHTML = beams.map(([x, side, c, dir], i) => {
     const angle = side === 'top' ? (x - 0.5) * 50 : 180 + (0.5 - x) * 50;
     return `<div class="spot-beam ${side}${tilting.includes(i) ? ' tilt' : ''}" style="left:${x * 100}%;--c:${c};--a:${angle}deg;`
-      + `--sw:${(dir * rand(22, 32)).toFixed(0)}deg;--t:${rand(2.2, 3.4).toFixed(2)}s;--in:${(0.25 + i * 0.12).toFixed(2)}s">`
+      + `--sw:${(dir * randomBetween(22, 32)).toFixed(0)}deg;--t:${randomBetween(2.2, 3.4).toFixed(2)}s;--in:${(0.25 + i * 0.12).toFixed(2)}s">`
       + '<b class="spot-glow"></b><span><i></i></span></div>';
   }).join('');
   // Käglorna är lite längre än omslagets diagonal, så att de alltid når över hela omslaget.
@@ -33,12 +33,12 @@ export function spotlights(box) {
   // 13 sekunder. Med minskad rörelse lyser de kvar, som på ett foto.
   const lamps = [...box.children];
   pairs.forEach((pair, i) => setTimeout(() => {
-    if (still()) return;
+    if (prefersReducedMotion()) return;
     for (const j of pair) lamps[j].classList.add('off');
   }, 11000 + i * 700));
   setTimeout(() => {
     observer.disconnect();
-    if (!still()) box.classList.add('done');
+    if (!prefersReducedMotion()) box.classList.add('done');
   }, 11000 + (pairs.length - 1) * 700);
 }
 

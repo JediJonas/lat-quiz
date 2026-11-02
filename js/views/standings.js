@@ -12,6 +12,9 @@ import { t } from '../shared/lang.js';
  * Placeringen i listan. Lika många poäng ger samma placering.
  * @param {{ score: number }[]} standings @param {number} score
  */
+// Platserna som får stora siffror när matchen är slut.
+const TOP_PLACES = 3;
+
 export const rankIn = (standings, score) => 1 + standings.filter((q) => q.score > score).length;
 
 /** @param {View} view @param {string} id */
@@ -38,7 +41,7 @@ const climbArrow = (up) => html`<span class="up"><span aria-hidden="true">▲</s
 export function standingsRow({ player: p, view, me, rank, up, bump, podium }) {
   const score = html`<td class="score" data-id="${p.id}"><span class="num">${p.score}</span><span class="visually-hidden"> ${t('standings.points')}</span></td>`;
   return html`<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${bump ? 'bump' : ''}">
-      ${podium ? html`<td class="rank${rank <= 3 ? ' top' : ''}"><span class="visually-hidden">${t('standings.place')} </span><span class="rank-num">${rank}</span></td>` : score}
+      ${podium ? html`<td class="rank${rank <= TOP_PLACES ? ' top' : ''}"><span class="visually-hidden">${t('standings.place')} </span><span class="rank-num">${rank}</span></td>` : score}
       <td class="name"><span class="player"><span>${p.name}${!p.connected && html`<span class="visually-hidden"> ${t('standings.offline')}</span>`}</span>${up > 0 && climbArrow(up)}</span></td>
       <td class="status">${raw(playerStatus(view, p.id))}</td>${podium && html`
       ${score}`}</tr>`;

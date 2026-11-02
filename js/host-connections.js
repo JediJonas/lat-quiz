@@ -2,6 +2,7 @@
 // Spelledarens anslutningar till spelarna: vem som är ansluten på vilken förbindelse, vad
 // spelarna skickar och vad de får tillbaka. Spelläget ägs av host.js och hämtas med state().
 // Meddelandena kontrolleras och städas i protocol.js först.
+import { wait } from './shared/wait.js';
 import * as game from './game.js';
 import { t } from './shared/lang.js';
 import { createHost as netCreateHost } from './net.js';
@@ -128,7 +129,7 @@ export function createConnections({ state, viewFor, changed, createHost = netCre
   async function close() {
     if (!net) return;
     toAll(protocol.ended());
-    await new Promise((resolve) => { setTimeout(resolve, CLOSE_WAIT_MS); });
+    await wait(CLOSE_WAIT_MS);
     net.destroy();
   }
 

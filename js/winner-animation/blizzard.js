@@ -1,6 +1,7 @@
 // @ts-check
 // En av vinstanimationens effekter, i Jul. Se js/winner-animation.js.
-import { rand, still, canvasIn, fade, play } from './canvas.js';
+import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
+import { canvasIn, fade, play } from './canvas.js';
 
 // En rund snöflinga med mjuk kant, ritad en gång och sedan kopierad i olika storlekar.
 function softFlake() {
@@ -28,8 +29,8 @@ export function blizzard(box) {
     const fall = 70 + s * 12;
     return {
       // De första flingorna finns redan på omslaget när det vänds fram, utspridda över hela höjden.
-      d: i < 280 ? -rand(0, 3.2) : rand(0, 9.5), x0: Math.random(), s, fall,
-      alpha: 0.55 + (s / 9.5) * 0.4, r: rand(6, 22), hz: rand(0.3, 0.8), ph: rand(0, 6.3),
+      d: i < 280 ? -randomBetween(0, 3.2) : randomBetween(0, 9.5), x0: Math.random(), s, fall,
+      alpha: 0.55 + (s / 9.5) * 0.4, r: randomBetween(6, 22), hz: randomBetween(0.3, 0.8), ph: randomBetween(0, 6.3),
     };
   });
   // Vinden blåser åt höger i byar som ibland vänder. wind är hur långt den har blåst en flinga.
@@ -67,12 +68,12 @@ export function blizzard(box) {
     ctx.globalAlpha = 1;
   };
   const area = canvasIn(box, draw);
-  if (still()) {
+  if (prefersReducedMotion()) {
     // Med minskad rörelse hänger en glesare yra still över omslaget, med drivan färdig.
     flakes.length = 440;
     area.start();
     t = 10;
-    for (const f of flakes) f.d = t - (rand(0, area.h) + 10) / f.fall;
+    for (const f of flakes) f.d = t - (randomBetween(0, area.h) + 10) / f.fall;
     draw();
     return;
   }

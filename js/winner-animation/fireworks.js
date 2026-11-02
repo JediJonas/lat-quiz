@@ -1,6 +1,7 @@
 // @ts-check
 // En av vinstanimationens effekter, se js/winner-animation.js.
-import { rand, pick, still, canvasIn } from './canvas.js';
+import { randomBetween, pickRandom, prefersReducedMotion } from '../shared/motion.js';
+import { canvasIn } from './canvas.js';
 
 // Fyrverkeri: femton raketer stiger från nederkanten under drygt nio sekunder och slår ut i bollar,
 // ringar och guldregn, med en final på tre samtidigt. Smällarna hålls i omslagets övre del, så att
@@ -19,16 +20,16 @@ export function fireworks(box) {
   const height = (level) => area.h * (0.2 + level * 0.34);
 
   const burst = (x, y, kind, scale = 1) => {
-    const c1 = pick(colors);
-    const c2 = Math.random() < 0.5 ? pick(colors) : c1;
+    const c1 = pickRandom(colors);
+    const c2 = Math.random() < 0.5 ? pickRandom(colors) : c1;
     const willow = kind === 'willow';
     const n = willow ? 50 : kind === 'ring' ? 40 : 64;
     const speed = Math.min(area.w, 420) * (willow ? 0.4 : 0.55) * scale;
     for (let i = 0; i < n; i += 1) {
-      const a = (i / n) * Math.PI * 2 + rand(-0.08, 0.08);
-      const v = kind === 'ring' ? speed * rand(0.92, 1) : speed * Math.cbrt(rand(0.15, 1));
+      const a = (i / n) * Math.PI * 2 + randomBetween(-0.08, 0.08);
+      const v = kind === 'ring' ? speed * randomBetween(0.92, 1) : speed * Math.cbrt(randomBetween(0.15, 1));
       sparks.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, age: 0,
-        life: willow ? rand(2, 2.6) : rand(1.1, 1.6), drag: willow ? 2.2 : 1.6,
+        life: willow ? randomBetween(2, 2.6) : randomBetween(1.1, 1.6), drag: willow ? 2.2 : 1.6,
         c: willow ? '#ffd166' : i % 2 ? c1 : c2, r: willow ? 1.3 : 1.7, willow });
     }
     flashes.push({ x, y, age: 0, c: willow ? '#ffd166' : c1 });
@@ -39,8 +40,8 @@ export function fireworks(box) {
       r.y -= r.vy * dt;
       r.vy = Math.max(r.vy - r.slow * dt, 60);
       // Raketen lämnar en svans av små gnistor efter sig.
-      if (Math.random() < 0.7) sparks.push({ x: r.x + rand(-1, 1), y: r.y + 4, vx: rand(-12, 12), vy: rand(10, 40),
-        age: 0, life: rand(0.25, 0.45), drag: 3, c: '#ffe7a3', r: 1, trail: true });
+      if (Math.random() < 0.7) sparks.push({ x: r.x + randomBetween(-1, 1), y: r.y + 4, vx: randomBetween(-12, 12), vy: randomBetween(10, 40),
+        age: 0, life: randomBetween(0.25, 0.45), drag: 3, c: '#ffe7a3', r: 1, trail: true });
       if (r.y <= r.top) { r.done = true; burst(r.x, r.y, r.kind); }
     }
     const keep = (list, alive) => { for (let i = list.length - 1; i >= 0; i -= 1) if (!alive(list[i])) list.splice(i, 1); };
@@ -99,13 +100,13 @@ export function fireworks(box) {
     const top = height(level);
     const dist = area.h - top;
     // Farten väljs så att raketen bromsar in och når toppen efter 0,9 sekunder.
-    rockets.push({ x: area.w * rand(0.15, 0.85), y: area.h, top, vy: (2 * dist) / 0.9, slow: (2 * dist) / 0.81,
+    rockets.push({ x: area.w * randomBetween(0.15, 0.85), y: area.h, top, vy: (2 * dist) / 0.9, slow: (2 * dist) / 0.81,
       kind: kinds[i % kinds.length] });
   };
 
   const area = canvasIn(box, draw);
   area.start();
-  if (still()) {
+  if (prefersReducedMotion()) {
     // Med minskad rörelse står två mindre bollar still, som ett foto av fyrverkeriet.
     /** @type {[number, number, string][]} */ ([[0.3, 0.5, 'peony'], [0.72, 0.4, 'ring']]).forEach(([x, level, kind]) => burst(area.w * x, height(level), kind, 0.65));
     for (let t = 0; t < 0.7; t += 1 / 60) step(1 / 60);

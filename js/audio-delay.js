@@ -3,6 +3,7 @@
 // spela det. Låtkortet och timern, trumvirvelns rubrik, vinnarkortet och raden längst ner väntar då
 // så här mycket längre, och vinnarkortet ännu lite till, se host.js. Valet gäller spelledarens
 // enhet, eftersom det beror på högtalaren, och spelarnas mobiler följer spelledaren.
+import { wait } from './shared/wait.js';
 import { t } from './shared/lang.js';
 
 export const DELAY_CHOICES = [0, 200, 400, 600, 800];
@@ -21,6 +22,6 @@ export const delayText = (ms) => (ms ? t('audioDelay.long', { s: String(ms / 100
 
 // Ett löfte som uppfylls ms millisekunder efter att promise har uppfyllts, eller avvisats.
 export function delayAfter(promise, ms) {
-  const wait = () => new Promise((resolve) => setTimeout(resolve, ms));
-  return ms ? promise.then(wait, wait) : promise;
+  const waitMs = () => wait(ms);
+  return ms ? promise.then(waitMs, waitMs) : promise;
 }

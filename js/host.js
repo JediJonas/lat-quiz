@@ -1,5 +1,6 @@
 // @ts-check
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
+import { wait } from './shared/wait.js';
 import * as game from './game.js';
 import { t } from './shared/lang.js';
 import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
@@ -72,7 +73,7 @@ const sound = createSoundDirector({
 const flow = createGameFlow();
 let introTimer = null;
 // Klippet spelas när nedräkningen före första låten är slut.
-const introDone = () => new Promise((resolve) => setTimeout(resolve, flow.introLeft()));
+const introDone = () => wait(flow.introLeft());
 
 // Inställningar, och ändringarna som görs medan spelet pågår, se host-settings.js.
 // Avdelningen Okända låtar syns bara med ?okanda=1.
