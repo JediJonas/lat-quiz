@@ -1,3 +1,4 @@
+// @ts-check
 // Ljudsynk: med en blåtandshögtalare hörs ljudet en stund efter att webbläsaren har börjat
 // spela det. Låtkortet och timern, trumvirvelns rubrik, vinnarkortet och raden längst ner väntar då
 // så här mycket längre, och vinnarkortet ännu lite till, se host.js. Valet gäller spelledarens

@@ -1,3 +1,4 @@
+// @ts-check
 // Klippet i spelarens mobil, när spelledaren har valt att spela det på alla enheter.
 // Spelledaren skickar bara Deezers klipplänk, aldrig vilken låt det är. Mobilen spolar till
 // samma ställe som hos spelledaren, utifrån tiden som är kvar, så att alla hör ungefär samma sak.

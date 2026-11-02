@@ -1,3 +1,4 @@
+// @ts-check
 // Gör text jämförbar trots stavningsvarianter: "Señorita" blir "senorita"
 // och "Don't" blir "dont". Accenter, apostrofer och andra tecken tas bort.
 

@@ -1,3 +1,4 @@
+// @ts-check
 // Textmatchning för verktyget som hämtar Deezer-ID (verktyg/deezer-id.mjs).
 // Funktionerna här gör inga anrop, så de kan testas utan nätverk.
 

@@ -2,21 +2,28 @@
   "name": "lat-quiz-webbkvalitet",
   "private": true,
   "type": "module",
-  "description": "Kvalitetskontroller som körs i CI: HTML, tillgänglighet, Lighthouse, länkar och sidvikt.",
+  "description": "Kvalitetskontroller som körs i CI: lint, typer, röktest, HTML, tillgänglighet, Lighthouse, länkar och sidvikt.",
   "scripts": {
+    "lint": "cd .. && eslint --config webbkvalitet/eslint.config.js .",
+    "types": "tsc -p tsconfig.json",
     "html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --also-check-css ../index.html ../host.html ../play.html ../css/style.css",
     "peer": "peerjs --host 127.0.0.1 --port 9000",
     "axe": "node axe.mjs",
     "lighthouse": "node lighthouse.mjs",
     "lankar": "linkinator http://localhost:8080/index.html --recurse",
-    "sidvikt": "node sidvikt.mjs"
+    "sidvikt": "node sidvikt.mjs",
+    "smoke": "node smoke.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "9.39.5",
+    "eslint": "9.39.5",
+    "globals": "17.14.0",
     "lighthouse": "13.5.0",
     "linkinator": "8.1.0",
     "peer": "1.0.2",
     "playwright-core": "1.64.0",
+    "typescript": "5.9.3",
     "vnu-jar": "26.10.9"
   },
   "overrides": {

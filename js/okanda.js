@@ -1,3 +1,4 @@
+// @ts-check
 // Låtar som spelledaren har markerat som okända. De hoppas över i kommande
 // spel och kan kopieras som text, så att de tas bort ur kategorin.
 // Modulen gör inga anrop och rör inte sidan, så den kan testas utan webbläsare.

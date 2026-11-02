@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createGame, addPlayer, setConnected, nextSong, startRound, submitAnswer,
-  shouldReveal, reveal, standings, playerView, answeredFields, remainingMs, unplayedSongs, restart,
+  shouldReveal, reveal, standings, playerView, remainingMs, unplayedSongs, restart,
   cleanSettings, applySettings, changeCategory, settingsChangeText, upcomingSettings, nameTaken, joinedMessage, pause, resume, setHostPlaying, hasAnsweredAll, replaceSong,
 } from '../js/game.js';
 

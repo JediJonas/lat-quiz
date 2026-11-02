@@ -1,3 +1,4 @@
+// @ts-check
 // Ljudnivån i väntemusiken och vinnarlåten. Klippen kommer från olika skivor och är olika starkt
 // mixade, så de mäts när de har laddats till ljudmotorn och skruvas upp eller ner mot en gemensam nivå.
 // Nivån är medelstyrkan i klippet, där tysta partier inte räknas, så att en lugn början eller en

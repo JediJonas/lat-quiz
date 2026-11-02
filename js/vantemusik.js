@@ -1,3 +1,4 @@
+// @ts-check
 // Väntemusiken: ett Deezer-klipp som loopar hos spelledaren medan spelarna går med, innan spelet startar.
 // Låtarna är instrumental jazz med groove, i stil med Unsquare Dance, så att ingen börjar gissa redan i lobbyn, och
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och

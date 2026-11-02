@@ -1,3 +1,4 @@
+// @ts-check
 // Raden längst ner som visar vilken väntemusik eller vinnarlåt som spelas, till exempel
 // "Nu spelas Queen – We Are the Champions". Quizlåtarna visas aldrig här.
 
