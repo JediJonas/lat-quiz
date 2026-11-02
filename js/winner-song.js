@@ -4,48 +4,8 @@
 import { SILENCE, findPreview } from './deezer.js';
 import { levelGain } from './ljudniva.js';
 
-export const WINNER_SONGS = [
-  { artist: 'Queen', title: 'We Are the Champions', deezerId: 4092339021 },
-  { artist: 'Kool & the Gang', title: 'Celebration', deezerId: 906583 },
-  { artist: 'ABBA', title: 'The Winner Takes It All', deezerId: 884035 },
-  { artist: 'Survivor', title: 'Eye of the Tiger', deezerId: 576431 },
-  { artist: 'Tina Turner', title: 'The Best', deezerId: 3142379 },
-  { artist: 'Europe', title: 'The Final Countdown', deezerId: 565260 },
-  { artist: 'Queen', title: "Don't Stop Me Now", deezerId: 4092329741 },
-  { artist: 'Pharrell Williams', title: 'Happy', deezerId: 701326562 },
-  { artist: 'Katrina & the Waves', title: 'Walking on Sunshine', deezerId: 3166724 },
-  { artist: 'Bill Conti', title: 'Gonna Fly Now', deezerId: 99127208 },
-  { artist: 'The Pointer Sisters', title: "I'm So Excited", deezerId: 5404568 },
-  { artist: 'Måns Zelmerlöw', title: 'Heroes', deezerId: 95585876 },
-  { artist: 'Cliff Richard', title: 'Congratulations', deezerId: 3124130 },
-  { artist: 'Loreen', title: 'Euphoria', deezerId: 67466760 },
-  { artist: 'The Script', title: 'Hall of Fame', deezerId: 55848051 },
-  { artist: 'Justin Timberlake', title: "Can't Stop the Feeling!", deezerId: 132635814 },
-  { artist: 'Harold Faltermeyer & Steve Stevens', title: 'Top Gun Anthem', deezerId: 7675060 },
-  { artist: 'Vangelis', title: 'Chariots of Fire', deezerId: 624844592 },
-  { artist: 'P!nk', title: 'Raise Your Glass', deezerId: 15597831 },
-  { artist: 'Bob Sinclar', title: 'Rock This Party (Everybody Dance Now)', deezerId: 2634178712 },
-  { artist: 'Sean Banan', title: 'Sean den förste Banan', deezerId: 16334737 },
-  { artist: 'Drake', title: 'Started From the Bottom', deezerId: 70697359 },
-  { artist: "Destiny's Child", title: 'Survivor', deezerId: 5817089 },
-  { artist: 'Sia', title: 'Unstoppable', deezerId: 117708444 },
-  { artist: 'Katy Perry', title: 'Roar', deezerId: 71645431 },
-  { artist: 'TIX', title: 'Tronen 2016', deezerId: 2968786651 },
-  { artist: '2 Unlimited', title: 'Get Ready for This', deezerId: 131708868 },
-  { artist: 'Calvin Harris & Alesso', title: 'Under Control', deezerId: 71294452 },
-  { artist: 'Yves Larock', title: 'Rise Up', deezerId: 1855992137 },
-  { artist: 'Joe "Bean" Esposito', title: "You're the Best", deezerId: 14113314 },
-  { artist: 'Whitney Houston', title: 'I Wanna Dance with Somebody', deezerId: 75981528 },
-  { artist: 'Flo Rida', title: 'Good Feeling', deezerId: 65232772 },
-  { artist: 'Lionel Richie', title: 'Dancing on the Ceiling', deezerId: 905690 },
-  { artist: 'American Authors', title: 'Best Day of My Life', deezerId: 75711295 },
-  { artist: 'Bill Withers', title: 'Lovely Day', deezerId: 70016835 },
-  { artist: 'Albatraoz', title: 'Wunderbar', deezerId: 113948726 },
-  { artist: 'Chesney Hawkes', title: 'The One and Only', deezerId: 1787674467 },
-  { artist: 'PSY', title: 'Gangnam Style', deezerId: 60726278 },
-  { artist: 'Loona', title: 'Vamos a la playa', deezerId: 143701522 },
-  { artist: 'Baauer', title: 'Harlem Shake', deezerId: 64734097 },
-];
+// Låtarna står i data/music.json under winner: default för alla kategorier, och en egen lista
+// för säsongskategorierna (beslutat 25 oktober 2026).
 
 // Hela klippet spelas och börjar på full volym, så att det hörs tydligt när vinnarkortet visas.
 // De sista sekunderna tonar det ut. Intoningen på en sekund togs bort, eftersom låten då kändes
@@ -57,25 +17,12 @@ const LEVEL_DB = -12;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
-// Säsongskategorierna har egna vinnarlåtar (beslutat 25 oktober 2026).
-export const SEASON_WINNER_SONGS = {
-  halloween: [
-    { artist: 'Andrew Gold', title: 'Spooky, Scary Skeletons (Undead Tombstone Remix)', deezerId: 774799712 },
-    { artist: 'Lady Gaga', title: 'The Dead Dance', deezerId: 3537990861 },
-    { artist: 'Richard Grey', title: 'Thriller (Full Vocal Club Mix)', deezerId: 46161191 },
-  ],
-  jul: [
-    { artist: 'Trans-Siberian Orchestra', title: 'Wizards in Winter', deezerId: 14615485 },
-    { artist: 'TANKYU', title: 'Jingle Bells', deezerId: 2031228087 },
-    { artist: 'Acko', title: 'We Wish You a Merry Christmas', deezerId: 3612968922 },
-  ],
-};
-
 // Vinnarlåtarna för en kategori: säsongens egen, annars de vanliga.
-export const winnerSongs = (categoryId) => SEASON_WINNER_SONGS[categoryId] || WINNER_SONGS;
+/** @param {{ winner: Record<string, object[]> }} music data/music.json @param {string | null} categoryId */
+export const winnerSongs = (music, categoryId) => music.winner[categoryId] || music.winner.default;
 
 // En slumpad låt, men inte samma som förra gången, om det finns fler att välja på.
-export function pickWinnerSong(random = Math.random, last = null, songs = WINNER_SONGS) {
+export function pickWinnerSong(random, last, songs) {
   const others = songs.filter((s) => s.deezerId !== last);
   const choices = others.length ? others : songs;
   return choices[Math.floor(random() * choices.length) % choices.length];
@@ -97,7 +44,7 @@ export const DRUM_FADE = { volume: VOLUME, fadeInMs: 0, fadeOutMs: 0, loop: fals
 
 // onChange: låten har börjat höras, eller tystnat för att klippet inte gick att spela, så att raden
 // längst ner följer med. songs: låtarna för spelets kategori, se winnerSongs.
-export function createWinnerSong({ onChange = () => {}, songs = () => WINNER_SONGS } = {}) {
+export function createWinnerSong({ onChange = () => {}, songs }) {
   let audio = null;
   let last = null;
   let timers = [];

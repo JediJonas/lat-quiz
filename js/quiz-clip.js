@@ -80,7 +80,7 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
     if (!clip.audio) {
       clip.audio = new Audio();
       audioDebug(clip.audio);
-      // Väntemusikens och vinnarlåtens ljudmotor vilar medan quizlåten hörs, se rest i vinnarlat.js.
+      // Väntemusikens och vinnarlåtens ljudmotor vilar medan quizlåten hörs, se rest i winner-song.js.
       clip.audio.addEventListener('playing', () => {
         if (!clip.audio.src.startsWith('http')) return;
         for (const music of otherMusic) music.rest();

@@ -5,8 +5,8 @@
 import * as prefs from './shared/preferences.js';
 import { showMessage } from './meddelande.js';
 import { after } from './ljudfordrojning.js';
-import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './vinnarlat.js';
-import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
+import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './winner-song.js';
+import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './lobby-music.js';
 import { nowMusic } from './nuspelas.js';
 
 // Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
@@ -20,10 +20,11 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @param {object} deps
  * @param {() => any} deps.state spelläget, eller null före spelet
  * @param {() => string | null} deps.categoryId kategorin som spelas, för säsongens väntemusik
+ * @param {() => any} deps.music data/music.json, som har lästs in innan spelet visas
  * @param {() => boolean} deps.leaving spelet håller på att avslutas
  * @param {() => void} deps.changed musiken har börjat höras eller tystnat
  */
-export function createSoundDirector({ state, categoryId, leaving, changed }) {
+export function createSoundDirector({ state, categoryId, music, leaving, changed }) {
   // Hur mycket senare väntemusiken och vinnarlåten hörs i högtalaren med Ljudsynk.
   const musicDelay = () => { const delay = prefs.audioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
 
@@ -37,8 +38,8 @@ export function createSoundDirector({ state, categoryId, leaving, changed }) {
     if (delay) setTimeout(() => { if (state()) changed(); }, delay);
   }
 
-  const winnerSong = createWinnerSong({ onChange: musicChanged, songs: () => winnerSongs(state() && state().categoryId) });
-  const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(categoryId()) });
+  const winnerSong = createWinnerSong({ onChange: musicChanged, songs: () => winnerSongs(music(), state() && state().categoryId) });
+  const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(music(), categoryId()) });
 
   // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
   // Equalizern på väntekortet rör sig snabbt när den spelar, och långsamt annars.

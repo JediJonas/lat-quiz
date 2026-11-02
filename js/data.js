@@ -24,6 +24,13 @@ export function loadCategories() {
   return getJson('data/categories.json');
 }
 
+// Väntemusiken och vinnarlåtarna, för alla kategorier och för säsongskategorierna. Hämtas en gång.
+let music = null;
+export function loadMusic() {
+  if (!music) music = getJson('data/music.json').catch((err) => { music = null; throw err; });
+  return music;
+}
+
 // Säsongskategorier, som Halloween, syns bara mellan två datum varje år. Datumen står som
 // "MM-DD" i categories.json, till exempel { "from": "10-15", "to": "11-05" }, och båda dagarna
 // räknas med. Ett fönster över nyår, som "12-01" till "01-06", går också.

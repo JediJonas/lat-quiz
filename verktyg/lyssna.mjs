@@ -7,11 +7,11 @@
 // Utan utfil skrivs sidan till lyssna-latarna-i-appen.html i den aktuella mappen.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { LOBBY_SONGS, SEASON_LOBBY_SONGS } from '../js/vantemusik.js';
-import { WINNER_SONGS } from '../js/vinnarlat.js';
 
 const root = new URL('../', import.meta.url);
 const json = (path) => JSON.parse(readFileSync(new URL(path, root), 'utf8'));
+const { default: LOBBY_SONGS, ...SEASON_LOBBY_SONGS } = json('data/music.json').lobby;
+const WINNER_SONGS = json('data/music.json').winner.default;
 
 const MONTHS = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'];
 const day = (mmdd) => { const [m, d] = mmdd.split('-').map(Number); return `${d} ${MONTHS[m - 1]}`; };

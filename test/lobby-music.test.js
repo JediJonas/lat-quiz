@@ -2,11 +2,21 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { norm } from '../js/lookup.js';
-import { LOBBY_SONGS, SEASON_LOBBY_SONGS, lobbySongs, pickLobbySong } from '../js/vantemusik.js';
-import { SEASON_WINNER_SONGS, WINNER_SONGS, pickWinnerSong, winnerSongs } from '../js/vinnarlat.js';
+import { lobbySongs, pickLobbySong } from '../js/lobby-music.js';
+import { pickWinnerSong, winnerSongs } from '../js/winner-song.js';
 
 const read = (file) => JSON.parse(readFileSync(new URL(`../data/${file}`, import.meta.url), 'utf8'));
 const quizSongs = read('categories.json').flatMap((c) => read(c.file));
+const music = read('music.json');
+const { default: LOBBY_SONGS, ...SEASON_LOBBY_SONGS } = music.lobby;
+const { default: WINNER_SONGS, ...SEASON_WINNER_SONGS } = music.winner;
+
+test('music.json har väntemusik och vinnarlåtar för alla kategorier', () => {
+  assert.deepEqual(Object.keys(music).sort(), ['lobby', 'winner']);
+  assert.ok(LOBBY_SONGS.length >= 2);
+  assert.ok(WINNER_SONGS.length >= 2);
+  assert.ok(WINNER_SONGS.every((s) => s.artist && s.title && Number.isInteger(s.deezerId)));
+});
 
 test('väntemusiken har Deezer-ID och finns inte bland quizlåtarna', () => {
   assert.ok(LOBBY_SONGS.every((s) => s.artist && s.title && Number.isInteger(s.deezerId)));
@@ -34,15 +44,16 @@ test('säsongskategorierna har egen väntemusik som inte finns bland quizlåtarn
       assert.ok(!titles.has(norm(song.title)), song.title);
     }
   }
-  assert.equal(lobbySongs('jul'), SEASON_LOBBY_SONGS.jul);
-  assert.equal(lobbySongs('80-tal'), LOBBY_SONGS);
+  assert.equal(lobbySongs(music, 'jul'), SEASON_LOBBY_SONGS.jul);
+  assert.equal(lobbySongs(music, '80-tal'), LOBBY_SONGS);
+  assert.equal(lobbySongs(music, null), LOBBY_SONGS);
   assert.ok(SEASON_LOBBY_SONGS.jul.includes(pickLobbySong(() => 0.5, null, SEASON_LOBBY_SONGS.jul)));
 });
 
 test('väntemusiken slumpas och blir inte samma två väntor i rad', () => {
-  const first = pickLobbySong(() => 0);
+  const first = pickLobbySong(() => 0, null, LOBBY_SONGS);
   assert.equal(first, LOBBY_SONGS[0]);
-  for (const r of [0, 0.5, 0.999]) assert.notEqual(pickLobbySong(() => r, first.deezerId), first);
+  for (const r of [0, 0.5, 0.999]) assert.notEqual(pickLobbySong(() => r, first.deezerId, LOBBY_SONGS), first);
 });
 
 test('säsongskategorierna har egen vinnarlåt, som inte är quizlåt eller väntemusik', () => {
@@ -56,8 +67,8 @@ test('säsongskategorierna har egen vinnarlåt, som inte är quizlåt eller vän
       assert.ok(!ids.has(song.deezerId) && !lobby.has(song.deezerId), song.title);
     }
   }
-  assert.equal(winnerSongs('halloween'), SEASON_WINNER_SONGS.halloween);
-  assert.equal(winnerSongs('80-tal'), WINNER_SONGS);
+  assert.equal(winnerSongs(music, 'halloween'), SEASON_WINNER_SONGS.halloween);
+  assert.equal(winnerSongs(music, '80-tal'), WINNER_SONGS);
   // Med en enda låt spelas samma låt även nästa gång.
   const only = SEASON_WINNER_SONGS.jul.slice(0, 1);
   assert.equal(pickWinnerSong(() => 0.5, only[0].deezerId, only), only[0]);

@@ -1,7 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { roundCheer, winComment, winIntro } from '../js/pepp.js';
-import { WINNER_SONGS, pickWinnerSong } from '../js/vinnarlat.js';
+import { readFileSync } from 'node:fs';
+import { pickWinnerSong } from '../js/winner-song.js';
+
+const WINNER_SONGS = JSON.parse(readFileSync(new URL('../data/music.json', import.meta.url), 'utf8')).winner.default;
 
 const players = (...scores) => scores.map((score, i) => ({ id: `p${i}`, name: `P${i}`, score }));
 
@@ -27,9 +30,9 @@ test('vinnarkommentaren beror på hur matchen gick', () => {
 
 test('vinnarlåten slumpas och blir inte samma två gånger i rad', () => {
   assert.ok(WINNER_SONGS.every((s) => s.artist && s.title && Number.isInteger(s.deezerId)));
-  const first = pickWinnerSong(() => 0);
+  const first = pickWinnerSong(() => 0, null, WINNER_SONGS);
   assert.equal(first, WINNER_SONGS[0]);
-  for (const r of [0, 0.5, 0.999]) assert.notEqual(pickWinnerSong(() => r, first.deezerId), first);
+  for (const r of [0, 0.5, 0.999]) assert.notEqual(pickWinnerSong(() => r, first.deezerId, WINNER_SONGS), first);
 });
 
 test('texten innan vinnaren är densamma på alla enheter', () => {

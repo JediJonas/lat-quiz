@@ -1,7 +1,7 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
-import { loadCategories, loadSongs, visibleCategories } from './data.js';
+import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
 import { showConfirm } from './dialog.js';
 import { INFO_MS, currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './game-view.js';
@@ -32,6 +32,7 @@ const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
 
 let state = null;
 let songs = [];
+let music = null; // väntemusiken och vinnarlåtarna, från data/music.json
 let category = null;
 let net = null;
 const connToPlayer = new Map();
@@ -58,6 +59,7 @@ function loadSaved() {
 const sound = createSoundDirector({
   state: () => state,
   categoryId: () => category && category.id,
+  music: () => music,
   leaving: () => leaving,
   // Raden längst ner visar låten, både här och i mobilerna, som får veta när klippet börjar.
   changed: () => { showNowMusic($('#now-music'), sound.currentMusic()); broadcast(); },
@@ -101,8 +103,8 @@ function viewFor(playerId) {
   if (flow.introLeft() > 0) Object.assign(view, { introMs: flow.introLeft(), introTotalMs: INTRO_MS });
   const url = quizClip.urlForPlayers();
   if (url) view.clipUrl = url;
-  const music = sound.forPlayers();
-  if (music) view.music = music;
+  const playerMusic = sound.forPlayers();
+  if (playerMusic) view.music = playerMusic;
   // Låten står på raden längst ner även i mobilerna, också när den bara spelas hos spelledaren.
   const playing = sound.currentMusic();
   if (playing) view.nowMusic = playing;
@@ -271,7 +273,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   await scriptsLoaded;
   const categories = await loadCategories();
   category = categories.find((c) => c.id === categoryId) || visibleCategories(categories)[0];
-  songs = await loadSongs(category);
+  [songs, music] = await Promise.all([loadSongs(category), loadMusic()]);
   if (resumeState) {
     state = resumeState;
     // Alla räknas som frånkopplade tills de hör av sig igen.
@@ -362,7 +364,7 @@ function toggleCurrentUnknown() {
 function restart() {
   quizClip.stop();
   // Vinnarlåten tystnar när en ny match börjar, och bara då. Pausas ljud vid varje omritning
-  // kan quizlåten hacka till i iPhone när spelledaren trycker, se stop i vinnarlat.js.
+  // kan quizlåten hacka till i iPhone när spelledaren trycker, se stop i winner-song.js.
   sound.winnerSong.stop();
   game.restart(state);
   flow.restarted();
