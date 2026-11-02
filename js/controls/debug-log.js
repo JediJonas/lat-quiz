@@ -30,8 +30,8 @@ const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 52px 2px 6px;`
   + `height:${COLLAPSED_HEIGHT_PX}px;overflow:hidden;pointer-events:none;`;
 const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 50px;`
   + 'overflow:auto;overscroll-behavior:contain;pointer-events:auto;user-select:text;';
-// Knappen är en fyrkant med rundade hörn i menyknappens färger (klassen soft i style.css, ljust och mörkt läge),
-// centrerad i den hopfällda loggen med lika långt till loggens överkant, nederkant och högerkant.
+// Knappen är en fyrkant med rundade hörn, en aning ljusare än loggen i mörkt läge och en aning
+// mörkare i ljust läge (klassen debug-log-button i style.css). Den är centrerad i den hopfällda loggen med lika långt till loggens överkant, nederkant och högerkant.
 // margin och transition nollställs, annars ger knappreglerna i style.css den 16 px marginal, så
 // att den hamnar ovanför loggen, och den krymper när man trycker.
 const BUTTON_SIZE_PX = 36;
@@ -39,8 +39,8 @@ const BUTTON_GAP_PX = (COLLAPSED_HEIGHT_PX - BUTTON_SIZE_PX) / 2;
 const BUTTON_STYLE = `position:fixed;right:${BUTTON_GAP_PX}px;bottom:${BUTTON_GAP_PX}px;z-index:${Z_EXPANDED + 1};`
   + `width:${BUTTON_SIZE_PX}px;height:${BUTTON_SIZE_PX}px;`
   + 'display:flex;align-items:center;justify-content:center;margin:0;padding:0;border:0;'
-  + 'border-radius:10px;background:linear-gradient(var(--btn-bg),var(--btn-bg)) var(--surface-solid);'
-  + 'color:var(--btn-icon);box-shadow:none;transition:none;touch-action:manipulation;';
+  + 'border-radius:10px;background:var(--debug-button-bg);color:var(--debug-button-icon);'
+  + 'box-shadow:none;transition:none;touch-action:manipulation;';
 // En triangel som SVG, så att den står mitt i knappen. Ett tecken som ▴ ligger olika högt i
 // olika typsnitt. Utfälld vänds den nedåt.
 const ARROW_UP = '<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><path d="M8 3 15 13H1Z" fill="currentColor"/></svg>';
@@ -82,7 +82,7 @@ function createBox() {
   box.setAttribute('aria-hidden', 'true');
   button = document.createElement('button');
   button.type = 'button';
-  button.className = 'soft';
+  button.className = 'debug-log-button';
   button.tabIndex = -1;
   button.style.cssText = BUTTON_STYLE;
   // Knappen tar inte fokus från fältet man skriver i.

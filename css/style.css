@@ -1290,6 +1290,13 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
   :root:not([data-theme="light"]) .menu, :root:not([data-theme="light"]) .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); }
 }
 :root[data-theme="dark"] .menu, :root[data-theme="dark"] .soft { --btn-bg: rgba(30, 215, 96, 0.15); --btn-icon: #4cd17a; --btn-press: rgba(30, 215, 96, 0.26); }
+/* Knappen som fäller ut loggen med ?debug=1, se js/controls/debug-log.js. Loggen är mörk i båda
+   lägena. Knappen är en aning mörkare än loggen i ljust läge och en aning ljusare i mörkt. */
+.debug-log-button { --debug-button-bg: rgba(0, 0, 0, 0.35); --debug-button-icon: #4cd17a; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .debug-log-button { --debug-button-bg: rgba(255, 255, 255, 0.14); }
+}
+:root[data-theme="dark"] .debug-log-button { --debug-button-bg: rgba(255, 255, 255, 0.14); }
 /* Ljusgrön knapp, till exempel Starta nytt spel på startsidan. Tonen läggs på en fast yta, som ikonerna på sin bar, så att bakgrunden inte gör den grå. */
 .soft, button.soft.big, .button.soft.big { background: linear-gradient(var(--btn-bg), var(--btn-bg)) var(--surface-solid); color: var(--btn-icon); box-shadow: none; }
 @media (hover: hover) { .soft:hover { background: linear-gradient(var(--btn-press), var(--btn-press)) var(--surface-solid); } }
