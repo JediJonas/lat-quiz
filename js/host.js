@@ -6,22 +6,22 @@ import { SILENCE, findPreview } from './deezer.js';
 import { showConfirm } from './dialog.js';
 import { INFO_MS, currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './spelvy.js';
-import { $, esc } from './shared/dom.js';
+import { $ } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import * as prefs from './shared/preferences.js';
 import * as protocol from './shared/protocol.js';
 import { scrollToTop } from './ui.js';
-import { enhanceSelect } from './rullista.js';
-import { mountSwitch } from './theme.js';
-import { dragToClose } from './ark.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
-import { DELAY_CHOICES, after, cleanDelay, delayShort, delayText } from './ljudfordrojning.js';
-import { cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
+import { after, delayShort } from './ljudfordrojning.js';
+import { isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 import { mountSeasonEffect } from './sasong.js';
+import { showSettings } from './settings-dialog.js';
+import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
+import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
@@ -40,7 +40,6 @@ let ticker = null;
 let gameView = null;
 // Strömbrytaren Jag deltar i spelet i Inställningar, innan spelet startar. Spelledaren deltar om inget annat väljs.
 let hostPlays = true;
-const DEFAULT_HOST_NAME = 'Spelledare';
 
 // Inget sparas när spelet har avslutats. Annars sparas det igen när anslutningarna stängs,
 // och knappen för att gå tillbaka till spelet finns kvar.
@@ -119,15 +118,6 @@ function updateLobbyMusic() {
   if (on) lobbyMusic.play();
   else lobbyMusic.stop();
   $('#lobby-note').hidden = !on;
-}
-
-// Okända låtar sparas på den här datorn och gäller alla kommande spel.
-function loadUnknown() {
-  return cleanUnknown(readJson(KEYS.unknown, {}));
-}
-
-function saveUnknown(list) {
-  writeJson(KEYS.unknown, list);
 }
 
 // Avdelningen Okända låtar i Inställningar syns bara med ?okanda=1, se preferences.js.
@@ -304,13 +294,8 @@ function hostAnswer(field, value) {
 
 // ---- Spelets steg ----
 
-// Namnet som spelledaren deltar med. Utan namn heter spelledaren Spelledare.
-function hostName(name) {
-  return String(name || '').trim().slice(0, game.MAX_NAME) || DEFAULT_HOST_NAME;
-}
-
 function hostNameTaken(name) {
-  return game.nameTaken(state, { id: state.hostId, name: hostName(name) });
+  return game.nameTaken(state, { id: state.hostId, name: game.cleanHostName(name) });
 }
 
 // Utan att delta behövs inget namn på startsidan, och spelledaren kan varken svara eller få poäng.
@@ -356,7 +341,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
   if (!state.hostId) state.hostId = newId('spelledare-');
   game.setHostPlaying(state, state.hostPlays !== false,
-    hostName(name || state.players[state.hostId]?.name || prefs.hostName()));
+    game.cleanHostName(name || state.players[state.hostId]?.name || prefs.hostName()));
   // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
   state.categoryName = category.name;
   save();
@@ -371,7 +356,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
 
 // Bara låtar med Deezer-ID kan spelas, och inte de som är markerade som okända.
 function playableSongs() {
-  return withoutUnknown(loadUnknown(), category.id, songs).filter((song) => song.deezerId);
+  return withoutUnknown(prefs.unknownSongs(), category.id, songs).filter((song) => song.deezerId);
 }
 
 function nextSong() {
@@ -599,25 +584,15 @@ function updateClipMessage(round) {
   else hideMessage('clip');
 }
 
-// Strömbrytaren i Inställningar, likadan som i Utseende. Gäller direkt, utan att spelledaren behöver spara.
+// Strömbrytaren Denna låt är okänd i Inställningar.
 function currentUnknown() {
   const song = state.round && state.round.song;
-  return Boolean(song) && isUnknown(loadUnknown(), category.id, song.id);
+  return Boolean(song) && isUnknown(prefs.unknownSongs(), category.id, song.id);
 }
 
 function toggleCurrentUnknown() {
   const song = state.round && state.round.song;
-  if (song) saveUnknown(toggleUnknown(loadUnknown(), category.id, song));
-}
-
-// Låtens titel visas inte, eftersom spelledaren också gissar.
-function unknownCheckbox() {
-  const song = state && state.round && state.round.song;
-  if (!song) return '';
-  return `
-    <div class="current-song">
-      <button type="button" class="theme-switch" id="mark-unknown"></button>
-    </div>`;
+  if (song) prefs.setUnknownSongs(toggleUnknown(prefs.unknownSongs(), category.id, song));
 }
 
 // Spelarna får veta att en ny match har börjat. Spelledaren har själv valt det.
@@ -669,73 +644,6 @@ async function endGame() {
   location.href = 'index.html' + location.search;
 }
 
-// short: den korta texten på segmentet. text: hela texten, som skärmläsare läser.
-const SETTING_FIELDS = [
-  { key: 'roundMs', label: 'Tid per låt', short: (v) => `${v / 1000} s`, text: (v) => `${v / 1000} sekunder per låt` },
-  { key: 'bonusMs', label: 'Bonus för snabbt svar', short: (v) => (v ? `${v / 1000} s` : 'Av'), text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
-  { key: 'winScore', label: 'Poänggräns', short: (v) => String(v), text: (v) => `Först till ${v} poäng` },
-];
-
-// Ett fåtal val står sida vid sida som en segmentväljare, som i iPhone. Valen är radioknappar,
-// så att piltangenterna byter val och formuläret läser värdet som förut.
-function segmented(name, label, choices) {
-  return `<fieldset class="segmented-field"><legend>${label}</legend><div class="segmented">
-    ${choices.map(({ value, short, text, checked }) => `<label><input type="radio" name="${name}" value="${esc(value)}"${checked ? ' checked' : ''}>`
-      + `<span aria-hidden="true">${esc(short)}</span><span class="visually-hidden">${esc(text)}</span></label>`).join('')}
-  </div></fieldset>`;
-}
-
-// Okända låtar kopieras som text och skickas vidare, så att de tas bort ur kategorin.
-// Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
-function unknownGroup(checkbox, list) {
-  if (!showUnknown || (!checkbox && !list)) return '';
-  return `<div class="unknown-group"><h3>Okända låtar</h3>${checkbox}${list}</div>`;
-}
-
-function unknownSection(count) {
-  if (!count) return '';
-  return `
-    <div class="unknown-songs">
-      <p class="unknown-actions">
-        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar (${count})</button>
-        <button type="button" id="clear-unknown" class="link">Rensa</button>
-      </p>
-      <p id="unknown-status" class="note" role="status"></p>
-      <textarea id="unknown-text" class="unknown-text" readonly rows="6" aria-label="Okända låtar" hidden></textarea>
-    </div>`;
-}
-
-function wireUnknown(dialog, names) {
-  const copy = dialog.querySelector('#copy-unknown');
-  if (!copy) return;
-  const status = dialog.querySelector('#unknown-status');
-  copy.addEventListener('click', async () => {
-    const text = formatUnknown(loadUnknown(), names);
-    try {
-      await navigator.clipboard.writeText(text);
-      status.textContent = 'Kopierat. Klistra in listan i projektet, så tas låtarna bort ur kategorierna.';
-    } catch {
-      // Utan tillgång till urklipp visas texten, så att den kan kopieras för hand.
-      const area = dialog.querySelector('#unknown-text');
-      area.value = text;
-      area.hidden = false;
-      area.focus();
-      area.select();
-      status.textContent = 'Kopiera texten nedan.';
-    }
-  });
-  dialog.querySelector('#clear-unknown').addEventListener('click', async () => {
-    const ok = await showConfirm('Låtarna spelas igen i kommande spel. Kopiera listan först om den inte är skickad.', {
-      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true, icon: MENU_ICONS.delete,
-    });
-    if (!ok) return;
-    saveUnknown({});
-    dialog.querySelector('.unknown-songs').remove();
-    const group = dialog.querySelector('.unknown-group');
-    if (!group.querySelector('.current-song')) group.remove();
-  });
-}
-
 // Strömbrytaren Jag deltar i spelet står i Inställningar, både före och under spelet.
 function currentHost() {
   if (!state) return { plays: hostPlays };
@@ -746,142 +654,9 @@ function currentHost() {
 // Namnet som spelledaren redan har angett, i spelet eller i ett tidigare spel. Spelledare räknas inte.
 function knownHostName() {
   const player = state && (state.players[state.hostId] || state.benchedHost);
-  if (player && player.name && player.name !== DEFAULT_HOST_NAME) return player.name;
-  if (pending && pending.host && pending.host.name !== DEFAULT_HOST_NAME) return pending.host.name;
+  if (player && player.name && player.name !== game.DEFAULT_HOST_NAME) return player.name;
+  if (pending && pending.host && pending.host.name !== game.DEFAULT_HOST_NAME) return pending.host.name;
   return prefs.hostName();
-}
-
-// Namnfältet under strömbrytarna, där Jag deltar i spelet står. Före spelet står namnet på
-// startsidan. Under spelet visas namnfältet bara om spelledaren inte har angett något namn
-// tidigare. Lämnas det tomt heter spelledaren Spelledare.
-function hostNameRow() {
-  const askName = Boolean(state) && !knownHostName();
-  return askName ? `
-    <div id="setting-host-name-row" class="field-group host-name-row"><div class="field-row">
-      <label for="setting-host-name">Namn</label>
-      <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
-        placeholder="${DEFAULT_HOST_NAME}">
-    </div></div>` : '';
-}
-
-// Returnerar en funktion som ger { plays, name }. Ett namn som en spelare redan har
-// stoppar Spara, så att två inte heter likadant.
-function wireHostPlays(dialog) {
-  let on = currentHost().plays;
-  const row = dialog.querySelector('#setting-host-name-row');
-  const input = dialog.querySelector('#setting-host-name');
-  const update = () => { if (row) row.hidden = !on; };
-  mountSwitch(dialog.querySelector('#setting-host-plays'), 'Jag deltar i spelet', () => on, () => { on = !on; update(); });
-  update();
-  if (input) {
-    input.addEventListener('input', () => input.setCustomValidity(''));
-    dialog.querySelector('form').addEventListener('submit', (e) => {
-      if (e.submitter?.value !== 'ok' || !on || !hostNameTaken(input.value)) return;
-      e.preventDefault();
-      input.setCustomValidity(`${hostName(input.value)} är redan med i spelet. Välj ett annat namn.`);
-      input.reportValidity();
-    });
-  }
-  return () => ({ plays: on, name: hostName(input ? input.value : knownHostName()) });
-}
-
-// Bonustider som inte är kortare än tiden per låt går inte att välja. Var en sådan vald byts den
-// mot den längsta som går, samma val som cleanSettings gör.
-function wireBonus(dialog) {
-  const form = dialog.querySelector('form');
-  const update = () => {
-    const roundMs = Number(new FormData(form).get('roundMs'));
-    const inputs = [...form.querySelectorAll('input[name=bonusMs]')];
-    for (const input of inputs) input.disabled = !game.bonusAllowed(Number(input.value), roundMs);
-    const checked = inputs.find((input) => input.checked);
-    if (checked && checked.disabled) inputs.filter((input) => !input.disabled).at(-1).checked = true;
-  };
-  for (const input of form.querySelectorAll('input[name=roundMs]')) input.addEventListener('change', update);
-  update();
-}
-
-// Returnerar de valda inställningarna, eller null om spelledaren avbryter.
-// I ett pågående spel finns även kategorin med. Den returneras som categoryId.
-// names: kategoriernas namn, som används när okända låtar kopieras.
-// running: ett spel pågår.
-// clipAll: klippet spelas även i spelarnas mobiler.
-// extraSounds: väntemusiken, trumvirveln och vinnarlåten spelas.
-// audioDelay: ljudfördröjningen för en blåtandshögtalare, i millisekunder.
-function showSettings(current, categories = null, categoryId = null, names = {}, { running = false, clipAll = false, extraSounds = true, audioDelay = 0 } = {}) {
-  const dialog = document.createElement('dialog');
-  dialog.className = 'modal settings';
-  dialog.innerHTML = `
-    <form method="dialog">
-      <h2 id="settings-title">Inställningar</h2>
-      <div class="settings-group">
-      ${categories ? `
-        <div class="setting-row"><label for="setting-category">Kategori</label>
-        <select id="setting-category" name="categoryId">
-          ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
-        </select></div>` : ''}
-      ${SETTING_FIELDS.map(({ key, label, short, text }) => segmented(key, label,
-        game.SETTING_CHOICES[key].map((v) => ({ value: v, short: short(v), text: text(v), checked: v === current[key] })))).join('')}
-      </div>
-      <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
-      ${hostNameRow()}
-      <div class="settings-group audio-delay">
-      ${segmented('audioDelay', 'Ljudsynk', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
-      </div>
-      ${unknownGroup(running ? unknownCheckbox() : '', unknownSection(countUnknown(loadUnknown())))}
-      <div class="modal-actions">
-        <button value="cancel" class="secondary">Avbryt</button>
-        <button value="ok">Spara</button>
-      </div>
-    </form>`;
-  // En rullista skickar inte formuläret med Enter, så Enter sparar här. I namnfältet skulle
-  // Enter annars trycka på formulärets första knapp, Avbryt.
-  dialog.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT')) {
-      e.preventDefault();
-      e.stopPropagation(); // annars startar Enter även spelet
-      dialog.querySelector('[value=ok]').click();
-    }
-  });
-  wireUnknown(dialog, names);
-  wireBonus(dialog);
-  const host = wireHostPlays(dialog);
-  let clipOn = clipAll;
-  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela ljud på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
-  let soundsOn = extraSounds;
-  mountSwitch(dialog.querySelector('#setting-extra-sounds'), 'Spela extraljud', () => soundsOn, () => { soundsOn = !soundsOn; });
-  const mark = dialog.querySelector('#mark-unknown');
-  // Antalet i länken följer strömbrytaren.
-  const copyUnknown = dialog.querySelector('#copy-unknown');
-  if (mark) mountSwitch(mark, 'Denna låt är okänd', currentUnknown, () => {
-    toggleCurrentUnknown();
-    if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(loadUnknown())})`;
-  });
-  // Rutan själv får fokus, inte första valet, så att inget ser markerat ut i mobilen.
-  // Skärmläsaren läser rubriken, och Tab går till valen.
-  dialog.tabIndex = -1;
-  dialog.setAttribute('aria-labelledby', 'settings-title');
-  document.body.append(dialog);
-  dragToClose(dialog);
-  const categorySelect = dialog.querySelector('#setting-category');
-  if (categorySelect) enhanceSelect(categorySelect, { touch: true });
-  dialog.showModal();
-  dialog.focus();
-  return new Promise((resolve) => {
-    dialog.addEventListener('close', () => {
-      const form = dialog.querySelector('form');
-      const values = Object.fromEntries(new FormData(form));
-      resolve(dialog.returnValue === 'ok'
-        ? {
-          ...game.cleanSettings(values),
-          ...(categories ? { categoryId: values.categoryId } : {}),
-          clipAll: clipOn,
-          extraSounds: soundsOn,
-          audioDelay: cleanDelay(values.audioDelay),
-          host: host(),
-        } : null);
-      dialog.remove();
-    }, { once: true });
-  });
 }
 
 // Under spelet sparas ändringarna och gäller från nästa låt.
@@ -892,8 +667,17 @@ async function editSettings() {
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
   const categories = state ? visibleCategories(all, { keep: currentCategory }) : null;
   const clipAll = pending ? pending.clipAll : state ? state.clipAll : prefs.clipAll();
-  const chosen = await showSettings(current, categories, currentCategory, names,
-    { running: Boolean(state), clipAll, extraSounds: prefs.extraSounds(), audioDelay: prefs.audioDelay() });
+  const knownName = knownHostName();
+  const chosen = await showSettings(current, {
+    categories, categoryId: currentCategory, names, clipAll, extraSounds: prefs.extraSounds(), audioDelay: prefs.audioDelay(),
+    host: { plays: currentHost().plays, knownName, askName: Boolean(state) && !knownName, isTaken: hostNameTaken },
+    unknown: {
+      show: showUnknown,
+      songPlaying: Boolean(state && state.round && state.round.song),
+      isCurrent: currentUnknown,
+      toggleCurrent: toggleCurrentUnknown,
+    },
+  });
   if (!chosen) return;
   const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, audioDelay, ...settings } = chosen;
   // Ljudfördröjningen gäller enheten, från nästa gång ett ljud börjar.
@@ -908,7 +692,7 @@ async function editSettings() {
     setHostPlays(host.plays);
     return;
   }
-  if (host.plays && host.name !== DEFAULT_HOST_NAME) prefs.setHostName(host.name);
+  if (host.plays && host.name !== game.DEFAULT_HOST_NAME) prefs.setHostName(host.name);
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
   // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
   const pickedSongs = picked ? await loadSongs(picked) : null;
@@ -943,7 +727,7 @@ function applyPending() {
   game.applySettings(state, settings);
   state.clipAll = clipAll;
   // En spelare kan ha tagit namnet medan låten pågick. Då heter spelledaren Spelledare.
-  if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? DEFAULT_HOST_NAME : host.name);
+  if (host) game.setHostPlaying(state, host.plays, hostNameTaken(host.name) ? game.DEFAULT_HOST_NAME : host.name);
   // Poängen och spelade låtar finns kvar.
   if (picked && game.changeCategory(state, { categoryId: picked.id, categoryName: picked.name, labels: picked.labels })) {
     stopClip();
@@ -955,36 +739,12 @@ function applyPending() {
 // ---- Visning ----
 
 function showJoinInfo({ qrOpen = true } = {}) {
-  const url = joinUrl();
   $('#code').textContent = state.code;
   setQrVisible(qrOpen);
-  $('#join-url').textContent = url;
-  $('#join-url').href = url;
-  $('#join-url-row').hidden = true;
-  $('#copy-status').textContent = '';
-  const qr = qrcode(0, 'M');
-  qr.addData(url);
-  qr.make();
-  $('#qr').innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
+  renderJoinInfo(joinUrl());
 }
 
-// Länken kopieras, så att spelledaren kan skicka den till spelarna. Utan tillgång till
-// urklipp visas länken i stället, så att den kan kopieras för hand.
-let copiedTimer = null;
-$('#copy-link').addEventListener('click', async () => {
-  const button = $('#copy-link');
-  const status = $('#copy-status');
-  try {
-    await navigator.clipboard.writeText(joinUrl());
-    button.textContent = 'länken (kopierad)';
-    status.textContent = 'Länken är kopierad';
-    clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => { button.textContent = 'länken'; status.textContent = ''; }, 3000);
-  } catch {
-    $('#join-url-row').hidden = false;
-    status.textContent = '';
-  }
-});
+$('#copy-link').addEventListener('click', () => copyJoinLink(joinUrl()));
 
 // QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel, men inte när
 // spelledaren går tillbaka till ett spel.
@@ -1017,7 +777,7 @@ function menuGroups() {
   const settings = { label: 'Inställningar', icon: MENU_ICONS.settings, action: editSettings };
   if (!state) return [startItems(), [settings], commonItems()];
   return [
-    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
+    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: joinInfoShown() }, settings],
     commonItems(),
     [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
   ];
@@ -1174,42 +934,6 @@ window.addEventListener('beforeunload', (e) => {
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
 // Här uppdateras de från listan och det val som redan är gjort behålls. Säsongskategorier,
 // som Halloween, står inte i host.html och kommer bara med när det är säsong för dem.
-// Sidan är förifylld med 60-tal förvalt, så att den syns innan kategorierna har laddats. Har man
-// inte hunnit välja själv blir den första kategorin förvald, och det är säsongskategorin när den
-// visas.
-let pickedCategory = false;
-
-function renderCategories(categories) {
-  const picker = $('#category-picker');
-  const chosen = pickedCategory ? chosenCategory() : null;
-  picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
-    + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
-    + `${c.songs ? `<span class="cat-songs">${c.songs} låtar</span>` : ''}</span></label>`).join('');
-  $('.cat-count').textContent = `${categories.length} kategorier`;
-  $('#category-select').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
-  const radios = [...picker.querySelectorAll('input')];
-  (radios.find((r) => r.value === chosen) || radios[0]).checked = true;
-  $('#category-select').value = chosenCategory();
-  showChosenCategory({ scroll: true });
-}
-
-// Namnen står under smala omslag. Melodifestivalen får ett mjukt bindestreck, så att det
-// bryts som Melodi-festivalen i stället för mitt i ett ord eller utanför omslaget.
-const hyphenate = (name) => name.replace('Melodifestivalen', 'Melodi\u00adfestivalen');
-
-const chosenCategory = () => ($('#category-picker input:checked') || {}).value;
-
-// Sidans ljus får den valda kategorins färger. När sidan visas rullas det valda omslaget fram.
-function showChosenCategory({ scroll = false } = {}) {
-  document.documentElement.dataset.kategori = chosenCategory() || '';
-  if (!scroll) return;
-  // Bara raden rullas i sidled, inte sidan.
-  const picker = $('#category-picker');
-  const option = $('#category-picker input:checked').parentElement;
-  const left = option.offsetLeft - picker.offsetLeft - 16;
-  if (left < picker.scrollLeft || left + option.offsetWidth + 32 > picker.scrollLeft + picker.clientWidth) picker.scrollLeft = left;
-}
-
 // PeerJS och QR-koden laddas efter den här modulen, så att startsidan visas utan
 // att vänta på dem. Ett snabbt klick väntar in dem innan spelet startar.
 const scriptsLoaded = new Promise((resolve) => {
@@ -1229,19 +953,7 @@ async function init() {
     if (hostPlays) prefs.setHostName(name);
     startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
   });
-  // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.
-  enhanceSelect($('#category-select'));
-  $('#category-picker').addEventListener('change', () => {
-    pickedCategory = true;
-    $('#category-select').value = chosenCategory();
-    showChosenCategory();
-  });
-  $('#category-select').addEventListener('change', (e) => {
-    const radio = [...$('#category-picker').querySelectorAll('input')].find((r) => r.value === e.target.value);
-    if (radio) radio.checked = true;
-    pickedCategory = true;
-    showChosenCategory({ scroll: true });
-  });
+  mountCategoryPicker();
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');

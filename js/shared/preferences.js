@@ -5,6 +5,7 @@
 import { KEYS, readJson, readText, remove, writeJson, writeText } from './storage.js';
 import { cleanSettings } from '../game.js';
 import { cleanDelay } from '../ljudfordrojning.js';
+import { cleanUnknown } from '../okanda.js';
 
 /** Extraljuden (väntemusik, trumvirvel och vinnarlåt) är på om inget annat har valts. */
 export function extraSounds() {
@@ -66,4 +67,14 @@ export function showUnknown(search) {
   if (param === '1') writeText(KEYS.showUnknown, '1');
   if (param === '0') remove(KEYS.showUnknown);
   return readText(KEYS.showUnknown) === '1';
+}
+
+/** Okända låtar, som sparas på den här enheten och hoppas över i kommande spel. Se okanda.js. */
+export function unknownSongs() {
+  return cleanUnknown(readJson(KEYS.unknown, {}));
+}
+
+/** @param {object} list */
+export function setUnknownSongs(list) {
+  writeJson(KEYS.unknown, list);
 }

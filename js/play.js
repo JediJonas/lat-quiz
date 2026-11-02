@@ -16,6 +16,7 @@ import { scrollToTop } from './ui.js';
 import { createClipPlayer } from './klipp.js';
 import { showNowMusic } from './nuspelas.js';
 import { mountSeasonEffect } from './sasong.js';
+import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
@@ -146,7 +147,7 @@ function join(name, code, fromForm) {
   writeJson(KEYS.player, me);
   $('#join-error').hidden = true;
   $('#me').textContent = code;
-  renderJoinInfo();
+  renderJoinInfo(joinUrl());
   connectedOnce = false;
   dropped = false;
   hostLeft = false;
@@ -165,18 +166,6 @@ function joinUrl() {
   return url.toString();
 }
 
-function renderJoinInfo() {
-  const url = joinUrl();
-  $('#join-url').textContent = url;
-  $('#join-url').href = url;
-  $('#join-url-row').hidden = true;
-  $('#copy-status').textContent = '';
-  const qr = qrcode(0, 'M');
-  qr.addData(url);
-  qr.make();
-  $('#qr').innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
-}
-
 function setQrVisible(visible) {
   $('#join-info').hidden = !visible;
 }
@@ -185,22 +174,6 @@ function setQrVisible(visible) {
 function showQr() {
   setQrVisible(true);
   scrollToTop();
-}
-
-let copiedTimer = null;
-async function copyLink() {
-  const button = $('#copy-link');
-  const status = $('#copy-status');
-  try {
-    await navigator.clipboard.writeText(joinUrl());
-    button.textContent = 'länken (kopierad)';
-    status.textContent = 'Länken är kopierad';
-    clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => { button.textContent = 'länken'; status.textContent = ''; }, 3000);
-  } catch {
-    $('#join-url-row').hidden = false;
-    status.textContent = '';
-  }
 }
 
 function setPending(on) {
@@ -253,7 +226,7 @@ async function leaveGame() {
 function menuGroups() {
   if ($('#lobby').hidden) return [startItems(), commonItems()];
   return [
-    [{ label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: !$('#join-info').hidden || !net }],
+    [{ label: 'Visa QR-kod', icon: ICONS.qr, action: showQr, disabled: joinInfoShown() || !net }],
     commonItems(),
     [{ label: 'Lämna spelet', icon: ICONS.leave, action: leaveGame }],
   ];
@@ -304,7 +277,7 @@ async function init() {
 
   mountMenu($('main'), menuGroups);
   $('#hide-qr').addEventListener('click', () => setQrVisible(false));
-  $('#copy-link').addEventListener('click', copyLink);
+  $('#copy-link').addEventListener('click', () => copyJoinLink(joinUrl()));
   $('#join-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#name-input').value.trim().slice(0, MAX_NAME);

@@ -24,6 +24,14 @@ function roundLabels(state) {
 }
 export const MAX_NAME = 10;
 
+// Utan namn heter spelledaren Spelledare.
+export const DEFAULT_HOST_NAME = 'Spelledare';
+
+// Namnet som spelledaren deltar med, kortat som spelarnas.
+export function cleanHostName(name) {
+  return String(name || '').trim().slice(0, MAX_NAME) || DEFAULT_HOST_NAME;
+}
+
 // Inställningar som spelledaren kan välja. roundMs är hur lång del av klippet som spelas, och
 // lika lång tid har spelarna på sig. Bonus 0 betyder ingen bonus.
 export const SETTING_CHOICES = {

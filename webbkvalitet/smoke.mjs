@@ -76,6 +76,16 @@ async function choose(page, field, text) {
   }
 }
 
+// Inställningar under spelet öppnas från menyn och sparas utan att något ändras.
+await host.click('main:not([hidden]) .menu-button');
+await host.click('.menu-item:has-text("Inställningar")');
+await host.waitForSelector('dialog.settings[open]');
+const roundChoice = await host.$eval('dialog.settings input[name=roundMs]:checked', (el) => el.value);
+if (roundChoice !== '10000') problems.push(`Inställningar: Tid per låt är ${roundChoice}, inte 10000`);
+await host.click('dialog.settings [value=ok]');
+await host.waitForSelector('dialog.settings', { state: 'detached' });
+step('Inställningar öppnades och sparades under spelet');
+
 await host.click('#start-game');
 await host.waitForSelector('#guess:not([hidden]) #guess-hint:has-text("Lyssna och gissa")', { timeout: 30000 });
 await player.waitForSelector('#guess:not([hidden])', { timeout: 10000 });
