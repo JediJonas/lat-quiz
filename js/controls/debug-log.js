@@ -28,23 +28,27 @@ const BOX_STYLE = 'position:fixed;left:0;right:0;bottom:0;margin:0;box-sizing:bo
   + 'white-space:pre-wrap;overflow-wrap:anywhere;user-select:none;';
 const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 52px 2px 6px;`
   + `height:${COLLAPSED_HEIGHT_PX}px;overflow:hidden;pointer-events:none;`;
-const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 50px;`
+const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 52px 6px 6px;`
   + 'overflow:auto;overscroll-behavior:contain;pointer-events:auto;user-select:text;';
 // Knappen är en fyrkant med rundade hörn, en aning ljusare än loggen i mörkt läge och en aning
-// mörkare i ljust läge (klassen debug-log-button i style.css). Den är centrerad i den hopfällda loggen med lika långt till loggens överkant, nederkant och högerkant.
+// mörkare i ljust läge (klassen debug-log-button i style.css). Den sitter vid loggens överkant:
+// hopfälld centrerad i loggen, med lika långt till loggens överkant, nederkant och högerkant, och
+// utfälld uppe till höger på skärmen.
 // margin och transition nollställs, annars ger knappreglerna i style.css den 16 px marginal, så
 // att den hamnar ovanför loggen, och den krymper när man trycker.
 const BUTTON_SIZE_PX = 36;
 const BUTTON_GAP_PX = (COLLAPSED_HEIGHT_PX - BUTTON_SIZE_PX) / 2;
-const BUTTON_STYLE = `position:fixed;right:${BUTTON_GAP_PX}px;bottom:${BUTTON_GAP_PX}px;z-index:${Z_EXPANDED + 1};`
+const BUTTON_STYLE = `position:fixed;right:${BUTTON_GAP_PX}px;z-index:${Z_EXPANDED + 1};`
   + `width:${BUTTON_SIZE_PX}px;height:${BUTTON_SIZE_PX}px;`
   + 'display:flex;align-items:center;justify-content:center;margin:0;padding:0;border:0;'
   + 'border-radius:10px;background:var(--debug-button-bg);color:var(--debug-button-icon);'
   + 'box-shadow:none;transition:none;touch-action:manipulation;';
 // En triangel som SVG, så att den står mitt i knappen. Ett tecken som ▴ ligger olika högt i
 // olika typsnitt. Utfälld vänds den nedåt.
-const ARROW_UP = '<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><path d="M8 3 15 13H1Z" fill="currentColor"/></svg>';
+const ARROW_UP = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" style="display:block"><path d="M8 3 15 13H1Z" fill="currentColor"/></svg>';
 const ARROW_DOWN = ARROW_UP.replace('M8 3 15 13H1Z', 'M8 13 1 3h14Z');
+const BUTTON_COLLAPSED = `top:auto;bottom:${BUTTON_GAP_PX}px;`;
+const BUTTON_EXPANDED = `top:calc(env(safe-area-inset-top) + ${BUTTON_GAP_PX}px);bottom:auto;`;
 
 function followViewport() {
   const vv = window.visualViewport;
@@ -52,7 +56,7 @@ function followViewport() {
   const hidden = document.documentElement.clientHeight - (vv.offsetTop + vv.height);
   const shift = hidden > 0 && !expanded ? `translateY(${-Math.round(hidden)}px)` : '';
   box.style.transform = shift;
-  button.style.transform = hidden > 0 ? `translateY(${-Math.round(hidden)}px)` : 'none';
+  button.style.transform = shift || 'none';
 }
 
 // Versionen och när sidan publicerades, inskriven i koden av tools/build.mjs. Saknas när sidan
@@ -69,6 +73,7 @@ function showEntries() {
 function setExpanded(on) {
   expanded = on;
   box.style.cssText = BOX_STYLE + (on ? EXPANDED_STYLE : COLLAPSED_STYLE);
+  button.style.cssText = BUTTON_STYLE + (on ? BUTTON_EXPANDED : BUTTON_COLLAPSED);
   button.innerHTML = on ? ARROW_DOWN : ARROW_UP;
   button.setAttribute('aria-label', on ? 'Fäll ihop loggen' : 'Visa hela loggen');
   showEntries();
