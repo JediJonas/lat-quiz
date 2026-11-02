@@ -12,7 +12,7 @@ const pages = {
   'host.html': [...common, 'vendor/peerjs.min.js', 'vendor/qrcode.js', 'js/host.js', 'js/game.js', 'js/net.js',
     'js/data.js', 'js/ui.js', 'js/text.js', 'data/categories.json'],
   'play.html': [...common, 'vendor/peerjs.min.js', 'js/play.js', 'js/net.js', 'js/data.js', 'js/autocomplete.js',
-    'js/ui.js', 'js/text.js', 'data/categories.json', 'data/suggestions.json', ...songs],
+    'js/ui.js', 'js/text.js', 'data/categories.json', 'data/decoys.json', ...songs],
 };
 const kb = (n) => (n / 1024).toFixed(0) + ' kB';
 
