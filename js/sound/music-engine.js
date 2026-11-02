@@ -5,6 +5,7 @@
 // Varje klipp spelas hela tiden på samma sätt. Det byter aldrig mitt i, eftersom det då blir ett
 // hopp eller en kort tystnad, och iPhone ofta vägrar starta ett ljud medan ett annat spelar.
 import { createAudioEngine, loadToEngine } from './engine-clip.js';
+import { fadeOutCurve } from './audio-level.js';
 
 // Så långt får klippet glida från spelledarens innan det startas om på rätt ställe, som i clip-player.js.
 const DRIFT_S = 0.4;
@@ -26,7 +27,9 @@ export function createMusicEngine({ onChange }) {
   // Hur varje klipp spelas: 'engine' eller 'element'. Saknas klippet bestäms det fortfarande.
   const choices = new Map();
   const buffers = new Map();
-  let playing = null; // { url, source, gain, startAt, offset, loop, duration }
+  let playing = null; // { url, source, gain, volume, startAt, offset, loop, duration }
+  let fadingUntil = 0; // när uttoningen efter väntemusiken är klar, se fadeOut
+  let restTimer = null;
 
   // Hur klippet ska spelas, eller undefined medan det bestäms. Har inget tryck startat ljudmotorn
   // spelas klippet som vanligt ljud.
@@ -52,10 +55,28 @@ export function createMusicEngine({ onChange }) {
     playing = null;
   }
 
-  // Medan quizlåten spelas vilar ljudmotorn, som hos spelledaren, se engine-clip.js.
+  // Tonar ut klippet under ms och stoppar det, som spelledaren gör med väntemusiken när spelet
+  // startar. Spelledaren slutar då skicka musiken direkt, så mobilen tonar ut på egen hand.
+  /** @param {number} ms */
+  function fadeOut(ms) {
+    if (!playing) return;
+    const now = engine.context().currentTime;
+    const { gain, source, volume } = playing;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueCurveAtTime(fadeOutCurve(volume), now, ms / 1000);
+    try { source.stop(now + ms / 1000); } catch { /* redan stoppad */ }
+    playing = null;
+    fadingUntil = Date.now() + ms;
+  }
+
+  // Medan quizlåten spelas vilar ljudmotorn, som hos spelledaren, se engine-clip.js. Tonar
+  // väntemusiken fortfarande ut vilar motorn först när den är tyst.
   function rest() {
     stop();
-    engine.pause();
+    clearTimeout(restTimer);
+    const left = fadingUntil - Date.now();
+    if (left > 0) restTimer = setTimeout(engine.pause, left);
+    else engine.pause();
   }
 
   /** @param {string} url @param {number} pos @param {boolean} loop */
@@ -70,7 +91,7 @@ export function createMusicEngine({ onChange }) {
     source.connect(gain).connect(ctx.destination);
     const offset = loop ? pos % buffer.duration : pos;
     source.start(0, offset);
-    playing = { url, source, gain, startAt: ctx.currentTime, offset, loop, duration: buffer.duration };
+    playing = { url, source, gain, volume: 0, startAt: ctx.currentTime, offset, loop, duration: buffer.duration };
   }
 
   // Spelar klippet på pos sekunder, eller fortsätter om det redan spelar nära där. Sant om det
@@ -91,6 +112,7 @@ export function createMusicEngine({ onChange }) {
     if (!loop && pos >= buffer.duration) { stop(); return true; }
     const near = playing && playing.url === url
       && Math.abs(enginePosition(playing, engine.context().currentTime) - (loop ? pos % buffer.duration : pos)) <= DRIFT_S;
+    clearTimeout(restTimer);
     if (!near) { stop(); start(url, pos, loop); }
     return true;
   }
@@ -100,8 +122,9 @@ export function createMusicEngine({ onChange }) {
   function setVolume(volumeAt) {
     if (!playing) return;
     const now = engine.context().currentTime;
-    playing.gain.gain.setValueAtTime(volumeAt(enginePosition(playing, now), playing.duration), now);
+    playing.volume = volumeAt(enginePosition(playing, now), playing.duration);
+    playing.gain.gain.setValueAtTime(playing.volume, now);
   }
 
-  return { unlock: engine.unlock, choice, choose, play, stop, rest, setVolume, playing: () => Boolean(playing) };
+  return { unlock: engine.unlock, choice, choose, play, stop, fadeOut, rest, setVolume, playing: () => Boolean(playing) };
 }

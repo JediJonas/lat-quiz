@@ -7,6 +7,7 @@
 // att de tonas även på iPhone. Som vanligt ljud går volymen inte att ändra där, och då slutar de tvärt.
 import { SILENCE } from './deezer.js';
 import { createMusicEngine, fades } from './music-engine.js';
+import { fadeLevel } from './audio-level.js';
 import { t } from '../shared/lang.js';
 
 // Så långt får klippet glida från spelledarens innan mobilen spolar om. Mindre ger hack i ljudet.
@@ -59,6 +60,10 @@ export function createClipPlayer({ onBlocked }) {
   let url = null;
   let blocked = false;
   let unlocked = false;
+  // Musiken som spelas, så att väntemusiken kan tonas ut när spelledaren slutar skicka den.
+  let heardMusic = null;
+  // Ljudelementets uttoning efter väntemusiken: när den började, hur lång den är och volymen då.
+  let elementFade = null;
 
   const setBlocked = (on) => {
     if (on === blocked) return;
@@ -91,9 +96,30 @@ export function createClipPlayer({ onBlocked }) {
     audio.volume = music ? musicVolume(music, audio.currentTime, audio.duration) : 1;
   }
   setInterval(() => {
-    if (!audio.paused) setVolume();
+    if (elementFade) fadeElement();
+    else if (!audio.paused) setVolume();
     if (engine.playing() && view && view.music) engine.setVolume((pos, duration) => musicLevel(view.music, pos, duration));
   }, VOLUME_STEP_MS);
+
+  // Ljudelementet tonas ut efter samma kurva som i ljudmotorn. På iPhone hörs det inte, eftersom
+  // volymen inte går att ändra där, men på andra mobiler gör det. Sedan får nästa klipp spela.
+  function fadeElement() {
+    const left = 1 - (Date.now() - elementFade.at) / elementFade.ms;
+    if (left > 0) { audio.volume = fadeLevel(left, elementFade.volume); return; }
+    elementFade = null;
+    audio.pause();
+    sync();
+  }
+
+  // Spelledaren har slutat skicka musiken. Väntemusiken tonas då ut, som hos spelledaren, och
+  // annan musik tystnar direkt.
+  function musicStopped() {
+    const ms = heardMusic && heardMusic.stopMs;
+    heardMusic = null;
+    if (!ms) { audio.pause(); engine.stop(); return; }
+    engine.fadeOut(ms);
+    if (!audio.paused && !elementFade) elementFade = { at: Date.now(), ms, volume: audio.volume };
+  }
 
   const engine = createMusicEngine({ onChange: () => sync() });
 
@@ -108,17 +134,22 @@ export function createClipPlayer({ onBlocked }) {
     audio.pause();
     if (how === undefined) { engine.choose(music.url); return true; }
     const pos = musicPosition(music, Date.now() - receivedAt, 0);
-    return engine.play(music.url, pos, music.loop);
+    if (!engine.play(music.url, pos, music.loop)) return false;
+    engine.setVolume((p, duration) => musicLevel(music, p, duration));
+    return true;
   }
 
   function sync() {
     const want = wantedClip(view);
     if (!want) {
-      audio.pause();
-      engine.stop();
+      musicStopped();
       setBlocked(false);
       return;
     }
+    if (!quizClip(view)) heardMusic = view.music;
+    else if (heardMusic) musicStopped();
+    // Quizklippet väntar tills väntemusiken har tonat ut i ljudelementet.
+    if (elementFade) return;
     if (quizClip(view)) engine.rest();
     else if (playInEngine()) return;
     if (want !== url) {
@@ -171,6 +202,8 @@ export function createClipPlayer({ onBlocked }) {
     },
     stop() {
       view = null;
+      heardMusic = null;
+      elementFade = null;
       audio.pause();
       engine.stop();
       setBlocked(false);

@@ -82,6 +82,7 @@ export const MSG = /** @type {const} */ ({
  * @property {number} volume
  * @property {number} fadeInMs
  * @property {number} fadeOutMs
+ * @property {number} [stopMs] så länge musiken tonas ut när spelledaren slutar skicka den
  * @property {boolean} loop
  */
 
