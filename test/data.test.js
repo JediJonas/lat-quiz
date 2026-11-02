@@ -65,7 +65,7 @@ test('active i categories.json är true eller false', () => {
 
 test('antalet låtar i categories.json stämmer med kategorins fil', () => {
   for (const category of read('data/categories.json')) {
-    assert.equal(category.songs, read('data/' + category.file).length, `Uppdatera songs för ${category.id} i categories.json`);
+    assert.equal(category.songs, read('data/' + category.file).length, `Kör node verktyg/categories.mjs, så att songs för ${category.id} stämmer`);
   }
 });
 
