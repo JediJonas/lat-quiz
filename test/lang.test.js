@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import sv from '../js/lang/sv.js';
 import { t } from '../js/shared/lang.js';
+import { PAGES, pageKeys } from '../verktyg/texts.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = (file) => readFileSync(new URL(file, root), 'utf8');
@@ -39,13 +40,16 @@ test('t ger nyckeln om texten saknas', (ctx) => {
   assert.equal(t('finns.inte'), 'finns.inte');
 });
 
+// Nycklarna i html-sidorna, som verktyg/texts.mjs skriver in.
+const pageCalls = () => PAGES.flatMap((file) => pageKeys(read(file)).map((key) => ({ file, key })));
+
 test('varje nyckel som används finns i språkfilen', () => {
-  const missing = calls().filter(({ key }) => !(key in sv)).map(({ file, key }) => `${key} i ${file}`);
+  const missing = [...calls(), ...pageCalls()].filter(({ key }) => !(key in sv)).map(({ file, key }) => `${key} i ${file}`);
   assert.deepEqual(missing, []);
 });
 
 test('ingen nyckel i språkfilen är oanvänd', () => {
-  const used = new Set(calls().map(({ key }) => key));
+  const used = new Set([...calls(), ...pageCalls()].map(({ key }) => key));
   assert.deepEqual(Object.keys(sv).filter((key) => !used.has(key)), []);
 });
 

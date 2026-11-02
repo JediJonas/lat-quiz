@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Låtquiz – Starta nytt spel</title>
-  <meta name="description" content="Starta ett låtquiz som spelledare. Spelarna går med i spelet med sina enheter, med QR-kod, kod eller länk.">
+  <title data-t="page.title.host">Låtquiz – Starta nytt spel</title>
+  <meta name="description" data-t-content="page.description.host" content="Starta ett låtquiz som spelledare. Spelarna går med i spelet med sina enheter, med QR-kod, kod eller länk.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="ikoner/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
@@ -18,32 +18,32 @@
 
   <main id="setup" class="narrow">
     <header class="page-head">
-      <a class="logo" href="index.html"><span class="visually-hidden">Låtquiz, till startsidan</span></a>
-      <h1 class="page-title">Starta nytt spel</h1>
+      <a class="logo" href="index.html"><span class="visually-hidden" data-t="page.homeLink">Låtquiz, till startsidan</span></a>
+      <h1 class="page-title" data-t="menu.newGame">Starta nytt spel</h1>
     </header>
     <form id="setup-form">
       <div class="field-group">
         <div id="host-name-row" class="field-row">
-          <label for="host-name">Namn</label>
+          <label for="host-name" data-t="settings.hostName">Namn</label>
           <input id="host-name" maxlength="10" required autocomplete="nickname">
         </div>
         <div class="field-row cat-select-row">
-          <label for="category-select">Kategori</label>
+          <label for="category-select" data-t="settings.category">Kategori</label>
           <select id="category-select"></select>
         </div>
       </div>
       <fieldset class="cat-picker">
-        <legend class="section-title">Kategori <span class="cat-count"></span></legend>
+        <legend class="section-title"><span data-t="settings.category">Kategori</span> <span class="cat-count"></span></legend>
         <div id="category-picker" class="cat-shelf"></div>
       </fieldset>
-      <p class="section-title settings-label">Inställningar</p>
+      <p class="section-title settings-label" data-t="menu.settings">Inställningar</p>
       <div class="settings-summary">
         <p id="settings-text"></p>
-        <button type="button" id="settings" class="soft" aria-label="Ändra inställningar" aria-describedby="settings-text">Ändra</button>
+        <button type="button" id="settings" class="soft" aria-label="Ändra inställningar" aria-describedby="settings-text" data-t="settings.change" data-t-aria-label="settings.changeLabel">Ändra</button>
       </div>
       <!-- I mobilen står knapparna fast längst ner, se .setup-actions i css/style.css. -->
       <div class="setup-actions">
-        <button id="create" class="big">Dra igång!</button>
+        <button id="create" class="big" data-t="host.create">Dra igång!</button>
         <div id="resume" hidden><button type="button" class="big soft"></button></div>
       </div>
     </form>
@@ -53,10 +53,10 @@
   </main>
 
   <main id="game" class="host" hidden>
-    <section id="join-info" class="card join-info" aria-label="Gå med i spelet">
-      <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden">×</button>
+    <section id="join-info" class="card join-info" aria-label="Gå med i spelet" data-t-aria-label="join.label.host">
+      <button id="hide-qr" class="close-qr" aria-label="Stäng QR-koden" data-t-aria-label="join.closeQr">×</button>
       <div id="qr" class="qr"></div>
-      <p>Be spelarna skanna QR-koden, använda <button type="button" id="copy-link" class="link" aria-label="Kopiera länken" title="Kopiera länken">länken</button> eller ange kod:<span id="copy-status" class="visually-hidden" role="status"></span> <span id="code" class="code"></span></p>
+      <p><span data-t="join.instructions.host">Be spelarna skanna QR-koden, använda</span> <button type="button" id="copy-link" class="link" aria-label="Kopiera länken" title="Kopiera länken" data-t="join.copy" data-t-aria-label="join.copyLabel" data-t-title="join.copyLabel">länken</button> <span data-t="join.orCode">eller ange kod:</span><span id="copy-status" class="visually-hidden" role="status"></span> <span id="code" class="code"></span></p>
       <p id="join-url-row" hidden><a id="join-url" href="play.html" target="_blank" rel="noopener"></a></p>
     </section>
     <section class="main-col">
@@ -66,33 +66,33 @@
 
 
       <div id="waiting" class="card">
-        <div class="cover waiting-cover"><div class="cover-head"><h2 id="waiting-title" class="round-label"></h2><p id="lobby-note" class="round-label clip-note" hidden><span class="clip-from">Ljudklipp från </span>Deezer</p></div>
+        <div class="cover waiting-cover"><div class="cover-head"><h2 id="waiting-title" class="round-label"></h2><p id="lobby-note" class="round-label clip-note" hidden><span class="clip-from" data-t="result.clipFrom">Ljudklipp från </span>Deezer</p></div>
           <p class="cover-foot"><span class="eq idle" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="waiting-text"></span></p></div>
-        <div id="intro" class="cover win" hidden><div class="cover-head"><p class="round-label">Spelet börjar</p></div>
-          <h2 class="win-title">Nu börjar det!</h2>
+        <div id="intro" class="cover win" hidden><div class="cover-head"><p class="round-label" data-t="intro.label">Spelet börjar</p></div>
+          <h2 class="win-title" data-t="intro.announce">Nu börjar det!</h2>
           <p id="intro-text" class="win-sub"><span id="intro-pie" class="pie"></span><span id="intro-label"></span></p></div>
-        <ul id="rules" class="chips" aria-label="Regler"></ul>
-        <button type="button" id="start-game" class="big" hidden>Starta spelet</button>
+        <ul id="rules" class="chips" aria-label="Regler" data-t-aria-label="rules.label"></ul>
+        <button type="button" id="start-game" class="big" hidden data-t="menu.start">Starta spelet</button>
       </div>
 
       <div id="guess" class="card" hidden>
         <div class="cover now-playing">
-          <div class="cover-head"><h2 id="round-title" class="round-label"></h2><p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p></div>
+          <div class="cover-head"><h2 id="round-title" class="round-label"></h2><p class="round-label clip-note"><span class="clip-from" data-t="result.clipFrom">Ljudklipp från </span>Deezer</p></div>
           <div id="timer" class="ring mid-ring"></div>
-          <p class="cover-foot"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="guess-hint">Lyssna och gissa</span></p>
+          <p class="cover-foot"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="guess-hint" data-t="song.listen">Lyssna och gissa</span></p>
         </div>
         <!-- Döljs när spelledaren inte deltar. -->
         <div class="guess-fields field-group">
-          <div class="field-row"><label for="artist">Artist</label><div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken"></div></div>
-          <div class="field-row"><label for="title">Titel</label><div class="ac"><input id="title" placeholder="Skriv minst 3 tecken"></div></div>
+          <div class="field-row"><label for="artist" data-t="field.artist">Artist</label><div class="ac"><input id="artist" placeholder="Skriv minst 3 tecken" data-t-placeholder="field.placeholder"></div></div>
+          <div class="field-row"><label for="title" data-t="field.title">Titel</label><div class="ac"><input id="title" placeholder="Skriv minst 3 tecken" data-t-placeholder="field.placeholder"></div></div>
         </div>
       </div>
 
       <div id="result" class="card" hidden><div id="result-body"></div>
-        <button type="button" id="new-match" class="big" hidden>Spela igen</button></div>
+        <button type="button" id="new-match" class="big" hidden data-t="result.playAgain">Spela igen</button></div>
 
       <div id="standings-section" hidden>
-        <h2 class="section-title">Poäng</h2>
+        <h2 class="section-title" data-t="standings.title">Poäng</h2>
         <div id="standings" class="standings"></div>
       </div>
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Låtquiz</title>
-  <meta name="description" content="Låtquiz för familj och vänner. Gissa artist och titel med din enhet medan spelledaren spelar låtarna.">
+  <title data-t="app.name">Låtquiz</title>
+  <meta name="description" data-t-content="page.description.index" content="Låtquiz för familj och vänner. Gissa artist och titel med din enhet medan spelledaren spelar låtarna.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="ikoner/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
@@ -22,13 +22,13 @@
       <div class="shelf-row"><span class="tile" data-kategori="eurovision">Eurovision</span><span class="tile" data-kategori="hardrock">Hårdrock och metal</span><span class="tile" data-kategori="edm">EDM</span><span class="tile" data-kategori="filmmusik">Filmmusik</span><span class="tile" data-kategori="klassiskt">Klassisk musik</span><span class="tile" data-kategori="60-tal">60-tal</span></div>
     </div>
     <div class="start-text">
-      <h1 class="logo"><span class="visually-hidden">Låtquiz</span></h1>
-      <p class="lead">Lyssna, gissa och<br>samla poäng!</p>
-      <p class="start-sub">Spela med familj och vänner i mobilen.</p>
+      <h1 class="logo"><span class="visually-hidden" data-t="app.name">Låtquiz</span></h1>
+      <p class="lead" data-t-html="index.lead">Lyssna, gissa och<br>samla poäng!</p>
+      <p class="start-sub" data-t="index.sub">Spela med familj och vänner i mobilen.</p>
     </div>
     <div class="start-buttons">
-      <a class="button big" href="play.html">Gå med i spel</a>
-      <a class="button big soft" href="host.html">Starta nytt spel</a>
+      <a class="button big" href="play.html" data-t="menu.join">Gå med i spel</a>
+      <a class="button big soft" href="host.html" data-t="menu.newGame">Starta nytt spel</a>
     </div>
     <!-- Versionen och när sidan publicerades. Fylls i vid publiceringen av verktyg/versioner.mjs och syns bara med ?debug=1. -->
     <p class="app-version"></p>

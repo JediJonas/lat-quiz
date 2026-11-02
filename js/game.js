@@ -12,7 +12,7 @@ import { t } from './shared/lang.js';
 export const ROUND_MS = 30000;
 export const BONUS_MS = 15000;
 export const WIN_SCORE = 10;
-export const DEFAULT_LABELS = { artist: 'Artist', title: 'Titel' };
+export const DEFAULT_LABELS = { artist: t('field.artist'), title: t('field.title') };
 
 // Fälten som gissas. En kategori utan artistfält, som TV-serier där man bara gissar på
 // serien, har bara titelfältet.
