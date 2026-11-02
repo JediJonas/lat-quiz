@@ -1,5 +1,5 @@
 // Spelarvyn i mobilen.
-import { codeBoxes } from './kodrutor.js';
+import { codeBoxes } from './code-boxes.js';
 import { t } from './shared/lang.js';
 import { createClient } from './net.js';
 import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './message.js';

@@ -11,7 +11,7 @@ const pages = {
   'index.html': [...common, 'js/menu.js'],
   'host.html': [...common, 'vendor/peerjs.min.js', 'vendor/qrcode.js', 'js/host.js', 'data/categories.json'],
   'play.html': [...common, 'vendor/peerjs.min.js', 'vendor/qrcode.js', 'js/play.js', 'data/categories.json',
-    'data/suggestions.json', ...songs],
+    'data/decoys.json', ...songs],
 };
 const kb = (n) => (n / 1024).toFixed(0) + ' kB';
 

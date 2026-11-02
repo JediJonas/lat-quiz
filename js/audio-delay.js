@@ -20,7 +20,7 @@ export const delayShort = (ms) => (ms ? t('unit.seconds', { s: String(ms / 1000)
 export const delayText = (ms) => (ms ? t('audioDelay.long', { s: String(ms / 1000).replace('.', ',') }) : t('audioDelay.noneLong'));
 
 // Ett löfte som uppfylls ms millisekunder efter att promise har uppfyllts, eller avvisats.
-export function after(promise, ms) {
+export function delayAfter(promise, ms) {
   const wait = () => new Promise((resolve) => setTimeout(resolve, ms));
   return ms ? promise.then(wait, wait) : promise;
 }

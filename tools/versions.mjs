@@ -16,7 +16,7 @@ export function modules(dir) {
 }
 
 /** En kort hash av CSS och alla moduler under dir. */
-export function version(dir, mods = modules(dir)) {
+export function contentHash(dir, mods = modules(dir)) {
   const hash = createHash('sha256');
   for (const file of ['css/style.css', ...mods.map((f) => 'js/' + f)]) {
     hash.update(file + '\0' + readFileSync(new URL(file, dir), 'utf8'));
@@ -46,7 +46,7 @@ export function withVersion(html, v, mods, text = versionText(v)) {
 /** Sätter versionsnumret i sidorna under dir och returnerar numret. */
 export function stampVersions(dir) {
   const mods = modules(dir);
-  const v = version(dir, mods);
+  const v = contentHash(dir, mods);
   for (const page of PAGES) {
     const file = new URL(page, dir);
     writeFileSync(file, withVersion(readFileSync(file, 'utf8'), v, mods));

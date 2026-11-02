@@ -15,24 +15,24 @@ export function enhanceSelect(select, { touch = false } = {}) {
   select.dataset.enhanced = 'true';
   const n = ++count;
   const wrap = document.createElement('div');
-  wrap.className = 'rullista';
+  wrap.className = 'custom-select';
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'rullista-knapp';
-  button.id = `${select.id}-knapp`;
+  button.className = 'custom-select-button';
+  button.id = `${select.id}-button`;
   button.setAttribute('role', 'combobox');
   button.setAttribute('aria-haspopup', 'listbox');
   button.setAttribute('aria-expanded', 'false');
   const list = document.createElement('ul');
-  list.className = 'suggestions rullista-lista';
-  list.id = `rullista-${n}`;
+  list.className = 'suggestions custom-select-list';
+  list.id = `custom-select-${n}`;
   list.setAttribute('role', 'listbox');
   list.hidden = true;
   button.setAttribute('aria-controls', list.id);
   const label = document.querySelector(`label[for="${select.id}"]`);
   if (label) {
     label.htmlFor = button.id;
-    if (!label.id) label.id = `${select.id}-etikett`;
+    if (!label.id) label.id = `${select.id}-label`;
     list.setAttribute('aria-labelledby', label.id);
   }
   select.before(wrap);
@@ -45,7 +45,7 @@ export function enhanceSelect(select, { touch = false } = {}) {
 
   function showValue() {
     const option = select.selectedOptions[0];
-    button.innerHTML = '<span class="rullista-namn"></span>';
+    button.innerHTML = '<span class="custom-select-name"></span>';
     button.firstChild.textContent = option ? option.textContent : '';
   }
   // Värdet kan sättas i koden, till exempel när kategorin väljs bland omslagen. Då följer knappen med.

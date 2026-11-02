@@ -75,8 +75,8 @@ await host.evaluate(({ extra, all }) => {
 await host.reload();
 await host.waitForSelector('#create:not([disabled])');
 await host.fill('#host-name', 'Värd');
-await host.click('#category-select-knapp');
-await host.click('.rullista-lista li[data-value="80-tal"]');
+await host.click('#category-select-button');
+await host.click('.custom-select-list li[data-value="80-tal"]');
 await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
 const code = await host.textContent('#code');

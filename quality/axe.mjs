@@ -73,10 +73,10 @@ await host.keyboard.press('Escape');
 await host.fill('#host-name', 'Värd');
 // Alla quizlåtar har ett fast Deezer-ID, och Deezer besvaras nedan, så klippet hittas alltid.
 // På dator väljs kategorin i appens egen rullgardin.
-await host.click('#category-select-knapp');
-await host.waitForSelector('.rullista-lista:not([hidden])');
+await host.click('#category-select-button');
+await host.waitForSelector('.custom-select-list:not([hidden])');
 await check(host, 'Spelledare, kategorilistan');
-await host.click('.rullista-lista li[data-value="80-tal"]');
+await host.click('.custom-select-list li[data-value="80-tal"]');
 if (await host.$eval('#category-select', (el) => el.value) !== '80-tal') problems.push('Kategorilistan: valet sparades inte');
 await host.click('#create');
 await host.waitForSelector('#code:not(:empty)');
