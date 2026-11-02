@@ -12,7 +12,7 @@
     "lighthouse": "node lighthouse.mjs",
     "lankar": "linkinator http://localhost:8080/index.html --recurse",
     "sidvikt": "node sidvikt.mjs",
-    "smoke": "node smoke.mjs"
+    "smoke": "node smoke.mjs && EXTRA=1 ALLA=1 node smoke.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

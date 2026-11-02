@@ -3,6 +3,9 @@
 // PeerJS läses in från vendor/peerjs.min.js med en script-tagg.
 declare const Peer: any;
 
+// qrcode-generator läses in från vendor/qrcode.js med en script-tagg.
+declare const qrcode: any;
+
 interface Window {
   // Äldre Safari har bara ljudmotorn med prefix.
   webkitAudioContext?: typeof AudioContext;

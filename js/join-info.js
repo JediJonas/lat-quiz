@@ -1,3 +1,4 @@
+// @ts-check
 // QR-koden och länken för att gå med i spelet, likadana hos spelledaren och spelarna.
 // qrcode kommer från vendor/qrcode.js via en script-tagg.
 import { $ } from './shared/dom.js';

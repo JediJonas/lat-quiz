@@ -34,14 +34,19 @@ for (const page of [host, player]) {
   await page.route('https://cdnt-preview.dzcdn.net/**', (route) => route.fulfill({ contentType: 'audio/wav', body: silence }));
 }
 
-// Kort spel: 10 sekunder per låt, bonus inom 5 sekunder och först till 3 poäng. Utan
-// extraljud spelas ingen väntemusik, trumvirvel eller vinnarlåt.
+// Kort spel: 10 sekunder per låt, bonus inom 5 sekunder och först till 3 poäng.
+// Med EXTRA=1 spelas väntemusik, trumvirvel och vinnarlåt, och med EXTRA=1 och ALLA=1 även i
+// spelarens mobil. Utan EXTRA är extraljuden av.
+const EXTRA = process.env.EXTRA === '1';
+const ALL = process.env.ALLA === '1';
+console.log(`Extraljud ${EXTRA ? 'på' : 'av'}, ljud på alla enheter ${ALL ? 'på' : 'av'}`);
 await host.goto(BASE + 'host.html' + PEER);
-await host.evaluate(() => {
+await host.evaluate(({ extra, all }) => {
   localStorage.clear();
   localStorage.setItem('latquiz-settings', JSON.stringify({ roundMs: 10000, bonusMs: 5000, winScore: 3 }));
-  localStorage.setItem('latquiz-extraljud', '0');
-});
+  if (!extra) localStorage.setItem('latquiz-extraljud', '0');
+  if (all) localStorage.setItem('latquiz-klipp-alla', '1');
+}, { extra: EXTRA, all: ALL });
 await host.reload();
 await host.waitForSelector('#create:not([disabled])');
 await host.fill('#host-name', 'Värd');
