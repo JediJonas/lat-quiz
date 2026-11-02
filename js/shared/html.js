@@ -19,10 +19,10 @@ export class Html {
 export const raw = (value) => new Html(value);
 
 /** @param {unknown} value @returns {string} */
-function part(value) {
+function toHtml(value) {
   if (value === null || value === undefined || value === false) return '';
   if (value instanceof Html) return value.value;
-  if (Array.isArray(value)) return value.map(part).join('');
+  if (Array.isArray(value)) return value.map(toHtml).join('');
   return esc(value);
 }
 
@@ -32,9 +32,9 @@ function part(value) {
  */
 export function html(strings, ...values) {
   let out = strings[0];
-  values.forEach((value, i) => { out += part(value) + strings[i + 1]; });
+  values.forEach((value, i) => { out += toHtml(value) + strings[i + 1]; });
   return new Html(out);
 }
 
 /** Fogar ihop delar till en HTML, med samma regler som i html`…`. @param {...unknown} parts */
-export const join = (...parts) => new Html(parts.map(part).join(''));
+export const join = (...parts) => new Html(parts.map(toHtml).join(''));

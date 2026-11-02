@@ -19,6 +19,8 @@ import { lookupKey, baseTitle, titleMatches } from '../js/lookup.js';
 const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 // Parallella körningar behöver var sin cache, till exempel CACHE=/tmp/c1.json.
 const CACHE = process.env.CACHE || new URL('./.cache.json', import.meta.url);
+// Läget skrivs på svenska i terminalen.
+const STATUS_LABELS = { likely: 'trolig', unsure: 'osäker', missing: 'saknas' };
 const REPORT = new URL('./.deezer-report.json', import.meta.url);
 // Claudes egna val efter granskning: ett Deezer-ID, eller null när Deezer
 // saknar originalet och appen hellre ska söka själv.
@@ -56,7 +58,7 @@ async function getJson(url, options = {}) {
 // "Made famous by Lady Gaga" eller "Theo" för Theoz.
 const CONNECTOR = new Set(['and', 'feat', 'featuring', 'ft', 'with', 'x', 'med', 'och']);
 const words = (name) => lookupKey(name).replace(/^the /, '').split(' ').filter(Boolean);
-function within(outer, inner, prefixOk) {
+function isWordRunOf(outer, inner, prefixOk) {
   for (let i = 0; i + inner.length <= outer.length; i += 1) {
     if (!inner.every((w, j) => outer[i + j] === w)) continue;
     const before = outer.slice(0, i).filter((w) => w !== 'the');
@@ -70,7 +72,7 @@ export function artistMatches(wanted, found) {
   const a = words(wanted);
   const b = words(found);
   if (!a.length || !b.length) return false;
-  return a.join(' ') === b.join(' ') || within(b, a, false) || within(a, b, true);
+  return a.join(' ') === b.join(' ') || isWordRunOf(b, a, false) || isWordRunOf(a, b, true);
 }
 
 const deezer = async (path) => {
@@ -124,17 +126,17 @@ async function bestOf(candidates, year) {
   return null;
 }
 
-async function rank(candidates, artists, title, year) {
+async function pickBestTrack(candidates, artists, title, year) {
   const ok = candidates.filter((t) => t && t.preview && t.artist
     && artists.some((a) => artistMatches(a, t.artist.name))
     && !unwanted(t, title));
-  const order = (list) => [...list].sort((a, b) => (versioned(a) - versioned(b)) || ((b.rank || 0) - (a.rank || 0)));
-  const exact = order(ok.filter((t) => baseTitle(t.title_short || t.title) === baseTitle(title)));
-  const close = order(ok.filter((t) => titleMatches(title, t.title_short || t.title) || titleMatches(title, t.title)));
+  const sortByPreference = (list) => [...list].sort((a, b) => (versioned(a) - versioned(b)) || ((b.rank || 0) - (a.rank || 0)));
+  const exact = sortByPreference(ok.filter((t) => baseTitle(t.title_short || t.title) === baseTitle(title)));
+  const close = sortByPreference(ok.filter((t) => titleMatches(title, t.title_short || t.title) || titleMatches(title, t.title)));
   let track = exact.length && await bestOf(exact, year);
-  if (track) return { track, status: 'trolig' };
+  if (track) return { track, status: 'likely' };
   track = close.length && await bestOf(close, year);
-  if (track) return { track, status: 'osäker', why: 'titeln stämmer inte exakt' };
+  if (track) return { track, status: 'unsure', why: 'titeln stämmer inte exakt' };
   return null;
 }
 
@@ -170,7 +172,7 @@ export async function findDeezerTrack(song, category) {
         && words.every((w) => lookupKey(t.title + ' ' + (t.album ? t.album.title : '')).includes(w)));
     hits.sort((a, b) => (b.rank || 0) - (a.rank || 0));
     const track = await bestOf(hits, null);
-    return track ? { track, status: 'osäker', why: 'klassiskt verk, kontrollera inspelningen' } : null;
+    return track ? { track, status: 'unsure', why: 'klassiskt verk, kontrollera inspelningen' } : null;
   }
 
   let best = null;
@@ -182,7 +184,7 @@ export async function findDeezerTrack(song, category) {
       ...await search(`${artists[0]} ${title}`),
       ...await topTracks(artists[0]),
     ];
-    best = await rank(candidates, artists, title, song.year);
+    best = await pickBestTrack(candidates, artists, title, song.year);
   }
   if (!best && (countries(category) || film(category, song))) {
     // Utan känd artist: den mest spelade inspelningen med exakt titel.
@@ -192,7 +194,7 @@ export async function findDeezerTrack(song, category) {
         && baseTitle(t.title_short || t.title) === baseTitle(title));
       hits.sort((a, b) => (b.rank || 0) - (a.rank || 0));
       const track = await bestOf(hits, song.year);
-      if (track) { best = { track, status: 'osäker', why: 'artisten okänd, vald efter titel' }; break; }
+      if (track) { best = { track, status: 'unsure', why: 'artisten okänd, vald efter titel' }; break; }
     }
   }
   return best;
@@ -226,15 +228,15 @@ for (const id of ids) {
         found: `${hit.track.artist.name} – ${hit.track.title} [${hit.track.album ? hit.track.album.title : ''}]`,
       });
     } else {
-      row.status = 'saknas';
+      row.status = 'missing';
     }
     rows.push(row);
-    console.log(`${row.status.padEnd(7)} ${row.artist} – ${row.title}${row.found ? '  →  ' + row.found : ''}`);
+    console.log(`${STATUS_LABELS[row.status].padEnd(7)} ${row.artist} – ${row.title}${row.found ? '  →  ' + row.found : ''}`);
   }
   writeFileSync(path, JSON.stringify(songs, null, 1) + '\n');
   report[id] = rows;
   writeFileSync(REPORT, JSON.stringify(report, null, 1) + '\n');
-  const count = (s) => rows.filter((r) => r.status === s).length;
-  console.log(`\n${category.name}: ${count('trolig')} troliga, ${count('osäker')} osäkra, ${count('saknas')} saknas.\n`);
+  const countStatus = (s) => rows.filter((r) => r.status === s).length;
+  console.log(`\n${category.name}: ${countStatus('likely')} troliga, ${countStatus('unsure')} osäkra, ${countStatus('missing')} saknas.\n`);
 }
 saveCache();

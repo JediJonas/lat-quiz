@@ -56,7 +56,7 @@ function loadSaved() {
 }
 
 // Spelarna och deras anslutningar, se host-connections.js.
-const connections = createConnections({ state: () => state, viewFor, changed: () => changed() });
+const connections = createConnections({ state: () => state, viewFor, changed: () => stateChanged() });
 
 // Väntemusiken, trumvirveln, vinnarlåten och raden Nu spelas, se sound-director.js.
 const sound = createSoundDirector({
@@ -82,7 +82,7 @@ const settings = createHostSettings({
   categoryChanged: (picked, pickedSongs) => { category = picked; songs = pickedSongs; },
   stopClip: () => quizClip.stop(),
   stopWinnerSong: () => sound.winnerSong.stop(),
-  changed: () => changed(),
+  changed: () => stateChanged(),
   showUnknown: prefs.showUnknown(location.search),
 });
 
@@ -115,7 +115,7 @@ function broadcast() {
   connections.broadcast();
 }
 
-function changed() {
+function stateChanged() {
   // Ändringar i Inställningar gäller direkt om ingen låt har spelats än.
   if (settings.hasPending() && !state.round) settings.apply();
   save();
@@ -129,13 +129,13 @@ function startNetwork() {
 }
 
 function tick() {
-  const action = flow.due(state);
+  const action = flow.nextAction(state);
   if (action === 'next') nextSong();
   if (action === 'reveal') {
     // Klippet är längre än tiden per låt när spelledaren har valt en kortare tid.
     quizClip.stop();
     game.reveal(state);
-    changed();
+    stateChanged();
   }
 }
 
@@ -143,7 +143,7 @@ function tick() {
 function hostAnswer(field, value) {
   if (!state) return;
   game.submitAnswer(state, state.hostId, field, protocol.cleanAnswer(value), Date.now());
-  changed();
+  stateChanged();
 }
 
 // ---- Spelets steg ----
@@ -171,7 +171,7 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   delete state.music;
   state.clipAll = state.clipAll === true;
   // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
-  if (!state.hostId) state.hostId = newId('spelledare-');
+  if (!state.hostId) state.hostId = newId('host-');
   game.setHostPlaying(state, state.hostPlays !== false,
     game.cleanHostName(name || state.players[state.hostId]?.name || prefs.hostName()));
   // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
@@ -201,7 +201,7 @@ function nextSong() {
   if (game.unplayedSongs(state, playable).length === 0) state.playedIds = [];
   const song = game.nextSong(state, playable);
   if (!song) return;
-  changed();
+  stateChanged();
   quizClip.play(state.round.number);
 }
 
@@ -210,19 +210,19 @@ function nextSong() {
 const quizClip = createQuizClip({
   state: () => state,
   playableSongs,
-  ready: async () => { await sound.lobbyMusic.silent(); await introDone(); },
+  ready: async () => { await sound.lobbyMusic.untilSilent(); await introDone(); },
   otherMusic: [sound.winnerSong, sound.lobbyMusic],
   render: () => render(),
   save: () => save(),
   broadcast: () => broadcast(),
-  started: () => changed(),
+  started: () => stateChanged(),
 });
 
 // Meddelandet visas när klippets läge ändras, inte vid varje render, så att det inte tar över
 // ett nyare meddelande om anslutningen.
 let clipShown = null;
 function updateClipMessage(round) {
-  const msg = quizClip.message(round);
+  const msg = quizClip.stuckMessage(round);
   const id = msg ? msg.title : null;
   if (id === clipShown) return;
   clipShown = id;
@@ -238,7 +238,7 @@ function restart() {
   sound.winnerSong.stop();
   game.restart(state);
   flow.restarted();
-  changed();
+  stateChanged();
   connections.toAll(protocol.newMatch());
 }
 
@@ -246,14 +246,14 @@ function restart() {
 function pauseGame() {
   if (!game.pause(state, Date.now())) return;
   quizClip.stop();
-  changed();
+  stateChanged();
 }
 
 function resumeGame() {
   if (!state.pausedAt) return;
   flow.resumed(game.resume(state, Date.now()));
   quizClip.resume();
-  changed();
+  stateChanged();
 }
 
 async function endGame() {
@@ -277,7 +277,7 @@ async function endGame() {
 mountCopyLink(() => state.code);
 
 // Menyn, se host-menu.js.
-const menu = () => menuGroups(state, {
+const menuItems = () => menuGroups(state, {
   stuck: (round) => quizClip.stuck(round), start: startClicked, resume: resumeGame, retry: () => quizClip.retry(),
   pause: pauseGame, settings: () => settings.edit(), end: endGame,
 });
@@ -375,8 +375,8 @@ const scriptsLoaded = new Promise((resolve) => {
 });
 
 async function init() {
-  mountMenu($('#setup'), menu);
-  mountMenu($('#game'), menu);
+  mountMenu($('#setup'), menuItems);
+  mountMenu($('#game'), menuItems);
   settings.renderSummary();
   $('#host-name').value = prefs.hostName();
   $('#setup-form').addEventListener('submit', (e) => {

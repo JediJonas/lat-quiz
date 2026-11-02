@@ -76,12 +76,12 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
   // Efter låten startas den igen. Det tillåter iPhone utan tryck, eftersom ett tryck har startat
   // den förut. Gör den inte det spelas ljudet med ljudelementet i stället.
   let resting = false;
-  function rest() {
+  function pauseEngine() {
     if (!ctx || ctx.state !== 'running') return;
     resting = true;
     ctx.suspend().catch(() => {});
   }
-  function wake() {
+  function resumeEngine() {
     if (resting && ctx) ctx.resume().catch(() => {});
     resting = false;
   }
@@ -111,7 +111,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
 
   const wait = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
-  const silent = () => new Promise((resolve) => { setTimeout(resolve, Math.max(0, silentAt - Date.now())); });
+  const untilSilent = () => new Promise((resolve) => { setTimeout(resolve, Math.max(0, silentAt - Date.now())); });
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ljudelementet.
   async function load(song) {
@@ -228,13 +228,13 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
       }, VOLUME_STEP_MS);
       const me = { url, volume: VOLUME, position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
       // Raden längst ner syns medan klippet spelar, och försvinner när det fastnar och laddar.
-      const heard = (on) => {
+      const setSounding = (on) => {
         if (finished || stopping || on === (current === me)) return;
         current = on ? me : null;
         onChange();
       };
-      const onPlaying = () => heard(true);
-      const onWaiting = () => heard(false);
+      const onPlaying = () => setSounding(true);
+      const onWaiting = () => setSounding(false);
       const onEnded = () => done('played');
       const onError = () => done('failed');
       const done = (result) => {
@@ -267,5 +267,5 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
   // Låten som hörs, för raden längst ner, eller null.
   const heardSong = () => (now() ? song : null);
 
-  return { play, stop, unlock, rest, wake, silent, now, song: heardSong, playing: () => wanted };
+  return { play, stop, unlock, pauseEngine, resumeEngine, untilSilent, now, song: heardSong, playing: () => wanted };
 }

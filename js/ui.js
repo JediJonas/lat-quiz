@@ -49,9 +49,9 @@ export function statusTags({ phase, progress, result, labels, esc, points = true
   if (phase === 'revealed' && result) {
     // Grått för fält som inte besvarades, rött bara för fel svar.
     // Poängen för låten står sist som en egen etikett: gul med bonus, grön med poäng.
-    const graded = (field) => (result[field] ? 'good' : progress && !progress[field] ? '' : 'bad');
+    const fieldClass = (field) => (result[field] ? 'good' : progress && !progress[field] ? '' : 'bad');
     const pointsClass = result.bonus ? 'bonus' : result.points > 0 ? 'good' : '';
-    return fields.map((field) => tag(`field ${graded(field)}`, labels[field])).join('')
+    return fields.map((field) => tag(`field ${fieldClass(field)}`, labels[field])).join('')
       + (points ? tag(`gain ${pointsClass}`, `+${result.points}`) : '');
   }
   return '';

@@ -25,7 +25,7 @@ const LONG_START = '/* Långa tecken, skrivs av tools/categories.mjs. */';
 const LONG_END = '/* Slut på långa tecken. */';
 
 // Hur många synliga tecken tecknet har. Fler än två får inte plats i hörnet i mobilen.
-const visible = (glyph) => [...glyph].length;
+const glyphCount = (glyph) => [...glyph].length;
 
 /** Färgerna och tecknen för varje kategori, som CSS. */
 export function coverCss(categories) {
@@ -35,7 +35,7 @@ export function coverCss(categories) {
 
 /** Väljarna för kategorierna vars tecken står mitt i omslaget i mobilen. */
 export function longGlyphCss(categories) {
-  const list = categories.filter((c) => visible(c.cover.glyph) > 2).map((c) => `[data-category="${c.id}"]`).join(', ');
+  const list = categories.filter((c) => glyphCount(c.cover.glyph) > 2).map((c) => `[data-category="${c.id}"]`).join(', ');
   return `  .tile:is(${list})::after,\n  :root:is(${list}) .cover::after {`;
 }
 
@@ -54,8 +54,8 @@ export function styleCss(css, categories) {
 
 // En kategori per rad, som filen alltid har sett ut.
 export function categoriesJson(categories) {
-  const line = (c) => JSON.stringify(c, null, 1).replace(/\n\s*/g, ' ').replace(/\[ /g, '[').replace(/ \]/g, ']');
-  return `[\n${categories.map((c) => '  ' + line(c)).join(',\n')}\n]\n`;
+  const oneLine = (c) => JSON.stringify(c, null, 1).replace(/\n\s*/g, ' ').replace(/\[ /g, '[').replace(/ \]/g, ']');
+  return `[\n${categories.map((c) => '  ' + oneLine(c)).join(',\n')}\n]\n`;
 }
 
 /** categories.json med rätt antal låtar. */

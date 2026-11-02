@@ -32,12 +32,12 @@ function audioDebug(el) {
     box.textContent = lines.join('\n');
     box.scrollTop = box.scrollHeight;
   };
-  const what = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
+  const describeNode = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
   for (const type of ['play', 'playing', 'pause', 'waiting', 'stalled', 'seeking', 'seeked', 'emptied', 'ended', 'error']) {
     el.addEventListener(type, () => log(`ljud ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
   }
   for (const type of ['pointerdown', 'touchend', 'click', 'focusin', 'focusout', 'change']) {
-    document.addEventListener(type, (e) => log(`${type} ${what(e.target)}`), true);
+    document.addEventListener(type, (e) => log(`${type} ${describeNode(e.target)}`), true);
   }
   document.addEventListener('visibilitychange', () => log(`synlig=${document.visibilityState}`));
   let lastTime = 0;
@@ -61,7 +61,7 @@ function audioDebug(el) {
  * @param {() => object[]} deps.playableSongs låtarna som går att byta till
  * @param {() => Promise<void>} deps.ready väntar in det som måste vara klart innan klippet spelas:
  *   att väntemusiken har tystnat och att nedräkningen före första låten är slut
- * @param {{ rest(): void, wake(): void }[]} deps.otherMusic väntemusiken och vinnarlåten, som vilar medan klippet hörs
+ * @param {{ pauseEngine(): void, resumeEngine(): void }[]} deps.otherMusic väntemusiken och vinnarlåten, som vilar medan klippet hörs
  * @param {() => void} deps.render ritar om spelledarens vy
  * @param {() => void} deps.save sparar spelet
  * @param {() => void} deps.broadcast skickar läget till spelarna
@@ -77,17 +77,17 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
     return Boolean(round && round.number === roundNumber && round.phase === 'ready');
   };
 
-  function audio() {
+  function audioElement() {
     if (!clip.audio) {
       clip.audio = new Audio();
       audioDebug(clip.audio);
-      // Väntemusikens och vinnarlåtens ljudmotor vilar medan quizlåten hörs, se rest i winner-song.js.
+      // Väntemusikens och vinnarlåtens ljudmotor vilar medan quizlåten hörs, se pauseEngine i winner-song.js.
       clip.audio.addEventListener('playing', () => {
         if (!clip.audio.src.startsWith('http')) return;
-        for (const music of otherMusic) music.rest();
+        for (const music of otherMusic) music.pauseEngine();
       });
       for (const type of ['pause', 'ended']) {
-        clip.audio.addEventListener(type, () => { for (const music of otherMusic) music.wake(); });
+        clip.audio.addEventListener(type, () => { for (const music of otherMusic) music.resumeEngine(); });
       }
     }
     return clip.audio;
@@ -95,7 +95,7 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
 
   // Måste anropas direkt från klicket. skipping: en låt utan klipp byts ut, utan nytt klick.
   async function play(roundNumber, skipping = false) {
-    const el = audio();
+    const el = audioElement();
     el.pause();
     // Är klippets ljudelement redan upplåst av ett tidigare tryck behövs ingen tystnad här, se unlock.
     if (!clip.unlocked) {
@@ -149,7 +149,7 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
   // högtalaren, och låtkortet vänds och timern startar först då, som för trumvirveln. Mobilerna spelar
   // klippet efter timern, så de går i takt med högtalaren.
   function start() {
-    const el = audio();
+    const el = audioElement();
     el.currentTime = 0;
     const roundNumber = state().round.number;
     el.play().then(() => wait(prefs.audioDelay())).then(() => {
@@ -201,7 +201,7 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
     && ['error', 'missing', 'blocked'].includes(clip.status));
 
   // Meddelandet för ett klipp som har fastnat, eller null.
-  function message(round) {
+  function stuckMessage(round) {
     if (!stuck(round)) return null;
     const text = t('clip.retry');
     if (clip.status === 'error') return { kind: 'problem', title: clip.error.replace(/\.$/, ''), text };
@@ -225,7 +225,7 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
   // lobbyPlaying: väntemusiken spelar redan, och då väntar upplåsningen.
   function unlock(lobbyPlaying) {
     if (clip.unlocked || lobbyPlaying) return;
-    const el = audio();
+    const el = audioElement();
     if (!el.paused) return;
     el.src = SILENCE;
     el.play().then(() => { clip.unlocked = true; }, () => {});
@@ -233,5 +233,5 @@ export function createQuizClip({ state, playableSongs, ready, otherMusic, render
 
   const sounding = () => Boolean(clip.audio && !clip.audio.paused);
 
-  return { play, retry, resume, stop, stuck, message, urlForPlayers, unlock, sounding };
+  return { play, retry, resume, stop, stuck, stuckMessage, urlForPlayers, unlock, sounding };
 }

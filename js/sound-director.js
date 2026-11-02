@@ -102,7 +102,7 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
   function winnerDrum() {
     if (!prefs.extraSounds()) return null;
     const delay = prefs.audioDelay();
-    const drum = delayAfter(winnerSong.drum(), delay);
+    const drum = delayAfter(winnerSong.playDrumRoll(), delay);
     // Med ?debug=1 står det hur låten spelades, så att fördröjningen går att felsöka.
     const song = winnerSong.play().then((kind) => {
       if ('debug' in document.documentElement.dataset) {

@@ -49,7 +49,7 @@ export function createGameFlow({ now = Date.now } = {}) {
    * starta, annars null. Nästa låt startar även om en ruta som Inställningar är öppen, eftersom
    * spelarna ser nedräkningen.
    */
-  function due(state) {
+  function nextAction(state) {
     if (!state.round) return null;
     if (state.round.phase === 'playing') return shouldReveal(state, now()) ? 'reveal' : null;
     const left = nextLeft(state);
@@ -57,5 +57,5 @@ export function createGameFlow({ now = Date.now } = {}) {
     return left > 0 ? null : 'next';
   }
 
-  return { startIntro, introLeft, nextLeft, resumed, restarted, due };
+  return { startIntro, introLeft, nextLeft, resumed, restarted, nextAction };
 }

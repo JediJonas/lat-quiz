@@ -4,7 +4,7 @@
 // kategorin väljs och genom hela spelet, hos spelledaren och spelarna. Lagret ligger bakom allt
 // innehåll och tar inte emot tryck. Med minskad rörelse står allt still, som en bild.
 
-export const SEASON_EFFECTS = { jul: 'sno', halloween: 'lov' };
+export const SEASON_EFFECTS = { jul: 'snow', halloween: 'leaves' };
 
 const rand = (min, max) => min + Math.random() * (max - min);
 const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -18,7 +18,7 @@ export function pauseSeasonEffect(ms) {
 }
 
 // Färgerna står i CSS, så att de följer ljust och mörkt läge.
-const color = (el, name) => getComputedStyle(el).getPropertyValue(name).trim();
+const cssColor = (el, name) => getComputedStyle(el).getPropertyValue(name).trim();
 
 function snow(n) {
   return Array.from({ length: n }, () => ({
@@ -79,7 +79,7 @@ function start(layer, effect) {
   let w = 0;
   let h = 0;
   // Färre bitar på en liten skärm, så att det känns lika glest och inte drar batteri i onödan.
-  const count = () => Math.round(Math.min(120, Math.max(50, (innerWidth * innerHeight) / 7000)));
+  const itemCount = () => Math.round(Math.min(120, Math.max(50, (innerWidth * innerHeight) / 7000)));
   let items = [];
   let last = performance.now();
   let frame = 0;
@@ -87,7 +87,7 @@ function start(layer, effect) {
   // Bitarnas höjd står i pixlar och de skapas bara en gång. I iPhone ändras fönstrets höjd hela
   // tiden när sidan studsar eller verktygsfältet döljs, och om bitarna skapades om eller räknades
   // om efter höjden hoppade de, så att det såg ut som att de föll jättefort.
-  const size = () => {
+  const resize = () => {
     if (innerWidth === w && innerHeight === h) return;
     w = innerWidth;
     h = innerHeight;
@@ -95,7 +95,7 @@ function start(layer, effect) {
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!items.length) {
-      items = effect === 'sno' ? snow(count()) : leaves(Math.round(count() / 3));
+      items = effect === 'snow' ? snow(itemCount()) : leaves(Math.round(itemCount() / 3));
       for (const item of items) item.y *= h;
     }
     if (still()) draw(0);
@@ -104,8 +104,8 @@ function start(layer, effect) {
   const draw = (now) => {
     const t = now / 1000;
     ctx.clearRect(0, 0, w, h);
-    if (effect === 'sno') {
-      ctx.fillStyle = `rgb(${color(layer, '--season-snow')})`;
+    if (effect === 'snow') {
+      ctx.fillStyle = `rgb(${cssColor(layer, '--season-snow')})`;
       for (const f of items) drawFlake(ctx, f, w, h, t);
     } else {
       ctx.globalAlpha = 0.75;
@@ -131,13 +131,13 @@ function start(layer, effect) {
     frame = requestAnimationFrame(tick);
   };
 
-  size();
-  addEventListener('resize', size);
+  resize();
+  addEventListener('resize', resize);
   if (still()) draw(0);
   else frame = requestAnimationFrame(tick);
   return () => {
     cancelAnimationFrame(frame);
-    removeEventListener('resize', size);
+    removeEventListener('resize', resize);
     layer.replaceChildren();
   };
 }
@@ -150,13 +150,13 @@ export function mountSeasonEffect() {
   document.body.prepend(layer);
   let current = null;
   let stop = () => {};
-  const update = () => {
+  const showCategoryEffect = () => {
     const effect = SEASON_EFFECTS[document.documentElement.dataset.category] || null;
     if (effect === current) return;
     stop();
     current = effect;
     stop = effect ? start(layer, effect) : () => {};
   };
-  new MutationObserver(update).observe(document.documentElement, { attributes: true, attributeFilter: ['data-category'] });
-  update();
+  new MutationObserver(showCategoryEffect).observe(document.documentElement, { attributes: true, attributeFilter: ['data-category'] });
+  showCategoryEffect();
 }

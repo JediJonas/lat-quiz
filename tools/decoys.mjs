@@ -61,7 +61,7 @@ export function cleanDecoys(decoys, categories) {
   const hasAnswer = (artist) => artist.split(/\s+[&+]\s+/)
     .some((p) => answers.artists.has(normalize(p)) || isFullName(p));
   const isConfusable = (artist) => isFullName(artist) || (/\s[&+]\s/.test(artist) && hasAnswer(artist));
-  const clean = (items, fix, kind, extra) => {
+  const cleanList = (items, fix, kind, extra) => {
     const wanted = same[kind] || new Set();
     // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas. Samma namn
     // med "and" i stället för "&" räknas också som rätt svar, som "Nick Cave and the Bad Seeds"
@@ -74,18 +74,18 @@ export function cleanDecoys(decoys, categories) {
     return [...seen.values()];
   };
   return {
-    artists: clean(decoys.artists, cleanArtist, 'artists', isConfusable),
-    titles: clean(decoys.titles, cleanTitle, 'titles', (t) => isSequel(t) || isSubtitled(t)),
+    artists: cleanList(decoys.artists, cleanArtist, 'artists', isConfusable),
+    titles: cleanList(decoys.titles, cleanTitle, 'titles', (t) => isSequel(t) || isSubtitled(t)),
     // Lockbeten för fält som heter Land, Kompositör, Film och Verk, se suggestionKind i js/data.js.
-    countries: clean(decoys.countries || [], (c) => c.trim(), 'countries', () => false),
-    composers: clean(decoys.composers || [], cleanArtist, 'composers', isConfusable),
-    films: clean(decoys.films || [], cleanTitle, 'films', (t) => isSequel(t) || isSubtitled(t)),
-    works: clean(decoys.works || [], cleanTitle, 'works', isSubtitled),
+    countries: cleanList(decoys.countries || [], (c) => c.trim(), 'countries', () => false),
+    composers: cleanList(decoys.composers || [], cleanArtist, 'composers', isConfusable),
+    films: cleanList(decoys.films || [], cleanTitle, 'films', (t) => isSequel(t) || isSubtitled(t)),
+    works: cleanList(decoys.works || [], cleanTitle, 'works', isSubtitled),
   };
 }
 
 export function formatDecoys(decoys) {
-  const lines = (items) => items.map((t) => JSON.stringify(t)).join(',\n');
+  const jsonLines = (items) => items.map((t) => JSON.stringify(t)).join(',\n');
   const keys = Object.keys(decoys).filter((key) => decoys[key].length);
-  return `{\n${keys.map((key) => `"${key}": [\n${lines(decoys[key])}\n]`).join(',\n')}\n}\n`;
+  return `{\n${keys.map((key) => `"${key}": [\n${jsonLines(decoys[key])}\n]`).join(',\n')}\n}\n`;
 }

@@ -9,5 +9,5 @@ test('koden har fyra bokstäver utan I och O', () => {
 
 test('id:n är unika och kan ha ett prefix', () => {
   assert.notEqual(newId(), newId());
-  assert.match(newId('spelledare-'), /^spelledare-/);
+  assert.match(newId('host-'), /^host-/);
 });

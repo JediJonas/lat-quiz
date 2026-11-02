@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { SEASON_WIN_EFFECTS, WIN_EFFECTS, pickWinEffect } from '../js/winner-animation.js';
-import { spotlightPairs } from '../js/win-effects/spotlights.js';
+import { spotlightPairs } from '../js/winner-animation/spotlights.js';
 
 test('samma match ger samma vinstanimation på alla enheter', () => {
   const key = '14|Take On Me|a-ha|Anna';
@@ -17,7 +17,7 @@ test('alla tre vinstanimationerna förekommer ungefär lika ofta', () => {
 });
 
 test('Halloween och Jul har bara sina egna vinstanimationer, ungefär lika ofta', () => {
-  assert.deepEqual(SEASON_WIN_EFFECTS, { halloween: ['fladdermoss'], jul: ['snoyra'] });
+  assert.deepEqual(SEASON_WIN_EFFECTS, { halloween: ['bats'], jul: ['blizzard'] });
   for (const [category, effects] of Object.entries(SEASON_WIN_EFFECTS)) {
     const counts = Object.fromEntries(effects.map((e) => [e, 0]));
     for (let i = 0; i < 2000; i += 1) counts[pickWinEffect(`${i % 30}|Låt ${i}|Artist|Spelare ${i % 7}`, category)] += 1;
