@@ -4,7 +4,7 @@
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
-import { levelGain } from './audio-level.js';
+import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
 
 // Låtarna står i data/music.json under lobby: default för alla kategorier, och en egen lista för
 // säsongskategorierna. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har
@@ -26,9 +26,8 @@ const STALL_MS = 10000;
 // Väntan efter ett klipp som inte gick att hämta eller spela, så att en kort störning hos Deezer
 // inte tar slut på alla låtar på en gång.
 const RETRY_MS = 2000;
-
-// Volymen under en uttoning. left går från 1 till 0, efter samma kurva som vinnarlåten.
-const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
+// Hur ofta volymen ändras när ett ljudelement tonar in eller ut.
+const VOLUME_STEP_MS = 50;
 
 // En slumpad låt, men inte samma som förra väntan.
 export function pickLobbySong(random, last, songs) {
@@ -176,7 +175,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
       const fadeOut = Math.min(FADE_OUT_MS / 1000, length / 3);
       gain.gain.setValueAtTime(0, now);
       gain.gain.linearRampToValueAtTime(volume, now + Math.min(FADE_IN_MS / 1000, length / 3));
-      const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, volume));
+      const steps = fadeOutCurve(volume);
       gain.gain.setValueCurveAtTime(steps, now + length - fadeOut, fadeOut);
       source.buffer = buffer;
       source.connect(gain).connect(ctx.destination);
@@ -188,7 +187,7 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
           const at = ctx.currentTime;
           const from = gain.gain.value;
           gain.gain.cancelScheduledValues(at);
-          const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, from));
+          const steps = fadeOutCurve(from);
           gain.gain.setValueCurveAtTime(steps, at, STOP_MS / 1000);
           try { source.stop(at + STOP_MS / 1000); } catch { /* redan stoppad */ }
         },
@@ -218,15 +217,15 @@ export function createLobbyMusic({ onChange = () => {}, songs }) {
         if (stopping) {
           const left = (stopping - Date.now()) / STOP_MS;
           if (left <= 0) { el.pause(); done('played'); return; }
-          el.volume = Math.min(el.volume, fadeLevel(left));
+          el.volume = Math.min(el.volume, fadeLevel(left, VOLUME));
           return;
         }
         if (el.currentTime !== lastPos) { lastPos = el.currentTime; movedAt = Date.now(); }
         else if (Date.now() - movedAt > STALL_MS) { el.pause(); done('failed'); return; }
         const fadeIn = Math.min(1, el.currentTime * 1000 / FADE_IN_MS);
         const left = el.duration ? (el.duration - el.currentTime) * 1000 / FADE_OUT_MS : 1;
-        el.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left) : VOLUME);
-      }, 50);
+        el.volume = Math.min(VOLUME * fadeIn, left < 1 ? fadeLevel(left, VOLUME) : VOLUME);
+      }, VOLUME_STEP_MS);
       const me = { url, volume: VOLUME, position: () => el.currentTime, fadeOut() { stopping = Date.now() + STOP_MS; } };
       // Raden längst ner syns medan klippet spelar, och försvinner när det fastnar och laddar.
       const heard = (on) => {

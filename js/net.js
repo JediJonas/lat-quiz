@@ -16,6 +16,14 @@ const CONNECT_MS = 8000;
 const FIRST_ATTEMPTS = 3;
 // Har spelledarens sida varit dold så här länge kopplas förbindelsen till förmedlingsservern upp igen.
 const REFRESH_AFTER_MS = 5000;
+// Väntan innan spelledaren ansluter igen till förmedlingsservern efter ett avbrott.
+const RELAY_RETRY_MS = 2000;
+// Väntan innan spelledarens id prövas igen när det är upptaget efter en omladdning.
+const ID_RETRY_MS = 3000;
+// Längsta väntan mellan spelarens försök att ansluta igen. Väntan fördubblas upp till den.
+const MAX_RETRY_MS = 8000;
+// Hur ofta spelaren kollar om spelledaren har varit tyst för länge.
+const WATCHDOG_MS = 2000;
 
 // För lokal testning kan en egen PeerJS-server anges i adressen,
 // till exempel ?peerHost=localhost&peerPort=9000.
@@ -75,14 +83,14 @@ export function createHost(code, handlers) {
     peer.on('disconnected', () => {
       if (refreshing || destroyed) return;
       handlers.onError('relay');
-      setTimeout(() => !destroyed && peer.disconnected && !peer.destroyed && peer.reconnect(), 2000);
+      setTimeout(() => !destroyed && peer.disconnected && !peer.destroyed && peer.reconnect(), RELAY_RETRY_MS);
     });
     peer.on('error', (err) => {
       if (err.type === 'unavailable-id') {
         // Händer när sidan laddas om. Det gamla id:t släpps efter en stund.
         handlers.onError('unavailable-id');
         peer.destroy();
-        setTimeout(() => !destroyed && open(), 3000);
+        setTimeout(() => !destroyed && open(), ID_RETRY_MS);
       } else if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
         handlers.onError('network');
       } else if (err.type !== 'peer-unavailable') {
@@ -245,13 +253,13 @@ export function createClient(code, handlers) {
     handlers.onStatus('offline');
     clearTimeout(retryTimer);
     retryTimer = setTimeout(connect, retryDelay);
-    retryDelay = Math.min(retryDelay * 2, 8000);
+    retryDelay = Math.min(retryDelay * 2, MAX_RETRY_MS);
   }
 
   // Inget hört från spelledaren på ett tag: anslut igen.
   const watchdog = setInterval(() => {
     if (conn && conn.open && Date.now() - lastSeen > SILENCE_MS) scheduleRetry();
-  }, 2000);
+  }, WATCHDOG_MS);
 
   // Mobilen väcks efter skärmlås: kontrollera direkt i stället för att vänta.
   function onVisible() {

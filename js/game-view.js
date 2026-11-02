@@ -17,6 +17,9 @@ import { createResultCard } from './views/result-card.js';
 import { createStandings } from './views/standings.js';
 import { createWinnerTiming } from './views/winner-timing.js';
 
+// Hur ofta timern ritas om medan en låt spelas.
+const TIMER_REDRAW_MS = 250;
+
 // Med ?debug=1 visas en liten logg nederst på sidan över tryck, fokus och rullning kring
 // svarsfälten, så att det går att se vad Safari gör i en riktig telefon.
 function debugLog() {
@@ -131,7 +134,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     suggestions = loaded;
     showSuggestions();
   }).catch(onError);
-  setInterval(renderTimer, 250);
+  setInterval(renderTimer, TIMER_REDRAW_MS);
 
   function renderTimer() {
     if (!view || !view.round) return;

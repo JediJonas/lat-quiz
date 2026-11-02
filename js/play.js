@@ -26,6 +26,8 @@ mountSeasonEffect();
 
 // Kategori och inställningar kan komma i olika lägen direkt efter varandra. De visas tillsammans.
 const SETTINGS_SETTLE_MS = 400;
+// Väntan efter Lämna spelet, så att meddelandet hinner iväg innan anslutningen stängs.
+const LEAVE_SEND_MS = 300;
 
 let me = null; // { playerId, name, code }
 let net = null;
@@ -214,7 +216,7 @@ async function leaveGame() {
   // Spelledaren och de andra spelarna får veta det. Vänta lite, så att meddelandet hinner iväg.
   if (net) {
     net.send(protocol.leave());
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise((resolve) => setTimeout(resolve, LEAVE_SEND_MS));
     net.destroy();
   }
   net = null;

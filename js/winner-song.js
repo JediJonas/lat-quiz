@@ -2,7 +2,7 @@
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 import { SILENCE, findPreview } from './deezer.js';
-import { levelGain } from './audio-level.js';
+import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
 
 // Låtarna står i data/music.json under winner: default för alla kategorier, och en egen lista
 // för säsongskategorierna (beslutat 25 oktober 2026).
@@ -16,6 +16,10 @@ const VOLUME = 0.8;
 const LEVEL_DB = -12;
 const DRUM_URL = 'sounds/drumroll.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
+// Hur ofta trumvirveln kollas, så att vinnarlåten börjar strax innan virveln tystnar.
+const DRUM_CHECK_MS = 30;
+// Hur ofta volymen ändras när ett ljudelement tonar ut.
+const VOLUME_STEP_MS = 50;
 
 // Vinnarlåtarna för en kategori: säsongens egen, annars de vanliga.
 /** @param {{ winner: Record<string, object[]> }} music data/music.json @param {string | null} categoryId */
@@ -27,10 +31,6 @@ export function pickWinnerSong(random, last, songs) {
   const choices = others.length ? others : songs;
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
-
-// Volymen under uttoningen. left går från 1 till 0. Volymen sänks efter en kurva, eftersom örat
-// uppfattar en jämn sänkning som att låten är stark länge och sedan tystnar tvärt.
-const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
 // Så länge ljudmotorns klocka får stå still innan låten spelas med ljudelementet i stället.
 const CHECK_MS = 300;
@@ -207,7 +207,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     const check = setInterval(() => {
       // Kunde trumvirveln inte spela börjar låten ändå.
       if (drumAudio.paused || (drumAudio.duration && drumAudio.duration - drumAudio.currentTime <= DRUM_TAIL_S)) once();
-    }, 30);
+    }, DRUM_CHECK_MS);
     timers.push(check);
     drumAudio.addEventListener('ended', once, { once: true });
   }
@@ -249,7 +249,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     const now = ctx.currentTime;
     const fade = Math.min(FADE_MS / 1000, buffer.duration / 2);
     gain.gain.setValueAtTime(volume, now);
-    const steps = Float32Array.from({ length: 50 }, (_, i) => fadeLevel(1 - i / 49, volume));
+    const steps = fadeOutCurve(volume);
     gain.gain.setValueCurveAtTime(steps, now + buffer.duration - fade, fade);
     source = ctx.createBufferSource();
     source.buffer = buffer;
@@ -287,8 +287,8 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
       if (audio.ended) { stop(); return; }
-      audio.volume = left < 1 ? fadeLevel(left) : VOLUME;
-    }, 50));
+      audio.volume = left < 1 ? fadeLevel(left, VOLUME) : VOLUME;
+    }, VOLUME_STEP_MS));
   }
 
   // Klippet som hörs och var i det, eller null när det är slut.

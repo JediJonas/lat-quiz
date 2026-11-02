@@ -90,6 +90,8 @@ export function announce(text) {
   el.textContent = text;
 }
 
+// Så länge den mjuka rullningen till toppen får hålla på innan sidan hoppar upp.
+const SCROLL_SETTLE_MS = 800;
 const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
 
 // Rullar till toppen. När tangentbordet stängs i iPhone kan Safari avbryta den mjuka
@@ -99,7 +101,7 @@ export function scrollToTop() {
   window.scrollTo({ top: 0, behavior: smooth() });
   setTimeout(() => {
     if (window.scrollY > 0 && !document.activeElement?.matches('input')) window.scrollTo({ top: 0 });
-  }, 800);
+  }, SCROLL_SETTLE_MS);
 }
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
