@@ -28,7 +28,7 @@ export function answerKey(text, { article = false } = {}) {
 }
 
 // Utan mellanslag, så att "ac dc" hittar "AC/DC" och "jay z" hittar "Jay-Z".
-export function compact(text) {
+export function withoutSpaces(text) {
   return normalize(text).replace(/ /g, '');
 }
 
@@ -58,7 +58,7 @@ export function searchIndex(items) {
 // eller Infinity om det blir fler än max. Stavfel är en bokstav som saknas, en
 // för mycket, en utbytt eller två intill varandra som bytt plats. Det man skrivit
 // får sluta mitt i ett ord, så "micael jack" hittar "Michael Jackson".
-export function typos(query, key, starts, { max, short }) {
+export function countTypos(query, key, starts, { max, short }) {
   const m = query.length;
   const n = key.length;
   const extra = short ? Infinity : 1; // en bokstav för mycket i det man skrivit
@@ -121,14 +121,14 @@ function level(query, breaks, { key, starts }) {
 // i tre nivåer: hela namnet, ett ord som börjar med texten och resten, så att
 // "symphony" visar Symphony först. Inom varje nivå gäller listans ordning.
 export function findSuggestions(index, text) {
-  const query = compact(text);
+  const query = withoutSpaces(text);
   const breaks = searchIndex([text])[0].starts;
   const levels = [[], [], []];
   const close = [];
   const allowed = allowedTypos(query.length);
   for (const entry of index) {
     if (entry.key.includes(query)) levels[level(query, breaks, entry)].push(entry.item);
-    else if (allowed.max > 0 && typos(query, entry.key, entry.starts, allowed) <= allowed.max) close.push(entry.item);
+    else if (allowed.max > 0 && countTypos(query, entry.key, entry.starts, allowed) <= allowed.max) close.push(entry.item);
   }
   return { exact: levels.flat(), close };
 }
@@ -136,6 +136,6 @@ export function findSuggestions(index, text) {
 // Namn som är kortare än det som krävs för förslag, som U2 och OK, föreslås när
 // man har skrivit hela namnet. Annars skulle de aldrig gå att välja.
 export function findWhole(index, text) {
-  const query = compact(text);
+  const query = withoutSpaces(text);
   return query ? index.filter((entry) => entry.key === query).map((entry) => entry.item) : [];
 }

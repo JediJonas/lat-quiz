@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { climbBadge, nextCountdown, resultBelow, resultCover } from '../js/views/result-card.js';
 import { rankIn, standingsRow } from '../js/views/standings.js';
-import { rules } from '../js/views/waiting-card.js';
+import { ruleLabels } from '../js/views/waiting-card.js';
 
 const labels = { artist: 'Artist', title: 'Låt' };
 const settings = { roundMs: 30000, bonusMs: 10000, winScore: 10 };
@@ -14,9 +14,9 @@ const view = (extra = {}) => ({ code: 'ABCD', categoryId: '70-tal', categoryName
   answered: [], winners: null, paused: false, round: round(), ...extra });
 
 test('reglerna följer inställningarna och kategorins ord', () => {
-  assert.deepEqual(rules(view()), ['30 s per låt', '1 p för artist', '1 p för låt', 'Bonus inom 10 s', 'Först till 10 p']);
-  assert.deepEqual(rules(view({ settings: null })), ['Först till 10 p']);
-  assert.deepEqual(rules(view({ settings: { ...settings, bonusMs: 0 }, labels: { title: 'Serie' } })),
+  assert.deepEqual(ruleLabels(view()), ['30 s per låt', '1 p för artist', '1 p för låt', 'Bonus inom 10 s', 'Först till 10 p']);
+  assert.deepEqual(ruleLabels(view({ settings: null })), ['Först till 10 p']);
+  assert.deepEqual(ruleLabels(view({ settings: { ...settings, bonusMs: 0 }, labels: { title: 'Serie' } })),
     ['30 s per låt', '1 p för serie', 'Först till 10 p']);
 });
 

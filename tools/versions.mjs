@@ -15,7 +15,7 @@ export const PAGES = ['index.html', 'host.html', 'play.html'];
 const MODULES = readdirSync(new URL('js/', root), { recursive: true })
   .map(String).map((f) => f.split('\\').join('/')).filter((f) => f.endsWith('.js')).sort();
 
-export function version() {
+export function contentHash() {
   const hash = createHash('sha256');
   for (const file of ['css/style.css', ...MODULES.map((f) => 'js/' + f)]) hash.update(file + '\0' + read(file));
   return hash.digest('hex').slice(0, 8);
@@ -41,7 +41,7 @@ export function withVersion(html, v, text = versionText(v)) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const v = version();
+  const v = contentHash();
   for (const page of PAGES) writeFileSync(new URL(page, root), withVersion(read(page), v));
   console.log(`Version ${v} i ${PAGES.join(', ')}`);
 }

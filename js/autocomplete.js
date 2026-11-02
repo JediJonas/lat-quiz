@@ -6,7 +6,7 @@
 // skärmläsare får fältet presenterat som en kombinationsruta med lista.
 // Ett kryss i fältet rensar det med ett tryck, så att man kan skriva ett nytt svar direkt.
 
-import { compact, searchIndex, findSuggestions, findWhole } from './text.js';
+import { withoutSpaces, searchIndex, findSuggestions, findWhole } from './text.js';
 import { t } from './shared/lang.js';
 
 const MIN_CHARS = 3;
@@ -152,7 +152,7 @@ export function autocomplete(input, list, onChange) {
   }
 
   function render() {
-    const query = compact(input.value);
+    const query = withoutSpaces(input.value);
     box.innerHTML = '';
     options = [];
     active = -1;

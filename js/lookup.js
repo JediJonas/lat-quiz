@@ -2,7 +2,7 @@
 // Textmatchning för verktyget som hämtar Deezer-ID (tools/deezer-id.mjs).
 // Funktionerna här gör inga anrop, så de kan testas utan nätverk.
 
-export function norm(text) {
+export function lookupKey(text) {
   return (text || '')
     .toLocaleLowerCase('sv')
     .replace(/&/g, ' and ')
@@ -15,7 +15,7 @@ export function norm(text) {
 
 // Tar bort tillägg som "(Remastered 2009)" och "- 2011 Remaster".
 export function baseTitle(text) {
-  return norm((text || '')
+  return lookupKey((text || '')
     .replace(/\s*[([][^)\]]*(remaster|version|edit|mono|stereo|single|feat|from|mix|live|deluxe)[^)\]]*[)\]]/gi, '')
     .replace(/\s+-\s+.*(remaster|version|edit|mono|stereo|single|live|mix).*$/i, ''));
 }
