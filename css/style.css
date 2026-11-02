@@ -169,7 +169,7 @@
 [data-kategori="klassiskt"] { --cat-glyph: "KL"; --cat-1: #9a2a3a; --cat-2: #3a1534; --cat-dim: 0.02; }
 [data-kategori="melodifestivalen"] { --cat-glyph: "MF"; --cat-1: #e8890a; --cat-2: #b4165a; --cat-dim: 0.34; }
 [data-kategori="svenska"] { --cat-glyph: "SV"; --cat-1: #1f6fd8; --cat-2: #0b3274; --cat-dim: 0.14; }
-[data-kategori="tv-serier"] { --cat-glyph: "TV"; --cat-1: #6cae1e; --cat-2: #14213d; --cat-dim: 0.22; }
+[data-kategori="tv-serier"] { --cat-glyph: "TV"; --cat-1: #6cae1e; --cat-2: #14213d; --cat-dim: 0.32; }
 /* Slut på det som skrivs av verktyg/categories.mjs. */
 
 /* Säsongens stämning bakom innehållet, se js/sasong.js: snö i Jul och löv i Halloween.

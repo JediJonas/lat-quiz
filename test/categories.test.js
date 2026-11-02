@@ -31,13 +31,8 @@ function whiteContrast(hex, dim) {
   const [r, g, b] = hex.match(/\w\w/g).map((h) => parseInt(h, 16)).map((v) => (v * 0.84 + 255 * 0.16) * (1 - dim));
   return 1.05 / (0.2126 * linear(r) + 0.7152 * linear(g) + 0.0722 * linear(b) + 0.05);
 }
-// TV-serier kom till efter att de andra omslagen mättes upp, och når bara 3,7:1 här. Jonas
-// avgör om omslaget ska mörkas (2 november 2026).
-const NOT_MEASURED = new Set(['tv-serier']);
-
 test('vit text på omslaget når 4,5:1 där ljuset är starkast', () => {
   for (const { id, cover } of categories) {
-    if (NOT_MEASURED.has(id)) continue;
     const ratio = whiteContrast(cover.colors[0], cover.dim);
     assert.ok(ratio >= 4.5, `${id}: ${ratio.toFixed(2)}:1, höj dim`);
   }

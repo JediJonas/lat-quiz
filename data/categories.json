@@ -15,5 +15,5 @@
   { "id": "klassiskt", "name": "Klassisk musik", "file": "klassiskt.json", "labels": { "artist": "Kompositör", "title": "Verk" }, "cover": { "glyph": "KL", "colors": ["#9a2a3a", "#3a1534"], "dim": 0.02 }, "songs": 155 },
   { "id": "melodifestivalen", "name": "Melodifestivalen", "file": "melodifestivalen.json", "cover": { "glyph": "MF", "colors": ["#e8890a", "#b4165a"], "dim": 0.34 }, "songs": 210 },
   { "id": "svenska", "name": "Svenska klassiker", "file": "svenska.json", "cover": { "glyph": "SV", "colors": ["#1f6fd8", "#0b3274"], "dim": 0.14 }, "songs": 178 },
-  { "id": "tv-serier", "name": "TV-serier", "file": "tv-serier.json", "labels": { "title": "Serie" }, "cover": { "glyph": "TV", "colors": ["#6cae1e", "#14213d"], "dim": 0.22 }, "songs": 96 }
+  { "id": "tv-serier", "name": "TV-serier", "file": "tv-serier.json", "labels": { "title": "Serie" }, "cover": { "glyph": "TV", "colors": ["#6cae1e", "#14213d"], "dim": 0.32 }, "songs": 96 }
 ]
