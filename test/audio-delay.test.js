@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DELAY_CHOICES, after, cleanDelay, delayShort, delayText } from '../js/audio-delay.js';
+import { DELAY_CHOICES, delayAfter, cleanDelay, delayShort, delayText } from '../js/audio-delay.js';
 
 test('ljudsynken väljs i steg om 0,2 sekunder upp till 0,8 sekunder', () => {
   assert.deepEqual(DELAY_CHOICES, [0, 200, 400, 600, 800]);
@@ -24,11 +24,11 @@ test('fördröjningen skrivs med decimalkomma', () => {
   assert.equal(delayText(0), 'Ingen fördröjning');
 });
 
-test('after väntar fördröjningen efter löftet, även när det avvisas', async () => {
+test('delayAfter väntar fördröjningen efter löftet, även när det avvisas', async () => {
   const start = Date.now();
-  await after(Promise.resolve(), 60);
+  await delayAfter(Promise.resolve(), 60);
   assert.ok(Date.now() - start >= 55);
-  await after(Promise.reject(new Error('fel')), 10);
+  await delayAfter(Promise.reject(new Error('fel')), 10);
   const same = Promise.resolve(1);
-  assert.equal(after(same, 0), same);
+  assert.equal(delayAfter(same, 0), same);
 });

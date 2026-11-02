@@ -14,7 +14,7 @@ import { t } from '../shared/lang.js';
  * Etiketterna följer kategorins ord, till exempel 1 p för kompositör.
  * @param {View} view
  */
-export function rules(view) {
+export function ruleLabels(view) {
   const s = view.settings;
   if (!s) return [t('rules.winScore', { score: view.winScore })];
   const lower = (label) => label.toLocaleLowerCase('sv');
@@ -60,7 +60,7 @@ export function createWaitingCard() {
     $('#waiting-title').textContent = host ? t('waiting.title.host') : t('waiting.title.player');
     $('#waiting .eq').classList.toggle('idle', !view.lobbyPlaying);
     $('#waiting-text').textContent = host ? t('waiting.text.host') : t('waiting.text.player');
-    $('#rules').innerHTML = rules(view).map((r) => html`<li>${r}</li>`).join('');
+    $('#rules').innerHTML = ruleLabels(view).map((r) => html`<li>${r}</li>`).join('');
   }
 
   return { render, tick };

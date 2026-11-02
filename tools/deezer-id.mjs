@@ -14,7 +14,7 @@
 // tools/deezer-choices.json och går före sökningen.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { norm, baseTitle, titleMatches } from '../js/lookup.js';
+import { lookupKey, baseTitle, titleMatches } from '../js/lookup.js';
 
 const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 // Parallella körningar behöver var sin cache, till exempel CACHE=/tmp/c1.json.
@@ -55,7 +55,7 @@ async function getJson(url, options = {}) {
 // "feat." eller "with". Då räknas inte "The Sounds Of Led Zeppelin",
 // "Made famous by Lady Gaga" eller "Theo" för Theoz.
 const CONNECTOR = new Set(['and', 'feat', 'featuring', 'ft', 'with', 'x', 'med', 'och']);
-const words = (name) => norm(name).replace(/^the /, '').split(' ').filter(Boolean);
+const words = (name) => lookupKey(name).replace(/^the /, '').split(' ').filter(Boolean);
 function within(outer, inner, prefixOk) {
   for (let i = 0; i + inner.length <= outer.length; i += 1) {
     if (!inner.every((w, j) => outer[i + j] === w)) continue;
@@ -84,8 +84,8 @@ const deezer = async (path) => {
 const UNWANTED = /\b(live|karaoke|instrumental|cover|covers|remix|remixes|remixed|mix|vs|acoustic|akustisk|unplugged|demo|re ?recorded|rerecorded|re ?record|new recording|nyinspelning|sped up|slowed|tribute|in the style of|originally performed|made famous|medley|megamix|orchestral|symphonic|lullaby|8 bit|piano version|extended|club mix|rehearsal|alternate|alternative|outtake|early take|session|sessions|commentary|interview|a cappella|acapella)\b/;
 // Ord som finns i låtens egen titel, som "live" i "Live and Let Die", räknas inte.
 function unwanted(t, title) {
-  const own = new Set(norm(title).split(' '));
-  const text = norm([t.title, t.title_version, t.album && t.album.title].filter(Boolean).join(' '));
+  const own = new Set(lookupKey(title).split(' '));
+  const text = lookupKey([t.title, t.title_version, t.album && t.album.title].filter(Boolean).join(' '));
   return UNWANTED.test(text.split(' ').filter((w) => !own.has(w)).join(' '));
 }
 
@@ -150,24 +150,24 @@ async function search(q) {
 
 async function topTracks(name) {
   const found = await deezer('search/artist?' + new URLSearchParams({ q: name, limit: '5' }));
-  const artist = ((found && found.data) || []).find((a) => norm(a.name) === norm(name));
+  const artist = ((found && found.data) || []).find((a) => lookupKey(a.name) === lookupKey(name));
   if (!artist) return [];
   const top = await deezer(`artist/${artist.id}/top?limit=100`);
   return (top && top.data) || [];
 }
 
-export async function find(song, category) {
+export async function findDeezerTrack(song, category) {
   const title = film(category, song) ? song.track : song.title;
   // I Eurovision är "artist" landet. Artisten står i tools/eurovision-artists.json.
   const artists = countries(category) ? [PERFORMERS[song.id]].filter(Boolean) : [song.artist];
 
   if (classical(category, song)) {
     // Verket söks utan krav på artist, eftersom Deezer oftast anger orkestern.
-    const words = norm(song.title).split(' ').filter((w) => w.length > 2);
-    const surname = norm(song.artist).split(' ').pop();
+    const words = lookupKey(song.title).split(' ').filter((w) => w.length > 2);
+    const surname = lookupKey(song.artist).split(' ').pop();
     const hits = (await search(`${surname} ${song.title}`))
       .filter((t) => t.preview && !unwanted(t, song.title)
-        && words.every((w) => norm(t.title + ' ' + (t.album ? t.album.title : '')).includes(w)));
+        && words.every((w) => lookupKey(t.title + ' ' + (t.album ? t.album.title : '')).includes(w)));
     hits.sort((a, b) => (b.rank || 0) - (a.rank || 0));
     const track = await bestOf(hits, null);
     return track ? { track, status: 'osäker', why: 'klassiskt verk, kontrollera inspelningen' } : null;
@@ -217,7 +217,7 @@ for (const id of ids) {
       if (choice) song.deezerId = choice;
       continue;
     }
-    const hit = await find(song, category);
+    const hit = await findDeezerTrack(song, category);
     const row = { id: song.id, artist: song.artist, title: film(category, song) ? `${song.title} (${song.track})` : song.title, year: song.year };
     if (hit) {
       song.deezerId = hit.track.id;

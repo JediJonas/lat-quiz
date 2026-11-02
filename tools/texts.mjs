@@ -55,7 +55,7 @@ const ALLOWED = new Set(['Deezer', '×']);
 const VOID = new Set(['meta', 'link', 'input', 'br', 'img', 'hr', 'source', 'area', 'base', 'col', 'embed', 'wbr']);
 
 /** Texter och attribut i sidan som inte kommer från språkfilen. Kategorierna i hyllan räknas inte. */
-export function untranslated(html) {
+export function findUntranslated(html) {
   const found = [];
   const body = html.replace(/<!doctype[^>]*>|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/g, '');
   const stack = [];

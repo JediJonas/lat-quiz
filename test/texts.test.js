@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { PAGES, untranslated, withTexts } from '../tools/texts.mjs';
+import { PAGES, findUntranslated, withTexts } from '../tools/texts.mjs';
 
 const read = (path) => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 
@@ -10,7 +10,7 @@ test('sidorna har texterna från språkfilen', () => {
 });
 
 test('varje text i sidorna har en nyckel i språkfilen', () => {
-  for (const page of PAGES) assert.deepEqual(untranslated(read(page)), [], `${page}: lägg till data-t och texten i js/lang/sv.js`);
+  for (const page of PAGES) assert.deepEqual(findUntranslated(read(page)), [], `${page}: lägg till data-t och texten i js/lang/sv.js`);
 });
 
 test('withTexts skriver text, attribut och HTML och behåller blankstegen', () => {
@@ -26,7 +26,7 @@ test('withTexts säger till om en nyckel saknas eller elementet har barn', () =>
   assert.throws(() => withTexts('<p data-t-title="a.b">x</p>', { 'a.b': 'z' }), /title saknas/);
 });
 
-test('untranslated hittar text och attribut utan nyckel', () => {
-  assert.deepEqual(untranslated('<p>Hej</p><p data-t="a.b">Hej</p><button aria-label="Stäng">×</button>'),
+test('findUntranslated hittar text och attribut utan nyckel', () => {
+  assert.deepEqual(findUntranslated('<p>Hej</p><p data-t="a.b">Hej</p><button aria-label="Stäng">×</button>'),
     ['Hej', 'aria-label i <button aria-label="Stäng">']);
 });

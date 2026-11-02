@@ -4,7 +4,7 @@
 // visar låten först när den hörs. Quizklippet sköts av quiz-clip.js.
 import * as prefs from './shared/preferences.js';
 import { showMessage } from './message.js';
-import { after } from './audio-delay.js';
+import { delayAfter } from './audio-delay.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './winner-song.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './lobby-music.js';
 import { nowMusic } from './now-playing.js';
@@ -102,7 +102,7 @@ export function createSoundDirector({ state, categoryId, music, leaving, changed
   function winnerDrum() {
     if (!prefs.extraSounds()) return null;
     const delay = prefs.audioDelay();
-    const drum = after(winnerSong.drum(), delay);
+    const drum = delayAfter(winnerSong.drum(), delay);
     // Med ?debug=1 står det hur låten spelades, så att fördröjningen går att felsöka.
     const song = winnerSong.play().then((kind) => {
       if ('debug' in document.documentElement.dataset) {

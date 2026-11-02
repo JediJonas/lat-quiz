@@ -284,13 +284,13 @@ test('spelarvyn visar kategorins namn och inställningar', () => {
 });
 
 test('normalize bortser från accenter och skiljetecken', async () => {
-  const { normalize, compact } = await import('../js/text.js');
+  const { normalize, withoutSpaces } = await import('../js/text.js');
   assert.equal(normalize("Don't Go Breaking My Heart"), normalize('dont go breaking my heart'));
   assert.equal(normalize('Señorita'), 'senorita');
   assert.equal(normalize('  Beyoncé   –  Halo! '), 'beyonce halo');
   assert.equal(normalize('Mötley Crüe'), 'motley crue');
-  assert.equal(compact('AC/DC'), compact('ac dc'));
-  assert.equal(compact('Jay-Z'), 'jayz');
+  assert.equal(withoutSpaces('AC/DC'), withoutSpaces('ac dc'));
+  assert.equal(withoutSpaces('Jay-Z'), 'jayz');
 });
 
 test('rättningen godtar svar utan accenter och apostrofer', () => {
