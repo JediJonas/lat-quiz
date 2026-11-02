@@ -1,3 +1,4 @@
 tools/.cache.json
 node_modules/
 tools/.deezer-report.json
+_site/

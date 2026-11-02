@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "build": "node tools/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
   }
 }

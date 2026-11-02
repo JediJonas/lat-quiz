@@ -34,7 +34,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `tools/texts.mjs`: texterna i `index.html`, `host.html` och `play.html` skrivs från språkfilen `js/lang/sv.js`, så att en text bara ändras där. Elementen har `data-t="nyckel"` för texten, `data-t-html` för text med HTML och till exempel `data-t-aria-label` för ett attribut. Sidorna har kvar texten, så att de visas direkt. Kör `node tools/texts.mjs` när en text i sidorna har ändrats i språkfilen. Testerna säger till om det har glömts, eller om en ny text i en sida saknar nyckel.
 - `tools/listen.mjs`: bygger lyssningssidan `lyssna/lyssna-latarna-i-appen.html` i projektfilerna, där alla låtar som appen spelar går att höra: väntelåtarna, säsongskategoriernas väntelåtar, vinnarlåtarna och quizlåtarna i varje kategori. Kategorierna står i samma ordning som i appen och låtarna i bokstavsordning efter artist och titel. Kör `node tools/listen.mjs <utfil>` efter att låtlistorna har ändrats.
 - `spotify-lardomar.md`: vad vi lärde oss om Spotify, som spelades fram till 23 oktober 2026, om det någon gång ska tillbaka.
-- `tools/versions.mjs`, `.github/workflows/publish.yml`: sidan publiceras på GitHub Pages av ett arbetsflöde, som först ger CSS och JS ett versionsnummer. Då hämtar webbläsaren nya filer efter varje ändring i stället för gamla från cachen. Skriptet körs bara av arbetsflödet och i CI, aldrig för hand. Numret längst ner på sidorna syns bara med `?debug=1`, som sparas på enheten tills `?debug=0` används.
+- `tools/build.mjs`, `tools/versions.mjs`, `.github/workflows/publish.yml`: sidan publiceras på GitHub Pages av ett arbetsflöde, som först bygger den i `_site/`. JavaScript bundlas och minifieras med esbuild till en fil per startfil (`js/host.js`, `js/play.js` och `js/menu.js`), med en source map bredvid så att felsökning i Safari och Chrome visar de riktiga filerna. CSS och `vendor/qrcode.js` minifieras. Sist får CSS och JS ett versionsnummer, så att webbläsaren hämtar nya filer efter varje ändring i stället för gamla från cachen. Källfilerna i repot ändras inte och körs som de är lokalt. Numret längst ner på sidorna syns bara med `?debug=1`, som sparas på enheten tills `?debug=0` används.
 - `favicon.svg`, `icons/`, `manifest.webmanifest`: faviconen (Material Symbols Rounded music_note i vitt på en rundad fyrkant i appens ljusa gröna färg, #1ed760, utan toning) och samma ikon som PNG: `apple-touch-icon.png` (180 px, fyrkantig) för hemskärmen i iPhone och iPad, och 192 och 512 px (plus en maskbar 512 px) i manifestet för Lägg till på startskärmen i Android. PNG-filerna för Android är renderade från `favicon.svg`. `apple-touch-icon.png` är renderad från `icons/apple-touch-icon.svg`, som har en diagonal toning från samma ljusa gröna uppe till vänster till lite mörkare grönt nere till höger och en svag skugga under noten så att ikonen känns mer levande på hemskärmen. PNG-filerna behöver göras om om faviconen ändras.
 - `vendor/`: PeerJS 1.5.4, qrcode-generator 1.4.4 och typsnittet Inter (SIL Open Font License). Loggan `logo.svg` är ritad från typsnittet Lobster (SIL Open Font License).
 
@@ -48,11 +48,20 @@ python3 -m http.server 8080
 
 Öppna sedan http://localhost:8080/host.html. Spelare på samma wifi når datorn via dess IP-adress.
 
+Så körs källfilerna som de är, utan bygge. För att se exakt det som publiceras, bundlat och minifierat:
+
+```
+npm ci
+npm run build
+cd _site && python3 -m http.server 8080
+```
+
 PeerJS gratisserver används som standard. För att testa med en egen PeerJS-server läggs `?peerHost=127.0.0.1&peerPort=9000` till i adressen.
 
 ## Tester
 
 ```
+npm ci
 npm test
 ```
 
@@ -62,9 +71,12 @@ Testerna kontrollerar också att alla JSON-filer går att läsa och att varje qu
 
 Varje pull request kör `.github/workflows/quality.yml`, som följer regeln webbkvalitet: tester, lint (ESLint), typkontroll, ett röktest som spelar ett helt spel med en spelledare och en spelare, HTML-validering (W3C Nu), tillgänglighet med axe (WCAG 2.2 AA, ljust och mörkt läge genom ett helt spel), Lighthouse i mobilläge, länkkontroll och sidvikt. Verktygen ligger i `quality/`, med egna beroenden, så att själva appen förblir fri från beroenden.
 
-Lokalt, med webbservern på port 8080 igång:
+Kontrollerna gäller den byggda sidan i `_site/`, alltså det som publiceras. Lint och typkontrollen gäller källfilerna. Lokalt, med den byggda sidan på port 8080 och källfilerna på port 8081 (axe behöver dem för meddelanderutan):
 
 ```
+npm ci && npm run build
+(cd _site && python3 -m http.server 8080 &)
+python3 -m http.server 8081 &
 cd quality
 npm ci
 npm run lint

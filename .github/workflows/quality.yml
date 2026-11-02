@@ -14,18 +14,23 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: quality/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            quality/package-lock.json
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
+      - name: Installera esbuild
+        run: npm ci
+
       - name: Tester och JSON
         run: npm test
 
-      # Samma versionsnummer som vid publiceringen, så att kontrollerna gäller det som publiceras.
-      - name: Versionsnummer på CSS och JS
-        run: node tools/versions.mjs
+      # Samma bygge som vid publiceringen, så att kontrollerna gäller det som publiceras.
+      - name: Bygg sidan (bundling, minifiering och versionsnummer)
+        run: npm run build
 
       - name: Installera kontrollverktygen
         working-directory: quality
@@ -39,10 +44,12 @@ jobs:
         working-directory: quality
         run: npm run types
 
-      - name: Starta webbserver och PeerJS-server
+      # 8080: den byggda sidan, som kontrolleras. 8081: källfilerna, som axe behöver för meddelanderutan.
+      - name: Starta webbservrar och PeerJS-server
         working-directory: quality
         run: |
-          (cd .. && python3 -m http.server 8080 &)
+          (cd ../_site && python3 -m http.server 8080 &)
+          (cd .. && python3 -m http.server 8081 &)
           npx peerjs --host 127.0.0.1 --port 9000 &
           sleep 3
 
