@@ -142,7 +142,6 @@ export default {
     'Vinnaren är utsedd!',
     'Vi har en segrare!',
     'Vi har en mästare!',
-    'Avgjort!',
   ],
   'win.shared': [
     'Delad glädje är dubbel glädje!',
