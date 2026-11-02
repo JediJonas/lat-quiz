@@ -3,7 +3,9 @@
 // Resten av appen använder bara createHost och createClient, så den här filen
 // kan bytas mot till exempel Firebase utan att spellogiken ändras.
 //
-// Meddelanden är vanliga objekt med fältet type.
+// Meddelanden är vanliga objekt med fältet type, se shared/protocol.js.
+
+import { MSG } from './shared/protocol.js';
 
 const PEER_PREFIX = 'latquiz-v1-';
 const PING_MS = 4000;
@@ -62,7 +64,7 @@ export function createHost(code, handlers) {
       });
       conn.on('data', (msg) => {
         lastSeen.set(conn.connectionId, Date.now());
-        if (msg && msg.type === 'pong') return;
+        if (msg && msg.type === MSG.pong) return;
         handlers.onMessage(conn.connectionId, msg);
       });
       conn.on('close', () => drop(conn.connectionId));
@@ -102,7 +104,7 @@ export function createHost(code, handlers) {
     const now = Date.now();
     for (const [connId, conn] of conns) {
       if (now - lastSeen.get(connId) > SILENCE_MS) drop(connId);
-      else conn.send({ type: 'ping' });
+      else conn.send({ type: MSG.ping });
     }
   }, PING_MS);
 
@@ -224,7 +226,7 @@ export function createClient(code, handlers) {
       if (conn !== c) return;
       lastSeen = Date.now();
       if (handlers.onHeard) handlers.onHeard();
-      if (msg && msg.type === 'ping') { c.send({ type: 'pong' }); return; }
+      if (msg && msg.type === MSG.ping) { c.send({ type: MSG.pong }); return; }
       handlers.onMessage(msg);
     });
     c.on('close', () => { if (conn === c) scheduleRetry(); });
