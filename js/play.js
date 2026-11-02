@@ -2,7 +2,7 @@
 import { codeBoxes } from './kodrutor.js';
 import { createClient } from './net.js';
 import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
-import { createGameView } from './spelvy.js';
+import { createGameView } from './game-view.js';
 import { MAX_NAME, settingsChangeText, upcomingSettings } from './game.js';
 import { $ } from './shared/dom.js';
 import { newId } from './shared/ids.js';

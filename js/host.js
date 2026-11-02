@@ -4,7 +4,7 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, visibleCategories } from './data.js';
 import { showConfirm } from './dialog.js';
 import { INFO_MS, currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
-import { createGameView } from './spelvy.js';
+import { createGameView } from './game-view.js';
 import { $ } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
