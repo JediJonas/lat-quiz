@@ -1,6 +1,6 @@
 // @ts-check
 // Menyn och tangenterna hos spelledaren, och QR-koden med länken för att gå med.
-import { ICONS, commonItems, startItems } from './meny.js';
+import { ICONS, commonItems, startItems } from './menu.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { peerQuery } from './net.js';
 import { $ } from './shared/dom.js';

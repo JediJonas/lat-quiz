@@ -4,7 +4,7 @@
 // ingen av dem finns bland quizlåtarna. Varje väntan får en slumpad låt, som tonar in och ut och
 // spelas om tills spelet startar. Då tonar musiken ut, och första låten väntar tills den är tyst.
 import { SILENCE, findPreview } from './deezer.js';
-import { levelGain } from './ljudniva.js';
+import { levelGain } from './audio-level.js';
 
 // Låtarna står i data/music.json under lobby: default för alla kategorier, och en egen lista för
 // säsongskategorierna. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har
@@ -16,7 +16,7 @@ export const lobbySongs = (music, categoryId) => music.lobby[categoryId] || musi
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
 const VOLUME = 0.5;
-// Nivån som klippen jämnas ut mot, se ljudniva.js. Lugna låtar är ofta svagare mixade än poplåtar.
+// Nivån som klippen jämnas ut mot, se audio-level.js. Lugna låtar är ofta svagare mixade än poplåtar.
 const LEVEL_DB = -16;
 const FADE_IN_MS = 2000;
 const FADE_OUT_MS = 3000; // i slutet av varje klipp

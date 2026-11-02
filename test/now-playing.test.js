@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nowMusic } from '../js/nuspelas.js';
+import { nowMusic } from '../js/now-playing.js';
 import { readFileSync } from 'node:fs';
 
 const music = JSON.parse(readFileSync(new URL('../data/music.json', import.meta.url), 'utf8'));

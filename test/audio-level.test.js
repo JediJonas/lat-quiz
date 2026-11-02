@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { measureLevel, levelGain } from '../js/ljudniva.js';
-import { musicVolume } from '../js/klipp.js';
+import { measureLevel, levelGain } from '../js/audio-level.js';
+import { musicVolume } from '../js/clip-player.js';
 
 // Ett påhittat klipp med samma delar som ljudmotorns AudioBuffer: en ton med amplituden amp,
 // och tystnad under de sekunder som anges i silentS.

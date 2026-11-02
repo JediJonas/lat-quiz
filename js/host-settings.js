@@ -5,9 +5,9 @@
 import * as game from './game.js';
 import { t } from './shared/lang.js';
 import { loadCategories, loadSongs, visibleCategories } from './data.js';
-import { INFO_MS, currentMessage, showMessage } from './meddelande.js';
-import { delayShort } from './ljudfordrojning.js';
-import { isUnknown, toggleUnknown } from './okanda.js';
+import { INFO_MS, currentMessage, showMessage } from './message.js';
+import { delayShort } from './audio-delay.js';
+import { isUnknown, toggleUnknown } from './unknown-songs.js';
 import { showSettings } from './settings-dialog.js';
 import { $ } from './shared/dom.js';
 import * as prefs from './shared/preferences.js';

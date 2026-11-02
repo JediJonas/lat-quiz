@@ -3,11 +3,11 @@
 // spelarna går med, trumvirveln och vinnarlåten när någon har vunnit, och raden Nu spelas
 // visar låten först när den hörs. Quizklippet sköts av quiz-clip.js.
 import * as prefs from './shared/preferences.js';
-import { showMessage } from './meddelande.js';
-import { after } from './ljudfordrojning.js';
+import { showMessage } from './message.js';
+import { after } from './audio-delay.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './winner-song.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './lobby-music.js';
-import { nowMusic } from './nuspelas.js';
+import { nowMusic } from './now-playing.js';
 
 // Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
 // blåtand, så med ljudsynk väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra

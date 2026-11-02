@@ -2,7 +2,7 @@
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 import { SILENCE, findPreview } from './deezer.js';
-import { levelGain } from './ljudniva.js';
+import { levelGain } from './audio-level.js';
 
 // Låtarna står i data/music.json under winner: default för alla kategorier, och en egen lista
 // för säsongskategorierna (beslutat 25 oktober 2026).
@@ -12,7 +12,7 @@ import { levelGain } from './ljudniva.js';
 // sen med en blåtandshögtalare (beslutat 24 oktober 2026).
 const FADE_MS = 5000;
 const VOLUME = 0.8;
-// Nivån som klippen jämnas ut mot, se ljudniva.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
+// Nivån som klippen jämnas ut mot, se audio-level.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
 const LEVEL_DB = -12;
 const DRUM_URL = 'ljud/trumvirvel.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln

@@ -2,7 +2,7 @@
 import { codeBoxes } from './kodrutor.js';
 import { t } from './shared/lang.js';
 import { createClient } from './net.js';
-import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
+import { INFO_MS, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './message.js';
 import { createGameView } from './game-view.js';
 import { MAX_NAME, settingsChangeText, upcomingSettings } from './game.js';
 import { $ } from './shared/dom.js';
@@ -11,12 +11,12 @@ import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import * as protocol from './shared/protocol.js';
 
 const { MSG } = protocol;
-import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
+import { ICONS, commonItems, mountMenu, startItems } from './menu.js';
 import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
-import { createClipPlayer } from './klipp.js';
-import { showNowMusic } from './nuspelas.js';
-import { mountSeasonEffect } from './sasong.js';
+import { createClipPlayer } from './clip-player.js';
+import { showNowMusic } from './now-playing.js';
+import { mountSeasonEffect } from './season.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.

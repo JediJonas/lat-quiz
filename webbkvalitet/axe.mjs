@@ -168,7 +168,7 @@ await check(host, 'Spelledare, rätt svar');
 await check(player, 'Spelare, rätt svar');
 
 // Meddelanderutan längst ner, både ett fel och ett meddelande om vad som händer.
-const show = (page, msg) => page.evaluate((m) => import('./js/meddelande.js').then((mod) => mod.showMessage(m)), msg);
+const show = (page, msg) => page.evaluate((m) => import('./js/message.js').then((mod) => mod.showMessage(m)), msg);
 await show(host, { key: 'test', kind: 'problem', title: 'Deezer svarade inte', text: 'Välj Starta spelet i menyn för att försöka igen.' });
 await check(host, 'Spelledare, felmeddelande');
 await show(player, { key: 'test', kind: 'busy', title: 'Anslutningen bröts', text: 'Ansluter igen… Dina svar sparas.' });

@@ -4,7 +4,7 @@
 // står den still, som ett foto. Valet slumpas per match men blir detsamma på alla enheter
 // (pickWinEffect).
 
-import { drawBat } from './sasong.js';
+import { drawBat } from './season.js';
 
 export const WIN_EFFECTS = ['konfetti', 'fyrverkeri', 'stralkastare'];
 // Säsongskategorierna har egna effekter i stället för de vanliga.
@@ -327,7 +327,7 @@ function play(box, area, dur, step, end) {
 
 // Fladdermusen i tolv lägen av vingslaget, ritad en gång och sedan kopierad, så att mobilen orkar
 // med en hel svärm. zoom ger större bilder, så att fladdermöss som flyger mot kameran blir skarpa.
-// Samma fladdermus som flyger förbi i säsongslagret (js/sasong.js).
+// Samma fladdermus som flyger förbi i säsongslagret (js/season.js).
 function batFrames(zoom) {
   const dpr = Math.min(devicePixelRatio || 1, 2);
   return Array.from({ length: 12 }, (_, i) => {

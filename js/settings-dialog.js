@@ -8,9 +8,9 @@ import * as prefs from './shared/preferences.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
 import { dragToClose } from './ark.js';
-import { ICONS as MENU_ICONS } from './meny.js';
-import { DELAY_CHOICES, cleanDelay, delayShort, delayText } from './ljudfordrojning.js';
-import { countUnknown, formatUnknown } from './okanda.js';
+import { ICONS as MENU_ICONS } from './menu.js';
+import { DELAY_CHOICES, cleanDelay, delayShort, delayText } from './audio-delay.js';
+import { countUnknown, formatUnknown } from './unknown-songs.js';
 
 // short: den korta texten på segmentet. text: hela texten, som skärmläsare läser.
 const SETTING_FIELDS = [

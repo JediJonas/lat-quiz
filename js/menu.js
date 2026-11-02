@@ -2,7 +2,7 @@
 // starta nytt spel, pausa spelet, QR-kod, inställningar, Om Låtquiz, Utseende och att lämna eller avsluta spelet.
 // Raderna har ikon och text. Rader som inte går att använda just nu visas inte.
 import { showUserSettings } from './theme.js';
-import { showAbout } from './om.js';
+import { showAbout } from './about.js';
 import { t } from './shared/lang.js';
 
 const svg = (d) => `<svg viewBox="0 -960 960 960" aria-hidden="true"><path d="${d}"/></svg>`;
