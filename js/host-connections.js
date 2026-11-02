@@ -5,7 +5,7 @@
 import * as game from './game.js';
 import { t } from './shared/lang.js';
 import { createHost as netCreateHost } from './net.js';
-import { showJoined, showLeft, showMessage } from './meddelande.js';
+import { showJoined, showLeft, showMessage } from './message.js';
 import * as protocol from './shared/protocol.js';
 
 // Kontakten med förmedlingsservern bryts oftast när spelledaren har lämnat webbläsaren, till

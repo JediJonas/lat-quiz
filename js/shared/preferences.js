@@ -4,8 +4,8 @@
 // Okända låtar. Spelets eget läge sparas av host.js och play.js.
 import { KEYS, readJson, readText, remove, writeJson, writeText } from './storage.js';
 import { cleanSettings } from '../game.js';
-import { cleanDelay } from '../ljudfordrojning.js';
-import { cleanUnknown } from '../okanda.js';
+import { cleanDelay } from '../audio-delay.js';
+import { cleanUnknown } from '../unknown-songs.js';
 
 /** Extraljuden (väntemusik, trumvirvel och vinnarlåt) är på om inget annat har valts. */
 export function extraSounds() {
@@ -27,7 +27,7 @@ export function setClipAll(on) {
   writeText(KEYS.clipAll, on ? '1' : null);
 }
 
-/** Ljudsynk i millisekunder, se ljudfordrojning.js. 0 betyder Ingen. */
+/** Ljudsynk i millisekunder, se audio-delay.js. 0 betyder Ingen. */
 export function audioDelay() {
   return cleanDelay(readText(KEYS.audioDelay) ?? 0);
 }
@@ -69,7 +69,7 @@ export function showUnknown(search) {
   return readText(KEYS.showUnknown) === '1';
 }
 
-/** Okända låtar, som sparas på den här enheten och hoppas över i kommande spel. Se okanda.js. */
+/** Okända låtar, som sparas på den här enheten och hoppas över i kommande spel. Se unknown-songs.js. */
 export function unknownSongs() {
   return cleanUnknown(readJson(KEYS.unknown, {}));
 }

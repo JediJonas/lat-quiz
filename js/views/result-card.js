@@ -5,10 +5,10 @@
 import { $ } from '../shared/dom.js';
 import { html, join } from '../shared/html.js';
 import { announce, renderPie, scrollToTop } from '../ui.js';
-import { roundCheer, winComment, winIntro } from '../pepp.js';
+import { roundCheer, winComment, winIntro } from '../cheer.js';
 import { guessFields as fieldsOf } from '../game.js';
-import { pickWinEffect, startWinEffect } from '../vinstanimation.js';
-import { pauseSeasonEffect } from '../sasong.js';
+import { pickWinEffect, startWinEffect } from '../win-animation.js';
+import { pauseSeasonEffect } from '../season.js';
 import { rankIn } from './standings.js';
 import { t } from '../shared/lang.js';
 

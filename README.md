@@ -20,14 +20,14 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/host.js`, `js/play.js`: spelledarvy och spelarvy. Spelledarens anslutningar till spelarna (vem som är ansluten, vad de skickar och vad de får tillbaka) ligger i `js/host-connections.js`, och Inställningar med ändringarna som gäller från nästa låt i `js/host-settings.js`. Menyn, tangenterna och QR-koden ligger i `js/host-menu.js`.
 - `js/game-view.js`: spelvyn som spelarna och spelledaren delar. Korten ritas i `js/views/`: väntekortet, låtkortet, rätt svar och vinnaren, poänglistan och när vinnaren visas. Svarsfälten med sina regler för iPhone ligger kvar i `game-view.js`.
 - `js/shared/`: det som alla sidor delar. `storage.js` har alla nycklar i webbläsarens lagring och tar bort gamla nycklar, `preferences.js` enhetens val (Spela extraljud, Spela ljud på alla enheter, Ljudsynk, namnet och de senaste inställningarna), `dom.js` `$` och `esc`, `html.js` en liten HTML-hjälp som escapar själv, `ids.js` koder och id:n, `ticker.js` en timer som inte bromsas i flikar som inte syns, och `protocol.js` alla meddelanden mellan spelledaren och spelarna och vilka fält vyn har. Nya filer får engelska namn.
-- `js/meny.js`: menyn uppe till höger på alla sidor, och `js/om.js`: rutan Om Låtquiz, med hur spelet fungerar tekniskt.
+- `js/menu.js`: menyn uppe till höger på alla sidor, och `js/about.js`: rutan Om Låtquiz, med hur spelet fungerar tekniskt.
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`: textmatchning för `verktyg/deezer-id.mjs`.
-- `js/okanda.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
+- `js/unknown-songs.js`: låtar som spelledaren markerat som okända. De sparas i webbläsaren, hoppas över i kommande spel och kan kopieras under Inställningar, så att de tas bort ur kategorin.
 - `js/lobby-music.js`: väntemusiken, ett slumpat Deezer-klipp ur instrumentala jazzlåtar som tonar in och ut och loopar hos spelledaren tills spelet startar. Varje väntan får en ny låt. Med Spela ljud på alla enheter spelas den, liksom vinnarlåten från `js/winner-song.js`, även i spelarnas mobiler, i takt med spelledaren. Ingen av låtarna finns bland quizlåtarna.
 - `data/music.json`: väntemusiken (`lobby`) och vinnarlåtarna (`winner`). Under `default` står låtarna för alla kategorier, och en säsongskategori kan ha en egen lista under sitt id.
-- `js/nuspelas.js`: raden längst ner, "Nu spelas artist – titel", medan väntemusiken eller vinnarlåten spelas. Den syns hos spelledaren och i spelarnas mobiler, även när ljudet bara spelas hos spelledaren.
-- `js/klipp.js`: klippet i spelarnas mobiler när spelledaren har valt att spela det på alla enheter. Spelarna får bara klipplänken, inte vilken låt det är.
+- `js/now-playing.js`: raden längst ner, "Nu spelas artist – titel", medan väntemusiken eller vinnarlåten spelas. Den syns hos spelledaren och i spelarnas mobiler, även när ljudet bara spelas hos spelledaren.
+- `js/clip-player.js`: klippet i spelarnas mobiler när spelledaren har valt att spela det på alla enheter. Spelarna får bara klipplänken, inte vilken låt det är.
 - `js/deezer.js`: förhandsklipp från Deezer. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp hoppas låten över. Bara låtar med Deezer-ID spelas.
 - `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.
 - `verktyg/categories.mjs`: kategorierna beskrivs bara i `data/categories.json`. Verktyget skriver antalet låtar där, och omslagens färger och tecken i `css/style.css` mellan två markeringar.
@@ -101,7 +101,7 @@ Datumen skrivs som `MM-DD` och ändras bara där. Ett fönster över nyår, som 
 
 Jul syns 1 december–6 januari och har jullåtar, både utländska och svenska.
 
-Säsongskategorierna har egen väntemusik och egna vinnarlåtar under sitt id i `data/music.json`, och en effekt bakom sidan från `js/sasong.js`: snö i Jul och fallande löv i Halloween. Effekten följer den valda kategorin, syns hos både spelledaren och spelarna och står still med minskad rörelse.
+Säsongskategorierna har egen väntemusik och egna vinnarlåtar under sitt id i `data/music.json`, och en effekt bakom sidan från `js/season.js`: snö i Jul och fallande löv i Halloween. Effekten följer den valda kategorin, syns hos både spelledaren och spelarna och står still med minskad rörelse.
 
 Halloween blandar läskiga låtar med ledmotiv från skräckfilmer och serier. För ledmotiven är Artist den som skrev det och Titel filmens eller seriens namn, som i Filmmusik, och spåret står i `track`.
 

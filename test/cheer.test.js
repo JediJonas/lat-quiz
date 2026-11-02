@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { roundCheer, winComment, winIntro } from '../js/pepp.js';
+import { roundCheer, winComment, winIntro } from '../js/cheer.js';
 import { readFileSync } from 'node:fs';
 import { pickWinnerSong } from '../js/winner-song.js';
 

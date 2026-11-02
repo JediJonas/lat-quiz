@@ -38,7 +38,7 @@
     for (const a of document.querySelectorAll('a')) a.search = location.search;
   </script>
   <script type="module">
-    import { commonItems, mountMenu, startItems } from './js/meny.js';
+    import { commonItems, mountMenu, startItems } from './js/menu.js';
     mountMenu(document.querySelector('main'), () => [startItems(), commonItems()]);
   </script>
 </body>
