@@ -1,4 +1,4 @@
-// Städar lockbetena i data/forslag.json. Wikidata-etiketter är ibland inte låtens
+// Städar lockbetena i data/suggestions.json. Wikidata-etiketter är ibland inte låtens
 // namn utan en artikelrubrik, en singel med b-sida eller en annan version, och då
 // dyker de upp i förslagen precis när någon skriver rätt svar.
 
@@ -33,7 +33,7 @@ export function cleanArtist(artist) {
 // tas bort, eftersom rätt svar ändå läggs till i förslagen när spelet laddar. Det gäller bara listan
 // som svaret hamnar i, så att Jerry Goldsmith finns kvar bland kompositörerna i Filmmusik även när
 // han är ett rätt svar som artist i Halloween.
-export function cleanDecoys(forslag, categories) {
+export function cleanDecoys(suggestions, categories) {
   const answers = { artists: new Set(), titles: new Set() };
   const same = {};
   const films = [];
@@ -74,18 +74,18 @@ export function cleanDecoys(forslag, categories) {
     return [...seen.values()];
   };
   return {
-    artists: clean(forslag.artists, cleanArtist, 'artists', isConfusable),
-    titles: clean(forslag.titles, cleanTitle, 'titles', (t) => isSequel(t) || isSubtitled(t)),
+    artists: clean(suggestions.artists, cleanArtist, 'artists', isConfusable),
+    titles: clean(suggestions.titles, cleanTitle, 'titles', (t) => isSequel(t) || isSubtitled(t)),
     // Lockbeten för fält som heter Land, Kompositör, Film och Verk, se suggestionKind i js/data.js.
-    countries: clean(forslag.countries || [], (c) => c.trim(), 'countries', () => false),
-    composers: clean(forslag.composers || [], cleanArtist, 'composers', isConfusable),
-    films: clean(forslag.films || [], cleanTitle, 'films', (t) => isSequel(t) || isSubtitled(t)),
-    works: clean(forslag.works || [], cleanTitle, 'works', isSubtitled),
+    countries: clean(suggestions.countries || [], (c) => c.trim(), 'countries', () => false),
+    composers: clean(suggestions.composers || [], cleanArtist, 'composers', isConfusable),
+    films: clean(suggestions.films || [], cleanTitle, 'films', (t) => isSequel(t) || isSubtitled(t)),
+    works: clean(suggestions.works || [], cleanTitle, 'works', isSubtitled),
   };
 }
 
-export function formatForslag(forslag) {
+export function formatSuggestions(suggestions) {
   const lines = (items) => items.map((t) => JSON.stringify(t)).join(',\n');
-  const keys = Object.keys(forslag).filter((key) => forslag[key].length);
-  return `{\n${keys.map((key) => `"${key}": [\n${lines(forslag[key])}\n]`).join(',\n')}\n}\n`;
+  const keys = Object.keys(suggestions).filter((key) => suggestions[key].length);
+  return `{\n${keys.map((key) => `"${key}": [\n${lines(suggestions[key])}\n]`).join(',\n')}\n}\n`;
 }

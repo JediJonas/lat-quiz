@@ -5,7 +5,7 @@
 // - data-t-html="nyckel": elementets innehåll som HTML, till exempel med <br>.
 // - data-t-<attribut>="nyckel": attributet, till exempel data-t-aria-label och data-t-content.
 //
-//   node verktyg/texts.mjs
+//   node tools/texts.mjs
 //
 // Ett test (test/texts.test.js) säger till om verktyget behöver köras eller om en text i en sida
 // saknar nyckel.

@@ -6,7 +6,7 @@ import { normalize } from '../js/text.js';
 const read = (path) => JSON.parse(readFileSync(new URL('../' + path, import.meta.url)));
 
 test('alla JSON-filer i data går att läsa', () => {
-  for (const dir of ['data', 'data/kandidater']) {
+  for (const dir of ['data', 'data/candidates']) {
     for (const file of readdirSync(new URL('../' + dir, import.meta.url))) {
       if (file.endsWith('.json')) assert.doesNotThrow(() => read(`${dir}/${file}`), `${dir}/${file}`);
     }
@@ -65,24 +65,24 @@ test('active i categories.json är true eller false', () => {
 
 test('antalet låtar i categories.json stämmer med kategorins fil', () => {
   for (const category of read('data/categories.json')) {
-    assert.equal(category.songs, read('data/' + category.file).length, `Kör node verktyg/categories.mjs, så att songs för ${category.id} stämmer`);
+    assert.equal(category.songs, read('data/' + category.file).length, `Kör node tools/categories.mjs, så att songs för ${category.id} stämmer`);
   }
 });
 
 test('förslagslistan har inga lockbeten som kan förväxlas med rätt svar', async () => {
-  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
-  const forslag = read('data/forslag.json');
+  const { cleanDecoys } = await import('../tools/decoys.mjs');
+  const suggestions = read('data/suggestions.json');
   const categories = read('data/categories.json').map((c) => ({ id: c.id, labels: c.labels, songs: read('data/' + c.file) }));
-  const clean = cleanDecoys(forslag, categories);
+  const clean = cleanDecoys(suggestions, categories);
   for (const key of ['artists', 'titles', 'countries', 'composers', 'films', 'works']) {
     const kept = new Set(clean[key]);
-    const bad = (forslag[key] || []).filter((x) => !kept.has(x));
-    assert.deepEqual(bad, [], `Kör cleanDecoys i verktyg/lockbeten.mjs på data/forslag.json (${key})`);
+    const bad = (suggestions[key] || []).filter((x) => !kept.has(x));
+    assert.deepEqual(bad, [], `Kör cleanDecoys i tools/decoys.mjs på data/suggestions.json (${key})`);
   }
 });
 
 test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
-  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const { cleanDecoys } = await import('../tools/decoys.mjs');
   const categories = [
     { id: 'eurovision', songs: [{ artist: 'Azerbajdzjan', title: 'Drip' }] },
     { id: 'filmmusik', songs: [{ artist: 'Brian Tyler', title: 'Thor' }] },
@@ -99,7 +99,7 @@ test('lockbeten städas från versioner, b-sidor och uppföljare', async () => {
 });
 
 test('lockbeten städas från undertitlar, fullständiga namn, samarbeten med rätt artist och dubbletter', async () => {
-  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const { cleanDecoys } = await import('../tools/decoys.mjs');
   const categories = [{ id: 'svenska', songs: [{ artist: 'Darin', title: 'Sweet Dreams' }] }];
   const result = cleanDecoys({
     artists: ['Darin Zanyar', 'Darin & Kat DeLuna', 'Kat DeLuna & Darin', 'Darin Zanyar & Kat DeLuna',
@@ -111,7 +111,7 @@ test('lockbeten städas från undertitlar, fullständiga namn, samarbeten med r�
 });
 
 test('lockbeten som är samma artist eller titel som ett rätt svar med annan stavning tas bort', async () => {
-  const { cleanDecoys } = await import('../verktyg/lockbeten.mjs');
+  const { cleanDecoys } = await import('../tools/decoys.mjs');
   const categories = [{ id: 'halloween', songs: [
     { artist: 'Nick Cave & The Bad Seeds', title: 'Red Right Hand' },
     { artist: 'The Sweet', title: 'Power' },
@@ -126,7 +126,7 @@ test('lockbeten som är samma artist eller titel som ett rätt svar med annan st
 
 test('inget lockbete är samma svar som en quizlåt i samma förslagslista', async () => {
   const { suggestionKind, suggestionKey, songLabels } = await import('../js/data.js');
-  const forslag = read('data/forslag.json');
+  const suggestions = read('data/suggestions.json');
   const answers = {};
   for (const c of read('data/categories.json')) {
     for (const song of read('data/' + c.file)) {
@@ -136,10 +136,10 @@ test('inget lockbete är samma svar som en quizlåt i samma förslagslista', asy
       }
     }
   }
-  const bad = Object.entries(forslag).flatMap(([kind, items]) => items
+  const bad = Object.entries(suggestions).flatMap(([kind, items]) => items
     .filter((x) => answers[kind]?.has(suggestionKey(x, kind)))
     .map((x) => `${x} (svaret är ${answers[kind].get(suggestionKey(x, kind))})`));
-  assert.deepEqual(bad, [], 'Kör cleanDecoys i verktyg/lockbeten.mjs på data/forslag.json');
+  assert.deepEqual(bad, [], 'Kör cleanDecoys i tools/decoys.mjs på data/suggestions.json');
 });
 
 test('förslagen visar ett svar en gång även med "and" i stället för "&"', async () => {

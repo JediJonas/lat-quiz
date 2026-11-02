@@ -34,8 +34,8 @@ Koden och alla Spotify-ID finns kvar i git-historiken. Den sista versionen med S
 - Reserv: Wikidata (P2207 för låtens Spotify-ID) och MusicBrainz via verk (P435), skiva (P436) och namnsökning. MusicBrainz tillåter ungefär ett anrop per sekund, så en kategori tar en till ett par timmar, och har få svenska och äldre låtar.
 - Song.link blockerar anrop från webbläsare (CORS). iTunes användes inte.
 - Wikidata anger även den som gjort en cover som artist (P175), så remaster-, cover- och samlingsversioner kunde väljas. Varje ID kontrollerades mot kworb.net eller MusicBrainz. Den 12 oktober 2026 rättades 78 låtar.
-- Spotify-ID gav också låtens ISRC via Wikidata (P1243), och med den hämtade `verktyg/deezer-id.mjs` exakt samma inspelning från Deezer (`track/isrc:<isrc>`). Det steget togs bort med Spotify-ID:na. Det kan ersättas med en sökning efter låten i Wikidata.
-- Verktygen `verktyg/hamta-id.mjs` (Node) och `verktyg/spotify-id.html` (i webbläsaren) hämtade Spotify-ID för en kandidatlista. De finns i git-historiken.
+- Spotify-ID gav också låtens ISRC via Wikidata (P1243), och med den hämtade `tools/deezer-id.mjs` exakt samma inspelning från Deezer (`track/isrc:<isrc>`). Det steget togs bort med Spotify-ID:na. Det kan ersättas med en sökning efter låten i Wikidata.
+- Verktygen `tools/hamta-id.mjs` (Node) och `tools/spotify-id.html` (i webbläsaren) hämtade Spotify-ID för en kandidatlista. De finns i git-historiken.
 
 ## Om Spotify ska tillbaka
 

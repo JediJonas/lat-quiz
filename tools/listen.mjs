@@ -2,7 +2,7 @@
 // väntelåtar, vinnarlåtarna och quizlåtarna i varje kategori. Låtarna läses från samma filer som appen använder,
 // så att sidan alltid stämmer med appen. Sidan ligger i projektfilerna, inte i repot.
 //
-//   node verktyg/lyssna.mjs [utfil]
+//   node tools/listen.mjs [utfil]
 //
 // Utan utfil skrivs sidan till lyssna-latarna-i-appen.html i den aktuella mappen.
 import { readFileSync, writeFileSync } from 'node:fs';

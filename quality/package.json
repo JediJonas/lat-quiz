@@ -4,14 +4,14 @@
   "type": "module",
   "description": "Kvalitetskontroller som körs i CI: lint, typer, röktest, HTML, tillgänglighet, Lighthouse, länkar och sidvikt.",
   "scripts": {
-    "lint": "cd .. && eslint --config webbkvalitet/eslint.config.js .",
+    "lint": "cd .. && eslint --config quality/eslint.config.js .",
     "types": "tsc -p tsconfig.json",
     "html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --also-check-css ../index.html ../host.html ../play.html ../css/style.css",
     "peer": "peerjs --host 127.0.0.1 --port 9000",
     "axe": "node axe.mjs",
     "lighthouse": "node lighthouse.mjs",
-    "lankar": "linkinator http://localhost:8080/index.html --recurse",
-    "sidvikt": "node sidvikt.mjs",
+    "links": "linkinator http://localhost:8080/index.html --recurse",
+    "page-weight": "node page-weight.mjs",
     "smoke": "node smoke.mjs && EXTRA=1 ALLA=1 node smoke.mjs"
   },
   "devDependencies": {

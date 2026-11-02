@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import sv from '../js/lang/sv.js';
 import { t } from '../js/shared/lang.js';
-import { PAGES, pageKeys } from '../verktyg/texts.mjs';
+import { PAGES, pageKeys } from '../tools/texts.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = (file) => readFileSync(new URL(file, root), 'utf8');
@@ -40,7 +40,7 @@ test('t ger nyckeln om texten saknas', (ctx) => {
   assert.equal(t('finns.inte'), 'finns.inte');
 });
 
-// Nycklarna i html-sidorna, som verktyg/texts.mjs skriver in.
+// Nycklarna i html-sidorna, som tools/texts.mjs skriver in.
 const pageCalls = () => PAGES.flatMap((file) => pageKeys(read(file)).map((key) => ({ file, key })));
 
 test('varje nyckel som används finns i språkfilen', () => {

@@ -14,7 +14,7 @@ const FADE_MS = 5000;
 const VOLUME = 0.8;
 // Nivån som klippen jämnas ut mot, se audio-level.js. Vinnarlåtarna är oftast starkt mixade poplåtar.
 const LEVEL_DB = -12;
-const DRUM_URL = 'ljud/trumvirvel.mp3';
+const DRUM_URL = 'sounds/drumroll.mp3';
 const DRUM_TAIL_S = 0.15; // tystnaden i slutet av trumvirveln
 
 // Vinnarlåtarna för en kategori: säsongens egen, annars de vanliga.

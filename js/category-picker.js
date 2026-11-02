@@ -12,7 +12,7 @@ export function renderCategories(categories) {
   const picker = $('#category-picker');
   const chosen = pickedCategory ? chosenCategory() : null;
   picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
-    + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
+    + `<span class="tile" data-category="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
     + `${c.songs ? `<span class="cat-songs">${t('category.songs', { count: c.songs })}</span>` : ''}</span></label>`).join('');
   $('.cat-count').textContent = t('category.count', { count: categories.length });
   $('#category-select').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
@@ -30,7 +30,7 @@ export const chosenCategory = () => ($('#category-picker input:checked') || {}).
 
 // Sidans ljus får den valda kategorins färger. När sidan visas rullas det valda omslaget fram.
 function showChosenCategory({ scroll = false } = {}) {
-  document.documentElement.dataset.kategori = chosenCategory() || '';
+  document.documentElement.dataset.category = chosenCategory() || '';
   if (!scroll) return;
   // Bara raden rullas i sidled, inte sidan.
   const picker = $('#category-picker');

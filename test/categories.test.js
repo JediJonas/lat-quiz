@@ -1,17 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { CATEGORIES, CSS, categoriesJson, styleCss } from '../verktyg/categories.mjs';
+import { CATEGORIES, CSS, categoriesJson, styleCss } from '../tools/categories.mjs';
 
 const read = (path) => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 const categories = JSON.parse(read(CATEGORIES));
 
 test('style.css har kategoriernas färger och tecken från categories.json', () => {
-  assert.equal(read(CSS), styleCss(read(CSS), categories), 'Kör node verktyg/categories.mjs');
+  assert.equal(read(CSS), styleCss(read(CSS), categories), 'Kör node tools/categories.mjs');
 });
 
 test('categories.json har en kategori per rad', () => {
-  assert.equal(read(CATEGORIES), categoriesJson(categories), 'Kör node verktyg/categories.mjs');
+  assert.equal(read(CATEGORIES), categoriesJson(categories), 'Kör node tools/categories.mjs');
 });
 
 test('varje kategori har ett omslag med tecken, två färger och mörkhetsgrad', () => {
@@ -40,7 +40,7 @@ test('vit text på omslaget når 4,5:1 där ljuset är starkast', () => {
 
 test('hyllan på startsidan visar bara kategorier som finns, med rätt namn', () => {
   const names = new Map(categories.map((c) => [c.id, c.name]));
-  const tiles = [...read('index.html').matchAll(/<span class="tile" data-kategori="([^"]+)">([^<]+)<\/span>/g)];
+  const tiles = [...read('index.html').matchAll(/<span class="tile" data-category="([^"]+)">([^<]+)<\/span>/g)];
   assert.ok(tiles.length > 0);
   for (const [, id, name] of tiles) {
     assert.ok(names.has(id), `Hyllan har ${id}, som inte finns i categories.json`);

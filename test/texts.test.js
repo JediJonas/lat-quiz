@@ -1,12 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { PAGES, untranslated, withTexts } from '../verktyg/texts.mjs';
+import { PAGES, untranslated, withTexts } from '../tools/texts.mjs';
 
 const read = (path) => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 
 test('sidorna har texterna från språkfilen', () => {
-  for (const page of PAGES) assert.equal(read(page), withTexts(read(page)), `${page}: kör node verktyg/texts.mjs`);
+  for (const page of PAGES) assert.equal(read(page), withTexts(read(page)), `${page}: kör node tools/texts.mjs`);
 });
 
 test('varje text i sidorna har en nyckel i språkfilen', () => {

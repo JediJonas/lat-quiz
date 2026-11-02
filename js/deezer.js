@@ -1,6 +1,6 @@
 // @ts-check
 // Förhandsklipp från Deezer. Varje quizlåt har helst ett fast Deezer-ID,
-// hämtat med verktyg/deezer-id.mjs, så att rätt inspelning spelas.
+// hämtat med tools/deezer-id.mjs, så att rätt inspelning spelas.
 // Deezers API saknar CORS, så sökningen görs med JSONP. Klipplänkarna går ut
 // efter en stund och hämtas därför precis innan låten spelas.
 import { t } from './shared/lang.js';

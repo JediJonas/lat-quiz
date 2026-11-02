@@ -16,12 +16,12 @@ export default [
     languageOptions: { ...shared, globals: { ...globals.browser, Peer: 'readonly', qrcode: 'readonly' } },
   },
   {
-    files: ['test/**/*.js', 'verktyg/**/*.mjs', 'webbkvalitet/**/*.mjs', 'webbkvalitet/**/*.js'],
+    files: ['test/**/*.js', 'tools/**/*.mjs', 'quality/**/*.mjs', 'quality/**/*.js'],
     languageOptions: { ...shared, globals: { ...globals.node } },
   },
   {
     // Webbkvalitetens skript kör kod i webbläsaren via Playwright, där document finns.
-    files: ['webbkvalitet/**/*.mjs'],
+    files: ['quality/**/*.mjs'],
     languageOptions: { ...shared, globals: { ...globals.node, ...globals.browser } },
   },
   {

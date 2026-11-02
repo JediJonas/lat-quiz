@@ -86,7 +86,7 @@ export function suggestionKey(item, kind) {
 
 // Förslagen är lockbetena plus alla quizlåtar, så att rätt svar alltid finns med.
 export async function loadSuggestions() {
-  const [decoys, categories] = await Promise.all([getJson('data/forslag.json'), loadCategories()]);
+  const [decoys, categories] = await Promise.all([getJson('data/suggestions.json'), loadCategories()]);
   const lists = await Promise.all(categories.map(loadSongs));
   return mergeSuggestions(decoys, categories.map((c, i) => ({ labels: c.labels, songs: lists[i] })));
 }
