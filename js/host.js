@@ -6,13 +6,12 @@ import { SILENCE, findPreview } from './deezer.js';
 import { showConfirm } from './dialog.js';
 import { INFO_MS, currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './spelvy.js';
-import { $, esc } from './shared/dom.js';
+import { $ } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import * as prefs from './shared/preferences.js';
 import * as protocol from './shared/protocol.js';
 import { scrollToTop } from './ui.js';
-import { enhanceSelect } from './rullista.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './vinnarlat.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
@@ -21,6 +20,8 @@ import { after, delayShort } from './ljudfordrojning.js';
 import { isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 import { mountSeasonEffect } from './sasong.js';
 import { showSettings } from './settings-dialog.js';
+import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
+import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
@@ -738,36 +739,12 @@ function applyPending() {
 // ---- Visning ----
 
 function showJoinInfo({ qrOpen = true } = {}) {
-  const url = joinUrl();
   $('#code').textContent = state.code;
   setQrVisible(qrOpen);
-  $('#join-url').textContent = url;
-  $('#join-url').href = url;
-  $('#join-url-row').hidden = true;
-  $('#copy-status').textContent = '';
-  const qr = qrcode(0, 'M');
-  qr.addData(url);
-  qr.make();
-  $('#qr').innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
+  renderJoinInfo(joinUrl());
 }
 
-// Länken kopieras, så att spelledaren kan skicka den till spelarna. Utan tillgång till
-// urklipp visas länken i stället, så att den kan kopieras för hand.
-let copiedTimer = null;
-$('#copy-link').addEventListener('click', async () => {
-  const button = $('#copy-link');
-  const status = $('#copy-status');
-  try {
-    await navigator.clipboard.writeText(joinUrl());
-    button.textContent = 'länken (kopierad)';
-    status.textContent = 'Länken är kopierad';
-    clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => { button.textContent = 'länken'; status.textContent = ''; }, 3000);
-  } catch {
-    $('#join-url-row').hidden = false;
-    status.textContent = '';
-  }
-});
+$('#copy-link').addEventListener('click', () => copyJoinLink(joinUrl()));
 
 // QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel, men inte när
 // spelledaren går tillbaka till ett spel.
@@ -800,7 +777,7 @@ function menuGroups() {
   const settings = { label: 'Inställningar', icon: MENU_ICONS.settings, action: editSettings };
   if (!state) return [startItems(), [settings], commonItems()];
   return [
-    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: !$('#join-info').hidden }, settings],
+    [...pauseItem(), { label: 'Visa QR-kod', icon: MENU_ICONS.qr, action: showQr, disabled: joinInfoShown() }, settings],
     commonItems(),
     [{ label: 'Avsluta spelet', icon: MENU_ICONS.leave, action: endGame }],
   ];
@@ -957,42 +934,6 @@ window.addEventListener('beforeunload', (e) => {
 // Kategorierna står redan i host.html, så att sidan inte blinkar till.
 // Här uppdateras de från listan och det val som redan är gjort behålls. Säsongskategorier,
 // som Halloween, står inte i host.html och kommer bara med när det är säsong för dem.
-// Sidan är förifylld med 60-tal förvalt, så att den syns innan kategorierna har laddats. Har man
-// inte hunnit välja själv blir den första kategorin förvald, och det är säsongskategorin när den
-// visas.
-let pickedCategory = false;
-
-function renderCategories(categories) {
-  const picker = $('#category-picker');
-  const chosen = pickedCategory ? chosenCategory() : null;
-  picker.innerHTML = categories.map((c) => `<label class="cat-option"><input type="radio" name="category" value="${esc(c.id)}" class="visually-hidden">`
-    + `<span class="tile" data-kategori="${esc(c.id)}"></span><span class="cat-name">${esc(hyphenate(c.name))}`
-    + `${c.songs ? `<span class="cat-songs">${c.songs} låtar</span>` : ''}</span></label>`).join('');
-  $('.cat-count').textContent = `${categories.length} kategorier`;
-  $('#category-select').innerHTML = categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
-  const radios = [...picker.querySelectorAll('input')];
-  (radios.find((r) => r.value === chosen) || radios[0]).checked = true;
-  $('#category-select').value = chosenCategory();
-  showChosenCategory({ scroll: true });
-}
-
-// Namnen står under smala omslag. Melodifestivalen får ett mjukt bindestreck, så att det
-// bryts som Melodi-festivalen i stället för mitt i ett ord eller utanför omslaget.
-const hyphenate = (name) => name.replace('Melodifestivalen', 'Melodi\u00adfestivalen');
-
-const chosenCategory = () => ($('#category-picker input:checked') || {}).value;
-
-// Sidans ljus får den valda kategorins färger. När sidan visas rullas det valda omslaget fram.
-function showChosenCategory({ scroll = false } = {}) {
-  document.documentElement.dataset.kategori = chosenCategory() || '';
-  if (!scroll) return;
-  // Bara raden rullas i sidled, inte sidan.
-  const picker = $('#category-picker');
-  const option = $('#category-picker input:checked').parentElement;
-  const left = option.offsetLeft - picker.offsetLeft - 16;
-  if (left < picker.scrollLeft || left + option.offsetWidth + 32 > picker.scrollLeft + picker.clientWidth) picker.scrollLeft = left;
-}
-
 // PeerJS och QR-koden laddas efter den här modulen, så att startsidan visas utan
 // att vänta på dem. Ett snabbt klick väntar in dem innan spelet startar.
 const scriptsLoaded = new Promise((resolve) => {
@@ -1012,19 +953,7 @@ async function init() {
     if (hostPlays) prefs.setHostName(name);
     startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
   });
-  // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.
-  enhanceSelect($('#category-select'));
-  $('#category-picker').addEventListener('change', () => {
-    pickedCategory = true;
-    $('#category-select').value = chosenCategory();
-    showChosenCategory();
-  });
-  $('#category-select').addEventListener('change', (e) => {
-    const radio = [...$('#category-picker').querySelectorAll('input')].find((r) => r.value === e.target.value);
-    if (radio) radio.checked = true;
-    pickedCategory = true;
-    showChosenCategory({ scroll: true });
-  });
+  mountCategoryPicker();
   const saved = loadSaved();
   if (saved) {
     const resume = $('#resume');
