@@ -152,7 +152,6 @@ export default {
   'win.shared': [
     'Delad glädje är dubbel glädje!',
     'Dött lopp!',
-    'Ingen gick att skilja åt!',
     'Fler vinnare, mer jubel!',
     'Lika bra, lika glada!',
   ],
@@ -160,7 +159,6 @@ export default {
     'Seger! Nästa gång tar du med kompisar.',
     'Ensam är stark!',
     'Guld i soloklassen!',
-    'Publiken jublar ändå!',
   ],
   'win.close': [
     'Det var jämnt in i det sista!',
@@ -176,7 +174,6 @@ export default {
     'Det gick undan!',
     'Blixtsnabb seger!',
     'Raketfart!',
-    'Snabbare än en refräng!',
     'Rekordfart!',
   ],
   'win.big': [
