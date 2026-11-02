@@ -33,4 +33,16 @@ export default [
       'prefer-const': 'error',
     },
   },
+  {
+    // Varningar för kod som har blivit svår att följa, enligt reglerna i skillen kodkvalitet.
+    // De stoppar inte en PR, men visar var koden bör delas nästa gång den ändras.
+    // Långa funktioner varnas inte för, eftersom fabriker som createLobbyMusic räknar in
+    // alla små funktioner inuti.
+    files: ['js/**/*.js', 'tools/**/*.mjs'],
+    rules: {
+      complexity: ['warn', 15],
+      'max-params': ['warn', 4],
+      'max-lines': ['warn', { max: 400, skipBlankLines: true, skipComments: true }],
+    },
+  },
 ];
