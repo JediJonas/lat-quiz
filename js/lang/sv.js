@@ -206,9 +206,7 @@ export default {
     'Refrängernas mästare!',
     'Rakt in på förstaplatsen!',
     'Etta på listan!',
-    'Det här är värt en guldskiva!',
     'Kan alla låtar utantill!',
-    'Bättre än alla topplistor!',
     'Ge den här personen en mikrofon!',
   ],
 
