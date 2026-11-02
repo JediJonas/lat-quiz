@@ -2,8 +2,9 @@
 // GitHub Pages låter webbläsaren spara filerna i tio minuter, och då kan ny HTML visas med gammal CSS.
 // Numret är en kort hash av alla filerna. Moduler som importeras från en sida (som js/menu.js i
 // index.html) får numret via en import map i varje sida. Körs av tools/build.mjs på den byggda
-// sidan i _site/, aldrig på sidorna i repot, så de saknar versionsnummer. Längst ner på varje sida
-// står numret och när sidan publicerades, så att det går att se vilken version som körs.
+// sidan i _site/, aldrig på sidorna i repot, så de saknar versionsnummer. Numret och när sidan
+// publicerades skrivs i varje sida och visas överst i loggen med ?debug=1, så att det går att se
+// vilken version som körs.
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 

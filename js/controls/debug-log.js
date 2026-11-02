@@ -1,6 +1,6 @@
 // @ts-check
-// Loggen som syns med ?debug=1. Alla loggar på sidan skriver i samma ruta längst ner, som
-// bara visar de senaste raderna. Knappen i hörnet fäller ut rutan till helskärm och tillbaka.
+// Loggen som syns med ?debug=1 på alla sidor. Överst står versionen, och alla loggar på sidan
+// skriver i samma ruta längst ner, som bara visar de senaste raderna. Knappen i hörnet fäller ut rutan till helskärm och tillbaka.
 // Hopfälld ligger rutan under meddelanderutorna, tar inte emot tryck och påverkar varken
 // layouten eller vilket fält som har fokus, så att det går att svara som vanligt. Knappen tar
 // inte heller fokus, så att tangentbordet inte stängs av ett tryck på den.
@@ -30,13 +30,14 @@ const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 52px 2px 6px;`
   + `height:${COLLAPSED_HEIGHT_PX}px;overflow:hidden;pointer-events:none;`;
 const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 50px;`
   + 'overflow:auto;overscroll-behavior:contain;pointer-events:auto;user-select:text;';
-// Knappen sitter tätt i hörnet längst ner till höger, i samma svarta som loggen. margin och
+// Knappen sitter tätt i hörnet längst ner till höger, i menyknappens färger (klassen soft i
+// style.css, ljust och mörkt läge). margin och
 // transition nollställs, annars ger knappreglerna i style.css den 16 px marginal, så att den
 // hamnar ovanför loggen, och den krymper när man trycker.
 const BUTTON_STYLE = `position:fixed;right:0;bottom:0;z-index:${Z_EXPANDED + 1};width:48px;height:${COLLAPSED_HEIGHT_PX}px;`
   + 'display:flex;align-items:center;justify-content:center;margin:0;padding:0;border:0;'
-  + 'border-radius:12px 0 0 0;background:rgba(0,0,0,.9);box-shadow:none;transition:none;'
-  + 'color:#fff;font:28px/1 system-ui,sans-serif;touch-action:manipulation;';
+  + 'border-radius:12px 0 0 0;background:linear-gradient(var(--btn-bg),var(--btn-bg)) var(--surface-solid);'
+  + 'color:var(--btn-icon);box-shadow:none;transition:none;font:28px/1 system-ui,sans-serif;touch-action:manipulation;';
 
 function followViewport() {
   const vv = window.visualViewport;
@@ -47,8 +48,17 @@ function followViewport() {
   button.style.transform = hidden > 0 ? `translateY(${-Math.round(hidden)}px)` : 'none';
 }
 
+// Versionen och när sidan publicerades, ifylld i <p class="app-version"> av tools/versions.mjs.
+// Tom när sidan körs direkt från repot.
+function versionLine() {
+  const text = document.querySelector('.app-version')?.textContent?.trim();
+  return text || 'Version unknown, page not published';
+}
+
+let version = '';
+
 function showEntries() {
-  box.textContent = entries.join('\n');
+  box.textContent = [version, ...entries].join('\n');
   if (!expanded) box.scrollTop = box.scrollHeight;
 }
 
@@ -63,10 +73,12 @@ function setExpanded(on) {
 }
 
 function createBox() {
+  version = versionLine();
   box = document.createElement('pre');
   box.setAttribute('aria-hidden', 'true');
   button = document.createElement('button');
   button.type = 'button';
+  button.className = 'soft';
   button.tabIndex = -1;
   button.style.cssText = BUTTON_STYLE;
   // Knappen tar inte fokus från fältet man skriver i.
@@ -77,6 +89,11 @@ function createBox() {
   const vv = window.visualViewport;
   if (vv) for (const type of ['resize', 'scroll']) vv.addEventListener(type, followViewport);
   setExpanded(false);
+}
+
+// Visar loggen direkt när sidan öppnas med ?debug=1, även innan något har loggats.
+export function mountDebugLog() {
+  if (debugging() && !box) createBox();
 }
 
 // Skriver en rad i loggen, med sekunder sedan sidan öppnades först. Gör inget utan ?debug=1.

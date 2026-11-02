@@ -30,7 +30,7 @@ test('bygget ger en bundle per startfil, med versionsnummer i sidorna', async (t
 
   // Startsidan importerar menyn, så menybundlen måste ha kvar sina exporter.
   const exports = read('js/menu.js').match(/export\{([^}]*)\}/)?.[1] ?? '';
-  for (const name of ['commonItems', 'mountMenu', 'startItems']) assert.match(exports, new RegExp(`\\b${name}\\b`), name);
+  for (const name of ['commonItems', 'mountDebugLog', 'mountMenu', 'startItems']) assert.match(exports, new RegExp(`\\b${name}\\b`), name);
 
   // qrcode.js är ett vanligt skript som sätter qrcode globalt, så namnet får inte minifieras bort.
   assert.match(read('vendor/qrcode.js'), /^var qrcode=/);

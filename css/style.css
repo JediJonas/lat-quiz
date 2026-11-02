@@ -1279,10 +1279,9 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 }
 /* Väntemusiken eller vinnarlåten som spelas, diskret längst ner. */
 .now-music { margin: 28px 16px 0; text-align: center; font-size: 0.8125rem; color: var(--muted); }
-/* Versionen längst ner på sidorna. Tom i repot, ifylld vid publiceringen. */
-.app-version { margin: 32px 16px 0; text-align: center; font-size: 0.75rem; color: var(--muted); }
-/* Versionsnumret syns bara med ?debug=1, se början av varje sida. */
-.app-version:empty, :root:not([data-debug]) .app-version { display: none; }
+/* Versionen, ifylld vid publiceringen. Syns inte på sidan, utan överst i loggen med ?debug=1,
+   se js/controls/debug-log.js. */
+.app-version { display: none; }
 /* På bred skärm med QR-koden bredvid står meddelandena under spelets kolumn:
    mitten av en kolumn på 640 px till höger om QR-kortet på 300 px och 40 px luft. */
 @media (min-width: 1040px) {

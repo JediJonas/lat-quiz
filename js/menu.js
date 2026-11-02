@@ -6,6 +6,9 @@ import { showUserSettings } from './controls/theme.js';
 import { showAbout } from './controls/about.js';
 import { t } from './shared/lang.js';
 
+// Startsidan laddar bara menyn, så loggen för ?debug=1 nås därifrån också.
+export { mountDebugLog } from './controls/debug-log.js';
+
 const icon = (d) => `<svg viewBox="0 -960 960 960" aria-hidden="true"><path d="${d}"/></svg>`;
 // Material Symbols Rounded (Apache 2.0): menu, login, logout, add, pause, play_arrow, qr_code, settings, info_i, contrast och delete.
 export const ICONS = {

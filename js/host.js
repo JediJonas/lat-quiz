@@ -18,6 +18,7 @@ import { ICONS as MENU_ICONS, mountMenu } from './menu.js';
 import { withoutUnknown } from './host/unknown-songs.js';
 import { mountSeasonEffect } from './views/season.js';
 import { createQuizClip } from './host/quiz-clip.js';
+import { mountDebugLog } from './controls/debug-log.js';
 import { createSoundDirector } from './sound/sound-director.js';
 import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game/game-flow.js';
 import { chosenCategory, mountCategoryPicker, renderCategories } from './host/category-picker.js';
@@ -376,6 +377,7 @@ const scriptsLoaded = new Promise((resolve) => {
 });
 
 async function init() {
+  mountDebugLog();
   mountMenu($('#setup'), menuItems);
   mountMenu($('#game'), menuItems);
   settings.renderSummary();
