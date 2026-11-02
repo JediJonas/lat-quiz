@@ -709,7 +709,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .score-line, .score-line + .next { align-self: last baseline; }
 /* Medan nästa låt laddas är nedräkningen osynlig men tar samma plats som förut. */
 .next.held { visibility: hidden; }
-/* Vinnaren tar omslaget, med en vinstanimation som spelas en gång (js/win-animation.js). */
+/* Vinnaren tar omslaget, med en vinstanimation som spelas en gång (js/winner-animation.js). */
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
 .win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
@@ -724,7 +724,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 @keyframes drum-pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
 /* Vinstanimationen ligger bakom texten på omslaget: konfetti, fyrverkeri eller strålkastare, och i
    Halloween och Jul fladdermöss, spöken, tomtens släde eller snöstorm. Den slumpas i
-   js/win-animation.js, och allt utom strålkastarna ritas på en canvas. */
+   js/winner-animation.js, och allt utom strålkastarna ritas på en canvas. */
 .win-fx { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .win-fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 /* Vid fyrverkeri och strålkastare mörknar omslaget lite, som när ljuset släcks inför en show, så att
