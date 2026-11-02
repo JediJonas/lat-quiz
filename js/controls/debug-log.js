@@ -30,10 +30,13 @@ const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 52px 2px 6px;`
   + `height:${COLLAPSED_HEIGHT_PX}px;overflow:hidden;pointer-events:none;`;
 const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 50px;`
   + 'overflow:auto;overscroll-behavior:contain;pointer-events:auto;user-select:text;';
-// Knappen sitter tätt i hörnet längst ner till höger, i samma svarta som loggen.
+// Knappen sitter tätt i hörnet längst ner till höger, i samma svarta som loggen. margin och
+// transition nollställs, annars ger knappreglerna i style.css den 16 px marginal, så att den
+// hamnar ovanför loggen, och den krymper när man trycker.
 const BUTTON_STYLE = `position:fixed;right:0;bottom:0;z-index:${Z_EXPANDED + 1};width:48px;height:${COLLAPSED_HEIGHT_PX}px;`
-  + 'padding:0;border:0;border-radius:12px 0 0 0;background:rgba(0,0,0,.9);'
-  + 'color:#fff;font:20px/1 system-ui,sans-serif;touch-action:manipulation;';
+  + 'display:flex;align-items:center;justify-content:center;margin:0;padding:0;border:0;'
+  + 'border-radius:12px 0 0 0;background:rgba(0,0,0,.9);box-shadow:none;transition:none;'
+  + 'color:#fff;font:28px/1 system-ui,sans-serif;touch-action:manipulation;';
 
 function followViewport() {
   const vv = window.visualViewport;
@@ -41,7 +44,7 @@ function followViewport() {
   const hidden = document.documentElement.clientHeight - (vv.offsetTop + vv.height);
   const shift = hidden > 0 && !expanded ? `translateY(${-Math.round(hidden)}px)` : '';
   box.style.transform = shift;
-  button.style.transform = hidden > 0 ? `translateY(${-Math.round(hidden)}px)` : '';
+  button.style.transform = hidden > 0 ? `translateY(${-Math.round(hidden)}px)` : 'none';
 }
 
 function showEntries() {
