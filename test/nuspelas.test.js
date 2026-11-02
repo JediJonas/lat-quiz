@@ -1,8 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { nowMusic } from '../js/nuspelas.js';
-import { WINNER_SONGS } from '../js/vinnarlat.js';
-import { LOBBY_SONGS } from '../js/vantemusik.js';
+import { readFileSync } from 'node:fs';
+
+const music = JSON.parse(readFileSync(new URL('../data/music.json', import.meta.url), 'utf8'));
+const WINNER_SONGS = music.winner.default;
+const LOBBY_SONGS = music.lobby.default;
 
 test('raden längst ner har artist och titel för alla vinnarlåtar och all väntemusik', () => {
   assert.equal(nowMusic(WINNER_SONGS[0]), 'Nu spelas Queen – We Are the Champions');

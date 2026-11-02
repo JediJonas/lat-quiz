@@ -6,46 +6,13 @@
 import { SILENCE, findPreview } from './deezer.js';
 import { levelGain } from './ljudniva.js';
 
-export const LOBBY_SONGS = [
-  { artist: 'The Dave Brubeck Quartet', title: 'Unsquare Dance', deezerId: 8164849 },
-  { artist: 'The Dave Brubeck Quartet', title: 'Three to Get Ready', deezerId: 3571290 },
-  { artist: 'The Dave Brubeck Quartet', title: "Kathy's Waltz", deezerId: 3571291 },
-  { artist: 'Ramsey Lewis', title: 'The "In" Crowd', deezerId: 925778 },
-  { artist: 'Richard "Groove" Holmes', title: 'Misty', deezerId: 1164074 },
-  { artist: 'Cannonball Adderley', title: 'Mercy, Mercy, Mercy', deezerId: 3131203 },
-  { artist: 'Herbie Mann', title: "Comin' Home Baby", deezerId: 1099848062 },
-  { artist: 'Jimmy Smith', title: 'The Cat', deezerId: 2515289 },
-  { artist: 'Herbie Hancock', title: 'Watermelon Man', deezerId: 3486410 },
-  { artist: 'Herbie Hancock', title: 'Cantaloupe Island', deezerId: 3363488 },
-  { artist: 'Lou Donaldson', title: 'Alligator Bogaloo', deezerId: 3234555 },
-  { artist: 'Oscar Peterson Trio', title: 'C Jam Blues', deezerId: 7290401 },
-  { artist: 'Vince Guaraldi Trio', title: 'Oh, Good Grief', deezerId: 104271088 },
-  { artist: 'Wes Montgomery', title: "Bumpin' on Sunset", deezerId: 2537494 },
-  { artist: 'Esbjörn Svensson Trio', title: 'Seven Days of Falling', deezerId: 520623912 },
-  { artist: 'Esbjörn Svensson Trio', title: 'When Everyone Has Gone', deezerId: 894835082 },
-];
-
-// Säsongskategorierna har egen väntemusik, instrumental som jazzen, så att stämningen finns
-// redan i lobbyn. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har läskig orgel, båda valda av Jonas 25 oktober 2026. Ingen av låtarna finns bland quizlåtarna.
-export const SEASON_LOBBY_SONGS = {
-  jul: [
-    { artist: 'Vince Guaraldi Trio', title: 'Christmas Time Is Here', deezerId: 134403696 },
-    { artist: 'The Count Basie Orchestra', title: 'Jingle Bells', deezerId: 1762631337 },
-    { artist: "Gordon Goodwin's Big Phat Band", title: 'Carol of the Bells', deezerId: 110353364 },
-    { artist: 'The Count Basie Orchestra', title: 'Good "Swing" Wenceslas', deezerId: 1762631377 },
-    { artist: "Booker T. & the M.G.'s", title: 'Jingle Bells', deezerId: 689606 },
-  ],
-  halloween: [
-    { artist: 'Jack Marshall', title: 'Theme from The Munsters', deezerId: 4008734421 },
-    { artist: 'Cybermonsters', title: 'Haunted Pipe Organ Stomp', deezerId: 3576637671 },
-    { artist: 'Classic Carnival Circus Calliope Music', title: 'Dardanella', deezerId: 70731041 },
-    { artist: 'Danny Elfman', title: 'Music Box', deezerId: 3453190731 },
-    { artist: 'Raphaël Imbert', title: 'My Love (musical saw version)', deezerId: 64699066 },
-  ],
-};
+// Låtarna står i data/music.json under lobby: default för alla kategorier, och en egen lista för
+// säsongskategorierna. Jul har jazziga jullåtar kring Christmas Time Is Here, och Halloween har
+// läskig orgel, båda valda av Jonas 25 oktober 2026.
 
 // Väntemusiken för en kategori: säsongens egen, annars jazzen.
-export const lobbySongs = (categoryId) => SEASON_LOBBY_SONGS[categoryId] || LOBBY_SONGS;
+/** @param {{ lobby: Record<string, object[]> }} music data/music.json @param {string | null} categoryId */
+export const lobbySongs = (music, categoryId) => music.lobby[categoryId] || music.lobby.default;
 
 // Musiken ligger i bakgrunden, så den är svagare än vinnarlåten.
 const VOLUME = 0.5;
@@ -64,7 +31,7 @@ const RETRY_MS = 2000;
 const fadeLevel = (left, volume = VOLUME) => volume * Math.max(0, left) ** 3;
 
 // En slumpad låt, men inte samma som förra väntan.
-export function pickLobbySong(random = Math.random, last = null, songs = LOBBY_SONGS) {
+export function pickLobbySong(random, last, songs) {
   const choices = songs.filter((s) => s.deezerId && s.deezerId !== last);
   return choices[Math.floor(random() * choices.length) % choices.length];
 }
@@ -74,7 +41,7 @@ export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FAD
 
 // onChange: klippet har börjat höras, eller tystnat utan att musiken stoppades, så att raden längst
 // ner och spelarnas mobiler följer med. songs: låtarna för spelets kategori, se lobbySongs.
-export function createLobbyMusic({ onChange = () => {}, songs = () => LOBBY_SONGS } = {}) {
+export function createLobbyMusic({ onChange = () => {}, songs }) {
   let wanted = false; // musiken ska spela, det vill säga spelet väntar på att starta
   let running = false; // en slinga spelar eller hämtar klipp
   let turn = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
