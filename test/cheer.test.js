@@ -3,28 +3,33 @@ import assert from 'node:assert/strict';
 import { roundCheer, winComment, winIntro } from '../js/game/cheer.js';
 import { readFileSync } from 'node:fs';
 import { pickWinnerSong } from '../js/sound/winner-song.js';
+import sv from '../js/lang/sv.js';
+
+// Kommentaren ska vara en av texterna i listan.
+const isIn = (key, text) => assert.ok(sv[key].includes(text), `${text} finns inte i ${key}`);
 
 const WINNER_SONGS = JSON.parse(readFileSync(new URL('../data/music.json', import.meta.url), 'utf8')).winner.default;
 
 const players = (...scores) => scores.map((score, i) => ({ id: `p${i}`, name: `P${i}`, score }));
 
 test('kommentaren efter en låt följer hur många rätt man hade', () => {
-  assert.match(roundCheer({ artist: true, title: true }, 1), /Klockrent|Snyggt|Vilken koll|Mitt i prick/);
-  assert.match(roundCheer({ artist: true, title: false }, 1), /Halvvägs|en av två|Nästan/);
-  assert.match(roundCheer({ artist: false, title: false }, 1), /Nästa tar du|klurig|Ny chans/);
-  assert.match(roundCheer({ artist: false, title: true }, 1, 1), /Klockrent|Snyggt|Vilken koll|Mitt i prick/);
+  isIn('cheer.all', roundCheer({ artist: true, title: true }, 1));
+  isIn('cheer.half', roundCheer({ artist: true, title: false }, 1));
+  isIn('cheer.none', roundCheer({ artist: false, title: false }, 1));
+  isIn('cheer.all', roundCheer({ artist: false, title: true }, 1, 1));
   assert.equal(roundCheer({ artist: true, title: true }, 7), roundCheer({ artist: true, title: true }, 7));
 });
 
 test('vinnarkommentaren beror på hur matchen gick', () => {
   const base = { winners: ['P0'], winScore: 10, songs: 8 };
-  assert.equal(winComment({ ...base, winners: ['P0', 'P1'], standings: players(10, 10) }), 'Delad glädje är dubbel glädje!');
-  assert.match(winComment({ ...base, standings: players(10) }), /kompisar/);
-  assert.match(winComment({ ...base, standings: players(10, 9) }), /jämnt|nöd och näppe/);
-  assert.equal(winComment({ ...base, songs: 4, standings: players(11, 3) }), 'Det gick undan!');
-  assert.match(winComment({ ...base, standings: players(12, 4) }), /Ingen chans|Överlägset/);
-  assert.equal(winComment({ ...base, songs: 16, standings: players(10, 7) }), 'Det blev ett riktigt maraton!');
+  isIn('win.shared', winComment({ ...base, winners: ['P0', 'P1'], standings: players(10, 10) }));
+  isIn('win.alone', winComment({ ...base, standings: players(10) }));
+  isIn('win.close', winComment({ ...base, standings: players(10, 9) }));
+  isIn('win.fast', winComment({ ...base, songs: 4, standings: players(11, 3) }));
+  isIn('win.big', winComment({ ...base, standings: players(12, 4) }));
+  isIn('win.long', winComment({ ...base, songs: 16, standings: players(10, 7) }));
   const general = winComment({ ...base, standings: players(10, 7, 2) });
+  isIn('win.general', general);
   assert.equal(general, winComment({ ...base, standings: players(10, 7, 2) }));
 });
 
@@ -37,6 +42,7 @@ test('vinnarlåten slumpas och blir inte samma två gånger i rad', () => {
 
 test('texten innan vinnaren är densamma på alla enheter', () => {
   const intro = winIntro({ winners: ['Anna'], songs: 8 });
-  assert.ok(intro.endsWith('!'));
+  isIn('win.intro', intro);
+  assert.ok(sv['win.intro'].every((text) => text.endsWith('!')));
   assert.equal(winIntro({ winners: ['Anna'], songs: 8 }), intro);
 });
