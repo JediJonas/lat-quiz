@@ -3,11 +3,10 @@
 // följer kategorin på html-elementet, så den syns på startsidan när
 // kategorin väljs och genom hela spelet, hos spelledaren och spelarna. Lagret ligger bakom allt
 // innehåll och tar inte emot tryck. Med minskad rörelse står allt still, som en bild.
+import { randomBetween, prefersReducedMotion } from './shared/motion.js';
 
 export const SEASON_EFFECTS = { jul: 'snow', halloween: 'leaves' };
 
-const rand = (min, max) => min + Math.random() * (max - min);
-const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const LEAF_COLORS = ['#e8730c', '#c9471a', '#f0a32a', '#8f3a12'];
 
 // Medan vinstanimationen spelas tonar lagret bort och står still, så att mobilen inte behöver rita
@@ -22,14 +21,14 @@ const cssColor = (el, name) => getComputedStyle(el).getPropertyValue(name).trim(
 
 function snow(n) {
   return Array.from({ length: n }, () => ({
-    x: Math.random(), y: Math.random(), r: rand(1, 3.2), speed: rand(14, 40), sway: rand(0.4, 1.4), phase: rand(0, 6.3),
+    x: Math.random(), y: Math.random(), r: randomBetween(1, 3.2), speed: randomBetween(14, 40), sway: randomBetween(0.4, 1.4), phase: randomBetween(0, 6.3),
   }));
 }
 
 function leaves(n) {
   return Array.from({ length: n }, (_, i) => ({
-    x: Math.random(), y: Math.random(), size: rand(7, 13), speed: rand(18, 36), sway: rand(0.5, 1.2),
-    phase: rand(0, 6.3), spin: rand(-1.5, 1.5), c: LEAF_COLORS[i % LEAF_COLORS.length],
+    x: Math.random(), y: Math.random(), size: randomBetween(7, 13), speed: randomBetween(18, 36), sway: randomBetween(0.5, 1.2),
+    phase: randomBetween(0, 6.3), spin: randomBetween(-1.5, 1.5), c: LEAF_COLORS[i % LEAF_COLORS.length],
   }));
 }
 
@@ -98,7 +97,7 @@ function start(layer, effect) {
       items = effect === 'snow' ? snow(itemCount()) : leaves(Math.round(itemCount() / 3));
       for (const item of items) item.y *= h;
     }
-    if (still()) draw(0);
+    if (prefersReducedMotion()) draw(0);
   };
 
   const draw = (now) => {
@@ -133,7 +132,7 @@ function start(layer, effect) {
 
   resize();
   addEventListener('resize', resize);
-  if (still()) draw(0);
+  if (prefersReducedMotion()) draw(0);
   else frame = requestAnimationFrame(tick);
   return () => {
     cancelAnimationFrame(frame);

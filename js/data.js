@@ -1,6 +1,7 @@
 // @ts-check
 // Läser låtlistor och förslagslista från data-mappen.
 
+import { wait } from './shared/wait.js';
 import { answerKey } from './text.js';
 import { t } from './shared/lang.js';
 
@@ -16,7 +17,7 @@ export async function getJson(path, { retries = RETRY_MS } = {}) {
       return await res.json();
     } catch {
       if (attempt >= retries.length) throw new Error(t('error.read', { path }));
-      await new Promise((resolve) => { setTimeout(resolve, retries[attempt]); });
+      await wait(retries[attempt]);
     }
   }
 }

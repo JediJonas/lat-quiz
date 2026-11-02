@@ -29,6 +29,9 @@ const hyphenate = (name) => name.replace('Melodifestivalen', 'Melodi\u00adfestiv
 
 export const chosenCategory = () => ($('#category-picker input:checked') || {}).value;
 
+// Så mycket luft som syns till vänster om det valda omslaget när raden rullas fram.
+const SCROLL_MARGIN_PX = 16;
+
 // Sidans ljus får den valda kategorins färger. När sidan visas rullas det valda omslaget fram.
 function showChosenCategory({ scroll = false } = {}) {
   document.documentElement.dataset.category = chosenCategory() || '';
@@ -36,8 +39,8 @@ function showChosenCategory({ scroll = false } = {}) {
   // Bara raden rullas i sidled, inte sidan.
   const picker = $('#category-picker');
   const option = $('#category-picker input:checked').parentElement;
-  const left = option.offsetLeft - picker.offsetLeft - 16;
-  if (left < picker.scrollLeft || left + option.offsetWidth + 32 > picker.scrollLeft + picker.clientWidth) picker.scrollLeft = left;
+  const left = option.offsetLeft - picker.offsetLeft - SCROLL_MARGIN_PX;
+  if (left < picker.scrollLeft || left + option.offsetWidth + 2 * SCROLL_MARGIN_PX > picker.scrollLeft + picker.clientWidth) picker.scrollLeft = left;
 }
 
 // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.

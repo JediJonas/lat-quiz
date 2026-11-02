@@ -1,9 +1,6 @@
 // @ts-check
-// Det som vinstanimationens effekter delar: slump, minskad rörelse och en canvas som täcker omslaget.
-
-export const rand = (min, max) => min + Math.random() * (max - min);
-export const pick = (list) => list[Math.floor(Math.random() * list.length)];
-export const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Det som vinstanimationens effekter delar: en canvas som täcker omslaget och uttoningen. Slump och
+// minskad rörelse finns i js/shared/motion.js.
 
 // En canvas som täcker rutan, med högst dubbel upplösning. redraw anropas när storleken ändras.
 export function canvasIn(box, redraw) {

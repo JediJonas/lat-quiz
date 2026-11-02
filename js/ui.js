@@ -1,6 +1,7 @@
 // @ts-check
 // Gemensamma visningsdelar för spelledare och spelare.
 
+import { prefersReducedMotion } from './shared/motion.js';
 import { guessFields } from './game.js';
 
 const RING_R = 54;
@@ -69,7 +70,7 @@ export function scoreTracker() {
 
 // Räknar upp en poäng från det förra värdet, som en mätare. Utan rörelse visas det nya värdet direkt.
 export function countUp(el, from, to, ms = 700) {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (prefersReducedMotion()) return;
   const start = performance.now();
   const step = (now) => {
     const k = Math.min(1, (now - start) / ms);
@@ -92,7 +93,7 @@ export function announce(text) {
 
 // Så länge den mjuka rullningen till toppen får hålla på innan sidan hoppar upp.
 const SCROLL_SETTLE_MS = 800;
-const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+const smooth = () => (prefersReducedMotion() ? 'auto' : 'smooth');
 
 // Rullar till toppen. När tangentbordet stängs i iPhone kan Safari avbryta den mjuka
 // scrollningen, så sidan hoppar upp om den ändå inte har kommit hela vägen. Har man
@@ -112,10 +113,11 @@ const GAP = 8;
 
 export function scrollFieldToTop(input, row) {
   const ROOM = 240; // fyra förslag med listans marginaler
+  const MAX_ROOM_SHARE = 0.45; // i ett lågt fönster räcker det med så stor del av höjden
   const rowTop = row.getBoundingClientRect().top;
   if (!matchMedia('(pointer: coarse)').matches) {
     const room = window.innerHeight - input.getBoundingClientRect().bottom;
-    if (rowTop < GAP || room >= Math.min(ROOM, window.innerHeight * 0.45)) return;
+    if (rowTop < GAP || room >= Math.min(ROOM, window.innerHeight * MAX_ROOM_SHARE)) return;
   }
   if (Math.abs(rowTop - GAP) > 4) window.scrollTo({ top: window.scrollY + rowTop - GAP, behavior: 'auto' });
 }

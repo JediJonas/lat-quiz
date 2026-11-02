@@ -2,6 +2,7 @@
 // Ljudregin hos spelledaren: vilket extraljud som spelas när. Väntemusiken spelas medan
 // spelarna går med, trumvirveln och vinnarlåten när någon har vunnit, och raden Nu spelas
 // visar låten först när den hörs. Quizklippet sköts av quiz-clip.js.
+import { wait } from './shared/wait.js';
 import * as prefs from './shared/preferences.js';
 import { showMessage } from './message.js';
 import { delayAfter } from './audio-delay.js';
@@ -14,7 +15,6 @@ import { nowMusic } from './now-playing.js';
 // (provat med blåtandshögtalare och iPhone 24 oktober 2026).
 const ENGINE_WAIT_MS = 1000;
 
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  * @param {object} deps

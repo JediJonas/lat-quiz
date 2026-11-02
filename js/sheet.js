@@ -6,6 +6,7 @@ const SHEET = window.matchMedia('(max-width: 600px)');
 const CLOSE_PX = 120; // så långt ner arket ska dras för att stängas
 const CLOSE_SPEED = 0.6; // eller så fort, i pixlar per millisekund
 const SLIDE_MS = 200;
+const FLICK_PX = 20; // ett snabbt drag stänger bara om arket har flyttats minst så långt
 
 export function dragToClose(dialog) {
   let start = null;
@@ -34,7 +35,7 @@ export function dragToClose(dialog) {
     const speed = dy / Math.max(1, e.timeStamp - start.at);
     start = null;
     dialog.style.transition = `transform ${SLIDE_MS}ms ease-out`;
-    if (dy < CLOSE_PX && !(dy > 20 && speed > CLOSE_SPEED)) { dialog.style.transform = ''; setTimeout(reset, SLIDE_MS); return; }
+    if (dy < CLOSE_PX && !(dy > FLICK_PX && speed > CLOSE_SPEED)) { dialog.style.transform = ''; setTimeout(reset, SLIDE_MS); return; }
     dialog.style.transform = 'translateY(100%)';
     setTimeout(() => { if (dialog.open) dialog.close(); reset(); }, SLIDE_MS);
   };

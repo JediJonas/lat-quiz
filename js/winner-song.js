@@ -1,6 +1,7 @@
 // @ts-check
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
+import { wait } from './shared/wait.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { fadeLevel, fadeOutCurve, levelGain } from './audio-level.js';
 
@@ -152,7 +153,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   // Startar ljudmotorn om den står still. Svaret kommer när den går, eller efter en kort stund.
   function resume() {
     if (!ctx || ctx.state === 'running') return Promise.resolve();
-    return Promise.race([ctx.resume().catch(() => {}), new Promise((r) => setTimeout(r, RESUME_MS))]);
+    return Promise.race([ctx.resume().catch(() => {}), wait(RESUME_MS)]);
   }
 
   // Hämtar klippet till ljudmotorn. Tillåter inte Deezer det spelas länken i ett ljudelement.
@@ -227,7 +228,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
       startBuffer(clip.buffer, clip.volume);
       // iPhone kan säga att ljudmotorn går fast den står still och inget hörs. Rör sig inte dess
       // klocka efter en kort stund spelas låten med ljudelementet i stället.
-      await new Promise((resolve) => setTimeout(resolve, CHECK_MS));
+      await wait(CHECK_MS);
       if (turn !== playing) return;
       if (ctx.currentTime <= at) {
         if (source) { try { source.stop(); } catch { /* redan stoppad */ } source = null; }
