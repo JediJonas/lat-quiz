@@ -2,6 +2,7 @@
 // Korta, glada kommentarer: under poängen efter varje låt och på vinnarsidan.
 // Valet beror bara på spelets läge, inte på slumpen, så att alla enheter visar samma
 // kommentar och den inte byts när vyn ritas om.
+import { t, tList } from './shared/lang.js';
 
 // Ett litet tal från texten, för att välja bland kommentarerna.
 function hash(text) {
@@ -12,50 +13,30 @@ function hash(text) {
 
 const pick = (list, seed) => list[hash(seed) % list.length];
 
-const CHEERS = {
-  all: ['Klockrent!', 'Snyggt!', 'Vilken koll!', 'Mitt i prick!'],
-  half: ['Halvvägs där!', 'Bra, en av två!', 'Nästan hela vägen!'],
-  none: ['Nästa tar du!', 'Den var klurig!', 'Ny chans snart!'],
-};
-
 // Kommentaren efter en låt. result: { artist, title, points } för den som tittar.
 // fields: hur många fält som gissas, 1 i en kategori som bara har titelfältet.
 export function roundCheer(result, roundNumber, fields = 2) {
   const right = Number(Boolean(result.artist)) + Number(Boolean(result.title));
-  const list = right === fields ? CHEERS.all : right > 0 ? CHEERS.half : CHEERS.none;
+  const list = right === fields ? tList('cheer.all') : right > 0 ? tList('cheer.half') : tList('cheer.none');
   return pick(list, `${roundNumber}`);
 }
-
-const WIN_GENERAL = [
-  'Ett öra för musik!',
-  'Hela topplistan i huvudet.',
-  'Ingen låt för svår.',
-  'Dags för ett tacktal!',
-  'Vem behöver ens Shazam?',
-  'Den här segern ska firas!',
-  'Musikkunskap på högsta nivå.',
-  'Låtquizets mästare!',
-];
 
 // Kommentaren på vinnarsidan, efter hur matchen gick.
 // standings: alla spelare med poäng. songs: antal spelade låtar i matchen.
 export function winComment({ winners, standings, songs, winScore }) {
   const seed = `${winners.join()}${songs}`;
-  if (winners.length > 1) return 'Delad glädje är dubbel glädje!';
-  if (standings.length === 1) return 'Seger! Nästa gång tar du med kompisar.';
+  if (winners.length > 1) return t('win.shared');
+  if (standings.length === 1) return t('win.alone');
   const scores = standings.map((p) => p.score).sort((a, b) => b - a);
   const lead = scores[0] - scores[1];
-  if (lead <= 1) return pick(['Det var jämnt in i det sista!', 'Med nöd och näppe!'], seed);
-  if (songs <= Math.ceil(winScore / 2)) return 'Det gick undan!';
-  if (lead >= 5) return pick(['Ingen chans för de andra!', 'Överlägset!'], seed);
-  if (songs >= winScore * 1.5) return 'Det blev ett riktigt maraton!';
-  return pick(WIN_GENERAL, seed);
+  if (lead <= 1) return pick(tList('win.close'), seed);
+  if (songs <= Math.ceil(winScore / 2)) return t('win.fast');
+  if (lead >= 5) return pick(tList('win.big'), seed);
+  if (songs >= winScore * 1.5) return t('win.long');
+  return pick(tList('win.general'), seed);
 }
 
-// Texten en kort stund innan vinnaren visas.
-const WIN_INTROS = ['Vi har en vinnare!', 'Grattis!', 'Vilken match!', 'Hipp hipp hurra!', 'Det är klart!'];
-
-// Samma rubrik på alla enheter.
+// Texten en kort stund innan vinnaren visas, samma rubrik på alla enheter.
 export function winIntro({ winners, songs }) {
-  return pick(WIN_INTROS, `${winners.join()}${songs}intro`);
+  return pick(tList('win.intro'), `${winners.join()}${songs}intro`);
 }

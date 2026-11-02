@@ -9,6 +9,7 @@ import { $ } from './shared/dom.js';
 import { autocomplete } from './autocomplete.js';
 import { announce, scrollFieldToTop, scrollToTop } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
+import { t } from './shared/lang.js';
 import { guessFields as fieldsOf } from './game.js';
 import { createWaitingCard } from './views/waiting-card.js';
 import { renderSongCard, tickSongTimer } from './views/song-card.js';
@@ -186,9 +187,9 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Pausen står i meddelanderutan så länge den varar, och rutan läses upp.
     const paused = Boolean(view.paused);
     if (paused !== wasPaused) {
-      setStandingMessage(paused ? { kind: 'pause', title: host ? 'Spelet är pausat' : 'Kort paus',
-        text: host ? 'Tryck på Starta spelet för att fortsätta.' : 'Spelledaren pausade. Vi fortsätter snart.' } : null);
-      if (wasPaused) announce('Spelet fortsätter.');
+      setStandingMessage(paused ? { kind: 'pause', title: host ? t('pause.title.host') : t('pause.title.player'),
+        text: host ? t('pause.text.host') : t('pause.text.player') } : null);
+      if (wasPaused) announce(t('pause.resumed'));
     }
     wasPaused = paused;
   }

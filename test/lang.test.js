@@ -12,11 +12,11 @@ const SOURCES = readdirSync(new URL('js/', root), { recursive: true }).map(Strin
   .map((f) => f.split('\\').join('/')).filter((f) => f.endsWith('.js') && !f.startsWith('lang/') && f !== 'shared/lang.js')
   .map((f) => ({ file: 'js/' + f, code: read('js/' + f) }));
 
-// Varje anrop t('nyckel') eller t('nyckel', { a, b: … }), med namnen på värdena som skickas.
+// Varje anrop t('nyckel'), t('nyckel', { a, b: … }) eller tList('nyckel'), med namnen på värdena som skickas.
 function calls() {
   const found = [];
   for (const { file, code } of SOURCES) {
-    for (const m of code.matchAll(/\bt\(\s*'([^']+)'\s*(?:,\s*\{([^}]*)\})?/g)) {
+    for (const m of code.matchAll(/\bt(?:List)?\(\s*'([^']+)'\s*(?:,\s*\{([^}]*)\})?/g)) {
       const names = (m[2] || '').split(',').map((part) => part.split(':')[0].trim()).filter(Boolean);
       found.push({ file, key: m[1], names, hasValues: m[2] !== undefined });
     }
@@ -61,9 +61,10 @@ test('varje {namn} i en text får ett värde', () => {
   assert.deepEqual(problems, []);
 });
 
-test('språkfilen har bara texter och funktioner', () => {
+test('språkfilen har bara texter, listor med texter och funktioner', () => {
   for (const [key, text] of Object.entries(sv)) {
-    assert.ok(typeof text === 'string' || typeof text === 'function', key);
+    const list = Array.isArray(text) && text.length > 0 && text.every((item) => typeof item === 'string');
+    assert.ok(typeof text === 'string' || typeof text === 'function' || list, key);
     assert.match(key, /^[a-z][A-Za-z]*(\.[a-z][A-Za-z]*)+$/, `${key} ska se ut som omrade.text`);
   }
 });

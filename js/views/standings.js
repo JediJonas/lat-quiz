@@ -4,6 +4,7 @@
 import { $, esc } from '../shared/dom.js';
 import { html, raw } from '../shared/html.js';
 import { countUp, scoreTracker, statusTags } from '../ui.js';
+import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */
 
@@ -26,7 +27,7 @@ function playerStatus(view, id) {
   });
 }
 
-const climbArrow = (up) => html`<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> placeringar upp</span></span>`;
+const climbArrow = (up) => html`<span class="up"><span aria-hidden="true">▲</span>${up}<span class="visually-hidden"> ${t('standings.up')}</span></span>`;
 
 /**
  * En rad i listan. Under spelet står poängen först. När matchen är slut (podium) står placeringen
@@ -35,10 +36,10 @@ const climbArrow = (up) => html`<span class="up"><span aria-hidden="true">▲</s
  *   bump: boolean, podium: boolean }} row
  */
 export function standingsRow({ player: p, view, me, rank, up, bump, podium }) {
-  const score = html`<td class="score" data-id="${p.id}"><span class="num">${p.score}</span><span class="visually-hidden"> poäng</span></td>`;
+  const score = html`<td class="score" data-id="${p.id}"><span class="num">${p.score}</span><span class="visually-hidden"> ${t('standings.points')}</span></td>`;
   return html`<tr class="${p.id === me ? 'me' : ''} ${p.connected ? '' : 'offline'} ${bump ? 'bump' : ''}">
-      ${podium ? html`<td class="rank${rank <= 3 ? ' top' : ''}"><span class="visually-hidden">Plats </span><span class="rank-num">${rank}</span></td>` : score}
-      <td class="name"><span class="player"><span>${p.name}${!p.connected && html`<span class="visually-hidden"> (frånkopplad)</span>`}</span>${up > 0 && climbArrow(up)}</span></td>
+      ${podium ? html`<td class="rank${rank <= 3 ? ' top' : ''}"><span class="visually-hidden">${t('standings.place')} </span><span class="rank-num">${rank}</span></td>` : score}
+      <td class="name"><span class="player"><span>${p.name}${!p.connected && html`<span class="visually-hidden"> ${t('standings.offline')}</span>`}</span>${up > 0 && climbArrow(up)}</span></td>
       <td class="status">${raw(playerStatus(view, p.id))}</td>${podium && html`
       ${score}`}</tr>`;
 }

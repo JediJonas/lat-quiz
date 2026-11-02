@@ -8,7 +8,7 @@
 // nyckel är oanvänd och att varje {namn} får ett värde.
 import sv from '../lang/sv.js';
 
-/** @typedef {string | ((values: Record<string, any>) => string)} Text */
+/** @typedef {string | string[] | ((values: Record<string, any>) => string)} Text */
 
 /** @type {Record<string, Text>} */
 const texts = sv;
@@ -26,5 +26,20 @@ export function t(key, values = {}) {
     return key;
   }
   if (typeof text === 'function') return text(values);
+  if (Array.isArray(text)) return text.join(', ');
   return text.replace(/\{(\w+)\}/g, (match, name) => (name in values ? String(values[name]) : match));
+}
+
+/**
+ * En lista med texter, till exempel peppkommentarerna att välja bland.
+ * @param {string} key
+ * @returns {string[]}
+ */
+export function tList(key) {
+  const list = texts[key];
+  if (!Array.isArray(list)) {
+    console.error(`Listan ${key} saknas i språkfilen`);
+    return [key];
+  }
+  return list;
 }

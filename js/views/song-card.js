@@ -3,6 +3,7 @@
 // sköts av game-view.js, eftersom de har egna regler för iPhone.
 import { $ } from '../shared/dom.js';
 import { announce, renderRing } from '../ui.js';
+import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */
 
@@ -17,14 +18,14 @@ export function renderSongCard(view, { phase, playing }, tick) {
   const eq = $('#guess .eq');
   eq.classList.toggle('idle', phase === 'ready');
   eq.classList.toggle('paused', Boolean(view.paused));
-  $('#guess-hint').textContent = phase === 'ready' ? 'Låten laddas' : view.paused ? 'Pausad' : playing ? 'Lyssna och gissa' : 'Spelas nu';
+  $('#guess-hint').textContent = phase === 'ready' ? t('song.loading') : view.paused ? t('song.paused') : playing ? t('song.listen') : t('song.playing');
   if (phase === 'ready') {
-    $('#round-title').textContent = `Låt ${round.number}`;
+    $('#round-title').textContent = t('song.title', { number: round.number });
     renderRing($('#timer'), round.roundMs, round.roundMs, false);
     $('#timer').classList.add('loading');
   } else if (phase === 'playing') {
-    $('#round-title').textContent = `Låt ${round.number}`;
-    announce(`Låt ${round.number} har börjat.${playing ? ` Du har ${Math.round(round.roundMs / 1000)} sekunder på dig.` : ''}`);
+    $('#round-title').textContent = t('song.title', { number: round.number });
+    announce(t('song.started', { number: round.number }) + (playing ? ' ' + t('song.timeLeft', { s: Math.round(round.roundMs / 1000) }) : ''));
     tick();
   }
 }
