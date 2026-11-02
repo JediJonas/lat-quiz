@@ -2,6 +2,7 @@
 // förslag, rätt svar och poänglistan. Den visar en playerView från game.js och
 // vet inte varifrån den kommer, över nätet hos spelarna eller direkt hos spelledaren.
 import { loadSuggestions, suggestionKind } from './data.js';
+import { $, esc } from './shared/dom.js';
 import { autocomplete } from './autocomplete.js';
 import { announce, countUp, renderPie, renderRing, scoreTracker, scrollFieldToTop, scrollToTop, statusTags } from './ui.js';
 import { setStandingMessage } from './meddelande.js';
@@ -10,8 +11,6 @@ import { guessFields as fieldsOf } from './game.js';
 import { pickWinEffect, startWinEffect } from './vinstanimation.js';
 import { pauseSeasonEffect } from './sasong.js';
 
-const $ = (sel) => document.querySelector(sel);
-export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 // Gnistorna runt bonuspoängen: små stjärnor som skjuts ut åt alla håll och tonar bort.
 function sparkles(count = 12) {

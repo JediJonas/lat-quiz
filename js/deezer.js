@@ -13,6 +13,8 @@ const API_TRACK = 'https://api.deezer.com/track';
 const TIMEOUT_MS = 8000;
 let counter = 0;
 
+// Egen, enklare jämförelse än normalize i text.js, eftersom den bara jämför med Deezers egna
+// namn i pickTrack och reglerna där är provade mot dem.
 const normalize = (text) => String(text).toLowerCase().normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 

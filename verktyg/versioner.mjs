@@ -11,7 +11,9 @@ import { fileURLToPath } from 'node:url';
 const root = new URL('../', import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), 'utf8');
 export const PAGES = ['index.html', 'host.html', 'play.html'];
-const MODULES = readdirSync(new URL('js/', root)).filter((f) => f.endsWith('.js')).sort();
+// Alla moduler i js/, även i undermappar som js/shared/, till exempel 'shared/storage.js'.
+const MODULES = readdirSync(new URL('js/', root), { recursive: true })
+  .map(String).map((f) => f.split('\\').join('/')).filter((f) => f.endsWith('.js')).sort();
 
 export function version() {
   const hash = createHash('sha256');

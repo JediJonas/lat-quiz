@@ -2,9 +2,8 @@
 // Låtar som spelledaren har markerat som okända. De hoppas över i kommande
 // spel och kan kopieras som text, så att de tas bort ur kategorin.
 // Modulen gör inga anrop och rör inte sidan, så den kan testas utan webbläsare.
-// Listan ser ut så här: { kategori: [{ id, artist, title }] }.
-
-export const UNKNOWN_KEY = 'latquiz-okanda';
+// Listan ser ut så här: { kategori: [{ id, artist, title }] }. Den sparas under KEYS.unknown
+// i shared/storage.js.
 
 export function cleanUnknown(list) {
   if (!list || typeof list !== 'object' || Array.isArray(list)) return {};

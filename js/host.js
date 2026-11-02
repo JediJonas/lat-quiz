@@ -4,8 +4,12 @@ import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, visibleCategories } from './data.js';
 import { SILENCE, findPreview } from './deezer.js';
 import { showConfirm } from './dialog.js';
-import { currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
-import { createGameView, esc } from './spelvy.js';
+import { INFO_MS, currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
+import { createGameView } from './spelvy.js';
+import { $, esc } from './shared/dom.js';
+import { newCode, newId } from './shared/ids.js';
+import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
+import * as prefs from './shared/preferences.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
@@ -15,27 +19,15 @@ import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './vantemusik.js';
 import { nowMusic, showNowMusic } from './nuspelas.js';
 import { ICONS as MENU_ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { DELAY_CHOICES, after, cleanDelay, delayShort, delayText } from './ljudfordrojning.js';
-import { UNKNOWN_KEY, cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
+import { cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from './okanda.js';
 import { mountSeasonEffect } from './sasong.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
 mountSeasonEffect();
 
-const SAVE_KEY = 'latquiz-host';
-const NAME_KEY = 'latquiz-namn';
-const SETTINGS_KEY = 'latquiz-settings';
-const CLIP_ALL_KEY = 'latquiz-klipp-alla';
-const EXTRA_SOUNDS_KEY = 'latquiz-extraljud';
-const AUDIO_DELAY_KEY = 'latquiz-ljudfordrojning';
-// Tidigare fanns Spela vinnarlåt och Spela väntemusik var för sig. De tas bort när extraljuden sparas.
-const OLD_SOUND_KEYS = ['latquiz-vinnarlat', 'latquiz-vantemusik'];
-// Tidigare gick det att välja Spotify som musiktjänst. Valet tas bort, eftersom bara Deezer finns kvar.
-const OLD_MUSIC_KEY = 'latquiz-musik';
+// Ett sparat spel går att gå tillbaka till i tolv timmar.
 const SAVE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
-const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-
-const $ = (sel) => document.querySelector(sel);
 
 let state = null;
 let songs = [];
@@ -49,73 +41,24 @@ let gameView = null;
 let hostPlays = true;
 const DEFAULT_HOST_NAME = 'Spelledare';
 
-function storage(fn, fallback) {
-  try { return fn(); } catch { return fallback; }
-}
-
 // Inget sparas när spelet har avslutats. Annars sparas det igen när anslutningarna stängs,
 // och knappen för att gå tillbaka till spelet finns kvar.
 function save() {
   if (leaving) return;
-  storage(() => localStorage.setItem(SAVE_KEY, JSON.stringify({ state, savedAt: Date.now() })));
+  writeJson(KEYS.hostGame, { state, savedAt: Date.now() });
 }
 
 function loadSaved() {
-  const saved = storage(() => JSON.parse(localStorage.getItem(SAVE_KEY)), null);
+  const saved = readJson(KEYS.hostGame, null);
   if (!saved || Date.now() - saved.savedAt > SAVE_MAX_AGE_MS) return null;
   return saved.state;
-}
-
-// Senast valda inställningar används när nästa spel skapas.
-function loadSettings() {
-  return game.cleanSettings(storage(() => JSON.parse(localStorage.getItem(SETTINGS_KEY)), {}));
-}
-
-function saveSettings(settings) {
-  storage(() => localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)));
-}
-
-storage(() => localStorage.removeItem(OLD_MUSIC_KEY));
-
-// Klippet kan också spelas i spelarnas mobiler. Det är av som standard, och senaste valet
-// gäller nästa spel.
-function loadClipAll() {
-  return storage(() => localStorage.getItem(CLIP_ALL_KEY) === '1', false);
-}
-
-function saveClipAll(on) {
-  storage(() => (on ? localStorage.setItem(CLIP_ALL_KEY, '1') : localStorage.removeItem(CLIP_ALL_KEY)));
-}
-
-// Extraljuden är väntemusiken medan spelarna går med, trumvirveln före vinnaren och vinnarlåten.
-// Quizlåtarna spelas alltid. Extraljuden är på som standard, även för den som stängde av
-// vinnarlåten eller väntemusiken tidigare, och valet gäller den här enheten.
-function loadExtraSounds() {
-  return storage(() => localStorage.getItem(EXTRA_SOUNDS_KEY) !== '0', true);
-}
-
-function saveExtraSounds(on) {
-  storage(() => {
-    for (const key of OLD_SOUND_KEYS) localStorage.removeItem(key);
-    if (on) localStorage.removeItem(EXTRA_SOUNDS_KEY); else localStorage.setItem(EXTRA_SOUNDS_KEY, '0');
-  });
-}
-
-// Ljudfördröjningen för en blåtandshögtalare, i millisekunder, se ljudfordrojning.js. Den är av
-// som standard, och valet gäller den här enheten.
-function loadAudioDelay() {
-  return cleanDelay(storage(() => localStorage.getItem(AUDIO_DELAY_KEY), 0));
 }
 
 // Ljudmotorn, där väntemusiken och vinnarlåten spelas, hörs senare än ett vanligt ljudelement över
 // blåtand, så med ljudsynk väntar vinnarkortet och raden Nu spelas ENGINE_WAIT_MS extra
 // (provat med blåtandshögtalare och iPhone 24 oktober 2026).
 const ENGINE_WAIT_MS = 1000;
-const musicDelay = () => { const delay = loadAudioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
-
-function saveAudioDelay(ms) {
-  storage(() => (ms ? localStorage.setItem(AUDIO_DELAY_KEY, String(ms)) : localStorage.removeItem(AUDIO_DELAY_KEY)));
-}
+const musicDelay = () => { const delay = prefs.audioDelay(); return delay ? delay + ENGINE_WAIT_MS : 0; };
 
 // Spelarnas mobiler får veta när klippet börjar, så att de kan spela det i takt, och raden längst
 // ner visar låten, både här och i mobilerna. Tystnar klippet för att det inte gick att spela,
@@ -133,7 +76,7 @@ const winnerSong = createWinnerSong({ onChange: musicChanged, songs: () => winne
 const lobbyMusic = createLobbyMusic({ onChange: musicChanged, songs: () => lobbySongs(category && category.id) });
 
 // Musiken spelar innan första låten, även efter Spela igen, och tystnar när spelet startar.
-const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && loadExtraSounds());
+const lobbyWanted = () => Boolean(state && !state.round && !state.winners && !leaving && prefs.extraSounds());
 
 // Väntemusiken eller vinnarlåten som spelas, för raden längst ner, eller null. Låten står där
 // först när klippet faktiskt hörs, och vinnarlåten står kvar tills en ny match börjar.
@@ -149,7 +92,7 @@ let musicSeen = { text: null, at: 0 };
 function playingMusic() {
   if (!state) return null;
   if (lobbyWanted()) return nowMusic(lobbyMusic.song());
-  if (!state.winners || !loadExtraSounds()) return null;
+  if (!state.winners || !prefs.extraSounds()) return null;
   return nowMusic(winnerSong.heard());
 }
 
@@ -177,40 +120,17 @@ function updateLobbyMusic() {
   $('#lobby-note').hidden = !on;
 }
 
-// Spelledarens namn föreslås nästa gång, även om namnet från spelarsidan finns.
-function loadName() {
-  return storage(() => localStorage.getItem(NAME_KEY), null)
-    || storage(() => JSON.parse(localStorage.getItem('latquiz-player')).name, '') || '';
-}
-
-function newId() {
-  return 'spelledare-' + ((crypto.randomUUID && crypto.randomUUID()) || String(Math.random()).slice(2));
-}
-
 // Okända låtar sparas på den här datorn och gäller alla kommande spel.
 function loadUnknown() {
-  return cleanUnknown(storage(() => JSON.parse(localStorage.getItem(UNKNOWN_KEY)), {}));
+  return cleanUnknown(readJson(KEYS.unknown, {}));
 }
 
 function saveUnknown(list) {
-  storage(() => localStorage.setItem(UNKNOWN_KEY, JSON.stringify(list)));
+  writeJson(KEYS.unknown, list);
 }
 
-// Avdelningen Okända låtar i Inställningar syns bara för den som har slagit på den med
-// ?okanda=1 i adressen, på förstasidan eller här. Valet sparas på datorn, och ?okanda=0 slår av.
-const SHOW_UNKNOWN_KEY = 'latquiz-visa-okanda';
-const showUnknown = (() => {
-  const param = new URLSearchParams(location.search).get('okanda');
-  if (param === '1') storage(() => localStorage.setItem(SHOW_UNKNOWN_KEY, '1'));
-  if (param === '0') storage(() => localStorage.removeItem(SHOW_UNKNOWN_KEY));
-  return storage(() => localStorage.getItem(SHOW_UNKNOWN_KEY) === '1', false);
-})();
-
-function newCode() {
-  let code = '';
-  for (let i = 0; i < 4; i++) code += CODE_LETTERS[Math.floor(Math.random() * CODE_LETTERS.length)];
-  return code;
-}
+// Avdelningen Okända låtar i Inställningar syns bara med ?okanda=1, se preferences.js.
+const showUnknown = prefs.showUnknown(location.search);
 
 function joinUrl() {
   const url = new URL('play.html', location.href);
@@ -233,7 +153,7 @@ function viewFor(playerId) {
   const left = autoNextLeft();
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
   // Vinnarlåten är ett Deezer-klipp. Då står Deezer på vinnarkortet.
-  view.winnerClip = loadExtraSounds();
+  view.winnerClip = prefs.extraSounds();
   // Spelarna vänder fram vinnaren när spelledaren gör det, det vill säga när vinnarlåten hörs.
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
@@ -402,11 +322,11 @@ function setHostPlays(plays) {
 
 // Raden Inställningar på Starta nytt spel visar vad som gäller. Ändra öppnar samma ruta som i menyn.
 function renderSettingsSummary() {
-  const s = loadSettings();
+  const s = prefs.lastSettings();
   // Samma ordning som i rutan Inställningar.
   const parts = [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    ...(loadClipAll() ? ['Ljud på alla enheter'] : []), ...(loadExtraSounds() ? [] : ['Inga extraljud']),
-    ...(loadAudioDelay() ? [`Ljudsynk ${delayShort(loadAudioDelay())}`] : []),
+    ...(prefs.clipAll() ? ['Ljud på alla enheter'] : []), ...(prefs.extraSounds() ? [] : ['Inga extraljud']),
+    ...(prefs.audioDelay() ? [`Ljudsynk ${delayShort(prefs.audioDelay())}`] : []),
     ...(hostPlays ? [] : ['Jag deltar inte'])];
   // Raden bryts bara mellan delarna, inte mitt i till exempel Bonus inom 15 sekunder.
   $('#settings-text').textContent = parts.map((p) => p.replaceAll(' ', '\u00a0')).join(' · ');
@@ -424,18 +344,18 @@ async function startGame(categoryId, resumeState, name, plays = true) {
   } else {
     state = game.createGame({
       code: newCode(), categoryId: category.id, categoryName: category.name, labels: category.labels,
-      settings: loadSettings(),
+      settings: prefs.lastSettings(),
     });
     state.hostPlays = plays;
-    state.clipAll = loadClipAll();
+    state.clipAll = prefs.clipAll();
   }
   // Ett äldre sparat spel kan ha valt Spotify, som inte finns längre.
   delete state.music;
   state.clipAll = state.clipAll === true;
   // Spelledaren är en spelare som alltid är ansluten, om spelledaren deltar. Ett äldre sparat spel får spelledaren nu.
-  if (!state.hostId) state.hostId = newId();
+  if (!state.hostId) state.hostId = newId('spelledare-');
   game.setHostPlaying(state, state.hostPlays !== false,
-    hostName(name || state.players[state.hostId]?.name || loadName()));
+    hostName(name || state.players[state.hostId]?.name || prefs.hostName()));
   // Även ett återupptaget spel från innan namnet sparades ska visa kategorin.
   state.categoryName = category.name;
   save();
@@ -495,7 +415,7 @@ function playerMusic() {
   if (!state.clipAll) return null;
   const lobby = lobbyWanted() && lobbyMusic.now();
   if (lobby) return { ...LOBBY_FADE, ...lobby };
-  if (!state.winners || !loadExtraSounds()) return null;
+  if (!state.winners || !prefs.extraSounds()) return null;
   const winner = winnerSong.now();
   if (winner) return { ...WINNER_FADE, ...winner };
   const drum = winnerSong.drumNow();
@@ -622,7 +542,7 @@ function startClip() {
   const audio = clipAudio();
   audio.currentTime = 0;
   const roundNumber = state.round.number;
-  audio.play().then(() => wait(loadAudioDelay())).then(() => {
+  audio.play().then(() => wait(prefs.audioDelay())).then(() => {
     // Spelledaren kan ha pausat eller visat svaret medan klippet buffrades.
     if (!state.round || state.round.number !== roundNumber || state.round.phase !== 'ready') { audio.pause(); return; }
     if (state.pausedAt) {
@@ -732,7 +652,7 @@ async function endGame() {
   });
   if (!ok) return;
   leaving = true;
-  storage(() => localStorage.removeItem(SAVE_KEY));
+  remove(KEYS.hostGame);
   stopClip();
   winnerSong.stop();
   lobbyMusic.stop();
@@ -827,7 +747,7 @@ function knownHostName() {
   const player = state && (state.players[state.hostId] || state.benchedHost);
   if (player && player.name && player.name !== DEFAULT_HOST_NAME) return player.name;
   if (pending && pending.host && pending.host.name !== DEFAULT_HOST_NAME) return pending.host.name;
-  return loadName();
+  return prefs.hostName();
 }
 
 // Namnfältet under strömbrytarna, där Jag deltar i spelet står. Före spelet står namnet på
@@ -967,27 +887,27 @@ function showSettings(current, categories = null, categoryId = null, names = {},
 async function editSettings() {
   const all = await loadCategories();
   const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
-  const current = pending ? pending.settings : state ? game.cleanSettings(state) : loadSettings();
+  const current = pending ? pending.settings : state ? game.cleanSettings(state) : prefs.lastSettings();
   const currentCategory = pending && pending.category ? pending.category.id : category && category.id;
   const categories = state ? visibleCategories(all, { keep: currentCategory }) : null;
-  const clipAll = pending ? pending.clipAll : state ? state.clipAll : loadClipAll();
+  const clipAll = pending ? pending.clipAll : state ? state.clipAll : prefs.clipAll();
   const chosen = await showSettings(current, categories, currentCategory, names,
-    { running: Boolean(state), clipAll, extraSounds: loadExtraSounds(), audioDelay: loadAudioDelay() });
+    { running: Boolean(state), clipAll, extraSounds: prefs.extraSounds(), audioDelay: prefs.audioDelay() });
   if (!chosen) return;
   const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, audioDelay, ...settings } = chosen;
   // Ljudfördröjningen gäller enheten, från nästa gång ett ljud börjar.
-  saveAudioDelay(audioDelay);
+  prefs.setAudioDelay(audioDelay);
   // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
   // börjar eller tystnar direkt medan spelarna går med.
-  saveExtraSounds(chosenExtraSounds);
+  prefs.setExtraSounds(chosenExtraSounds);
   if (!chosenExtraSounds) winnerSong.stop();
-  saveSettings(settings);
-  saveClipAll(chosenClipAll);
+  prefs.setLastSettings(settings);
+  prefs.setClipAll(chosenClipAll);
   if (!state) {
     setHostPlays(host.plays);
     return;
   }
-  if (host.plays && host.name !== DEFAULT_HOST_NAME) storage(() => localStorage.setItem(NAME_KEY, host.name));
+  if (host.plays && host.name !== DEFAULT_HOST_NAME) prefs.setHostName(host.name);
   const picked = categoryId && categoryId !== category.id ? categories.find((c) => c.id === categoryId) : null;
   // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
   const pickedSongs = picked ? await loadSongs(picked) : null;
@@ -999,11 +919,10 @@ async function editSettings() {
   const shown = currentMessage();
   if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
   if (pending && pendingDiffers()) {
-    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text: 'Ändringarna gäller från nästa låt.', ms: SETTINGS_MESSAGE_MS });
+    showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text: 'Ändringarna gäller från nästa låt.', ms: INFO_MS });
   }
 }
 
-const SETTINGS_MESSAGE_MS = 4000;
 
 // Skiljer sig de sparade ändringarna från det som gäller nu?
 function pendingDiffers() {
@@ -1139,8 +1058,8 @@ function startClicked() {
 // virveln är slut. Vinnarvyn tar över när låten hörs, eller när virveln är slut om ingen låt spelas.
 // Med ljudsynk vänds rubriken och vinnarkortet när ljudet hörs i högtalaren.
 function winnerDrum() {
-  if (!loadExtraSounds()) return null;
-  const delay = loadAudioDelay();
+  if (!prefs.extraSounds()) return null;
+  const delay = prefs.audioDelay();
   const drum = after(winnerSong.drum(), delay);
   // Med ?debug=1 står det hur låten spelades, så att fördröjningen går att felsöka.
   const song = winnerSong.play().then((kind) => {
@@ -1301,12 +1220,12 @@ async function init() {
   mountMenu($('#setup'), menuGroups);
   mountMenu($('#game'), menuGroups);
   renderSettingsSummary();
-  $('#host-name').value = loadName();
+  $('#host-name').value = prefs.hostName();
   $('#setup-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = $('#host-name').value.trim().slice(0, game.MAX_NAME);
     if (hostPlays && !name) return;
-    if (hostPlays) storage(() => localStorage.setItem(NAME_KEY, name));
+    if (hostPlays) prefs.setHostName(name);
     startGame(chosenCategory(), null, hostPlays ? name : '', hostPlays);
   });
   // I mobilen väljs kategorin bland omslag och på dator i en rullgardin. De två hålls lika.
