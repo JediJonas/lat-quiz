@@ -1,3 +1,4 @@
+// @ts-check
 // Modaler i stället för webbläsarens alert() och confirm().
 // Bygger på <dialog>, som sköter fokus, Esc och bakgrunden.
 import { t } from './shared/lang.js';
@@ -7,6 +8,9 @@ const INFO_ICON = '<svg viewBox="0 -960 960 960"><path d="M480-680q-33 0-56.5-23
 
 // Alla frågor och meddelanden ser likadana ut: en ikon överst, rubrik, text och knappar.
 // icon: ikonen (svg). Utan egen ikon visas i. Röd ton när knappen gör något som inte går att ångra.
+/**
+ * @param {{ title?: string, message: string, okText?: string, cancelText?: string | null, danger?: boolean, icon?: string }} options
+ */
 function open({ title, message, okText = 'OK', cancelText = null, danger = false, icon = INFO_ICON }) {
   const dialog = document.createElement('dialog');
   dialog.className = 'modal confirm';
@@ -23,7 +27,7 @@ function open({ title, message, okText = 'OK', cancelText = null, danger = false
   const h2 = dialog.querySelector('h2');
   if (title) h2.textContent = title; else h2.remove();
   dialog.querySelector('p').textContent = message;
-  const ok = dialog.querySelector('.ok');
+  const ok = /** @type {HTMLButtonElement} */ (dialog.querySelector('.ok'));
   ok.textContent = okText;
   if (danger) ok.classList.add('danger');
   if (cancelText) dialog.querySelector('[value=cancel]').textContent = cancelText;

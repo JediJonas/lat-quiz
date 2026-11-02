@@ -1,3 +1,4 @@
+// @ts-check
 // Säsongens stämning bakom sidan: snö som faller i Jul och löv som singlar ner i Halloween. Den
 // följer kategorin på html-elementet, så den syns på startsidan när
 // kategorin väljs och genom hela spelet, hos spelledaren och spelarna. Lagret ligger bakom allt

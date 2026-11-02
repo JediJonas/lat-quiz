@@ -1,3 +1,4 @@
+// @ts-check
 // Spelarvyn i mobilen.
 import { codeBoxes } from './code-boxes.js';
 import { t } from './shared/lang.js';

@@ -1,3 +1,4 @@
+// @ts-check
 // Vinstanimationen på vinnarkortet: konfetti, fyrverkeri eller strålkastare, och i
 // säsongskategorierna en fladdermussvärm i Halloween och snöstorm i Jul.
 // Den ligger bakom texten på omslaget och håller på i ungefär 13 sekunder. Med minskad rörelse
@@ -135,6 +136,7 @@ function confetti(box) {
 function fireworks(box) {
   const colors = ['#ffd166', '#ffffff', '#7cf0b0', '#ff9ecb', '#9fd8ff'];
   // När raketerna skjuts upp, i sekunder, och hur högt de slår ut (0 högst upp, 1 längst ner).
+  /** @type {[number, number][]} */
   const plan = [[0.15, 0.3], [0.6, 0.72], [1.4, 0.5], [2.4, 0.22], [2.9, 0.8], [3.7, 0.45], [4.7, 0.65],
     [5.1, 0.3], [6.1, 0.55], [7, 0.2], [7.4, 0.78], [8.3, 0.4], [9.1, 0.25], [9.15, 0.55], [9.2, 0.82]];
   const kinds = ['peony', 'ring', 'willow', 'peony', 'peony', 'willow', 'ring'];
@@ -233,7 +235,7 @@ function fireworks(box) {
   area.start();
   if (still()) {
     // Med minskad rörelse står två mindre bollar still, som ett foto av fyrverkeriet.
-    [[0.3, 0.5, 'peony'], [0.72, 0.4, 'ring']].forEach(([x, level, kind]) => burst(area.w * x, height(level), kind, 0.65));
+    /** @type {[number, number, string][]} */ ([[0.3, 0.5, 'peony'], [0.72, 0.4, 'ring']]).forEach(([x, level, kind]) => burst(area.w * x, height(level), kind, 0.65));
     for (let t = 0; t < 0.7; t += 1 / 60) step(1 / 60);
     flashes.length = 0;
     for (const s of sparks) s.age = Math.min(s.age, s.life * 0.4);
@@ -265,6 +267,7 @@ function fireworks(box) {
 function spotlights(box) {
   // Var lampan står (andel av bredden), om den lyser uppifrån eller nerifrån, färgen och åt vilket
   // håll den börjar svepa.
+  /** @type {[number, string, string, number][]} */
   const beams = [[0.1, 'top', '#ff5fb0', 1], [0.45, 'top', '#4fd8ff', -1], [0.88, 'top', '#ffd166', -1],
     [0.2, 'bottom', '#a98bff', -1], [0.62, 'bottom', '#7cf0b0', 1], [0.95, 'bottom', '#ff8a5c', 1]];
   // Två lampor ur olika par lutar, så att de inte står bredvid varandra.
@@ -366,6 +369,8 @@ function bats(box) {
   // stora bilder.
   const small = batFrames(1);
   const large = batFrames(3);
+  // x, y och size räknas ut medan flocken flyger, och out sätts när fladdermusen har passerat.
+  /** @type {{ ox: number, oy: number, at: number, s: number, wob: number, wobHz: number, ph: number, flapHz: number, x?: number, y?: number, size?: number, out?: boolean }[]} */
   const swarm = Array.from({ length: 130 }, () => {
     const r = Math.sqrt(Math.random());
     const a = rand(0, 6.3);

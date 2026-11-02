@@ -1,3 +1,4 @@
+// @ts-check
 // Kategorivalet på Starta nytt spel: omslag i mobilen och en rullgardin på dator, som hålls lika.
 import { $, esc } from './shared/dom.js';
 import { t } from './shared/lang.js';

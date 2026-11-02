@@ -1,3 +1,4 @@
+// @ts-check
 // Koden i Gå med visas i fyra rutor, som en engångskod i iPhone. Ett enda fält tar emot
 // texten, så att inklistring, autofyll och skärmläsare fungerar som vanligt. Rutorna visar
 // bara vad som står i fältet, och rutan där nästa bokstav hamnar har fokusramen.

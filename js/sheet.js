@@ -1,3 +1,4 @@
+// @ts-check
 // Rutorna glider upp nerifrån i mobilen, som ark på iPhone. Drar man nedåt från greppet eller
 // rubriken följer arket med, och släpps det långt nog ner eller med fart stängs det som Avbryt.
 // Bara överkanten tar emot dragningen, så att resten av arket kan rullas och valen tryckas.
