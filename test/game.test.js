@@ -22,8 +22,8 @@ function setup() {
 
 test('rätt artist och titel ger 1 poäng var, plus bonus inom 15 sekunder', () => {
   const state = setup();
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 5000);
-  submitAnswer(state, 'p1', 'title', 'take on me', 9000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 5000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'take on me' }, 9000);
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: true, title: true, bonus: true, points: 3 });
   assert.equal(state.players.p1.score, 3);
@@ -31,19 +31,19 @@ test('rätt artist och titel ger 1 poäng var, plus bonus inom 15 sekunder', () 
 
 test('ingen bonus när senaste ändringen kom efter 15 sekunder', () => {
   const state = setup();
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 3000);
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 20000); // samma värde räknas inte som ändring
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 3000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 20000); // samma värde räknas inte som ändring
   assert.equal(state.round.answers.p1.changedAt, 3000);
-  submitAnswer(state, 'p1', 'artist', 'Europe', 17000);
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 17000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'Europe' }, 17000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 17000);
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: true, title: true, bonus: false, points: 2 });
 });
 
 test('tomt eller fel svar ger 0 poäng och ingen bonus', () => {
   const state = setup();
-  submitAnswer(state, 'p1', 'artist', 'Europe', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'Europe' }, 2000);
   reveal(state);
   assert.equal(state.round.results.p1.points, 0);
   assert.equal(state.round.results.p2.points, 0);
@@ -51,8 +51,8 @@ test('tomt eller fel svar ger 0 poäng och ingen bonus', () => {
 
 test('bara en rätt del ger 1 poäng utan bonus', () => {
   const state = setup();
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
-  submitAnswer(state, 'p1', 'title', 'The Final Countdown', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'The Final Countdown' }, 2000);
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: true, title: false, bonus: false, points: 1 });
 });
@@ -61,20 +61,20 @@ test('svar tas inte emot före start, efter tidens slut eller efter visat svar',
   const state = createGame({ code: 'ABCD', categoryId: '80-tal' });
   addPlayer(state, { id: 'p1', name: 'Anna' });
   nextSong(state, songs, () => 0);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 500), false);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 500), false);
   startRound(state, 1000);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 31001), false);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 31000), true);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 31001), false);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 31000), true);
   reveal(state);
-  assert.equal(submitAnswer(state, 'p1', 'title', 'Take On Me', 31000), false);
+  assert.equal(submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 31000), false);
 });
 
 test('svaret visas först när tiden är slut, även om alla har svarat', () => {
   const state = setup();
   assert.equal(shouldReveal(state, 30999), false);
   assert.equal(shouldReveal(state, 31000), true);
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 2000);
   setConnected(state, 'p2', false);
   assert.equal(shouldReveal(state, 3000), false);
   assert.equal(remainingMs(state, 3000), 28000);
@@ -92,10 +92,10 @@ function setupSeries() {
 
 test('med bara titelfältet ger rätt titel 1 poäng och bonus utan artist', () => {
   const state = setupSeries();
-  submitAnswer(state, 'p1', 'title', 'Vänner', 5000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Vänner' }, 5000);
   assert.equal(hasAnsweredAll(state, 'p1'), true);
   assert.deepEqual(playerView(state, 'p1', 6000).answered, ['p1']);
-  submitAnswer(state, 'p2', 'title', 'Vänner', 20000);
+  submitAnswer(state, 'p2', { field: 'title', value: 'Vänner' }, 20000);
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: false, title: true, bonus: true, points: 2 });
   assert.deepEqual(state.round.results.p2, { artist: false, title: true, bonus: false, points: 1 });
@@ -103,17 +103,17 @@ test('med bara titelfältet ger rätt titel 1 poäng och bonus utan artist', () 
 
 test('med bara titelfältet ger en gissad artist inga poäng', () => {
   const state = setupSeries();
-  submitAnswer(state, 'p1', 'artist', 'The Rembrandts', 2000);
-  submitAnswer(state, 'p1', 'title', 'Simpsons', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'The Rembrandts' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Simpsons' }, 2000);
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: false, title: false, bonus: false, points: 0 });
 });
 
 test('en spelare som har svarat kan ändra sitt svar, och bonusen räknas från ändringen', () => {
   const state = setup(); // låten startade vid 1000, bonus inom 15 sekunder
-  submitAnswer(state, 'p1', 'artist', 'Queen', 2000);
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 20000), true);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'Queen' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 2000);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 20000), true);
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: true, title: true, bonus: false, points: 2 });
 });
@@ -131,7 +131,7 @@ test('spelade låtar slumpas inte igen, och null när alla är spelade', () => {
 
 test('återanslutning med samma id behåller poängen', () => {
   const state = setup();
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 2000);
   reveal(state);
   setConnected(state, 'p1', false);
   addPlayer(state, { id: 'p1', name: 'Anna' });
@@ -147,7 +147,7 @@ test('en spelare som går med mitt i en låt ser låten som pågår och kan svar
   assert.equal(view.round.phase, 'playing');
   assert.equal(view.round.number, 1);
   assert.ok(view.standings.some((p) => p.name === 'Cia'));
-  assert.equal(submitAnswer(state, 'p3', 'artist', 'a-ha', 3000), true);
+  assert.equal(submitAnswer(state, 'p3', { field: 'artist', value: 'a-ha' }, 3000), true);
 });
 
 test('spelaren ser inte låten förrän svaret visas', () => {
@@ -161,7 +161,7 @@ test('spelaren ser inte låten förrän svaret visas', () => {
 
 test('spelarna ser vilka fält alla har fyllt i, och allas rättning efteråt', () => {
   const state = setup();
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 2000);
   const playing = playerView(state, 'p2', 2000).round;
   assert.deepEqual(playing.progress.p1, { artist: false, title: true });
   assert.deepEqual(playing.progress.p2, { artist: false, title: false });
@@ -175,7 +175,7 @@ test('spelarna ser vilka fält alla har fyllt i, och allas rättning efteråt', 
 
 test('poängställningen sorteras efter poäng och sedan namn', () => {
   const state = setup();
-  submitAnswer(state, 'p2', 'artist', 'a-ha', 2000);
+  submitAnswer(state, 'p2', { field: 'artist', value: 'a-ha' }, 2000);
   reveal(state);
   assert.deepEqual(standings(state).map((p) => p.name), ['Bo', 'Anna']);
 });
@@ -189,8 +189,8 @@ test('först till 10 poäng vinner, och sedan slumpas inga fler låtar', () => {
   while (!state.winners) {
     const song = nextSong(state, many, () => 0);
     startRound(state, 0);
-    submitAnswer(state, 'p1', 'artist', song.artist, 1000);
-    submitAnswer(state, 'p1', 'title', song.title, 1000);
+    submitAnswer(state, 'p1', { field: 'artist', value: song.artist }, 1000);
+    submitAnswer(state, 'p1', { field: 'title', value: song.title }, 1000);
     reveal(state);
     rounds += 1;
   }
@@ -208,8 +208,8 @@ test('lika poäng över gränsen ger delad seger', () => {
   const state = setup();
   state.players.p1.score = 9;
   state.players.p2.score = 9;
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 20000);
-  submitAnswer(state, 'p2', 'artist', 'a-ha', 20000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 20000);
+  submitAnswer(state, 'p2', { field: 'artist', value: 'a-ha' }, 20000);
   reveal(state);
   assert.deepEqual(state.winners.sort(), ['p1', 'p2']);
 });
@@ -246,8 +246,8 @@ test('inställningar: okända värden ersätts med standard, bonus 0 betyder ing
   addPlayer(state, { id: 'p1', name: 'Anna' });
   nextSong(state, songs, () => 0);
   startRound(state, 1000);
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 2000);
   assert.equal(applySettings(state, { roundMs: 30000 }), false, 'ändras inte mitt i en låt');
   reveal(state);
   assert.deepEqual(state.round.results.p1, { artist: true, title: true, bonus: false, points: 2 });
@@ -271,7 +271,7 @@ test('kortare tid per låt: tiden tar slut och svaren låses tidigare', () => {
   startRound(state, 1000);
   assert.equal(remainingMs(state, 6000), 5000);
   assert.equal(shouldReveal(state, 11000), true);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 11001), false);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 11001), false);
   assert.equal(playerView(state, 'p1', 6000).round.roundMs, 10000);
 });
 
@@ -298,8 +298,8 @@ test('rättningen godtar svar utan accenter och apostrofer', () => {
   addPlayer(state, { id: 'p1', name: 'Anna' });
   nextSong(state, [{ id: 's', artist: 'Shawn Mendes', title: 'Señorita' }], () => 0);
   startRound(state, 1000);
-  submitAnswer(state, 'p1', 'artist', 'shawn mendes', 2000);
-  submitAnswer(state, 'p1', 'title', 'Senorita', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'shawn mendes' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Senorita' }, 2000);
   reveal(state);
   assert.equal(state.players.p1.score > 0, true);
 });
@@ -320,8 +320,8 @@ test('rättningen godtar "and" för "&" och artister utan "The"', () => {
   addPlayer(state, { id: 'p1', name: 'Anna' });
   nextSong(state, [{ id: 's', artist: 'Nick Cave & The Bad Seeds', title: 'Red Right Hand' }], () => 0);
   startRound(state, 1000);
-  submitAnswer(state, 'p1', 'artist', 'Nick Cave and the Bad Seeds', 2000);
-  submitAnswer(state, 'p1', 'title', 'Red Right Hand', 2000);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'Nick Cave and the Bad Seeds' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Red Right Hand' }, 2000);
   reveal(state);
   assert.equal(state.players.p1.score >= 2, true);
 });
@@ -358,12 +358,12 @@ test('under en paus står timern still och inga svar tas emot', () => {
   const state = setup(); // låten startade vid 1000
   assert.equal(pause(state, 11000), true);
   assert.equal(remainingMs(state, 50000), 20000);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 12000), false);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 12000), false);
   assert.equal(shouldReveal(state, 99000), false);
   assert.equal(playerView(state, 'p1', 50000).paused, true);
   assert.equal(resume(state, 51000), 40000);
   assert.equal(remainingMs(state, 51000), 20000);
-  assert.equal(submitAnswer(state, 'p1', 'artist', 'a-ha', 52000), true);
+  assert.equal(submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 52000), true);
   assert.equal(playerView(state, 'p1', 52000).paused, false);
 });
 
@@ -384,9 +384,9 @@ test('spelledaren som inte deltar finns inte bland spelarna och kan inte svara',
   addPlayer(state, { id: 'p1', name: 'Anna' });
   nextSong(state, songs, () => 0);
   startRound(state, 1000);
-  assert.equal(submitAnswer(state, 'h', 'artist', 'a-ha', 2000), false);
-  submitAnswer(state, 'p1', 'artist', 'a-ha', 2000);
-  submitAnswer(state, 'p1', 'title', 'Take On Me', 2000);
+  assert.equal(submitAnswer(state, 'h', { field: 'artist', value: 'a-ha' }, 2000), false);
+  submitAnswer(state, 'p1', { field: 'artist', value: 'a-ha' }, 2000);
+  submitAnswer(state, 'p1', { field: 'title', value: 'Take On Me' }, 2000);
   assert.equal(hasAnsweredAll(state, 'p1'), true);
   reveal(state);
   assert.deepEqual(standings(state).map((p) => p.id), ['p1']);
@@ -414,8 +414,8 @@ test('vinnarna räknas om när spelledaren slutar delta', () => {
   state.hostId = 'h';
   setHostPlaying(state, true, 'Spelledare');
   state.players.h.score = 9;
-  submitAnswer(state, 'h', 'artist', 'a-ha', 2000);
-  submitAnswer(state, 'h', 'title', 'Take On Me', 2000);
+  submitAnswer(state, 'h', { field: 'artist', value: 'a-ha' }, 2000);
+  submitAnswer(state, 'h', { field: 'title', value: 'Take On Me' }, 2000);
   reveal(state);
   assert.deepEqual(state.winners, ['h']);
   setHostPlaying(state, false);

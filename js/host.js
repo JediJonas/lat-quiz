@@ -143,7 +143,7 @@ function tick() {
 // Spelledarens eget svar, som om det kom från en spelare.
 function hostAnswer(field, value) {
   if (!state) return;
-  game.submitAnswer(state, state.hostId, field, protocol.cleanAnswer(value), Date.now());
+  game.submitAnswer(state, state.hostId, { field, value: protocol.cleanAnswer(value) }, Date.now());
   stateChanged();
 }
 

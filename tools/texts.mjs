@@ -39,7 +39,8 @@ export function withTexts(html, texts = sv) {
   });
   // Innehållet: texten i ett element utan barn, eller HTML med data-t-html.
   return html.replace(/(<([a-z0-9]+)\b[^>]*\sdata-t(-html)?="([^"]+)"[^>]*>)([\s\S]*?)(<\/\2>)/g,
-    (match, open, tag, isHtml, key, inner, close) => {
+    (...groups) => {
+      const [, open, , isHtml, key, inner, close] = groups;
       const text = lookup(texts, key);
       if (isHtml) return open + text + close;
       if (inner.includes('<')) throw new Error(`Elementet med ${key} har barn. Använd data-t-html.`);
@@ -53,6 +54,18 @@ const READ_ATTRS = ['aria-label', 'title', 'placeholder', 'alt'];
 // Text som får stå utan nyckel: namn och tecken som är samma på alla språk.
 const ALLOWED = new Set(['Deezer', '×']);
 const VOID = new Set(['meta', 'link', 'input', 'br', 'img', 'hr', 'source', 'area', 'base', 'col', 'embed', 'wbr']);
+
+// Attribut i en tagg som har text men ingen nyckel, och en beskrivning utan nyckel.
+function untranslatedAttrs(tag, attrs) {
+  const found = [];
+  for (const attr of READ_ATTRS) {
+    if (new RegExp(`\\s${attr}="[^"]*\\p{L}`, 'u').test(attrs) && !new RegExp(`\\sdata-t-${attr}="`).test(attrs)) {
+      found.push(`${attr} i <${tag}${attrs}>`);
+    }
+  }
+  if (tag === 'meta' && /name="description"/.test(attrs) && !/data-t-content=/.test(attrs)) found.push('<meta name="description">');
+  return found;
+}
 
 /** Texter och attribut i sidan som inte kommer från språkfilen. Kategorierna i hyllan räknas inte. */
 export function findUntranslated(html) {
@@ -71,12 +84,7 @@ export function findUntranslated(html) {
       while (stack.length && stack.pop().tag !== tag);
       continue;
     }
-    for (const attr of READ_ATTRS) {
-      if (new RegExp(`\\s${attr}="[^"]*\\p{L}`, 'u').test(attrs) && !new RegExp(`\\sdata-t-${attr}="`).test(attrs)) {
-        found.push(`${attr} i <${tag}${attrs}>`);
-      }
-    }
-    if (tag === 'meta' && /name="description"/.test(attrs) && !/data-t-content=/.test(attrs)) found.push('<meta name="description">');
+    found.push(...untranslatedAttrs(tag, attrs));
     if (VOID.has(tag)) continue;
     stack.push({ tag, covered: /\sdata-t(-html)?="/.test(attrs) || /class="(tile|shelf-row)"/.test(attrs) });
   }

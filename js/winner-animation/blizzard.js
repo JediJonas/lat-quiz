@@ -78,5 +78,5 @@ export function blizzard(box) {
     return;
   }
   // När snöyran är slut ritas bara drivan.
-  play(box, area, dur, (now) => { t = now; draw(); }, () => { flakes.length = 0; draw(); });
+  play(box, area, { dur, step: (now) => { t = now; draw(); }, end: () => { flakes.length = 0; draw(); } });
 }

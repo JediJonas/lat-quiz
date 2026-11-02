@@ -32,14 +32,14 @@ function leaves(n) {
   }));
 }
 
-function drawFlake(ctx, f, w, h, t) {
+function drawFlake(ctx, f, w, t) {
   const x = f.x * w + Math.sin(t * f.sway + f.phase) * 12;
   ctx.beginPath();
   ctx.arc(x, f.y, f.r, 0, Math.PI * 2);
   ctx.fill();
 }
 
-function drawLeaf(ctx, l, w, h, t) {
+function drawLeaf(ctx, l, w, t) {
   ctx.save();
   ctx.translate(l.x * w + Math.sin(t * l.sway + l.phase) * 24, l.y);
   ctx.rotate(t * l.spin + l.phase);
@@ -54,8 +54,9 @@ function drawLeaf(ctx, l, w, h, t) {
   ctx.restore();
 }
 
-// En fladdermus med vingar som slår. flap går från -1 till 1. Används av vinstanimationen.
-export function drawBat(ctx, x, y, s, flap) {
+// En fladdermus med vingar som slår, med mitten i x och y. flap går från -1 till 1. Används av
+// vinstanimationen.
+export function drawBat(ctx, { x, y, size: s }, flap) {
   const lift = flap * s * 0.6;
   ctx.beginPath();
   for (const side of [-1, 1]) {
@@ -105,10 +106,10 @@ function start(layer, effect) {
     ctx.clearRect(0, 0, w, h);
     if (effect === 'snow') {
       ctx.fillStyle = `rgb(${cssColor(layer, '--season-snow')})`;
-      for (const f of items) drawFlake(ctx, f, w, h, t);
+      for (const f of items) drawFlake(ctx, f, w, t);
     } else {
       ctx.globalAlpha = 0.75;
-      for (const l of items) drawLeaf(ctx, l, w, h, t);
+      for (const l of items) drawLeaf(ctx, l, w, t);
       ctx.globalAlpha = 1;
     }
   };

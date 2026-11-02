@@ -29,7 +29,8 @@ export const fade = (t, dur) => Math.min(1, Math.max(0, (dur - t) / 1.5));
 // Kör en canvas-effekt i dur sekunder. step(t, dt) flyttar och ritar. Två sekunder före slutet får
 // rutan klassen done, så att ett mörkare omslag ljusnar igen samtidigt som effekten tonar bort.
 // end ritar, om den finns, det som ska stå kvar när effekten är slut.
-export function play(box, area, dur, step, end) {
+/** @param {HTMLElement} box @param {any} area @param {{ dur: number, step: (t: number, dt: number) => void, end?: () => void }} effect */
+export function play(box, area, { dur, step, end }) {
   area.start();
   const start = performance.now();
   let last = start;

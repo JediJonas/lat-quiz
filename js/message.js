@@ -49,6 +49,17 @@ function elements() {
   return box;
 }
 
+// Ritar rutan och läser upp den. Ett fel läses upp direkt, annat när skärmläsaren hinner.
+function drawMessage(el, { kind, title, text, icon }) {
+  el.className = 'message ' + kind;
+  el.innerHTML = `<span class="message-icon" aria-hidden="true">${ICONS[icon] || ICONS[kind]}</span>
+    <span class="message-body"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}</span>`;
+  el.hidden = false;
+  const spoken = text ? `${title}. ${text}` : title;
+  if (kind === 'problem') alertRow.textContent = spoken;
+  else announce(spoken);
+}
+
 // ms: meddelandet försvinner av sig självt efter så lång tid. Klart försvinner alltid efter en stund.
 // icon: en annan ikon än den som hör till kind, till exempel person när en spelare går med.
 export function showMessage({ key, kind, title, text = '', ms = 0, icon = kind }) {
@@ -56,15 +67,7 @@ export function showMessage({ key, kind, title, text = '', ms = 0, icon = kind }
   clearTimeout(hideTimer);
   const same = current && current.key === key && current.kind === kind && current.title === title && current.text === text;
   current = { key, kind, title, text };
-  if (!same) {
-    el.className = 'message ' + kind;
-    el.innerHTML = `<span class="message-icon" aria-hidden="true">${ICONS[icon] || ICONS[kind]}</span>
-      <span class="message-body"><strong>${esc(title)}</strong>${text ? `<span>${esc(text)}</span>` : ''}</span>`;
-    el.hidden = false;
-    const spoken = text ? `${title}. ${text}` : title;
-    if (kind === 'problem') alertRow.textContent = spoken;
-    else announce(spoken);
-  }
+  if (!same) drawMessage(el, { kind, title, text, icon });
   if (kind === 'ok' || ms) hideTimer = setTimeout(() => hideMessage(key), ms || OK_MS);
 }
 

@@ -212,8 +212,8 @@ export function resume(state, now) {
   return pausedMs;
 }
 
-// field är 'artist' eller 'title'. Ett tomt värde betyder att svaret tas bort.
-export function submitAnswer(state, playerId, field, value, now) {
+// answer är { field, value }, där field är 'artist' eller 'title'. Ett tomt värde betyder att svaret tas bort.
+export function submitAnswer(state, playerId, { field, value }, now) {
   const round = state.round;
   if (!round || round.phase !== 'playing' || state.pausedAt) return false;
   if (!state.players[playerId]) return false;
