@@ -30,14 +30,17 @@ const COLLAPSED_STYLE = `z-index:${Z_COLLAPSED};padding:2px 52px 2px 6px;`
   + `height:${COLLAPSED_HEIGHT_PX}px;overflow:hidden;pointer-events:none;`;
 const EXPANDED_STYLE = `z-index:${Z_EXPANDED};top:0;padding:calc(env(safe-area-inset-top) + 6px) 6px 50px;`
   + 'overflow:auto;overscroll-behavior:contain;pointer-events:auto;user-select:text;';
-// Knappen sitter tätt i hörnet längst ner till höger, i menyknappens färger (klassen soft i
-// style.css, ljust och mörkt läge). margin och
-// transition nollställs, annars ger knappreglerna i style.css den 16 px marginal, så att den
-// hamnar ovanför loggen, och den krymper när man trycker.
-const BUTTON_STYLE = `position:fixed;right:0;bottom:0;z-index:${Z_EXPANDED + 1};width:48px;height:${COLLAPSED_HEIGHT_PX}px;`
+// Knappen är en cirkel i menyknappens färger (klassen soft i style.css, ljust och mörkt läge),
+// centrerad i den hopfällda loggen med lika långt till loggens överkant, nederkant och högerkant.
+// margin och transition nollställs, annars ger knappreglerna i style.css den 16 px marginal, så
+// att den hamnar ovanför loggen, och den krymper när man trycker.
+const BUTTON_SIZE_PX = 36;
+const BUTTON_GAP_PX = (COLLAPSED_HEIGHT_PX - BUTTON_SIZE_PX) / 2;
+const BUTTON_STYLE = `position:fixed;right:${BUTTON_GAP_PX}px;bottom:${BUTTON_GAP_PX}px;z-index:${Z_EXPANDED + 1};`
+  + `width:${BUTTON_SIZE_PX}px;height:${BUTTON_SIZE_PX}px;`
   + 'display:flex;align-items:center;justify-content:center;margin:0;padding:0;border:0;'
-  + 'border-radius:12px 0 0 0;background:linear-gradient(var(--btn-bg),var(--btn-bg)) var(--surface-solid);'
-  + 'color:var(--btn-icon);box-shadow:none;transition:none;font:28px/1 system-ui,sans-serif;touch-action:manipulation;';
+  + 'border-radius:50%;background:linear-gradient(var(--btn-bg),var(--btn-bg)) var(--surface-solid);'
+  + 'color:var(--btn-icon);box-shadow:none;transition:none;font:20px/1 system-ui,sans-serif;touch-action:manipulation;';
 
 function followViewport() {
   const vv = window.visualViewport;
