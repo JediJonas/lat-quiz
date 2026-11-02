@@ -111,12 +111,10 @@ export default {
     'Nästan hela vägen!',
     'Halva poängen i hamn!',
     'Snudd på!',
-    'Varmt, varmt!',
-    'Nästan klockrent!',
+    'Nästan full pott!',
     'Du är på gång!',
     'Inte långt kvar!',
     'Bra där!',
-    'Snart full pott!',
     'Halvt i mål!',
   ],
   'cheer.none': [
