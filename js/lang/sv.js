@@ -151,7 +151,7 @@ export default {
   ],
   'win.shared': [
     'Delad glädje är dubbel glädje!',
-    'Dött lopp, dubbel fest!',
+    'Dött lopp!',
     'Ingen gick att skilja åt!',
     'Fler vinnare, mer jubel!',
     'Lika bra, lika glada!',
