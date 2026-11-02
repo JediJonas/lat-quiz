@@ -45,7 +45,7 @@ const BUTTON_STYLE = `position:fixed;right:${BUTTON_GAP_PX}px;z-index:${Z_EXPAND
   + 'box-shadow:none;transition:none;touch-action:manipulation;';
 // En triangel som SVG, så att den står mitt i knappen. Ett tecken som ▴ ligger olika högt i
 // olika typsnitt. Utfälld vänds den nedåt.
-const ARROW_UP = '<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><path d="M8 3 15 13H1Z" fill="currentColor"/></svg>';
+const ARROW_UP = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" style="display:block"><path d="M8 3 15 13H1Z" fill="currentColor"/></svg>';
 const ARROW_DOWN = ARROW_UP.replace('M8 3 15 13H1Z', 'M8 13 1 3h14Z');
 const BUTTON_COLLAPSED = `top:auto;bottom:${BUTTON_GAP_PX}px;`;
 const BUTTON_EXPANDED = `top:calc(env(safe-area-inset-top) + ${BUTTON_GAP_PX}px);bottom:auto;`;
