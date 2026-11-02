@@ -6,6 +6,7 @@
 // finns svarsfälten med sina regler för iPhone.
 import { loadSuggestions, suggestionKind } from '../game/data.js';
 import { $ } from '../shared/dom.js';
+import { debugging, debugLine } from '../controls/debug-log.js';
 import { autocomplete } from '../controls/autocomplete.js';
 import { announce, scrollFieldToTop, scrollToTop } from './ui.js';
 import { setStandingMessage } from '../controls/message.js';
@@ -20,14 +21,10 @@ import { createWinnerTiming } from './winner-timing.js';
 // Hur ofta timern ritas om medan en låt spelas.
 const TIMER_REDRAW_MS = 250;
 
-// Med ?debug=1 visas en liten logg nederst på sidan över tryck, fokus och rullning kring
-// svarsfälten, så att det går att se vad Safari gör i en riktig telefon.
+// Med ?debug=1 loggas tryck, fokus och rullning kring svarsfälten i rutan längst ner, så att
+// det går att se vad Safari gör i en riktig telefon. Se controls/debug-log.js.
 function debugLog() {
-  if (!('debug' in document.documentElement.dataset)) return () => {};
-  const box = document.createElement('pre');
-  box.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99;margin:0;padding:4px 6px;max-height:40vh;overflow:auto;font:10px/1.3 ui-monospace,monospace;background:rgba(0,0,0,.8);color:#fff;pointer-events:none;white-space:pre-wrap';
-  document.body.append(box);
-  const lines = [];
+  if (!debugging()) return () => {};
   let last = 0;
   return (what, row, often = false) => {
     const now = performance.now();
@@ -35,10 +32,7 @@ function debugLog() {
     last = now;
     const vv = window.visualViewport;
     const px = (n) => Math.round(n ?? -1);
-    lines.push(`${(now / 1000).toFixed(2)} ${what} fokus=${document.activeElement?.id || '-'} y=${px(scrollY)} rad=${px(row.getBoundingClientRect().top)} vvTop=${px(vv?.offsetTop)} vvH=${px(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
-    if (lines.length > 30) lines.shift();
-    box.textContent = lines.join('\n');
-    box.scrollTop = box.scrollHeight;
+    debugLine(`${what} fokus=${document.activeElement?.id || '-'} y=${px(scrollY)} rad=${px(row.getBoundingClientRect().top)} vvTop=${px(vv?.offsetTop)} vvH=${px(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
   };
 }
 
