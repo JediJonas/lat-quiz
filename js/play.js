@@ -17,6 +17,7 @@ import { ICONS, commonItems, mountMenu, startItems } from './menu.js';
 import { showConfirm } from './controls/dialog.js';
 import { scrollToTop } from './views/ui.js';
 import { createClipPlayer } from './sound/clip-player.js';
+import { mountDebugLog } from './controls/debug-log.js';
 import { showNowMusic } from './sound/now-playing.js';
 import { mountSeasonEffect } from './views/season.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './shared/join-info.js';
@@ -280,6 +281,7 @@ async function init() {
   codeBoxes($('#code-input'));
   if (saved) $('#name-input').value = saved.name;
 
+  mountDebugLog();
   mountMenu($('main'), menuGroups);
   $('#hide-qr').addEventListener('click', () => setQrVisible(false));
   $('#copy-link').addEventListener('click', () => copyJoinLink(joinUrl()));
