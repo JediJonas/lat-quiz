@@ -19,6 +19,7 @@ import { mountSeasonEffect } from './sasong.js';
 import { showSettings } from './settings-dialog.js';
 import { createQuizClip } from './quiz-clip.js';
 import { createSoundDirector } from './sound-director.js';
+import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game-flow.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
 
@@ -62,19 +63,11 @@ const sound = createSoundDirector({
   changed: () => { showNowMusic($('#now-music'), sound.currentMusic()); broadcast(); },
 });
 
-// När spelledaren startar spelet visas "Nu börjar det!" innan första låten, lika länge som
-// nedräkningen mellan låtarna (AUTO_NEXT_MS). Klippet laddas under tiden och spelas när tiden är slut.
-const INTRO_MS = 10000;
-let introEnds = 0;
+// Nedräkningarna före första låten och mellan låtarna, se game-flow.js.
+const flow = createGameFlow();
 let introTimer = null;
-const introLeft = () => Math.max(0, introEnds - Date.now());
-const introDone = () => new Promise((resolve) => setTimeout(resolve, introLeft()));
-
-function startIntro() {
-  introEnds = Date.now() + INTRO_MS;
-  clearTimeout(introTimer);
-  introTimer = setTimeout(() => { render(); broadcast(); }, INTRO_MS);
-}
+// Klippet spelas när nedräkningen före första låten är slut.
+const introDone = () => new Promise((resolve) => setTimeout(resolve, flow.introLeft()));
 
 // Avdelningen Okända låtar i Inställningar syns bara med ?okanda=1, se preferences.js.
 const showUnknown = prefs.showUnknown(location.search);
@@ -97,7 +90,7 @@ function sendState(connId) {
 // Spelvyn för en spelare, med tiden kvar tills nästa låt startar av sig själv.
 function viewFor(playerId) {
   const view = game.playerView(state, playerId, Date.now());
-  const left = autoNextLeft();
+  const left = flow.nextLeft(state);
   if (view.round && left !== null) Object.assign(view.round, { nextInMs: left, nextTotalMs: AUTO_NEXT_MS });
   // Vinnarlåten är ett Deezer-klipp. Då står Deezer på vinnarkortet.
   view.winnerClip = prefs.extraSounds();
@@ -105,7 +98,7 @@ function viewFor(playerId) {
   view.winnerDrum = Boolean(gameView && gameView.winnerDrum());
   view.winnerShown = Boolean(gameView && gameView.winnerShown());
   view.lobbyPlaying = sound.lobbyWanted();
-  if (introLeft() > 0) Object.assign(view, { introMs: introLeft(), introTotalMs: INTRO_MS });
+  if (flow.introLeft() > 0) Object.assign(view, { introMs: flow.introLeft(), introTotalMs: INTRO_MS });
   const url = quizClip.urlForPlayers();
   if (url) view.clipUrl = url;
   const music = sound.forPlayers();
@@ -231,9 +224,9 @@ function startTicker(fn, ms) {
 }
 
 function tick() {
-  checkAutoNext();
-  if (!state.round || state.round.phase !== 'playing') return;
-  if (game.shouldReveal(state, Date.now())) {
+  const action = flow.due(state);
+  if (action === 'next') nextSong();
+  if (action === 'reveal') {
     // Klippet är längre än tiden per låt när spelledaren har valt en kortare tid.
     quizClip.stop();
     game.reveal(state);
@@ -372,6 +365,7 @@ function restart() {
   // kan quizlåten hacka till i iPhone när spelledaren trycker, se stop i vinnarlat.js.
   sound.winnerSong.stop();
   game.restart(state);
+  flow.restarted();
   changed();
   for (const connId of connToPlayer.keys()) net.send(connId, protocol.newMatch());
 }
@@ -385,7 +379,7 @@ function pauseGame() {
 
 function resumeGame() {
   if (!state.pausedAt) return;
-  autoNext.at += game.resume(state, Date.now());
+  flow.resumed(game.resume(state, Date.now()));
   quizClip.resume();
   changed();
 }
@@ -551,38 +545,19 @@ function menuGroups() {
   ];
 }
 
-// Nästa låt startar av sig själv en stund efter att svaret visats.
-const AUTO_NEXT_MS = 10000;
-let autoNext = { round: 0, at: 0 };
-
-function autoNextLeft() {
-  const round = state.round;
-  if (!round || round.phase !== 'revealed' || state.winners) return null;
-  if (autoNext.round !== round.number) autoNext = { round: round.number, at: Date.now() + AUTO_NEXT_MS };
-  // Under en paus står nedräkningen still.
-  return Math.max(0, autoNext.at - (state.pausedAt || Date.now()));
-}
-
-// Anropas av tickern. Nästa låt startar även om en ruta som Inställningar är öppen, eftersom
-// spelarna ser nedräkningen. Ändringar i rutan gäller då från låten efter.
-function checkAutoNext() {
-  const left = autoNextLeft();
-  if (left === null || state.pausedAt) return;
-  if (left > 0) return;
-  nextSong();
-}
-
 // Starta spelet i vyn startar första låten. QR-koden behövs inte längre när spelet har startat.
 // Den kan visas igen i menyn.
 function startClicked() {
   if (!state || state.round) return;
   setQrVisible(false);
-  startIntro();
+  flow.startIntro();
+  // När nedräkningen är slut ritas vyn om, hos spelledaren och spelarna.
+  clearTimeout(introTimer);
+  introTimer = setTimeout(() => { render(); broadcast(); }, INTRO_MS);
   nextSong();
   // Spelledaren kan ha scrollat ner till knappen i rutan. Låten ska synas överst.
   scrollToTop();
 }
-
 
 // "Vi har en vinnare!" eller vinnarvyn har tagit över, så att Spela igen visas när vinnaren
 // gör det. Spelarna får veta det direkt.
