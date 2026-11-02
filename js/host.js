@@ -10,6 +10,7 @@ import { $, esc } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import * as prefs from './shared/preferences.js';
+import * as protocol from './shared/protocol.js';
 import { scrollToTop } from './ui.js';
 import { enhanceSelect } from './rullista.js';
 import { mountSwitch } from './theme.js';
@@ -144,7 +145,7 @@ function joinUrl() {
 function sendState(connId) {
   const playerId = connToPlayer.get(connId);
   if (!playerId) return;
-  net.send(connId, { type: 'state', view: viewFor(playerId) });
+  net.send(connId, protocol.state(viewFor(playerId)));
 }
 
 // Spelvyn för en spelare, med tiden kvar tills nästa låt startar av sig själv.
@@ -191,14 +192,14 @@ function changed() {
   render();
 }
 
-function onMessage(connId, msg) {
-  if (!msg || typeof msg !== 'object') return;
-  if (msg.type === 'hello') {
-    const name = String(msg.name || '').trim().slice(0, game.MAX_NAME);
-    const playerId = String(msg.playerId || '').slice(0, 40);
-    if (!name || !playerId) return;
+// Meddelanden från spelarna kontrolleras och städas i protocol.js först.
+function onMessage(connId, raw) {
+  const msg = protocol.fromPlayer(raw);
+  if (!msg) return;
+  if (msg.type === protocol.MSG.hello) {
+    const { name, playerId } = msg;
     if (game.nameTaken(state, { id: playerId, name })) {
-      net.send(connId, { type: 'name-taken', name });
+      net.send(connId, protocol.nameTaken(name));
       return;
     }
     // Samma spelare på en ny anslutning: släpp den gamla.
@@ -216,22 +217,22 @@ function onMessage(connId, msg) {
     if (isNew) {
       showJoined(name);
       for (const otherConn of connToPlayer.keys()) {
-        if (otherConn !== connId) net.send(otherConn, { type: 'joined', name });
+        if (otherConn !== connId) net.send(otherConn, protocol.joined(name));
       }
     }
-  } else if (msg.type === 'answer') {
+  } else if (msg.type === protocol.MSG.answer) {
     const playerId = connToPlayer.get(connId);
     if (!playerId) return;
-    game.submitAnswer(state, playerId, msg.field, String(msg.value || '').slice(0, 200), Date.now());
+    game.submitAnswer(state, playerId, msg.field, msg.value, Date.now());
     changed();
-  } else if (msg.type === 'leave') {
+  } else if (msg.type === protocol.MSG.leave) {
     // Spelaren valde Lämna spelet. Den räknas som frånkopplad och får tillbaka poängen om den går med igen.
     const playerId = connToPlayer.get(connId);
     if (!playerId || !state.players[playerId]) return;
     const { name } = state.players[playerId];
     net.drop(connId);
     showLeft(name);
-    for (const otherConn of connToPlayer.keys()) net.send(otherConn, { type: 'left', name });
+    for (const otherConn of connToPlayer.keys()) net.send(otherConn, protocol.left(name));
   }
 }
 
@@ -297,7 +298,7 @@ function tick() {
 // Spelledarens eget svar, som om det kom från en spelare.
 function hostAnswer(field, value) {
   if (!state) return;
-  game.submitAnswer(state, state.hostId, field, value.slice(0, 200), Date.now());
+  game.submitAnswer(state, state.hostId, field, protocol.cleanAnswer(value), Date.now());
   changed();
 }
 
@@ -627,7 +628,7 @@ function restart() {
   winnerSong.stop();
   game.restart(state);
   changed();
-  for (const connId of connToPlayer.keys()) net.send(connId, { type: 'new-match' });
+  for (const connId of connToPlayer.keys()) net.send(connId, protocol.newMatch());
 }
 
 // Pausen stoppar timern, klippet och nedräkningen till nästa låt.
@@ -659,7 +660,7 @@ async function endGame() {
   // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
   // En kort stund behövs för att meddelandet ska hinna fram innan anslutningarna stängs.
   if (net) {
-    for (const connId of connToPlayer.keys()) net.send(connId, { type: 'ended' });
+    for (const connId of connToPlayer.keys()) net.send(connId, protocol.ended());
     await new Promise((resolve) => { setTimeout(resolve, 300); });
     net.destroy();
   }
@@ -1162,7 +1163,7 @@ let leaving = false;
 // spelledaren har lämnat och kanske kommer tillbaka. Meddelandet hinner inte alltid fram.
 window.addEventListener('pagehide', () => {
   if (leaving || !net) return;
-  for (const connId of connToPlayer.keys()) net.send(connId, { type: 'leaving' });
+  for (const connId of connToPlayer.keys()) net.send(connId, protocol.leaving());
 });
 
 window.addEventListener('beforeunload', (e) => {

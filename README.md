@@ -16,9 +16,9 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 ## Filer
 
 - `js/game.js`: spellogiken (låtval, gissningar och poäng), utan nätverk och gränssnitt.
-- `js/net.js`: kommunikationen via PeerJS, med automatisk återanslutning.
+- `js/net.js`: kommunikationen via PeerJS, med automatisk återanslutning. Meddelandena står i `js/shared/protocol.js`, så det är de två filerna som behöver förstås för att byta PeerJS mot något annat.
 - `js/host.js`, `js/play.js`: spelledarvy och spelarvy.
-- `js/shared/`: det som alla sidor delar. `storage.js` har alla nycklar i webbläsarens lagring och tar bort gamla nycklar, `preferences.js` enhetens val (Spela extraljud, Spela ljud på alla enheter, Ljudsynk, namnet och de senaste inställningarna), `dom.js` `$` och `esc`, och `ids.js` koder och id:n. Nya filer får engelska namn.
+- `js/shared/`: det som alla sidor delar. `storage.js` har alla nycklar i webbläsarens lagring och tar bort gamla nycklar, `preferences.js` enhetens val (Spela extraljud, Spela ljud på alla enheter, Ljudsynk, namnet och de senaste inställningarna), `dom.js` `$` och `esc`, `ids.js` koder och id:n, och `protocol.js` alla meddelanden mellan spelledaren och spelarna och vilka fält vyn har. Nya filer får engelska namn.
 - `js/meny.js`: menyn uppe till höger på alla sidor, och `js/om.js`: rutan Om Låtquiz, med hur spelet fungerar tekniskt.
 - `data/`: kategorier, quizlåtar och förslagslista.
 - `js/lookup.js`: textmatchning för `verktyg/deezer-id.mjs`.

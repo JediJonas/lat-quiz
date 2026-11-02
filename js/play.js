@@ -7,6 +7,9 @@ import { MAX_NAME, settingsChangeText, upcomingSettings } from './game.js';
 import { $ } from './shared/dom.js';
 import { newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
+import * as protocol from './shared/protocol.js';
+
+const { MSG } = protocol;
 import { ICONS, commonItems, mountMenu, startItems } from './meny.js';
 import { showConfirm } from './dialog.js';
 import { scrollToTop } from './ui.js';
@@ -34,11 +37,11 @@ let knownSettings = null;
 let settingsTimer = null;
 
 function sendAnswer(field, value) {
-  if (net) net.send({ type: 'answer', field, value });
+  if (net) net.send(protocol.answer(field, value));
 }
 
 function onOpen() {
-  net.send({ type: 'hello', playerId: me.playerId, name: me.name });
+  net.send(protocol.hello(me));
   // Svar som valdes medan anslutningen var nere skickas nu.
   if (view && view.round && view.round.phase === 'playing') {
     const answers = gameView.answers();
@@ -48,16 +51,16 @@ function onOpen() {
 }
 
 function onMessage(msg) {
-  if (msg.type === 'ended') { gameEnded(); return; }
-  if (msg.type === 'leaving') { hostLeft = true; showHostLeft(); return; }
-  if (msg.type === 'new-match') {
+  if (msg.type === MSG.ended) { gameEnded(); return; }
+  if (msg.type === MSG.leaving) { hostLeft = true; showHostLeft(); return; }
+  if (msg.type === MSG.newMatch) {
     showMessage({ key: 'new-match', kind: 'info', title: 'Vi kör igen!', text: 'Alla börjar om från noll. Lycka till!', ms: INFO_MS });
     return;
   }
-  if (msg.type === 'joined') { showJoined(String(msg.name || '')); return; }
-  if (msg.type === 'left') { showLeft(String(msg.name || '')); return; }
-  if (msg.type === 'name-taken') { leave(`Det finns redan en ${msg.name} i spelet. Välj ett annat namn, till exempel med en initial.`, false); return; }
-  if (msg.type !== 'state') return;
+  if (msg.type === MSG.joined) { showJoined(String(msg.name || '')); return; }
+  if (msg.type === MSG.left) { showLeft(String(msg.name || '')); return; }
+  if (msg.type === MSG.nameTaken) { leave(`Det finns redan en ${msg.name} i spelet. Välj ett annat namn, till exempel med en initial.`, false); return; }
+  if (msg.type !== MSG.state) return;
   if (pending) showLobby();
   view = msg.view;
   checkSettings();
@@ -235,7 +238,7 @@ async function leaveGame() {
   if (!ok) return;
   // Spelledaren och de andra spelarna får veta det. Vänta lite, så att meddelandet hinner iväg.
   if (net) {
-    net.send({ type: 'leave' });
+    net.send(protocol.leave());
     await new Promise((resolve) => setTimeout(resolve, 300));
     net.destroy();
   }
