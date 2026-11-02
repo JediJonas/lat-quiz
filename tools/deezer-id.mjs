@@ -7,14 +7,14 @@
 // nyinspelningar och liknande sorteras bort. Bland det som återstår väljs den
 // mest spelade nära låtens år, vilket nästan alltid är originalet.
 // Fram till 23 oktober 2026 gav låtens Spotify-ID först en ISRC via Wikidata, och
-// då hämtades exakt den inspelningen. Spotify-ID:na togs bort, se spotify-lardomar.md.
+// då hämtades exakt den inspelningen. Spotify-ID:na togs bort, se docs/spotify-lardomar.md.
 //
 // Låtar med ett deezerId sedan tidigare rörs inte, utom med --igen. Rapporten med osäkra
 // träffar skrivs till tools/.deezer-report.json. Granskade val står i
 // tools/deezer-choices.json och går före sökningen.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { lookupKey, baseTitle, titleMatches } from '../js/lookup.js';
+import { lookupKey, baseTitle, titleMatches } from '../js/game/lookup.js';
 
 const UA = 'lat-quiz/0.1 (https://github.com/JediJonas/lat-quiz)';
 // Parallella körningar behöver var sin cache, till exempel CACHE=/tmp/c1.json.

@@ -6,7 +6,7 @@
 
 import { normalize, answerKey } from './text.js';
 import { songLabels } from './data.js';
-import { t } from './shared/lang.js';
+import { t } from '../shared/lang.js';
 
 // 30 sekunder per låt som standard, lika långt som hela Deezer-klippet.
 export const ROUND_MS = 30000;

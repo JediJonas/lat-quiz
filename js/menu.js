@@ -2,8 +2,8 @@
 // Menyn uppe till höger, samma på alla sidor. Det som används sällan ligger här: gå med i spel,
 // starta nytt spel, pausa spelet, QR-kod, inställningar, Om Låtquiz, Utseende och att lämna eller avsluta spelet.
 // Raderna har ikon och text. Rader som inte går att använda just nu visas inte.
-import { showUserSettings } from './theme.js';
-import { showAbout } from './about.js';
+import { showUserSettings } from './controls/theme.js';
+import { showAbout } from './controls/about.js';
 import { t } from './shared/lang.js';
 
 const icon = (d) => `<svg viewBox="0 -960 960 960" aria-hidden="true"><path d="${d}"/></svg>`;

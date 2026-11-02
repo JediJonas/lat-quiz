@@ -3,7 +3,7 @@
 // följer kategorin på html-elementet, så den syns på startsidan när
 // kategorin väljs och genom hela spelet, hos spelledaren och spelarna. Lagret ligger bakom allt
 // innehåll och tar inte emot tryck. Med minskad rörelse står allt still, som en bild.
-import { randomBetween, prefersReducedMotion } from './shared/motion.js';
+import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
 
 export const SEASON_EFFECTS = { jul: 'snow', halloween: 'leaves' };
 

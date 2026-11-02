@@ -2,15 +2,15 @@
 // Inställningar hos spelledaren: raden Inställningar på Starta nytt spel, rutan Inställningar
 // och ändringarna som görs medan spelet pågår. De gäller när nästa låt startar, eller direkt om
 // ingen låt har spelats än. Spelläget och kategorin ägs av host.js.
-import * as game from './game.js';
-import { t } from './shared/lang.js';
-import { loadCategories, loadSongs, visibleCategories } from './data.js';
-import { INFO_MS, currentMessage, showMessage } from './message.js';
-import { delayShort } from './audio-delay.js';
+import * as game from '../game/game.js';
+import { t } from '../shared/lang.js';
+import { loadCategories, loadSongs, visibleCategories } from '../game/data.js';
+import { INFO_MS, currentMessage, showMessage } from '../controls/message.js';
+import { delayShort } from '../sound/audio-delay.js';
 import { isUnknown, toggleUnknown } from './unknown-songs.js';
 import { showSettings } from './settings-dialog.js';
-import { $ } from './shared/dom.js';
-import * as prefs from './shared/preferences.js';
+import { $ } from '../shared/dom.js';
+import * as prefs from '../shared/preferences.js';
 
 /**
  * Raden Inställningar på Starta nytt spel, i samma ordning som i rutan Inställningar.

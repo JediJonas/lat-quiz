@@ -3,9 +3,9 @@
 // alla enheter, Ljudsynk, spelledarens namn, de senaste inställningarna och avdelningen
 // Okända låtar. Spelets eget läge sparas av host.js och play.js.
 import { KEYS, readJson, readText, remove, writeJson, writeText } from './storage.js';
-import { cleanSettings } from '../game.js';
-import { cleanDelay } from '../audio-delay.js';
-import { cleanUnknown } from '../unknown-songs.js';
+import { cleanSettings } from '../game/game.js';
+import { cleanDelay } from '../sound/audio-delay.js';
+import { cleanUnknown } from '../host/unknown-songs.js';
 
 /** Extraljuden (väntemusik, trumvirvel och vinnarlåt) är på om inget annat har valts. */
 export function extraSounds() {

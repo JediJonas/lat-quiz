@@ -2,8 +2,8 @@
 // namn utan en artikelrubrik, en singel med b-sida eller en annan version, och då
 // dyker de upp i förslagen precis när någon skriver rätt svar.
 
-import { normalize } from '../js/text.js';
-import { suggestionKind, suggestionKey, songLabels } from '../js/data.js';
+import { normalize } from '../js/game/text.js';
+import { suggestionKind, suggestionKey, songLabels } from '../js/game/data.js';
 
 const VERSION = /\s*\([^()]*(karaoke|instrumental|singback|sjung själv|maxi|unplugged|version|live|mix|edit|radio|censur)[^()]*\)$/i;
 // Förtydliganden från engelska Wikipedia, som "Light Me Up (Gromee song)". Gemen "song" med flit,
@@ -65,7 +65,7 @@ export function cleanDecoys(decoys, categories) {
     const wanted = same[kind] || new Set();
     // En stavning per lockbete, så att "15 Minuter" och "15 minuter" inte båda visas. Samma namn
     // med "and" i stället för "&" räknas också som rätt svar, som "Nick Cave and the Bad Seeds"
-    // när svaret är "Nick Cave & The Bad Seeds", se suggestionKey i js/data.js.
+    // när svaret är "Nick Cave & The Bad Seeds", se suggestionKey i js/game/data.js.
     const key = (x) => suggestionKey(x, kind);
     const seen = new Map();
     const kept = items.map(fix).sort()
@@ -76,7 +76,7 @@ export function cleanDecoys(decoys, categories) {
   return {
     artists: cleanList(decoys.artists, cleanArtist, 'artists', isConfusable),
     titles: cleanList(decoys.titles, cleanTitle, 'titles', (t) => isSequel(t) || isSubtitled(t)),
-    // Lockbeten för fält som heter Land, Kompositör, Film och Verk, se suggestionKind i js/data.js.
+    // Lockbeten för fält som heter Land, Kompositör, Film och Verk, se suggestionKind i js/game/data.js.
     countries: cleanList(decoys.countries || [], (c) => c.trim(), 'countries', () => false),
     composers: cleanList(decoys.composers || [], cleanArtist, 'composers', isConfusable),
     films: cleanList(decoys.films || [], cleanTitle, 'films', (t) => isSequel(t) || isSubtitled(t)),

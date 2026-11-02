@@ -3,7 +3,7 @@
 // som klättrat. När matchen är slut står placeringarna stora först.
 import { $, esc } from '../shared/dom.js';
 import { html, raw } from '../shared/html.js';
-import { countUp, scoreTracker, statusTags } from '../ui.js';
+import { countUp, scoreTracker, statusTags } from './ui.js';
 import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */

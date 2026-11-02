@@ -2,8 +2,8 @@
 // Ljust eller mörkt läge. Utan eget val är sidan mörk, eftersom den är snyggast så.
 // Själva valet läses in redan i <head>, så att sidan inte blinkar till.
 import { dragToClose } from './sheet.js';
-import { t } from './shared/lang.js';
-import { KEYS, writeText } from './shared/storage.js';
+import { t } from '../shared/lang.js';
+import { KEYS, writeText } from '../shared/storage.js';
 
 const deviceDark = window.matchMedia('(prefers-color-scheme: dark)');
 

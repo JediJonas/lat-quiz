@@ -1,11 +1,11 @@
 // @ts-check
 // Menyn och tangenterna hos spelledaren, och QR-koden med länken för att gå med.
-import { ICONS, commonItems, startItems } from './menu.js';
-import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
-import { peerQuery } from './net.js';
-import { $ } from './shared/dom.js';
-import { t } from './shared/lang.js';
-import { scrollToTop } from './ui.js';
+import { ICONS, commonItems, startItems } from '../menu.js';
+import { copyJoinLink, joinInfoShown, renderJoinInfo } from '../shared/join-info.js';
+import { peerQuery } from '../shared/net.js';
+import { $ } from '../shared/dom.js';
+import { t } from '../shared/lang.js';
+import { scrollToTop } from '../views/ui.js';
 
 // QR-koden kan stängas när alla har gått med. Den visas alltid i ett nytt spel, men inte när
 // spelledaren går tillbaka till ett spel.

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import * as game from '../js/game.js';
+import * as game from '../js/game/game.js';
 
 // Ett ljudelement som spelar direkt, eller vägrar om blocked är sant.
 class FakeAudio {
@@ -16,7 +16,7 @@ class FakeAudio {
 globalThis.Audio = FakeAudio;
 globalThis.document = { documentElement: { dataset: {} } };
 
-const { createQuizClip } = await import('../js/quiz-clip.js');
+const { createQuizClip } = await import('../js/host/quiz-clip.js');
 
 const SONGS = [
   { id: 'a', artist: 'A', title: 'Ett', deezerId: 1 },

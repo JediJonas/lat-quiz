@@ -3,7 +3,7 @@
 // hämtat med tools/deezer-id.mjs, så att rätt inspelning spelas.
 // Deezers API saknar CORS, så sökningen görs med JSONP. Klipplänkarna går ut
 // efter en stund och hämtas därför precis innan låten spelas.
-import { t } from './shared/lang.js';
+import { t } from '../shared/lang.js';
 
 // En kort tystnad som spelas direkt i ett klick eller tryck. Då räknas ljudet som startat av
 // användaren, och klippet får spela fast det hämtas först efteråt (Safari).

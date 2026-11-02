@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { baseTitle, titleMatches } from '../js/lookup.js';
+import { baseTitle, titleMatches } from '../js/game/lookup.js';
 
 test('tillägg som remaster och version tas bort från titeln', () => {
   assert.equal(baseTitle('Take On Me (2015 Remaster)'), 'take on me');

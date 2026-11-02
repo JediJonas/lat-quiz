@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from '../js/unknown-songs.js';
+import { cleanUnknown, countUnknown, formatUnknown, isUnknown, toggleUnknown, withoutUnknown } from '../js/host/unknown-songs.js';
 
 const song = { id: 'a-ha-take-on-me', artist: 'a-ha', title: 'Take On Me', year: 1985, deezerId: 664107 };
 

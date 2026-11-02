@@ -4,7 +4,7 @@
 // Ändras ett meddelande eller ett fält i vyn så att en äldre sida inte förstår det, höjs
 // PROTOCOL_VERSION.
 
-import { MAX_NAME } from '../game.js';
+import { MAX_NAME } from '../game/game.js';
 
 /** Följer med i hello. Spelledaren kontrollerar den inte än, eftersom alla laddar om ändå (2 november 2026). */
 export const PROTOCOL_VERSION = 1;

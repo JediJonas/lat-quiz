@@ -5,7 +5,7 @@
 //
 // Meddelanden är vanliga objekt med fältet type, se shared/protocol.js.
 
-import { MSG } from './shared/protocol.js';
+import { MSG } from './protocol.js';
 
 const PEER_PREFIX = 'latquiz-v1-';
 const PING_MS = 4000;

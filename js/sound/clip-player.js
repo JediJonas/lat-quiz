@@ -5,7 +5,7 @@
 // Väntemusiken, trumvirveln och vinnarlåten kommer som view.music, med var i klippet spelledaren är
 // och hur klippet tonas. På iPhone går volymen inte att ändra, så där börjar och slutar de tvärt.
 import { SILENCE } from './deezer.js';
-import { t } from './shared/lang.js';
+import { t } from '../shared/lang.js';
 
 // Så långt får klippet glida från spelledarens innan mobilen spolar om. Mindre ger hack i ljudet.
 const DRIFT_S = 0.4;

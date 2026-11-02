@@ -7,8 +7,8 @@
 // skärmläsare får fältet presenterat som en kombinationsruta med lista.
 // Ett kryss i fältet rensar det med ett tryck, så att man kan skriva ett nytt svar direkt.
 
-import { withoutSpaces, searchIndex, findSuggestions, findWhole } from './text.js';
-import { t } from './shared/lang.js';
+import { withoutSpaces, searchIndex, findSuggestions, findWhole } from '../game/text.js';
+import { t } from '../shared/lang.js';
 
 const MIN_CHARS = 3;
 const MAX_SHOWN = 50;

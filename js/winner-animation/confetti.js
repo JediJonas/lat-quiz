@@ -1,5 +1,5 @@
 // @ts-check
-// En av vinstanimationens effekter, se js/winner-animation.js.
+// En av vinstanimationens effekter, se js/winner-animation/winner-animation.js.
 import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
 import { canvasIn } from './canvas.js';
 

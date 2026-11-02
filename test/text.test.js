@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { searchIndex, findSuggestions, findWhole } from '../js/text.js';
+import { searchIndex, findSuggestions, findWhole } from '../js/game/text.js';
 
 const artists = searchIndex([
   'ABBA', 'Abba Teens', 'Beyoncé', 'Britney Spears', 'Dr. Alban', 'George Michael', 'Kent',

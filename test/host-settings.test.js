@@ -1,13 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import * as game from '../js/game.js';
+import * as game from '../js/game/game.js';
 
 // Rutan Inställningar och menyn lyssnar på sidan när de laddas.
 const noop = () => {};
 globalThis.window = { matchMedia: () => ({ matches: false, addEventListener: noop, addListener: noop }), addEventListener: noop };
 globalThis.document = { addEventListener: noop, documentElement: { dataset: {} } };
 
-const { createHostSettings, pendingDiffers, summaryParts } = await import('../js/host-settings.js');
+const { createHostSettings, pendingDiffers, summaryParts } = await import('../js/host/host-settings.js');
 
 const device = { clipAll: false, extraSounds: true, audioDelay: 0, hostPlays: true };
 

@@ -6,7 +6,7 @@ const noop = () => {};
 globalThis.window = { matchMedia: () => ({ matches: false, addEventListener: noop, addListener: noop }), addEventListener: noop };
 globalThis.document = { addEventListener: noop, documentElement: { dataset: {} } };
 
-const { pauseItem } = await import('../js/host-menu.js');
+const { pauseItem } = await import('../js/host/host-menu.js');
 
 const actions = { stuck: () => false, start: () => 'start', resume: () => 'resume', retry: () => 'retry', pause: () => 'pause' };
 const item = (state, a = actions) => pauseItem(state, a).map((i) => `${i.label} ${i.action()}`);

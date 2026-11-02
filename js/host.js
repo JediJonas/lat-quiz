@@ -1,29 +1,29 @@
 // @ts-check
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import { wait } from './shared/wait.js';
-import * as game from './game.js';
+import * as game from './game/game.js';
 import { t } from './shared/lang.js';
-import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
-import { showConfirm } from './dialog.js';
-import { hideMessage, showMessage, showUnexpectedErrors } from './message.js';
-import { createGameView } from './game-view.js';
+import { loadCategories, loadMusic, loadSongs, visibleCategories } from './game/data.js';
+import { showConfirm } from './controls/dialog.js';
+import { hideMessage, showMessage, showUnexpectedErrors } from './controls/message.js';
+import { createGameView } from './views/game-view.js';
 import { $ } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
 import { KEYS, readJson, remove, writeJson } from './shared/storage.js';
 import * as prefs from './shared/preferences.js';
 import * as protocol from './shared/protocol.js';
-import { scrollToTop } from './ui.js';
-import { showNowMusic } from './now-playing.js';
+import { scrollToTop } from './views/ui.js';
+import { showNowMusic } from './sound/now-playing.js';
 import { ICONS as MENU_ICONS, mountMenu } from './menu.js';
-import { withoutUnknown } from './unknown-songs.js';
-import { mountSeasonEffect } from './season.js';
-import { createQuizClip } from './quiz-clip.js';
-import { createSoundDirector } from './sound-director.js';
-import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game-flow.js';
-import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
-import { createConnections } from './host-connections.js';
-import { createHostSettings } from './host-settings.js';
-import { menuGroups, mountCopyLink, mountKeys, setQrVisible, showJoinInfo } from './host-menu.js';
+import { withoutUnknown } from './host/unknown-songs.js';
+import { mountSeasonEffect } from './views/season.js';
+import { createQuizClip } from './host/quiz-clip.js';
+import { createSoundDirector } from './sound/sound-director.js';
+import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game/game-flow.js';
+import { chosenCategory, mountCategoryPicker, renderCategories } from './host/category-picker.js';
+import { createConnections } from './host/host-connections.js';
+import { createHostSettings } from './host/host-settings.js';
+import { menuGroups, mountCopyLink, mountKeys, setQrVisible, showJoinInfo } from './host/host-menu.js';
 import { startTicker } from './shared/ticker.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.

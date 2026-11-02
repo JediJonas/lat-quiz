@@ -6,11 +6,11 @@
 // väntar på att en paus ska ta slut, 'playing' när det spelar, och 'error' (Deezer svarade inte),
 // 'missing' (inga klipp, även efter flera låtar) eller 'blocked' (webbläsaren stoppade ljudet).
 // De tre sista behöver ett nytt tryck på Starta spelet.
-import { wait } from './shared/wait.js';
-import * as game from './game.js';
-import { t } from './shared/lang.js';
-import { SILENCE, findPreview } from './deezer.js';
-import * as prefs from './shared/preferences.js';
+import { wait } from '../shared/wait.js';
+import * as game from '../game/game.js';
+import { t } from '../shared/lang.js';
+import { SILENCE, findPreview } from '../sound/deezer.js';
+import * as prefs from '../shared/preferences.js';
 
 // Så många låtar i rad hoppas över när Deezer saknar klipp, innan spelledaren får veta det.
 const MAX_SKIPS = 5;

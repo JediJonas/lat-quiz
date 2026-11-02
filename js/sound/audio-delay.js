@@ -3,8 +3,8 @@
 // spela det. Låtkortet och timern, trumvirvelns rubrik, vinnarkortet och raden längst ner väntar då
 // så här mycket längre, och vinnarkortet ännu lite till, se host.js. Valet gäller spelledarens
 // enhet, eftersom det beror på högtalaren, och spelarnas mobiler följer spelledaren.
-import { wait } from './shared/wait.js';
-import { t } from './shared/lang.js';
+import { wait } from '../shared/wait.js';
+import { t } from '../shared/lang.js';
 
 export const DELAY_CHOICES = [0, 200, 400, 600, 800];
 

@@ -1,5 +1,5 @@
 // @ts-check
-// En av vinstanimationens effekter, se js/winner-animation.js.
+// En av vinstanimationens effekter, se js/winner-animation/winner-animation.js.
 import { randomBetween, pickRandom, prefersReducedMotion } from '../shared/motion.js';
 
 // Strålkastare: sex färgade ljuskäglor från omslagets kanter sveper fram och tillbaka i olika takt,

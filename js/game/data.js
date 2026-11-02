@@ -1,9 +1,9 @@
 // @ts-check
 // Läser låtlistor och förslagslista från data-mappen.
 
-import { wait } from './shared/wait.js';
+import { wait } from '../shared/wait.js';
 import { answerKey } from './text.js';
-import { t } from './shared/lang.js';
+import { t } from '../shared/lang.js';
 
 // Ett enstaka fel, som när GitHub Pages just har publicerat en ny version eller mobilnätet
 // hackar till, ska inte stoppa spelet. Därför försöker sidan igen två gånger innan den ger upp.
@@ -79,7 +79,7 @@ export function suggestionKind(field, label) {
   return KINDS[field][label] || (field === 'artist' ? 'artists' : 'titles');
 }
 
-// Nyckeln som avgör om två förslag av samma sort är samma svar, se answerKey i js/text.js.
+// Nyckeln som avgör om två förslag av samma sort är samma svar, se answerKey i js/game/text.js.
 // Namn på artister, kompositörer och länder får tappa ett inledande "The", titlar inte.
 export function suggestionKey(item, kind) {
   return answerKey(item, { article: !['titles', 'films', 'works'].includes(kind) });

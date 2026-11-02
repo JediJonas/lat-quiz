@@ -1,5 +1,5 @@
 // @ts-check
-// En av vinstanimationens effekter, i Jul. Se js/winner-animation.js.
+// En av vinstanimationens effekter, i Jul. Se js/winner-animation/winner-animation.js.
 import { randomBetween, prefersReducedMotion } from '../shared/motion.js';
 import { canvasIn, fade, play } from './canvas.js';
 

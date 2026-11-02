@@ -3,8 +3,8 @@
 // nedräkningen "Nu börjar det!" tills första låten hörs.
 import { $ } from '../shared/dom.js';
 import { html } from '../shared/html.js';
-import { announce, renderPie } from '../ui.js';
-import { guessFields as fieldsOf } from '../game.js';
+import { announce, renderPie } from './ui.js';
+import { guessFields as fieldsOf } from '../game/game.js';
 import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */

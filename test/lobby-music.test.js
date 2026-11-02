@@ -1,9 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { lookupKey } from '../js/lookup.js';
-import { lobbySongs, pickLobbySong } from '../js/lobby-music.js';
-import { pickWinnerSong, winnerSongs } from '../js/winner-song.js';
+import { lookupKey } from '../js/game/lookup.js';
+import { lobbySongs, pickLobbySong } from '../js/sound/lobby-music.js';
+import { pickWinnerSong, winnerSongs } from '../js/sound/winner-song.js';
 
 const read = (file) => JSON.parse(readFileSync(new URL(`../data/${file}`, import.meta.url), 'utf8'));
 const quizSongs = read('categories.json').flatMap((c) => read(c.file));

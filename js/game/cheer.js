@@ -2,7 +2,7 @@
 // Korta, glada kommentarer: under poängen efter varje låt och på vinnarsidan.
 // Valet beror bara på spelets läge, inte på slumpen, så att alla enheter visar samma
 // kommentar och den inte byts när vyn ritas om.
-import { t, tList } from './shared/lang.js';
+import { t, tList } from '../shared/lang.js';
 
 // Ett litet tal från texten, för att välja bland kommentarerna.
 function hash(text) {

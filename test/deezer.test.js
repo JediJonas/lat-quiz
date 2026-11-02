@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { pickTrack } from '../js/deezer.js';
+import { pickTrack } from '../js/sound/deezer.js';
 
 const track = (artist, title, preview = 'https://cdn/x.mp3') => ({ artist: { name: artist }, title, preview });
 
