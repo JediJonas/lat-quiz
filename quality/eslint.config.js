@@ -34,15 +34,16 @@ export default [
     },
   },
   {
-    // Varningar för kod som har blivit svår att följa, enligt reglerna i skillen kodkvalitet.
-    // De stoppar inte en PR, men visar var koden bör delas nästa gång den ändras.
-    // Långa funktioner varnas inte för, eftersom fabriker som createLobbyMusic räknar in
+    // Kod som har blivit svår att följa, enligt reglerna i skillen kodkvalitet. Sedan PR 443
+    // stoppar de en PR. Hör värdena inte ihop som ett objekt kan en funktion få fler parametrar
+    // med en kommentar, // eslint-disable-next-line max-params -- och skälet.
+    // Långa funktioner räknas inte, eftersom fabriker som createLobbyMusic räknar in
     // alla små funktioner inuti.
     files: ['js/**/*.js', 'tools/**/*.mjs'],
     rules: {
-      complexity: ['warn', 15],
-      'max-params': ['warn', 4],
-      'max-lines': ['warn', { max: 400, skipBlankLines: true, skipComments: true }],
+      complexity: ['error', 15],
+      'max-params': ['error', 4],
+      'max-lines': ['error', { max: 400, skipBlankLines: true, skipComments: true }],
     },
   },
 ];
