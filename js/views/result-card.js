@@ -10,6 +10,7 @@ import { guessFields as fieldsOf } from '../game.js';
 import { pickWinEffect, startWinEffect } from '../vinstanimation.js';
 import { pauseSeasonEffect } from '../sasong.js';
 import { rankIn } from './standings.js';
+import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */
 /** @typedef {import('../shared/protocol.js').RoundView} RoundView */
@@ -30,9 +31,9 @@ export function climbBadge(from, to, fresh) {
   for (let n = from; n >= to; n -= 1) digits.push(html`<span>${n}</span>`);
   return join(
     html`<span class="climb${fresh ? ' pop' : ''}${to === 1 ? ' climb-lead' : ''}" style="--steps:${from - to};--shine-at:${(1.3 + (from - to) * 0.32).toFixed(2)}s">`,
-    html`<span aria-hidden="true"><span class="climb-arrow">▲</span>Plats&nbsp;`,
+    html`<span aria-hidden="true"><span class="climb-arrow">▲</span>${t('result.place')}&nbsp;`,
     html`<span class="climb-roll"><span class="climb-strip">${digits}</span></span></span>`,
-    html`<span class="visually-hidden">Du klättrade till plats ${to}.</span></span>`,
+    html`<span class="visually-hidden">${t('result.climbed', { rank: to })}</span></span>`,
   );
 }
 
@@ -41,12 +42,12 @@ export function climbBadge(from, to, fresh) {
 export function nextCountdown(round) {
   if (round.nextInMs == null) return null;
   return html`<span class="next"><span id="next-pie" class="pie"></span>
-        <span id="next-text" aria-hidden="true">Nästa låt om <span class="next-count" data-widest="${Math.ceil(round.nextTotalMs / 1000)} s"><span id="next-num"></span></span></span>
-        <span class="visually-hidden">Nästa låt startar av sig själv om ${Math.ceil(round.nextInMs / 1000)} sekunder.</span></span>`;
+        <span id="next-text" aria-hidden="true">${t('result.nextIn')} <span class="next-count" data-widest="${t('unit.seconds', { s: Math.ceil(round.nextTotalMs / 1000) })}"><span id="next-num"></span></span></span>
+        <span class="visually-hidden">${t('result.nextInLong', { s: Math.ceil(round.nextInMs / 1000) })}</span></span>`;
 }
 
-const clipNote = html`<p class="round-label clip-note"><span class="clip-from">Ljudklipp från </span>Deezer</p>`;
-const LABEL = 'Spelet är slut';
+const clipNote = html`<p class="round-label clip-note"><span class="clip-from">${t('result.clipFrom')} </span>Deezer</p>`;
+const LABEL = t('result.gameOver');
 
 /**
  * Omslaget överst: rätt svar, "Vi har en vinnare!" (drum) eller vinnaren.
@@ -57,15 +58,15 @@ export function resultCover({ view, round, winner, drum, intro }) {
   if (drum) {
     return html`<div class="cover win drum reveal"><div class="cover-head"><p class="round-label">${LABEL}</p></div>
           <h2 class="win-title">${intro}</h2>
-          <p class="win-sub">Först till ${view.winScore} poäng.</p></div>`;
+          <p class="win-sub">${t('result.winScore', { score: view.winScore })}</p></div>`;
   }
   if (winner) {
     return html`<div class="cover win reveal"><div class="win-fx" aria-hidden="true"></div>
           <div class="cover-head"><p class="round-label">${LABEL}</p>${view.winnerClip && clipNote}</div>
-          <h2 class="win-title">${view.winners.join(' och ')} vinner!</h2>
+          <h2 class="win-title">${t('result.winners', { names: view.winners })}</h2>
           <p class="win-sub">${winComment({ winners: view.winners, standings: view.standings, songs: round.number, winScore: view.winScore })}</p></div>`;
   }
-  return html`<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">Låt ${round.number} · Rätt svar</h2>${clipNote}</div>
+  return html`<div class="cover answer reveal"><div class="cover-head"><h2 class="round-label">${t('result.answerLabel', { number: round.number })}</h2>${clipNote}</div>
           <div class="title">${round.song.title}</div>
           <div class="artist">${round.song.artist} · ${round.song.year}</div></div>`;
 }
@@ -76,7 +77,7 @@ function answerRow(label, given, right, { bonus = false, fresh = false } = {}) {
   const cls = right ? 'right' : given ? 'wrong' : 'none';
   return join(
     html`<li class="${cls}${bonus ? ` bonus${fresh ? ' pop' : ''}` : ''}">`,
-    html`<span class="lab">${label}</span><span class="val">${given || 'Inget svar'}</span>`,
+    html`<span class="lab">${label}</span><span class="val">${given || t('result.noAnswer')}</span>`,
     html`<span class="pts">${bonus && fresh && sparkles()}${right ? '+1' : '0'}</span></li>`,
   );
 }
@@ -92,14 +93,14 @@ export function resultBelow({ view, round, own, fresh, climb }) {
   const next = nextCountdown(round);
   const fields = fieldsOf(view.labels);
   const mineRows = own && html`<ul class="mine">${fields.map((field) => answerRow(view.labels[field], mine[field], r[field]))}${
-    r.bonus && answerRow('Bonus', 'Blixtsnabbt!', true, { bonus: true, fresh })}</ul>`;
+    r.bonus && answerRow(t('result.bonus'), t('result.bonusText'), true, { bonus: true, fresh })}</ul>`;
   // Med stor text skrivs poängen kort som p, så att den får plats på en rad. Skärmläsare får hela ordet.
   // Har man klättrat står placeringen i en bricka till höger om poängen.
   const badge = own && climb && climb.from > climb.to && climbBadge(climb.from, climb.to, fresh);
   const points = own && join(
     html`<p class="points${r.points ? '' : ' zero'}"><span aria-hidden="true">+${r.points} `,
-    html`<span class="points-long">poäng</span><span class="points-short">p</span></span>`,
-    html`<span class="visually-hidden">+${r.points} poäng</span>${badge}</p>`,
+    html`<span class="points-long">${t('result.pointsLong')}</span><span class="points-short">${t('result.pointsShort')}</span></span>`,
+    html`<span class="visually-hidden">+${r.points} ${t('result.pointsLong')}</span>${badge}</p>`,
   );
   // Under poängen står en kort kommentar, till exempel Klockrent! när allt var rätt.
   const cheer = own && html`<p class="cheer">${roundCheer(r, round.number, fields.length)}</p>`;
@@ -156,8 +157,9 @@ export function createResultCard() {
       }
       shown = key;
       announce(drum ? intro
-        : `Rätt svar: ${round.song.title} med ${round.song.artist}.${playing ? ` Du fick ${(round.result || { points: 0 }).points} poäng.` : ''}`
-        + (winner ? ` ${view.winners.join(' och ')} vinner!` : ''));
+        : t('result.announce', { title: round.song.title, artist: round.song.artist })
+        + (playing ? ' ' + t('result.announcePoints', { points: (round.result || { points: 0 }).points }) : '')
+        + (winner ? ' ' + t('result.winners', { names: view.winners }) : ''));
     },
 
     // Nedräkningen till nästa låt. Under en paus står cirkeln still på det spelledaren skickade.
@@ -167,7 +169,7 @@ export function createResultCard() {
       if (!pie || view.round.phase !== 'revealed') return;
       const nextMs = view.paused ? view.round.nextInMs : Math.max(0, nextAt - Date.now());
       renderPie(pie, nextMs, view.round.nextTotalMs);
-      $('#next-num').textContent = `${Math.ceil(nextMs / 1000)} s`;
+      $('#next-num').textContent = t('unit.seconds', { s: Math.ceil(nextMs / 1000) });
     },
   };
 }

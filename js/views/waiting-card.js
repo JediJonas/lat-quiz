@@ -5,6 +5,7 @@ import { $ } from '../shared/dom.js';
 import { html } from '../shared/html.js';
 import { announce, renderPie } from '../ui.js';
 import { guessFields as fieldsOf } from '../game.js';
+import { t } from '../shared/lang.js';
 
 /** @typedef {import('../shared/protocol.js').View} View */
 
@@ -15,13 +16,13 @@ import { guessFields as fieldsOf } from '../game.js';
  */
 export function rules(view) {
   const s = view.settings;
-  if (!s) return [`Först till ${view.winScore} p`];
+  if (!s) return [t('rules.winScore', { score: view.winScore })];
   const lower = (label) => label.toLocaleLowerCase('sv');
   return [
-    `${s.roundMs / 1000} s per låt`,
-    ...fieldsOf(view.labels).map((field) => `1 p för ${lower(view.labels[field])}`),
-    ...(s.bonusMs ? [`Bonus inom ${s.bonusMs / 1000} s`] : []),
-    `Först till ${s.winScore} p`,
+    t('rules.roundTime', { s: s.roundMs / 1000 }),
+    ...fieldsOf(view.labels).map((field) => t('rules.field', { field: lower(view.labels[field]) })),
+    ...(s.bonusMs ? [t('rules.bonus', { s: s.bonusMs / 1000 })] : []),
+    t('rules.winScore', { score: s.winScore }),
   ];
 }
 
@@ -35,7 +36,7 @@ export function createWaitingCard() {
     const ms = Math.max(0, introEnds - Date.now());
     const left = Math.ceil(ms / 1000);
     renderPie($('#intro-pie'), ms, introTotal);
-    $('#intro-label').textContent = left > 0 ? `Första låten spelas om ${left} s` : 'Första låten spelas nu';
+    $('#intro-label').textContent = left > 0 ? t('intro.countdown', { s: left }) : t('intro.now');
   }
 
   /**
@@ -49,16 +50,16 @@ export function createWaitingCard() {
     if (view.introMs) [introEnds, introTotal] = [Date.now() + view.introMs, view.introTotalMs];
     if (starting && $('#intro').hidden) {
       $('#intro').classList.add('reveal');
-      announce('Nu börjar det!');
+      announce(t('intro.announce'));
     }
     if (!starting) $('#intro').classList.remove('reveal');
     $('#intro').hidden = !starting;
     $('.waiting-cover').hidden = starting;
     tick();
     $('#waiting').hidden = phase !== 'waiting' && !(holding && !$('#waiting').hidden);
-    $('#waiting-title').textContent = host ? 'Väntar på spelarna' : 'Snart kör vi!';
+    $('#waiting-title').textContent = host ? t('waiting.title.host') : t('waiting.title.player');
     $('#waiting .eq').classList.toggle('idle', !view.lobbyPlaying);
-    $('#waiting-text').textContent = host ? 'Starta spelet när alla är här' : 'Spelledaren startar första låten snart';
+    $('#waiting-text').textContent = host ? t('waiting.text.host') : t('waiting.text.player');
     $('#rules').innerHTML = rules(view).map((r) => html`<li>${r}</li>`).join('');
   }
 
