@@ -139,7 +139,6 @@ export default {
     'Det är klart!',
     'Spelet är avgjort!',
     'Matchen är avgjord!',
-    'Segern är avgjord!',
     'Vinnaren är utsedd!',
     'Vi har en segrare!',
     'Vi har en mästare!',
