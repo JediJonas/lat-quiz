@@ -1,3 +1,4 @@
+// @ts-check
 // Vinnarlåten: först en trumvirvel, sedan ett Deezer-klipp som spelas hos spelledaren när vinnarvyn tar över.
 // Låten slumpas ur en handplockad lista, och samma låt spelas inte två gånger i rad.
 import { SILENCE, findPreview } from './deezer.js';
@@ -102,6 +103,7 @@ export function createWinnerSong({ onChange = () => {}, songs = () => WINNER_SON
   let timers = [];
   let playing = 0; // ökar vid varje start och stopp, så att ett sent svar från Deezer inte spelar
   let started = false; // låten har börjat, under trumvirveln eller när vinnaren visas
+  /** @type {(kind?: string) => void} */
   let heard = () => {}; // säger till när låten hörs, så att vinnarkortet kan visas då
   // På iPhone går det inte att ändra volymen på ett ljudelement. Därför spelas låten helst genom
   // webbläsarens ljudmotor, som kan tona. Den måste startas av ett tryck, se unlock.

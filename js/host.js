@@ -3,7 +3,7 @@ import * as game from './game.js';
 import { createHost, peerQuery } from './net.js';
 import { loadCategories, loadSongs, visibleCategories } from './data.js';
 import { SILENCE, findPreview } from './deezer.js';
-import { showAlert, showConfirm } from './dialog.js';
+import { showConfirm } from './dialog.js';
 import { currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView, esc } from './spelvy.js';
 import { scrollToTop } from './ui.js';

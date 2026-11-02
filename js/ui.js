@@ -1,3 +1,4 @@
+// @ts-check
 // Gemensamma visningsdelar för spelledare och spelare.
 
 import { guessFields } from './game.js';

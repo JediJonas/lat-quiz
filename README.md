@@ -55,20 +55,25 @@ Testerna kontrollerar också att alla JSON-filer går att läsa och att varje qu
 
 ## Webbkvalitet
 
-Varje pull request kör `.github/workflows/webbkvalitet.yml`, som följer regeln webbkvalitet: tester, HTML-validering (W3C Nu), tillgänglighet med axe (WCAG 2.2 AA, ljust och mörkt läge genom ett helt spel), Lighthouse i mobilläge, länkkontroll och sidvikt. Verktygen ligger i `webbkvalitet/`, med egna beroenden, så att själva appen förblir fri från beroenden.
+Varje pull request kör `.github/workflows/webbkvalitet.yml`, som följer regeln webbkvalitet: tester, lint (ESLint), typkontroll, ett röktest som spelar ett helt spel med en spelledare och en spelare, HTML-validering (W3C Nu), tillgänglighet med axe (WCAG 2.2 AA, ljust och mörkt läge genom ett helt spel), Lighthouse i mobilläge, länkkontroll och sidvikt. Verktygen ligger i `webbkvalitet/`, med egna beroenden, så att själva appen förblir fri från beroenden.
 
 Lokalt, med webbservern på port 8080 igång:
 
 ```
 cd webbkvalitet
 npm ci
-npm run peer &        # lokal PeerJS-server, behövs för axe
+npm run lint
+npm run types
+npm run peer &        # lokal PeerJS-server, behövs för röktestet och axe
+npm run smoke
 npm run html
 npm run axe
 npm run lighthouse
 npm run lankar
 npm run sidvikt
 ```
+
+Typkontrollen gäller bara filer i `js/` som börjar med `// @ts-check`. Typerna skrivs som JSDoc-kommentarer, så att filerna fortsätter att köras som de är i webbläsaren. Konfigurationen för ESLint och TypeScript ligger i `webbkvalitet/`, så att appen förblir fri från beroenden.
 
 ## Ny kategori
 

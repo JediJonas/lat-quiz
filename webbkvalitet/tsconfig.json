@@ -1,0 +1,19 @@
+{
+  // Typkontroll av appens JavaScript utan byggsteg: typerna står som JSDoc-kommentarer och
+  // filerna körs som de är i webbläsaren. Bara filer som börjar med // @ts-check kontrolleras,
+  // så att kontrollen kan slås på en fil i taget. Körs i CI med `npm run types`.
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "strict": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "types": []
+  },
+  "include": ["../js/**/*.js", "globals.d.ts"]
+}

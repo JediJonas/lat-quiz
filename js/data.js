@@ -1,3 +1,4 @@
+// @ts-check
 // Läser låtlistor och förslagslista från data-mappen.
 
 import { answerKey } from './text.js';

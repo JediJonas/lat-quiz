@@ -1,3 +1,4 @@
+// @ts-check
 // Meddelanderutan längst ner, samma hos spelledaren och spelarna. Den visar vad som händer,
 // till exempel att appen ansluter igen, och vad som gick fel. Ett nytt meddelande ersätter
 // det gamla, så det står aldrig flera rutor på varandra.

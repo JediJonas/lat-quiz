@@ -31,12 +31,26 @@ jobs:
         working-directory: webbkvalitet
         run: npm ci
 
+      - name: Lint (ESLint)
+        working-directory: webbkvalitet
+        run: npm run lint
+
+      - name: Typkontroll (JSDoc och tsc)
+        working-directory: webbkvalitet
+        run: npm run types
+
       - name: Starta webbserver och PeerJS-server
         working-directory: webbkvalitet
         run: |
           (cd .. && python3 -m http.server 8080 &)
           npx peerjs --host 127.0.0.1 --port 9000 &
           sleep 3
+
+      - name: Röktest (ett helt spel)
+        working-directory: webbkvalitet
+        run: npm run smoke
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
 
       - name: HTML-validering (W3C Nu)
         working-directory: webbkvalitet

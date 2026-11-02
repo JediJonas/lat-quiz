@@ -1,3 +1,4 @@
+// @ts-check
 // Korta, glada kommentarer: under poängen efter varje låt och på vinnarsidan.
 // Valet beror bara på spelets läge, inte på slumpen, så att alla enheter visar samma
 // kommentar och den inte byts när vyn ritas om.

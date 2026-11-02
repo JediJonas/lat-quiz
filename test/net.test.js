@@ -40,7 +40,7 @@ globalThis.document = {
   removeEventListener(name, fn) { visibilityListeners.delete(fn); },
 };
 function setVisibility(state) {
-  document.visibilityState = state;
+  globalThis.document.visibilityState = state;
   for (const fn of visibilityListeners) fn();
 }
 const { createClient, createHost } = await import('../js/net.js');

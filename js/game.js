@@ -1,3 +1,4 @@
+// @ts-check
 // Spellogik: låtval, gissningar och poäng.
 // Modulen känner inte till nätverk eller gränssnitt, så kommunikationen kan
 // bytas (till exempel mot Firebase) utan att något här ändras.

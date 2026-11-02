@@ -1,3 +1,4 @@
+// @ts-check
 // Kommunikation via PeerJS (WebRTC). Spelledarens webbläsare är servern.
 // Resten av appen använder bara createHost och createClient, så den här filen
 // kan bytas mot till exempel Firebase utan att spellogiken ändras.
