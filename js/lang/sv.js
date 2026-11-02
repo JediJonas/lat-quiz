@@ -175,6 +175,7 @@ export default {
     'Blixtsnabb seger!',
     'Raketfart!',
     'Rekordfart!',
+    'Oj! Imponerande!',
   ],
   'win.big': [
     'Ingen chans för de andra!',
