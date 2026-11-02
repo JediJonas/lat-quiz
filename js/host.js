@@ -1,5 +1,6 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
+import { t } from './shared/lang.js';
 import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
 import { showConfirm } from './dialog.js';
 import { hideMessage, showMessage, showUnexpectedErrors } from './meddelande.js';
@@ -251,8 +252,8 @@ function resumeGame() {
 }
 
 async function endGame() {
-  const ok = await showConfirm('Poängen försvinner och spelarna kopplas bort.', {
-    title: 'Avsluta spelet?', okText: 'Avsluta', danger: true, icon: MENU_ICONS.leave,
+  const ok = await showConfirm(t('endGame.text'), {
+    title: t('endGame.title'), okText: t('endGame.ok'), danger: true, icon: MENU_ICONS.leave,
   });
   if (!ok) return;
   leaving = true;
@@ -315,7 +316,7 @@ function render() {
 }
 
 function showError(err) {
-  showMessage({ key: 'error', kind: 'problem', title: 'Något gick fel', text: err.message });
+  showMessage({ key: 'error', kind: 'problem', title: t('message.unexpected.title'), text: err.message });
 }
 
 // ---- Start ----
@@ -386,7 +387,7 @@ async function init() {
   if (saved) {
     const resume = $('#resume');
     resume.hidden = false;
-    resume.querySelector('button').textContent = `Tillbaka till ${saved.code}`;
+    resume.querySelector('button').textContent = t('host.resume', { code: saved.code });
     resume.querySelector('button').addEventListener('click', () => startGame(saved.categoryId, saved));
   }
   // Kategorierna står redan i host.html, så att sidan inte blinkar till. Här uppdateras de, och

@@ -1,6 +1,7 @@
 // Rutan Inställningar hos spelledaren, både på Starta nytt spel och under spelet.
 // Modulen bygger rutan och returnerar valen. Vad valen gör, och när, avgör host.js.
 import * as game from './game.js';
+import { t } from './shared/lang.js';
 import { showConfirm } from './dialog.js';
 import { esc } from './shared/dom.js';
 import * as prefs from './shared/preferences.js';
@@ -13,9 +14,9 @@ import { countUnknown, formatUnknown } from './okanda.js';
 
 // short: den korta texten på segmentet. text: hela texten, som skärmläsare läser.
 const SETTING_FIELDS = [
-  { key: 'roundMs', label: 'Tid per låt', short: (v) => `${v / 1000} s`, text: (v) => `${v / 1000} sekunder per låt` },
-  { key: 'bonusMs', label: 'Bonus för snabbt svar', short: (v) => (v ? `${v / 1000} s` : 'Av'), text: (v) => (v ? `Inom ${v / 1000} sekunder` : 'Ingen bonus') },
-  { key: 'winScore', label: 'Poänggräns', short: (v) => String(v), text: (v) => `Först till ${v} poäng` },
+  { key: 'roundMs', label: t('settings.roundMs'), short: (v) => t('unit.seconds', { s: v / 1000 }), text: (v) => t('settings.roundMs.long', { s: v / 1000 }) },
+  { key: 'bonusMs', label: t('settings.bonusMs'), short: (v) => (v ? t('unit.seconds', { s: v / 1000 }) : t('settings.bonusMs.off')), text: (v) => (v ? t('settings.bonusMs.long', { s: v / 1000 }) : t('settings.bonusMs.none')) },
+  { key: 'winScore', label: t('settings.winScore'), short: (v) => String(v), text: (v) => t('settings.winScore.long', { score: v }) },
 ];
 
 // Ett fåtal val står sida vid sida som en segmentväljare, som i iPhone. Valen är radioknappar,
@@ -40,7 +41,7 @@ function unknownCheckbox() {
 // Allt om okända låtar ligger i samma avdelning. Under ett spel gäller den aktuella låten.
 function unknownGroup(show, checkbox, list) {
   if (!show || (!checkbox && !list)) return '';
-  return `<div class="unknown-group"><h3>Okända låtar</h3>${checkbox}${list}</div>`;
+  return `<div class="unknown-group"><h3>${t('settings.unknown.title')}</h3>${checkbox}${list}</div>`;
 }
 
 function unknownSection(count) {
@@ -48,11 +49,11 @@ function unknownSection(count) {
   return `
     <div class="unknown-songs">
       <p class="unknown-actions">
-        <button type="button" id="copy-unknown" class="link">Kopiera okända låtar (${count})</button>
-        <button type="button" id="clear-unknown" class="link">Rensa</button>
+        <button type="button" id="copy-unknown" class="link">${t('settings.unknown.copy', { count })}</button>
+        <button type="button" id="clear-unknown" class="link">${t('settings.unknown.clear')}</button>
       </p>
       <p id="unknown-status" class="note" role="status"></p>
-      <textarea id="unknown-text" class="unknown-text" readonly rows="6" aria-label="Okända låtar" hidden></textarea>
+      <textarea id="unknown-text" class="unknown-text" readonly rows="6" aria-label="${t('settings.unknown.title')}" hidden></textarea>
     </div>`;
 }
 
@@ -64,7 +65,7 @@ function wireUnknown(dialog, names) {
     const text = formatUnknown(prefs.unknownSongs(), names);
     try {
       await navigator.clipboard.writeText(text);
-      status.textContent = 'Kopierat. Klistra in listan i projektet, så tas låtarna bort ur kategorierna.';
+      status.textContent = t('settings.unknown.copied');
     } catch {
       // Utan tillgång till urklipp visas texten, så att den kan kopieras för hand.
       const area = dialog.querySelector('#unknown-text');
@@ -72,12 +73,12 @@ function wireUnknown(dialog, names) {
       area.hidden = false;
       area.focus();
       area.select();
-      status.textContent = 'Kopiera texten nedan.';
+      status.textContent = t('settings.unknown.copyBelow');
     }
   });
   dialog.querySelector('#clear-unknown').addEventListener('click', async () => {
-    const ok = await showConfirm('Låtarna spelas igen i kommande spel. Kopiera listan först om den inte är skickad.', {
-      title: 'Rensa okända låtar?', okText: 'Rensa', danger: true, icon: MENU_ICONS.delete,
+    const ok = await showConfirm(t('settings.unknown.clearConfirm.text'), {
+      title: t('settings.unknown.clearConfirm.title'), okText: t('settings.unknown.clear'), danger: true, icon: MENU_ICONS.delete,
     });
     if (!ok) return;
     prefs.setUnknownSongs({});
@@ -93,7 +94,7 @@ function wireUnknown(dialog, names) {
 function hostNameRow(askName) {
   return askName ? `
     <div id="setting-host-name-row" class="field-group host-name-row"><div class="field-row">
-      <label for="setting-host-name">Namn</label>
+      <label for="setting-host-name">${t('settings.hostName')}</label>
       <input id="setting-host-name" name="hostName" maxlength="${game.MAX_NAME}" autocomplete="nickname"
         placeholder="${game.DEFAULT_HOST_NAME}">
     </div></div>` : '';
@@ -106,14 +107,14 @@ function wireHostPlays(dialog, host) {
   const row = dialog.querySelector('#setting-host-name-row');
   const input = dialog.querySelector('#setting-host-name');
   const update = () => { if (row) row.hidden = !on; };
-  mountSwitch(dialog.querySelector('#setting-host-plays'), 'Jag deltar i spelet', () => on, () => { on = !on; update(); });
+  mountSwitch(dialog.querySelector('#setting-host-plays'), t('settings.hostPlays'), () => on, () => { on = !on; update(); });
   update();
   if (input) {
     input.addEventListener('input', () => input.setCustomValidity(''));
     dialog.querySelector('form').addEventListener('submit', (e) => {
       if (e.submitter?.value !== 'ok' || !on || !host.isTaken(input.value)) return;
       e.preventDefault();
-      input.setCustomValidity(`${game.cleanHostName(input.value)} är redan med i spelet. Välj ett annat namn.`);
+      input.setCustomValidity(t('settings.hostNameTaken', { name: game.cleanHostName(input.value) }));
       input.reportValidity();
     });
   }
@@ -158,10 +159,10 @@ export function showSettings(current, {
   dialog.className = 'modal settings';
   dialog.innerHTML = `
     <form method="dialog">
-      <h2 id="settings-title">Inställningar</h2>
+      <h2 id="settings-title">${t('menu.settings')}</h2>
       <div class="settings-group">
       ${categories ? `
-        <div class="setting-row"><label for="setting-category">Kategori</label>
+        <div class="setting-row"><label for="setting-category">${t('settings.category')}</label>
         <select id="setting-category" name="categoryId">
           ${categories.map((c) => `<option value="${esc(c.id)}"${c.id === categoryId ? ' selected' : ''}>${esc(c.name)}</option>`).join('')}
         </select></div>` : ''}
@@ -171,12 +172,12 @@ export function showSettings(current, {
       <div class="switches clip-all"><button type="button" class="theme-switch" id="setting-clip-all"></button><button type="button" class="theme-switch" id="setting-extra-sounds"></button><button type="button" class="theme-switch" id="setting-host-plays"></button></div>
       ${hostNameRow(host.askName)}
       <div class="settings-group audio-delay">
-      ${segmented('audioDelay', 'Ljudsynk', DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
+      ${segmented('audioDelay', t('settings.audioDelay'), DELAY_CHOICES.map((v) => ({ value: v, short: delayShort(v), text: delayText(v), checked: v === audioDelay })))}
       </div>
       ${unknownGroup(unknown.show, unknown.songPlaying ? unknownCheckbox() : '', unknownSection(countUnknown(prefs.unknownSongs())))}
       <div class="modal-actions">
-        <button value="cancel" class="secondary">Avbryt</button>
-        <button value="ok">Spara</button>
+        <button value="cancel" class="secondary">${t('dialog.cancel')}</button>
+        <button value="ok">${t('settings.save')}</button>
       </div>
     </form>`;
   // En rullista skickar inte formuläret med Enter, så Enter sparar här. I namnfältet skulle
@@ -192,16 +193,16 @@ export function showSettings(current, {
   wireBonus(dialog);
   const chosenHost = wireHostPlays(dialog, host);
   let clipOn = clipAll;
-  mountSwitch(dialog.querySelector('#setting-clip-all'), 'Spela ljud på alla enheter', () => clipOn, () => { clipOn = !clipOn; });
+  mountSwitch(dialog.querySelector('#setting-clip-all'), t('settings.clipAll'), () => clipOn, () => { clipOn = !clipOn; });
   let soundsOn = extraSounds;
-  mountSwitch(dialog.querySelector('#setting-extra-sounds'), 'Spela extraljud', () => soundsOn, () => { soundsOn = !soundsOn; });
+  mountSwitch(dialog.querySelector('#setting-extra-sounds'), t('settings.extraSounds'), () => soundsOn, () => { soundsOn = !soundsOn; });
   const mark = dialog.querySelector('#mark-unknown');
   // Antalet i länken följer strömbrytaren.
   const copyUnknown = dialog.querySelector('#copy-unknown');
   // Strömbrytaren gäller direkt, utan att spelledaren behöver spara, som i Utseende.
-  if (mark) mountSwitch(mark, 'Denna låt är okänd', unknown.isCurrent, () => {
+  if (mark) mountSwitch(mark, t('settings.unknown.current'), unknown.isCurrent, () => {
     unknown.toggleCurrent();
-    if (copyUnknown) copyUnknown.textContent = `Kopiera okända låtar (${countUnknown(prefs.unknownSongs())})`;
+    if (copyUnknown) copyUnknown.textContent = t('settings.unknown.copy', { count: countUnknown(prefs.unknownSongs()) });
   });
   // Rutan själv får fokus, inte första valet, så att inget ser markerat ut i mobilen.
   // Skärmläsaren läser rubriken, och Tab går till valen.

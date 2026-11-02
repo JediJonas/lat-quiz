@@ -3,6 +3,7 @@
 // och ändringarna som görs medan spelet pågår. De gäller när nästa låt startar, eller direkt om
 // ingen låt har spelats än. Spelläget och kategorin ägs av host.js.
 import * as game from './game.js';
+import { t } from './shared/lang.js';
 import { loadCategories, loadSongs, visibleCategories } from './data.js';
 import { INFO_MS, currentMessage, showMessage } from './meddelande.js';
 import { delayShort } from './ljudfordrojning.js';
@@ -17,10 +18,11 @@ import * as prefs from './shared/preferences.js';
  * @param {{ clipAll: boolean, extraSounds: boolean, audioDelay: number, hostPlays: boolean }} device
  */
 export function summaryParts(s, { clipAll, extraSounds, audioDelay, hostPlays }) {
-  return [`${s.roundMs / 1000} s per låt`, s.bonusMs ? `Bonus inom ${s.bonusMs / 1000} s` : 'Ingen bonus', `Först till ${s.winScore} poäng`,
-    ...(clipAll ? ['Ljud på alla enheter'] : []), ...(extraSounds ? [] : ['Inga extraljud']),
-    ...(audioDelay ? [`Ljudsynk ${delayShort(audioDelay)}`] : []),
-    ...(hostPlays ? [] : ['Jag deltar inte'])];
+  return [t('rules.roundTime', { s: s.roundMs / 1000 }), s.bonusMs ? t('rules.bonus', { s: s.bonusMs / 1000 }) : t('settings.bonusMs.none'),
+    t('summary.winScore', { score: s.winScore }),
+    ...(clipAll ? [t('summary.clipAll')] : []), ...(extraSounds ? [] : [t('summary.noExtraSounds')]),
+    ...(audioDelay ? [t('summary.audioDelay', { delay: delayShort(audioDelay) })] : []),
+    ...(hostPlays ? [] : [t('summary.hostNotPlaying')])];
 }
 
 /**
@@ -155,7 +157,7 @@ export function createHostSettings({ state, category, categoryChanged, stopClip,
     const shown = currentMessage();
     if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
     if (pending && pendingDiffers(pending, now)) {
-      showMessage({ key: 'settings', kind: 'info', title: 'Spelet ändrades', text: 'Ändringarna gäller från nästa låt.', ms: INFO_MS });
+      showMessage({ key: 'settings', kind: 'info', title: t('changed.title'), text: t('changed.text'), ms: INFO_MS });
     }
   }
 

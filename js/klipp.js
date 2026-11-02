@@ -5,6 +5,7 @@
 // Väntemusiken, trumvirveln och vinnarlåten kommer som view.music, med var i klippet spelledaren är
 // och hur klippet tonas. På iPhone går volymen inte att ändra, så där börjar och slutar de tvärt.
 import { SILENCE } from './deezer.js';
+import { t } from './shared/lang.js';
 
 // Så långt får klippet glida från spelledarens innan mobilen spolar om. Mindre ger hack i ljudet.
 const DRIFT_S = 0.4;
@@ -59,7 +60,7 @@ export function createClipPlayer({ onBlocked }) {
   // Låsskärmen och mediekontrollerna visar appen, inte låten.
   function hideSongInfo() {
     if (!('mediaSession' in navigator) || typeof MediaMetadata === 'undefined') return;
-    navigator.mediaSession.metadata = new MediaMetadata({ title: 'Låtquiz', artist: 'Ljudklipp från Deezer' });
+    navigator.mediaSession.metadata = new MediaMetadata({ title: t('app.name'), artist: t('clip.mediaArtist') });
   }
 
   function shouldPlay() {

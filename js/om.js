@@ -10,7 +10,7 @@ export function showAbout() {
       <h2 id="about-title">${t('about.title')}</h2>
       ${t('about.body')}
       <div class="modal-actions">
-        <button value="ok">${t('about.ok')}</button>
+        <button value="ok">${t('dialog.ok')}</button>
       </div>
     </form>`;
   // Tangenter i rutan ska inte nå sidan, där Enter annars styr spelet.

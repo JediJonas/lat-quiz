@@ -3,6 +3,7 @@
 // spela det. Låtkortet och timern, trumvirvelns rubrik, vinnarkortet och raden längst ner väntar då
 // så här mycket längre, och vinnarkortet ännu lite till, se host.js. Valet gäller spelledarens
 // enhet, eftersom det beror på högtalaren, och spelarnas mobiler följer spelledaren.
+import { t } from './shared/lang.js';
 
 export const DELAY_CHOICES = [0, 200, 400, 600, 800];
 
@@ -15,8 +16,8 @@ export function cleanDelay(value) {
 }
 
 // Till exempel "0,4 s", med decimalkomma.
-export const delayShort = (ms) => (ms ? `${String(ms / 1000).replace('.', ',')} s` : 'Ingen');
-export const delayText = (ms) => (ms ? `${String(ms / 1000).replace('.', ',')} sekunder` : 'Ingen fördröjning');
+export const delayShort = (ms) => (ms ? t('unit.seconds', { s: String(ms / 1000).replace('.', ',') }) : t('audioDelay.none'));
+export const delayText = (ms) => (ms ? t('audioDelay.long', { s: String(ms / 1000).replace('.', ',') }) : t('audioDelay.noneLong'));
 
 // Ett löfte som uppfylls ms millisekunder efter att promise har uppfyllts, eller avvisats.
 export function after(promise, ms) {

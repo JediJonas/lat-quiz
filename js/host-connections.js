@@ -3,6 +3,7 @@
 // spelarna skickar och vad de får tillbaka. Spelläget ägs av host.js och hämtas med state().
 // Meddelandena kontrolleras och städas i protocol.js först.
 import * as game from './game.js';
+import { t } from './shared/lang.js';
 import { createHost as netCreateHost } from './net.js';
 import { showJoined, showLeft, showMessage } from './meddelande.js';
 import * as protocol from './shared/protocol.js';
@@ -10,9 +11,9 @@ import * as protocol from './shared/protocol.js';
 // Kontakten med förmedlingsservern bryts oftast när spelledaren har lämnat webbläsaren, till
 // exempel för en annan app i mobilen. Meddelandet är därför allmänt, som hos spelarna.
 const NET_MESSAGES = {
-  relay: { kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' },
-  'unavailable-id': { kind: 'busy', title: 'Väntar på koden…', text: 'Spelet startar strax.' },
-  network: { kind: 'busy', title: 'Ingen anslutning', text: 'Försöker ansluta igen…' },
+  relay: { kind: 'busy', title: t('net.lost.title'), text: t('net.retrying') },
+  'unavailable-id': { kind: 'busy', title: t('net.waitingCode.title'), text: t('net.waitingCode.text') },
+  network: { kind: 'busy', title: t('net.offline.title'), text: t('net.retrying') },
 };
 
 // Så länge väntar spelledaren innan anslutningarna stängs, så att Spelet är slut hinner fram.
@@ -111,14 +112,14 @@ export function createConnections({ state, viewFor, changed, createHost = netCre
   function start(code) {
     net = createHost(code, {
       onReady: () => {
-        if (trouble) show.message({ key: 'net', kind: 'ok', title: 'Välkommen tillbaka!', text: 'Du är med i spelet igen.' });
+        if (trouble) show.message({ key: 'net', kind: 'ok', title: t('net.back.title'), text: t('net.back.text') });
         trouble = false;
       },
       onMessage,
       onDisconnect,
       onError: (type) => {
         trouble = true;
-        show.message({ key: 'net', ...(NET_MESSAGES[type] || { kind: 'problem', title: 'Anslutningsfel', text: type }) });
+        show.message({ key: 'net', ...(NET_MESSAGES[type] || { kind: 'problem', title: t('net.error.title'), text: type }) });
       },
     });
   }

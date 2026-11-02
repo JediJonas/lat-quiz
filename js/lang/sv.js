@@ -105,9 +105,117 @@ export default {
     'Låtquizets mästare!',
   ],
 
+  // Allmänt.
+  'app.name': 'Låtquiz',
+  'dialog.ok': 'OK',
+  'dialog.cancel': 'Avbryt',
+  'menu.leave': 'Lämna spelet',
+  'music.nowPlaying': 'Nu spelas {artist} – {title}',
+  'error.read': 'Kunde inte läsa {path}',
+  'host.defaultName': 'Spelledare',
+  'host.resume': 'Tillbaka till {code}',
+
+  // Anslutningen, i meddelanderutan.
+  'net.lost.title': 'Anslutningen bröts',
+  'net.retrying': 'Försöker ansluta igen…',
+  'net.waitingCode.title': 'Väntar på koden…',
+  'net.waitingCode.text': 'Spelet startar strax.',
+  'net.offline.title': 'Ingen anslutning',
+  'net.back.title': 'Välkommen tillbaka!',
+  'net.back.text': 'Du är med i spelet igen.',
+  'net.error.title': 'Anslutningsfel',
+  'net.hostGone.title': 'Spelledaren är borta',
+  'net.hostGone.text': 'Väntar på spelledaren…',
+  'net.ended.title': 'Spelet avslutades',
+  'net.ended.text': 'Tack för att du var med!',
+  'net.connecting.title': 'Ansluter till spelet…',
+  'net.connecting.text': 'Det kan ta några sekunder.',
+
+  // Att gå med i ett spel, och att lämna det.
+  'join.copy': 'länken',
+  'join.copied': 'länken (kopierad)',
+  'join.copiedStatus': 'Länken är kopierad',
+  'join.nameTaken': 'Det finns redan en {name} i spelet. Välj ett annat namn, till exempel med en initial.',
+  'join.notFound': 'Vi hittar inget spel med koden {code}. Kolla koden och prova igen.',
+  'join.noInternet': 'Det gick inte att ansluta. Kontrollera att du har internet och försök igen.',
+  'join.unreachable': 'Spelet med koden {code} svarar inte. Kontrollera att spelledarens sida är öppen och försök igen. Är du på ett gästnät? Prova samma wifi som spelledaren eller mobildata.',
+  'leave.title': 'Lämna spelet?',
+  'leave.text': 'Du kan gå med igen med samma kod och får då tillbaka dina poäng.',
+  'leave.ok': 'Lämna',
+  'endGame.title': 'Avsluta spelet?',
+  'endGame.text': 'Poängen försvinner och spelarna kopplas bort.',
+  'endGame.ok': 'Avsluta',
+  'newMatch.title': 'Vi kör igen!',
+  'newMatch.text': 'Alla börjar om från noll. Lycka till!',
+
+  // Ändringar under spelet.
+  'changed.title': 'Spelet ändrades',
+  'changed.text': 'Ändringarna gäller från nästa låt.',
+  'changed.category': 'Ny kategori: {name}.',
+  'changed.roundMs': '{s} sekunder per låt.',
+  'changed.bonusMs': 'Bonus för svar inom {s} sekunder.',
+  'changed.noBonus': 'Ingen bonus.',
+  'changed.winScore': 'Först till {score} poäng vinner.',
+
+  // Startsidan för spelledaren: kategorierna och raden Inställningar.
+  'category.songs': '{count} låtar',
+  'category.count': '{count} kategorier',
+  'summary.winScore': 'Först till {score} poäng',
+  'summary.clipAll': 'Ljud på alla enheter',
+  'summary.noExtraSounds': 'Inga extraljud',
+  'summary.audioDelay': 'Ljudsynk {delay}',
+  'summary.hostNotPlaying': 'Jag deltar inte',
+
+  // Rutan Inställningar.
+  'settings.category': 'Kategori',
+  'settings.roundMs': 'Tid per låt',
+  'settings.roundMs.long': '{s} sekunder per låt',
+  'settings.bonusMs': 'Bonus för snabbt svar',
+  'settings.bonusMs.off': 'Av',
+  'settings.bonusMs.long': 'Inom {s} sekunder',
+  'settings.bonusMs.none': 'Ingen bonus',
+  'settings.winScore': 'Poänggräns',
+  'settings.winScore.long': 'Först till {score} poäng',
+  'settings.clipAll': 'Spela ljud på alla enheter',
+  'settings.extraSounds': 'Spela extraljud',
+  'settings.hostPlays': 'Jag deltar i spelet',
+  'settings.hostName': 'Namn',
+  'settings.hostNameTaken': '{name} är redan med i spelet. Välj ett annat namn.',
+  'settings.audioDelay': 'Ljudsynk',
+  'settings.save': 'Spara',
+  'settings.unknown.title': 'Okända låtar',
+  'settings.unknown.current': 'Denna låt är okänd',
+  'settings.unknown.copy': 'Kopiera okända låtar ({count})',
+  'settings.unknown.clear': 'Rensa',
+  'settings.unknown.copied': 'Kopierat. Klistra in listan i projektet, så tas låtarna bort ur kategorierna.',
+  'settings.unknown.copyBelow': 'Kopiera texten nedan.',
+  'settings.unknown.clearConfirm.title': 'Rensa okända låtar?',
+  'settings.unknown.clearConfirm.text': 'Låtarna spelas igen i kommande spel. Kopiera listan först om den inte är skickad.',
+  'audioDelay.none': 'Ingen',
+  'audioDelay.noneLong': 'Ingen fördröjning',
+  'audioDelay.long': '{s} sekunder',
+
+  // Rutan Utseende.
+  'appearance.dark': 'Mörkt läge',
+  'appearance.largeText': 'Stor text',
+
+  // Förslagslistan under svarsfälten.
+  'autocomplete.label': 'Förslag',
+  'autocomplete.clear': 'Rensa',
+  'autocomplete.clearField': 'Rensa {field}',
+  'autocomplete.loading': 'Laddar förslag…',
+  'autocomplete.none': 'Inga träffar',
+
+  // Klippen från Deezer.
+  'deezer.timeout': 'Deezer svarade inte.',
+  'deezer.unreachable': 'Kunde inte nå Deezer.',
+  'clip.retry': 'Välj Starta spelet i menyn för att försöka igen.',
+  'clip.missing': 'Inga klipp från Deezer',
+  'clip.blocked': 'Klippet startade inte',
+  'clip.mediaArtist': 'Ljudklipp från Deezer',
+
   // Rutan Om Låtquiz.
   'about.title': 'Om Låtquiz',
-  'about.ok': 'OK',
   'about.body': `
   <p class="lead">Utmana familj och vänner och tävla om vem som känner igen flest låtar, direkt i webbläsaren.</p>
 
