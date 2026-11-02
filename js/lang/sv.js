@@ -125,7 +125,7 @@ export default {
     'Upp på hästen igen!',
     'Nästa låt är din!',
     'Ingen fara!',
-    'Huvudet högt!',
+    'Håll huvudet högt!',
     'Snart lossnar det!',
     'Det vänder snart!',
     'Heja heja!',
