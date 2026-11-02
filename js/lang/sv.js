@@ -133,7 +133,7 @@ export default {
   ],
   'win.intro': [
     'Vi har en vinnare!',
-    'Grattis!',
+    'Matchen är slut!',
     'Vilken match!',
     'Hipp hipp hurra!',
     'Det är klart!',
