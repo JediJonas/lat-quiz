@@ -25,7 +25,17 @@ const MAX_SKIPS = 5;
 function audioDebug(el) {
   if (!debugging()) return;
   const log = debugLine;
-  const describeNode = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
+  // Vad som trycktes på: taggen och id, annars första klassen, och för knappar och länkar
+  // även texten eller aria-label, så att det syns vilken knapp det var.
+  const describeNode = (node) => {
+    if (!node || !node.tagName) return '-';
+    const name = node.tagName.toLowerCase() + (node.id ? '#' + node.id : node.classList[0] ? '.' + node.classList[0] : '');
+    const target = node.closest?.('button, a, [role="button"]');
+    if (!target) return name;
+    const label = (target.getAttribute('aria-label') || target.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 30);
+    const where = target === node ? name : `${name} in ${target.tagName.toLowerCase()}${target.id ? '#' + target.id : ''}`;
+    return label ? `${where} "${label}"` : where;
+  };
   for (const type of ['play', 'playing', 'pause', 'waiting', 'stalled', 'seeking', 'seeked', 'emptied', 'ended', 'error']) {
     el.addEventListener(type, () => log(`audio ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));
   }
