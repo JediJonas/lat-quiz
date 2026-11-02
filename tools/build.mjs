@@ -10,13 +10,15 @@
 // - Varje bundle får en source map bredvid, så att felsökning i Safari och Chrome visar de riktiga
 //   filerna och raderna. Kartan hämtas bara när utvecklarverktygen är öppna.
 // - css/style.css och vendor/qrcode.js minifieras. vendor/peerjs.min.js är redan minifierad.
-// - Sist får sidorna versionsnummer, se tools/versions.mjs.
+// - Versionsnumret är en hash av källfilerna. Det och när sidan publicerades skrivs in i
+//   JavaScript-koden som globalThis.LATQUIZ_VERSION, som loggen visar med ?debug=1.
+// - Sist får sidorna versionsnumret på CSS och JS, se tools/versions.mjs.
 //
 // Källfilerna i repot ändras inte, och lokalt körs de som de är.
 import { build as esbuild } from 'esbuild';
 import { cpSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { stampVersions } from './versions.mjs';
+import { contentHash, stampVersions, versionText } from './versions.mjs';
 
 const root = new URL('../', import.meta.url);
 const path = (url) => fileURLToPath(url);
@@ -41,9 +43,11 @@ export async function build(outDir = new URL('_site/', root)) {
   }
   for (const dir of COPY) cpSync(new URL(dir, root), new URL(dir, out), { recursive: true });
 
+  const v = contentHash(root);
   const common = { minify: true, target: TARGET, logLevel: 'warning', absWorkingDir: path(root) };
   await esbuild({
     ...common, entryPoints: ENTRIES, bundle: true, format: 'esm', sourcemap: true,
+    define: { 'globalThis.LATQUIZ_VERSION': JSON.stringify(versionText(v)) },
     outdir: path(new URL('js/', out)),
   });
   await esbuild({ ...common, entryPoints: ['css/style.css'], outfile: path(new URL('css/style.css', out)), allowOverwrite: true });
@@ -51,7 +55,8 @@ export async function build(outDir = new URL('_site/', root)) {
   // namn på det som står överst i filen.
   await esbuild({ ...common, entryPoints: ['vendor/qrcode.js'], outfile: path(new URL('vendor/qrcode.js', out)), allowOverwrite: true });
 
-  return stampVersions(out);
+  stampVersions(out, v);
+  return v;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

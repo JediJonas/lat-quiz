@@ -6,6 +6,9 @@ declare const Peer: any;
 // qrcode-generator läses in från vendor/qrcode.js med en script-tagg.
 declare const qrcode: any;
 
+// Versionen och när sidan publicerades, inskriven av tools/build.mjs. Saknas lokalt.
+declare var LATQUIZ_VERSION: string | undefined;
+
 interface Window {
   // Äldre Safari har bara ljudmotorn med prefix.
   webkitAudioContext?: typeof AudioContext;

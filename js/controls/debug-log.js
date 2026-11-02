@@ -48,12 +48,9 @@ function followViewport() {
   button.style.transform = hidden > 0 ? `translateY(${-Math.round(hidden)}px)` : 'none';
 }
 
-// Versionen och när sidan publicerades, ifylld i <p class="app-version"> av tools/versions.mjs.
-// Tom när sidan körs direkt från repot.
-function versionLine() {
-  const text = document.querySelector('.app-version')?.textContent?.trim();
-  return text || 'Version unknown, page not published';
-}
+// Versionen och när sidan publicerades, inskriven i koden av tools/build.mjs. Saknas när sidan
+// körs direkt från repot.
+const versionLine = () => globalThis.LATQUIZ_VERSION || 'Version unknown, page not published';
 
 let version = '';
 
