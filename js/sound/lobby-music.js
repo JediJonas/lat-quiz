@@ -38,7 +38,8 @@ export function pickLobbySong(random, last, songs) {
 }
 
 // Hur klippet tonas, så att spelarnas mobiler kan göra likadant.
-export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_OUT_MS, loop: true };
+// stopMs: när spelet startar slutar spelledaren skicka musiken, och mobilerna tonar då ut lika länge.
+export const LOBBY_FADE = { volume: VOLUME, fadeInMs: FADE_IN_MS, fadeOutMs: FADE_OUT_MS, stopMs: STOP_MS, loop: true };
 
 // onChange: klippet har börjat höras, eller tystnat utan att musiken stoppades, så att raden längst
 // ner och spelarnas mobiler följer med. songs: låtarna för spelets kategori, se lobbySongs.

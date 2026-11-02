@@ -6,11 +6,11 @@ import { musicLevel, musicVolume } from '../js/sound/clip-player.js';
 // En påhittad ljudmotor, som räcker för att se hur klippen väljs och startas.
 function fakeContext({ state = 'running', resumes = true } = {}) {
   const ctx = {
-    state, currentTime: 0, destination: {}, started: [],
+    state, currentTime: 0, destination: {}, started: [], curves: [],
     resume: async () => { if (resumes) ctx.state = 'running'; },
     suspend: async () => { ctx.state = 'suspended'; },
     decodeAudioData: async () => ({ duration: 30 }),
-    createGain: () => ({ gain: { value: 0, setValueAtTime(v) { this.value = v; } }, connect: (n) => n }),
+    createGain: () => ({ gain: { value: 0, setValueAtTime(v) { this.value = v; }, cancelScheduledValues() {}, setValueCurveAtTime(curve, at, s) { ctx.curves.push([curve[0], s]); } }, connect: (n) => n }),
     createBufferSource: () => ({
       connect: (n) => n,
       start: (when, offset) => ctx.started.push(offset),
@@ -97,4 +97,24 @@ test('ljudmotorn vilar under quizlåten och väcks igen för vinnarlåten', asyn
   await engine.choose('winner');
   assert.equal(ctx.state, 'running');
   assert.equal(engine.choice('winner'), 'engine');
+});
+
+// Spelledaren slutar skicka väntemusiken när spelet startar, och tonar själv ut den under 5 s.
+test('väntemusiken tonas ut i mobilen, och motorn vilar först när den är tyst', async (t) => {
+  t.mock.timers.enable({ apis: ['setTimeout', 'Date'] });
+  const ctx = fakeContext();
+  const { engine } = setup(ctx);
+  engine.unlock();
+  await engine.choose('lobby');
+  engine.play('lobby', 10, true);
+  engine.setVolume(() => 0.5);
+  engine.fadeOut(5000);
+  assert.deepEqual(ctx.curves, [[0.5, 5]]);
+  assert.equal(engine.playing(), false);
+  engine.rest();
+  await Promise.resolve();
+  assert.equal(ctx.state, 'running', 'tonar fortfarande ut');
+  t.mock.timers.tick(5000);
+  await Promise.resolve();
+  assert.equal(ctx.state, 'suspended');
 });
