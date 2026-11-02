@@ -11,27 +11,20 @@ import * as game from '../game/game.js';
 import { t } from '../shared/lang.js';
 import { SILENCE, findPreview } from '../sound/deezer.js';
 import * as prefs from '../shared/preferences.js';
+import { debugging, debugLine } from '../controls/debug-log.js';
 
 // Så många låtar i rad hoppas över när Deezer saknar klipp, innan spelledaren får veta det.
 const MAX_SKIPS = 5;
 
 
-// Med ?debug=1 visas överst på sidan en logg över quizlåtens ljud och spelledarens tryck, så att
-// det går att se vad som händer i en riktig iPhone när musiken stannar upp. Loggen säger när
+// Med ?debug=1 loggas quizlåtens ljud och spelledarens tryck i rutan längst ner, se
+// controls/debug-log.js, så att det går att se vad som händer i en riktig iPhone när musiken
+// stannar upp. Loggen säger när
 // ljudelementet pausar eller väntar på data, när låtens tid står still fast den spelar och när
 // sidan har varit upptagen så länge att en kontroll kom för sent.
 function audioDebug(el) {
-  if (!('debug' in document.documentElement.dataset)) return;
-  const box = document.createElement('pre');
-  box.style.cssText = 'position:fixed;left:0;right:0;top:0;z-index:99;margin:0;padding:4px 6px;max-height:35vh;overflow:auto;font:10px/1.3 ui-monospace,monospace;background:rgba(0,0,0,.8);color:#fff;pointer-events:none;white-space:pre-wrap';
-  document.body.append(box);
-  const lines = [];
-  const log = (text) => {
-    lines.push(`${(performance.now() / 1000).toFixed(2)} ${text}`);
-    if (lines.length > 40) lines.shift();
-    box.textContent = lines.join('\n');
-    box.scrollTop = box.scrollHeight;
-  };
+  if (!debugging()) return;
+  const log = debugLine;
   const describeNode = (node) => (node && node.tagName ? node.tagName.toLowerCase() + (node.id ? '#' + node.id : '') : '-');
   for (const type of ['play', 'playing', 'pause', 'waiting', 'stalled', 'seeking', 'seeked', 'emptied', 'ended', 'error']) {
     el.addEventListener(type, () => log(`ljud ${type} t=${el.currentTime.toFixed(2)} rs=${el.readyState} ns=${el.networkState}`));

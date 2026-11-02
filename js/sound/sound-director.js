@@ -5,6 +5,7 @@
 import { wait } from '../shared/wait.js';
 import * as prefs from '../shared/preferences.js';
 import { showMessage } from '../controls/message.js';
+import { debugging } from '../controls/debug-log.js';
 import { delayAfter } from './audio-delay.js';
 import { DRUM_FADE, WINNER_FADE, createWinnerSong, winnerSongs } from './winner-song.js';
 import { LOBBY_FADE, createLobbyMusic, lobbySongs } from './lobby-music.js';
@@ -19,7 +20,6 @@ const DEBUG_SHOWN_MS = 6000;
 
 // Med ?debug=1 står det hur väntemusiken och vinnarlåten spelas, så att det går att se i en riktig
 // iPhone varför de inte tonas. how: 'engine', annars varför ljudmotorn inte användes.
-const debugging = () => 'debug' in document.documentElement.dataset;
 export const describeHow = (how) => (how === 'engine' ? 'Ljudmotorn' : `Vanligt ljud, ${how || 'ingen låt hördes'}`);
 
 
