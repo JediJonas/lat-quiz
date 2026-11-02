@@ -829,38 +829,38 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 .suggestions li.empty { color: var(--muted); cursor: default; }
 .suggestions li.empty:hover { background: none; }
 
-/* Rullgardinen för kategorin på dator (rullista.js): en knapp och en lista i förslagslistans
+/* Rullgardinen för kategorin på dator (custom-select.js): en knapp och en lista i förslagslistans
    stil. Den valda kategorin har en bock. */
-.rullista { position: relative; min-width: 0; }
-.field-row .rullista { position: static; }
-.rullista-knapp {
+.custom-select { position: relative; min-width: 0; }
+.field-row .custom-select { position: static; }
+.custom-select-button {
   display: flex; align-items: center; gap: 10px; width: 100%; min-height: 56px; margin: 0; padding: 0 40px 0 12px;
   border: 0; border-radius: 22px; box-shadow: none; background: transparent var(--chevron) no-repeat right 16px center;
   color: var(--text); font-size: 1.0625rem; font-weight: 400; text-align: left;
 }
 /* Knappens vanliga hover byter hela bakgrunden. Här står pilen kvar, utan övergång som får den att glida. */
-.rullista-knapp:hover { background: transparent var(--chevron) no-repeat right 16px center; }
-.rullista-knapp { transition: none; }
-.rullista-knapp:active { transform: none; }
-.rullista-knapp:focus-visible { outline: none; }
-.rullista-namn { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.custom-select-button:hover { background: transparent var(--chevron) no-repeat right 16px center; }
+.custom-select-button { transition: none; }
+.custom-select-button:active { transform: none; }
+.custom-select-button:focus-visible { outline: none; }
+.custom-select-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* Listan ligger en pixel under fältet och är lika bred som raden, både i Starta nytt spel och i Inställningar. */
-.rullista-lista { top: 100%; max-height: min(336px, 60vh); margin-top: 1px; }
-.rullista-lista li { position: relative; padding: 12px 44px 12px 12px; }
-.rullista-lista li.active { background: var(--surface-2); }
-.rullista-lista li[aria-selected="true"]::after {
+.custom-select-list { top: 100%; max-height: min(336px, 60vh); margin-top: 1px; }
+.custom-select-list li { position: relative; padding: 12px 44px 12px 12px; }
+.custom-select-list li.active { background: var(--surface-2); }
+.custom-select-list li[aria-selected="true"]::after {
   content: ""; position: absolute; right: 12px; top: 50%; width: 22px; height: 22px; margin-top: -11px;
   border-radius: 50%; background: var(--ok-check) center / 16px no-repeat, var(--accent);
 }
-.rullista-lista li[aria-selected="true"] { background: none; }
-.rullista-lista li[aria-selected="true"].active { background: var(--surface-2); }
+.custom-select-list li[aria-selected="true"] { background: none; }
+.custom-select-list li[aria-selected="true"].active { background: var(--surface-2); }
 /* I Inställningar står värdet till höger på raden, som de andra valen. */
-.settings-group .setting-row:has(.rullista) { position: relative; }
-.setting-row .rullista { position: static; margin-left: auto; }
-.setting-row .rullista-knapp, .setting-row .rullista-knapp:hover { min-height: 40px; padding: 0 32px 0 8px; background-position: right 8px center; color: var(--muted); }
-.setting-row .rullista-knapp:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.settings-group .setting-row:has(.custom-select) { position: relative; }
+.setting-row .custom-select { position: static; margin-left: auto; }
+.setting-row .custom-select-button, .setting-row .custom-select-button:hover { min-height: 40px; padding: 0 32px 0 8px; background-position: right 8px center; color: var(--muted); }
+.setting-row .custom-select-button:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
 /* Hela raden går att klicka på, som i Starta nytt spel: knappens yta sträcks över raden. */
-.setting-row .rullista-knapp::before { content: ""; position: absolute; inset: 0; }
+.setting-row .custom-select-button::before { content: ""; position: absolute; inset: 0; }
 
 /* Rubrikraden med loggan och kategorin, samma hos spelledaren och spelarna. Kategorin är en vanlig rubrik. */
 .player-head { color: var(--muted); }
@@ -1088,7 +1088,7 @@ main.start::after { content: ""; position: absolute; left: 0; right: 0; top: 276
 .lead { font-size: 1.25rem; font-weight: 600; color: var(--text); margin: 0 0 24px; }
 
 /* Koden i Gå med: fyra rutor, som en engångskod i iPhone. Ett vanligt fält ligger över rutorna
-   och tar emot texten, så att inklistring och skärmläsare fungerar som vanligt (js/kodrutor.js). */
+   och tar emot texten, så att inklistring och skärmläsare fungerar som vanligt (js/code-boxes.js). */
 .code-label { display: block; margin: 24px 16px 8px; }
 .code-boxes { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .code-box {
