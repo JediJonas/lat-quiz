@@ -82,7 +82,7 @@ Typkontrollen gäller bara filer i `js/` som börjar med `// @ts-check`. Typerna
 
 ## Ny kategori
 
-1. Claude skriver en kandidatlista i `data/candidates/<kategori>.json` med cirka 200 låtar och lägger till filen i `data/candidates/index.json`. Kändheten kan mätas i antal strömningar på kworb.net.
+1. Claude tar fram cirka 200 kandidater. Kändheten kan mätas i antal strömningar på kworb.net. Kandidatlistan är ett arbetsunderlag och ligger inte i repot. De gamla listorna togs bort 2 november 2026 och finns i git-historiken under `data/candidates/`.
 2. De låtar som väljs läggs i `data/categories/<kategori>.json` med `id`, `artist`, `title` och `year`, och kategorin läggs till i `data/categories.json` (med `"file": "categories/<kategori>.json"`) med omslagets tecken, två färger och mörkhetsgrad i `cover`. Sedan körs `node tools/categories.mjs`, som skriver antalet låtar i `categories.json` och omslagets färger i `css/style.css`. Testerna säger till om det har glömts, och om vit text på omslaget inte når 4,5:1 (höj då `dim`).
 3. `tools/deezer-id.mjs` hämtar Deezer-ID, se nedan.
 4. Låtar utan Deezer-ID tas bort ur kategorin och läggs som lockbeten i `data/decoys.json`, städade av `tools/decoys.mjs` så att b-sidor, karaokeversioner, artikelrubriker och filmuppföljare inte kan förväxlas med rätt svar. Ett lockbete som bara stavas annorlunda än ett rätt svar, som "Nick Cave and the Bad Seeds" när svaret är "Nick Cave & The Bad Seeds", tas också bort: `answerKey` i `js/text.js` räknar "&", "+", "and" och "och" lika, bortser från mellanslag och bindestreck och, för artister, ett inledande "The". Rättningen använder samma nyckel. Kör verktyget och `npm test` när `data/decoys.json` eller en låtlista ändras.

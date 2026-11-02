@@ -6,7 +6,7 @@ import { normalize } from '../js/text.js';
 const read = (path) => JSON.parse(readFileSync(new URL('../' + path, import.meta.url)));
 
 test('alla JSON-filer i data går att läsa', () => {
-  for (const dir of ['data', 'data/categories', 'data/candidates']) {
+  for (const dir of ['data', 'data/categories']) {
     for (const file of readdirSync(new URL('../' + dir, import.meta.url))) {
       if (file.endsWith('.json')) assert.doesNotThrow(() => read(`${dir}/${file}`), `${dir}/${file}`);
     }
