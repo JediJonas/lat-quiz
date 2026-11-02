@@ -3,8 +3,8 @@
 // Numret är en kort hash av alla filerna. Moduler som importeras från en sida (som js/menu.js i
 // index.html) får numret via en import map i varje sida. Körs av tools/build.mjs på den byggda
 // sidan i _site/, aldrig på sidorna i repot, så de saknar versionsnummer. Numret och när sidan
-// publicerades skrivs i varje sida och visas överst i loggen med ?debug=1, så att det går att se
-// vilken version som körs.
+// publicerades skrivs in i JavaScript-koden vid bygget, se tools/build.mjs, och visas överst i
+// loggen med ?debug=1, så att det går att se vilken version som körs.
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 
@@ -33,21 +33,19 @@ export function versionText(v, date = new Date()) {
   return `Version ${when} · ${v}`;
 }
 
-export function withVersion(html, v, mods, text = versionText(v)) {
+export function withVersion(html, v, mods) {
   const map = { imports: Object.fromEntries(mods.map((f) => [`./js/${f}`, `./js/${f}?v=${v}`])) };
   const importMap = `<script type="importmap">${JSON.stringify(map)}</script>`;
   html = html.replace(/href="css\/style\.css(\?v=\w+)?"/g, `href="css/style.css?v=${v}"`)
     .replace(/src="js\/([\w-]+)\.js(\?v=\w+)?"/g, `src="js/$1.js?v=${v}"`)
-    .replace(/\n *<script type="importmap">.*<\/script>/g, '')
-    .replace(/<p class="app-version">[^<]*<\/p>/g, `<p class="app-version">${text}</p>`);
+    .replace(/\n *<script type="importmap">.*<\/script>/g, '');
   // Import mapen måste stå före alla moduler, så den läggs direkt efter stilmallen.
   return html.replace(/( *)(<link rel="stylesheet" href="css\/style\.css[^"]*">)/, `$1$2\n$1${importMap}`);
 }
 
-/** Sätter versionsnumret i sidorna under dir och returnerar numret. */
-export function stampVersions(dir) {
+/** Sätter versionsnumret v i sidorna under dir. */
+export function stampVersions(dir, v) {
   const mods = modules(dir);
-  const v = contentHash(dir, mods);
   for (const page of PAGES) {
     const file = new URL(page, dir);
     writeFileSync(file, withVersion(readFileSync(file, 'utf8'), v, mods));
