@@ -3,8 +3,10 @@
 // Spelledaren skickar bara Deezers klipplänk, aldrig vilken låt det är. Mobilen spolar till
 // samma ställe som hos spelledaren, utifrån tiden som är kvar, så att alla hör ungefär samma sak.
 // Väntemusiken, trumvirveln och vinnarlåten kommer som view.music, med var i klippet spelledaren är
-// och hur klippet tonas. På iPhone går volymen inte att ändra, så där börjar och slutar de tvärt.
+// och hur klippet tonas. Väntemusiken och vinnarlåten spelas helst i ljudmotorn, se music-engine.js, så
+// att de tonas även på iPhone. Som vanligt ljud går volymen inte att ändra där, och då slutar de tvärt.
 import { SILENCE } from './deezer.js';
+import { createMusicEngine, fades } from './music-engine.js';
 import { t } from '../shared/lang.js';
 
 // Så långt får klippet glida från spelledarens innan mobilen spolar om. Mindre ger hack i ljudet.
@@ -28,9 +30,14 @@ export function musicPosition(music, sinceMs, duration) {
 // Trumvirveln tonas inte, och har då 0 som toning. Ett ljudelement kan inte spela starkare än 1, så
 // ett svagt klipp som spelledaren skruvar upp mer än så blir något svagare här.
 export function musicVolume(music, pos, duration) {
+  return Math.min(1, musicLevel(music, pos, duration));
+}
+
+// Samma volym utan taket, för ljudmotorn, som kan spela starkare än 1 som hos spelledaren.
+export function musicLevel(music, pos, duration) {
   const fadeIn = music.fadeInMs ? Math.min(1, pos * 1000 / music.fadeInMs) : 1;
   const left = duration && music.fadeOutMs ? (duration - pos) * 1000 / music.fadeOutMs : 1;
-  return Math.min(1, music.volume * Math.min(fadeIn, left < 1 ? Math.max(0, left) ** 3 : 1));
+  return music.volume * Math.min(fadeIn, left < 1 ? Math.max(0, left) ** 3 : 1);
 }
 
 // Länken som ska spelas just nu, eller null. Quizlåten går före musiken.
@@ -83,15 +90,37 @@ export function createClipPlayer({ onBlocked }) {
     const music = !quizClip(view) && view && view.music;
     audio.volume = music ? musicVolume(music, audio.currentTime, audio.duration) : 1;
   }
-  setInterval(() => { if (!audio.paused) setVolume(); }, VOLUME_STEP_MS);
+  setInterval(() => {
+    if (!audio.paused) setVolume();
+    if (engine.playing() && view && view.music) engine.setVolume((pos, duration) => musicLevel(view.music, pos, duration));
+  }, VOLUME_STEP_MS);
+
+  const engine = createMusicEngine({ onChange: () => sync() });
+
+  // Väntemusiken och vinnarlåten spelas helst i ljudmotorn. Sant när de gör det, eller medan det
+  // bestäms. Spelar klippet redan som vanligt ljud fortsätter det så, så att ljudet inte byter mitt i.
+  function playInEngine() {
+    const music = view.music;
+    if (!fades(music)) { engine.stop(); return false; }
+    if (url === music.url && !audio.paused) return false;
+    const how = engine.choice(music.url);
+    if (how === 'element') return false;
+    audio.pause();
+    if (how === undefined) { engine.choose(music.url); return true; }
+    const pos = musicPosition(music, Date.now() - receivedAt, 0);
+    return engine.play(music.url, pos, music.loop);
+  }
 
   function sync() {
     const want = wantedClip(view);
     if (!want) {
       audio.pause();
+      engine.stop();
       setBlocked(false);
       return;
     }
+    if (quizClip(view)) engine.rest();
+    else if (playInEngine()) return;
     if (want !== url) {
       url = want;
       audio.src = want;
@@ -123,6 +152,8 @@ export function createClipPlayer({ onBlocked }) {
     },
     // Anropas direkt från ett tryck. Då får ljudet spela, även när länken kommer senare.
     unlock() {
+      // Medan quizlåten spelas vilar ljudmotorn, och trycken är då nästan bara svar i fälten.
+      if (!(quizClip(view) && !audio.paused)) engine.unlock();
       if (unlocked && !blocked) return;
       if (shouldPlay()) { sync(); return; }
       // Klippet laddas men har inte börjat. Det spelas en kort stund utan ljud.
@@ -141,6 +172,7 @@ export function createClipPlayer({ onBlocked }) {
     stop() {
       view = null;
       audio.pause();
+      engine.stop();
       setBlocked(false);
     },
   };
