@@ -5,18 +5,18 @@
 // står den still, som ett foto. Valet slumpas per match men blir detsamma på alla enheter
 // (pickWinEffect).
 
-import { confetti } from './win-effects/confetti.js';
-import { fireworks } from './win-effects/fireworks.js';
-import { spotlights } from './win-effects/spotlights.js';
-import { bats } from './win-effects/bats.js';
-import { blizzard } from './win-effects/blizzard.js';
+import { confetti } from './winner-animation/confetti.js';
+import { fireworks } from './winner-animation/fireworks.js';
+import { spotlights } from './winner-animation/spotlights.js';
+import { bats } from './winner-animation/bats.js';
+import { blizzard } from './winner-animation/blizzard.js';
 
 // Så länge effekterna håller på, med lite marginal. Säsongens löv och snö bakom sidan pausas så länge.
 export const WIN_EFFECT_MS = 13500;
 
-export const WIN_EFFECTS = ['konfetti', 'fyrverkeri', 'stralkastare'];
+export const WIN_EFFECTS = ['confetti', 'fireworks', 'spotlights'];
 // Säsongskategorierna har egna effekter i stället för de vanliga.
-export const SEASON_WIN_EFFECTS = { halloween: ['fladdermoss'], jul: ['snoyra'] };
+export const SEASON_WIN_EFFECTS = { halloween: ['bats'], jul: ['blizzard'] };
 
 // Väljer effekt utifrån något som alla enheter känner till om matchen, till exempel sista låten
 // och vinnarna, och kategorin. Samma nyckel och kategori ger alltid samma effekt.
@@ -32,9 +32,9 @@ export function pickWinEffect(key, category) {
 export function startWinEffect(box, effect) {
   box.className = `win-fx ${effect}`;
   box.replaceChildren();
-  if (effect === 'fyrverkeri') fireworks(box);
-  else if (effect === 'stralkastare') spotlights(box);
-  else if (effect === 'fladdermoss') bats(box);
-  else if (effect === 'snoyra') blizzard(box);
+  if (effect === 'fireworks') fireworks(box);
+  else if (effect === 'spotlights') spotlights(box);
+  else if (effect === 'bats') bats(box);
+  else if (effect === 'blizzard') blizzard(box);
   else confetti(box);
 }

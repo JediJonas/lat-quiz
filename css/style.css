@@ -731,14 +731,14 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
    ljuset syns och den vita texten får mer kontrast. Det ljusnar igen när showen är slut. Grundläget
    är slutläget, så att minskad rörelse visar det direkt. Fladdermössen flyger
    på en natthimmel, så där mörknar det också. */
-.win-fx.fyrverkeri::before, .win-fx.stralkastare::before, .win-fx.fladdermoss::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
-.win-fx.stralkastare::before { background: rgba(8, 4, 24, 0.36); }
+.win-fx.fireworks::before, .win-fx.spotlights::before, .win-fx.bats::before { content: ""; position: absolute; inset: 0; background: rgba(8, 4, 24, 0.22); animation: fx-in 0.8s ease-out 0.2s backwards; }
+.win-fx.spotlights::before { background: rgba(8, 4, 24, 0.36); }
 .win-fx.done::before { opacity: 0; transition: opacity 1.6s ease-in-out; }
 @keyframes fx-in { from { opacity: 0; } }
 /* Fladdermössen flyger framför den stora bokstavstexten på omslaget, men bakom namnet. */
-.win:has(.fladdermoss)::after { z-index: -2; }
+.win:has(.bats)::after { z-index: -2; }
 /* Snödrivan i snöstormen når upp bakom texten, så där får texten en svag skugga. */
-.win:has(.snoyra) :is(.win-title, .win-sub) { text-shadow: 0 1px 3px rgba(40, 10, 10, 0.5); }
+.win:has(.blizzard) :is(.win-title, .win-sub) { text-shadow: 0 1px 3px rgba(40, 10, 10, 0.5); }
 /* Strålkastarna: varje kägla utgår från en lampa utanför omslaget och vrids fram och tillbaka runt den. */
 .spot-beam { position: absolute; width: 0; height: 0; animation: fx-in 0.6s ease-out var(--in) backwards; }
 .spot-beam.top { top: -30px; }
@@ -771,7 +771,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Efter elva sekunder släcks lamporna två och två, snabbt som när någon slår av dem, och käglorna
    stannar när den sista är släckt. */
 .spot-beam.off { opacity: 0; transition: opacity 0.12s ease-out; }
-.stralkastare.done .spot-beam :is(span, i, b) { animation-play-state: paused; }
+.spotlights.done .spot-beam :is(span, i, b) { animation-play-state: paused; }
 /* Med minskad rörelse står käglorna still mitt i svepet. */
 @media (prefers-reduced-motion: reduce) {
   .win-fx::before, .spot-beam, .spot-beam :is(span, i, b) { animation: none !important; }

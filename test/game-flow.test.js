@@ -23,12 +23,12 @@ function playRound({ clock, flow, state }, { answer = false } = {}) {
     game.submitAnswer(state, 'p1', 'artist', state.round.song.artist, clock.now());
     game.submitAnswer(state, 'p1', 'title', state.round.song.title, clock.now());
   }
-  assert.equal(flow.due(state), null);
+  assert.equal(flow.nextAction(state), null);
   clock.advance(state.roundMs);
-  assert.equal(flow.due(state), 'reveal');
+  assert.equal(flow.nextAction(state), 'reveal');
   game.reveal(state);
   // Tickern frågar fyra gånger i sekunden, så nedräkningen börjar när svaret visas.
-  flow.due(state);
+  flow.nextAction(state);
 }
 
 test('nedräkningen före första låten är 10 sekunder', () => {
@@ -48,9 +48,9 @@ test('nästa låt startar 10 sekunder efter att svaret visats', () => {
   playRound(ctx);
   assert.equal(ctx.flow.nextLeft(ctx.state), AUTO_NEXT_MS);
   ctx.clock.advance(9999);
-  assert.equal(ctx.flow.due(ctx.state), null);
+  assert.equal(ctx.flow.nextAction(ctx.state), null);
   ctx.clock.advance(1);
-  assert.equal(ctx.flow.due(ctx.state), 'next');
+  assert.equal(ctx.flow.nextAction(ctx.state), 'next');
 });
 
 test('under en paus står nedräkningen still och fortsätter där den stod', () => {
@@ -60,11 +60,11 @@ test('under en paus står nedräkningen still och fortsätter där den stod', ()
   game.pause(ctx.state, ctx.clock.now());
   ctx.clock.advance(60000);
   assert.equal(ctx.flow.nextLeft(ctx.state), 7000);
-  assert.equal(ctx.flow.due(ctx.state), null);
+  assert.equal(ctx.flow.nextAction(ctx.state), null);
   ctx.flow.resumed(game.resume(ctx.state, ctx.clock.now()));
   assert.equal(ctx.flow.nextLeft(ctx.state), 7000);
   ctx.clock.advance(7000);
-  assert.equal(ctx.flow.due(ctx.state), 'next');
+  assert.equal(ctx.flow.nextAction(ctx.state), 'next');
 });
 
 test('ingen nästa låt när någon har vunnit', () => {
@@ -73,7 +73,7 @@ test('ingen nästa låt när någon har vunnit', () => {
   assert.deepEqual(ctx.state.winners, ['p1']);
   assert.equal(ctx.flow.nextLeft(ctx.state), null);
   ctx.clock.advance(60000);
-  assert.equal(ctx.flow.due(ctx.state), null);
+  assert.equal(ctx.flow.nextAction(ctx.state), null);
 });
 
 test('efter Spela igen får första låten en egen nedräkning', () => {
@@ -87,5 +87,5 @@ test('efter Spela igen får första låten en egen nedräkning', () => {
   playRound(ctx);
   assert.equal(ctx.state.round.number, 1);
   assert.equal(ctx.flow.nextLeft(ctx.state), AUTO_NEXT_MS);
-  assert.equal(ctx.flow.due(ctx.state), null);
+  assert.equal(ctx.flow.nextAction(ctx.state), null);
 });

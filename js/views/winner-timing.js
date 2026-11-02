@@ -34,7 +34,7 @@ export function createWinnerTiming({ view, host, onWinnerDrum, onWinnerDrumShown
   let winTurn = 0; // ökar för varje vinnare, så att ett sent löfte inte visar fel vinnare
 
   // Följer en ny vy: startar väntan när matchen just har avgjorts, och nollställer när ett nytt spel börjar.
-  function follow() {
+  function followView() {
     const v = view();
     const round = v.round;
     const phase = round ? round.phase : 'waiting';
@@ -48,7 +48,7 @@ export function createWinnerTiming({ view, host, onWinnerDrum, onWinnerDrumShown
         if (!view().winners) return;
         // Spelarna spelar inget ljud. De vänder när spelledaren gör det, och väntar bara en stund.
         const sound = host ? onWinnerDrum() : null;
-        const show = () => {
+        const showWinner = () => {
           if (turn !== winTurn || winShown) return;
           clearTimeout(winTimer);
           winDrum = true;
@@ -62,11 +62,11 @@ export function createWinnerTiming({ view, host, onWinnerDrum, onWinnerDrumShown
           if (!view().winners) return;
           render();
           onWinnerDrumShown();
-          winTimer = setTimeout(show, sound || !host ? DRUM_MAX_MS : DRUM_MS);
+          winTimer = setTimeout(showWinner, sound || !host ? DRUM_MAX_MS : DRUM_MS);
         };
         if (sound) {
           sound.drum.then(flip, flip);
-          sound.song.then(show, show);
+          sound.song.then(showWinner, showWinner);
         }
         if (host && !sound) flip();
         else winTimer = setTimeout(flip, DRUM_WAIT_MS);
@@ -102,7 +102,7 @@ export function createWinnerTiming({ view, host, onWinnerDrum, onWinnerDrumShown
   };
 
   return {
-    follow,
+    followView,
     // Vinnarvyn visas, efter att sista låten har visats en stund.
     winner: () => revealedWin() && winShown,
     // "Vi har en vinnare!" eller vinnaren visas.

@@ -34,8 +34,8 @@ function debugLog() {
     if (often && now - last < 100) return;
     last = now;
     const vv = window.visualViewport;
-    const r = (n) => Math.round(n ?? -1);
-    lines.push(`${(now / 1000).toFixed(2)} ${what} fokus=${document.activeElement?.id || '-'} y=${r(scrollY)} rad=${r(row.getBoundingClientRect().top)} vvTop=${r(vv?.offsetTop)} vvH=${r(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
+    const px = (n) => Math.round(n ?? -1);
+    lines.push(`${(now / 1000).toFixed(2)} ${what} fokus=${document.activeElement?.id || '-'} y=${px(scrollY)} rad=${px(row.getBoundingClientRect().top)} vvTop=${px(vv?.offsetTop)} vvH=${px(vv?.height)} cH=${document.documentElement.clientHeight} iH=${innerHeight}`);
     if (lines.length > 30) lines.shift();
     box.textContent = lines.join('\n');
     box.scrollTop = box.scrollHeight;
@@ -149,7 +149,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   function render() {
     const round = view.round;
     const phase = round ? round.phase : 'waiting';
-    winTiming.follow();
+    winTiming.followView();
     const winner = winnerView();
     const drum = winTiming.drum() && !winner;
     // Spelledaren kan välja att inte delta. Då visas låten och timern, men inga fält eller egna svar.

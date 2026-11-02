@@ -64,10 +64,10 @@ export function autocomplete(input, list, onChange) {
   let options = []; // de valbara raderna som visas just nu
   let active = -1;
 
-  function show(open) {
+  function setOpen(open) {
     box.hidden = !open;
     input.setAttribute('aria-expanded', String(open));
-    if (open) fit();
+    if (open) fitToScreen();
     else setActive(-1);
   }
 
@@ -76,7 +76,7 @@ export function autocomplete(input, list, onChange) {
   // skriva mer. Utan visualViewport gäller höjden i CSS och listan rullas som förut.
   let allOptions = []; // alla träffar som byggts, även de som inte får plats
   let lastLimit = null;
-  function fit() {
+  function fitToScreen() {
     const vv = window.visualViewport;
     if (!vv || box.hidden || !allOptions.length) return;
     const GAP = 8;
@@ -107,10 +107,10 @@ export function autocomplete(input, list, onChange) {
   }
   // Tangentbordet öppnas och sidan rullar medan listan är öppen, så höjden räknas om.
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', fit);
-    window.visualViewport.addEventListener('scroll', fit);
+    window.visualViewport.addEventListener('resize', fitToScreen);
+    window.visualViewport.addEventListener('scroll', fitToScreen);
   }
-  window.addEventListener('scroll', fit, { passive: true });
+  window.addEventListener('scroll', fitToScreen, { passive: true });
 
   function setActive(index) {
     if (options[active]) options[active].removeAttribute('aria-selected');
@@ -130,13 +130,13 @@ export function autocomplete(input, list, onChange) {
     input.value = value;
     input.classList.toggle('chosen', Boolean(value));
     showClear();
-    show(false);
+    setOpen(false);
     onChange(value);
   }
 
   // Det man har skrivit står i fetstil i förslaget, som i iOS. Förslag som hittats trots
   // stavfel eller accenter visas utan fetstil.
-  function mark(li, item, typed) {
+  function highlightTyped(li, item, typed) {
     const at = typed ? item.toLocaleLowerCase('sv').indexOf(typed.toLocaleLowerCase('sv')) : -1;
     if (at < 0) { li.textContent = item; return; }
     const b = document.createElement('b');
@@ -144,7 +144,7 @@ export function autocomplete(input, list, onChange) {
     li.append(item.slice(0, at), b, item.slice(at + typed.length));
   }
 
-  function note(text) {
+  function showNote(text) {
     const li = document.createElement('li');
     li.className = 'empty';
     li.setAttribute('role', 'presentation');
@@ -165,12 +165,12 @@ export function autocomplete(input, list, onChange) {
       const { exact, close } = findSuggestions(index, query);
       hits = exact.concat(close);
     }
-    if (short && !hits.length) { show(false); return; }
+    if (short && !hits.length) { setOpen(false); return; }
     for (const [i, item] of hits.slice(0, MAX_SHOWN).entries()) {
       const li = document.createElement('li');
       li.id = `${box.id}-${i}`;
       li.setAttribute('role', 'option');
-      mark(li, item, input.value.trim());
+      highlightTyped(li, item, input.value.trim());
       // pointerdown så att valet hinner registreras innan fältet tappar fokus
       li.addEventListener('pointerdown', (e) => { e.preventDefault(); choose(item); input.blur(); });
       box.append(li);
@@ -179,9 +179,9 @@ export function autocomplete(input, list, onChange) {
     allOptions = options;
     lastLimit = null;
     box.style.maxHeight = '';
-    if (items.length === 0) note(t('autocomplete.loading'));
-    else if (hits.length === 0) note(t('autocomplete.none'));
-    show(true);
+    if (items.length === 0) showNote(t('autocomplete.loading'));
+    else if (hits.length === 0) showNote(t('autocomplete.none'));
+    setOpen(true);
   }
 
   input.addEventListener('input', () => {
@@ -210,11 +210,11 @@ export function autocomplete(input, list, onChange) {
       }
     } else if (e.key === 'Escape' && !box.hidden) {
       e.preventDefault();
-      show(false);
+      setOpen(false);
     }
   });
   input.addEventListener('focus', render);
-  input.addEventListener('blur', () => show(false));
+  input.addEventListener('blur', () => setOpen(false));
 
   return {
     set(value) {
@@ -222,7 +222,7 @@ export function autocomplete(input, list, onChange) {
       input.value = selected;
       input.classList.toggle('chosen', Boolean(selected));
       showClear();
-      show(false);
+      setOpen(false);
     },
     setList(newList) {
       items = newList;
@@ -232,7 +232,7 @@ export function autocomplete(input, list, onChange) {
     disable(disabled) {
       input.disabled = disabled;
       showClear();
-      if (disabled) show(false);
+      if (disabled) setOpen(false);
     },
   };
 }

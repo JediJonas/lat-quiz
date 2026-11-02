@@ -17,10 +17,10 @@ import { t } from '../shared/lang.js';
 export function ruleLabels(view) {
   const s = view.settings;
   if (!s) return [t('rules.winScore', { score: view.winScore })];
-  const lower = (label) => label.toLocaleLowerCase('sv');
+  const lowercase = (label) => label.toLocaleLowerCase('sv');
   return [
     t('rules.roundTime', { s: s.roundMs / 1000 }),
-    ...fieldsOf(view.labels).map((field) => t('rules.field', { field: lower(view.labels[field]) })),
+    ...fieldsOf(view.labels).map((field) => t('rules.field', { field: lowercase(view.labels[field]) })),
     ...(s.bonusMs ? [t('rules.bonus', { s: s.bonusMs / 1000 })] : []),
     t('rules.winScore', { score: s.winScore }),
   ];

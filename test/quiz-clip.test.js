@@ -63,7 +63,7 @@ test('saknar alla låtar klipp fastnar klippet med ett meddelande', async () => 
   await settle();
   assert.equal(state.round.phase, 'ready');
   assert.equal(clip.stuck(state.round), true);
-  assert.equal(clip.message(state.round).title, 'Inga klipp från Deezer');
+  assert.equal(clip.stuckMessage(state.round).title, 'Inga klipp från Deezer');
 });
 
 test('svarar inte Deezer visas felet, och Starta spelet försöker igen', async () => {
@@ -71,7 +71,7 @@ test('svarar inte Deezer visas felet, och Starta spelet försöker igen', async 
   const { state, clip } = setup({ find: async () => { if (fail) throw new Error('Deezer svarade inte.'); return 'https://klipp/1'; } });
   clip.play(state.round.number);
   await settle();
-  assert.equal(clip.message(state.round).title, 'Deezer svarade inte');
+  assert.equal(clip.stuckMessage(state.round).title, 'Deezer svarade inte');
   fail = false;
   clip.retry();
   await settle();
@@ -98,7 +98,7 @@ test('stoppar webbläsaren ljudet behövs ett nytt tryck', async () => {
   const { state, clip } = setup({ find: async () => 'https://klipp/1' });
   clip.play(state.round.number);
   await settle();
-  assert.equal(clip.message(state.round).title, 'Klippet startade inte');
+  assert.equal(clip.stuckMessage(state.round).title, 'Klippet startade inte');
   FakeAudio.blocked = false;
   clip.retry();
   await settle();

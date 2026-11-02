@@ -8,11 +8,11 @@
 // Tangentbordet fungerar som i en vanlig rullgardin: pilar, Home, End, Enter, mellanslag,
 // Esc och första bokstaven. Skärmläsare får knappen presenterad som en kombinationsruta.
 
-const fine = () => matchMedia('(hover: hover) and (pointer: fine)').matches;
+const hasFinePointer = () => matchMedia('(hover: hover) and (pointer: fine)').matches;
 let count = 0;
 
 export function enhanceSelect(select, { touch = false } = {}) {
-  if ((!touch && !fine()) || select.dataset.enhanced) return;
+  if ((!touch && !hasFinePointer()) || select.dataset.enhanced) return;
   select.dataset.enhanced = 'true';
   const n = ++count;
   const wrap = document.createElement('div');

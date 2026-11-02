@@ -105,12 +105,12 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   // Efter låten startas den igen. Det tillåter iPhone utan tryck, eftersom ett tryck har startat
   // den förut. Gör den inte det spelas ljudet med ljudelementet i stället.
   let resting = false;
-  function rest() {
+  function pauseEngine() {
     if (!ctx || ctx.state !== 'running') return;
     resting = true;
     ctx.suspend().catch(() => {});
   }
-  function wake() {
+  function resumeEngine() {
     if (resting && ctx) ctx.resume().catch(() => {});
     resting = false;
   }
@@ -118,7 +118,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   // Trumvirveln, som börjar när texten före vinnaren visas. Den är fyra sekunder.
   // Klippet är ljud 111653 av bigjoedrummer på Freesound (CC0), kortat till den första virveln.
   // Svaret kommer när virveln hörs, så att texten visas då, och direkt om den inte kunde spelas.
-  function drum() {
+  function playDrumRoll() {
     prepare();
     if (!drumAudio) drumAudio = new Audio();
     // Virveln ska höras även när ringsignalen är avstängd.
@@ -198,7 +198,7 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   function whenDrumEnds(done) {
     let called = false;
     const turn = playing;
-    const once = () => {
+    const startSongOnce = () => {
       if (called || turn !== playing) return;
       called = true;
       clearInterval(check);
@@ -206,10 +206,10 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     };
     const check = setInterval(() => {
       // Kunde trumvirveln inte spela börjar låten ändå.
-      if (drumAudio.paused || (drumAudio.duration && drumAudio.duration - drumAudio.currentTime <= DRUM_TAIL_S)) once();
+      if (drumAudio.paused || (drumAudio.duration && drumAudio.duration - drumAudio.currentTime <= DRUM_TAIL_S)) startSongOnce();
     }, DRUM_CHECK_MS);
     timers.push(check);
-    drumAudio.addEventListener('ended', once, { once: true });
+    drumAudio.addEventListener('ended', startSongOnce, { once: true });
   }
 
   // Låten spelas på full volym och tonar ut under FADE_MS på slutet.
@@ -273,16 +273,16 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
     };
     // Spelar det inte, till exempel för att webbläsaren inte tillåter ljud eller länken inte
     // fungerar, blir det tyst och raden längst ner försvinner.
-    const failed = () => {
+    const onPlayFailed = () => {
       if (turn !== playing) return;
       stop();
       if (heardSong) { heardSong = null; onChange(); }
       heard();
     };
     el.addEventListener('playing', onPlaying);
-    el.addEventListener('error', failed, { once: true });
-    timers.push({ off: () => { el.removeEventListener('playing', onPlaying); el.removeEventListener('error', failed); } });
-    el.play().catch(failed);
+    el.addEventListener('error', onPlayFailed, { once: true });
+    timers.push({ off: () => { el.removeEventListener('playing', onPlaying); el.removeEventListener('error', onPlayFailed); } });
+    el.play().catch(onPlayFailed);
     // Volymen sänks när klippet närmar sig slutet.
     timers.push(setInterval(() => {
       const left = audio.duration ? (audio.duration - audio.currentTime) * 1000 / FADE_MS : 1;
@@ -305,5 +305,5 @@ export function createWinnerSong({ onChange = () => {}, songs }) {
   }
 
   // Låten står kvar på raden längst ner även när klippet är slut, tills nästa vinnare.
-  return { drum, play, stop, unlock, rest, wake, now, drumNow, heard: () => heardSong };
+  return { playDrumRoll, play, stop, unlock, pauseEngine, resumeEngine, now, drumNow, heard: () => heardSong };
 }

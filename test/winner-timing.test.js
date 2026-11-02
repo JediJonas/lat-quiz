@@ -15,7 +15,7 @@ function setup({ host, sound = null }) {
     onWinnerShown: () => calls.push('shown'),
     render: () => calls.push('render'),
   });
-  return { timing, calls, set: (v) => { view = v; timing.follow(); } };
+  return { timing, calls, set: (v) => { view = v; timing.followView(); } };
 }
 
 test('spelledaren utan vinnarlåt: texten efter en stund, namnet efter DRUM_MS', (t) => {
