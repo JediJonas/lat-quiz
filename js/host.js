@@ -1,9 +1,9 @@
 // Spelledarvyn. Håller hela spelläget och skickar det till spelarna.
 import * as game from './game.js';
-import { createHost, peerQuery } from './net.js';
+import { peerQuery } from './net.js';
 import { loadCategories, loadMusic, loadSongs, visibleCategories } from './data.js';
 import { showConfirm } from './dialog.js';
-import { INFO_MS, currentMessage, hideMessage, showJoined, showLeft, showMessage, showUnexpectedErrors } from './meddelande.js';
+import { INFO_MS, currentMessage, hideMessage, showMessage, showUnexpectedErrors } from './meddelande.js';
 import { createGameView } from './game-view.js';
 import { $ } from './shared/dom.js';
 import { newCode, newId } from './shared/ids.js';
@@ -22,6 +22,8 @@ import { createSoundDirector } from './sound-director.js';
 import { AUTO_NEXT_MS, INTRO_MS, createGameFlow } from './game-flow.js';
 import { copyJoinLink, joinInfoShown, renderJoinInfo } from './join-info.js';
 import { chosenCategory, mountCategoryPicker, renderCategories } from './category-picker.js';
+import { createConnections } from './host-connections.js';
+import { startTicker } from './shared/ticker.js';
 
 // Oväntade fel visas i meddelanderutan i stället för att sidan bara stannar.
 showUnexpectedErrors();
@@ -34,8 +36,6 @@ let state = null;
 let songs = [];
 let music = null; // väntemusiken och vinnarlåtarna, från data/music.json
 let category = null;
-let net = null;
-const connToPlayer = new Map();
 let ticker = null;
 // Spelledaren spelar med och gissar i samma vy som spelarna, om spelledaren inte har valt att bara leda spelet.
 let gameView = null;
@@ -54,6 +54,9 @@ function loadSaved() {
   if (!saved || Date.now() - saved.savedAt > SAVE_MAX_AGE_MS) return null;
   return saved.state;
 }
+
+// Spelarna och deras anslutningar, se host-connections.js.
+const connections = createConnections({ state: () => state, viewFor, changed: () => changed() });
 
 // Väntemusiken, trumvirveln, vinnarlåten och raden Nu spelas, se sound-director.js.
 const sound = createSoundDirector({
@@ -82,12 +85,6 @@ function joinUrl() {
 }
 
 // ---- Kommunikation ----
-
-function sendState(connId) {
-  const playerId = connToPlayer.get(connId);
-  if (!playerId) return;
-  net.send(connId, protocol.state(viewFor(playerId)));
-}
 
 // Spelvyn för en spelare, med tiden kvar tills nästa låt startar av sig själv.
 function viewFor(playerId) {
@@ -119,7 +116,7 @@ function viewFor(playerId) {
 }
 
 function broadcast() {
-  for (const connId of connToPlayer.keys()) sendState(connId);
+  connections.broadcast();
 }
 
 // Ändringar som görs medan spelet pågår. De gäller när nästa låt startar, eller direkt om
@@ -133,96 +130,9 @@ function changed() {
   render();
 }
 
-// Meddelanden från spelarna kontrolleras och städas i protocol.js först.
-function onMessage(connId, raw) {
-  const msg = protocol.fromPlayer(raw);
-  if (!msg) return;
-  if (msg.type === protocol.MSG.hello) {
-    const { name, playerId } = msg;
-    if (game.nameTaken(state, { id: playerId, name })) {
-      net.send(connId, protocol.nameTaken(name));
-      return;
-    }
-    // Samma spelare på en ny anslutning: släpp den gamla.
-    for (const [otherConn, otherId] of connToPlayer) {
-      if (otherId === playerId && otherConn !== connId) {
-        connToPlayer.delete(otherConn);
-        net.drop(otherConn);
-      }
-    }
-    connToPlayer.set(connId, playerId);
-    const isNew = !state.players[playerId];
-    game.addPlayer(state, { id: playerId, name });
-    changed();
-    // Alla utom den nya spelaren får veta det. Den som ansluter igen är inte ny.
-    if (isNew) {
-      showJoined(name);
-      for (const otherConn of connToPlayer.keys()) {
-        if (otherConn !== connId) net.send(otherConn, protocol.joined(name));
-      }
-    }
-  } else if (msg.type === protocol.MSG.answer) {
-    const playerId = connToPlayer.get(connId);
-    if (!playerId) return;
-    game.submitAnswer(state, playerId, msg.field, msg.value, Date.now());
-    changed();
-  } else if (msg.type === protocol.MSG.leave) {
-    // Spelaren valde Lämna spelet. Den räknas som frånkopplad och får tillbaka poängen om den går med igen.
-    const playerId = connToPlayer.get(connId);
-    if (!playerId || !state.players[playerId]) return;
-    const { name } = state.players[playerId];
-    net.drop(connId);
-    showLeft(name);
-    for (const otherConn of connToPlayer.keys()) net.send(otherConn, protocol.left(name));
-  }
-}
-
-function onDisconnect(connId) {
-  const playerId = connToPlayer.get(connId);
-  connToPlayer.delete(connId);
-  if (!playerId || [...connToPlayer.values()].includes(playerId)) return;
-  game.setConnected(state, playerId, false);
-  changed();
-}
-
-// Kontakten med förmedlingsservern bryts oftast när spelledaren har lämnat webbläsaren, till
-// exempel för en annan app i mobilen. Meddelandet är därför allmänt, som hos spelarna.
-const NET_MESSAGES = {
-  relay: { kind: 'busy', title: 'Anslutningen bröts', text: 'Försöker ansluta igen…' },
-  'unavailable-id': { kind: 'busy', title: 'Väntar på koden…', text: 'Spelet startar strax.' },
-  network: { kind: 'busy', title: 'Ingen anslutning', text: 'Försöker ansluta igen…' },
-};
-let netTrouble = false;
-
 function startNetwork() {
-  net = createHost(state.code, {
-    onReady: () => {
-      if (netTrouble) showMessage({ key: 'net', kind: 'ok', title: 'Välkommen tillbaka!', text: 'Du är med i spelet igen.' });
-      netTrouble = false;
-    },
-    onMessage,
-    onDisconnect,
-    onError: (type) => {
-      netTrouble = true;
-      showMessage({ key: 'net', ...(NET_MESSAGES[type] || { kind: 'problem', title: 'Anslutningsfel', text: type }) });
-    },
-  });
+  connections.start(state.code);
   ticker = startTicker(tick, 250);
-}
-
-// Webbläsare bromsar timers i flikar som inte syns, till exempel när spelledaren
-// har bytt till en annan flik, ibland till en gång i minuten. En timer i en worker
-// bromsas inte lika hårt, så svaret visas i tid ändå.
-function startTicker(fn, ms) {
-  try {
-    const code = `setInterval(() => postMessage(0), ${ms});`;
-    const worker = new Worker(URL.createObjectURL(new Blob([code], { type: 'text/javascript' })));
-    worker.onmessage = fn;
-    return { stop: () => worker.terminate() };
-  } catch {
-    const id = setInterval(fn, ms);
-    return { stop: () => clearInterval(id) };
-  }
 }
 
 function tick() {
@@ -369,7 +279,7 @@ function restart() {
   game.restart(state);
   flow.restarted();
   changed();
-  for (const connId of connToPlayer.keys()) net.send(connId, protocol.newMatch());
+  connections.toAll(protocol.newMatch());
 }
 
 // Pausen stoppar timern, klippet och nedräkningen till nästa låt.
@@ -396,13 +306,7 @@ async function endGame() {
   quizClip.stop();
   sound.winnerSong.stop();
   sound.lobbyMusic.stop();
-  // Spelarna får veta att spelet är slut, så att de inte tror att anslutningen bara bröts.
-  // En kort stund behövs för att meddelandet ska hinna fram innan anslutningarna stängs.
-  if (net) {
-    for (const connId of connToPlayer.keys()) net.send(connId, protocol.ended());
-    await new Promise((resolve) => { setTimeout(resolve, 300); });
-    net.destroy();
-  }
+  await connections.close();
   if (ticker) ticker.stop();
   // Tillbaka till startsidan, med eventuella testparametrar.
   location.href = 'index.html' + location.search;
@@ -638,8 +542,7 @@ let leaving = false;
 // Fliken stängs eller sidan laddas om. Spelet kan återupptas, så spelarna får veta att
 // spelledaren har lämnat och kanske kommer tillbaka. Meddelandet hinner inte alltid fram.
 window.addEventListener('pagehide', () => {
-  if (leaving || !net) return;
-  for (const connId of connToPlayer.keys()) net.send(connId, protocol.leaving());
+  if (!leaving) connections.toAll(protocol.leaving());
 });
 
 window.addEventListener('beforeunload', (e) => {
