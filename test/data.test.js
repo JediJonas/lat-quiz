@@ -6,7 +6,7 @@ import { normalize } from '../js/text.js';
 const read = (path) => JSON.parse(readFileSync(new URL('../' + path, import.meta.url)));
 
 test('alla JSON-filer i data går att läsa', () => {
-  for (const dir of ['data', 'data/candidates']) {
+  for (const dir of ['data', 'data/categories', 'data/candidates']) {
     for (const file of readdirSync(new URL('../' + dir, import.meta.url))) {
       if (file.endsWith('.json')) assert.doesNotThrow(() => read(`${dir}/${file}`), `${dir}/${file}`);
     }
@@ -241,7 +241,7 @@ test('samma låt har samma artist och titel i alla kategorier', async () => {
 });
 
 test('varje filmmusiklåt har ledmotivets spårnamn', () => {
-  for (const song of read('data/filmmusik.json')) {
+  for (const song of read('data/categories/filmmusik.json')) {
     assert.ok(typeof song.track === 'string' && song.track.trim(), `filmmusik.json: ${song.id} saknar track`);
   }
 });
