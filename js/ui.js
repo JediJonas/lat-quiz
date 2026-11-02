@@ -104,7 +104,7 @@ export function scrollToTop() {
 
 // Rullar så att fältets rad står överst, så att förslagslistan under fältet får plats.
 // Med mus står sidan still om minst fyra förslag får plats under fältet. Hoppet sker en gång,
-// innan tangentbordet öppnas (se js/spelvy.js). Rättningar efter att tangentbordet hade öppnats
+// innan tangentbordet öppnas (se js/game-view.js). Rättningar efter att tangentbordet hade öppnats
 // drog i iPhone fram nedräkningen ovanför fältet i stället, så sådana görs inte.
 const GAP = 8;
 
