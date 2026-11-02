@@ -109,6 +109,40 @@ export function resultBelow({ view, round, own, fresh, climb }) {
         ${foot}`.toString();
 }
 
+// Hur den som tittar har klättrat i listan sedan förra låten, eller null.
+function ownClimb(view, me, rankBefore) {
+  const meNow = view.standings.find((p) => p.id === me);
+  return meNow && rankBefore(me) ? { from: rankBefore(me), to: rankIn(view.standings, meNow.score) } : null;
+}
+
+// Ritas samma svar om, till exempel när spelledarens knappar byts, står omslaget kvar.
+// Då fortsätter vändningen och vinstanimationen i stället för att börja om eller stoppas.
+function drawResult({ fresh, view, round, winner, drum, intro, below }) {
+  const body = $('#result-body');
+  const kept = fresh ? null : body.querySelector(':scope > .cover');
+  if (kept) {
+    while (kept.nextSibling) kept.nextSibling.remove();
+    kept.insertAdjacentHTML('afterend', below);
+    return;
+  }
+  body.innerHTML = `${resultCover({ view, round, winner, drum, intro })}${below}`;
+  // Vinnarkortet får konfetti, fyrverkeri eller strålkastare, eller säsongens egna effekter i
+  // Halloween och Jul. Valet görs från sista låten, vinnarna och kategorin, så att alla enheter
+  // visar samma utan att något skickas över nätet. Löven och snön bakom sidan pausas så länge.
+  const fx = winner && body.querySelector('.win-fx');
+  if (fx) {
+    pauseSeasonEffect(WIN_EFFECT_MS);
+    startWinEffect(fx, pickWinEffect(`${round.number}|${round.song.title}|${round.song.artist}|${view.winners.join('|')}`, view.categoryId));
+  }
+}
+
+// Det som skärmläsaren läser upp när svaret visas.
+function resultAnnouncement({ view, round, playing, winner }) {
+  return t('result.announce', { title: round.song.title, artist: round.song.artist })
+    + (playing ? ' ' + t('result.announcePoints', { points: (round.result || { points: 0 }).points }) : '')
+    + (winner ? ' ' + t('result.winners', { names: view.winners }) : '');
+}
+
 export function createResultCard() {
   let shown = null; // svaret som senast visades: låtens nummer, eller w och numret för vinnaren
 
@@ -127,27 +161,8 @@ export function createResultCard() {
       const fresh = shown !== key;
       const intro = view.winners ? winIntro({ winners: view.winners, songs: round.number }) : null;
       const own = playing && !winner && !drum;
-      const meNow = view.standings.find((p) => p.id === me);
-      const climb = meNow && rankBefore(me) ? { from: rankBefore(me), to: rankIn(view.standings, meNow.score) } : null;
-      const below = resultBelow({ view, round, own, fresh, climb });
-      // Ritas samma svar om, till exempel när spelledarens knappar byts, står omslaget kvar.
-      // Då fortsätter vändningen och vinstanimationen i stället för att börja om eller stoppas.
-      const body = $('#result-body');
-      const kept = fresh ? null : body.querySelector(':scope > .cover');
-      if (kept) {
-        while (kept.nextSibling) kept.nextSibling.remove();
-        kept.insertAdjacentHTML('afterend', below);
-      } else {
-        body.innerHTML = `${resultCover({ view, round, winner, drum, intro })}${below}`;
-        // Vinnarkortet får konfetti, fyrverkeri eller strålkastare, eller säsongens egna effekter i
-        // Halloween och Jul. Valet görs från sista låten, vinnarna och kategorin, så att alla enheter
-        // visar samma utan att något skickas över nätet. Löven och snön bakom sidan pausas så länge.
-        const fx = winner && body.querySelector('.win-fx');
-        if (fx) {
-          pauseSeasonEffect(WIN_EFFECT_MS);
-          startWinEffect(fx, pickWinEffect(`${round.number}|${round.song.title}|${round.song.artist}|${view.winners.join('|')}`, view.categoryId));
-        }
-      }
+      const below = resultBelow({ view, round, own, fresh, climb: ownClimb(view, me, rankBefore) });
+      drawResult({ fresh, view, round, winner, drum, intro, below });
       // Både spelledaren och spelarna kan ha scrollat ner, till exempel medan förslagslistan var
       // öppen. Svaret ska synas överst.
       if (fresh) {
@@ -156,10 +171,7 @@ export function createResultCard() {
         scrollToTop();
       }
       shown = key;
-      announce(drum ? intro
-        : t('result.announce', { title: round.song.title, artist: round.song.artist })
-        + (playing ? ' ' + t('result.announcePoints', { points: (round.result || { points: 0 }).points }) : '')
-        + (winner ? ' ' + t('result.winners', { names: view.winners }) : ''));
+      announce(drum ? intro : resultAnnouncement({ view, round, playing, winner }));
     },
 
     // Nedräkningen till nästa låt. Under en paus står cirkeln still på det spelledaren skickade.

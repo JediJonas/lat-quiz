@@ -15,13 +15,13 @@ function batFrames(zoom) {
     const ctx = img.getContext('2d');
     ctx.scale(dpr * zoom, dpr * zoom);
     ctx.fillStyle = '#170a22';
-    drawBat(ctx, 32, 34, 30, Math.sin((i / 12) * Math.PI * 2));
+    drawBat(ctx, { x: 32, y: 34, size: 30 }, Math.sin((i / 12) * Math.PI * 2));
     return img;
   });
 }
 
 // En stor fullmåne med ett varmt sken runt sig, som fladdermössen flyger framför.
-function drawMoon(ctx, x, y, r, a) {
+function drawMoon(ctx, { x, y, r }, a) {
   const glow = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 2.6);
   glow.addColorStop(0, `rgba(255, 236, 170, ${0.35 * a})`);
   glow.addColorStop(1, 'rgba(255, 236, 170, 0)');
@@ -61,7 +61,7 @@ export function bats(box) {
     const { ctx, w, h } = area;
     ctx.clearRect(0, 0, w, h);
     const out = fade(t, dur);
-    drawMoon(ctx, w * 0.72, h * 0.3, Math.min(w, h) * 0.15, Math.min(1, t / 1.2) * out);
+    drawMoon(ctx, { x: w * 0.72, y: h * 0.3, r: Math.min(w, h) * 0.15 }, Math.min(1, t / 1.2) * out);
     // De som är närmast kameran ritas sist, så att de hamnar framför de andra.
     const shown = swarm.filter((b) => b.x !== undefined && !b.out).sort((a, b) => a.size - b.size);
     for (const b of shown) {
@@ -105,5 +105,5 @@ export function bats(box) {
     draw();
     return;
   }
-  play(box, area, dur, (now) => { t = now; step(); draw(); });
+  play(box, area, { dur, step: (now) => { t = now; step(); draw(); } });
 }

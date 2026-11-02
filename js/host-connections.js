@@ -89,7 +89,7 @@ export function createConnections({ state, viewFor, changed, createHost = netCre
     if (!playerId) return;
     const s = state();
     if (msg.type === protocol.MSG.answer) {
-      game.submitAnswer(s, playerId, msg.field, msg.value, Date.now());
+      game.submitAnswer(s, playerId, msg, Date.now());
       changed();
     } else if (msg.type === protocol.MSG.leave) {
       // Spelaren valde Lämna spelet. Den räknas som frånkopplad och får tillbaka poängen om den går med igen.

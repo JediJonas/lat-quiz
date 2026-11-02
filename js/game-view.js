@@ -146,26 +146,27 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
   // Vinnaren visas när matchen är avgjord och sista låten har visats en stund.
   const winnerView = () => winTiming.winner();
 
-  function render() {
-    const round = view.round;
-    const phase = round ? round.phase : 'waiting';
-    winTiming.followView();
-    const winner = winnerView();
-    const drum = winTiming.drum() && !winner;
-    // Spelledaren kan välja att inte delta. Då visas låten och timern, men inga fält eller egna svar.
-    const playing = view.standings.some((p) => p.id === me);
+  // Spelledaren kan välja att inte delta. Då visas låten och timern, men inga fält eller egna svar.
+  function showOwnFields(playing) {
     const guessFields = $('.guess-fields');
     if (guessFields) guessFields.hidden = !playing;
     // Utan fält och egna svar räcker en lägre ruta, både under låten och när svaret visas.
     document.body.classList.toggle('watching', !playing);
-    // Medan nästa låt laddas står förra kortet kvar, och låtkortet vänds fram när ljudet hörs.
-    // Kommer man in medan låten laddas visas låtkortet med den fulla ringen direkt.
+  }
+
+  // Medan nästa låt laddas står förra kortet kvar, och låtkortet vänds fram när ljudet hörs.
+  // Kommer man in medan låten laddas visas låtkortet med den fulla ringen direkt.
+  function holdsPreviousCard(phase) {
     const holding = phase === 'ready' && (!$('#waiting').hidden || !$('#result').hidden);
     // Nedräkningen till nästa låt döljs, så att den inte står still medan klippet laddas. Den
     // behåller sin plats, så att poänglistan under inte flyttar sig.
     const nextCount = $('#result-body .next');
     if (holding && nextCount) nextCount.classList.add('held');
-    waitingCard.render(view, { phase, holding, host });
+    return holding;
+  }
+
+  // Gissningsrutan med fälten, som bara går att skriva i medan låten spelas.
+  function showGuessForm(phase, holding) {
     $('#guess').hidden = holding || !(phase === 'ready' || phase === 'playing');
     $('#result').hidden = phase !== 'revealed' && !(holding && !$('#result').hidden);
     fields.artist.disable(phase !== 'playing' || view.paused);
@@ -176,6 +177,30 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     $('label[for=artist]').textContent = view.labels.artist || '';
     $('label[for=title]').textContent = view.labels.title;
     showSuggestions();
+  }
+
+  // Pausen står i meddelanderutan så länge den varar, och rutan läses upp.
+  function showPause() {
+    const paused = Boolean(view.paused);
+    if (paused !== wasPaused) {
+      setStandingMessage(paused ? { kind: 'pause', title: host ? t('pause.title.host') : t('pause.title.player'),
+        text: host ? t('pause.text.host') : t('pause.text.player') } : null);
+      if (wasPaused) announce(t('pause.resumed'));
+    }
+    wasPaused = paused;
+  }
+
+  function render() {
+    const round = view.round;
+    const phase = round ? round.phase : 'waiting';
+    winTiming.followView();
+    const winner = winnerView();
+    const drum = winTiming.drum() && !winner;
+    const playing = view.standings.some((p) => p.id === me);
+    showOwnFields(playing);
+    const holding = holdsPreviousCard(phase);
+    waitingCard.render(view, { phase, holding, host });
+    showGuessForm(phase, holding);
 
     if (phase !== 'revealed') resultCard.reset();
     renderSongCard(view, { phase, playing }, renderTimer);
@@ -187,14 +212,7 @@ export function createGameView({ onAnswer, onError, onWinnerDrum = () => {}, onW
     // Under ställningen, när matchen är slut, står att spelledaren startar nästa match.
     const winWait = $('#win-wait');
     if (winWait) winWait.hidden = !winner;
-    // Pausen står i meddelanderutan så länge den varar, och rutan läses upp.
-    const paused = Boolean(view.paused);
-    if (paused !== wasPaused) {
-      setStandingMessage(paused ? { kind: 'pause', title: host ? t('pause.title.host') : t('pause.title.player'),
-        text: host ? t('pause.text.host') : t('pause.text.player') } : null);
-      if (wasPaused) announce(t('pause.resumed'));
-    }
-    wasPaused = paused;
+    showPause();
   }
 
   return {

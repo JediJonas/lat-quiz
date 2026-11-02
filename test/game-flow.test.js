@@ -20,8 +20,8 @@ function playRound({ clock, flow, state }, { answer = false } = {}) {
   game.nextSong(state, SONGS, () => 0);
   game.startRound(state, clock.now());
   if (answer) {
-    game.submitAnswer(state, 'p1', 'artist', state.round.song.artist, clock.now());
-    game.submitAnswer(state, 'p1', 'title', state.round.song.title, clock.now());
+    game.submitAnswer(state, 'p1', { field: 'artist', value: state.round.song.artist }, clock.now());
+    game.submitAnswer(state, 'p1', { field: 'title', value: state.round.song.title }, clock.now());
   }
   assert.equal(flow.nextAction(state), null);
   clock.advance(state.roundMs);

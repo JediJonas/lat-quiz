@@ -109,8 +109,8 @@ export function createHostSettings({ state, category, categoryChanged, stopClip,
     return prefs.hostName();
   }
 
-  // Under spelet sparas ändringarna och gäller från nästa låt.
-  async function edit() {
+  // Det som inställningsrutan visar: inställningarna som gäller nu, eller de som väntar på nästa låt.
+  async function dialogOptions() {
     const s = state();
     const all = await loadCategories();
     const names = Object.fromEntries(all.map((c) => [c.id, c.name]));
@@ -119,7 +119,7 @@ export function createHostSettings({ state, category, categoryChanged, stopClip,
     const categories = s ? visibleCategories(all, { keep: currentCategory }) : null;
     const clipAll = pending ? pending.clipAll : s ? s.clipAll : prefs.clipAll();
     const knownName = knownHostName();
-    const chosen = await showSettings(current, {
+    return { current, categories, options: {
       categories, categoryId: currentCategory, names, clipAll, extraSounds: prefs.extraSounds(), audioDelay: prefs.audioDelay(),
       host: { plays: currentHost().plays, knownName, askName: Boolean(s) && !knownName, isTaken: hostNameTaken },
       unknown: {
@@ -128,19 +128,38 @@ export function createHostSettings({ state, category, categoryChanged, stopClip,
         isCurrent: currentUnknown,
         toggleCurrent: toggleCurrentUnknown,
       },
-    });
+    } };
+  }
+
+  // Det som gäller enheten sparas direkt: ljudfördröjningen från nästa ljud, och extraljuden på en
+  // gång. Vinnarlåten tystnar om de stängs av, och väntemusiken börjar eller tystnar direkt.
+  function saveDevicePrefs({ audioDelay, extraSounds, clipAll, settings }) {
+    prefs.setAudioDelay(audioDelay);
+    prefs.setExtraSounds(extraSounds);
+    if (!extraSounds) stopWinnerSong();
+    prefs.setLastSettings(settings);
+    prefs.setClipAll(clipAll);
+  }
+
+  // Gäller ändringen först från nästa låt får spelledaren veta det, men bara om något ändrades.
+  // Ett fel eller något som pågår får stå kvar.
+  function tellIfLater(now) {
+    const shown = currentMessage();
+    if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
+    if (pending && pendingDiffers(pending, now)) {
+      showMessage({ key: 'settings', kind: 'info', title: t('changed.title'), text: t('changed.text'), ms: INFO_MS });
+    }
+  }
+
+  // Under spelet sparas ändringarna och gäller från nästa låt.
+  async function edit() {
+    const { current, categories, options } = await dialogOptions();
+    const chosen = await showSettings(current, options);
     if (!chosen) return;
     // Spelet kan ha startat medan rutan var öppen.
     const now = state();
-    const { categoryId, host, clipAll: chosenClipAll, extraSounds: chosenExtraSounds, audioDelay, ...settings } = chosen;
-    // Ljudfördröjningen gäller enheten, från nästa gång ett ljud börjar.
-    prefs.setAudioDelay(audioDelay);
-    // Extraljuden gäller enheten direkt. Vinnarlåten tystnar om de stängs av, och väntemusiken
-    // börjar eller tystnar direkt medan spelarna går med.
-    prefs.setExtraSounds(chosenExtraSounds);
-    if (!chosenExtraSounds) stopWinnerSong();
-    prefs.setLastSettings(settings);
-    prefs.setClipAll(chosenClipAll);
+    const { categoryId, host, clipAll, extraSounds, audioDelay, ...settings } = chosen;
+    saveDevicePrefs({ audioDelay, extraSounds, clipAll, settings });
     if (!now) {
       setHostPlays(host.plays);
       return;
@@ -149,16 +168,10 @@ export function createHostSettings({ state, category, categoryChanged, stopClip,
     const picked = categoryId && categoryId !== category().id ? categories.find((c) => c.id === categoryId) : null;
     // Låtarna laddas redan nu, så att kategorin kan bytas utan väntan när nästa låt startar.
     const pickedSongs = picked ? await loadSongs(picked) : null;
-    pending = { settings, category: picked, songs: pickedSongs, host, clipAll: chosenClipAll };
-    // Har ingen låt spelats än gäller ändringen direkt. Det avgör changed() i host.js.
+    pending = { settings, category: picked, songs: pickedSongs, host, clipAll };
+    // Har ingen låt spelats än gäller ändringen direkt. Det avgör stateChanged() i host.js.
     changed();
-    // Gäller ändringen först från nästa låt får spelledaren veta det, men bara om något ändrades.
-    // Ett fel eller något som pågår får stå kvar.
-    const shown = currentMessage();
-    if (shown && (shown.kind === 'problem' || shown.kind === 'busy')) return;
-    if (pending && pendingDiffers(pending, now)) {
-      showMessage({ key: 'settings', kind: 'info', title: t('changed.title'), text: t('changed.text'), ms: INFO_MS });
-    }
+    tellIfLater(now);
   }
 
   /** De sparade ändringarna gäller från och med nu. */

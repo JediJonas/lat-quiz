@@ -64,12 +64,9 @@ export function countTypos(query, key, starts, { max, short }) {
   const extra = short ? Infinity : 1; // en bokstav för mycket i det man skrivit
   const changed = short ? Infinity : 1; // en utbytt bokstav
   if (n < m - max) return Infinity;
-  const isStart = new Uint8Array(n + 1);
-  for (const s of starts) isStart[s] = 1;
   // prev[j] och row[j]: stavfel för det skrivna hittills mot key fram till j, från bästa ordstart
   let prev2 = null;
-  let prev = new Array(n + 1);
-  for (let j = 0; j <= n; j++) prev[j] = isStart[j] ? 0 : Infinity;
+  let prev = startRow(n, starts);
   let before = prev; // raden före den sista bokstaven
   let beforeTwo = null; // och raden före den
   for (let i = 1; i <= m; i++) {
@@ -80,7 +77,7 @@ export function countTypos(query, key, starts, { max, short }) {
       const same = query[i - 1] === key[j - 1];
       let best = prev[j - 1] + (same ? 0 : changed);
       best = Math.min(best, row[j - 1] + 1, prev[j] + extra);
-      if (i > 1 && j > 1 && query[i - 1] === key[j - 2] && query[i - 2] === key[j - 1] && !same) {
+      if (i > 1 && j > 1 && !same && swapped(query, key, i, j)) {
         best = Math.min(best, prev2[j - 2] + 1);
       }
       row[j] = best;
@@ -91,16 +88,31 @@ export function countTypos(query, key, starts, { max, short }) {
     prev = row;
     if (i === m - 1) { before = prev; beforeTwo = prev2; }
   }
-  // Den sista bokstaven måste stämma. Annars hittar till exempel "lovee" och "lovex"
-  // allt som innehåller ett ord som börjar på "love".
-  let best = Infinity;
-  for (let j = 1; j <= n; j++) {
-    if (query[m - 1] === key[j - 1]) best = Math.min(best, before[j - 1]);
-    else if (m > 1 && j > 1 && query[m - 1] === key[j - 2] && query[m - 2] === key[j - 1]) {
-      best = Math.min(best, beforeTwo[j - 2] + 1);
-    }
-  }
+  const best = endingOnLastLetter(query, key, before, beforeTwo);
   return best <= max ? best : Infinity;
+}
+
+// Raden innan något är skrivet: inga stavfel där ett ord börjar, annars för många.
+function startRow(n, starts) {
+  const row = new Array(n + 1).fill(Infinity);
+  for (const s of starts) if (s <= n) row[s] = 0;
+  return row;
+}
+
+// Om bokstav i och den före i det skrivna står i omvänd ordning vid j och den före i key.
+const swapped = (query, key, i, j) => query[i - 1] === key[j - 2] && query[i - 2] === key[j - 1];
+
+// Den sista bokstaven måste stämma. Annars hittar till exempel "lovee" och "lovex"
+// allt som innehåller ett ord som börjar på "love". before och beforeTwo är stavfelen
+// fram till bokstaven före den sista, och före den.
+function endingOnLastLetter(query, key, before, beforeTwo) {
+  const m = query.length;
+  let best = Infinity;
+  for (let j = 1; j <= key.length; j++) {
+    if (query[m - 1] === key[j - 1]) best = Math.min(best, before[j - 1]);
+    else if (m > 1 && j > 1 && swapped(query, key, m, j)) best = Math.min(best, beforeTwo[j - 2] + 1);
+  }
+  return best;
 }
 
 // Hur väl ett namn som innehåller texten stämmer: 0 om hela namnet stämmer,
