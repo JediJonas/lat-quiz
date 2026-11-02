@@ -104,6 +104,10 @@ export default {
     'Klart som korvspad!',
     'Helt rätt!',
     'Du är ju bäst!',
+    'Mamma mia!',
+    'Hallelujah!',
+    'Euphoria!',
+    'Hit me baby one more time!',
   ],
   'cheer.half': [
     'Halvvägs där!',
@@ -116,6 +120,7 @@ export default {
     'Inte långt kvar!',
     'Bra där!',
     'Halvt i mål!',
+    "Whoa, we're halfway there!",
   ],
   'cheer.none': [
     'Nästa tar du!',
@@ -130,6 +135,10 @@ export default {
     'Det vänder snart!',
     'Heja heja!',
     'Du fixar nästa!',
+    "Don't stop believin'!",
+    "Don't worry, be happy!",
+    'Always look on the bright side!',
+    'Hakuna matata!',
   ],
   'win.intro': [
     'Vi har en vinnare!',
@@ -142,6 +151,7 @@ export default {
     'Vinnaren är utsedd!',
     'Vi har en segrare!',
     'Vi har en mästare!',
+    'The winner takes it all!',
   ],
   'win.shared': [
     'Delad glädje är dubbel glädje!',
@@ -149,12 +159,15 @@ export default {
     'Fler vinnare, mer jubel!',
     'Lika bra, lika glada!',
     'Trångt på prispallen!',
+    'We are family!',
+    'All together now!',
   ],
   'win.alone': [
     'Seger! Nästa gång tar du med kompisar.',
     'Ensam är stark!',
     'Guld i soloklassen!',
     'Ensamt på prispallen!',
+    'All by myself!',
   ],
   'win.close': [
     'Det var jämnt in i det sista!',
@@ -165,6 +178,8 @@ export default {
     'Hjärtat i halsgropen!',
     'Snäppet vassare!',
     'Spännande ända in i mål!',
+    'Under pressure!',
+    'The final countdown!',
   ],
   'win.fast': [
     'Det gick undan!',
@@ -172,6 +187,8 @@ export default {
     'Raketfart!',
     'Rekordfart!',
     'Oj! Imponerande snabbt!',
+    'Supercalifragilisticexpialidocious!',
+    "Don't stop me now!",
   ],
   'win.big': [
     'Ingen chans för de andra!',
@@ -181,6 +198,8 @@ export default {
     'Suverän seger!',
     'Ohotad i toppen!',
     'Ingen kom ens nära!',
+    'Simply the best!',
+    'Eye of the tiger!',
   ],
   'win.long': [
     'Det blev ett riktigt maraton!',
@@ -188,6 +207,8 @@ export default {
     'Uthålligheten vann!',
     'En riktig långkörare!',
     'Värt varenda låt!',
+    'The long and winding road!',
+    'I will survive!',
   ],
   'win.general': [
     'Ett öra för musik!',
@@ -204,6 +225,11 @@ export default {
     'Etta på listan!',
     'Kan alla låtar utantill!',
     'En stark insats!',
+    'Thank you for the music!',
+    'Music was my first love!',
+    'Musik ska byggas utav glädje!',
+    'Heroes!',
+    'Ja må du leva!',
   ],
 
   // Sidorna, som tools/texts.mjs skriver in i index.html, host.html och play.html.

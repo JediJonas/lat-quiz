@@ -712,7 +712,7 @@ tr.bump td.score .num { animation: bump 0.7s ease-out; }
 /* Vinnaren tar omslaget, med en vinstanimation som spelas en gång (js/winner-animation/winner-animation.js). */
 .win { justify-content: flex-end; margin: 0; }
 .win .win-title { margin: 6px 0 8px; font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; line-height: 0.98; text-wrap: balance; color: #fff; text-transform: none; }
-.win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; }
+.win .win-sub { margin: 0; font-size: 1.0625rem; font-weight: 550; color: rgba(255, 255, 255, 0.92); text-wrap: pretty; overflow-wrap: break-word; }
 /* Nedräkningen före första låten har samma lilla ring framför texten som nedräkningen till
    nästa låt, men vit på omslaget. */
 #intro-text { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
