@@ -29,6 +29,7 @@ Poäng: 1 för rätt artist, 1 för rätt titel och 1 i bonus om båda är rätt
 - `js/klipp.js`: klippet i spelarnas mobiler när spelledaren har valt att spela det på alla enheter. Spelarna får bara klipplänken, inte vilken låt det är.
 - `js/deezer.js`: förhandsklipp från Deezer. Klippet spelas i spelledarvyn och timern startar när det hörs. Saknas klipp hoppas låten över. Bara låtar med Deezer-ID spelas.
 - `verktyg/deezer-id.mjs`: hämtar fasta Deezer-ID, se nedan.
+- `verktyg/categories.mjs`: kategorierna beskrivs bara i `data/categories.json`. Verktyget skriver antalet låtar där, och omslagens färger och tecken i `css/style.css` mellan två markeringar.
 - `verktyg/lyssna.mjs`: bygger lyssningssidan `lyssna/lyssna-latarna-i-appen.html` i projektfilerna, där alla låtar som appen spelar går att höra: väntelåtarna, säsongskategoriernas väntelåtar, vinnarlåtarna och quizlåtarna i varje kategori. Kategorierna står i samma ordning som i appen och låtarna i bokstavsordning efter artist och titel. Kör `node verktyg/lyssna.mjs <utfil>` efter att låtlistorna har ändrats.
 - `spotify-lardomar.md`: vad vi lärde oss om Spotify, som spelades fram till 23 oktober 2026, om det någon gång ska tillbaka.
 - `verktyg/versioner.mjs`, `.github/workflows/publicera.yml`: sidan publiceras på GitHub Pages av ett arbetsflöde, som först ger CSS och JS ett versionsnummer. Då hämtar webbläsaren nya filer efter varje ändring i stället för gamla från cachen. Skriptet körs bara av arbetsflödet och i CI, aldrig för hand. Numret längst ner på sidorna syns bara med `?debug=1`, som sparas på enheten tills `?debug=0` används.
@@ -80,7 +81,7 @@ Typkontrollen gäller bara filer i `js/` som börjar med `// @ts-check`. Typerna
 ## Ny kategori
 
 1. Claude skriver en kandidatlista i `data/kandidater/<kategori>.json` med cirka 200 låtar och lägger till filen i `data/kandidater/index.json`. Kändheten kan mätas i antal strömningar på kworb.net.
-2. De låtar som väljs läggs i `data/<kategori>.json` med `id`, `artist`, `title` och `year`, och kategorin läggs till i `data/categories.json` och `host.html`.
+2. De låtar som väljs läggs i `data/<kategori>.json` med `id`, `artist`, `title` och `year`, och kategorin läggs till i `data/categories.json` med omslagets tecken, två färger och mörkhetsgrad i `cover`. Sedan körs `node verktyg/categories.mjs`, som skriver antalet låtar i `categories.json` och omslagets färger i `css/style.css`. Testerna säger till om det har glömts, och om vit text på omslaget inte når 4,5:1 (höj då `dim`).
 3. `verktyg/deezer-id.mjs` hämtar Deezer-ID, se nedan.
 4. Låtar utan Deezer-ID tas bort ur kategorin och läggs som lockbeten i `data/forslag.json`, städade av `verktyg/lockbeten.mjs` så att b-sidor, karaokeversioner, artikelrubriker och filmuppföljare inte kan förväxlas med rätt svar. Ett lockbete som bara stavas annorlunda än ett rätt svar, som "Nick Cave and the Bad Seeds" när svaret är "Nick Cave & The Bad Seeds", tas också bort: `answerKey` i `js/text.js` räknar "&", "+", "and" och "och" lika, bortser från mellanslag och bindestreck och, för artister, ett inledande "The". Rättningen använder samma nyckel. Kör verktyget och `npm test` när `data/forslag.json` eller en låtlista ändras.
 
